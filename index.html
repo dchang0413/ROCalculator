@@ -92,6 +92,10 @@
                                 Twitter @Landgris<br>
                                 PTT ID: valkyria<br>
                                 gamer.com.tw ID: randgris<br>
+                                <br><br><br>
+                                Translated By<br>
+                                iRO: Cate<br>
+                                Discord: cate
                             </el-col>
                         </el-row>
                     </div>
@@ -126,9 +130,22 @@
                         <el-row :gutter="4" type="flex" align="left" justify="center">
                             <b>寄信告訴我訂單編號跟伺服器ID或想要的名字，我會把你加入感謝名單！</b><br><br>
                         </el-row>
+                        <el-row :gutter="4" type="flex" align="left" justify="center">
+                            <br>This calculator is for people to test equipment without having to borrrow/buy first<br>
+                            so everyone can save some zeny<br><br>
+                            If you'd like to donate to Landgris you can click the OPay link below<br><br>
+                        </el-row>
+                        <el-row :gutter="4" type="flex" align="left" justify="center">
+                            <b>You can email Landgris with your server and name to be added to Credits</b><br><br>
+                        </el-row>
+                        <el-row :gutter="4" type="flex" align="left" justify="center">
+                            I'm not quite sure how to work with OPay either<br> 
+                            Maybe we should convince Landgris to open more donation links<br>
+                            -Cate
+                        </el-row>
                         <el-row :gutter="12" type="flex" align="left" justify="center">
                             <el-button v-on:click="OpenUrl('https://pse.is/T52DP')" size="big" type="warning">
-                                點這裡連結到贊助頁面
+                                Click here to Donate
                             </el-button>
                         </el-row>
                     </div>
@@ -302,14 +319,14 @@
                                     </el-input>
                                 </el-col>
                                 <el-col :span="2">
-                                    <el-popover placement="right-start" title="公式關鍵字" width="350"
+                                    <el-popover placement="right-start" title="Formula Tokens" width="350"
                                         trigger="click">
                                         <el-scrollbar wrap-class="DBlist-container" :native="false"
                                             :noresize="false">
                                             <el-table :data="KeywordReplaceList" stripe style="width: 100%">
-                                                <el-table-column prop="str1" label="關鍵字" width="100">
+                                                <el-table-column prop="str1" label="Token" width="100">
                                                 </el-table-column>
-                                                <el-table-column prop="description" label="功能" width="220">
+                                                <el-table-column prop="description" label="Effect" width="220">
                                                 </el-table-column>
                                             </el-table>
                                         </el-scrollbar>
@@ -1764,7 +1781,7 @@
                             <el-row class="statusbox bg-purple-light" :gutter="4" type="flex" align="middle">
                                 <el-col class="textcenter" :span="12">ASPD</el-col>
                                 <el-col :span="12">
-                                    <el-input v-model="status.ASPD" v-on:input="onOption" placeholder="攻速">
+                                    <el-input v-model="status.ASPD" v-on:input="onOption" placeholder="Attack Speed">
                                     </el-input>
                                 </el-col>
                             </el-row>
@@ -2393,8 +2410,8 @@
                 </el-col>
                 <el-col :span="1">
                 </el-col>
-                <el-col :span="2" class="textcenter">
-                    TwRO - iRO
+                <el-col :span="5" class="textcenter">
+                    Originated from TwRO - tailored for iRO
                 </el-col>
                 <el-col :span="1">
                     <el-button v-on:click="TogglePanel('AboutDialog')" size="small">
@@ -2702,7 +2719,7 @@
                                             <el-row class="statusbox bg-purple-light" type="flex" align="middle">
                                                 <el-col class="textcenter" :span="12">ASPD</el-col>
                                                 <el-col :span="12">
-                                                    <el-input v-model="status.ASPD" v-on:input="onOption" placeholder="攻速">
+                                                    <el-input v-model="status.ASPD" v-on:input="onOption" placeholder="Attack Speed">
                                                     </el-input>
                                                 </el-col>
                                             </el-row>
@@ -2725,7 +2742,7 @@
                                                         active-color="#13ce66" inactive-color="#8a9799">
                                                     </el-switch>
                                                 </el-col>
-                                                <el-tooltip class="item" effect="dark" content='轉生100點，非轉生52點'
+                                                <el-tooltip class="item" effect="dark" content='Trans +100Pt，Otherwise +52Pt'
                                                     placement="top-start">
                                                     <el-col class="textcenter" :span="6">Avail Status Pt.</el-col>
                                                 </el-tooltip>
@@ -3113,12 +3130,12 @@
                                                 </el-input>
                                             </el-col>
                                             <el-col :span="2">
-                                                <el-popover placement="right-start" title="Formula Symbols" width="350"
+                                                <el-popover placement="right-start" title="Formula Tokens" width="350"
                                                     trigger="click">
                                                     <el-scrollbar wrap-class="DBlist-container" :native="false"
                                                         :noresize="false">
                                                         <el-table :data="KeywordReplaceList" stripe style="width: 100%">
-                                                            <el-table-column prop="str1" label="Symbols" width="100">
+                                                            <el-table-column prop="str1" label="Tokens" width="100">
                                                             </el-table-column>
                                                             <el-table-column prop="description" label="Effect" width="220">
                                                             </el-table-column>
@@ -4902,7 +4919,7 @@
                                                 <span>Skill Mod%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{effecttypelist[GetETLIndex('SkillDamagePercent')].totalvalue}} %</span>
+                                                <span>{{option.EquipSkillAddDamage}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -5877,6 +5894,14 @@
                     this.elementalmap = this.ElementTableLastest? this.elementalmap_fix : this.elementalmap_old;
                 },
                 CombineEquipsAttribute() {
+                    /*this.equipspartlist.forEach(element =>{
+                        element.effectlist.forEach(ele => {
+                            console.log(ele.EffectNumber);
+                            ele.EffectNumber = this.SkillFormulaReplace(ele.EffectNumber);
+                            //this.SkillFormulaReplace()
+                        })
+                    })*/
+                    console.log(this.equipspartlist);
                     this.effecttypelist.forEach(element => {
                         var result = 0;
                         if (element.id == 'FixedCastPercent') {
@@ -5884,18 +5909,40 @@
                                 .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
                                 .Select(function (x) {
                                     var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()))
-                                    return xx[0].Enable? Number(xx[0].EffectNumber):0;
+                                    return xx[0].Enable? xx[0].EffectNumber:0;
                                 })
                                 .DefaultIfEmpty(0)
                                 .Max();
                         } else {
+                            /*
                             result = Enumerable.From(this.equipspartlist)
-                                 .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
+                                .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
                                 .Select(function (x) {
                                     var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()))
-                                    return xx[0].Enable? Number(xx[0].EffectNumber):0;
+                                    return xx[0].Enable? xx[0].EffectNumber:0;
                                 })
                                 .Sum();
+                                */
+                            result = Enumerable.From(this.equipspartlist)
+                                .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
+                                .Select(function (x) {
+                                    var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()))
+                                    return xx[0].Enable? xx[0].EffectNumber:0;
+                                })
+                                .ToArray()
+                                .join("+");
+                            result = result == '' ? 0 : result;
+
+                                /*
+                                    try{
+                                        for (x of this.KeywordReplaceList) {
+                                            f = f.toString().replace(new RegExp(x.str1, "g"), x.str2);
+                                        }
+                                        return f;
+                                    } catch (e) {
+                                        console.log( "錯誤:" + e);
+                                    }
+                                */
                         }
                         element.totalvalue = result;
                     });
@@ -6043,10 +6090,11 @@
                             var _enable = true;
                             var _oldidx = _oldenablemap.findIndex(x=>x.EffectID==preview.id);
                             if( _oldidx >-1 ) _enable = _oldenablemap[_oldidx].Enable;
+                            if(!isNaN(preview.totalvalue)) preview.totalvalue = eval(preview.totalvalue);
                             this.$set(this.equipspartlist[this.EquipSelectId].effectlist,
                                 _idx,
                                 {
-                                    EffectNumber: Number(preview.totalvalue),
+                                    EffectNumber: preview.totalvalue,
                                     EffectType: {id: preview.id},
                                     Enable: _enable,
                                 })
@@ -6910,8 +6958,11 @@
                             this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, para_ranged);
                         }
                         // 技能增傷裝
-                        this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, Number(1) + Number(this.option.EquipSkillAddDamage / 100));
-                        this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, Number(1) + Number(this.option.EquipSkillAddDamage / 100));
+                        console.log(this.option.EquipSkillAddDamage);
+                        console.log(this.SkillFormulaReplace(this.option.EquipSkillAddDamage));
+                        console.log(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)));
+                        this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100));
+                        this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100));
                     //}
                     //else{
                     //靈氣劍技能有效
@@ -8521,7 +8572,8 @@
                     this.attritube['WeaponPerfection'] += Number(this.effecttypelist.find(x => x.id == 'WeaponPerfection').totalvalue);
                     this.attritube['WeaponOccult'] += Number(this.effecttypelist.find(x => x.id == 'WeaponOccult').totalvalue);
 
-                    this.option.EquipSkillAddDamage += Number(this.effecttypelist.find(x => x.id == 'SkillDamagePercent').totalvalue);
+                    this.option.EquipSkillAddDamage += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SkillDamagePercent').totalvalue)));
+                    console.log(Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SkillDamagePercent').totalvalue))));
 
                     this.ComputeSizefix();
                     if (this.attritube['WeaponPerfection'] > 0) {
