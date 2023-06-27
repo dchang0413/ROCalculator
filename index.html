@@ -5901,7 +5901,6 @@
                             //this.SkillFormulaReplace()
                         })
                     })*/
-                    console.log(this.equipspartlist);
                     this.effecttypelist.forEach(element => {
                         var result = 0;
                         if (element.id == 'FixedCastPercent') {
@@ -6212,8 +6211,6 @@
                 },
                 ComputRefineATK() {
                     if(this.weapon.level.id == 5){
-                        console.log(this.weapon.grade.id);
-                        console.log(this.weaponlevellist[this.weapon.level.id - 1].upgradeatk[this.weapon.grade.id]);
                         this.weapon.refineatk =  Math.floor(this.weapon.refinelevel *this.weaponlevellist[this.weapon.level.id - 1].upgradeatk[this.weapon.grade.id]);
                         this.weapon.refinematk = this.weapon.refineatk;
                         this.weapon.refineatk2 = 0;
@@ -6239,7 +6236,6 @@
                     }
                 },
                 onSelectedWeaponLevel(item) {
-                    console.log("onSelectedWeaponLevel" + item);
                     this.ComputRefineATK();
                 },
                 onSelectedWeaponType(item) {
@@ -6958,9 +6954,6 @@
                             this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, para_ranged);
                         }
                         // 技能增傷裝
-                        console.log(this.option.EquipSkillAddDamage);
-                        console.log(this.SkillFormulaReplace(this.option.EquipSkillAddDamage));
-                        console.log(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)));
                         this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100));
                         this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100));
                     //}
@@ -8480,65 +8473,68 @@
                         this.attritube['MDEF'] -= _lv * 20;
                     }
 
-                    var _AllStatus = Number(this.effecttypelist.find(x => x.id == 'AllStatus').totalvalue);
-                    this.status_add.STR += Number(this.effecttypelist.find(x => x.id == 'STR').totalvalue) + _AllStatus
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='STR').totalvalue);
-                    this.status_add.AGI += Number(this.effecttypelist.find(x => x.id == 'AGI').totalvalue) + _AllStatus
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='AGI').totalvalue);
-                    this.status_add.VIT += Number(this.effecttypelist.find(x => x.id == 'VIT').totalvalue) + _AllStatus
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='VIT').totalvalue);
-                    this.status_add.INT += Number(this.effecttypelist.find(x => x.id == 'INT').totalvalue) + _AllStatus
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='INT').totalvalue);
-                    this.status_add.DEX += Number(this.effecttypelist.find(x => x.id == 'DEX').totalvalue) + _AllStatus
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='DEX').totalvalue);
-                    this.status_add.LUK += Number(this.effecttypelist.find(x => x.id == 'LUK').totalvalue) + _AllStatus
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='LUK').totalvalue);
-                    this.status_add.POW += Number(this.effecttypelist.find(x => x.id == 'POW').totalvalue);
-                    this.status_add.STA += Number(this.effecttypelist.find(x => x.id == 'STA').totalvalue);
-                    this.status_add.WIS += Number(this.effecttypelist.find(x => x.id == 'WIS').totalvalue);
-                    this.status_add.SPL += Number(this.effecttypelist.find(x => x.id == 'SPL').totalvalue);
-                    this.status_add.CON += Number(this.effecttypelist.find(x => x.id == 'CON').totalvalue);
-                    this.status_add.CRT += Number(this.effecttypelist.find(x => x.id == 'CRT').totalvalue);
+                    var _AllStatus =            Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AllStatus').totalvalue)));
+                    this.status_add.STR +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'STR').totalvalue))) + _AllStatus +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='STR').totalvalue);
+                    this.status_add.AGI +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AGI').totalvalue))) + _AllStatus +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='AGI').totalvalue);
+                    this.status_add.VIT +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'VIT').totalvalue))) + _AllStatus +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='VIT').totalvalue);
+                    this.status_add.INT +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'INT').totalvalue))) + _AllStatus +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='INT').totalvalue);
+                    this.status_add.DEX +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'DEX').totalvalue))) + _AllStatus +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='DEX').totalvalue);
+                    this.status_add.LUK +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LUK').totalvalue))) + _AllStatus +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='LUK').totalvalue);
+                    this.status_add.POW +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'POW').totalvalue)));
+                    this.status_add.STA +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'STA').totalvalue)));
+                    this.status_add.WIS +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'WIS').totalvalue)));
+                    this.status_add.SPL +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPL').totalvalue)));
+                    this.status_add.CON +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CON').totalvalue)));
+                    this.status_add.CRT +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRT').totalvalue)));
 
-                    this.attritube['HP'] += Number(this.effecttypelist.find(x => x.id == 'HP').totalvalue) + _AllStatus
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='HP').totalvalue);
-                    this.attritube['HPP'] += Number(this.effecttypelist.find(x => x.id == 'HPPercent').totalvalue)
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='HPPercent').totalvalue);
-                    this.attritube['SP'] += Number(this.effecttypelist.find(x => x.id == 'SP').totalvalue) + _AllStatus;
-                    this.attritube['SPP'] += Number(this.effecttypelist.find(x => x.id == 'SPPercent').totalvalue)
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='SPPercent').totalvalue);
+                    this.attritube['HP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'HP').totalvalue))) + _AllStatus +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='HP').totalvalue);
+                    this.attritube['HPP'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'HPPercent').totalvalue))) +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='HPPercent').totalvalue);
 
-                    this.attritube['ATK'] += Number(this.effecttypelist.find(x => x.id == 'Atk').totalvalue)
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='ATK').totalvalue);
-                    this.attritube['ATKP'] += Number(this.effecttypelist.find(x => x.id == 'AtkPercent').totalvalue)
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='AtkPercent').totalvalue);
-                    this.attritube['MATK'] += Number(this.effecttypelist.find(x => x.id == 'Matk').totalvalue)
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='MATK').totalvalue);
-                    this.attritube['MATKP'] += Number(this.effecttypelist.find(x => x.id == 'MatkPercent').totalvalue)
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='MatkPercent').totalvalue);
+                    this.attritube['SP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SP').totalvalue))) + _AllStatus;
+                    this.attritube['SPP'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPPercent').totalvalue))) +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='SPPercent').totalvalue);
 
-                    this.attritube['PATK'] += Number(this.effecttypelist.find(x => x.id == 'PATK').totalvalue);
-                    this.attritube['SMATK'] += Number(this.effecttypelist.find(x => x.id == 'SMATK').totalvalue);
-                    this.attritube['CRIDR'] += Number(this.effecttypelist.find(x => x.id == 'CRIDR').totalvalue);
-                    this.attritube['CRI'] += Number(this.effecttypelist.find(x => x.id == 'Cri').totalvalue)
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='Cri').totalvalue);
-                    this.attritube['CRIDP'] += Number(this.effecttypelist.find(x => x.id == 'CriDamagePercent').totalvalue)
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='CriDamagePercent').totalvalue);
-                    this.attritube['RNGDP'] += Number(this.effecttypelist.find(x => x.id == 'RangedDamagePercent').totalvalue)
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='RangedDamagePercent').totalvalue);
-                    this.attritube['MELDP'] += Number(this.effecttypelist.find(x => x.id == 'MeleeDamagePercent').totalvalue)
-                                            +Number(this.consumableeffecttypelist.find(x=>x.id=='MeleeDamagePercent').totalvalue);
-                    this.attritube['RNGDDI'] += Number(this.effecttypelist.find(x => x.id == 'RangedDamageDealtIncreasedPercent').totalvalue);
-                    this.attritube['MELDDI'] += Number(this.effecttypelist.find(x => x.id == 'MeleeDamageDealtIncreasedPercent').totalvalue);
-                    this.attritube['ELEDDI'] += Number(this.effecttypelist.find(x => x.id == 'ElementDamageDealtIncreasedPercent').totalvalue);
+                    this.attritube['ATK'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'Atk').totalvalue))) +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='ATK').totalvalue);
+                    this.attritube['ATKP'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AtkPercent').totalvalue))) +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='AtkPercent').totalvalue);
+                    this.attritube['MATK'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'Matk').totalvalue))) +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='MATK').totalvalue);
+                    this.attritube['MATKP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MatkPercent').totalvalue))) +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='MatkPercent').totalvalue);
+
+                    this.attritube['PATK'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'PATK').totalvalue)));
+                    this.attritube['SMATK'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SMATK').totalvalue)));
+                    this.attritube['CRIDR'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRIDR').totalvalue)));
+                    this.attritube['CRI'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'Cri').totalvalue))) +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='Cri').totalvalue);
+                    this.attritube['CRIDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CriDamagePercent').totalvalue))) +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='CriDamagePercent').totalvalue);
+                    this.attritube['RNGDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RangedDamagePercent').totalvalue))) +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='RangedDamagePercent').totalvalue);
+                    this.attritube['MELDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MeleeDamagePercent').totalvalue))) +
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='MeleeDamagePercent').totalvalue);
+                    this.attritube['RNGDDI'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RangedDamageDealtIncreasedPercent').totalvalue)));
+                    this.attritube['MELDDI'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MeleeDamageDealtIncreasedPercent').totalvalue)));
+                    this.attritube['ELEDDI'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementDamageDealtIncreasedPercent').totalvalue)));
+                    
                     this.attritube['BYPASSDEF'] += Number(this.effecttypelist.find(x => x.id == 'BypassDEFPercent').totalvalue);
                     if (this.attritube['BYPASSDEF'] > 100) this.attritube['BYPASSDEF'] = 100;
                     this.attritube['BYPASSMDEF'] += Number(this.effecttypelist.find(x => x.id == 'BypassMDEFPercent').totalvalue);
                     if (this.attritube['BYPASSMDEF'] > 100) this.attritube['BYPASSMDEF'] = 100;
-                    this.attritube['ASPD'] += Number(this.effecttypelist.find(x => x.id == 'ASPD').totalvalue);
-                    this.attritube['ASPD'] += Number(this.status.ASPD);
-                    this.attritube['ASPDP'] += Number(this.effecttypelist.find(x => x.id == 'AspdPercent').totalvalue);
-                    this.attritube['ASPDP'] = -Math.abs(this.attritube['ASPDP']);
+                    
+                    this.attritube['ASPD'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ASPD').totalvalue)));
+                    this.attritube['ASPD'] +=   Number(this.status.ASPD);
+                    this.attritube['ASPDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AspdPercent').totalvalue)));
+                    this.attritube['ASPDP'] =   -Math.abs(this.attritube['ASPDP']);
                     this.attritube['FCTP'] = Math.max(this.attritube['FCTP'],
                         Number(this.effecttypelist.find(x => x.id == 'FixedCastPercent').totalvalue),
                         Number(this.consumableeffecttypelist.find(x=>x.id=='FixedCastPercent').totalvalue));
@@ -8558,22 +8554,29 @@
                     this.attritube['CD'] = Number(this.effecttypelist.find(x => x.id == 'CDTime').totalvalue);
                     this.attritube['CD'] = -Math.abs(this.attritube['CD']);
 
-                    this.attritube['WeaponATK'] = this.attritube['ATK'] + Number(this.weapon.ATK) + this.weapon.refineatk /*+ this.subweapon.ATK*/ + Number(this.computeattribute['SpecialATK4']);
-                    this.attritube['WeaponMATK'] = this.attritube['MATK'] + this.weapon.MATK + this.weapon.refinematk + this.subweapon.MATK;
-                    this.attritube['ElementalMagicPercent'] += Number(this.effecttypelist.find(x => x.id == 'ElementalMagicPercent').totalvalue)
-                                                                +Number(this.consumableeffecttypelist.find(x=>x.id=='ElementalMagicPercent').totalvalue);
-                    this.attritube['SizeMatkPercent'] += Number(this.effecttypelist.find(x => x.id == 'SizeMatkPercent').totalvalue);
-                    this.attritube['ElementalAtkPercent'] += Number(this.effecttypelist.find(x => x.id == 'ElementalAtkPercent').totalvalue);
+                    this.attritube['WeaponATK'] =   this.attritube['ATK'] + 
+                                                    Number(this.weapon.ATK) + this.weapon.refineatk 
+                                                    /*+ this.subweapon.ATK*/ + 
+                                                    Number(this.computeattribute['SpecialATK4']);
 
-                    this.attritube['LevelAtkPercent'] += Number(this.effecttypelist.find(x => x.id == 'LevelAtkPercent').totalvalue)
-                                                        +Number(this.consumableeffecttypelist.find(x=>x.id=='LevelAtkPercent').totalvalue);
-                    this.attritube['SizeAtkPercent'] += Number(this.effecttypelist.find(x => x.id == 'SizeAtkPercent').totalvalue);
+                    this.attritube['WeaponMATK'] =  this.attritube['MATK'] + 
+                                                    this.weapon.MATK + 
+                                                    this.weapon.refinematk + 
+                                                    this.subweapon.MATK;
+                    
+                    this.attritube['ElementalMagicPercent'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalMagicPercent').totalvalue))) +
+                                                                Number(this.consumableeffecttypelist.find(x=>x.id=='ElementalMagicPercent').totalvalue);
+                    this.attritube['SizeMatkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeMatkPercent').totalvalue)));
+                    this.attritube['ElementalAtkPercent'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalAtkPercent').totalvalue)));
 
-                    this.attritube['WeaponPerfection'] += Number(this.effecttypelist.find(x => x.id == 'WeaponPerfection').totalvalue);
-                    this.attritube['WeaponOccult'] += Number(this.effecttypelist.find(x => x.id == 'WeaponOccult').totalvalue);
+                    this.attritube['LevelAtkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LevelAtkPercent').totalvalue))) +
+                                                                Number(this.consumableeffecttypelist.find(x=>x.id=='LevelAtkPercent').totalvalue);
+                    this.attritube['SizeAtkPercent'] +=         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeAtkPercent').totalvalue)));
 
-                    this.option.EquipSkillAddDamage += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SkillDamagePercent').totalvalue)));
-                    console.log(Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SkillDamagePercent').totalvalue))));
+                    this.attritube['WeaponPerfection'] +=       Number(this.effecttypelist.find(x => x.id == 'WeaponPerfection').totalvalue);
+                    this.attritube['WeaponOccult'] +=           Number(this.effecttypelist.find(x => x.id == 'WeaponOccult').totalvalue);
+
+                    this.option.EquipSkillAddDamage +=          Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SkillDamagePercent').totalvalue)));
 
                     this.ComputeSizefix();
                     if (this.attritube['WeaponPerfection'] > 0) {
