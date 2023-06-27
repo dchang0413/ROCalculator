@@ -1,4 +1,4 @@
-<html lang="en">
+<html lang="en" style="font-family: sans-serif" font-family="sans-serif">
 
 <head>
     <meta charset="utf-8" />
@@ -42,26 +42,31 @@
                 </el-row>
                 <el-row>
                     <div class="aboutbox" style="padding: 5px 40px; text-align:left">
-                        <el-row :gutter="4" type="flex" align="left">
+                        <el-row :gutter="4" align="left">
                             <b>這個計算機在使用上需要對裝備有一定的了解</b><br>
+                            <b>You will need proper understanding of equipment to fully utilize this calculator</b><br><br>
                         </el-row>
-                        <el-row :gutter="4" type="flex" align="left">
+                        <el-row :gutter="4" align="left">
                             如果對於某件裝不知道怎樣填歡迎發問<br>
+                            Feel free to ask if you don't know how to plug in values <br>
+                            I'm probably not that interested in helping but do ask -Cate<br>
                             <br>
                             建議在輸入要換的裝前 可以先看現有裝打蛋測試傷害是否符合<br>
                             才開始換成預計要換的裝<br>
+                            Recommended to test your current damage before swapping gears<br>
                             <br>
                             參考朋友賴喵用google sheet寫的計算機做成通用的版本<br>
                             我的本業是做遊戲，可是要做計算機的話還是要用成網頁比較好<br>
                             所以這個是網頁菜鳥寫出來的，敬請見諒<br>
                             RO的技能多又複雜，要靠大家的測試跟整理才有辦法寫成計算機<br>
                             歡迎提供算式跟找出計算機還是官方的BUG(?)
+
                         </el-row>
                     </div>
                 </el-row>
                 <el-row style="height:120">
                     <el-row class="titlebox" type="flex" align="middle" style="height:20px; padding: 0px 5px;">
-                        <el-col class="textcenter">關於</el-col>
+                        <el-col class="textcenter">About</el-col>
                     </el-row>
                     <div style="padding: 5px 40px;">
                         <el-row :gutter="4" type="flex" align="middle">
@@ -765,7 +770,7 @@
                 </el-col>
                 <el-col :span="4" v-if="PreviewEN!=''" class="textcenter">
                     <el-button v-on:click="onEditEquipConfirm(true)" type="success" size="small">
-                        Save
+                        Save to Equip List
                     </el-button>
                 </el-col>
                 <el-col :span="4" v-if="PreviewEN==''" class="textcenter">
@@ -3285,7 +3290,7 @@
                                         <el-button v-on:click="onOpenElementTable" :span="4" size="mini" type="success" round>
                                             Element Table
                                         </el-button>
-                                        <span>Weapon Element</span>
+                                        <span>WeaponElement</span>
                                     </el-col>
                                     <el-col :span="12">
                                         <div class="textcenter">
@@ -3564,7 +3569,7 @@
                                     <el-row class="bg-purple" :gutter="4" style="padding: 5px 5px;">
                                         <el-row :gutter="4" type="flex" align="middle" justify="start">
                                             <el-col :span="4" style="text-align: right;">
-                                                <span>Main Hand</span>
+                                                <span>MainHand</span>
                                             </el-col>
                                             <el-col :span="8">
                                                 <el-select value-key="id" v-model="weapon.type"
@@ -3799,7 +3804,7 @@
                                     <el-row class="statusbox bg-purple" :gutter="4" type="flex" align="middle"
                                         justify="start" v-show="weapon.type.isTwohand?false:true">
                                         <el-col :span="4" style="text-align: right;">
-                                            <span>Off Hand</span>
+                                            <span>OffHand</span>
                                         </el-col>
                                         <el-col :span="8">
                                             <el-select value-key="id" v-model="subweapon.type"
@@ -5081,11 +5086,11 @@
                                 <el-row class="statusbox" type="flex" align="middle" justify="space-around"
                                     style="height:40px;">
                                     <el-col class="bg-purple-light" :span="10" style="text-align: right;">
-                                        <span>INT/2+DEX:</span>
+                                        <span>INT+DEX×2:</span>
                                     </el-col>
                                     <el-col class="textcenter" :span="10">
                                         <span>{{computeattribute['CastDEXINT']}}
-                                            ({{computeattribute['CastDEXINT']-265}})</span>
+                                            ({{computeattribute['CastDEXINT']-530}})</span>
                                     </el-col>
                                 </el-row>
                                 <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -5130,6 +5135,14 @@
                                         <span>{{computeattribute['HitperSec']}}</span>
                                     </el-col>
                                 </el-row>
+                                <div>
+                                    <el-row class="statusbox" type="flex" align="middle" justify="space-around"
+                                        style="height:40px;">
+                                        <el-col class="textcenter">
+                                            <span>This calculation is theoretical<br> Ping and animation can still affect actual outcome</span>
+                                        </el-col>
+                                    </el-row>
+                                </div>
                             </div>
                         </el-row>
                     </el-scrollbar>
@@ -5251,8 +5264,8 @@
                     { id: 'SN', label: 'Super Novice', TranscendentClass: false, JobMaxPoint:[7,7,6,6,6,5], basehp: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3780, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5580, 0, 0, 0, 0, 5830, 0, 0, 5980, 0, 6080, 6130, 0, 0, 0, 6330, 0, 0, 6480, 0, 6580, 6630, 6680, 6730, 6780, 6830, 6880, 6930, 6980, 7030, 7080, 7130, 7180, 7338, 7462, 7587, 7675, 7802, 7480, 7530, 7580], basesp: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 234, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 414, 0, 0, 0, 0, 439, 0, 0, 454, 0, 464, 469, 0, 0, 0, 489, 0, 0, 504, 0, 514, 519, 524, 529, 534, 539, 544, 549, 554, 559, 564, 569, 574, 579, 584, 589, 594, 599, 604, 609, 614], baseaspd: 0 },
                 ],
                 equipspartlist: [
-                    { id: 'weaponr', label: 'Main Hand', equipname: '', effectlist: [] },
-                    { id: 'weaponl', label: 'Off Hand', equipname: '', effectlist: [] },
+                    { id: 'weaponr', label: 'MainHand', equipname: '', effectlist: [] },
+                    { id: 'weaponl', label: 'OffHand', equipname: '', effectlist: [] },
                     { id: 'helm', label: 'Upper', equipname: '', effectlist: [] },
                     { id: 'helm1', label: 'Middle', equipname: '', effectlist: [] },
                     { id: 'helm2', label: 'Lower', equipname: '', effectlist: [] },
@@ -5263,10 +5276,10 @@
                     { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [] },
                     { id: 'shadow', label: 'Shadow', equipname: '', effectlist: [] },
                     { id: 'costume', label: 'Costume', equipname: '', effectlist: [] },
-                    { id: 'cardset', label: 'Card Sets', equipname: '', effectlist: [] },
+                    { id: 'cardset', label: 'CardSets', equipname: '', effectlist: [] },
                     { id: 'other', label: 'Custom', equipname: '', effectlist: [] },
-                    { id: 'weaponrcard', label: 'Main Hand Cards', equipname: '', effectlist: [] },
-                    { id: 'weaponlcard', label: 'Off Hand Cards', equipname: '', effectlist: [] },
+                    { id: 'weaponrcard', label: 'MainHandCards', equipname: '', effectlist: [] },
+                    { id: 'weaponlcard', label: 'OffHandCards', equipname: '', effectlist: [] },
                     { id: 'helmcard', label: 'Upper Card', equipname: '', effectlist: [] },
                     { id: 'helm1card', label: 'Middle Card', equipname: '', effectlist: [] },
                     { id: 'helm2card', label: 'Lower Card', equipname: '', effectlist: [] },
@@ -5277,7 +5290,7 @@
                     { id: 'acc2card', label: 'Acc Card', equipname: '', effectlist: [] },
                     { id: 'shadowenchant', label: 'Shadow Enchant', equipname: '', effectlist: [] },
                     { id: 'costumeenchant', label: 'Costume Enchant', equipname: '', effectlist: [] },
-                    { id: 'cardset2', label: 'Card Sets2', equipname: '', effectlist: [] },
+                    { id: 'cardset2', label: 'CardSets2', equipname: '', effectlist: [] },
                     { id: 'other2', label: 'Custom2', equipname: '', effectlist: [] },
                 ],
                 effecttypelist: [
@@ -6609,7 +6622,7 @@
                     var _MaxCastTime = 999;
                     var _StatusDI = (this.status_total.DEX * 2 + this.status_total.INT);
                     var _GCDRate = (1 - (-this.attritube['GCD']) / 100) * 100;
-                    this.computeattribute.CastDEXINT = this.status_total.INT * 0.5 + this.status_total.DEX;
+                    this.computeattribute.CastDEXINT = this.status_total.INT + this.status_total.DEX * 2;
                     if (_StatusDI > 530) _StatusDI = 530;
                     this.computeattribute.CastTime =
                         (eval(this.SkillFormulaReplace(this.skill.VCT)) + this.attritube['VCTS']) * (1 - Math.sqrt(_StatusDI / 530)) * (1 + this.attritube['EQVCTP'] / 100) * (1 + this.attritube['SK1VCTP'] / 100) * (1 + this.attritube['SK2VCTP'] / 100) +
@@ -6623,11 +6636,14 @@
                     {   //詠唱0 GCD維持
                         this.computeattribute.CastTime = 0;
                         this.computeattribute.DelayTime = Math.floor(eval(this.SkillFormulaReplace(this.skill.GCD)) * _GCDRate) / 100;
+                        //iRO - Release has 1 cd
+                        this.computeattribute.DelayTime = Math.max(this.computeattribute.DelayTime,1);
                     }
                     if(this.IsSupportActive('WL_READING_SB'))
                     {   //固詠1 變詠5 GCD0.5
                         this.computeattribute.CastTime =
-                            (5 + this.attritube['VCTS']) * (1 - Math.sqrt(_StatusDI / 530)) * (1 + this.attritube['EQVCTP'] / 100) * (1 + this.attritube['SK1VCTP'] / 100) * (1 + this.attritube['SK2VCTP'] / 100) +
+                            (5 + this.attritube['VCTS']) * (1 - Math.sqrt(_StatusDI / 530)) * (1 + this.attritube['EQVCTP'] / 100) * 
+                            (1 + this.attritube['SK1VCTP'] / 100) * (1 + this.attritube['SK2VCTP'] / 100) +
                             this.clamp((1 - (-this.attritube['FCT'])), 0, 999) * (1 - (-this.attritube['FCTP']) / 100);
                         this.computeattribute.CastTime = this.clamp(Math.floor(this.computeattribute.CastTime * 10000) / 10000, 0, _MaxCastTime);
                         this.computeattribute.DelayTime = Math.floor(0.5 * _GCDRate) / 100 +
@@ -9143,7 +9159,7 @@
                         { skill: { id: 'RK_DRAGONBREATH', name: 'Dragon Breath', level: 10, formula: '(DOWN(HP/50)+DOWN(SP/4))*SLV*BLV/100*DOWN((90+5*10+POW/5)*(1+PATK/100)/100)', class: 'RK', DamageTypeIdx: 2, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 2, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '現有HPSP影響傷害，5*10為龍駕馭5等', } },
                         { skill: { id: 'DK_STORMSLASH', name: 'Storm Slash', level: 5, formula: "(SLV*120+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV", elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '突里薩茲盧恩石:力量成長狀態下，有機率變為雙倍傷害', } },
                         { skill: { id: 'DK_HACKANDSLASHER', name: 'Hack and Slash', level: 10, formula: "(SLV*120+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
-                        { skill: { id: 'DK_HACKANDSLASHER', name: 'Hack and Slash(2HSpear)', level: 10, formula: "(500+SLV*250+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
+                        { skill: { id: 'DK_HACKANDSLASHER2HSPEAR', name: 'Hack and Slash(2HSpear)', level: 10, formula: "(500+SLV*250+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
 
                         { skill: { id: 'WL_CRIMSONROCK', name: 'Crimson Rock', level: 5, formula: '(700+SLV*600)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -7, elemental: 1, FCT: 1, VCT: 5, CD: 5, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'WL_EARTHSTRAIN', name: 'Earth Strain', level: 5, formula: '(1000+SLV*600)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -10, elemental: 4, FCT: 1, VCT: 6, CD: 7, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
