@@ -2310,7 +2310,7 @@
 
         <el-dialog :visible.sync="UIPanel['SupportSkillDialog']" v-on:close="ClosePanel('SupportSkillDialog')"
             custom-class="Dialogue-container" width="40%" top="50px" center>
-            <span slot="title">Support Skills</span>
+            <span slot="title">Other Buffs</span>
 
             <el-row type="flex" class="titlebox textcenter" align="middle" justify="space-around"
                     style="height:40px;padding: 0px 5px;" :span="8" >
@@ -5400,7 +5400,8 @@
                     { label: 'Range Mod%', id: 'RangedDamagePercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Melee Mod%', id: 'MeleeDamagePercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Physical Class %', id: 'LevelAtkPercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
-                    { label: 'Magical Class %', id: 'ElementalMagicPercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'Element %', id: 'ElementalMagicPercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'Magical Class %', id: 'LevelMatkPercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Cast Delay%', id: 'GCDPercent', totalvalue: 0, opersymbol: '\-', suffixsymbol: '\%' },
                 ],
                 weapontypelist: [
@@ -9623,9 +9624,11 @@
 
                         { id:100232, name:'Red Herb Activator', active:false, group:'sp', RangedDamagePercent:15, MeleeDamagePercent:15},
                         { id:100233, name:'Blue Herb Activator', active:false, group:'sp', ElementalMagicPercent:15},
+                        { id:23552, name:'Flora Cookie', active:false, group:'sp', MatkPercent:10},
+                        { id:23550, name:'Winter Cookie', active:false, group:'sp', AtkPercent:10},
                         { id:12404, name:'Energizing Potion ', active:false, group:'sp', AtkPercent:2, MatkPercent:2},
-                        { id:12418, name:'Full SwingK', active:false, group:'sp', ATK:50},
-                        { id:12419, name:'Mana +', active:false, group:'sp', MATK:50},
+                        //{ id:12418, name:'Full SwingK', active:false, group:'sp', ATK:50},
+                        //{ id:12419, name:'Mana +', active:false, group:'sp', MATK:50},
                         //{ id:12796, name:'紅色狂暴藥水', active:false, group:'sp', ATK:30, MATK:30, VariableCastPercent:5, HPPercent:-10, SPPercent:-10},
                         //{ id:14766, name:'魔幻香水', active:false, group:'sp', ATK:30, MATK:30, AtkPercent:1, MatkPercent:1, FixedCastPercent:30},
                         { id:22511, name:'Fenrir\'s Power Scroll ', active:false, group:'sp', MATK:25, FixedCastPercent:50},
