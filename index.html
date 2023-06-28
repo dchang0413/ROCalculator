@@ -6734,9 +6734,10 @@
                     var para6 = Number(1) + (this.option.MagnumPoison2Value / 100) * (para5value / 100);
                     this.computeattribute.weaponatk_min = this.MulOper(this.computeattribute.atkc2_min, para6);
                     this.computeattribute.weaponatk_max = this.MulOper(this.computeattribute.atkc2_max, para6);
-
-                    this.computeattribute.weaponatk_min += this.attritube['ATK'];
-                    this.computeattribute.weaponatk_max += this.attritube['ATK'];
+                    
+                    // iRO is putting size penalty on extra ATK
+                    let extraATK = this.computeattribute.sizefix < 100 ? 
+                        Math.floor(Number(this.attritube['ATK']) * (this.computeattribute.sizefix / 100)) : this.attritube['ATK'];
 
                     var para_race = Number(1) + Number(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue) / 100;
                     var para_size = Number(1) + Number(this.attritube['SizeAtkPercent']) / 100;
@@ -6773,12 +6774,6 @@
                     this.computeattribute.atkbranch_min = this.MulOper(this.computeattribute.atkbranch_min, Number(1) + Number(this.enemyattribute.moneletResist / 100));
                     this.computeattribute.atkbranch_max = this.MulOper(this.computeattribute.atkbranch_max, Number(1) + Number(this.enemyattribute.moneletResist / 100));
                     */
-
-                    // iRO is putting size penalty on extra ATK
-                    if (this.computeattribute.sizefix < 100) {
-                        this.computeattribute.atkequip_min = Math.floor(Number(this.computeattribute.atkequip_min) * (this.computeattribute.sizefix / 100));
-                        this.computeattribute.atkequip_max = Math.floor(Number(this.computeattribute.atkequip_max) * (this.computeattribute.sizefix / 100));
-                    }
                     
                     this.computeattribute.atkc4_min = this.computeattribute.atkequip_min + this.computeattribute.atkbranch_min;
                     this.computeattribute.atkc4_max = this.computeattribute.atkequip_max + this.computeattribute.atkbranch_max;
