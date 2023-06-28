@@ -8540,22 +8540,22 @@
                     this.attritube['ASPDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AspdPercent').totalvalue)));
                     this.attritube['ASPDP'] =   -Math.abs(this.attritube['ASPDP']);
                     this.attritube['FCTP'] = Math.max(this.attritube['FCTP'],
-                        Number(this.effecttypelist.find(x => x.id == 'FixedCastPercent').totalvalue),
-                        Number(this.consumableeffecttypelist.find(x=>x.id=='FixedCastPercent').totalvalue));
+                        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'FixedCastPercent').totalvalue))),
+                        Number(eval(this.SkillFormulaReplace(this.consumableeffecttypelist.find(x=>x.id=='FixedCastPercent').totalvalue))));
                     this.attritube['FCTP'] = -Math.abs(this.attritube['FCTP']);
-                    this.attritube['FCT'] += Number(this.effecttypelist.find(x => x.id == 'FixedCast').totalvalue);
+                    this.attritube['FCT'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'FixedCast').totalvalue)));
                     this.attritube['FCT'] = -1 * Math.abs(this.attritube['FCT']);
-                    this.attritube['EQVCTP'] += Number(this.effecttypelist.find(x => x.id == 'VariableCastPercent').totalvalue)
-                                                +Number(this.consumableeffecttypelist.find(x=>x.id=='VariableCastPercent').totalvalue);
+                    this.attritube['EQVCTP'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'VariableCastPercent').totalvalue)))
+                                                +Number(eval(this.SkillFormulaReplace(this.consumableeffecttypelist.find(x=>x.id=='VariableCastPercent').totalvalue)));
                     this.attritube['EQVCTP'] = -1 * this.clamp(this.attritube['EQVCTP'], -200, 200);
-                    this.attritube['VCTS'] += Number(this.effecttypelist.find(x => x.id == 'VariableCastSecond').totalvalue);
+                    this.attritube['VCTS'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'VariableCastSecond').totalvalue)));
                     this.attritube['VCTS'] = -1 * Math.abs(this.attritube['VCTS']);
                     this.attritube['SK1VCTP'] = -1 * this.clamp(Math.abs(this.attritube['SK1VCTP']), 0, 100);
-                    this.attritube['SK2VCTP'] = Number(this.effecttypelist.find(x => x.id == 'SPSkillVariableCastPercent').totalvalue);
+                    this.attritube['SK2VCTP'] = Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPSkillVariableCastPercent').totalvalue)));
                     this.attritube['SK2VCTP'] = -1 * this.clamp(Math.abs(this.attritube['SK2VCTP']), 0, 100);
-                    this.attritube['GCD'] += Number(this.effecttypelist.find(x => x.id == 'GCDPercent').totalvalue);
+                    this.attritube['GCD'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'GCDPercent').totalvalue)));
                     this.attritube['GCD'] = -Math.abs(this.attritube['GCD']);
-                    this.attritube['CD'] = Number(this.effecttypelist.find(x => x.id == 'CDTime').totalvalue);
+                    this.attritube['CD'] =      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CDTime').totalvalue)));
                     this.attritube['CD'] = -Math.abs(this.attritube['CD']);
 
                     this.attritube['WeaponATK'] =   this.attritube['ATK'] + 
