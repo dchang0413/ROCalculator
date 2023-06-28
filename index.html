@@ -1296,7 +1296,7 @@
 
                                         <el-row :class="PreviewETL[GetETLIndex('CriDamagePercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
                                             <el-col class="textcenter" :span="12">
-                                                Crit Damage%
+                                                Crit Mod%
                                             </el-col>
                                             <el-col class="textcenter" :span="12">
                                                 <el-input v-if="PreviewETL[0]"
@@ -1320,7 +1320,7 @@
 
                                         <el-row :class="PreviewETL[GetETLIndex('MeleeDamagePercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
                                             <el-col class="textcenter" :span="12">
-                                                Melee%
+                                                Melee Mod%
                                             </el-col>
                                             <el-col class="textcenter" :span="12">
                                                 <el-input v-if="PreviewETL[0]"
@@ -1344,7 +1344,7 @@
 
                                         <el-row :class="PreviewETL[GetETLIndex('RangedDamagePercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
                                             <el-col class="textcenter" :span="12">
-                                                Range%
+                                                Range Mod%
                                             </el-col>
                                             <el-col class="textcenter" :span="12">
                                                 <el-input v-if="PreviewETL[0]"
@@ -6773,6 +6773,13 @@
                     this.computeattribute.atkbranch_min = this.MulOper(this.computeattribute.atkbranch_min, Number(1) + Number(this.enemyattribute.moneletResist / 100));
                     this.computeattribute.atkbranch_max = this.MulOper(this.computeattribute.atkbranch_max, Number(1) + Number(this.enemyattribute.moneletResist / 100));
                     */
+
+                    // iRO is putting size penalty on extra ATK
+                    if (this.computeattribute.sizefix < 100) {
+                        this.computeattribute.atkequip_min = Math.floor(Number(this.computeattribute.atkequip_min) * (this.computeattribute.sizefix / 100));
+                        this.computeattribute.atkequip_max = Math.floor(Number(this.computeattribute.atkequip_max) * (this.computeattribute.sizefix / 100));
+                    }
+                    
                     this.computeattribute.atkc4_min = this.computeattribute.atkequip_min + this.computeattribute.atkbranch_min;
                     this.computeattribute.atkc4_max = this.computeattribute.atkequip_max + this.computeattribute.atkbranch_max;
 
@@ -9233,7 +9240,7 @@
 
                         { skill: { id: 'AB_ADORAMUS', name: 'Adoramus', level: 10, formula: '(800+SLV*200)*BLV/100', class: 'AB', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -10, elemental: 6, FCT: 0.5, VCT: 2, CD: 2.5, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
 
-                        { skill: { id: 'GC_CROSSIMPACT', name: 'Cross Impact', level: 5, formula: '(1000+SLV*230)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, halfcri:true, hitnumber: -7, elemental: 0, FCT: 0, VCT: 0, CD: 0.35, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
+                        { skill: { id: 'GC_CROSSIMPACT', name: 'Cross Impact', level: 5, formula: '(1400+SLV*150)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, halfcri:true, hitnumber: -7, elemental: 0, FCT: 0, VCT: 0, CD: 0.35, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'GC_ROLLINGCUTTER', name: 'Rolling Cutter', level: 5, formula: '(50+SLV*80)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0.2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'GC_CROSSRIPPERSLASHER', name: 'Cross Riper Slasher', level: 5, formula: '(SLV*80)*BLV/100+(3*AGI+10*200)', class: 'GX', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0.2, GCD: 0.3, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume 10 counter from Rolling Cutter', } },
                         { skill: { id: 'ASC_BREAKER', name: 'Soul Destroyer', level: 10, formula: '(SLV*150+STR+INT)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, halfcri:true, hitnumber: 1, elemental: 0, FCT: 0.25, VCT: 0.25, CD: 0.3, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
@@ -9391,7 +9398,7 @@
 
                         //{ skill: { id: '', name: '天使之擊', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'AS_KATAR', name: 'Katar Mastery', maxlv: 10, lv: 10, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'ASC_EDP', name: 'Enchant Deadly POison', maxlv: 5, lv: 5, class: 'GX', changelv: false, argnum: 0, arg1: 25, arg1desc: '', arg2: 300, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'ASC_EDP', name: 'Enchant Deadly Poison', maxlv: 5, lv: 5, class: 'GX', changelv: false, argnum: 0, arg1: 25, arg1desc: '', arg2: 300, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'GC_VENOMIMPRESS', name: 'Venom Impression', maxlv: 5, lv: 5, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'ASC_KATAR', name: 'Advanced Katar Mastery', maxlv: 5, lv: 5, class: 'GX', changelv: false, argnum: 0, arg1: 20, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'GC_DARKCROW', name: 'Dark Claw(vs.Boss)', maxlv: 5, lv: 5, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
