@@ -6740,6 +6740,9 @@
                     // iRO is putting size penalty on extra ATK
                     let extraATK = this.computeattribute.sizefix < 100 ? 
                         Math.floor(Number(this.attritube['ATK']) * (this.computeattribute.sizefix / 100)) : this.attritube['ATK'];
+                    
+                    this.computeattribute.weaponatk_min += extraATK;
+                    this.computeattribute.weaponatk_max += extraATK;
 
                     var para_race = Number(1) + Number(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue) / 100;
                     var para_size = Number(1) + Number(this.attritube['SizeAtkPercent']) / 100;
