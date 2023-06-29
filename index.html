@@ -4307,7 +4307,7 @@
                                                 {{computeattribute.normalcritical_max | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="attritube['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
+                                    <el-row v-if="attribute['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
                                         style="height:40px;">
                                         <el-col class="" :span="10" style="text-align: right;">
                                             <span>Baseic Attack DPS</span>
@@ -4358,7 +4358,7 @@
                                     <el-row v-if="skill.critical" class="statusbox" type="flex" align="middle"
                                         justify="space-around" style="height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
-                                            <span>Skill Damage (Crit)({{attritube['CRI']}} %)</span>
+                                            <span>Skill Damage (Crit)({{attribute['CRI']}} %)</span>
                                         </el-col>
                                         <el-col v-if="computeattribute.SkillDamageCRI_min != computeattribute.SkillDamageCRI_max"
                                             class="textcenter" :span="10">
@@ -4382,7 +4382,7 @@
                                             <span>{{computeattribute.SkillDamageCRI_max | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="attritube['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
+                                    <el-row v-if="attribute['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
                                         style="height:40px;">
                                         <el-col class="" :span="10" style="text-align: right;">
                                             <span>Skill DPS</span>
@@ -4531,7 +4531,7 @@
                                             <span>{{computeattribute.matkmulti_avg | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="attritube['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
+                                    <el-row v-if="attribute['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
                                         style="height:40px;">
                                         <el-col class="" :span="10" style="text-align: right;">
                                             <span>Skill DPS</span>
@@ -4558,7 +4558,7 @@
                                             <span>{{computeattribute.DragonBreathDMG | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="attritube['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
+                                    <el-row v-if="attribute['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
                                         style="height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Skill DPS</span>
@@ -4590,13 +4590,13 @@
                                         <span>HP%:</span>
                                     </el-col>
                                     <el-col class="textcenter" :span="4">
-                                        <span>{{attritube['HPP']}} %</span>
+                                        <span>{{attribute['HPP']}} %</span>
                                     </el-col>
                                     <el-col class="bg-purple-light" :span="8" style="text-align: right;">
                                         <span>HP:</span>
                                     </el-col>
                                     <el-col class="textcenter" :span="4">
-                                        <span>{{attritube['HP']}}</span>
+                                        <span>{{attribute['HP']}}</span>
                                     </el-col>
                                 </el-row>
                                 <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4605,13 +4605,13 @@
                                         <span>SP%:</span>
                                     </el-col>
                                     <el-col class="textcenter" :span="4">
-                                        <span>{{attritube['SPP']}} %</span>
+                                        <span>{{attribute['SPP']}} %</span>
                                     </el-col>
                                     <el-col class="bg-purple-light" :span="8" style="text-align: right;">
                                         <span>SP:</span>
                                     </el-col>
                                     <el-col class="textcenter" :span="4">
-                                        <span>{{attritube['SP']}}</span>
+                                        <span>{{attribute['SP']}}</span>
                                     </el-col>
                                 </el-row>
                                 <el-collapse-transition>
@@ -4623,7 +4623,7 @@
                                                 <span>ATK Status+Extra:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube.StatusATK+computeattribute['SpecialATKFront']}} + {{attritube.WeaponATK}}</span>
+                                                <span>{{attribute.StatusATK+computeattribute['SpecialATKFront']}} + {{attribute.WeaponATK}}</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4632,7 +4632,7 @@
                                                 <span>P.ATK:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube.PATK}}</span>
+                                                <span>{{attribute.PATK}}</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4668,7 +4668,7 @@
                                                 <span>Range Mod%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['RNGDP']}} %</span>
+                                                <span>{{attribute['RNGDP']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4677,7 +4677,7 @@
                                                 <span>Bonus Range Damage%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['RNGDDI']}} %</span>
+                                                <span>{{attribute['RNGDDI']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4686,7 +4686,7 @@
                                                 <span>Melee Mod%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['MELDP']}} %</span>
+                                                <span>{{attribute['MELDP']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4695,7 +4695,7 @@
                                                 <span>Bonus Melee Damage%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['MELDDI']}} %</span>
+                                                <span>{{attribute['MELDDI']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4704,13 +4704,13 @@
                                                 <span>Crit:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="4">
-                                                <span>{{attritube['CRI']}} %</span>
+                                                <span>{{attribute['CRI']}} %</span>
                                             </el-col>
                                             <el-col class="bg-purple-light" :span="8" style="text-align: right;">
                                                 <span>Crit Mod%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="4">
-                                                <span>{{attritube['CRIDP']}} %</span>
+                                                <span>{{attribute['CRIDP']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4719,7 +4719,7 @@
                                                 <span>C.RATE:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube.CRIDR}}</span>
+                                                <span>{{attribute.CRIDR}}</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4728,7 +4728,7 @@
                                                 <span>ATK%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['ATKP']}} %</span>
+                                                <span>{{attribute['ATKP']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4737,7 +4737,7 @@
                                                 <span>vs. Element%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['ElementalAtkPercent']}} %</span>
+                                                <span>{{attribute['ElementalAtkPercent']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4746,7 +4746,7 @@
                                                 <span>vs. Class%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['LevelAtkPercent']}} %</span>
+                                                <span>{{attribute['LevelAtkPercent']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4764,7 +4764,7 @@
                                                 <span>vs. Size%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['SizeAtkPercent']}} %</span>
+                                                <span>{{attribute['SizeAtkPercent']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4773,7 +4773,7 @@
                                                 <span>Reduce Element Resist%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['ELEDDI']}} %</span>
+                                                <span>{{attribute['ELEDDI']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4782,7 +4782,7 @@
                                                 <span>Bypass DEF%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['BYPASSDEF']}} %</span>
+                                                <span>{{attribute['BYPASSDEF']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4800,7 +4800,7 @@
                                                 <span>Cooldown:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['CD']}} s</span>
+                                                <span>{{attribute['CD']}} s</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4809,7 +4809,7 @@
                                                 <span>Cast Delay%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['GCD']}} %</span>
+                                                <span>{{attribute['GCD']}} %</span>
                                             </el-col>
                                         </el-row>
                                     </div>
@@ -4820,7 +4820,7 @@
                                                 <span>Matk Status+Extra:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube.StatusMATK}} + {{attritube.WeaponMATK}}</span>
+                                                <span>{{attribute.StatusMATK}} + {{attribute.WeaponMATK}}</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4829,7 +4829,7 @@
                                                 <span>S.MATK</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube.SMATK}}</span>
+                                                <span>{{attribute.SMATK}}</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4847,7 +4847,7 @@
                                                 <span>MATK%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['MATKP']}} %</span>
+                                                <span>{{attribute['MATKP']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4856,7 +4856,7 @@
                                                 <span>Element Magic%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['ElementalMagicPercent']}} %</span>
+                                                <span>{{attribute['ElementalMagicPercent']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4865,7 +4865,7 @@
                                                 <span>vs. Element%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{effecttypelist[GetETLIndex('ElementalMatkPercent')].totalvalue}} %</span>
+                                                <span>{{attribute['ElementalMatkPercent']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4874,7 +4874,7 @@
                                                 <span>vs. Class%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{effecttypelist[GetETLIndex('LevelMatkPercent')].totalvalue}} %</span>
+                                                <span>{{attribute['LevelMatkPercent']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4883,7 +4883,7 @@
                                                 <span>vs. Race%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{effecttypelist[GetETLIndex('RaceMatkPercent')].totalvalue}} %</span>
+                                                <span>{{attribute['RaceMatkPercent']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4892,7 +4892,7 @@
                                                 <span>vs. Size%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['SizeMatkPercent']}} %</span>
+                                                <span>{{attribute['SizeMatkPercent']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4901,7 +4901,7 @@
                                                 <span>Reduce Element Resist%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['ELEDDI']}} %</span>
+                                                <span>{{attribute['ELEDDI']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4910,7 +4910,7 @@
                                                 <span>Bypass MDEF%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['BYPASSMDEF']}} %</span>
+                                                <span>{{attribute['BYPASSMDEF']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4928,7 +4928,7 @@
                                                 <span>Cooldown:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['CD']}} s</span>
+                                                <span>{{attribute['CD']}} s</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4937,7 +4937,7 @@
                                                 <span>Cast Delay%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['GCD']}} %</span>
+                                                <span>{{attribute['GCD']}} %</span>
                                             </el-col>
                                         </el-row>
                                     </div>
@@ -4948,7 +4948,7 @@
                                                 <span>Range Mod%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['RNGDP']}} %</span>
+                                                <span>{{attribute['RNGDP']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4957,7 +4957,7 @@
                                                 <span>Bonus Range Damage%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['RNGDDI']}} %</span>
+                                                <span>{{attribute['RNGDDI']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4966,7 +4966,7 @@
                                                 <span>Reduce ELement Resist%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['ELEDDI']}} %</span>
+                                                <span>{{attribute['ELEDDI']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4984,7 +4984,7 @@
                                                 <span>Cooldown:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['CD']}} s</span>
+                                                <span>{{attribute['CD']}} s</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -4993,7 +4993,7 @@
                                                 <span>Cast Delay%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['GCD']}} %</span>
+                                                <span>{{attribute['GCD']}} %</span>
                                             </el-col>
                                         </el-row>
                                     </div>
@@ -5023,7 +5023,7 @@
                                                 <span>ASPD Delay%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['ASPDP']}} %</span>
+                                                <span>{{attribute['ASPDP']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -5032,7 +5032,7 @@
                                                 <span>Cooldown:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['CD']}} s</span>
+                                                <span>{{attribute['CD']}} s</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -5041,7 +5041,7 @@
                                                 <span>Cast Delay%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['GCD']}} %</span>
+                                                <span>{{attribute['GCD']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -5050,7 +5050,7 @@
                                                 <span>FCT:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['FCT']}} s</span>
+                                                <span>{{attribute['FCT']}} s</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -5059,7 +5059,7 @@
                                                 <span>VCT%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['FCTP']}} %</span>
+                                                <span>{{attribute['FCTP']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -5068,7 +5068,7 @@
                                                 <span>VCT(sec):</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['VCTS']}} s</span>
+                                                <span>{{attribute['VCTS']}} s</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -5077,7 +5077,7 @@
                                                 <span>VCT(Eqp%):</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['EQVCTP']}} %</span>
+                                                <span>{{attribute['EQVCTP']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -5086,7 +5086,7 @@
                                                 <span>VCT(Buff%):</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['SK1VCTP']}} %</span>
+                                                <span>{{attribute['SK1VCTP']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -5095,7 +5095,7 @@
                                                 <span>VCT(Skill%):</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{attritube['SK2VCTP']}} %</span>
+                                                <span>{{attribute['SK2VCTP']}} %</span>
                                             </el-col>
                                         </el-row>
                                     </div>
@@ -5128,7 +5128,7 @@
                                 <el-row class="statusbox" type="flex" align="middle" justify="space-around"
                                     style="height:40px;">
                                     <el-col class="bg-purple" style="text-align: right;">
-                                        <span>ASPD:{{attritube['ASPD']}} Delay Between ATK:</span>
+                                        <span>ASPD:{{attribute['ASPD']}} Delay Between ATK:</span>
                                     </el-col>
                                     <el-col class="textcenter">
                                         <span>{{computeattribute['AspdDelay']}} s</span>
@@ -5492,7 +5492,7 @@
                  FCTP 固詠%
                  GCD 共延%
                 */
-                attritube: {
+                attribute: {
                     StatusATK: 0, WeaponATK: 0, StatusMATK: 0, WeaponMATK: 0,
                     ATK: 0, MATK: 0, ATKP: 0, MATKP: 0, DEF: 0, MDEF: 0, HP: 0, HPP: 0, SP: 0, SPP: 0,
                     PATK: 0, SMATK: 0, CRIDR: 0, RES: 0, MRES: 0,
@@ -5506,9 +5506,14 @@
                     ElementalAtkPercent: 0,
                     LevelAtkPercent: 0,
                     SizeAtkPercent: 0,
+                    ElementalMatkPercent: 0,
+                    ElementalMagicPercent: 0,
+                    RaceMatkPercent: 0,
+                    MonsterMatkPercent: 0,
+                    LevelMatkPercent: 0,
                 },
                 HP_JOB_A: 0, HP_JOB_B: 0,
-                attritube_init: {},
+                attribute_init: {},
                 sizetypelist: [
                     { id: 0, label: 'Small' },
                     { id: 1, label: 'Medium' },
@@ -6517,34 +6522,34 @@
                             this.computeattribute['TransSTR'] = this.status_total.DEX;
                             TempDEX = this.status_total.STR;
                         }
-                        this.attritube['StatusATK'] = Math.floor(this.status.Level / 4 + this.computeattribute['TransSTR'] + TempDEX / 5 + this.status_total.LUK / 3);
-                        this.attritube['StatusMATK'] = (
+                        this.attribute['StatusATK'] = Math.floor(this.status.Level / 4 + this.computeattribute['TransSTR'] + TempDEX / 5 + this.status_total.LUK / 3);
+                        this.attribute['StatusMATK'] = (
                             Math.floor(this.status_total.INT * 1.5) +
                             Math.floor(this.status_total.LUK / 3) +
                             Math.floor(this.status.Level / 4) +
                             Math.floor(this.status_total.DEX / 5)
                         );
-                        this.attritube['StatusATK'] += this.status_total.POW * 5;
-                        this.attritube['StatusMATK'] += this.status_total.S_P_L * 5;
-                        this.attritube['PATK'] += Math.floor(this.status_total.POW/3) + Math.floor(this.status_total.CON/5);
-                        this.attritube['SMATK'] += Math.floor(this.status_total.S_P_L/3) + Math.floor(this.status_total.CON/5);
+                        this.attribute['StatusATK'] += this.status_total.POW * 5;
+                        this.attribute['StatusMATK'] += this.status_total.S_P_L * 5;
+                        this.attribute['PATK'] += Math.floor(this.status_total.POW/3) + Math.floor(this.status_total.CON/5);
+                        this.attribute['SMATK'] += Math.floor(this.status_total.S_P_L/3) + Math.floor(this.status_total.CON/5);
                         if(this.weapon.level.id == 5)
                         {
-                            this.attritube['PATK'] += this.weapon.refinelevel * 2;
-                            this.attritube['SMATK'] += this.weapon.refinelevel * 2;
+                            this.attribute['PATK'] += this.weapon.refinelevel * 2;
+                            this.attribute['SMATK'] += this.weapon.refinelevel * 2;
                         }
-                        this.attritube['CRIDR'] += Math.floor(this.status_total.CRT/3);
+                        this.attribute['CRIDR'] += Math.floor(this.status_total.CRT/3);
 
-                        this.attritube['CRI'] += 2.2 + this.status_total.LUK * 0.3;
+                        this.attribute['CRI'] += 2.2 + this.status_total.LUK * 0.3;
                         if (this.weapon.type.id == 'Katars')
                         {
-                            this.attritube['CRI'] = this.attritube['CRI'] * 2;
+                            this.attribute['CRI'] = this.attribute['CRI'] * 2;
                         }
                         if (this.skill.halfcri)
                         {
-                            this.attritube['CRI'] = this.attritube['CRI'] / 2;
+                            this.attribute['CRI'] = this.attribute['CRI'] / 2;
                         }
-                        this.attritube['CRI'] = Math.floor((this.attritube['CRI'] - this.enemyattribute.LUK * 0.2) * 100) / 100;
+                        this.attribute['CRI'] = Math.floor((this.attribute['CRI'] - this.enemyattribute.LUK * 0.2) * 100) / 100;
 
                         this.status.Transcendent = this.ClassInfo.TranscendentClass;
                         var _Pt = this.status.Transcendent ? 100 : 100 - 52;
@@ -6606,8 +6611,8 @@
                             _BaseSP = Math.ceil(Number(this.SP_NotFix)/((100+this.GetPureStats(this.status.INT))/100));
                         }
                         var _MaxHP = _BaseHP;
-                        var HP_MOD_A = this.attritube['HP'];
-                        var HP_MOD_B = this.attritube['HPP'];
+                        var HP_MOD_A = this.attribute['HP'];
+                        var HP_MOD_B = this.attribute['HPP'];
                         if(this.status.Level <= 185) _MaxHP = Math.floor(_MaxHP * (this.status.Transcendent ? 1.25 : 1));
                         _MaxHP = Math.floor(_MaxHP * (100 + this.status_total.VIT) / 100);
                         _MaxHP += HP_MOD_A;
@@ -6615,8 +6620,8 @@
                         _MaxHP = Math.floor(_MaxHP * (100 + HP_MOD_B) / 100);
                         this.status.MHP = _MaxHP;
                         var _MaxSP = _BaseSP;
-                        var SP_MOD_A = this.attritube['SP'];
-                        var SP_MOD_B = this.attritube['SPP'];
+                        var SP_MOD_A = this.attribute['SP'];
+                        var SP_MOD_B = this.attribute['SPP'];
                         if(this.status.Level <= 185) _MaxSP = Math.floor(_MaxSP * (this.status.Transcendent ? 1.25 : 1));
                         _MaxSP = Math.floor(_MaxSP * (100 + this.status_total.INT) / 100);
                         _MaxSP += SP_MOD_A;
@@ -6667,16 +6672,16 @@
                 ComputeCastDelay() {
                     var _MaxCastTime = 999;
                     var _StatusDI = (this.status_total.DEX * 2 + this.status_total.INT);
-                    var _GCDRate = (1 - (-this.attritube['GCD']) / 100) * 100;
+                    var _GCDRate = (1 - (-this.attribute['GCD']) / 100) * 100;
                     this.computeattribute.CastDEXINT = this.status_total.INT + this.status_total.DEX * 2;
                     if (_StatusDI > 530) _StatusDI = 530;
                     this.computeattribute.CastTime =
-                        (eval(this.SkillFormulaReplace(this.skill.VCT)) + this.attritube['VCTS']) * (1 - Math.sqrt(_StatusDI / 530)) * (1 + this.attritube['EQVCTP'] / 100) * (1 + this.attritube['SK1VCTP'] / 100) * (1 + this.attritube['SK2VCTP'] / 100) +
-                        this.clamp((eval(this.SkillFormulaReplace(this.skill.FCT)) - (-this.attritube['FCT'])), 0, 999) * (1 - (-this.attritube['FCTP']) / 100);
+                        (eval(this.SkillFormulaReplace(this.skill.VCT)) + this.attribute['VCTS']) * (1 - Math.sqrt(_StatusDI / 530)) * (1 + this.attribute['EQVCTP'] / 100) * (1 + this.attribute['SK1VCTP'] / 100) * (1 + this.attribute['SK2VCTP'] / 100) +
+                        this.clamp((eval(this.SkillFormulaReplace(this.skill.FCT)) - (-this.attribute['FCT'])), 0, 999) * (1 - (-this.attribute['FCTP']) / 100);
                     this.computeattribute.CastTime = this.clamp(Math.floor(this.computeattribute.CastTime * 10000) / 10000, 0, _MaxCastTime);
                     this.computeattribute.DelayTime = Math.max(
                         Math.floor(eval(this.SkillFormulaReplace(this.skill.GCD)) * _GCDRate) / 100,
-                        eval(this.SkillFormulaReplace(this.skill.CD)) - (-this.attritube['CD']));
+                        eval(this.SkillFormulaReplace(this.skill.CD)) - (-this.attribute['CD']));
 
                     if(this.IsSupportActive('WL_RELEASE'))
                     {   //詠唱0 GCD維持
@@ -6688,14 +6693,14 @@
                     if(this.IsSupportActive('WL_READING_SB'))
                     {   //固詠1 變詠5 GCD0.5
                         this.computeattribute.CastTime =
-                            (5 + this.attritube['VCTS']) * (1 - Math.sqrt(_StatusDI / 530)) * (1 + this.attritube['EQVCTP'] / 100) * 
-                            (1 + this.attritube['SK1VCTP'] / 100) * (1 + this.attritube['SK2VCTP'] / 100) +
-                            this.clamp((1 - (-this.attritube['FCT'])), 0, 999) * (1 - (-this.attritube['FCTP']) / 100);
+                            (5 + this.attribute['VCTS']) * (1 - Math.sqrt(_StatusDI / 530)) * (1 + this.attribute['EQVCTP'] / 100) * 
+                            (1 + this.attribute['SK1VCTP'] / 100) * (1 + this.attribute['SK2VCTP'] / 100) +
+                            this.clamp((1 - (-this.attribute['FCT'])), 0, 999) * (1 - (-this.attribute['FCTP']) / 100);
                         this.computeattribute.CastTime = this.clamp(Math.floor(this.computeattribute.CastTime * 10000) / 10000, 0, _MaxCastTime);
                         this.computeattribute.DelayTime = Math.floor(0.5 * _GCDRate) / 100 +
                             Math.floor(eval(this.SkillFormulaReplace(this.skill.GCD)) * _GCDRate) / 100;
                     }
-                    this.computeattribute.AspdDelay = Math.floor((200 - this.attritube.ASPD) / 50 * 100) / 100;
+                    this.computeattribute.AspdDelay = Math.floor((200 - this.attribute.ASPD) / 50 * 100) / 100;
                     var _MAxDelay = Math.max(this.computeattribute.CastTime + this.computeattribute.DelayTime, this.computeattribute.AspdDelay);
                     this.computeattribute.HitperSec = Math.floor(1 / _MAxDelay * 100) / 100;
                     if (this.computeattribute.HitperSec > 7.14) this.computeattribute.HitperSec = 7.14;
@@ -6739,15 +6744,15 @@
                     
                     // iRO is putting size penalty on extra ATK
                     let extraATK = this.computeattribute.sizefix < 100 ? 
-                        Math.floor(Number(this.attritube['ATK']) * (this.computeattribute.sizefix / 100)) : this.attritube['ATK'];
+                        Math.floor(Number(this.attribute['ATK']) * (this.computeattribute.sizefix / 100)) : this.attribute['ATK'];
                     
                     this.computeattribute.weaponatk_min += extraATK;
                     this.computeattribute.weaponatk_max += extraATK;
 
                     var para_race = Number(1) + Number(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue) / 100;
-                    var para_size = Number(1) + Number(this.attritube['SizeAtkPercent']) / 100;
-                    var para_elemt = Number(1) + Number(this.attritube['ElementalAtkPercent']) / 100;
-                    var para_level = Number(1) + Number(this.attritube['LevelAtkPercent']) / 100;
+                    var para_size = Number(1) + Number(this.attribute['SizeAtkPercent']) / 100;
+                    var para_elemt = Number(1) + Number(this.attribute['ElementalAtkPercent']) / 100;
+                    var para_level = Number(1) + Number(this.attribute['LevelAtkPercent']) / 100;
                     var para_mons = Number(1) + Number(this.effecttypelist.find(x => x.id == 'MonsterAtkPercent').totalvalue) / 100;
                     var para_posion = Number(1) + (this.IsSupportActive('ASC_EDP') ? (Number(this.GetSupportSkill('ASC_EDP').arg2 / 100)) : Number(0));
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.weaponatk_min, para_race);
@@ -6765,8 +6770,8 @@
 
                     // 霸氣 ATK% 似乎不適用小於1進位
                     // 從MulOper改為Mathfloor 捨去
-                    this.computeattribute.atkbranch_min = Math.floor(this.computeattribute.weaponatk_min * (this.attritube['ATKP']) / 100);
-                    this.computeattribute.atkbranch_max = Math.floor(this.computeattribute.weaponatk_max * (this.attritube['ATKP']) / 100);
+                    this.computeattribute.atkbranch_min = Math.floor(this.computeattribute.weaponatk_min * (this.attribute['ATKP']) / 100);
+                    this.computeattribute.atkbranch_max = Math.floor(this.computeattribute.weaponatk_max * (this.attribute['ATKP']) / 100);
                     /*
                     this.computeattribute.atkbranch_min = this.MulOper(this.computeattribute.atkbranch_min, Number(1) + Number(this.enemyattribute.sizeResist / 100));
                     this.computeattribute.atkbranch_max = this.MulOper(this.computeattribute.atkbranch_max, Number(1) + Number(this.enemyattribute.sizeResist / 100));
@@ -6792,16 +6797,16 @@
                     this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc4_min, Number(this.skilloption.ElementalPercent / 100));
                     this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc4_max, Number(this.skilloption.ElementalPercent / 100));
 
-                    this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, Number(1) + Number(this.attritube['ELEDDI'] / 100));
-                    this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, Number(1) + Number(this.attritube['ELEDDI'] / 100));
+                    this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, Number(1) + Number(this.attribute['ELEDDI'] / 100));
+                    this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, Number(1) + Number(this.attribute['ELEDDI'] / 100));
 
-                    var para7 = Number(this.attritube['StatusATK']);
+                    var para7 = Number(this.attribute['StatusATK']);
                     if( isNA ) { //普攻
                         if( this.subweapon.type.id != 2 ){  //普攻非雙持狀態
-                            para7 += Number(this.attritube['StatusATK']);
+                            para7 += Number(this.attribute['StatusATK']);
                         }
                     }else{  //技能
-                        para7 += Number(this.attritube['StatusATK']);
+                        para7 += Number(this.attribute['StatusATK']);
                     }
                     var para7ele = 100;
                     if (this.enemyattribute.elemental == 8) {
@@ -6820,8 +6825,8 @@
                     this.computeattribute.atkc5_min += Number(para7) + Number(this.computeattribute['SpecialATK4']) + Number(this.computeattribute['SpecialATKFront']);
                     this.computeattribute.atkc5_max += Number(para7) + Number(this.computeattribute['SpecialATK4']) + Number(this.computeattribute['SpecialATKFront']);
 
-                    this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, Number(1) + Number(this.attritube['PATK'] / 100));
-                    this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, Number(1) + Number(this.attritube['PATK'] / 100));
+                    this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, Number(1) + Number(this.attribute['PATK'] / 100));
+                    this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, Number(1) + Number(this.attribute['PATK'] / 100));
 
                     this.computeattribute.atkc5_min += Number(this.skilloption.WeaponMasteryATK);
                     this.computeattribute.atkc5_max += Number(this.skilloption.WeaponMasteryATK);
@@ -6857,9 +6862,9 @@
                     this.computeattribute.atkc6_min = this.computeattribute.atkc5_min;
                     this.computeattribute.atkc6_max = this.computeattribute.atkc5_max;
                     //暴擊增傷
-                    var para_crid = Number(1) + Number(this.attritube['CRIDP']) / 100;
+                    var para_crid = Number(1) + Number(this.attribute['CRIDP']) / 100;
                     //if( this.IsSupportActive('SG_FUSION') == false){
-                        para_crid = Number(1) + Number(this.attritube['CRIDP']) * 0.5 / 100;
+                        para_crid = Number(1) + Number(this.attribute['CRIDP']) * 0.5 / 100;
                     //}
                     if( isNA ){
                         if( isCRI ){
@@ -6875,9 +6880,9 @@
                     }
 
                     //遠程增傷 this.skill.laterranged分前後段
-                    var para_ranged = Number(1) + Number(this.attritube['RNGDP']) / 100;
+                    var para_ranged = Number(1) + Number(this.attribute['RNGDP']) / 100;
                     //近戰傷害
-                    var para_melee = Number(1) + Number(this.attritube['MELDP']) / 100;
+                    var para_melee = Number(1) + Number(this.attribute['MELDP']) / 100;
 
                     if( isNA ){
                         if (this.weapon.type.isRangedattack) {
@@ -6922,7 +6927,7 @@
                     }
                     //敵方DEF
                     if (this.option.IgnoreDEF == false) {
-                        var parabypassDEF = Number(1) - Number(this.attritube['BYPASSDEF']) / 100;
+                        var parabypassDEF = Number(1) - Number(this.attribute['BYPASSDEF']) / 100;
                         var paraDEF = ((4000 + this.MulOper(Number(this.enemyattribute.WeaponDEF), parabypassDEF)) /
                             (4000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponDEF), parabypassDEF)));
                         this.computeattribute.enemydef = (paraDEF * 100).toFixed(2);
@@ -6944,11 +6949,11 @@
                     }
 
                     if (this.skill.ranged){
-                        this.computeattribute.atkc8_min = Math.floor(this.computeattribute.atkc8_min * Number(1 + this.attritube['RNGDDI'] / 100));
-                        this.computeattribute.atkc8_max = Math.floor(this.computeattribute.atkc8_max * Number(1 + this.attritube['RNGDDI'] / 100));
+                        this.computeattribute.atkc8_min = Math.floor(this.computeattribute.atkc8_min * Number(1 + this.attribute['RNGDDI'] / 100));
+                        this.computeattribute.atkc8_max = Math.floor(this.computeattribute.atkc8_max * Number(1 + this.attribute['RNGDDI'] / 100));
                     }else{
-                        this.computeattribute.atkc8_min = Math.floor(this.computeattribute.atkc8_min * Number(1 + this.attritube['MELDDI'] / 100));
-                        this.computeattribute.atkc8_max = Math.floor(this.computeattribute.atkc8_max * Number(1 + this.attritube['MELDDI'] / 100));
+                        this.computeattribute.atkc8_min = Math.floor(this.computeattribute.atkc8_min * Number(1 + this.attribute['MELDDI'] / 100));
+                        this.computeattribute.atkc8_max = Math.floor(this.computeattribute.atkc8_max * Number(1 + this.attribute['MELDDI'] / 100));
                     }
 
                     if( isNA == false ){
@@ -6977,14 +6982,14 @@
                     if( isNA ){
                         // 普攻暴擊 *1.4
                         if( isCRI ){
-                            this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number((this.option.BaseCriticalValue+this.attritube['CRIDR']) / 100));
-                            this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number((this.option.BaseCriticalValue+this.attritube['CRIDR']) / 100));
+                            this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
+                            this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
                         }
                     }else{
                         // 技能暴擊 *1.4
                         if (this.skill.critical && isCRI) {
-                            this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number((this.option.BaseCriticalValue+this.attritube['CRIDR']) / 100));
-                            this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number((this.option.BaseCriticalValue+this.attritube['CRIDR']) / 100));
+                            this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
+                            this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
                         }
                     }
 
@@ -7043,7 +7048,7 @@
                     }
                 },
                 ComputeATKDPS( Dmin, Dmax, DCmin, DCmax ){
-                    var _CRIRateN = this.clamp(100 - this.attritube['CRI'], 0, 100);
+                    var _CRIRateN = this.clamp(100 - this.attribute['CRI'], 0, 100);
                     var _CRIRate = 100-_CRIRateN;
                     var _DPS = (Math.floor((Dmin+Dmax)/2)*_CRIRateN/100) + (Math.floor((DCmin+DCmax)/2)*_CRIRate/100);
                     _DPS = Math.floor(_DPS * this.computeattribute.HitperSec * 100) / 100;
@@ -7066,32 +7071,32 @@
                     var floatmatk_min = (1 - para1);
                     var floatmatk_max = (1 + para1);
                     if (this.IsSupportActive('WL_RECOGNIZEDSPELL')) floatmatk_min = floatmatk_max;
-                    this.computeattribute.weaponmatk_min = Number(this.attritube['StatusMATK']) +
+                    this.computeattribute.weaponmatk_min = Number(this.attribute['StatusMATK']) +
                         Math.floor((Number(this.weapon.MATK) + Number(this.subweapon.MATK) + Number(this.weapon.refinematk)) * floatmatk_min) + Number(paraminirefineatk2);
-                    this.computeattribute.weaponmatk_max = Number(this.attritube['StatusMATK']) +
+                    this.computeattribute.weaponmatk_max = Number(this.attribute['StatusMATK']) +
                         Math.floor((Number(this.weapon.MATK) + Number(this.subweapon.MATK) + Number(this.weapon.refinematk)) * floatmatk_max) + Number(this.weapon.refineatk2);
 
                     var para2 = Number(1) + (this.IsSupportActive('HW_MAGICPOWER') ? Number(this.GetSupportSkill('HW_MAGICPOWER').arg1 / 100) : 0);
-                    var para3 = this.attritube['MATK'];
+                    var para3 = this.attribute['MATK'];
                     this.computeattribute.equipmatk_min = this.MulOper(this.computeattribute.weaponmatk_min, para2) + para3;
                     this.computeattribute.equipmatk_max = this.MulOper(this.computeattribute.weaponmatk_max, para2) + para3;
 
                     //var para4 = Number(1) + Number(this.effecttypelist.find(x => x.id == 'MatkPercent').totalvalue / 100) +
                     //    Number(this.effecttypelist.find(x => x.id == 'LevelMatkPercent').totalvalue / 100);
 
-                    var para4 = Number(1) + Number(this.attritube['MATKP'] / 100);
+                    var para4 = Number(1) + Number(this.attribute['MATKP'] / 100);
                     this.computeattribute.matkpercent_min = this.MulOper(this.computeattribute.equipmatk_min, para4);
                     this.computeattribute.matkpercent_max = this.MulOper(this.computeattribute.equipmatk_max, para4);
 
-                    //this.computeattribute.matkpercent_min = this.MulOper(this.computeattribute.matkpercent_min, Number(1) + Number(this.attritube['SMATK'] / 100));
-                    //this.computeattribute.matkpercent_max = this.MulOper(this.computeattribute.matkpercent_max, Number(1) + Number(this.attritube['SMATK'] / 100));
+                    //this.computeattribute.matkpercent_min = this.MulOper(this.computeattribute.matkpercent_min, Number(1) + Number(this.attribute['SMATK'] / 100));
+                    //this.computeattribute.matkpercent_max = this.MulOper(this.computeattribute.matkpercent_max, Number(1) + Number(this.attribute['SMATK'] / 100));
 
-                    var para_elemt = Number(1) + Number(this.effecttypelist.find(x => x.id == 'ElementalMatkPercent').totalvalue) / 100;
-                    var para_magicelemt = Number(1) + Number(this.attritube['ElementalMagicPercent']) / 100;
-                    var para_race = Number(1) + Number(this.effecttypelist.find(x => x.id == 'RaceMatkPercent').totalvalue) / 100;
-                    var para_size = Number(1) + Number(this.attritube['SizeMatkPercent']) / 100;
-                    var para_mons = Number(1) + Number(this.effecttypelist.find(x => x.id == 'MonsterMatkPercent').totalvalue) / 100;
-                    var para_level = Number(1) + Number(this.effecttypelist.find(x => x.id == 'LevelMatkPercent').totalvalue / 100);
+                    var para_elemt = Number(1) + Number(this.attribute['ElementalMatkPercent']) / 100;
+                    var para_magicelemt = Number(1) + Number(this.attribute['ElementalMagicPercent']) / 100;
+                    var para_race = Number(1) + Number(this.attribute['RaceMatkPercent']) / 100;
+                    var para_size = Number(1) + Number(this.attribute['SizeMatkPercent']) / 100;
+                    var para_mons = Number(1) + Number(this.attribute['MonsterMatkPercent']) / 100;
+                    var para_level = Number(1) + Number(this.attribute['LevelMatkPercent']) / 100;
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.matkpercent_min, para_size);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.matkpercent_max, para_size);
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_elemt);
@@ -7104,8 +7109,8 @@
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_level);
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_mons);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_mons);
-                    this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, Number(1) + Number(this.attritube['SMATK'] / 100));
-                    this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, Number(1) + Number(this.attritube['SMATK'] / 100));
+                    this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, Number(1) + Number(this.attribute['SMATK'] / 100));
+                    this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, Number(1) + Number(this.attribute['SMATK'] / 100));
 
                     this.computeattribute.matk1_min = this.MulOper(this.computeattribute.finalmatk_min, Number(1) + Number(this.enemyattribute.sizeResist / 100));
                     this.computeattribute.matk1_max = this.MulOper(this.computeattribute.finalmatk_max, Number(1) + Number(this.enemyattribute.sizeResist / 100));
@@ -7116,11 +7121,11 @@
                     this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.enemyattribute.levelResist / 100));
                     this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.enemyattribute.levelResist / 100));
 
-                    this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.attritube['ELEDDI'] / 100));
-                    this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attritube['ELEDDI'] / 100));
+                    this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.attribute['ELEDDI'] / 100));
+                    this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['ELEDDI'] / 100));
 
-                    this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.attritube['MELDDI'] / 100));
-                    this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attritube['MELDDI'] / 100));
+                    this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.attribute['MELDDI'] / 100));
+                    this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['MELDDI'] / 100));
 
                     if (this.skill.laterformula == false) {
                         var para_skillpercent = Math.floor(this.option.SkillPercent) + Number(this.computeattribute['SpecialMATK1']) + Number(mflag);
@@ -7140,7 +7145,7 @@
                     this.computeattribute.matk2_max = this.computeattribute.skillmatk_max;
 
                     if (this.option.IgnoreMDEF == false) {
-                        var parabypassMDEF = Number(1) - Number(this.attritube['BYPASSMDEF']) / 100;
+                        var parabypassMDEF = Number(1) - Number(this.attribute['BYPASSMDEF']) / 100;
                         var paraMDEF = ((1000 + this.MulOper(Number(this.enemyattribute.WeaponMDEF), parabypassMDEF)) /
                             (1000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponMDEF), parabypassMDEF)));
                         this.computeattribute.enemymdef = (paraMDEF * 100).toFixed(2);
@@ -7229,7 +7234,7 @@
                     this.option.SkillPercent = Math.floor(this.option.SkillPercent) * 100;
                     this.computeattribute.DragonBreathDMG = Math.floor(this.computeattribute.DragonBreathDMG * Number(this.option.SkillPercent / 100));
 
-                    this.computeattribute.DragonBreathDMG = this.MulOper(this.computeattribute.DragonBreathDMG, Number(1) + Number(this.attritube['ELEDDI']/ 100));
+                    this.computeattribute.DragonBreathDMG = this.MulOper(this.computeattribute.DragonBreathDMG, Number(1) + Number(this.attribute['ELEDDI']/ 100));
 
                     if (this.option.IgnoreDEF == false) {
                         if (this.skill.transWeaponDEF) {
@@ -7240,7 +7245,7 @@
                     this.computeattribute.DragonBreathDMG = this.MulOper(this.computeattribute.DragonBreathDMG, Number(1) + Number(this.option.EquipSkillAddDamage / 100));
 
                     //遠程增傷
-                    var para_ranged = Number(1) + Number(this.attritube['RNGDP']) / 100;
+                    var para_ranged = Number(1) + Number(this.attribute['RNGDP']) / 100;
                     if (this.skill.ranged) {
                         this.computeattribute.DragonBreathDMG = this.MulOper(this.computeattribute.DragonBreathDMG, para_ranged);
                     }
@@ -7562,7 +7567,7 @@
                 },
                 onOption() {
                     this.status_add = Object.assign({}, this.status_add_init);
-                    this.attritube = Object.assign({}, this.attritube_init);
+                    this.attribute = Object.assign({}, this.attribute_init);
                     this.status_job = _.cloneDeep(this.status_job_init);
                     if (this.status.UseJobMaxPoint){
                             if(this.status.Level>=200 && this.ClassInfo.TJobMaxPoint!=null){
@@ -7613,28 +7618,28 @@
                     if (this.IsSupportActive('AS_KATAR')) { if(this.weapon.type.id == 'Katars' ){ this.skilloption.WeaponMasteryATK+=30; } }
                     if (this.IsSupportActive('MO_IRONHAND')) { if(this.weapon.type.id == 'Empty' || this.weapon.type.id == 'Knuckles'){ this.skilloption.WeaponMasteryATK+=30; } }
                     if (this.IsSupportActive('BS_HILTBINDING')){ this.status_add.STR += 1; this.skilloption.WeaponMasteryATK+=4; }
-                    if (this.IsSupportActive('BS_WEAPONRESEARCH')){ this.skilloption.WeaponMasteryATK+=20; this.attritube['HIT'] += 20;}
-                    if (this.IsSupportActive('NC_TRAININGAXE')){ if(this.weapon.type.id == 'Axes' ){ this.skilloption.WeaponMasteryATK+=50; this.attritube['HIT'] += 30;} }
-                    if (this.IsSupportActive('NC_TRAININGAXE')){ if(this.weapon.type.id == 'Maces' ){ this.skilloption.WeaponMasteryATK+=40; this.attritube['HIT'] += 20;} }
+                    if (this.IsSupportActive('BS_WEAPONRESEARCH')){ this.skilloption.WeaponMasteryATK+=20; this.attribute['HIT'] += 20;}
+                    if (this.IsSupportActive('NC_TRAININGAXE')){ if(this.weapon.type.id == 'Axes' ){ this.skilloption.WeaponMasteryATK+=50; this.attribute['HIT'] += 30;} }
+                    if (this.IsSupportActive('NC_TRAININGAXE')){ if(this.weapon.type.id == 'Maces' ){ this.skilloption.WeaponMasteryATK+=40; this.attribute['HIT'] += 20;} }
                     if (this.IsSupportActive('NC_MADOLICENCE')){ this.skilloption.WeaponMasteryATK+=75;}
                     if (this.IsSupportActive('AM_AXEMASTERY')) { if(this.weapon.type.id == 'Axes' || this.weapon.type.id == 'OneHandedSwords'){ this.skilloption.WeaponMasteryATK+=30; } }
-                    if (this.IsSupportActive('GN_TRAINING_SWORD')){ if(this.weapon.type.id == 'Daggers' || this.weapon.type.id == 'OneHandedSwords'){ this.skilloption.WeaponMasteryATK+=50; this.attritube['HIT'] += 15;} }
-                    if (this.IsSupportActive('SA_ADVANCEDBOOK')){ if(this.weapon.type.id == 'Books' ){ this.skilloption.WeaponMasteryATK+=30; this.attritube['ASPDP'] += 5;} }
+                    if (this.IsSupportActive('GN_TRAINING_SWORD')){ if(this.weapon.type.id == 'Daggers' || this.weapon.type.id == 'OneHandedSwords'){ this.skilloption.WeaponMasteryATK+=50; this.attribute['HIT'] += 15;} }
+                    if (this.IsSupportActive('SA_ADVANCEDBOOK')){ if(this.weapon.type.id == 'Books' ){ this.skilloption.WeaponMasteryATK+=30; this.attribute['ASPDP'] += 5;} }
                     if (this.IsSupportActive('TK_RUN')){ if(this.weapon.type.id == 'Empty' ){ this.skilloption.WeaponMasteryATK+=this.GetSupportSkill('TK_RUN').lv*10;} }
                     if (this.IsSupportActive('RL_RICHS_COIN')){ if(this.weapon.type.id == 'Guns' ){ this.skilloption.WeaponMasteryATK+=30;} }
 
                     //雙手劍攻擊速度增加
                     if (this.IsSupportActive('KN_TWOHANDQUICKEN')) {
                         if (this.weapon.type.id == 'TwoHandedSword') {
-                            this.attritube['CRI'] += 12;
-                            this.attritube['HIT'] += 20;
-                            this.attritube['ASPDP'] += 40;
+                            this.attribute['CRI'] += 12;
+                            this.attribute['HIT'] += 20;
+                            this.attribute['ASPDP'] += 40;
                         }
                     }
                     // 集中
                     if (this.IsSupportActive('LK_CONCENTRATION')) {
-                        this.attritube['ATKP'] += 15;
-                        this.attritube['HIT'] += 50;
+                        this.attribute['ATKP'] += 15;
+                        this.attribute['HIT'] += 50;
                     }
                     //靈氣劍
                     if (this.IsSupportActive('LK_AURABLADE')) {
@@ -7647,7 +7652,7 @@
                     // 突里薩茲:力量成長(盧1)
                     if (this.IsSupportActive('RK_GIANTGROWTH')){
                         this.status_add.STR += 30;
-                        this.attritube['MELDP'] += 15;
+                        this.attribute['MELDP'] += 15;
                         if (this.skill.id != 'RK_STORMBLAST')
                         {
                             this.computeattribute['SpecialATK5'] += 250;
@@ -7656,16 +7661,16 @@
                     }
                     // 艾伊瓦茲:提升鬥志(盧5)
                     if (this.IsSupportActive('RK_FIGHTINGSPIRIT')){
-                        this.attritube['ATK'] += 70;
+                        this.attribute['ATK'] += 70;
                     }
                     // 力量根源:盧恩爆發(盧10)
                     if (this.IsSupportActive('RK_LUXANIMA')){
-                        this.attritube['MELDP'] += 30;
-                        this.attritube['RNGDP'] += 30;
-                        this.attritube['CRIDP'] += 30;
-                        this.attritube['SizeAtkPercent'] += 30;
-                        this.attritube['HPP'] += 30;
-                        this.attritube['SPP'] += 30;
+                        this.attribute['MELDP'] += 30;
+                        this.attribute['RNGDP'] += 30;
+                        this.attribute['CRIDP'] += 30;
+                        this.attribute['SizeAtkPercent'] += 30;
+                        this.attribute['HPP'] += 30;
+                        this.attribute['SPP'] += 30;
                     }
                     // 天龍光環
                     if (this.IsSupportActive('DK_DRAGONIC_AURA')){
@@ -7676,26 +7681,26 @@
 
                     // 信任
                     if (this.IsSupportActive('CR_TRUST')) {
-                        this.attritube['HP'] += 2000;
+                        this.attribute['HP'] += 2000;
                     }
                     // 長矛加速術
                     if (this.IsSupportActive('CR_SPEARQUICKEN')) {
                         if (this.weapon.type.id == 'Spears') {
-                            this.attritube['CRI'] += 30;
-                            this.attritube['ASPDP'] += 30;
+                            this.attribute['CRI'] += 30;
+                            this.attribute['ASPDP'] += 30;
                         }
                     }
                     // 盾咒
                     if (this.IsSupportActive('LG_SHIELDSPELL')){
-                        this.attritube['ATK'] += this.GetSupportSkill('LG_SHIELDSPELL').arg1;
-                        this.attritube['MATK'] += this.GetSupportSkill('LG_SHIELDSPELL').arg1;
+                        this.attribute['ATK'] += this.GetSupportSkill('LG_SHIELDSPELL').arg1;
+                        this.attribute['MATK'] += this.GetSupportSkill('LG_SHIELDSPELL').arg1;
                     }
                     // 靈感
                     if (this.IsSupportActive('LG_INSPIRATION')){
-                        this.attritube['HPP'] += 20;
-                        this.attritube['ATK'] += 200;
-                        this.attritube['MATK'] += 200;
-                        this.attritube['HIT'] += 60;
+                        this.attribute['HPP'] += 20;
+                        this.attribute['ATK'] += 200;
+                        this.attribute['MATK'] += 200;
+                        this.attribute['HIT'] += 60;
                         var _ad = 30;
                         this.status_add.STR += _ad;
                         this.status_add.AGI += _ad;
@@ -7706,13 +7711,13 @@
                     }
                     // 攻擊架式
                     if (this.IsSupportActive('IG_ATTACK_STANCE')){
-                        this.attritube['PATK'] += 15;
-                        this.attritube['SMATK'] += 15;
+                        this.attribute['PATK'] += 15;
+                        this.attribute['SMATK'] += 15;
                     }
                     // 抗性聖盾
                     if (this.IsSupportActive('IG_HOLY_SHIELD')){
                         if (this.skilloption.AttackElementalIdx == 6) {
-                            this.attritube['ElementalMagicPercent'] += 15;
+                            this.attribute['ElementalMagicPercent'] += 15;
                         }
                     }
                     // 怒暴
@@ -7729,65 +7734,65 @@
                     //速度激發
                     if (this.IsSupportActive('BS_ADRENALINE')){
                         if (this.weapon.type.id == 'Axes' || this.weapon.type.id == 'Maces') {
-                            this.attritube['ASPDP'] += 40;
+                            this.attribute['ASPDP'] += 40;
                         }
                     }
                     //毒耐性弱化
                     if (this.IsSupportActive('GC_VENOMIMPRESS')){
                         if (this.skilloption.AttackElementalIdx == 5) {
-                            this.attritube['ELEDDI'] += this.GetSupportSkill('GC_VENOMIMPRESS').lv * 10;
+                            this.attribute['ELEDDI'] += this.GetSupportSkill('GC_VENOMIMPRESS').lv * 10;
                         }
                     }
                     // 劇毒武器
                     if (this.IsSupportActive('GC_POISONINGWEAPON')){
-                        this.attritube['MELDP'] += 10;
+                        this.attribute['MELDP'] += 10;
                     }
                     // 劇毒武器:熱病
                     if (this.IsSupportActive('GC_POISONINGWEAPON:1')){
-                        this.attritube['MELDP'] += 10;
-                        this.attritube['CRIDP'] += 15;
+                        this.attribute['MELDP'] += 10;
+                        this.attribute['CRIDP'] += 15;
                     }
                     // 劇毒武器:狂笑
                     if (this.IsSupportActive('GC_POISONINGWEAPON:2')){
-                        this.attritube['MELDP'] += 10;
-                        this.attritube['GCD'] += 10;
+                        this.attribute['MELDP'] += 10;
+                        this.attribute['GCD'] += 10;
                     }
                     // 影刃旋舞
                     if (this.IsSupportActive('SHC_SHADOW_SENSE')){
                         if (this.weapon.type.id == 'Daggers' ) {
-                            this.attritube['CRI'] += 50;
+                            this.attribute['CRI'] += 50;
                         }
                         if (this.weapon.type.id == 'Katars' ) {
-                            this.attritube['CRI'] += 25;
+                            this.attribute['CRI'] += 25;
                         }
                     }
                     // 潛擊
                     if (this.IsSupportActive('RG_RAID')){
-                        this.attritube['ELEDDI'] += 15;
+                        this.attribute['ELEDDI'] += 15;
                     }
                     // 自動魅影念咒
                     if (this.IsSupportActive('SC_AUTOSHADOWSPELL')){
-                        this.attritube['MATK'] += 50;
+                        this.attribute['MATK'] += 50;
                     }
                     // 短劍&弓弩精熟
                     if (this.IsSupportActive('ABC_DAGGER_AND_BOW_M')){
-                        if(this.enemyattribute.size == 0) this.attritube['SizeAtkPercent'] += 10;
-                        if(this.enemyattribute.size == 1) this.attritube['SizeAtkPercent'] += 15;
-                        if(this.enemyattribute.size == 2) this.attritube['SizeAtkPercent'] += 20;
+                        if(this.enemyattribute.size == 0) this.attribute['SizeAtkPercent'] += 10;
+                        if(this.enemyattribute.size == 1) this.attribute['SizeAtkPercent'] += 15;
+                        if(this.enemyattribute.size == 2) this.attribute['SizeAtkPercent'] += 20;
                     }
                     // 魔劍精熟
                     if (this.IsSupportActive('ABC_MAGIC_SWORD_M')){
-                        this.attritube['SizeMatkPercent'] += 15;
+                        this.attribute['SizeMatkPercent'] += 15;
                     }
 
                     // 大聲吶喊
                     if (this.IsSupportActive('MC_LOUD')){
                         this.status_add.STR += 4;
-                        this.attritube['ATK'] += 30;
+                        this.attribute['ATK'] += 30;
                     }
                     //無視體型攻擊
                     if (this.IsSupportActive('BS_WEAPONPERFECT')){
-                        this.attritube['WeaponPerfection'] = 9999;
+                        this.attribute['WeaponPerfection'] = 9999;
                     }
                     // 兇砍
                     if (this.IsSupportActive('BS_OVERTHRUST25')){
@@ -7804,27 +7809,27 @@
                     }
                     //衝擊
                     if (this.IsSupportActive('MT_RUSH')){
-                        this.attritube['MELDP'] += 50;
-                        this.attritube['RNGDP'] += 50;
+                        this.attribute['MELDP'] += 50;
+                        this.attribute['RNGDP'] += 50;
                     }
                     //撼動
                     if (this.IsSupportActive('MT_QUAKE')){
-                        this.attritube['MELDDI'] += 50;
-                        this.attritube['RNGDDI'] += 50;
+                        this.attribute['MELDDI'] += 50;
+                        this.attribute['RNGDDI'] += 50;
                     }
 
 
                     // 火山塵暴
                     if (this.IsSupportActive('MH_PYROCLASTIC')){
-                        this.attritube['ATK'] += Number(this.GetSupportSkill('MH_PYROCLASTIC').arg1) + 10 * 20;
+                        this.attribute['ATK'] += Number(this.GetSupportSkill('MH_PYROCLASTIC').arg1) + 10 * 20;
                     }
                     // 手推車加速
                     if (this.IsSupportActive('GN_CARTBOOST')){
-                        this.attritube['ATK'] += 50;
+                        this.attribute['ATK'] += 50;
                     }
                     // 爆炸孢子狀態
                     if (this.IsSupportActive('GN_SPORE')){
-                        this.attritube['RNGDDI'] = 5;
+                        this.attribute['RNGDDI'] = 5;
                     }
                     if (this.skill.cannon) {
                         this.computeattribute['SpecialATK2'] += this.weapon.BulletATK;
@@ -7846,17 +7851,17 @@
                         this.status_add.INT += 5;
                         this.status_add.DEX += 5;
                         this.status_add.LUK += 5;
-                        this.attritube['CRI'] += 10;
+                        this.attribute['CRI'] += 10;
                         this.computeattribute['SpecialATK5'] += 10 * 2;
                         this.computeattribute['SpecialATK6'] += 10 * 2;
                     }
                     // 菁英狙擊
                     if (this.IsSupportActive('RA_UNLIMIT')){
-                        this.attritube['RNGDP'] += this.GetSupportSkill('RA_UNLIMIT').lv * 50 + 100;
+                        this.attribute['RNGDP'] += this.GetSupportSkill('RA_UNLIMIT').lv * 50 + 100;
                     }
                     // 憤怒暴風
                     if (this.IsSupportActive('WH_CALAMITYGALE')){
-                        this.attritube['RNGDP'] += 350;
+                        this.attribute['RNGDP'] += 350;
                         if( this.skill.id == 'WH_CRESCIVE_BOLT(min)' || this.skill.id == 'WH_CRESCIVE_BOLT(max)' ){
                             this.option.EquipSkillAddDamage += 20;
                         }
@@ -7864,94 +7869,94 @@
                     // 陷阱研究
                     if (this.IsSupportActive('RA_RESEARCHTRAP')){
                         this.status_add.INT += 10;
-                        this.attritube['SP'] += 400;
+                        this.attribute['SP'] += 400;
                     }
                     if (this.skill.id == 'SN_SHARPSHOOTING'){
-                        this.attritube['CRI'] += 45;
+                        this.attribute['CRI'] += 45;
                     }
                     // 練習舞蹈
                     if (this.IsSupportActive('BA_MUSICALLESSON')){
-                        this.attritube['ATK'] += 3 * 10;
-                        this.attritube['SPP'] += 10;
-                        this.attritube['CRI'] += 10;
+                        this.attribute['ATK'] += 3 * 10;
+                        this.attribute['SPP'] += 10;
+                        this.attribute['CRI'] += 10;
                     }
                     // 課程
                     if (this.IsSupportActive('WM_LESSON')){
-                        this.attritube['SP'] += 300;
+                        this.attribute['SP'] += 300;
                     }
                     // 布萊奇
                     if (this.IsSupportActive('BA_POEMBRAGI')){
-                        this.attritube['SK1VCTP'] += 2 * 10;
-                        this.attritube['GCD'] += 3 * 10;
+                        this.attribute['SK1VCTP'] += 2 * 10;
+                        this.attribute['GCD'] += 3 * 10;
                     }
                     // 朝風車突擊
                     if (this.IsSupportActive('MI_RUSH_WINDMILL')){
-                        this.attritube['ATK'] += 20+2*10;
+                        this.attribute['ATK'] += 20+2*10;
                     }
                     // 女神之吻
                     if (this.IsSupportActive('DC_FORTUNEKISS')){
-                        this.attritube['CRI'] += 10;
-                        this.attritube['CRIDP'] += 20;
+                        this.attribute['CRI'] += 10;
+                        this.attribute['CRIDP'] += 20;
                     }
                     // 伊登的蘋果
                     if (this.IsSupportActive('BA_APPLEIDUN')){
-                        this.attritube['HPP'] += 20;
+                        this.attribute['HPP'] += 20;
                     }
                     // 豐年頌
                     if (this.IsSupportActive('WM_FRIGG_SONG')){
-                        this.attritube['HPP'] += 25;
+                        this.attribute['HPP'] += 25;
                     }
                     // 月光小夜曲
                     if (this.IsSupportActive('WA_MOONLIT_SERENADE')){
-                        this.attritube['MATK'] += 20+2*10;
+                        this.attribute['MATK'] += 20+2*10;
                     }
                     // 搖擺舞
                     if (this.IsSupportActive('WA_SWING_DANCE')){
-                        this.attritube['FCTP'] = Math.max(this.attritube['FCTP'], 30);
-                        this.attritube['ASPDP'] += 25;
+                        this.attribute['FCTP'] = Math.max(this.attribute['FCTP'], 30);
+                        this.attribute['ASPDP'] += 25;
                     }
                     // 雷拉多露水
                     if (this.IsSupportActive('WM_LERADS_DEW')){
-                        this.attritube['HPP'] += 17+Math.floor(10/3);
+                        this.attribute['HPP'] += 17+Math.floor(10/3);
                     }
                     // 無限哼唱聲
                     if (this.IsSupportActive('WM_UNLIMITED_HUMMING_VOICE')){
-                        this.attritube['ElementalMagicPercent'] += 20;
+                        this.attribute['ElementalMagicPercent'] += 20;
                     }
                     // 與狼共舞
                     if (this.IsSupportActive('WM_DANCE_WITH_WUG')){
-                        this.attritube['FCTP'] = Math.max(this.attritube['FCTP'], 70);
-                        this.attritube['ASPDP'] += 25;
-                        this.attritube['RNGDP'] += 5;
+                        this.attribute['FCTP'] = Math.max(this.attribute['FCTP'], 70);
+                        this.attribute['ASPDP'] += 25;
+                        this.attribute['RNGDP'] += 5;
                     }
                     // 舞台禮儀
                     if (this.IsSupportActive('TR_STAGE_MANNER')){
-                        this.attritube['PATK'] += 15;
-                        this.attritube['SMATK'] += 15;
+                        this.attribute['PATK'] += 15;
+                        this.attribute['SMATK'] += 15;
                     }
                     // 暮色小夜曲
                     if (this.IsSupportActive('TR_JAWAII_SERENADE')){
-                        this.attritube['SMATK'] += 15;
+                        this.attribute['SMATK'] += 15;
                     }
                     // 普隆德拉進行曲
                     if (this.IsSupportActive('TR_PRON_MARCH')){
-                        this.attritube['PATK'] += 15;
+                        this.attribute['PATK'] += 15;
                     }
 
                     // 魔力中毒
                     if (this.IsSupportActive('MagicAddicted')){
-                        this.attritube['ELEDDI'] += 50;
+                        this.attribute['ELEDDI'] += 50;
                     }
                     // 終極念力
                     if (this.IsSupportActive('WL_TELEKINESIS_INTENSE')){
                         if (this.skilloption.AttackElementalIdx == 8) {
                             this.computeattribute['SpecialMATK3'] += 200;
-                            this.attritube['SK1VCTP'] += 50;
+                            this.attribute['SK1VCTP'] += 50;
                         }
                     }
                     // 雙手杖使用熟練度
                     if (this.IsSupportActive('AG_TWOHANDSTAFF')){
-                        this.attritube['SMATK'] += this.GetSupportSkill('AG_TWOHANDSTAFF').lv * 2;
+                        this.attribute['SMATK'] += this.GetSupportSkill('AG_TWOHANDSTAFF').lv * 2;
                     }
                     // 魔力巔峰
                     if (this.IsSupportActive('AG_CLIMAX(Lv1)')){
@@ -7959,7 +7964,7 @@
                         if (this.IsSupportActive('AG_CRYSTAL_IMPACT(Lv1)'))
                         {
                             if (this.skilloption.AttackElementalIdx == 2) {
-                                this.attritube['ElementalMagicPercent'] += 30;
+                                this.attribute['ElementalMagicPercent'] += 30;
                             }
                         }
                     }
@@ -7969,22 +7974,22 @@
                         if (this.IsSupportActive('AG_ALL_BLOOM(Lv4)'))
                         {
                             if (this.skilloption.AttackElementalIdx == 1) {
-                                this.attritube['ELEDDI'] += 100;
+                                this.attribute['ELEDDI'] += 100;
                             }
                         }
                         //毀滅颶風
                         if (this.IsSupportActive('AG_DESTRUCTIVE_HURRICANE(Lv4)'))
                         {
-                            this.attritube['MATK'] += 100;
+                            this.attribute['MATK'] += 100;
                             if (this.skilloption.AttackElementalIdx == 3) {
-                                this.attritube['ElementalMagicPercent'] += 30;
+                                this.attribute['ElementalMagicPercent'] += 30;
                             }
                         }
                         //震裂術
                         if (this.IsSupportActive('AG_VIOLENT_QUAKE(Lv4)'))
                         {
                             if (this.skilloption.AttackElementalIdx == 4) {
-                                this.attritube['ELEDDI'] += 100;
+                                this.attribute['ELEDDI'] += 100;
                             }
                         }
                         if (this.skill.id == 'AG_CRIMSON_ARROW(all)'||
@@ -8001,65 +8006,65 @@
                     }
                     // 打強
                     if (this.IsSupportActive('SO_STRIKING')){
-                        this.attritube['ATK'] += 100;
+                        this.attribute['ATK'] += 100;
                         //this.computeattribute['SpecialATK1'] += 100;   //old
                     }
                     // 雲毒
                     if (this.IsSupportActive('SO_CLOUD_POSION')){
                         if (this.skilloption.AttackElementalIdx == 5) {
-                            this.attritube['ELEDDI'] += 25;
+                            this.attribute['ELEDDI'] += 25;
                         }
                     }
                     // 紋章
                     if (this.IsSupportActive('SO_FIRE_INSIGNIA')) {
                         if(this.GetSupportSkill('SO_FIRE_INSIGNIA').lv==2)
                         {
-                            this.attritube['ATK'] += 50;
-                            this.attritube['ATKP'] += 10;
+                            this.attribute['ATK'] += 50;
+                            this.attribute['ATKP'] += 10;
                         }
                         if(this.GetSupportSkill('SO_FIRE_INSIGNIA').lv==3)
                         {
-                            this.attritube['MATK'] += 50;
+                            this.attribute['MATK'] += 50;
                             if (this.skilloption.AttackElementalIdx == 1) {
-                                this.attritube['ElementalMagicPercent'] += 25;
+                                this.attribute['ElementalMagicPercent'] += 25;
                             }
                         }
                     }
                     if (this.IsSupportActive('SO_WATER_INSIGNIA')) {
                         if(this.GetSupportSkill('SO_WATER_INSIGNIA').lv==2)
                         {
-                            this.attritube['ATKP'] += 10;
+                            this.attribute['ATKP'] += 10;
                         }
                         if(this.GetSupportSkill('SO_WATER_INSIGNIA').lv==3)
                         {
                             if (this.skilloption.AttackElementalIdx == 2) {
-                                this.attritube['SK1VCTP'] += 30;
-                                this.attritube['ElementalMagicPercent'] += 25;
+                                this.attribute['SK1VCTP'] += 30;
+                                this.attribute['ElementalMagicPercent'] += 25;
                             }
                         }
                     }
                     if (this.IsSupportActive('SO_WIND_INSIGNIA')) {
                         if(this.GetSupportSkill('SO_WIND_INSIGNIA').lv==2)
                         {
-                            this.attritube['ATKP'] += 10;
+                            this.attribute['ATKP'] += 10;
                         }
                         if(this.GetSupportSkill('SO_WIND_INSIGNIA').lv==3)
                         {
                             if(this.skilloption.AttackElementalIdx == 3) {
-                                this.attritube['GCD'] += 50;
-                                this.attritube['ElementalMagicPercent'] += 25;
+                                this.attribute['GCD'] += 50;
+                                this.attribute['ElementalMagicPercent'] += 25;
                             }
                         }
                     }
                     if (this.IsSupportActive('SO_EARTH_INSIGNIA')) {
                         if(this.GetSupportSkill('SO_EARTH_INSIGNIA').lv==2)
                         {
-                            this.attritube['ATKP'] += 10;
+                            this.attribute['ATKP'] += 10;
                         }
                         if(this.GetSupportSkill('SO_EARTH_INSIGNIA').lv==3)
                         {
                             if (this.skilloption.AttackElementalIdx == 4) {
-                                this.attritube['ElementalMagicPercent'] += 25;
+                                this.attribute['ElementalMagicPercent'] += 25;
                             }
                         }
                     }
@@ -8089,8 +8094,8 @@
                             var _lv = this.GetSupportSkill('SA_VOLCANO').lv;
                             var _a = [0,3,6,9,12,15];
                             var _e = [0,10,14,17,19,20];
-                            this.attritube['ATK'] += _a[_lv];
-                            this.attritube['ElementalMagicPercent'] += _e[_lv];
+                            this.attribute['ATK'] += _a[_lv];
+                            this.attribute['ElementalMagicPercent'] += _e[_lv];
                         }
                     }
                     //水元素領域
@@ -8099,8 +8104,8 @@
                             var _lv = this.GetSupportSkill('SA_DELUGE').lv;
                             var _h = [0,5,9,12,14,15];
                             var _e = [0,10,14,17,19,20];
-                            this.attritube['HPP'] += _h[_lv];
-                            this.attritube['ElementalMagicPercent'] += _e[_lv];
+                            this.attribute['HPP'] += _h[_lv];
+                            this.attribute['ElementalMagicPercent'] += _e[_lv];
                         }
                     }
                     //風元素領域
@@ -8108,31 +8113,31 @@
                         if (this.skilloption.AttackElementalIdx == 3) {
                             var _lv = this.GetSupportSkill('SA_VIOLENTGALE').lv;
                             var _e = [0,10,14,17,19,20];
-                            this.attritube['ElementalMagicPercent'] += _e[_lv];
+                            this.attribute['ElementalMagicPercent'] += _e[_lv];
                         }
                     }
                     // 魔法書精熟
                     if (this.IsSupportActive('EM_MAGIC_BOOK_M')){
                         var _lv = this.GetSupportSkill('EM_MAGIC_BOOK_M').lv;
                         if (this.skilloption.AttackElementalIdx == 1) {
-                            this.attritube['ElementalMagicPercent'] += _lv;
+                            this.attribute['ElementalMagicPercent'] += _lv;
                         }
                         if (this.skilloption.AttackElementalIdx == 2) {
-                            this.attritube['ElementalMagicPercent'] += _lv;
+                            this.attribute['ElementalMagicPercent'] += _lv;
                         }
                         if (this.skilloption.AttackElementalIdx == 3) {
-                            this.attritube['ElementalMagicPercent'] += _lv;
+                            this.attribute['ElementalMagicPercent'] += _lv;
                         }
                         if (this.skilloption.AttackElementalIdx == 4) {
-                            this.attritube['ElementalMagicPercent'] += _lv;
+                            this.attribute['ElementalMagicPercent'] += _lv;
                         }
                         if (this.skilloption.AttackElementalIdx == 5) {
-                            this.attritube['ElementalMagicPercent'] += _lv;
+                            this.attribute['ElementalMagicPercent'] += _lv;
                         }
                     }
                     // 咒力賦予
                     if (this.IsSupportActive('EM_SPELL_ENCHANTING')){
-                        this.attritube['SMATK'] += this.GetSupportSkill('EM_SPELL_ENCHANTING').lv*4;
+                        this.attribute['SMATK'] += this.GetSupportSkill('EM_SPELL_ENCHANTING').lv*4;
                     }
                     // 召喚元素:阿爾多雷 火
                     if (this.IsSupportActive('EM_SUMMON_ELEMENTAL_ARDOR')){
@@ -8143,7 +8148,7 @@
                             }
                         }
                         if (this.skilloption.AttackElementalIdx == 1){
-                            this.attritube['ElementalMagicPercent'] += 10;
+                            this.attribute['ElementalMagicPercent'] += 10;
                         }
                     }
                     // 召喚元素:迪盧比奧 水
@@ -8155,7 +8160,7 @@
                             }
                         }
                         if (this.skilloption.AttackElementalIdx == 2){
-                            this.attritube['ElementalMagicPercent'] += 10;
+                            this.attribute['ElementalMagicPercent'] += 10;
                         }
                     }
                     // 召喚元素:普羅賽拉 風
@@ -8167,44 +8172,44 @@
                             }
                         }
                         if (this.skilloption.AttackElementalIdx == 3){
-                            this.attritube['ElementalMagicPercent'] += 10;
+                            this.attribute['ElementalMagicPercent'] += 10;
                         }
                     }
                     // 召喚元素:泰雷莫圖斯 地
                     if (this.IsSupportActive('EM_SUMMON_ELEMENTAL_TERREMOTUS')){
                         if (this.skilloption.AttackElementalIdx == 4){
-                            this.attritube['ElementalMagicPercent'] += 10;
+                            this.attribute['ElementalMagicPercent'] += 10;
                         }
                     }
                     // 召喚元素:普羅賽拉 毒
                     if (this.IsSupportActive('EM_SUMMON_ELEMENTAL_SERPENS')){
                         if (this.skilloption.AttackElementalIdx == 5){
-                            this.attritube['ElementalMagicPercent'] += 10;
+                            this.attribute['ElementalMagicPercent'] += 10;
                         }
                     }
                     // 加速
                     if (this.IsSupportActive('AL_INCAGI')){
                         this.status_add.AGI += 12;
-                        this.attritube['ASPDP'] += 10;
+                        this.attribute['ASPDP'] += 10;
                     }
                     if (this.IsSupportActive('AB_CANTO')){
                         var jc = Math.floor(this.GetSupportSkill('AB_CANTO').arg1 / 10);
                         this.status_add.AGI += 12 + jc;
-                        this.attritube['ASPDP'] += 10 + jc;
+                        this.attribute['ASPDP'] += 10 + jc;
                     }
                     // 天賜
                     if (this.IsSupportActive('AL_BLESSING')){
                         this.status_add.STR += 10;
                         this.status_add.INT += 10;
                         this.status_add.DEX += 10;
-                        this.attritube['HIT'] += 20;
+                        this.attribute['HIT'] += 20;
                     }
                     if (this.IsSupportActive('AB_CLEMENTIA')){
                         var jc = Math.floor(this.GetSupportSkill('AB_CLEMENTIA').arg1 / 10);
                         this.status_add.STR += 10 + jc;
                         this.status_add.INT += 10 + jc;
                         this.status_add.DEX += 10 + jc;
-                        this.attritube['HIT'] += 20;
+                        this.attribute['HIT'] += 20;
                     }
                     if (this.IsSupportActive('MO_CALLSPIRITS')){
                         this.skilloption.WeaponMasteryATK += this.GetSupportSkill('MO_CALLSPIRITS').lv * 3;
@@ -8212,10 +8217,10 @@
                     // 點穴-反
                     if (this.IsSupportActive('SR_GENTLETOUCH_CHANGE')){
                         //this.computeattribute['SpecialATK1'] += (this.status_total.STR / 2 + this.status_total.DEX / 4) * 5 / 5;
-                        this.attritube['ASPDP'] += this.status_total.AGI * 5 / 60;
+                        this.attribute['ASPDP'] += this.status_total.AGI * 5 / 60;
 
-                        this.attritube['ATK'] += 40;
-                        this.attritube['ATKP'] += 5;
+                        this.attribute['ATK'] += 40;
+                        this.attribute['ATKP'] += 5;
                         if (this.skill.id.includes('SR_RAMPAGEBLASTER') || this.skill.id.includes('SR_KNUCKLEARROW'))
                         {
                             this.option.EquipSkillAddDamage += 30;
@@ -8227,37 +8232,37 @@
                         {
                             this.option.EquipSkillAddDamage += 30;
                         }
-                        this.attritube['HPP'] += 10;
+                        this.attribute['HPP'] += 10;
                     }
                     //潛龍昇天
                     if (this.IsSupportActive('SR_RAISINGDRAGON')){
-                        this.attritube['HPP'] += 10;
-                        this.attritube['SPP'] += 10;
+                        this.attribute['HPP'] += 10;
+                        this.attribute['SPP'] += 10;
                     }
                     //堅毅信念
                     if (this.IsSupportActive('IQ_POWERFUL_FAITH')){
-                        this.attritube['ATK'] += 30;
-                        this.attritube['PATK'] += 15;
+                        this.attribute['ATK'] += 30;
+                        this.attribute['PATK'] += 15;
                     }
 
                     //犧牲祈福
                     if (this.IsSupportActive('PR_SUFFRAGIUM')){
-                        this.attritube['SK1VCTP'] += 5 + this.GetSupportSkill('PR_SUFFRAGIUM').lv * 5;
+                        this.attribute['SK1VCTP'] += 5 + this.GetSupportSkill('PR_SUFFRAGIUM').lv * 5;
                     }
                     //神威祈福
                     if (this.IsSupportActive('PR_IMPOSITIO')){
                         this.computeattribute['SpecialATK4'] += Number(this.GetSupportSkill('PR_IMPOSITIO').lv) * 5;
-                        this.attritube['MATK'] += Number(this.GetSupportSkill('PR_IMPOSITIO').lv) * 5;
+                        this.attribute['MATK'] += Number(this.GetSupportSkill('PR_IMPOSITIO').lv) * 5;
                     }
                     // 神聖殿堂
                     if (this.IsSupportActive('HP_BASILICA')){
                         if (this.skilloption.AttackElementalIdx == 6) {
-                            this.attritube['ElementalMagicPercent'] += 15;
+                            this.attribute['ElementalMagicPercent'] += 15;
                         }
                     }
                     //聖典
                     if (this.IsSupportActive('AB_SECRAMENT')){
-                        this.attritube['FCTP'] = Math.max(this.attritube['FCTP'], 50);
+                        this.attribute['FCTP'] = Math.max(this.attribute['FCTP'], 50);
                     }
                     //祈禱文
                     if (this.IsSupportActive('AB_ORATIO')){
@@ -8267,7 +8272,7 @@
                                     this.computeattribute['SpecialATK1'] += this.weapon.ATK * ((this.GetSupportSkill('AB_ORATIO').lv * 2) / 100);
                                     break;
                                 case 1:
-                                    //this.attritube['ELEDDI'] += (this.GetSupportSkill('AB_ORATIO').lv * 2);
+                                    //this.attribute['ELEDDI'] += (this.GetSupportSkill('AB_ORATIO').lv * 2);
                                     break;
                                 case 2:
                                     break;
@@ -8276,12 +8281,12 @@
                     }
                     //折枝
                     if (this.IsSupportActive('AB_LAUDARAMUS')){
-                        this.attritube['CRIDP'] += Number(this.GetSupportSkill('AB_LAUDARAMUS').lv) * 5;
+                        this.attribute['CRIDP'] += Number(this.GetSupportSkill('AB_LAUDARAMUS').lv) * 5;
                     }
                     //贖罪
                     if (this.IsSupportActive('AB_EXPIATIO')){
-                        this.attritube['BYPASSDEF'] += Number(this.GetSupportSkill('AB_EXPIATIO').lv) * 5;
-                        this.attritube['BYPASSMDEF'] += Number(this.GetSupportSkill('AB_EXPIATIO').lv) * 5;
+                        this.attribute['BYPASSDEF'] += Number(this.GetSupportSkill('AB_EXPIATIO').lv) * 5;
+                        this.attribute['BYPASSMDEF'] += Number(this.GetSupportSkill('AB_EXPIATIO').lv) * 5;
                     }
                     //全心奉獻
                     if (this.IsSupportActive('CD_RELIGIO')){
@@ -8297,12 +8302,12 @@
                     }
                     //爆裂聖光
                     if (this.IsSupportActive('CD_PRESENS_ACIES')){
-                        this.attritube['CRIDR'] += 10;
+                        this.attribute['CRIDR'] += 10;
                     }
                     //神聖權能
                     if (this.IsSupportActive('CD_COMPETENTIA')){
-                        this.attritube['PATK'] += 50;
-                        this.attritube['SMATK'] += 50;
+                        this.attribute['PATK'] += 50;
+                        this.attribute['SMATK'] += 50;
                     }
                     //融合
                     if (this.IsSupportActive('SG_FUSION')){
@@ -8310,27 +8315,27 @@
                     }
                     //靈魂
                     if (this.IsSupportActive('SP_SOULCOLLECT')){
-                        this.attritube['MATK'] += this.GetSupportSkill('SP_SOULCOLLECT').lv * 3;
+                        this.attribute['MATK'] += this.GetSupportSkill('SP_SOULCOLLECT').lv * 3;
                     }
                     if (this.IsSupportActive('SP_SOULSHADOW')){
-                        this.attritube['CRI'] += 10 + 2 * 5;
-                        this.attritube['ASPD'] += 3;
+                        this.attribute['CRI'] += 10 + 2 * 5;
+                        this.attribute['ASPD'] += 3;
                     }
                     if (this.IsSupportActive('SP_SOULFAIRY')){
-                        this.attritube['MATK'] += 10 * 5;
-                        this.attritube['EQVCTP'] += 10;
+                        this.attribute['MATK'] += 10 * 5;
+                        this.attribute['EQVCTP'] += 10;
                     }
                     if (this.IsSupportActive('SP_SOULFALCON')){
-                        this.attritube['ATK'] += 10 * 5;
-                        this.attritube['HIT'] += 15;
+                        this.attribute['ATK'] += 10 * 5;
+                        this.attribute['HIT'] += 15;
                     }
                     if (this.IsSupportActive('SP_SOULGOLEM')){
-                        this.attritube['DEF'] += 60 * 5;
-                        this.attritube['MDEF'] += 15 + 5 * 5;
+                        this.attribute['DEF'] += 60 * 5;
+                        this.attribute['MDEF'] += 15 + 5 * 5;
                     }
                     if (this.IsSupportActive('SP_SOULCURSE')){
                         if (this.skilloption.AttackElementalIdx == 7) {
-                            this.attritube['ELEDDI'] += 100;
+                            this.attribute['ELEDDI'] += 100;
                         }
                     }
                     //念
@@ -8342,33 +8347,33 @@
                     if (this.IsSupportActive('KO_KAHU_ENTEN')){
                         if (this.skill.id == 'NJ_KOUENKA') this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAHU_ENTEN').lv * 20;
                         if (this.skill.id == 'NJ_BAKUENRYU') this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAHU_ENTEN').lv * 100;
-                        if (this.enemyattribute.elemental == 4) { this.attritube['ElementalAtkPercent'] += 30; }
+                        if (this.enemyattribute.elemental == 4) { this.attribute['ElementalAtkPercent'] += 30; }
                     }
                     if (this.IsSupportActive('KO_HYOUHU_HUBUKI')){
                         if (this.skill.id == 'NJ_HYOUSENSOU') this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_HYOUHU_HUBUKI').lv * 20;
                         if (this.skill.id == 'NJ_HYOUSYOURAKU') this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_HYOUHU_HUBUKI').lv * 100;
-                        if (this.enemyattribute.elemental == 1) { this.attritube['ElementalAtkPercent'] += 30; }
+                        if (this.enemyattribute.elemental == 1) { this.attribute['ElementalAtkPercent'] += 30; }
                     }
                     if (this.IsSupportActive('KO_KAZEHU_SEIRAN')){
                         if (this.skill.id == 'NJ_HUUJIN') this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAZEHU_SEIRAN').lv * 20;
                         if (this.skill.id == 'NJ_KAMAITACHI') this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAZEHU_SEIRAN').lv * 100;
-                        if (this.enemyattribute.elemental == 2) { this.attritube['ElementalAtkPercent'] += 30; }
+                        if (this.enemyattribute.elemental == 2) { this.attribute['ElementalAtkPercent'] += 30; }
                     }
                     if (this.IsSupportActive('KO_DOHU_KOUKAI')){
                         var val = (this.GetSupportSkill('KO_DOHU_KOUKAI').lv * 10) / 100;
                         this.computeattribute['SpecialATK0'] += val;
-                        if (this.enemyattribute.elemental == 3) { this.attritube['ElementalAtkPercent'] += 30; }
+                        if (this.enemyattribute.elemental == 3) { this.attribute['ElementalAtkPercent'] += 30; }
                     }
                     //十六夜
                     if (this.IsSupportActive('KO_IZAYOI')){
-                        this.attritube['MATK'] += Math.floor(this.status.JOBLevel / 2) * 5;
-                        this.attritube['SK1VCTP'] += 50;
-                        this.attritube['FCTP'] = Math.max(this.attritube['FCTP'], 100);
+                        this.attribute['MATK'] += Math.floor(this.status.JOBLevel / 2) * 5;
+                        this.attribute['SK1VCTP'] += 50;
+                        this.attribute['FCTP'] = Math.max(this.attribute['FCTP'], 100);
                     }
                     //上弦月
                     if (this.IsSupportActive('OB_ZANGETSU')){
-                        this.attritube['ATK'] += Math.floor(this.status.Level / 3) + 5 * 20;
-                        this.attritube['MATK'] += Math.floor(this.status.Level / 3) + 5 * 20;
+                        this.attribute['ATK'] += Math.floor(this.status.Level / 3) + 5 * 20;
+                        this.attribute['MATK'] += Math.floor(this.status.Level / 3) + 5 * 20;
                     }
                     // 影子武士  八方還沒算進來
                     if (this.IsSupportActive('KG_KAGEMUSYA')){
@@ -8382,25 +8387,25 @@
                     }
                     //瘋狂凱斯樂
                     if (this.IsSupportActive('GS_MADNESSCANCEL')){
-                        this.attritube['ATK'] += 100;
+                        this.attribute['ATK'] += 100;
                     }
                     //格林狂熱
                     if (this.IsSupportActive('GS_GATLINGFEVER')){
-                        this.attritube['ATK'] += 120;
+                        this.attribute['ATK'] += 120;
                     }
                     //白金祭壇
                     if (this.IsSupportActive('RL_P_ALTER')){
-                        this.attritube['ATK'] += 150;
+                        this.attribute['ATK'] += 150;
                     }
                     //日月星宇宙英姿
                     if (this.IsSupportActive('SJ_SUNSTANCE')){
-                        this.attritube['ATKP'] += 5;
+                        this.attribute['ATKP'] += 5;
                     }
                     if (this.IsSupportActive('SJ_LUNARSTANCE')){
-                        this.attritube['HPP'] += 5;
+                        this.attribute['HPP'] += 5;
                     }
                     if (this.IsSupportActive('SJ_STARSTANCE')){
-                        this.attritube['ASPDP'] += 5;
+                        this.attribute['ASPDP'] += 5;
                     }
                     if (this.IsSupportActive('SJ_UNIVERSESTANCE')){
                         this.status_add.STR += 5;
@@ -8432,52 +8437,52 @@
 
                     //生命力量
                     if (this.IsSupportActive('SU_POWEROFLIFE')){
-                        this.attritube['CRI'] += 20;
-                        this.attritube['HIT'] += 20;
-                        //this.attritube['FLEE'] += 20;
-                        this.attritube['RNGDP'] += 20;
+                        this.attribute['CRI'] += 20;
+                        this.attribute['HIT'] += 20;
+                        //this.attribute['FLEE'] += 20;
+                        this.attribute['RNGDP'] += 20;
                     }
                     //大地力量
                     if (this.IsSupportActive('SU_POWEROFLAND')){
-                        this.attritube['MATKP'] += 20;
+                        this.attribute['MATKP'] += 20;
                     }
                     //喵喵/喵喵不休
                     if (this.IsSupportActive('SU_CHATTERING')){
-                        this.attritube['MATK'] += 100;
+                        this.attribute['MATK'] += 100;
                     }
                     //蝦群
                     if (this.IsSupportActive('SU_BUNCHOFSHRIMP')){
-                        this.attritube['ATKP'] += 10;
-                        this.attritube['MATKP'] += 10;
+                        this.attribute['ATKP'] += 10;
+                        this.attribute['MATKP'] += 10;
                     }
                     //捲甲蟲暴衝
                     if (this.IsSupportActive('SU_ARCLOUSEDASH')){
                         this.status_add.AGI += 40;
                         if(this.status.classid == 'SUM')
                         {
-                            this.attritube['RNGDP'] += 10;
+                            this.attribute['RNGDP'] += 10;
                         }
                     }
                     //突破極限
                     if (this.IsSupportActive('NV_BREAKTHROUGH')){
-                        this.attritube['ATK'] += 100;
-                        this.attritube['HP'] += 2000;
-                        this.attritube['SP'] += 200;
+                        this.attribute['ATK'] += 100;
+                        this.attribute['HP'] += 2000;
+                        this.attribute['SP'] += 200;
                     }
                     //心靈超越
                     if (this.IsSupportActive('NV_TRANSCENDENCE')){
-                        this.attritube['MATK'] += 100;
-                        this.attritube['HP'] += 2000;
-                        this.attritube['SP'] += 200;
+                        this.attribute['MATK'] += 100;
+                        this.attribute['HP'] += 2000;
+                        this.attribute['SP'] += 200;
                     }
 
                     // 奧汀神力
                     if (this.IsSupportActive('ALL_ODINS_POWER') && this.GetSupportSkill('ALL_ODINS_POWER').lv > 0) {
                         var _lv = this.GetSupportSkill('ALL_ODINS_POWER').lv;
-                        this.attritube['ATK'] += _lv * 30 + 40;
-                        this.attritube['MATK'] += _lv * 30 + 40;
-                        this.attritube['DEF'] -= _lv * 20;
-                        this.attritube['MDEF'] -= _lv * 20;
+                        this.attribute['ATK'] += _lv * 30 + 40;
+                        this.attribute['MATK'] += _lv * 30 + 40;
+                        this.attribute['DEF'] -= _lv * 20;
+                        this.attribute['MDEF'] -= _lv * 20;
                     }
 
                     var _AllStatus =            Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AllStatus').totalvalue)));
@@ -8500,103 +8505,109 @@
                     this.status_add.CON +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CON').totalvalue)));
                     this.status_add.CRT +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRT').totalvalue)));
 
-                    this.attritube['HP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'HP').totalvalue))) + _AllStatus +
+                    this.attribute['HP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'HP').totalvalue))) + _AllStatus +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='HP').totalvalue);
-                    this.attritube['HPP'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'HPPercent').totalvalue))) +
+                    this.attribute['HPP'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'HPPercent').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='HPPercent').totalvalue);
 
-                    this.attritube['SP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SP').totalvalue))) + _AllStatus;
-                    this.attritube['SPP'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPPercent').totalvalue))) +
+                    this.attribute['SP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SP').totalvalue))) + _AllStatus;
+                    this.attribute['SPP'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPPercent').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='SPPercent').totalvalue);
 
-                    this.attritube['ATK'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'Atk').totalvalue))) +
+                    this.attribute['ATK'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'Atk').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='ATK').totalvalue);
-                    this.attritube['ATKP'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AtkPercent').totalvalue))) +
+                    this.attribute['ATKP'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AtkPercent').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='AtkPercent').totalvalue);
-                    this.attritube['MATK'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'Matk').totalvalue))) +
+                    this.attribute['MATK'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'Matk').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='MATK').totalvalue);
-                    this.attritube['MATKP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MatkPercent').totalvalue))) +
+                    this.attribute['MATKP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MatkPercent').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='MatkPercent').totalvalue);
 
-                    this.attritube['PATK'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'PATK').totalvalue)));
-                    this.attritube['SMATK'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SMATK').totalvalue)));
-                    this.attritube['CRIDR'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRIDR').totalvalue)));
-                    this.attritube['CRI'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'Cri').totalvalue))) +
+                    this.attribute['PATK'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'PATK').totalvalue)));
+                    this.attribute['SMATK'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SMATK').totalvalue)));
+                    this.attribute['CRIDR'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRIDR').totalvalue)));
+                    this.attribute['CRI'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'Cri').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='Cri').totalvalue);
-                    this.attritube['CRIDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CriDamagePercent').totalvalue))) +
+                    this.attribute['CRIDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CriDamagePercent').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='CriDamagePercent').totalvalue);
-                    this.attritube['RNGDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RangedDamagePercent').totalvalue))) +
+                    this.attribute['RNGDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RangedDamagePercent').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='RangedDamagePercent').totalvalue);
-                    this.attritube['MELDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MeleeDamagePercent').totalvalue))) +
+                    this.attribute['MELDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MeleeDamagePercent').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='MeleeDamagePercent').totalvalue);
-                    this.attritube['RNGDDI'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RangedDamageDealtIncreasedPercent').totalvalue)));
-                    this.attritube['MELDDI'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MeleeDamageDealtIncreasedPercent').totalvalue)));
-                    this.attritube['ELEDDI'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementDamageDealtIncreasedPercent').totalvalue)));
+                    this.attribute['RNGDDI'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RangedDamageDealtIncreasedPercent').totalvalue)));
+                    this.attribute['MELDDI'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MeleeDamageDealtIncreasedPercent').totalvalue)));
+                    this.attribute['ELEDDI'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementDamageDealtIncreasedPercent').totalvalue)));
                     
-                    this.attritube['BYPASSDEF'] += Number(this.effecttypelist.find(x => x.id == 'BypassDEFPercent').totalvalue);
-                    if (this.attritube['BYPASSDEF'] > 100) this.attritube['BYPASSDEF'] = 100;
-                    this.attritube['BYPASSMDEF'] += Number(this.effecttypelist.find(x => x.id == 'BypassMDEFPercent').totalvalue);
-                    if (this.attritube['BYPASSMDEF'] > 100) this.attritube['BYPASSMDEF'] = 100;
+                    this.attribute['BYPASSDEF'] += Number(this.effecttypelist.find(x => x.id == 'BypassDEFPercent').totalvalue);
+                    if (this.attribute['BYPASSDEF'] > 100) this.attribute['BYPASSDEF'] = 100;
+                    this.attribute['BYPASSMDEF'] += Number(this.effecttypelist.find(x => x.id == 'BypassMDEFPercent').totalvalue);
+                    if (this.attribute['BYPASSMDEF'] > 100) this.attribute['BYPASSMDEF'] = 100;
                     
-                    this.attritube['ASPD'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ASPD').totalvalue)));
-                    this.attritube['ASPD'] +=   Number(this.status.ASPD);
-                    this.attritube['ASPDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AspdPercent').totalvalue)));
-                    this.attritube['ASPDP'] =   -Math.abs(this.attritube['ASPDP']);
-                    this.attritube['FCTP'] = Math.max(this.attritube['FCTP'],
+                    this.attribute['ASPD'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ASPD').totalvalue)));
+                    this.attribute['ASPD'] +=   Number(this.status.ASPD);
+                    this.attribute['ASPDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AspdPercent').totalvalue)));
+                    this.attribute['ASPDP'] =   -Math.abs(this.attribute['ASPDP']);
+                    this.attribute['FCTP'] = Math.max(this.attribute['FCTP'],
                         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'FixedCastPercent').totalvalue))),
                         Number(eval(this.SkillFormulaReplace(this.consumableeffecttypelist.find(x=>x.id=='FixedCastPercent').totalvalue))));
-                    this.attritube['FCTP'] = -Math.abs(this.attritube['FCTP']);
-                    this.attritube['FCT'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'FixedCast').totalvalue)));
-                    this.attritube['FCT'] = -1 * Math.abs(this.attritube['FCT']);
-                    this.attritube['EQVCTP'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'VariableCastPercent').totalvalue)))
+                    this.attribute['FCTP'] = -Math.abs(this.attribute['FCTP']);
+                    this.attribute['FCT'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'FixedCast').totalvalue)));
+                    this.attribute['FCT'] = -1 * Math.abs(this.attribute['FCT']);
+                    this.attribute['EQVCTP'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'VariableCastPercent').totalvalue)))
                                                 +Number(eval(this.SkillFormulaReplace(this.consumableeffecttypelist.find(x=>x.id=='VariableCastPercent').totalvalue)));
-                    this.attritube['EQVCTP'] = -1 * this.clamp(this.attritube['EQVCTP'], -200, 200);
-                    this.attritube['VCTS'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'VariableCastSecond').totalvalue)));
-                    this.attritube['VCTS'] = -1 * Math.abs(this.attritube['VCTS']);
-                    this.attritube['SK1VCTP'] = -1 * this.clamp(Math.abs(this.attritube['SK1VCTP']), 0, 100);
-                    this.attritube['SK2VCTP'] = Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPSkillVariableCastPercent').totalvalue)));
-                    this.attritube['SK2VCTP'] = -1 * this.clamp(Math.abs(this.attritube['SK2VCTP']), 0, 100);
-                    this.attritube['GCD'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'GCDPercent').totalvalue)));
-                    this.attritube['GCD'] = -Math.abs(this.attritube['GCD']);
-                    this.attritube['CD'] =      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CDTime').totalvalue)));
-                    this.attritube['CD'] = -Math.abs(this.attritube['CD']);
+                    this.attribute['EQVCTP'] = -1 * this.clamp(this.attribute['EQVCTP'], -200, 200);
+                    this.attribute['VCTS'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'VariableCastSecond').totalvalue)));
+                    this.attribute['VCTS'] = -1 * Math.abs(this.attribute['VCTS']);
+                    this.attribute['SK1VCTP'] = -1 * this.clamp(Math.abs(this.attribute['SK1VCTP']), 0, 100);
+                    this.attribute['SK2VCTP'] = Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPSkillVariableCastPercent').totalvalue)));
+                    this.attribute['SK2VCTP'] = -1 * this.clamp(Math.abs(this.attribute['SK2VCTP']), 0, 100);
+                    this.attribute['GCD'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'GCDPercent').totalvalue)));
+                    this.attribute['GCD'] = -Math.abs(this.attribute['GCD']);
+                    this.attribute['CD'] =      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CDTime').totalvalue)));
+                    this.attribute['CD'] = -Math.abs(this.attribute['CD']);
 
-                    this.attritube['WeaponATK'] =   this.attritube['ATK'] + 
+                    this.attribute['WeaponATK'] =   this.attribute['ATK'] + 
                                                     Number(this.weapon.ATK) + this.weapon.refineatk 
                                                     /*+ this.subweapon.ATK*/ + 
                                                     Number(this.computeattribute['SpecialATK4']);
 
-                    this.attritube['WeaponMATK'] =  this.attritube['MATK'] + 
+                    this.attribute['WeaponMATK'] =  this.attribute['MATK'] + 
                                                     this.weapon.MATK + 
                                                     this.weapon.refinematk + 
                                                     this.subweapon.MATK;
                     
-                    this.attritube['ElementalMagicPercent'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalMagicPercent').totalvalue))) +
+                    this.attribute['ElementalMagicPercent'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalMagicPercent').totalvalue))) +
                                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='ElementalMagicPercent').totalvalue);
-                    this.attritube['SizeMatkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeMatkPercent').totalvalue)));
-                    this.attritube['ElementalAtkPercent'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalAtkPercent').totalvalue)));
 
-                    this.attritube['LevelAtkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LevelAtkPercent').totalvalue))) +
+                    this.attribute['ElementalMatkPercent'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalMatkPercent').totalvalue)));
+                    this.attribute['ElementalMagicPercent'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalMagicPercent').totalvalue)));
+                    this.attribute['RaceMatkPercent'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceMatkPercent').totalvalue)));
+                    this.attribute['MonsterMatkPercent'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MonsterMatkPercent').totalvalue)));
+                    this.attribute['LevelMatkPercent'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LevelMatkPercent').totalvalue)));
+                    this.attribute['SizeMatkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeMatkPercent').totalvalue)));
+                    this.attribute['ElementalAtkPercent'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalAtkPercent').totalvalue)));
+
+                    this.attribute['LevelAtkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LevelAtkPercent').totalvalue))) +
                                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='LevelAtkPercent').totalvalue);
-                    this.attritube['SizeAtkPercent'] +=         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeAtkPercent').totalvalue)));
+                    this.attribute['SizeAtkPercent'] +=         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeAtkPercent').totalvalue)));
 
-                    this.attritube['WeaponPerfection'] +=       Number(this.effecttypelist.find(x => x.id == 'WeaponPerfection').totalvalue);
-                    this.attritube['WeaponOccult'] +=           Number(this.effecttypelist.find(x => x.id == 'WeaponOccult').totalvalue);
+                    this.attribute['WeaponPerfection'] +=       Number(this.effecttypelist.find(x => x.id == 'WeaponPerfection').totalvalue);
+                    this.attribute['WeaponOccult'] +=           Number(this.effecttypelist.find(x => x.id == 'WeaponOccult').totalvalue);
 
                     this.option.EquipSkillAddDamage +=          Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SkillDamagePercent').totalvalue)));
 
                     this.ComputeSizefix();
-                    if (this.attritube['WeaponPerfection'] > 0) {
+                    if (this.attribute['WeaponPerfection'] > 0) {
                         this.computeattribute['sizefix'] = 100;
                     }
-                    if (this.attritube['WeaponOccult'] > 0) {
+                    if (this.attribute['WeaponOccult'] > 0) {
                         this.option.IgnoreDEF = true;
                         if (this.skill.transWeaponDEF == false) {
-                            this.attritube['ATK'] +=
+                            this.attribute['ATK'] +=
                                 Math.floor(
                                     this.MulOper(
                                         this.enemyattribute.WeaponDEF,
-                                        (Number(1) - Number(this.attritube['BYPASSDEF']) / 100)
+                                        (Number(1) - Number(this.attribute['BYPASSDEF']) / 100)
                                     )
                                     * 0.5
                                 );
@@ -8962,7 +8973,7 @@
                     var _hitnumbervalue = eval(this.SkillFormulaReplace(this.skill.hitnumber));
                     switch (this.skill.DamageTypeIdx) {
                         case 0:
-                            if(this.attritube['ASPD']!=0){
+                            if(this.attribute['ASPD']!=0){
                                 this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.atkmulti_DPS));
                             } else if(this.skill.critical){
                                 if( this.computeattribute.SkillDamageCRI_min != this.computeattribute.SkillDamageCRI_max ){
@@ -8977,7 +8988,7 @@
                             }
                         break;
                         case 1:
-                            if(this.attritube['ASPD']!=0){
+                            if(this.attribute['ASPD']!=0){
                                 this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.matkmulti_DPS));
                             }else if(_hitnumbervalue>1||_hitnumbervalue<0){
                                 this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.matkmulti_min) + " ~ " + this.currencystring(this.computeattribute.matkmulti_max));
@@ -8986,7 +8997,7 @@
                             }
                         break;
                         case 2:
-                            if(this.attritube['ASPD']!=0){
+                            if(this.attribute['ASPD']!=0){
                                 this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.DragonBreathDMG_DPS));
                             }else{
                                 this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.DragonBreathDMG));
@@ -9676,7 +9687,7 @@
                         { str1: 'SPL', str2: 'this.status_total.S_P_L', description: 'SPL scaling' },
                         { str1: 'CON', str2: 'this.status_total.CON', description: 'CON scaling' },
                         { str1: 'CRT', str2: 'this.status_total.CRT', description: 'CRT scaling' },
-                        { str1: 'PATK', str2: 'this.attritube.PATK', description: 'PATK scaling' },
+                        { str1: 'PATK', str2: 'this.attribute.PATK', description: 'PATK scaling' },
                         { str1: 'BLV', str2: 'this.status.Level', description: 'base level scaling' },
                         { str1: 'JLV', str2: 'this.status.JOBLevel', description: 'job level scaling' },
                         { str1: 'HP', str2: 'this.status.HP', description: 'current HP scaling' },
@@ -9963,7 +9974,7 @@
             },
             mounted() {
                 this.LoadDB();
-                this.attritube_init = Object.assign({}, this.attritube);
+                this.attribute_init = Object.assign({}, this.attribute);
                 this.status_add_init = Object.assign({}, this.status_add);
                 this.status_job_init = Object.assign({}, this.status_job);
                 this.status_total_init = Object.assign({}, this.status_total);
