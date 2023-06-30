@@ -9920,7 +9920,7 @@
                     this.select_default = ele;
                 },
                 loadDefaultEquip(){
-                    let href = '/default_equip/'+this.select_default+'.json';
+                    let href = window.location.href+'default_equip/'+this.select_default+'.json';
                     fetch(href)
                     .then(res => res.json())
                     .then(json => {
