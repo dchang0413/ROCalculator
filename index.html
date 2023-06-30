@@ -9920,7 +9920,9 @@
                     this.select_default = ele;
                 },
                 loadDefaultEquip(){
-                    fetch('/default_equip/'+this.select_default+'.json')
+                    let href = window.location.href.includes('github.io') ? 
+                        'ROCalculator/default_equip/'+this.select_default+'.json' : '/default_equip/'+this.select_default+'.json';
+                    fetch(href)
                     .then(res => res.json())
                     .then(json => {
                         let loadedNames = this.getLoadedEquipNames();
