@@ -2196,11 +2196,11 @@
                                 </el-row>
                             </div>
                         </el-row>
-                        <el-row class="effectline previeweffectbox" style="height:40px;">
+                        <!--<el-row class="effectline previeweffectbox" style="height:40px;">
                             <el-col class="textcenter" >
                                 <span class="EffectType">Magic Candy</span>
                             </el-col>
-                        </el-row>
+                        </el-row>-->
                         <el-row>
                             <div class="Item" v-for="(item, index) in ConsumGroupFiltered('Radio2')" v-bind:key="item.id">
                                 <el-row class="optionbox" type="flex" align="middle" justify="end" style="padding: 0px 10px;">
@@ -7097,6 +7097,7 @@
                     var para_size = Number(1) + Number(this.attribute['SizeMatkPercent']) / 100;
                     var para_mons = Number(1) + Number(this.attribute['MonsterMatkPercent']) / 100;
                     var para_level = Number(1) + Number(this.attribute['LevelMatkPercent']) / 100;
+
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.matkpercent_min, para_size);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.matkpercent_max, para_size);
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_elemt);
@@ -7128,10 +7129,14 @@
                     this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['MELDDI'] / 100));
 
                     if (this.skill.laterformula == false) {
+                        console.log('skillpercent',this.option.SkillPercent);
                         var para_skillpercent = Math.floor(this.option.SkillPercent) + Number(this.computeattribute['SpecialMATK1']) + Number(mflag);
                         if (this.skill.id == 'SO_SPELLFIST'){
                             para_skillpercent = 100 + Number(this.computeattribute['SpecialMATK1']) + Number(mflag);;
                         }
+                        console.log(Number(this.computeattribute['SpecialMATK1']));
+                        console.log(Number(mflag));
+                        console.log(para_skillpercent);
                         this.computeattribute.skillmatk_min = Math.floor(this.computeattribute.matk1_min * Number(para_skillpercent / 100));
                         this.computeattribute.skillmatk_max = Math.floor(this.computeattribute.matk1_max * Number(para_skillpercent / 100));
                         this.computeattribute.skillmatk_min = this.MulOper(this.computeattribute.skillmatk_min, Number(1) + Number(this.computeattribute['SpecialMATK2'] / 100));
@@ -8580,10 +8585,9 @@
                                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='ElementalMagicPercent').totalvalue);
 
                     this.attribute['ElementalMatkPercent'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalMatkPercent').totalvalue)));
-                    this.attribute['ElementalMagicPercent'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalMagicPercent').totalvalue)));
-                    this.attribute['RaceMatkPercent'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceMatkPercent').totalvalue)));
-                    this.attribute['MonsterMatkPercent'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MonsterMatkPercent').totalvalue)));
-                    this.attribute['LevelMatkPercent'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LevelMatkPercent').totalvalue)));
+                    this.attribute['RaceMatkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceMatkPercent').totalvalue)));
+                    this.attribute['MonsterMatkPercent'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MonsterMatkPercent').totalvalue)));
+                    this.attribute['LevelMatkPercent'] +=       Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LevelMatkPercent').totalvalue)));
                     this.attribute['SizeMatkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeMatkPercent').totalvalue)));
                     this.attribute['ElementalAtkPercent'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalAtkPercent').totalvalue)));
 
@@ -9248,7 +9252,7 @@
                         { skill: { id: 'AG_CRYSTAL_IMPACT', name: 'Crystal Impact', level: 5, formula: '(SLV*800+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 2, elemental: 2, FCT: 0, VCT: 0, CD: 6, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'AG_SOUL_VC_STRIKE', name: 'Soul Vulcan Strike', level: 5, formula: '(SLV*180+SPL*3)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV+2", elemental: 8, FCT: 1, VCT: 1, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
 
-
+                        { skill: { id: 'AB_JUDEX', name: 'Judex', level: 10, formula: '(300+SLV*70)*BLV/100', class: 'AB', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 6, FCT: 0.5, VCT: 2, CD: 0, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'AB_ADORAMUS', name: 'Adoramus', level: 10, formula: '(800+SLV*200)*BLV/100', class: 'AB', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -10, elemental: 6, FCT: 0.5, VCT: 2, CD: 2.5, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
 
                         { skill: { id: 'GC_CROSSIMPACT', name: 'Cross Impact', level: 5, formula: '(1400+SLV*150)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, halfcri:true, hitnumber: -7, elemental: 0, FCT: 0, VCT: 0, CD: 0.35, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
@@ -9616,14 +9620,15 @@
                         { id:12204, name:'10 INT Food', active:false, group:'StatusG', INT:10},
                         { id:12205, name:'10 DEX Food', active:false, group:'StatusG', DEX:10},
                         { id:12206, name:'10 LUK Food', active:false, group:'StatusG', LUK:10},
-                        { id:14616, name:'STR Biscuit Stick', active:false, group:'StatusG', STR:15, ATKUP:11, editable:true},
-                        { id:14618, name:'AGI Biscuit Stick ', active:false, group:'StatusG', AGI:15},
-                        { id:14617, name:'VIT Biscuit Stick ', active:false, group:'StatusG', VIT:15},
-                        { id:14619, name:'INT Biscuit Stick ', active:false, group:'StatusG', INT:15, MATKUP:11, editable:true},
-                        { id:14620, name:'DEX Biscuit Stick ', active:false, group:'StatusG', DEX:15},
-                        { id:14621, name:'LUK Biscuit Stick ', active:false, group:'StatusG', LUK:15, Cri:11, editable:true},
+                        //{ id:14616, name:'STR Biscuit Stick', active:false, group:'StatusG', STR:15, ATKUP:11, editable:true},
+                        //{ id:14618, name:'AGI Biscuit Stick ', active:false, group:'StatusG', AGI:15},
+                        //{ id:14617, name:'VIT Biscuit Stick ', active:false, group:'StatusG', VIT:15},
+                        //{ id:14619, name:'INT Biscuit Stick ', active:false, group:'StatusG', INT:15, MATKUP:11, editable:true},
+                        //{ id:14620, name:'DEX Biscuit Stick ', active:false, group:'StatusG', DEX:15},
+                        //{ id:14621, name:'LUK Biscuit Stick ', active:false, group:'StatusG', LUK:15, Cri:11, editable:true},
                         { id:14886, name:'Ultimate Cook', active:false, group:'StatusG', STR:10, AGI:10, VIT:10, INT:10, DEX:10, LUK:10, ATK:30, MATK:30},
                         { id:12883, name:'Almighty', active:false, group:'StatusG', STR:10, AGI:10, VIT:10, INT:10, DEX:10, LUK:10, ATK:30, MATK:30},
+                        { id:12646, name:'Pretzel', active:false, group:'StatusG', LUK:9, ATKUP:50, MATKUP:50},
                         //{ id:100098, name:'活力激發劑', active:false, group:'StatusG', STR:20, AGI:20, VIT:20, INT:20, DEX:20, LUK:20},
 
                         { id:12429, name:'20 STR Food', active:false, group:'Status20G', STR:20},
@@ -9636,11 +9641,11 @@
                         { id:683, name:'Herb of Incantation', active:false, group:'ATKMATKUP', MATKUP:30},
                         { id:682, name:'Distilled Fighting Spirit', active:false, group:'ATKMATKUP', ATKUP:30},
                         { id:14601, name:'Blessing Of Tyr ', active:false, group:'ATKMATKUP', ATKUP:20, MATKUP:20},
+                        { id:23550, name:'Winter Cookie', active:false, group:'ATKMATKUP', AtkPercent:3},
 
                         { id:100232, name:'Red Herb Activator', active:false, group:'sp', RangedDamagePercent:15, MeleeDamagePercent:15},
                         { id:100233, name:'Blue Herb Activator', active:false, group:'sp', ElementalMagicPercent:15},
-                        { id:23552, name:'Flora Cookie', active:false, group:'sp', MatkPercent:10},
-                        { id:23550, name:'Winter Cookie', active:false, group:'sp', AtkPercent:10},
+                        { id:23552, name:'Flora Cookie', active:false, group:'sp', MatkPercent:3},
                         { id:12404, name:'Energizing Potion ', active:false, group:'sp', AtkPercent:2, MatkPercent:2},
                         //{ id:12418, name:'Full SwingK', active:false, group:'sp', ATK:50},
                         //{ id:12419, name:'Mana +', active:false, group:'sp', MATK:50},
