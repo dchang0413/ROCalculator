@@ -7129,14 +7129,10 @@
                     this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['MELDDI'] / 100));
 
                     if (this.skill.laterformula == false) {
-                        console.log('skillpercent',this.option.SkillPercent);
                         var para_skillpercent = Math.floor(this.option.SkillPercent) + Number(this.computeattribute['SpecialMATK1']) + Number(mflag);
                         if (this.skill.id == 'SO_SPELLFIST'){
                             para_skillpercent = 100 + Number(this.computeattribute['SpecialMATK1']) + Number(mflag);;
                         }
-                        console.log(Number(this.computeattribute['SpecialMATK1']));
-                        console.log(Number(mflag));
-                        console.log(para_skillpercent);
                         this.computeattribute.skillmatk_min = Math.floor(this.computeattribute.matk1_min * Number(para_skillpercent / 100));
                         this.computeattribute.skillmatk_max = Math.floor(this.computeattribute.matk1_max * Number(para_skillpercent / 100));
                         this.computeattribute.skillmatk_min = this.MulOper(this.computeattribute.skillmatk_min, Number(1) + Number(this.computeattribute['SpecialMATK2'] / 100));
