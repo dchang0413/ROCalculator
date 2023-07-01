@@ -1544,6 +1544,11 @@
                         <el-col class="textcenter">
                             <span class=""><b>Equip Name</b></span>
                         </el-col>
+                        <el-col :span="3">
+                            <el-button v-on:click="onRemoveAllEquipSave()" icon="el-icon-delete"
+                                type="danger" size="mini">
+                            </el-button>
+                        </el-col>
                         <el-col :span="3" v-if="showExport">
                             <el-button v-on:click="exportSavedEquip" icon="el-icon-check" type="primary" size="small">
                                 Export Equip List
@@ -4311,7 +4316,7 @@
                                     <el-row v-if="attribute['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
                                         style="height:40px;">
                                         <el-col class="" :span="10" style="text-align: right;">
-                                            <span>Baseic Attack DPS</span>
+                                            <span>Basic Attack DPS</span>
                                         </el-col>
                                         <el-col class="textcenter" :span="10">
                                             <span>{{computeattribute.normalattack_DPS | currency }}</span>
@@ -7083,11 +7088,11 @@
                         }
                     }
                 },
-                ComputeATKDPS( Dmin, Dmax, DCmin, DCmax ){
+                ComputeATKDPS( Dmin, Dmax, DCmin, DCmax, useASPD = false){
                     var _CRIRateN = this.clamp(100 - this.attribute['CRI'], 0, 100);
                     var _CRIRate = 100-_CRIRateN;
                     var _DPS = (Math.floor((Dmin+Dmax)/2)*_CRIRateN/100) + (Math.floor((DCmin+DCmax)/2)*_CRIRate/100);
-                    _DPS = Math.floor(_DPS * this.computeattribute.HitperSec * 100) / 100;
+                    _DPS = Math.floor(_DPS * (useASPD ? 1/useASPD : this.computeattribute.HitperSec) * 100) / 100;
                     return _DPS;
                 },
                 MulOper(value, percent) {
@@ -7333,6 +7338,7 @@
                                 this.computeattribute.normalattack_max,
                                 this.computeattribute.normalcritical_min,
                                 this.computeattribute.normalcritical_max,
+                                this.computeattribute.AspdDelay
                             );
                             this.ComputeATKAtttibute(false, true);
                             this.ComputeATKAtttibute(false, false);
@@ -8620,10 +8626,6 @@
                     this.attribute['RaceMatkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceMatkPercent').totalvalue)));
                     this.attribute['MonsterMatkPercent'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MonsterMatkPercent').totalvalue)));
                     this.attribute['LevelMatkPercent'] +=       Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LevelMatkPercent').totalvalue)));
-                    console.log(this.effecttypelist.find(x => x.id == 'SizeMatkPercent').totalvalue);
-                    console.log(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeMatkPercent').totalvalue));
-                    console.log(this.status.INT);
-                    console.log(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeMatkPercent').totalvalue)))
                     this.attribute['SizeMatkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeMatkPercent').totalvalue)));
                     this.attribute['ElementalAtkPercent'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalAtkPercent').totalvalue)));
 
@@ -8757,6 +8759,18 @@
                         this.subweapon = _.cloneDeep(this.StoreDB_Equip[_dbidx].weapon);
                         this.ChangeWeapon();
                     }
+                },
+                onRemoveAllEquipSave(){
+                    var uuid;
+                    for (const [key, value] of Object.entries(this.StoreDB_Equip)) {
+                        try{
+                            this.StoreDB_Equip.splice(value.uuid, 1);
+                        this.SaveEquipDB();
+                        } catch(e){
+                            console.log('error deleting equip', e);
+                        }
+                    }
+                    this.onFliterEquipPart();
                 },
                 onRemoveEquipSave(uuid) {
                     var _dbidx = this.StoreDB_Equip.findIndex(x => x.uuid == uuid);
