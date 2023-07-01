@@ -54,13 +54,6 @@
                             建議在輸入要換的裝前 可以先看現有裝打蛋測試傷害是否符合<br>
                             才開始換成預計要換的裝<br>
                             Recommended to test your current damage before swapping gears<br>
-                            <br>
-                            參考朋友賴喵用google sheet寫的計算機做成通用的版本<br>
-                            我的本業是做遊戲，可是要做計算機的話還是要用成網頁比較好<br>
-                            所以這個是網頁菜鳥寫出來的，敬請見諒<br>
-                            RO的技能多又複雜，要靠大家的測試跟整理才有辦法寫成計算機<br>
-                            歡迎提供算式跟找出計算機還是官方的BUG(?)
-
                         </el-row>
                     </div>
                 </el-row>
@@ -69,7 +62,13 @@
                         <el-col class="textcenter">About</el-col>
                     </el-row>
                     <div style="padding: 5px 40px;">
-                        <el-row :gutter="4" type="flex" align="middle">
+                        <el-row :gutter="5" type="flex" align="middle">
+                            <el-col class="textcenter">
+                                <a href="https://forums.warpportal.com/index.php?/topic/257128-damage-calculator-project/"
+                                    target="_blank"><span style="color:steelblue"> WarpPortal Forum Post </span></a><br>
+                            </el-col>
+                        </el-row><br>
+                        <el-row :gutter="5" type="flex" align="middle">
                             <el-col class="textcenter">
                                 <a href="https://forum.gamer.com.tw/C.php?bsn=4212&snA=424409&tnum=10"
                                     target="_blank"><span style="color:steelblue"> gamer.com.tw Forum Post </span></a><br>
@@ -79,7 +78,7 @@
                             <el-col class="textcenter">
                                 <br>
                                 Toss A Coin To Your Witcher<br>
-                                <span>如果覺得計算機有幫助到你，很想很想斗內的話點這個　</span><a href="https://pse.is/T52DP"
+                                <span>Donate Link to Landgris　</span><a href="https://pse.is/T52DP"
                                     target="_blank"><span style="color:steelblue">歐付寶</span></a><br>
                             </el-col>
                         </el-row>
@@ -92,10 +91,11 @@
                                 Twitter @Landgris<br>
                                 PTT ID: valkyria<br>
                                 gamer.com.tw ID: randgris<br>
-                                <br><br><br>
+                                <br><br>
                                 Translated By<br>
                                 iRO: Cate<br>
-                                Discord: cate
+                                Discord: cate<br>
+                                <a href="https://irowiki.org/discord" target="_blank"><span style="color:steelblue">iRO Wiki Discord</span></a>
                             </el-col>
                         </el-row>
                     </div>
@@ -9780,6 +9780,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2023-6-30', content: 'Implemented Preset Equip list' },
                         { id: '2023-6-29', content: 'Organized Consumable Buffs' },
                         { id: '2023-6-28', content: 'Adjusted ATK calculation for iRO size penalty on extra ATK' },
                         { id: '2023-6-27', content: 'Translated Most of the page, Adde Tokens for Equip Values' },
