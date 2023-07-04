@@ -8589,9 +8589,9 @@
                     this.attribute['MELDDI'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MeleeDamageDealtIncreasedPercent').totalvalue)));
                     this.attribute['ELEDDI'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementDamageDealtIncreasedPercent').totalvalue)));
                     
-                    this.attribute['BYPASSDEF'] += Number(this.effecttypelist.find(x => x.id == 'BypassDEFPercent').totalvalue);
+                    this.attribute['BYPASSDEF'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'BypassDEFPercent').totalvalue)));
                     if (this.attribute['BYPASSDEF'] > 100) this.attribute['BYPASSDEF'] = 100;
-                    this.attribute['BYPASSMDEF'] += Number(this.effecttypelist.find(x => x.id == 'BypassMDEFPercent').totalvalue);
+                    this.attribute['BYPASSMDEF'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'BypassMDEFPercent').totalvalue)));
                     if (this.attribute['BYPASSMDEF'] > 100) this.attribute['BYPASSMDEF'] = 100;
                     
                     this.attribute['ASPD'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ASPD').totalvalue)));
