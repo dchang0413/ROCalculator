@@ -7042,20 +7042,6 @@
                         }
                     }
 
-                    // 爪痕
-                    if (this.IsSupportActive('GC_DARKCROW')) {
-                        if( isNA ){
-                            if (this.weapon.type.isRangedattack == false) {
-                                this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number(75 / 100));
-                                this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number(75 / 100));
-                            }
-                        }else{
-                            if( this.skill.ranged == false ){
-                                this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number(75 / 100));
-                                this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number(75 / 100));
-                            }
-                        }
-                    }
                     this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number(this.computeattribute['SpecialINSIGNIAENEMYMATK'] / 100));
                     this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number(this.computeattribute['SpecialINSIGNIAENEMYMATK'] / 100));
 
@@ -7817,10 +7803,26 @@
                             this.attribute['CRI'] += 25;
                         }
                     }
+
                     // 潛擊
                     if (this.IsSupportActive('RG_RAID')){
-                        this.attribute['ELEDDI'] += 15;
+                        this.attribute['MELDDI'] += this.attribute['MELDDI'] > 0 ? 115 : 15;
+                        this.attribute['RNGDDI'] += this.attribute['RNGDDI'] > 0 ? 115 : 15;
                     }
+                    //撼動
+                    if (this.IsSupportActive('MT_QUAKE')){
+                        this.attribute['MELDDI'] += this.attribute['MELDDI'] > 0 ? 150 : 50;
+                        this.attribute['RNGDDI'] += this.attribute['RNGDDI'] > 0 ? 150 : 50;
+                    }
+                    // 爪痕
+                    if (this.IsSupportActive('GC_DARKCROW')) {
+                        this.attribute['MELDDI'] += this.attribute['MELDDI'] > 0 ? 175 : 75;
+                    }
+                    // 爆炸孢子狀態
+                    if (this.IsSupportActive('GN_SPORE')){
+                        this.attribute['RNGDDI'] = this.attribute['RNGDDI'] > 0 ? 105 : 5;
+                    }
+
                     // 自動魅影念咒
                     if (this.IsSupportActive('SC_AUTOSHADOWSPELL')){
                         this.attribute['MATK'] += 50;
@@ -7863,13 +7865,6 @@
                         this.attribute['MELDP'] += 50;
                         this.attribute['RNGDP'] += 50;
                     }
-                    //撼動
-                    if (this.IsSupportActive('MT_QUAKE')){
-                        this.attribute['MELDDI'] += 50;
-                        this.attribute['RNGDDI'] += 50;
-                    }
-
-
                     // 火山塵暴
                     if (this.IsSupportActive('MH_PYROCLASTIC')){
                         this.attribute['ATK'] += Number(this.GetSupportSkill('MH_PYROCLASTIC').arg1) + 10 * 20;
@@ -7877,10 +7872,6 @@
                     // 手推車加速
                     if (this.IsSupportActive('GN_CARTBOOST')){
                         this.attribute['ATK'] += 50;
-                    }
-                    // 爆炸孢子狀態
-                    if (this.IsSupportActive('GN_SPORE')){
-                        this.attribute['RNGDDI'] = 5;
                     }
                     if (this.skill.cannon) {
                         this.computeattribute['SpecialATK2'] += this.weapon.BulletATK;
@@ -9809,7 +9800,7 @@
                     );
 
                     this.UpdateLogList.push(
-                        { id: '2023-7-04', content: 'Added iRO version of skills' },
+                        { id: '2023-7-04', content: 'Added iRO version of skills, fixed Dark Claw, Spore Bomb, Sightless Mind interaction' },
                         { id: '2023-6-30', content: 'Implemented Preset Equip list' },
                         { id: '2023-6-29', content: 'Organized Consumable Buffs' },
                         { id: '2023-6-28', content: 'Adjusted ATK calculation for iRO size penalty on extra ATK' },
