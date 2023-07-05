@@ -6798,11 +6798,11 @@
                     this.computeattribute.weaponatk_min += extraATK;
                     this.computeattribute.weaponatk_max += extraATK;
 
-                    var para_race = Number(1) + Number(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue) / 100;
+                    var para_race = Number(1) + Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue))) / 100;
                     var para_size = Number(1) + Number(this.attribute['SizeAtkPercent']) / 100;
                     var para_elemt = Number(1) + Number(this.attribute['ElementalAtkPercent']) / 100;
                     var para_level = Number(1) + Number(this.attribute['LevelAtkPercent']) / 100;
-                    var para_mons = Number(1) + Number(this.effecttypelist.find(x => x.id == 'MonsterAtkPercent').totalvalue) / 100;
+                    var para_mons = Number(1) + Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MonsterAtkPercent').totalvalue))) / 100;
                     var para_posion = Number(1) + (this.IsSupportActive('ASC_EDP') ? (Number(this.GetSupportSkill('ASC_EDP').arg2 / 100)) : Number(0));
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.weaponatk_min, para_race);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.weaponatk_max, para_race);
@@ -6840,8 +6840,10 @@
                     this.computeattribute.atkc4_min = this.MulOper(this.computeattribute.atkc4_min, Number(1) - Number(this.enemyattribute.raceResist / 100));
                     this.computeattribute.atkc4_max = this.MulOper(this.computeattribute.atkc4_max, Number(1) - Number(this.enemyattribute.raceResist / 100));
 
-                    this.computeattribute.atkc4_min = this.computeattribute.atkc4_min + Number(this.computeattribute['SpecialATK2']);
-                    this.computeattribute.atkc4_max = this.computeattribute.atkc4_max + Number(this.computeattribute['SpecialATK2']);
+                    let specialATK2 = isNA ? this.computeattribute['SpecialATK2'] - this.weapon.BulletATK : this.computeattribute['SpecialATK2'];
+
+                    this.computeattribute.atkc4_min = this.computeattribute.atkc4_min + Number(specialATK2);
+                    this.computeattribute.atkc4_max = this.computeattribute.atkc4_max + Number(specialATK2);
 
                     this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc4_min, Number(this.skilloption.ElementalPercent / 100));
                     this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc4_max, Number(this.skilloption.ElementalPercent / 100));
@@ -9993,7 +9995,7 @@
                 },
                 loadDefaultEquip(){
                     let href = window.location.href+'default_equip/'+this.select_default+'.json';
-                    fetch(href)
+                    fetch(href, {cache: "no-store"})
                     .then(res => res.json())
                     .then(json => {
                         let loadedNames = this.getLoadedEquipNames();
