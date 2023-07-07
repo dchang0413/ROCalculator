@@ -6982,7 +6982,18 @@
 
                     //技能倍率
                     var para_na = Number(this.computeattribute['SpecialATK6']);
-                    var para8 = Math.floor(Number(this.option.SkillPercent)) + Number(this.computeattribute['SpecialATK5']);
+                    var skillPercent = Number(this.option.SkillPercent);
+                    if (this.IsSupportActive('SR_GENTLETOUCH_REVITALIZE') && 
+                        (this.skill.id.includes('SR_TIGERCANNON') || this.skill.id.includes('SR_GATEOFHELL')) 
+                    ){
+                        skillPercent *= 1.3;
+                    } else if (this.IsSupportActive('SR_GENTLETOUCH_CHANGE') &&
+                        (this.skill.id.includes('SR_RAMPAGEBLASTER') || this.skill.id.includes('SR_KNUCKLEARROW'))
+                    ){
+                        skillPercent *= 1.3;
+                    }
+
+                    var para8 = Math.floor(Number(skillPercent)) + Number(this.computeattribute['SpecialATK5']);
                     para_na = Number(1) + Number(para_na / 100);
                     para8 = Number(para8 / 100);
 
@@ -8271,6 +8282,9 @@
                         this.status_add.DEX += 10;
                         this.attribute['HIT'] += 20;
                     }
+                    if (this.IsSupportActive('AL_ANGELUS')){
+                        this.attribute['HP'] += 500;
+                    }
                     if (this.IsSupportActive('AB_CLEMENTIA')){
                         var jc = Math.floor(this.GetSupportSkill('AB_CLEMENTIA').arg1 / 10);
                         this.status_add.STR += 10 + jc;
@@ -8290,14 +8304,14 @@
                         this.attribute['ATKP'] += 5;
                         if (this.skill.id.includes('SR_RAMPAGEBLASTER') || this.skill.id.includes('SR_KNUCKLEARROW'))
                         {
-                            this.option.EquipSkillAddDamage += 30;
+                            //this.option.EquipSkillAddDamage += 30;
                         }
                     }
                     // 點穴-活
                     if (this.IsSupportActive('SR_GENTLETOUCH_REVITALIZE')){
                         if (this.skill.id.includes('SR_TIGERCANNON') || this.skill.id.includes('SR_GATEOFHELL'))
                         {
-                            this.option.EquipSkillAddDamage += 30;
+                            //this.option.EquipSkillAddDamage += 30;
                         }
                         this.attribute['HPP'] += 10;
                     }
@@ -9525,6 +9539,7 @@
 
                         { skill: { id: 'AL_INCAGI', name: 'Increase AGI', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AB_CANTO', Note: '', } },
                         { skill: { id: 'AL_BLESSING', name: 'Blessing', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AB_CLEMENTIA', Note: '', } },
+                        { skill: { id: 'AL_ANGELUS', name: 'Angelus', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'AB_CANTO', name: 'Cantocandidus', maxlv: 3, lv: 3, class: 'AB', changelv: false, argnum: 1, arg1: 70, arg1desc: 'Caster JLv', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AL_INCAGI', Note: '', } },
                         { skill: { id: 'AB_CLEMENTIA', name: 'Clementia', maxlv: 3, lv: 3, class: 'AB', changelv: false, argnum: 1, arg1: 70, arg1desc: 'Caster Jlv', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AL_BLESSING', Note: '', } },
                         { skill: { id: 'PR_SUFFRAGIUM', name: 'Suffragium', maxlv: 3, lv: 3, class: 'AB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
@@ -9827,6 +9842,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2023-7-07', content: 'Fixed Sura skills and corrected mastery atk loss on sphere consumption<br>Default target set to Izlude Egg' },
                         { id: '2023-7-04', content: 'Added iRO version of skills, fixed Dark Claw, Spore Bomb, Sightless Mind interaction' },
                         { id: '2023-6-30', content: 'Implemented Preset Equip list' },
                         { id: '2023-6-29', content: 'Organized Consumable Buffs' },
@@ -10180,7 +10196,7 @@
                 this.ElementTableLastest = true;
                 this.SwitchElementalVersion();
 
-                this.onSelectEnemy(this.enemylist[0]);
+                this.onSelectEnemy(this.enemylist[1]);
                 this.effectdialogue.EffectType = this.effecttypelist[0];
                 this.PreviewETL = _.cloneDeep(this.effecttypelist);
                 this.PreviewETL_init = _.cloneDeep(this.PreviewETL);
