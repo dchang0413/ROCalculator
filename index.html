@@ -392,7 +392,7 @@
                                 </el-col>
                                 <el-col class="textcenter" :span="12">
                                     <el-switch v-model="skill.ranged" active-color="#13ce66"
-                                        v-on:change="ComputeATKAtttibute(false)" inactive-color="#8a9799">
+                                        v-on:change="ComputeATKAttribute(false)" inactive-color="#8a9799">
                                     </el-switch>
                                 </el-col>
                             </el-row>
@@ -402,7 +402,7 @@
                                 </el-col>
                                 <el-col class="textcenter" :span="12">
                                     <el-switch v-model="skill.critical" active-color="#13ce66"
-                                        v-on:change="ComputeATKAtttibute(false)" inactive-color="#8a9799">
+                                        v-on:change="ComputeATKAttribute(false)" inactive-color="#8a9799">
                                     </el-switch>
                                 </el-col>
                             </el-row>
@@ -6761,7 +6761,7 @@
                     this.computeattribute.HitperSec = Math.floor(1 / _MAxDelay * 100) / 100;
                     if (this.computeattribute.HitperSec > 7.14) this.computeattribute.HitperSec = 7.14;
                 },
-                ComputeATKAtttibute( isNA, isCRI ) {
+                ComputeATKAttribute( isNA, isCRI ) {
 
                     var para1 = this.computeattribute['TransSTR'] / 200;
                     var para2 = this.weapon.level.id * 0.05
@@ -6886,8 +6886,24 @@
                     this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, Number(1) + Number(this.attribute['PATK'] / 100));
                     this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, Number(1) + Number(this.attribute['PATK'] / 100));
 
-                    this.computeattribute.atkc5_min += Number(this.skilloption.WeaponMasteryATK);
-                    this.computeattribute.atkc5_max += Number(this.skilloption.WeaponMasteryATK);
+                    let masteryATK = Number(this.skilloption.WeaponMasteryATK);
+                    if (this.skill.id.includes('MO_EXTREMITYFIST')){
+                        // Does not use spheres
+                        masteryATK = 0;
+                    } else if (this.skill.id.includes('SR_FALLENEMPIRE') && this.skill.level > 5){
+                        // Use 1 spheres
+                        masteryATK -= 3;
+                    } if (this.skill.id.includes('SR_TIGERCANNON') || this.skill.id.includes('SR_RIDEINLIGHTNING') || 
+                        this.skill.id.includes('SR_GATEOFHELL') || (this.skill.id.includes('SR_FALLENEMPIRE'))){
+                        // Use 2 spheres
+                        masteryATK -= 6;
+                    } else if (this.skill.id.includes('SR_HOWLINGOFLION') || this.skill.id.includes('SR_RAMPAGEBLASTER')){
+                        // Use 3 spheres
+                        masteryATK -= 9;
+                    }
+                    
+                    this.computeattribute.atkc5_min += masteryATK;
+                    this.computeattribute.atkc5_max += masteryATK;
 
                     if (this.IsSupportActive('TK_POWER')) {
                         var paraKihop = Number(1) + Number((10 + this.GetSupportSkill('TK_POWER').lv * 15) / 100);
@@ -7106,7 +7122,7 @@
                     }
                     return _L;
                 },
-                ComputeMATKAtttibute(mflag=0) {
+                ComputeMATKAttribute(mflag=0) {
                     var _MATKDamageMin = 0;
                     var _MATKDamageMax = 0;
 
@@ -7334,8 +7350,8 @@
                     this.ClosePanel('DragonBreathPanel');
                     switch (this.skill.DamageTypeIdx) {
                         case 0:
-                            this.ComputeATKAtttibute(true, true);
-                            this.ComputeATKAtttibute(true, false);
+                            this.ComputeATKAttribute(true, true);
+                            this.ComputeATKAttribute(true, false);
                             this.computeattribute.normalattack_DPS = this.ComputeATKDPS(
                                 this.computeattribute.normalattack_min,
                                 this.computeattribute.normalattack_max,
@@ -7343,8 +7359,8 @@
                                 this.computeattribute.normalcritical_max,
                                 this.computeattribute.AspdDelay
                             );
-                            this.ComputeATKAtttibute(false, true);
-                            this.ComputeATKAtttibute(false, false);
+                            this.ComputeATKAttribute(false, true);
+                            this.ComputeATKAttribute(false, false);
                             this.computeattribute.atkc9_avg = (this.computeattribute.atkc9_min+this.computeattribute.atkc9_max)*0.5;
                             this.computeattribute.SkillDamage_avg = (this.computeattribute.SkillDamage_min+this.computeattribute.SkillDamage_max)*0.5;
                             this.computeattribute.SkillDamageCRI_avg = (this.computeattribute.SkillDamageCRI_min+this.computeattribute.SkillDamageCRI_max)*0.5;
@@ -7364,7 +7380,7 @@
                                 this.computeattribute.matk4_max = 0;
                                 for(var i=0; i<4; ++i)
                                 {
-                                    _Damage = this.ComputeMATKAtttibute(-i*100);
+                                    _Damage = this.ComputeMATKAttribute(-i*100);
                                     _DamageTotalMin += Number(_Damage.Min);
                                     _DamageTotalMax += Number(_Damage.Max);
                                 }
@@ -7374,7 +7390,7 @@
                                 this.computeattribute.matkmulti_min = _DamageTotalMin;
                                 this.computeattribute.matkmulti_max = _DamageTotalMax;
                             }else{
-                                _Damage = this.ComputeMATKAtttibute();
+                                _Damage = this.ComputeMATKAttribute();
                                 this.computeattribute.matk4_avg = (this.computeattribute.matk4_min+this.computeattribute.matk4_max)*0.5;
                                 this.computeattribute.matkmulti_min = Number(_Damage.Min);
                                 this.computeattribute.matkmulti_max = Number(_Damage.Max);
@@ -9384,16 +9400,17 @@
                         { skill: { id: 'EM_TERRA_DRIVE', name: 'Terra Drive', level: 5, formula: '(SLV*1250+SPL*5)*BLV/100', class: 'SO', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 3, FCT: 1.5, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'EM_TERRA_DRIVE(ex)', name: 'Terra Drive(Spirit)', level: 5, formula: '(3500+SLV*1750+SPL*7)*BLV/100', class: 'SO', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 3, FCT: 1.5, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
 
-                        { skill: { id: 'MO_EXTREMITYFIST', name: 'Guillotine Fist', level: 5, formula: '(8+DOWN(SP/10))*100', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 1, VCT: 2, CD: 0, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 1000, SpecialMATK1: 0, Note: '', } },
-                        { skill: { id: 'MO_EXTREMITYFIST(over5)', name: 'Guillotine(Sphere>5)', level: 5, formula: '(8+DOWN(SP/10))*100', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 1, VCT: 2, CD: 0, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 1000, SpecialMATK1: 0, Note: '', } },
-                        { skill: { id: 'SR_TIGERCANNON', name: 'Tiger Cannon', level: 10, formula: '(Mhp*(SLV*0.02+0.1)+Msp*(SLV*0.01+0.05))*0.25*(BLV/100)', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 2, CD: 3, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 'SLV*240+BLV*40', SpecialMATK1: 0, Note: 'MaxHP/MaxSP Scaling', } },
-                        { skill: { id: 'SR_TIGERCANNON(ex)', name: 'Tiger Cannon(Combo)', level: 10, formula: '(Mhp*(SLV*0.02+0.1)+Msp*(SLV*0.01+0.05))*0.5*(BLV/100)*1.3333', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 2, CD: 3, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 'SLV*500+BLV*40', SpecialMATK1: 0, Note: 'MaxHP/MaxSP Scaling', } },
+                        { skill: { id: 'MO_EXTREMITYFIST', name: 'Guillotine Fist', level: 5, formula: '(8+(SP-1)/10)*100', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 1, VCT: 2, CD: 0, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 1000, SpecialMATK1: 0, Note: '', } },
+                        { skill: { id: 'MO_EXTREMITYFIST(over5)', name: 'Guillotine(Sphere>5)', level: 5, formula: '(8+(SP-1)/10)*100*2', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 1, VCT: 2, CD: 0, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 2000, SpecialMATK1: 0, Note: '', } },
+                        { skill: { id: 'SR_TIGERCANNON', name: 'Tiger Cannon', level: 10, formula: '(DOWN(Mhp*(SLV*0.02+0.1))+DOWN(Msp*(SLV*0.01+0.05)))/4*(BLV/100)', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 2, CD: 3, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 'SLV*240+ELV*40', SpecialMATK1: 0, Note: 'MaxHP/MaxSP Scaling', } },
+                        { skill: { id: 'SR_TIGERCANNON(ex)', name: 'Tiger Cannon(Combo)', level: 10, formula: '(DOWN(Mhp*(SLV*0.02+0.1))+DOWN(Msp*(SLV*0.01+0.05)))/2*(BLV/100)*1.3333', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 2, CD: 3, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 'SLV*500+ELV*40', SpecialMATK1: 0, Note: 'MaxHP/MaxSP Scaling', } },
                         { skill: { id: 'SR_RIDEINLIGHTNING', name: 'Lightning Ride', level: 5, formula: "(SLV*40+((WTI=='Knuckles')?SLV*50:0))*BLV/100", class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 5, elemental: 0, FCT: 0, VCT: 1, CD: 0.5, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Knuckle Increase Damage', } },
                         { skill: { id: 'SR_HOWLINGOFLION', name: 'Lion\'s Howl', level: 5, formula: '(500*SLV)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 10, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SR_RAMPAGEBLASTER', name: 'Rampage Blast', level: 5, formula: '(1000+350*SLV)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 10, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv5 Fury', } },
                         { skill: { id: 'SR_RAMPAGEBLASTER(ex)', name: 'Rampage Blast(Earth Shaker)', level: 5, formula: '(1000+350*SLV+500+SLV*200)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv5 Fury', } },
                         { skill: { id: 'SR_KNUCKLEARROW', name: 'Knuckle Arrow', level: 10, formula: '(500+SLV*100)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SR_KNUCKLEARROW(ex)', name: 'Knuckle Arrow(BOSS)', level: 10, formula: '(500+SLV*200)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
+                        { skill: { id: 'SR_FALLENEMPIRE', name: 'Fallen Empire', level: 10, formula: '(100+300*SLV)*BLV/100+100*STR', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SR_GATEOFHELL', name: 'Gate of Hell', level: 10, formula: '500*SLV*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -7, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: '(SP-100)*3+BLV*10+((Mhp>HP)?(Mhp-HP):0)', SpecialMATK1: 0, Note: 'Affected by HP/SP', } },
                         { skill: { id: 'IQ_THIRD_FLAME_BOMB', name: 'Third Flame Bomb', level: 5, formula: '(DOWN(Mhp*0.2)+SLV*650+POW*5)*(BLV/100)', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 3, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume 15 spheres (3 Hit)', } },
 
