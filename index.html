@@ -2633,7 +2633,7 @@
                                                 <el-col class="textcenter" :span="1">=</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_total.LUK}}</el-col>
                                             </el-row>
-                                            <div v-if="this.status.Level>=200">
+                                            <div v-if="this.status.Level>=200 && this.enableTrait">
                                                 <el-row class="statusbox textcenter" type="flex" align="middle"
                                                     style="height:40px;">
                                                     <el-col class="textcenter" :span="12">
@@ -2748,6 +2748,26 @@
                                                 </el-col>
                                                 <el-col class="textcenter" :span="12">
                                                     <el-switch v-model="status.UseJobMaxPoint" v-on:change="onOption"
+                                                        active-color="#13ce66" inactive-color="#8a9799">
+                                                    </el-switch>
+                                                </el-col>
+                                            </el-row>
+                                            <el-row class="statusbox" type="flex" align="middle">
+                                                <el-col class="textcenter" :span="12">
+                                                    <span>Enable Trait Status</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="12">
+                                                    <el-switch v-model="enableTrait" v-on:change="onOption"
+                                                        active-color="#13ce66" inactive-color="#8a9799">
+                                                    </el-switch>
+                                                </el-col>
+                                            </el-row>
+                                            <el-row class="statusbox" type="flex" align="middle">
+                                                <el-col class="textcenter" :span="12">
+                                                    <span>iRO Size Fix</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="12">
+                                                    <el-switch v-model="iroSizeFix" v-on:change="onOption"
                                                         active-color="#13ce66" inactive-color="#8a9799">
                                                     </el-switch>
                                                 </el-col>
@@ -5728,6 +5748,8 @@
                     {id: 'SN', label: 'SuperNovice'},
                 ],
                 select_default: '',
+                enableTrait: false,
+                iroSizeFix: true,
                 computeattribute:
                 {
                     StatsPoint: 0,
@@ -6551,6 +6573,7 @@
                     else this.status.CON = eval(this.status.CON);
                     if (this.status.CRT == null || this.status.Level <200 ) this.status.CRT = 0;
                     else this.status.CRT = eval(this.status.CRT);
+                    if (!this.enableTrait) this.status.POW = this.status.STA = this.status.WIS = this.status.SPL = this.status.CON = this.status.CRT = 0;
                     try {
 
                         if (this.status.classid == null) this.status.classid = 'AB';
@@ -6799,7 +6822,7 @@
                     this.computeattribute.weaponatk_max = this.MulOper(this.computeattribute.atkc2_max, para6);
                     
                     // iRO is putting size penalty on extra ATK
-                    let extraATK = this.computeattribute.sizefix < 100 ? 
+                    let extraATK = this.iroSizeFix && this.computeattribute.sizefix < 100 ? 
                         Math.floor(Number(this.attribute['ATK']) * (this.computeattribute.sizefix / 100)) : this.attribute['ATK'];
                     
                     this.computeattribute.weaponatk_min += extraATK;
