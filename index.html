@@ -6887,14 +6887,18 @@
                     this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, Number(1) + Number(this.attribute['PATK'] / 100));
 
                     let masteryATK = Number(this.skilloption.WeaponMasteryATK);
-                    if (this.skill.id.includes('MO_EXTREMITYFIST')){
+                    if (this.IsSupportActive('SR_FLASHCOMBO') && 
+                    (this.skill.id.includes('SR_TIGERCANNON') || this.skill.id.includes('SR_GATEOFHELL') || this.skill.id.includes('SR_FALLENEMPIRE'))){
+                        //Flash combo uses 3 spheres
+                        masteryATK -= 9;
+                    } else if (this.skill.id.includes('MO_EXTREMITYFIST')){
                         // Does not use spheres
                         masteryATK = 0;
                     } else if (this.skill.id.includes('SR_FALLENEMPIRE') && this.skill.level > 5){
                         // Use 1 spheres
                         masteryATK -= 3;
                     } if (this.skill.id.includes('SR_TIGERCANNON') || this.skill.id.includes('SR_RIDEINLIGHTNING') || 
-                        this.skill.id.includes('SR_GATEOFHELL') || (this.skill.id.includes('SR_FALLENEMPIRE'))){
+                        this.skill.id.includes('SR_GATEOFHELL') || this.skill.id.includes('SR_FALLENEMPIRE')){
                         // Use 2 spheres
                         masteryATK -= 6;
                     } else if (this.skill.id.includes('SR_HOWLINGOFLION') || this.skill.id.includes('SR_RAMPAGEBLASTER')){
@@ -8274,7 +8278,8 @@
                         this.attribute['HIT'] += 20;
                     }
                     if (this.IsSupportActive('AL_ANGELUS')){
-                        this.attribute['HP'] += 500;
+                        var _lv = this.GetSupportSkill('AL_ANGELUS').lv;
+                        this.attribute['HP'] += 50 * _lv;
                     }
                     if (this.IsSupportActive('AB_CLEMENTIA')){
                         var jc = Math.floor(this.GetSupportSkill('AB_CLEMENTIA').arg1 / 10);
@@ -8310,6 +8315,10 @@
                     if (this.IsSupportActive('SR_RAISINGDRAGON')){
                         this.attribute['HPP'] += 10;
                         this.attribute['SPP'] += 10;
+                    }
+                    //Flash Combo
+                    if (this.IsSupportActive('SR_FLASHCOMBO')){
+                        this.attribute['ATK'] += 120;
                     }
                     //堅毅信念
                     if (this.IsSupportActive('IQ_POWERFUL_FAITH')){
@@ -8577,12 +8586,16 @@
                     this.status_add.CON +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CON').totalvalue)));
                     this.status_add.CRT +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRT').totalvalue)));
 
-                    this.attribute['HP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'HP').totalvalue))) + _AllStatus +
+                    this.attribute['HP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'HP').totalvalue))) + 
+                                                Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'VIT').totalvalue))) +
+                                                _AllStatus +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='HP').totalvalue);
                     this.attribute['HPP'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'HPPercent').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='HPPercent').totalvalue);
 
-                    this.attribute['SP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SP').totalvalue))) + _AllStatus;
+                    this.attribute['SP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SP').totalvalue))) +
+                                                Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'INT').totalvalue)))
+                                                _AllStatus;
                     this.attribute['SPP'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPPercent').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='SPPercent').totalvalue);
 
@@ -9530,7 +9543,7 @@
 
                         { skill: { id: 'AL_INCAGI', name: 'Increase AGI', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AB_CANTO', Note: '', } },
                         { skill: { id: 'AL_BLESSING', name: 'Blessing', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AB_CLEMENTIA', Note: '', } },
-                        { skill: { id: 'AL_ANGELUS', name: 'Angelus', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'AL_ANGELUS', name: 'Angelus', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'AB_CANTO', name: 'Cantocandidus', maxlv: 3, lv: 3, class: 'AB', changelv: false, argnum: 1, arg1: 70, arg1desc: 'Caster JLv', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AL_INCAGI', Note: '', } },
                         { skill: { id: 'AB_CLEMENTIA', name: 'Clementia', maxlv: 3, lv: 3, class: 'AB', changelv: false, argnum: 1, arg1: 70, arg1desc: 'Caster Jlv', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AL_BLESSING', Note: '', } },
                         { skill: { id: 'PR_SUFFRAGIUM', name: 'Suffragium', maxlv: 3, lv: 3, class: 'AB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
@@ -9547,11 +9560,12 @@
                         { skill: { id: 'CD_PRESENS_ACIES', name: 'Presens Acies', maxlv: 5, lv: 5, class: 'AB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'CD_COMPETENTIA', name: 'Competentia', maxlv: 5, lv: 5, class: 'AB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
-                        { skill: { id: 'MO_IRONHAND', name: 'Iron Fists', maxlv: 10, lv: 10, class: 'SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'MO_CALLSPIRITS', name: 'Spheres(Amount)', maxlv: 5, lv: 5, class: 'SU,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'MO_IRONHAND', name: 'Iron Fists', maxlv: 10, lv: 10, class: 'SU,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'MO_CALLSPIRITS', name: 'Spheres(Amount)', maxlv: 15, lv: 5, class: 'SU,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SR_GENTLETOUCH_CHANGE', name: 'Gentle Touch-Convert', maxlv: 5, lv: 5, class: 'SU', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'SR_GENTLETOUCH_REVITALIZE', Note: '', } },
                         { skill: { id: 'SR_GENTLETOUCH_REVITALIZE', name: 'Gentle Touch-Revitialize', maxlv: 5, lv: 5, class: 'SU', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'SR_GENTLETOUCH_CHANGE', Note: '', } },
                         { skill: { id: 'SR_RAISINGDRAGON', name: 'Rising Dragon', maxlv: 1, lv: 1, class: 'SU', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'SR_FLASHCOMBO', name: 'Flash Combo', maxlv: 5, lv: 5, class: 'SU', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'IQ_POWERFUL_FAITH', name: 'Powerful Faith', maxlv: 5, lv: 5, class: 'SU', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
                         { skill: { id: 'AM_AXEMASTERY', name: 'Axe Mastery', maxlv: 10, lv: 10, class: 'GE,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
@@ -9770,6 +9784,10 @@
                         { id:12436, name:'Vitata500', active:false, group:'HPSP', SPPercent:5},
                         { id:14600, name:'Mental Potion', active:false, group:'HPSP', SPPercent:10},
                         //{ id:14602, name:'塔奧群卡卷軸', active:false, group:'HPSP', HPPercent:100},
+
+                        { id:11592, name:'Trans Candy Red', active:false, group:'TransScroll', HPP:'20'},
+                        { id:11593, name:'Trans Candy Blue', active:false, group:'TransScroll', SPP:'20'},
+                        { id:11595, name:'Trans Candy Green', active:false, group:'TransScroll', Cri:'20'},
 
                         { id:12659, name:'Transformation Scroll (Raydric Archer)', active:false, group:'TransScroll', RangedDamagePercent:25},
                         { id:12660, name:'Transformation Scroll (Mavka)', active:false, group:'TransScroll', RangedDamagePercent:25},
