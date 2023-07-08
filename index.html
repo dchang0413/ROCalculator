@@ -6888,9 +6888,9 @@
 
                     let masteryATK = Number(this.skilloption.WeaponMasteryATK);
                     if (this.IsSupportActive('SR_FLASHCOMBO') && 
-                    (this.skill.id.includes('SR_TIGERCANNON') || this.skill.id.includes('SR_GATEOFHELL') || this.skill.id.includes('SR_FALLENEMPIRE'))){
+                    (this.skill.id.includes('SR_TIGERCANNON') || this.skill.id.includes('SR_FALLENEMPIRE'))){
                         //Flash combo uses 3 spheres
-                        masteryATK -= 9;
+                        masteryATK -= 3;
                     } else if (this.skill.id.includes('MO_EXTREMITYFIST')){
                         // Does not use spheres
                         masteryATK = 0;
@@ -7680,20 +7680,64 @@
                     this.computeattribute['SpecialINSIGNIAENEMYMATK'] = 0; //紋章
 
                     //修練
-                    if (this.IsSupportActive('SM_SWORD')) { if(this.weapon.type.id == 'Daggers' || this.weapon.type.id == 'OneHandedSwords'){ this.skilloption.WeaponMasteryATK+=40; } }
-                    if (this.IsSupportActive('SM_TWOHAND')) { if(this.weapon.type.id == 'TwoHandedSword' ){ this.skilloption.WeaponMasteryATK+=40; } }
-                    if (this.IsSupportActive('KN_SPEARMASTERY')) { if(this.weapon.type.id == 'Spears' ){ this.skilloption.WeaponMasteryATK+=40; } if(this.IsSupportActive('KN_RIDING')||this.IsSupportActive('RK_DRAGONTRAINING')){this.skilloption.WeaponMasteryATK+=10;} }
-                    if (this.IsSupportActive('AS_KATAR')) { if(this.weapon.type.id == 'Katars' ){ this.skilloption.WeaponMasteryATK+=30; } }
-                    if (this.IsSupportActive('MO_IRONHAND')) { if(this.weapon.type.id == 'Empty' || this.weapon.type.id == 'Knuckles'){ this.skilloption.WeaponMasteryATK+=30; } }
-                    if (this.IsSupportActive('BS_HILTBINDING')){ this.status_add.STR += 1; this.skilloption.WeaponMasteryATK+=4; }
-                    if (this.IsSupportActive('BS_WEAPONRESEARCH')){ this.skilloption.WeaponMasteryATK+=20; this.attribute['HIT'] += 20;}
-                    if (this.IsSupportActive('NC_TRAININGAXE')){ if(this.weapon.type.id == 'Axes' ){ this.skilloption.WeaponMasteryATK+=50; this.attribute['HIT'] += 30;} }
-                    if (this.IsSupportActive('NC_TRAININGAXE')){ if(this.weapon.type.id == 'Maces' ){ this.skilloption.WeaponMasteryATK+=40; this.attribute['HIT'] += 20;} }
-                    if (this.IsSupportActive('NC_MADOLICENCE')){ this.skilloption.WeaponMasteryATK+=75;}
-                    if (this.IsSupportActive('AM_AXEMASTERY')) { if(this.weapon.type.id == 'Axes' || this.weapon.type.id == 'OneHandedSwords'){ this.skilloption.WeaponMasteryATK+=30; } }
-                    if (this.IsSupportActive('GN_TRAINING_SWORD')){ if(this.weapon.type.id == 'Daggers' || this.weapon.type.id == 'OneHandedSwords'){ this.skilloption.WeaponMasteryATK+=50; this.attribute['HIT'] += 15;} }
-                    if (this.IsSupportActive('SA_ADVANCEDBOOK')){ if(this.weapon.type.id == 'Books' ){ this.skilloption.WeaponMasteryATK+=30; this.attribute['ASPDP'] += 5;} }
-                    if (this.IsSupportActive('TK_RUN')){ if(this.weapon.type.id == 'Empty' ){ this.skilloption.WeaponMasteryATK+=this.GetSupportSkill('TK_RUN').lv*10;} }
+                    if (this.IsSupportActive('SM_SWORD') && (this.weapon.type.id == 'Daggers' || this.weapon.type.id == 'OneHandedSwords'))
+                        this.skilloption.WeaponMasteryATK+=4*this.GetSupportSkill('SM_SWORD').lv; 
+                        
+                    if (this.IsSupportActive('SM_TWOHAND') && this.weapon.type.id == 'TwoHandedSword')
+                        this.skilloption.WeaponMasteryATK+=4*this.GetSupportSkill('SM_TWOHAND').lv; 
+
+                    if (this.IsSupportActive('KN_SPEARMASTERY') && this.weapon.type.id == 'Spears')
+                        this.skilloption.WeaponMasteryATK+= (this.IsSupportActive('KN_RIDING')||this.IsSupportActive('RK_DRAGONTRAINING')) ?
+                            5*this.GetSupportSkill('KN_SPEARMASTERY').lv : 4*this.GetSupportSkill('KN_SPEARMASTERY').lv; 
+                    
+                    if (this.IsSupportActive('AS_KATAR') && this.weapon.type.id == 'Katars')
+                        this.skilloption.WeaponMasteryATK+=3*this.GetSupportSkill('AS_KATAR').lv; 
+
+                    if (this.IsSupportActive('MO_IRONHAND') && (this.weapon.type.id == 'Empty' || this.weapon.type.id == 'Knuckles'))
+                        this.skilloption.WeaponMasteryATK+=3*this.GetSupportSkill('MO_IRONHAND').lv; 
+                        
+                    if (this.IsSupportActive('BS_HILTBINDING')){
+                        this.status_add.STR += 1;
+                        this.skilloption.WeaponMasteryATK+=4; 
+                    }
+                        
+                    if (this.IsSupportActive('BS_WEAPONRESEARCH')){
+                        var _lv = this.GetSupportSkill('BS_WEAPONRESEARCH').lv;
+                        this.attribute['HIT'] += 2*_lv; 
+                        this.skilloption.WeaponMasteryATK+=2*_lv; 
+                    }
+
+                    if (this.IsSupportActive('NC_TRAININGAXE')){
+                        if(this.weapon.type.id == 'Axes' ) {
+                            var _lv = this.GetSupportSkill('NC_TRAININGAXE').lv;
+                            this.skilloption.WeaponMasteryATK+=5*_lv; 
+                            this.attribute['HIT'] += 3*_lv;
+                        } else if (this.weapon.type.id == 'Maces'){
+                            var _lv = this.GetSupportSkill('NC_TRAININGAXE').lv;
+                            this.skilloption.WeaponMasteryATK+=4*_lv; 
+                            this.attribute['HIT'] += 2*_lv;
+                        }
+                    }
+
+                    if (this.IsSupportActive('NC_MADOLICENCE'))
+                        this.skilloption.WeaponMasteryATK+= 15*this.GetSupportSkill('NC_MADOLICENCE').lv;
+                        
+                    if (this.IsSupportActive('AM_AXEMASTERY') && (this.weapon.type.id == 'Axes' || this.weapon.type.id == 'OneHandedSwords'))
+                        this.skilloption.WeaponMasteryATK+=3*this.GetSupportSkill('AM_AXEMASTERY').lv; 
+
+                    if (this.IsSupportActive('GN_TRAINING_SWORD') && (this.weapon.type.id == 'OneHandedSwords' || this.weapon.type.id == 'Daggers')){
+                        this.skilloption.WeaponMasteryATK+=10*this.GetSupportSkill('GN_TRAINING_SWORD').lv; 
+                        this.attribute['HIT'] += 3*this.GetSupportSkill('GN_TRAINING_SWORD').lv;
+                    }
+
+                    if (this.IsSupportActive('SA_ADVANCEDBOOK') && this.weapon.type.id == 'Books'){
+                        this.skilloption.WeaponMasteryATK+=3*this.GetSupportSkill('SA_ADVANCEDBOOK').lv; 
+                        this.attribute['ASPDP'] += 0.5*this.GetSupportSkill('SA_ADVANCEDBOOK').lv;
+                    }
+
+                    if (this.IsSupportActive('TK_RUN') && this.weapon.type.id == 'Empty')
+                        this.skilloption.WeaponMasteryATK+=10*this.GetSupportSkill('TK_RUN').lv; 
+                    
                     if (this.IsSupportActive('RL_RICHS_COIN')){ if(this.weapon.type.id == 'Guns' ){ this.skilloption.WeaponMasteryATK+=30;} }
 
                     //雙手劍攻擊速度增加
@@ -9503,10 +9547,10 @@
                     this.DefaultDB_SupportSkill.push(
                         //{ skill: { id: 'TEST1', name: '測試用1', maxlv: 10, lv: 10, class: 'RK,RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'TEST2', Note: '', } },
                         //{ skill: { id: 'TEST2', name: '測試用2', maxlv: 10, lv: 10, class: 'RK,RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'TEST1', Note: '', } },
-                        { skill: { id: 'SM_SWORD', name: 'Sword Mastery', maxlv: 10, lv: 10, class: 'RK,RG,SC,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'SM_TWOHAND', name: 'Two Hand Sword Mastery', maxlv: 10, lv: 10, class: 'RK', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'SM_SWORD', name: 'Sword Mastery', maxlv: 10, lv: 10, class: 'RK,RG,SC,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'SM_TWOHAND', name: 'Two Hand Sword Mastery', maxlv: 10, lv: 10, class: 'RK', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'KN_TWOHANDQUICKEN', name: 'Two Hand Quicken', maxlv: 10, lv: 10, class: 'RK', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'KN_SPEARMASTERY', name: 'Spear Mastery', maxlv: 10, lv: 10, class: 'RK,RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'KN_SPEARMASTERY', name: 'Spear Mastery', maxlv: 10, lv: 10, class: 'RK,RG', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'CR_SPEARQUICKEN', name: 'Spear Quicken', maxlv: 10, lv: 10, class: 'RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'KN_RIDING', name: 'Cavalier Mastery', maxlv: 5, lv: 5, class: 'RK,RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'RK_DRAGONTRAINING', name: 'Dragon Training', maxlv: 5, lv: 5, class: 'RK', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
@@ -9526,7 +9570,7 @@
                         { skill: { id: 'IG_HOLY_SHIELD', name: 'Holy Shield', maxlv: 5, lv: 5, class: 'RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
                         //{ skill: { id: '', name: '天使之擊', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'AS_KATAR', name: 'Katar Mastery', maxlv: 10, lv: 10, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'AS_KATAR', name: 'Katar Mastery', maxlv: 10, lv: 10, class: 'GX', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'ASC_EDP', name: 'Enchant Deadly Poison', maxlv: 5, lv: 5, class: 'GX', changelv: false, argnum: 0, arg1: 25, arg1desc: '', arg2: 300, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'GC_VENOMIMPRESS', name: 'Venom Impression', maxlv: 5, lv: 5, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'ASC_KATAR', name: 'Advanced Katar Mastery', maxlv: 5, lv: 5, class: 'GX', changelv: false, argnum: 0, arg1: 20, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
@@ -9568,8 +9612,8 @@
                         { skill: { id: 'SR_FLASHCOMBO', name: 'Flash Combo', maxlv: 5, lv: 5, class: 'SU', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'IQ_POWERFUL_FAITH', name: 'Powerful Faith', maxlv: 5, lv: 5, class: 'SU', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
-                        { skill: { id: 'AM_AXEMASTERY', name: 'Axe Mastery', maxlv: 10, lv: 10, class: 'GE,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'GN_TRAINING_SWORD', name: 'Sword Mastery', maxlv: 5, lv: 5, class: 'GE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'AM_AXEMASTERY', name: 'Axe Mastery', maxlv: 10, lv: 10, class: 'GE,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'GN_TRAINING_SWORD', name: 'Sword Mastery', maxlv: 5, lv: 5, class: 'GE', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'MH_PYROCLASTIC', name: 'Pyroclastic', maxlv: 10, lv: 10, class: 'GE', changelv: false, argnum: 1, arg1: 1, arg1desc: 'Homunculus Lvl', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'GN_CARTBOOST', name: 'Geneticist Cart Boost', maxlv: 5, lv: 5, class: 'GE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'GN_SPORE', name: 'Spore Explosion', maxlv: 1, lv: 1, class: 'GE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
@@ -9606,9 +9650,9 @@
                         { skill: { id: 'BS_OVERTHRUST100', name: 'Maximum Power Thrust', maxlv: 5, lv: 5, class: 'ME', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'BS_OVERTHRUST25,BS_OVERTHRUST15', Note: '', } },
                         { skill: { id: 'BS_ADRENALINE', name: 'Adrenaline Rush', maxlv: 5, lv: 5, class: 'ME', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'BS_HILTBINDING', name: 'Hilt Binding', maxlv: 1, lv: 1, class: 'ME,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'BS_WEAPONRESEARCH', name: 'Weaponry Research', maxlv: 10, lv: 10, class: 'ME,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'NC_TRAININGAXE', name: 'Axe Mastery', maxlv: 10, lv: 10, class: 'ME', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'NC_MADOLICENCE', name: 'Madogear License', maxlv: 5, lv: 5, class: 'ME', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'BS_WEAPONRESEARCH', name: 'Weaponry Research', maxlv: 10, lv: 10, class: 'ME,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'NC_TRAININGAXE', name: 'Axe Mastery', maxlv: 10, lv: 10, class: 'ME', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'NC_MADOLICENCE', name: 'Madogear License', maxlv: 5, lv: 5, class: 'ME', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'MT_RUSH', name: 'Rush', maxlv: 1, lv: 1, class: 'ME', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'MT_QUAKE', name: 'Quake', maxlv: 1, lv: 1, class: 'ME', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
@@ -9628,7 +9672,7 @@
                         { skill: { id: 'TR_PRON_MARCH', name: 'March of Prontera', maxlv: 5, lv: 5, class: 'MI,WA', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'TR_JAWAII_SERENADE', name: 'Serenade of Jawaii', maxlv: 5, lv: 5, class: 'MI,WA', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
-                        { skill: { id: 'SA_ADVANCEDBOOK', name: 'Study', maxlv: 10, lv: 10, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'SA_ADVANCEDBOOK', name: 'Study', maxlv: 10, lv: 10, class: 'SO', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SA_DRAGONOLOGY', name: 'Dragonology', maxlv: 5, lv: 5, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SO_STRIKING', name: 'Striking', maxlv: 5, lv: 5, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SO_CLOUD_POSION', name: 'Killing Cloud', maxlv: 1, lv: 1, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
