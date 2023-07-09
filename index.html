@@ -6573,7 +6573,7 @@
                     else this.status.CON = eval(this.status.CON);
                     if (this.status.CRT == null || this.status.Level <200 ) this.status.CRT = 0;
                     else this.status.CRT = eval(this.status.CRT);
-                    if (!this.enableTrait) this.status.POW = this.status.STA = this.status.WIS = this.status.SPL = this.status.CON = this.status.CRT = 0;
+
                     try {
 
                         if (this.status.classid == null) this.status.classid = 'AB';
@@ -6595,6 +6595,8 @@
                         this.status_total.CON = Number(eval(this.status.CON)) + Number(this.status_add.CON) + Number(this.status_job.CON);
                         this.status_total.CRT = Number(eval(this.status.CRT)) + Number(this.status_add.CRT) + Number(this.status_job.CRT);
 
+                        if (!this.enableTrait) 
+                            this.status_total.POW = this.status_total.STA = this.status_total.WIS = this.status_total.S_P_L = this.status_total.CON = this.status_total.CRT = 0;
                         this.computeattribute['TransSTR'] = this.status_total.STR;
                         var TempDEX = this.status_total.DEX;
                         if (this.weapon.type.id === 'Bows' || this.weapon.type.id === 'Instruments' || this.weapon.type.id === 'Whips' || this.weapon.type.id === 'Guns') {
