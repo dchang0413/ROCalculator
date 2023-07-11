@@ -7016,6 +7016,13 @@
                     var para8 = Math.floor(Number(skillPercent)) + Number(this.computeattribute['SpecialATK5']);
                     para_na = Number(1) + Number(para_na / 100);
                     para8 = Number(para8 / 100);
+                    
+                    //高階拳刃修練
+                    if (this.IsSupportActive('ASC_KATAR') && this.weapon.type.id == 'Katars') {
+                        var paraAdvancedKatarReserchValue = Number(1) + Number(this.GetSupportSkill('ASC_KATAR').arg1 / 100);
+                        para_na = Math.floor(para_na * 100 * paraAdvancedKatarReserchValue)/100;
+                        para8 = Math.floor(para8 * 100 * paraAdvancedKatarReserchValue)/100;
+                    }
 
                     if( isNA ){
                         this.computeattribute.atkc7_min = this.MulOper(this.computeattribute.atkc6_min, para_na);
@@ -7023,12 +7030,6 @@
                     }else{
                         this.computeattribute.atkc7_min = this.MulOper(this.computeattribute.atkc6_min, para8);
                         this.computeattribute.atkc7_max = this.MulOper(this.computeattribute.atkc6_max, para8);
-                    }
-                    //高階拳刃修練
-                    if (this.IsSupportActive('ASC_KATAR') && this.weapon.type.id == 'Katars') {
-                        var paraAdvancedKatarReserchValue = Number(1) + Number(this.GetSupportSkill('ASC_KATAR').arg1 / 100);
-                        this.computeattribute.atkc7_min = this.MulOper(this.computeattribute.atkc7_min, paraAdvancedKatarReserchValue);
-                        this.computeattribute.atkc7_max = this.MulOper(this.computeattribute.atkc7_max, paraAdvancedKatarReserchValue);
                     }
                     //敵方DEF
                     if (this.option.IgnoreDEF == false) {
