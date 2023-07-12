@@ -6550,29 +6550,17 @@
                 },
                 ComputStatus() {
                     if (this.status.STR == '') this.status.STR = 0;
-                    else this.status.STR = eval(this.status.STR);
                     if (this.status.AGI == '') this.status.AGI = 0;
-                    else this.status.AGI = eval(this.status.AGI);
                     if (this.status.VIT == '') this.status.VIT = 0;
-                    else this.status.VIT = eval(this.status.VIT);
                     if (this.status.INT == '') this.status.INT = 0;
-                    else this.status.INT = eval(this.status.INT);
                     if (this.status.DEX == '') this.status.DEX = 0;
-                    else this.status.DEX = eval(this.status.DEX);
                     if (this.status.LUK == '') this.status.LUK = 0;
-                    else this.status.LUK = eval(this.status.LUK);
                     if (this.status.POW == null || this.status.Level <200 ) this.status.POW = 0;
-                    else this.status.POW = eval(this.status.POW);
                     if (this.status.STA == null || this.status.Level <200 ) this.status.STA = 0;
-                    else this.status.STA = eval(this.status.STA);
                     if (this.status.WIS == null || this.status.Level <200 ) this.status.WIS = 0;
-                    else this.status.WIS = eval(this.status.WIS);
                     if (this.status.SPL == null || this.status.Level <200 ) this.status.SPL = 0;
-                    else this.status.SPL = eval(this.status.SPL);
                     if (this.status.CON == null || this.status.Level <200 ) this.status.CON = 0;
-                    else this.status.CON = eval(this.status.CON);
                     if (this.status.CRT == null || this.status.Level <200 ) this.status.CRT = 0;
-                    else this.status.CRT = eval(this.status.CRT);
 
                     try {
 
@@ -9882,18 +9870,18 @@
                         { str1: 'SPL', str2: 'this.status_total.S_P_L', description: 'SPL scaling' },
                         { str1: 'CON', str2: 'this.status_total.CON', description: 'CON scaling' },
                         { str1: 'CRT', str2: 'this.status_total.CRT', description: 'CRT scaling' },
-                        { str1: 'BST', str2: 'this.status.STR', description: 'Base STR scaling' },
-                        { str1: 'BAG', str2: 'this.status.AGI', description: 'Base AGI scaling' },
-                        { str1: 'BVI', str2: 'this.status.VIT', description: 'Base VIT scaling' },
-                        { str1: 'BIN', str2: 'this.status.INT', description: 'Base INT scaling' },
-                        { str1: 'BDE', str2: 'this.status.DEX', description: 'Base DEX scaling' },
-                        { str1: 'BLU', str2: 'this.status.LUK', description: 'Base LUK scaling' },
-                        { str1: 'BPO', str2: 'this.status.POW', description: 'Base POW scaling' },
-                        { str1: 'BST', str2: 'this.status.STA', description: 'Base STA scaling' },
-                        { str1: 'BWI', str2: 'this.status.WIS', description: 'Base WIS scaling' },
-                        { str1: 'BSP', str2: 'this.status.S_P_L', description: 'Base SPL scaling' },
-                        { str1: 'BCR', str2: 'this.status.CRT', description: 'Base CRT scaling' },
-                        { str1: 'BCO', str2: 'this.status.CON', description: 'Base CON scaling' },
+                        { str1: 'BST', str2: 'eval(this.status.STR)', description: 'Base STR scaling' },
+                        { str1: 'BAG', str2: 'eval(this.status.AGI)', description: 'Base AGI scaling' },
+                        { str1: 'BVI', str2: 'eval(this.status.VIT)', description: 'Base VIT scaling' },
+                        { str1: 'BIN', str2: 'eval(this.status.INT)', description: 'Base INT scaling' },
+                        { str1: 'BDE', str2: 'eval(this.status.DEX)', description: 'Base DEX scaling' },
+                        { str1: 'BLU', str2: 'eval(this.status.LUK)', description: 'Base LUK scaling' },
+                        { str1: 'BPO', str2: 'eval(this.status.POW)', description: 'Base POW scaling' },
+                        { str1: 'BST', str2: 'eval(this.status.STA)', description: 'Base STA scaling' },
+                        { str1: 'BWI', str2: 'eval(this.status.WIS)', description: 'Base WIS scaling' },
+                        { str1: 'BSP', str2: 'eval(this.status.S_P_L)', description: 'Base SPL scaling' },
+                        { str1: 'BCR', str2: 'eval(this.status.CRT)', description: 'Base CRT scaling' },
+                        { str1: 'BCO', str2: 'eval(this.status.CON)', description: 'Base CON scaling' },
                         { str1: 'PATK', str2: 'this.attribute.PATK', description: 'PATK scaling' },
                         { str1: 'BLV', str2: 'this.status.Level', description: 'base level scaling' },
                         { str1: 'JLV', str2: 'this.status.JOBLevel', description: 'job level scaling' },
