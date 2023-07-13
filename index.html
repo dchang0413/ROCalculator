@@ -6802,10 +6802,8 @@
                     this.computeattribute.atkc6_min = this.computeattribute.atkc5_min;
                     this.computeattribute.atkc6_max = this.computeattribute.atkc5_max;
                     //暴擊增傷
-                    var para_crid = Number(1) + Number(this.attritube['CRIDP']) / 100;
-                    //if( this.IsSupportActive('SG_FUSION') == false){
-                        para_crid = Number(1) + Number(this.attritube['CRIDP']) * 0.5 / 100;
-                    //}
+                    var para_crid = isNA ? 
+                        Number(1) + Number(this.attritube['CRIDP']) / 100 :Number(1) + Number(this.attritube['CRIDP']) * 0.5 / 100;
                     if( isNA ){
                         if( isCRI ){
                             this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, para_crid);
