@@ -2554,7 +2554,11 @@
                                                 <el-col class="textcenter" :span="1">+</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_add.STR}}</el-col>
                                                 <el-col class="textcenter" :span="1">+</el-col>
-                                                <el-col class="textcenter" :span="4">{{status_job.STR}}</el-col>
+                                                <el-col :span="4">
+                                                    <el-input v-model="status_job.STR" v-on:input="onOption"
+                                                        v-on:change="onStatusChange" placeholder="STR">
+                                                    </el-input>
+                                                </el-col>
                                                 <el-col class="textcenter" :span="1">=</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_total.STR}}</el-col>
                                             </el-row>
@@ -2569,7 +2573,11 @@
                                                 <el-col class="textcenter" :span="1">+</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_add.AGI}}</el-col>
                                                 <el-col class="textcenter" :span="1">+</el-col>
-                                                <el-col class="textcenter" :span="4">{{status_job.AGI}}</el-col>
+                                                <el-col :span="4">
+                                                    <el-input v-model="status_job.AGI" v-on:input="onOption"
+                                                        v-on:change="onStatusChange" placeholder="AGI">
+                                                    </el-input>
+                                                </el-col>
                                                 <el-col class="textcenter" :span="1">=</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_total.AGI}}</el-col>
                                             </el-row>
@@ -2584,7 +2592,11 @@
                                                 <el-col class="textcenter" :span="1">+</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_add.VIT}}</el-col>
                                                 <el-col class="textcenter" :span="1">+</el-col>
-                                                <el-col class="textcenter" :span="4">{{status_job.VIT}}</el-col>
+                                                <el-col :span="4">
+                                                    <el-input v-model="status_job.VIT" v-on:input="onOption"
+                                                        v-on:change="onStatusChange" placeholder="VIT">
+                                                    </el-input>
+                                                </el-col>
                                                 <el-col class="textcenter" :span="1">=</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_total.VIT}}</el-col>
                                             </el-row>
@@ -2599,7 +2611,11 @@
                                                 <el-col class="textcenter" :span="1">+</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_add.INT}}</el-col>
                                                 <el-col class="textcenter" :span="1">+</el-col>
-                                                <el-col class="textcenter" :span="4">{{status_job.INT}}</el-col>
+                                                <el-col :span="4">
+                                                    <el-input v-model="status_job.INT" v-on:input="onOption"
+                                                        v-on:change="onStatusChange" placeholder="INT">
+                                                    </el-input>
+                                                </el-col>
                                                 <el-col class="textcenter" :span="1">=</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_total.INT}}</el-col>
                                             </el-row>
@@ -2614,7 +2630,11 @@
                                                 <el-col class="textcenter" :span="1">+</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_add.DEX}}</el-col>
                                                 <el-col class="textcenter" :span="1">+</el-col>
-                                                <el-col class="textcenter" :span="4">{{status_job.DEX}}</el-col>
+                                                <el-col :span="4">
+                                                    <el-input v-model="status_job.DEX" v-on:input="onOption"
+                                                        v-on:change="onStatusChange" placeholder="DEX">
+                                                    </el-input>
+                                                </el-col>
                                                 <el-col class="textcenter" :span="1">=</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_total.DEX}}</el-col>
                                             </el-row>
@@ -2629,7 +2649,11 @@
                                                 <el-col class="textcenter" :span="1">+</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_add.LUK}}</el-col>
                                                 <el-col class="textcenter" :span="1">+</el-col>
-                                                <el-col class="textcenter" :span="4">{{status_job.LUK}}</el-col>
+                                                <el-col :span="4">
+                                                    <el-input v-model="status_job.LUK" v-on:input="onOption"
+                                                        v-on:change="onStatusChange" placeholder="LUK">
+                                                    </el-input>
+                                                </el-col>
                                                 <el-col class="textcenter" :span="1">=</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_total.LUK}}</el-col>
                                             </el-row>
@@ -2655,7 +2679,11 @@
                                                     <el-col class="textcenter" :span="1">+</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_add.POW}}</el-col>
                                                     <el-col class="textcenter" :span="1">+</el-col>
-                                                    <el-col class="textcenter" :span="4">{{status_job.POW}}</el-col>
+                                                    <el-col :span="4">
+                                                        <el-input v-model="status_job.POW" v-on:input="onOption"
+                                                            v-on:change="onStatusChange" placeholder="POW">
+                                                        </el-input>
+                                                    </el-col>
                                                     <el-col class="textcenter" :span="1">=</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_total.POW}}</el-col>
                                                 </el-row>
@@ -2670,7 +2698,11 @@
                                                     <el-col class="textcenter" :span="1">+</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_add.STA}}</el-col>
                                                     <el-col class="textcenter" :span="1">+</el-col>
-                                                    <el-col class="textcenter" :span="4">{{status_job.STA}}</el-col>
+                                                    <el-col :span="4">
+                                                        <el-input v-model="status_job.STA" v-on:input="onOption"
+                                                            v-on:change="onStatusChange" placeholder="STA">
+                                                        </el-input>
+                                                    </el-col>
                                                     <el-col class="textcenter" :span="1">=</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_total.STA}}</el-col>
                                                 </el-row>
@@ -2685,7 +2717,11 @@
                                                     <el-col class="textcenter" :span="1">+</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_add.WIS}}</el-col>
                                                     <el-col class="textcenter" :span="1">+</el-col>
-                                                    <el-col class="textcenter" :span="4">{{status_job.WIS}}</el-col>
+                                                    <el-col :span="4">
+                                                        <el-input v-model="status_job.WIS" v-on:input="onOption"
+                                                            v-on:change="onStatusChange" placeholder="WIS">
+                                                        </el-input>
+                                                    </el-col>
                                                     <el-col class="textcenter" :span="1">=</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_total.WIS}}</el-col>
                                                 </el-row>
@@ -2700,7 +2736,11 @@
                                                     <el-col class="textcenter" :span="1">+</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_add.SPL}}</el-col>
                                                     <el-col class="textcenter" :span="1">+</el-col>
-                                                    <el-col class="textcenter" :span="4">{{status_job.SPL}}</el-col>
+                                                    <el-col :span="4">
+                                                        <el-input v-model="status_job.SPL" v-on:input="onOption"
+                                                            v-on:change="onStatusChange" placeholder="SPL">
+                                                        </el-input>
+                                                    </el-col>
                                                     <el-col class="textcenter" :span="1">=</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_total.S_P_L}}</el-col>
                                                 </el-row>
@@ -2715,7 +2755,11 @@
                                                     <el-col class="textcenter" :span="1">+</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_add.CON}}</el-col>
                                                     <el-col class="textcenter" :span="1">+</el-col>
-                                                    <el-col class="textcenter" :span="4">{{status_job.CON}}</el-col>
+                                                    <el-col :span="4">
+                                                        <el-input v-model="status_job.CON" v-on:input="onOption"
+                                                            v-on:change="onStatusChange" placeholder="CON">
+                                                        </el-input>
+                                                    </el-col>
                                                     <el-col class="textcenter" :span="1">=</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_total.CON}}</el-col>
                                                 </el-row>
@@ -2730,7 +2774,11 @@
                                                     <el-col class="textcenter" :span="1">+</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_add.CRT}}</el-col>
                                                     <el-col class="textcenter" :span="1">+</el-col>
-                                                    <el-col class="textcenter" :span="4">{{status_job.CRT}}</el-col>
+                                                    <el-col :span="4">
+                                                        <el-input v-model="status_job.CRT" v-on:input="onOption"
+                                                            v-on:change="onStatusChange" placeholder="CRT">
+                                                        </el-input>
+                                                    </el-col>
                                                     <el-col class="textcenter" :span="1">=</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_total.CRT}}</el-col>
                                                 </el-row>
@@ -2744,7 +2792,7 @@
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle">
                                                 <el-col class="textcenter" :span="12">
-                                                    <span>Apply Job Bonus</span>
+                                                    <span>Apply Max Job Bonus</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="12">
                                                     <el-switch v-model="status.UseJobMaxPoint" v-on:change="onOption"
@@ -7649,8 +7697,8 @@
                 onOption() {
                     this.status_add = Object.assign({}, this.status_add_init);
                     this.attribute = Object.assign({}, this.attribute_init);
-                    this.status_job = _.cloneDeep(this.status_job_init);
                     if (this.status.UseJobMaxPoint){
+                        this.status_job = _.cloneDeep(this.status_job_init);
                             if(this.status.Level>=200 && this.ClassInfo.TJobMaxPoint!=null){
                                 this.status_job.STR += this.ClassInfo.TJobMaxPoint[0];
                                 this.status_job.AGI += this.ClassInfo.TJobMaxPoint[1];
