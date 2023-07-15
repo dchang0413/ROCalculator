@@ -6617,19 +6617,20 @@
                             .Where("$.id == '" + this.status.classid + "'")
                             .Single();
 
+                        const cleanNum = (str) => typeof(str)=="string" ? str.replace(/\d*(\.\d+)?/g, n => n && +n) : str;
 
-                        this.status_total.STR = Number(eval(this.status.STR)) + Number(this.status_add.STR) + Number(this.status_job.STR);
-                        this.status_total.AGI = Number(eval(this.status.AGI)) + Number(this.status_add.AGI) + Number(this.status_job.AGI);
-                        this.status_total.VIT = Number(eval(this.status.VIT)) + Number(this.status_add.VIT) + Number(this.status_job.VIT);
-                        this.status_total.INT = Number(eval(this.status.INT)) + Number(this.status_add.INT) + Number(this.status_job.INT);
-                        this.status_total.DEX = Number(eval(this.status.DEX)) + Number(this.status_add.DEX) + Number(this.status_job.DEX);
-                        this.status_total.LUK = Number(eval(this.status.LUK)) + Number(this.status_add.LUK) + Number(this.status_job.LUK);
-                        this.status_total.POW = Number(eval(this.status.POW)) + Number(this.status_add.POW) + Number(this.status_job.POW);
-                        this.status_total.STA = Number(eval(this.status.STA)) + Number(this.status_add.STA) + Number(this.status_job.STA);
-                        this.status_total.WIS = Number(eval(this.status.WIS)) + Number(this.status_add.WIS) + Number(this.status_job.WIS);
-                        this.status_total.S_P_L = Number(eval(this.status.SPL)) + Number(this.status_add.SPL) + Number(this.status_job.SPL);
-                        this.status_total.CON = Number(eval(this.status.CON)) + Number(this.status_add.CON) + Number(this.status_job.CON);
-                        this.status_total.CRT = Number(eval(this.status.CRT)) + Number(this.status_add.CRT) + Number(this.status_job.CRT);
+                        this.status_total.STR = Number(eval(cleanNum(this.status.STR))) + Number(this.status_add.STR) + Number(this.status_job.STR);
+                        this.status_total.AGI = Number(eval(cleanNum(this.status.AGI))) + Number(this.status_add.AGI) + Number(this.status_job.AGI);
+                        this.status_total.VIT = Number(eval(cleanNum(this.status.VIT))) + Number(this.status_add.VIT) + Number(this.status_job.VIT);
+                        this.status_total.INT = Number(eval(cleanNum(this.status.INT))) + Number(this.status_add.INT) + Number(this.status_job.INT);
+                        this.status_total.DEX = Number(eval(cleanNum(this.status.DEX))) + Number(this.status_add.DEX) + Number(this.status_job.DEX);
+                        this.status_total.LUK = Number(eval(cleanNum(this.status.LUK))) + Number(this.status_add.LUK) + Number(this.status_job.LUK);
+                        this.status_total.POW = Number(eval(cleanNum(this.status.POW))) + Number(this.status_add.POW) + Number(this.status_job.POW);
+                        this.status_total.STA = Number(eval(cleanNum(this.status.STA))) + Number(this.status_add.STA) + Number(this.status_job.STA);
+                        this.status_total.WIS = Number(eval(cleanNum(this.status.WIS))) + Number(this.status_add.WIS) + Number(this.status_job.WIS);
+                        this.status_total.S_P_L = Number(eval(cleanNum(this.status.SPL))) + Number(this.status_add.SPL) + Number(this.status_job.SPL);
+                        this.status_total.CON = Number(eval(cleanNum(this.status.CON))) + Number(this.status_add.CON) + Number(this.status_job.CON);
+                        this.status_total.CRT = Number(eval(cleanNum(this.status.CRT))) + Number(this.status_add.CRT) + Number(this.status_job.CRT);
 
                         if (!this.enableTrait) 
                             this.status_total.POW = this.status_total.STA = this.status_total.WIS = this.status_total.S_P_L = this.status_total.CON = this.status_total.CRT = 0;
