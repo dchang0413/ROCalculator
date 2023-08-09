@@ -6512,7 +6512,7 @@
                         };
                     }
                     // 變身卷軸
-                    _tag = [ 'MATK', 'RangedDamagePercent' ];
+                    _tag = [ 'MATK', 'RangedDamagePercent', 'SPPercent', 'HPPercent', 'Cri' ];
                     var _idx = this.consumablelist.findIndex(i=>i.group=='TransScroll' && i.active==true);
                         if( _idx > -1 ){
                         for( var t=0; t<_tag.length; ++t ){
@@ -9891,9 +9891,9 @@
                         { id:14600, name:'Mental Potion', active:false, group:'HPSP', SPPercent:10},
                         //{ id:14602, name:'塔奧群卡卷軸', active:false, group:'HPSP', HPPercent:100},
 
-                        { id:11592, name:'Trans Candy Red', active:false, group:'TransScroll', HPP:'20'},
-                        { id:11593, name:'Trans Candy Blue', active:false, group:'TransScroll', SPP:'20'},
-                        { id:11595, name:'Trans Candy Green', active:false, group:'TransScroll', Cri:'20'},
+                        { id:11592, name:'Trans Candy Red', active:false, group:'TransScroll', HPPercent:20},
+                        { id:11593, name:'Trans Candy Blue', active:false, group:'TransScroll', SPPercent:20},
+                        { id:11595, name:'Trans Candy Green', active:false, group:'TransScroll', Cri:20},
 
                         { id:12659, name:'Transformation Scroll (Raydric Archer)', active:false, group:'TransScroll', RangedDamagePercent:25},
                         { id:12660, name:'Transformation Scroll (Mavka)', active:false, group:'TransScroll', RangedDamagePercent:25},
