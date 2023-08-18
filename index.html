@@ -8940,7 +8940,7 @@
                     this.StoreDB_EquipFliterGroup = [];
                     this.StoreDB_EquipFilterList = this.StoreDB_Equip.filter(post => {
                         //return post.equip.equipname.includes(this.StoreDB_SearchString)
-                        return this.StoreDB_SearchString.split(' ').every(v => post.equip.equipname.includes(v));
+                        return this.StoreDB_SearchString.toLowerCase().split(' ').every(v => post.equip.equipname.toLowerCase().includes(v));
                     });
                 },
                 onFliterEquipPart() {
