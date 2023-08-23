@@ -6770,8 +6770,7 @@
                 ComputeSizefix() {
                     if (this.IsSupportActive('BS_WEAPONPERFECT')) {
                         this.computeattribute.sizefix = 100;
-                    }
-                    else if ((this.IsSupportActive('KN_RIDING')||this.IsSupportActive('RK_DRAGONTRAINING')) && this.weapon.type.id == 'Spears') {
+                    } else if ((this.IsSupportActive('KN_RIDING')||this.IsSupportActive('RK_DRAGONTRAINING')) && this.weapon.type.id == 'Spears') {
                         this.computeattribute.sizefix = 100;
                     } else {
                         switch (this.enemyattribute.size) {
@@ -8781,8 +8780,8 @@
                                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='LevelAtkPercent').totalvalue);
                     this.attribute['SizeAtkPercent'] +=         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeAtkPercent').totalvalue)));
 
-                    this.attribute['WeaponPerfection'] +=       Number(this.effecttypelist.find(x => x.id == 'WeaponPerfection').totalvalue);
-                    this.attribute['WeaponOccult'] +=           Number(this.effecttypelist.find(x => x.id == 'WeaponOccult').totalvalue);
+                    this.attribute['WeaponPerfection'] +=       Number(eval(this.effecttypelist.find(x => x.id == 'WeaponPerfection').totalvalue));
+                    this.attribute['WeaponOccult'] +=           Number(eval(this.effecttypelist.find(x => x.id == 'WeaponOccult').totalvalue));
 
                     this.option.EquipSkillAddDamage +=          Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SkillDamagePercent').totalvalue)));
 
