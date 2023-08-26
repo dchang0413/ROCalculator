@@ -6330,6 +6330,7 @@
                     return _BuildString;
                 },
                 ComputRefineATK() {
+                    this.weapon.refineatk = this.weapon.refinematk = this.subweapon.refineatk = this.subweapon.refinematk = 0;
                     if(this.weapon.level.id == 5){
                         this.weapon.refineatk =  Math.floor(this.weapon.refinelevel *this.weaponlevellist[this.weapon.level.id - 1].upgradeatk[this.weapon.grade.id]);
                         this.weapon.refinematk = this.weapon.refineatk;
@@ -6337,8 +6338,6 @@
                     }else{
                         this.weapon.refineatk = this.weapon.refinelevel * this.weaponlevellist[this.weapon.level.id - 1].upgradeatk;
                         this.weapon.refinematk = this.weapon.refineatk;
-                        this.subweapon.refineatk = this.subweapon.refinelevel * this.weaponlevellist[this.subweapon.level.id - 1].upgradeatk;
-                        this.subweapon.refinematk = this.subweapon.refineatk;
                         if (this.weapon.refinelevel <= this.weaponlevellist[this.weapon.level.id - 1].saferefine) {
                             this.weapon.refineatk2 = 0;
                         }
@@ -6353,6 +6352,14 @@
                         }
                         this.weapon.refineatk = this.weapon.refineatk;
                         this.weapon.refinematk = this.weapon.refinematk + this.subweapon.refinematk;
+                    }
+                    if (this.subweapon.level.id == 5){
+                        this.subweapon.refineatk =  Math.floor(this.weapon.refinelevel *this.weaponlevellist[this.weapon.level.id - 1].upgradeatk[this.weapon.grade.id]);
+                        this.subweapon.refinematk = this.subweapon.refineatk;
+                        this.subweapon.refineatk2 = 0;
+                    } else {
+                        this.subweapon.refineatk = this.subweapon.refinelevel * this.weaponlevellist[this.subweapon.level.id - 1].upgradeatk;
+                        this.subweapon.refinematk = this.subweapon.refineatk;
                     }
                 },
                 onSelectedWeaponLevel(item) {
