@@ -10116,9 +10116,9 @@
                             this.CurrentUpdateVersion = this.UpdateLogList[0].id;
                             const parsed = JSON.stringify(this.CurrentUpdateVersion);
                             localStorage.setItem('CurrentUpdateVersion', parsed);
-                            //this.TogglePanel('UpdateLogDialog');
+                            this.TogglePanel('UpdateLogDialog');
                         }
-                        this.TogglePanel('UpdateLogDialog');    //always open
+                        //this.TogglePanel('UpdateLogDialog');    //always open
                     } catch (e) {
                         console.log("catch e:" + e);
                     }
