@@ -169,8 +169,7 @@
                     <el-row class="titlebox" type="flex" align="middle" style="height:20px; padding: 0px 5px;">
                         <el-col class="textcenter">Update Detail</el-col>
                     </el-row>
-                    <!--<el-scrollbar wrap-class="Announce-container" :native="false" :noresize="false">-->
-                    <el-scrollbar wrap-class="ThanksList-container" :native="false" :noresize="false">
+                    <el-scrollbar wrap-class="Announce-container" :native="false" :noresize="false">
                         <el-row>
                             <div class="aboutbox" style="padding: 5px 55px; text-align:left">
                                 <el-row :gutter="4" type="flex" align="left">
@@ -6651,14 +6650,18 @@
                         this.attribute['StatusMATK'] += this.status_total.S_P_L * 5;
                         this.attribute['PATK'] += Math.floor(this.status_total.POW/3) + Math.floor(this.status_total.CON/5);
                         this.attribute['SMATK'] += Math.floor(this.status_total.S_P_L/3) + Math.floor(this.status_total.CON/5);
-                        if(this.weapon.level.id == 5)
-                        {
+                        if(this.weapon.level.id == 5) {
                             this.attribute['PATK'] += this.weapon.refinelevel * 2;
                             this.attribute['SMATK'] += this.weapon.refinelevel * 2;
                         }
+                        if(this.subweapon.level.id == 5) {
+                            this.attribute['PATK'] += this.subweapon.refinelevel * 2;
+                            this.attribute['SMATK'] += this.subweapon.refinelevel * 2;
+                        }
+                        
                         this.attribute['CRIDR'] += Math.floor(this.status_total.CRT/3);
 
-                        this.attribute['CRI'] += 2.2 + this.status_total.LUK * 0.3;
+                        this.attribute['CRI'] += 1 + this.status.Level / 100 + this.status_total.LUK * 0.3;
                         if (this.weapon.type.id == 'Katars')
                         {
                             this.attribute['CRI'] = this.attribute['CRI'] * 2;
@@ -6908,10 +6911,8 @@
                     this.computeattribute.atkc4_min = this.MulOper(this.computeattribute.atkc4_min, Number(1) - Number(this.enemyattribute.raceResist / 100));
                     this.computeattribute.atkc4_max = this.MulOper(this.computeattribute.atkc4_max, Number(1) - Number(this.enemyattribute.raceResist / 100));
 
-                    let specialATK2 = isNA ? this.computeattribute['SpecialATK2'] - this.weapon.BulletATK : this.computeattribute['SpecialATK2'];
-
-                    this.computeattribute.atkc4_min = this.computeattribute.atkc4_min + Number(specialATK2);
-                    this.computeattribute.atkc4_max = this.computeattribute.atkc4_max + Number(specialATK2);
+                    //this.computeattribute.atkc4_min = this.computeattribute.atkc4_min + Number(this.computeattribute['SpecialATK2']);
+                    //this.computeattribute.atkc4_max = this.computeattribute.atkc4_max + Number(this.computeattribute['SpecialATK2']);
 
                     this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc4_min, Number(this.skilloption.ElementalPercent / 100));
                     this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc4_max, Number(this.skilloption.ElementalPercent / 100));
@@ -6967,8 +6968,8 @@
                         masteryATK -= 9;
                     }
                     
-                    this.computeattribute.atkc5_min += masteryATK;
-                    this.computeattribute.atkc5_max += masteryATK;
+                    this.computeattribute.atkc5_min += masteryATK + Number(this.computeattribute['SpecialATK2']);
+                    this.computeattribute.atkc5_max += masteryATK + Number(this.computeattribute['SpecialATK2']);
 
                     if (this.IsSupportActive('TK_POWER')) {
                         var paraKihop = Number(1) + Number((10 + this.GetSupportSkill('TK_POWER').lv * 15) / 100);
@@ -9066,6 +9067,10 @@
                     if (this.skill.formula == '')
                         this.skill.formula = 0;
                 },
+                CloseAnnounceDialogue(con) {
+                    this.Consent = con;
+                    this.ClosePanel('UpdateLogDialog');
+                },
                 onSaveSkill() {
                     // https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/
                     // let copy = $.extend(true, {}, obj); //使用 jquery.extend
@@ -9430,7 +9435,7 @@
                         { skill: { id: 'RK_HUNDREDSPEAR(ex)', name: 'Hundred Spear(Dragonic Aura)', level: 10, formula: "(700+SLV*350)*BLV/100+5*50", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 0, FCT: 0, VCT: "(11-SLV)/10", CD: 3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv5 Clashing Spiral', } },
                         { skill: { id: 'RK_SONICWAVE', name: 'Sonic Wave', level: 10, formula: "(550+SLV*200)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: true, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 0, FCT: 0, VCT: 0, CD: 1.75, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'RK_STORMBLAST', name: 'Storm Blast', level: 1, formula: "(10+DOWN(STR/5.7))*100*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Not affected by Turisus', } },
-                        { skill: { id: 'RK_DRAGONBREATH', name: 'Dragon Breath', level: 10, formula: '(DOWN(HP/50)+DOWN(Msp/4))*SLV*BLV/100*((90+5*10+POW/5)*(1+PATK/100)/100)', class: 'RK', DamageTypeIdx: 2, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 2, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Affected by HP/MaxSP，Assume Lv5 Dragon Training', } },
+                        { skill: { id: 'RK_DRAGONBREATH', name: 'Dragon Breath', level: 10, formula: '(DOWN(HP/50)+DOWN(SP/4))*SLV*BLV/100*DOWN((90+5*10+POW/5)*(1+PATK/100))/100', class: 'RK', DamageTypeIdx: 2, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 2, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Affected by HP/MaxSP，Assume Lv5 Dragon Training', } },
                         { skill: { id: 'DK_STORMSLASH', name: 'Storm Slash', level: 5, formula: "(SLV*120+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV", elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Turissus can double damage', } },
                         { skill: { id: 'DK_HACKANDSLASHER', name: 'Hack and Slash', level: 10, formula: "(SLV*120+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'DK_HACKANDSLASHER2HSPEAR', name: 'Hack and Slash(2HSpear)', level: 10, formula: "(500+SLV*250+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
@@ -9460,7 +9465,7 @@
                         { skill: { id: 'ASC_METEORASSAULT', name: 'Meteor Assault', level: 10, formula: '(200+SLV*120+STR*5)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, halfcri:false, hitnumber: 1, elemental: 0, FCT: 0.25, VCT: 0.25, CD: 0.5, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
 
                         { skill: { id: 'NC_AXETORNADO', name: 'Axe Tornado', level: 5, formula: '(200+180*SLV+VIT)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -6, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
-                        { skill: { id: 'NC_AXETORNADO(ex)', name: 'Axe Tornado(Axe Stomp)', level: 5, formula: '(360+250*SLV+VIT)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -6, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
+                        { skill: { id: 'NC_AXETORNADO(ex)', name: 'Axe Tornado(Axe Stomp)', level: 5, formula: '(230+250*SLV+VIT*2)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -6, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'NC_AXEBOOMERANG', name: 'Axe Boomerang', level: 5, formula: '(250+50*SLV+WGT)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: "5-(SLV-1)*0.5", GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Weapon Weight Scaling', } },
                         
                         { skill: { id: 'NC_ARMSCANNON_i', name: 'Arm Cannon -iRO', level: 5, formula: '(400+300*SLV)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: true, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: "(6-SLV)/10", VCT: "(10+SLV*2)/10", CD: "(3*SLV)/100", GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
@@ -9481,9 +9486,6 @@
 
                         { skill: { id: 'LG_CANNONSPEAR_i', name: 'Cannon Spear -iRO', level: 5, formula: '(80+STR)*SLV*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: true, halfcri:true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
 
-                        { skill: { id: 'LG_CANNONSPEAR', name: 'Cannon Spear', level: 5, formula: '(120+STR)*SLV*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: true, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 1.7, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
-                        { skill: { id: 'LG_CANNONSPEAR(ex)', name: 'Cannon Spear(Grand Judgement)', level: 5, formula: '(200+STR)*SLV*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: true, halfcri:true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
-                        
                         { skill: { id: 'LG_BANISHINGPOINT_i', name: 'Vanishing Point -iRO', level: 10, formula: '(SLV*80+10*50)*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv10 Bash', } },
 
                         { skill: { id: 'LG_BANISHINGPOINT', name: 'Vanishing Point', level: 10, formula: '(SLV*100+10*70)*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv10 Bash', } },
@@ -9536,7 +9538,9 @@
                         { skill: { id: 'SR_FALLENEMPIRE', name: 'Fallen Empire', level: 10, formula: '(100+300*SLV)*BLV/100+100*STR', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SR_GATEOFHELL', name: 'Gate of Hell', level: 10, formula: '500*SLV*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -7, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: '(SP-100)*3+BLV*10+((Mhp>HP)?(Mhp-HP):0)', SpecialMATK1: 0, Note: 'Affected by HP/SP', } },
                         { skill: { id: 'IQ_THIRD_FLAME_BOMB', name: 'Third Flame Bomb', level: 5, formula: '(DOWN(Mhp*0.2)+SLV*650+POW*5)*(BLV/100)', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 3, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume 15 spheres (3 Hit)', } },
-
+                        { skill: { id: 'IQ_EXPOSION_BLASTER', name: 'Explosion Blaster', level: 5, formula: '(650*SLV+POW*3)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 1, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
+                        { skill: { id: 'IQ_EXPOSION_BLASTER(ex)', name: 'Explosion Blaster(Oleum Sanctum)', level: 5, formula: '(850*SLV+POW*4)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 1, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
+                        
                         { skill: { id: 'SC_TRIANGLESHOT', name: 'Triangle Shot', level: 10, formula: '(230*SLV+AGI*3)*BLV/100', class: 'SC', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 0, FCT: 0, VCT: 1, CD: 0, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SC_FATALMENACE', name: 'Fatal Menace', level: 10, formula: "(AGI*2+SLV*120)*BLV/100", class: 'SC', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "(WTI=='Daggers')?2:1", elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SC_FATALMENACE(ex)', name: 'Fatal Menace(Abyss Dagger)', level: 10, formula: "(AGI*3+SLV*150)*BLV/100", class: 'SC', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "(WTI=='Daggers')?2:1", elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
@@ -9956,12 +9960,17 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2023-8-26', content: 'Added Explosion Blaster' },
+                        { id: '2023-8-25', content: 'Fixed Crit Calculation' },
+                        { id: '2023-8-22', content: 'Fixed Arrow/Ammo Calculation' },
+                        { id: '2023-7-22', content: 'Updated DB Formula on PATK influence' },
                         { id: '2023-7-07', content: 'Fixed Sura skills and corrected mastery atk loss on sphere consumption<br>Default target set to Izlude Egg' },
                         { id: '2023-7-04', content: 'Added iRO version of skills, fixed Dark Claw, Spore Bomb, Sightless Mind interaction' },
                         { id: '2023-6-30', content: 'Implemented Preset Equip list' },
                         { id: '2023-6-29', content: 'Organized Consumable Buffs' },
                         { id: '2023-6-28', content: 'Adjusted ATK calculation for iRO size penalty on extra ATK' },
                         { id: '2023-6-27', content: 'Translated Most of the page, Adde Tokens for Equip Values' },
+                        { id: '2023-3-28', content: 'Offhand now increase PATK SMATK by (refine*2)' },
                         { id: '2022-10-4', content: '調整法傷計算 體型的公式位置 目前為>Matk% >體型 >對屬性怪 >屬性 >種族 >階級 >特定怪 >SMATK' },
                         { id: '2022-7-27', content: '增加預設技能 狂暴射擊<br>更新加農砲攻擊獨延/暴率' },
                         { id: '2022-7-12', content: '增加預設技能 戰斧颶風(踏滅)<br>紋章(敵方)現在所有技能都會增傷，使用時須注意<br>紋章(我方)現在可以選擇等級' },
@@ -10101,8 +10110,9 @@
                             this.CurrentUpdateVersion = this.UpdateLogList[0].id;
                             const parsed = JSON.stringify(this.CurrentUpdateVersion);
                             localStorage.setItem('CurrentUpdateVersion', parsed);
-                            this.TogglePanel('UpdateLogDialog');
+                            //this.TogglePanel('UpdateLogDialog');
                         }
+                        this.TogglePanel('UpdateLogDialog');    //always open
                     } catch (e) {
                         console.log("catch e:" + e);
                     }
