@@ -7101,6 +7101,19 @@
                         this.computeattribute.atkc7_min = this.MulOper(this.computeattribute.atkc6_min, para8);
                         this.computeattribute.atkc7_max = this.MulOper(this.computeattribute.atkc6_max, para8);
                     }
+
+                    if (this.enemyattribute.RES > 0){
+                        if (isNA==false && this.skill.transWeaponDEF) {
+                            this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.RES);
+                            this.computeattribute.atkc7_max = this.computeattribute.atkc7_max - Number(this.enemyattribute.RES);
+                        } else {
+                            var parabypassRES = Number(1);//Number(1) - Number(this.attribute['BYPASSRES']) / 100;
+                            var paraRES = ((2000 + this.MulOper(Number(this.enemyattribute.RES), parabypassRES)) /
+                                    (2000 + 5 * this.MulOper(Number(this.enemyattribute.RES), parabypassRES)));
+                            this.computeattribute.atkc7_min = Math.floor(this.computeattribute.atkc7_min * paraRES);
+                            this.computeattribute.atkc7_max = Math.floor(this.computeattribute.atkc7_max * paraRES);
+                        }
+                    }
                     //敵方DEF
                     if (this.option.IgnoreDEF == false) {
                         if (this.enemyattribute.WeaponDEF > 0){
@@ -7118,19 +7131,6 @@
                         if (this.enemyattribute.StatusDEF > 0){
                             this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.StatusDEF);
                             this.computeattribute.atkc7_max = this.computeattribute.atkc7_max - Number(this.enemyattribute.StatusDEF);
-                        }
-                    }
-
-                    if (this.enemyattribute.RES > 0){
-                        if (isNA==false && this.skill.transWeaponDEF) {
-                            this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.RES);
-                            this.computeattribute.atkc7_max = this.computeattribute.atkc7_max - Number(this.enemyattribute.RES);
-                        } else {
-                            var parabypassRES = Number(1);//Number(1) - Number(this.attribute['BYPASSRES']) / 100;
-                            var paraRES = ((2000 + this.MulOper(Number(this.enemyattribute.RES), parabypassRES)) /
-                                    (2000 + 5 * this.MulOper(Number(this.enemyattribute.RES), parabypassRES)));
-                            this.computeattribute.atkc7_min = Math.floor(this.computeattribute.atkc7_min * paraRES);
-                            this.computeattribute.atkc7_max = Math.floor(this.computeattribute.atkc7_max * paraRES);
                         }
                     }
 
@@ -7326,17 +7326,17 @@
                     this.computeattribute.matk2_max = this.computeattribute.skillmatk_max;
 
                     if (this.option.IgnoreMDEF == false) {
-                        var parabypassMDEF = Number(1) - Number(this.attribute['BYPASSMDEF']) / 100;
-                        var paraMDEF = Number(1);
-                        if (this.enemyattribute.WeaponMDEF > 0) {
-                            paraMDEF = ((1000 + this.MulOper(Number(this.enemyattribute.WeaponMDEF), parabypassMDEF)) /
-                            (1000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponMDEF), parabypassMDEF)));
-                        }
                         var paraMRES = Number(1);
                         if (this.enemyattribute.MRES > 0){
                             var parabypassMRES = Number(1);//Number(1) - Number(this.attribute['BYPASSMRES']) / 100;
                             paraMRES = ((1000 + this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)) /
                                 (1000 + 10 * this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)));
+                        }
+                        var parabypassMDEF = Number(1) - Number(this.attribute['BYPASSMDEF']) / 100;
+                        var paraMDEF = Number(1);
+                        if (this.enemyattribute.WeaponMDEF > 0) {
+                            paraMDEF = ((1000 + this.MulOper(Number(this.enemyattribute.WeaponMDEF), parabypassMDEF)) /
+                            (1000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponMDEF), parabypassMDEF)));
                         }
                         this.computeattribute.matk2_min = Math.floor(Math.floor(this.computeattribute.skillmatk_min * paraMDEF) * paraMRES) - Number(this.enemyattribute.StatusMDEF);
                         this.computeattribute.matk2_max = Math.floor(Math.floor(this.computeattribute.skillmatk_max * paraMDEF) * paraMRES) - Number(this.enemyattribute.StatusMDEF);
@@ -10023,6 +10023,8 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2023-8-28', content: 'Fixed RES/MRES calculation order' },
+                        { id: '2023-8-28', content: 'Initial RES/MRES implementation' },
                         { id: '2023-8-25', content: 'Merged new changes from twRO calc:<br><br>Added Explosion Blaster<br>Fixed Crit Calculation<br>Fixed Arrow/Ammo Calculation<br>Updated DB Formula on PATK influence<br>Fixed Axe Tornado damage' },
                         { id: '2023-7-07', content: 'Fixed Sura skills and corrected mastery atk loss on sphere consumption<br>Default target set to Izlude Egg' },
                         { id: '2023-7-04', content: 'Added iRO version of skills, fixed Dark Claw, Spore Bomb, Sightless Mind interaction' },
