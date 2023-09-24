@@ -5545,19 +5545,19 @@
                     { id: 'Shuriken', label: 'Fuuma', sizefix: { small: 75, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: true },
                 ],
                 aspdTable: {
-                    'RK': { class: 'RK', Empty: 156, Daggers: -10, OneHandedSwords: -12, TwoHandedSword: -15, OneHandedAxe: -18, TwoHandedAxe: -20, Maces: -5, OneHandedSpears: -8, TwoHandedSpears: -12 },
-                    'GX': { class: 'GX', Empty: 156, Daggers: -2, OneHandedSwords: -25, OneHandedAxe: -40, Katars: -2, Daggers: -10, OneHandedSwords: -16, OneHandedAxe: -20 },
-                    'AB': { class: 'AB', Empty: 151, Maces: 0, OneHandedRods: -15, TwoHandedRods: -10, Books: 1, Knuckles: -5 },
-                    'RA': { class: 'RA', Empty: 156, Daggers: -10, Bows: -9 },
-                    'WL': { class: 'WL', Empty: 151, Daggers: -7, OneHandedRods: -5, TwoHandedRods: -5 },
-                    'ME': { class: 'ME', Empty: 156, Daggers: -20, OneHandedSwords: -25, OneHandedAxe: -5, TwoHandedAxe: -8, Maces: -8 },
-                    'RG': { class: 'RG', Empty: 156, Daggers: -7, OneHandedSwords: -5, TwoHandedSword: -9, OneHandedAxe: -8, TwoHandedAxe: -12, Maces: -4, OneHandedSpears: -10, TwoHandedSpears: -10 },
-                    'SC': { class: 'SC', Empty: 156, Daggers: -3, OneHandedSwords: -7, OneHandedAxe: -159, Bows: -7 },
-                    'SU': { class: 'SU', Empty: 158, Maces: -5, OneHandedRods: -10, TwoHandedRods: -12, Knuckles: -1 },
-                    'MI': { class: 'MI', Empty: 156, Daggers: -12, Bows: -10, Instruments: -5 },
-                    'WA': { class: 'WA', Empty: 156, Daggers: -12, Bows: -10, Whips: -5 },
-                    'SO': { class: 'SO', Empty: 156, Daggers: -10, OneHandedRods: -5, TwoHandedRods: -5, Books: -5 },
-                    'GE': { class: 'GE', Empty: 156, Daggers: -10, OneHandedSwords: -4, OneHandedAxe: -8, TwoHandedAxe: -11, Maces: -5 },
+                    'RK': { class: 'RK', Empty: 156, Daggers: -10, OneHandedSwords: -12, TwoHandedSword: -15, OneHandedAxe: -18, TwoHandedAxe: -20, Maces: -5, OneHandedSpears: -8, TwoHandedSpears: -12, Shield: -5 },
+                    'GX': { class: 'GX', Empty: 156, Daggers: -2, OneHandedSwords: -25, OneHandedAxe: -40, Katars: -2, Daggers: -10, OneHandedSwords: -16, OneHandedAxe: -20, Shield: -9 },
+                    'AB': { class: 'AB', Empty: 151, Maces: 0, OneHandedRods: -15, TwoHandedRods: -10, Books: 1, Knuckles: -5, Shield: -5 },
+                    'RA': { class: 'RA', Empty: 156, Daggers: -10, Bows: -9, Shield: -8 },
+                    'WL': { class: 'WL', Empty: 151, Daggers: -7, OneHandedRods: -5, TwoHandedRods: -5, Shield: -5 },
+                    'ME': { class: 'ME', Empty: 156, Daggers: -20, OneHandedSwords: -25, OneHandedAxe: -5, TwoHandedAxe: -8, Maces: -8, Shield: -6 },
+                    'RG': { class: 'RG', Empty: 156, Daggers: -7, OneHandedSwords: -5, TwoHandedSword: -9, OneHandedAxe: -8, TwoHandedAxe: -12, Maces: -4, OneHandedSpears: -10, TwoHandedSpears: -10, Shield: -5 },
+                    'SC': { class: 'SC', Empty: 156, Daggers: -3, OneHandedSwords: -7, OneHandedAxe: -159, Bows: -7, Shield: -5 },
+                    'SU': { class: 'SU', Empty: 158, Maces: -5, OneHandedRods: -10, TwoHandedRods: -12, Knuckles: -1, Shield: -5 },
+                    'MI': { class: 'MI', Empty: 156, Daggers: -12, Bows: -10, Instruments: -5, Shield: -7 },
+                    'WA': { class: 'WA', Empty: 156, Daggers: -12, Bows: -10, Whips: -5, Shield: -7 },
+                    'SO': { class: 'SO', Empty: 156, Daggers: -10, OneHandedRods: -5, TwoHandedRods: -5, Books: -5, Shield: -5 },
+                    'GE': { class: 'GE', Empty: 156, Daggers: -10, OneHandedSwords: -4, OneHandedAxe: -11, TwoHandedAxe: -11, Maces: -5, Shield: -4 },
                 },
                 lefthandweapon: false,
                 subhandtype: [
@@ -7251,17 +7251,18 @@
                         }
                     }
                 },
-                getBaseASPD(weaponType, jobid){
+                getBaseASPD(weaponType, subweaponType, jobid){
                     var aspdTable = this.aspdTable[jobid];
                     var baseASPD = 40;
                     if (weaponType == 'Empty') baseASPD =aspdTable[weaponType];
                     else if (aspdTable[weaponType]) baseASPD = aspdTable['Empty'] + aspdTable[weaponType];
 
+                    if (subweaponType == 'Shield' && !isNaN(aspdTable['Shield'])) baseASPD += aspdTable['Shield'];
+
                     return baseASPD;
                 },
                 ComputeASPD(){
-                    var baseASPD = this.getBaseASPD(this.weapon.type.id, this.ClassInfo.id);
-                    
+                    var baseASPD = this.getBaseASPD(this.weapon.type.id, this.subweapon.type.label, this.ClassInfo.id);
                     var ASPDPenalty = baseASPD > 145 ?  Math.round(100*(1 - (baseASPD - 144) / 50))/100 : 0.96;
                     //console.log('penalty',ASPDPenalty);
 
