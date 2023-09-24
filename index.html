@@ -178,10 +178,12 @@
                                     <br>
                                     Calculator supports 4th job stats and lv5 weapons<br>
                                     <br>
-                                    Currently we only have correct HP/SP table for RK and Sura at Lv250<br>
+                                    WIP:<br>
+                                    HP/SP Table, right now we only have DragonKnight and Inqusitor at Lv250<br>
+                                    ASPD Calculation<br>
+                                    Skill formula for iRO<br>
+                                    More Equip Preset<br>
                                     <br><br><br>
-                                    Hey guys, I'm currently working on adding more equip into our presets, recommendations are welcome<br> 
-                                    I will try to test them all before adding but I don't have everything available to me<br>
                                     Please reach out to me on forum or discord, thanks<br><br>
                                 </el-row>
                                 <a href="https://irowiki.org/discord" target="_blank"><span style="color:steelblue">iRO Wiki Discord</span></a><br>
@@ -5523,18 +5525,40 @@
                     { id: 'OneHandedSwords', label: '1HSword', sizefix: { small: 75, middle: 100, large: 75 }, baseaspd: '', isRangedattack: false, isTwohand: false },
                     { id: 'TwoHandedSword', label: '2HSword', sizefix: { small: 75, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: true },
                     { id: 'Katars', label: 'Katar', sizefix: { small: 75, middle: 100, large: 75 }, baseaspd: '', isRangedattack: false, isTwohand: true },
-                    { id: 'Spears', label: 'Spear', sizefix: { small: 75, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
-                    { id: 'Axes', label: 'Axe', sizefix: { small: 50, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
+                    //Add other tags for "Spears"
+                    { id: 'OneHandedSpears', label: '1HSpear', sizefix: { small: 75, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
+                    { id: 'TwoHandedSpears', label: '2HSpear', sizefix: { small: 75, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
+                    //Add other tags for "Axes"
+                    { id: 'OneHandedAxe', label: '1HAxe', sizefix: { small: 50, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
+                    { id: 'TwoHandedAxe', label: '2HAxe', sizefix: { small: 50, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
                     { id: 'Maces', label: 'Mace', sizefix: { small: 75, middle: 100, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
                     { id: 'Knuckles', label: 'Knuckle', sizefix: { small: 100, middle: 100, large: 75 }, baseaspd: '', isRangedattack: false, isTwohand: false },
-                    { id: 'Rods', label: 'Rod', sizefix: { small: 100, middle: 100, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
+                    //Add other tags for "Rods"
+                    { id: 'OneHandedRods', label: '1HRod', sizefix: { small: 100, middle: 100, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
+                    { id: 'TwoHandedRods', label: '2HRod', sizefix: { small: 100, middle: 100, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
                     { id: 'Books', label: 'Book', sizefix: { small: 100, middle: 100, large: 50 }, baseaspd: '', isRangedattack: false, isTwohand: false },
                     { id: 'Bows', label: 'Bow', sizefix: { small: 100, middle: 100, large: 75 }, baseaspd: '', isRangedattack: true, isTwohand: true },
                     { id: 'Instruments', label: 'Instrument', sizefix: { small: 75, middle: 100, large: 75 }, baseaspd: '', isRangedattack: false, isTwohand: false },
                     { id: 'Whips', label: 'Whip', sizefix: { small: 75, middle: 100, large: 75 }, baseaspd: '', isRangedattack: false, isTwohand: false },
+                    //Boy..
                     { id: 'Guns', label: 'Gun', sizefix: { small: 100, middle: 100, large: 100 }, baseaspd: '', isRangedattack: true, isTwohand: true },
                     { id: 'Shuriken', label: 'Fuuma', sizefix: { small: 75, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: true },
                 ],
+                aspdTable: {
+                    'RK': { class: 'RK', Empty: 156, Daggers: -10, OneHandedSwords: -12, TwoHandedSword: -15, OneHandedAxe: -18, TwoHandedAxe: -20, Maces: -5, OneHandedSpears: -8, TwoHandedSpears: -12 },
+                    'GX': { class: 'GX', Empty: 156, Daggers: -2, OneHandedSwords: -25, OneHandedAxe: -40, Katars: -2, Daggers: -10, OneHandedSwords: -16, OneHandedAxe: -20 },
+                    'AB': { class: 'AB', Empty: 151, Maces: 0, OneHandedRods: -15, TwoHandedRods: -10, Books: 1, Knuckles: -5 },
+                    'RA': { class: 'RA', Empty: 156, Daggers: -10, Bows: -9 },
+                    'WL': { class: 'WL', Empty: 151, Daggers: -7, OneHandedRods: -5, TwoHandedRods: -5 },
+                    'ME': { class: 'ME', Empty: 156, Daggers: -20, OneHandedSwords: -25, OneHandedAxe: -5, TwoHandedAxe: -8, Maces: -8 },
+                    'RG': { class: 'RG', Empty: 156, Daggers: -7, OneHandedSwords: -5, TwoHandedSword: -9, OneHandedAxe: -8, TwoHandedAxe: -12, Maces: -4, OneHandedSpears: -10, TwoHandedSpears: -10 },
+                    'SC': { class: 'SC', Empty: 156, Daggers: -3, OneHandedSwords: -7, OneHandedAxe: -159, Bows: -7 },
+                    'SU': { class: 'SU', Empty: 158, Maces: -5, OneHandedRods: -10, TwoHandedRods: -12, Knuckles: -1 },
+                    'MI': { class: 'MI', Empty: 156, Daggers: -12, Bows: -10, Instruments: -5 },
+                    'WA': { class: 'WA', Empty: 156, Daggers: -12, Bows: -10, Whips: -5 },
+                    'SO': { class: 'SO', Empty: 156, Daggers: -10, OneHandedRods: -5, TwoHandedRods: -5, Books: -5 },
+                    'GE': { class: 'GE', Empty: 156, Daggers: -10, OneHandedSwords: -4, OneHandedAxe: -8, TwoHandedAxe: -11, Maces: -5 },
+                },
                 lefthandweapon: false,
                 subhandtype: [
                     { id: 0, label: 'Bare Hand' },
@@ -5609,7 +5633,7 @@
                     StatusATK: 0, WeaponATK: 0, StatusMATK: 0, WeaponMATK: 0,
                     ATK: 0, MATK: 0, ATKP: 0, MATKP: 0, DEF: 0, MDEF: 0, HP: 0, HPP: 0, SP: 0, SPP: 0,
                     PATK: 0, SMATK: 0, CRIDR: 0, RES: 0, MRES: 0,
-                    ASPD: 0, ASPDP: 0, CRI: 0, HIT: 0, CRIDP: 0, RNGDP: 0, MELDP: 0,
+                    ASPD: 0, ASPDP: 0, SKILLASPDP:0, CRI: 0, HIT: 0, CRIDP: 0, RNGDP: 0, MELDP: 0,
                     ELEDDI: 0, RNGDDI: 0, MELDDI: 0,  //damage dealt increased    ELEDDI = Element RNGDDI = Range MELDDI=melee
                     SK1VCTP: 0, SK2VCTP: 0, EQVCTP: 0, VCTS:0, FCT: 0, FCTP: 0, CD: 0, GCD: 0,
                     BYPASSDEF: 0, BYPASSMDEF: 0,
@@ -7227,6 +7251,38 @@
                         }
                     }
                 },
+                getBaseASPD(weaponType, jobid){
+                    var aspdTable = this.aspdTable[jobid];
+                    var baseASPD = 40;
+                    if (weaponType == 'Empty') baseASPD =aspdTable[weaponType];
+                    else if (aspdTable[weaponType]) baseASPD = aspdTable['Empty'] + aspdTable[weaponType];
+
+                    return baseASPD;
+                },
+                ComputeASPD(){
+                    var baseASPD = this.getBaseASPD(this.weapon.type.id, this.ClassInfo.id);
+                    
+                    var ASPDPenalty = baseASPD > 145 ?  Math.round(100*(1 - (baseASPD - 144) / 50))/100 : 0.96;
+                    //console.log('penalty',ASPDPenalty);
+
+                    var ASPDCorrection = Math.ceil(1000*((Math.sqrt(205) - Math.sqrt(this.status_total.AGI)) / 7.15))/1000;
+                    //console.log('correction',ASPDCorrection);
+
+                    var PotionASPD = 0;
+                    var SkillASPD = this.attribute['SKILLASPDP'] / 100;
+
+                    var baseASPD2 = Math.floor(100*(200 -
+                        (200 - (baseASPD - ASPDCorrection + Math.sqrt(this.status_total.AGI * 9.999 + this.status_total.DEX * 0.19212) * ASPDPenalty)) * 
+                        (1 - PotionASPD - SkillASPD)))/100;
+                    //console.log('base2',baseASPD2);
+
+                    var EquipASPD = Math.floor(10*(195 - baseASPD2) * this.attribute['ASPDP']/100)/10;
+                    //console.log('equip',EquipASPD);
+
+                    var finalASPD = Math.round(baseASPD2 + EquipASPD + this.attribute['ASPD']);
+                    //console.log('final',baseASPD2 + EquipASPD + this.attribute['ASPD']);
+                    this.status.ASPD = finalASPD;
+                },
                 ComputeATKDPS( Dmin, Dmax, DCmin, DCmax, useASPD = false){
                     var _CRIRateN = this.clamp(100 - this.attribute['CRI'], 0, 100);
                     var _CRIRate = 100-_CRIRateN;
@@ -7831,7 +7887,7 @@
                     }
 
                     if (this.IsSupportActive('NC_TRAININGAXE')){
-                        if(this.weapon.type.id == 'Axes' ) {
+                        if(this.weapon.type.id == '1HAxes' || this.weapon.type.id == '2HAxes') {
                             var _lv = this.GetSupportSkill('NC_TRAININGAXE').lv;
                             this.skilloption.WeaponMasteryATK+=5*_lv; 
                             this.attribute['HIT'] += 3*_lv;
@@ -7845,7 +7901,7 @@
                     if (this.IsSupportActive('NC_MADOLICENCE'))
                         this.skilloption.WeaponMasteryATK+= 15*this.GetSupportSkill('NC_MADOLICENCE').lv;
                         
-                    if (this.IsSupportActive('AM_AXEMASTERY') && (this.weapon.type.id == 'Axes' || this.weapon.type.id == 'OneHandedSwords'))
+                    if (this.IsSupportActive('AM_AXEMASTERY') && (this.weapon.type.id == '1HAxes' || this.weapon.type.id == '2HAxes' || this.weapon.type.id == 'OneHandedSwords'))
                         this.skilloption.WeaponMasteryATK+=3*this.GetSupportSkill('AM_AXEMASTERY').lv; 
 
                     if (this.IsSupportActive('GN_TRAINING_SWORD') && (this.weapon.type.id == 'OneHandedSwords' || this.weapon.type.id == 'Daggers')){
@@ -7855,7 +7911,7 @@
 
                     if (this.IsSupportActive('SA_ADVANCEDBOOK') && this.weapon.type.id == 'Books'){
                         this.skilloption.WeaponMasteryATK+=3*this.GetSupportSkill('SA_ADVANCEDBOOK').lv; 
-                        this.attribute['ASPDP'] += 0.5*this.GetSupportSkill('SA_ADVANCEDBOOK').lv;
+                        this.attribute['SKILLASPDP'] += 0.5*this.GetSupportSkill('SA_ADVANCEDBOOK').lv;
                     }
 
                     if (this.IsSupportActive('TK_RUN') && this.weapon.type.id == 'Empty')
@@ -7868,7 +7924,8 @@
                         if (this.weapon.type.id == 'TwoHandedSword') {
                             this.attribute['CRI'] += 12;
                             this.attribute['HIT'] += 20;
-                            this.attribute['ASPDP'] += 40;
+                            this.attribute['SKILLASPDP'] += 30;
+                            this.attribute['ASPDP'] += 10;
                         }
                     }
                     // 集中
@@ -7922,7 +7979,8 @@
                     if (this.IsSupportActive('CR_SPEARQUICKEN')) {
                         if (this.weapon.type.id == 'Spears') {
                             this.attribute['CRI'] += 30;
-                            this.attribute['ASPDP'] += 30;
+                            this.attribute['SKILLASPDP'] += 30;
+                            this.attribute['ASPDP'] += 10;
                         }
                     }
                     // 盾咒
@@ -7968,8 +8026,9 @@
                     }
                     //速度激發
                     if (this.IsSupportActive('BS_ADRENALINE')){
-                        if (this.weapon.type.id == 'Axes' || this.weapon.type.id == 'Maces') {
-                            this.attribute['ASPDP'] += 40;
+                        if (this.weapon.type.id == '1HAxes' || this.weapon.type.id == '2HAxes' || this.weapon.type.id == 'Maces') {
+                            this.attribute['ASPDP'] += 10;
+                            this.attribute['SKILLASPDP'] += 40;
                         }
                     }
                     //毒耐性弱化
@@ -8153,7 +8212,7 @@
                     // 搖擺舞
                     if (this.IsSupportActive('WA_SWING_DANCE')){
                         this.attribute['FCTP'] = Math.max(this.attribute['FCTP'], 30);
-                        this.attribute['ASPDP'] += 25;
+                        this.attribute['SKILLASPDP'] += 25;
                     }
                     // 雷拉多露水
                     if (this.IsSupportActive('WM_LERADS_DEW')){
@@ -8166,7 +8225,7 @@
                     // 與狼共舞
                     if (this.IsSupportActive('WM_DANCE_WITH_WUG')){
                         this.attribute['FCTP'] = Math.max(this.attribute['FCTP'], 70);
-                        this.attribute['ASPDP'] += 25;
+                        this.attribute['SKILLASPDP'] += 25;
                         this.attribute['RNGDP'] += 5;
                     }
                     // 舞台禮儀
@@ -8430,12 +8489,12 @@
                     // 加速
                     if (this.IsSupportActive('AL_INCAGI')){
                         this.status_add.AGI += 12;
-                        this.attribute['ASPDP'] += 10;
+                        this.attribute['SKILLASPDP'] += 10;
                     }
                     if (this.IsSupportActive('AB_CANTO')){
                         var jc = Math.floor(this.GetSupportSkill('AB_CANTO').arg1 / 10);
                         this.status_add.AGI += 12 + jc;
-                        this.attribute['ASPDP'] += 10 + jc;
+                        this.attribute['SKILLASPDP'] += 10 + jc;
                     }
                     // 天賜
                     if (this.IsSupportActive('AL_BLESSING')){
@@ -8461,7 +8520,7 @@
                     // 點穴-反
                     if (this.IsSupportActive('SR_GENTLETOUCH_CHANGE')){
                         //this.computeattribute['SpecialATK1'] += (this.status_total.STR / 2 + this.status_total.DEX / 4) * 5 / 5;
-                        this.attribute['ASPDP'] += this.status_total.AGI * 5 / 60;
+                        this.attribute['SKILLASPDP'] += this.status_total.AGI * 5 / 60;
 
                         this.attribute['ATK'] += 40;
                         this.attribute['ATKP'] += 5;
@@ -8653,7 +8712,7 @@
                         this.attribute['HPP'] += 5;
                     }
                     if (this.IsSupportActive('SJ_STARSTANCE')){
-                        this.attribute['ASPDP'] += 5;
+                        this.attribute['SKILLASPDP'] += 5;
                     }
                     if (this.IsSupportActive('SJ_UNIVERSESTANCE')){
                         this.status_add.STR += 5;
@@ -8796,9 +8855,9 @@
                     if (this.attribute['BYPASSMDEF'] > 100) this.attribute['BYPASSMDEF'] = 100;
                     
                     this.attribute['ASPD'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ASPD').totalvalue)));
-                    this.attribute['ASPD'] +=   Number(this.status.ASPD);
+                    //this.attribute['ASPD'] +=   Number(this.status.ASPD);
                     this.attribute['ASPDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AspdPercent').totalvalue)));
-                    this.attribute['ASPDP'] =   -Math.abs(this.attribute['ASPDP']);
+                    //this.attribute['ASPDP'] =   -Math.abs(this.attribute['ASPDP']);
                     this.attribute['FCTP'] = Math.max(this.attribute['FCTP'],
                         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'FixedCastPercent').totalvalue))),
                         Number(eval(this.SkillFormulaReplace(this.consumableeffecttypelist.find(x=>x.id=='FixedCastPercent').totalvalue))));
@@ -8880,6 +8939,7 @@
                     this.computeattribute['SpecialMATK1'] += eval(this.SkillFormulaReplace(this.skill.SpecialMATK1));
 
                     this.ComputStatus();
+                    this.ComputeASPD();
                 },
                 onChangeEquipName(epidx) {
 
@@ -9569,7 +9629,7 @@
                         { skill: { id: 'LG_RAYOFGENESIS', name: 'Genesis Ray', level: 10, formula: '(1000+SLV*350+2*INT)*BLV/100', class: 'RG', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -7, elemental: 6, FCT: 0.5, VCT: 5, CD: 2, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'PA_PRESSURE', name: 'Gloria Domini', level: 5, formula: '(500+SLV*150)*BLV/100', class: 'RG', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 6, FCT: 0.4, VCT: 1, CD: 1, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
 
-                        { skill: { id: 'SO_PSYCHIC_WAVE', name: 'Psychic Wave', level: 5, formula: "(70*SLV+INT*3)*((WTI=='Books'|WTI=='Rods')?2:1)*BLV/100", class: 'SO', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 7, elemental: 0, FCT: 0.6, VCT: 12, CD: 5, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
+                        { skill: { id: 'SO_PSYCHIC_WAVE', name: 'Psychic Wave', level: 5, formula: "(70*SLV+INT*3)*((WTI=='Books'|WTI=='1HRods'|WTI=='2HRods')?2:1)*BLV/100", class: 'SO', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 7, elemental: 0, FCT: 0.6, VCT: 12, CD: 5, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SO_VARETYR_SPEAR', name: 'Varetyr Spear', level: 10, formula: '(((5+5)*150)+SLV*(INT/2)+2*INT)*BLV/100', class: 'SO', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 3, FCT: 1, VCT: 1, CD: 5, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv5 Striking, Endow Tornado', } },
                         { skill: { id: 'SO_DIAMONDDUST', name: 'Diamond Dust', level: 5, formula: '(1500+SLV*INT+2*INT)*BLV/100', class: 'SO', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 2, FCT: 0, VCT: 7, CD: 5, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv5 Endow Tsunami', } },
                         { skill: { id: 'SO_EARTHGRAVE', name: 'Earth Grave', level: 5, formula: '(1500+SLV*INT+2*INT)*BLV/100', class: 'SO', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 4, FCT: 1, VCT: 3, CD: 5, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv5 Endow Quake', } },
@@ -10023,7 +10083,8 @@
                     );
 
                     this.UpdateLogList.push(
-                        { id: '2023-8-28', content: 'Fixed RES/MRES calculation order' },
+                        { id: '2023-9-23', content: 'Initial work on ASPD calculation' },
+                        { id: '2023-9-22', content: 'Fixed RES/MRES calculation order' },
                         { id: '2023-8-28', content: 'Initial RES/MRES implementation' },
                         { id: '2023-8-25', content: 'Merged new changes from twRO calc:<br><br>Added Explosion Blaster<br>Fixed Crit Calculation<br>Fixed Arrow/Ammo Calculation<br>Updated DB Formula on PATK influence<br>Fixed Axe Tornado damage' },
                         { id: '2023-7-07', content: 'Fixed Sura skills and corrected mastery atk loss on sphere consumption<br>Default target set to Izlude Egg' },
