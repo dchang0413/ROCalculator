@@ -8417,7 +8417,7 @@
                         }
                     }
                     // 魔法書精熟
-                    if (this.IsSupportActive('EM_MAGIC_BOOK_M')){
+                    if (this.IsSupportActive('EM_MAGIC_BOOK_M') && this.weapon.type.id == 'Books'){
                         var _lv = this.GetSupportSkill('EM_MAGIC_BOOK_M').lv;
                         if (this.skilloption.AttackElementalIdx == 1) {
                             this.attribute['ElementalMagicPercent'] += _lv;
