@@ -174,8 +174,6 @@
                             <div class="aboutbox" style="padding: 5px 55px; text-align:left">
                                 <el-row :gutter="4" type="flex" align="left">
                                     Hello, Cate here.<br>
-                                    The calculation was updated to factor in iRO's new size penalty<br>
-                                    <br>
                                     Calculator supports 4th job stats and lv5 weapons<br>
                                     <br>
                                     WIP:<br>
@@ -2807,16 +2805,6 @@
                                                 </el-col>
                                                 <el-col class="textcenter" :span="12">
                                                     <el-switch v-model="enableTrait" v-on:change="onOption"
-                                                        active-color="#13ce66" inactive-color="#8a9799">
-                                                    </el-switch>
-                                                </el-col>
-                                            </el-row>
-                                            <el-row class="statusbox" type="flex" align="middle">
-                                                <el-col class="textcenter" :span="12">
-                                                    <span>iRO Size Fix</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="12">
-                                                    <el-switch v-model="iroSizeFix" v-on:change="onOption"
                                                         active-color="#13ce66" inactive-color="#8a9799">
                                                     </el-switch>
                                                 </el-col>
@@ -5922,7 +5910,7 @@
                 ],
                 select_default: '',
                 enableTrait: false,
-                iroSizeFix: true,
+                iroSizeFix: false,
                 computeattribute:
                 {
                     StatsPoint: 0,
@@ -10158,6 +10146,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2023-9-26', content: 'Size penalty bug has been fixed' },
                         { id: '2023-9-24', content: 'Completed 4th job HP/SP table' },
                         { id: '2023-9-23', content: 'Initial work on ASPD calculation' },
                         { id: '2023-9-22', content: 'Fixed RES/MRES calculation order' },
