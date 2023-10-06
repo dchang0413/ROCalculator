@@ -6983,7 +6983,7 @@
                     this.computeattribute.weaponatk_max = this.MulOper(this.computeattribute.atkc2_max, para6);
                     
                     // iRO is putting size penalty on extra ATK
-                    let extraATK = this.iroSizeFix && this.computeattribute.sizefix < 100 ? 
+                    let extraATK = this.computeattribute.sizefix < 100 ? 
                         Math.floor(Number(this.attribute['ATK']) * (this.computeattribute.sizefix / 100)) : this.attribute['ATK'];
                     
                     this.computeattribute.weaponatk_min += extraATK;
