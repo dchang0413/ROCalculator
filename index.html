@@ -2656,17 +2656,31 @@
                                                 <el-col class="textcenter" :span="1">=</el-col>
                                                 <el-col class="textcenter" :span="4">{{status_total.LUK}}</el-col>
                                             </el-row>
-                                            <div v-if="this.status.Level>=200 && this.enableTrait">
-                                                <el-row class="statusbox textcenter" type="flex" align="middle"
-                                                    style="height:40px;">
-                                                    <el-col class="textcenter" :span="12">
-                                                        Trait Status {{computeattribute.RaisingTStatsPoint}}/{{TStatusPoint[this.status.Level-200]}}Pt.
-                                                    </el-col>
-                                                    <el-col v-if="computeattribute.RaisingTStatsPoint>TStatusPoint[this.status.Level-200]"
-                                                        class="textcenter" :span="12">
-                                                        Short of {{computeattribute['RaisingTStatsPoint']-TStatusPoint[this.status.Level-200]}}Pt.
-                                                    </el-col>
-                                                </el-row>
+                                            <el-row
+                                                v-show="(computeattribute['StatsPoint']-computeattribute['RaisingStatsPoint'])>=0"
+                                                class="statusbox" type="flex" align="middle">
+                                                <el-tooltip class="item" effect="dark" placement="top-start">
+                                                    <el-col class="textcenter" :span="6">Used Pt.</el-col>
+                                                </el-tooltip>
+                                                <el-col class="textcenter" :span="6">{{computeattribute.RaisingStatsPoint}}
+                                                </el-col>
+                                                <el-col class="textcenter" :span="12">Remaining
+                                                    {{computeattribute['StatsPoint']-computeattribute['RaisingStatsPoint']}}Pt.
+                                                </el-col>
+                                            </el-row>
+                                            <el-row
+                                                v-show="(computeattribute['StatsPoint']-computeattribute['RaisingStatsPoint'])<0"
+                                                class="statusbox" type="flex" align="middle" style="color: red;">
+                                                <el-tooltip class="item" effect="dark" placement="top-start">
+                                                    <el-col class="textcenter" :span="6">Used Pt.</el-col>
+                                                </el-tooltip>
+                                                <el-col class="textcenter" :span="6">{{computeattribute.RaisingStatsPoint}}
+                                                </el-col>
+                                                <el-col class="textcenter" :span="12">Short of
+                                                    {{computeattribute['RaisingStatsPoint']-computeattribute['StatsPoint']}}Pt.
+                                                </el-col>
+                                            </el-row>
+                                            <div v-if="this.status.Level>=200">
                                                 <el-row class="statusbox bg-purple-light" type="flex" align="middle"
                                                     style="height:40px;">
                                                     <el-col class="textcenter" :span="3">POW</el-col>
@@ -2781,6 +2795,16 @@
                                                     <el-col class="textcenter" :span="1">=</el-col>
                                                     <el-col class="textcenter" :span="4">{{status_total.CRT}}</el-col>
                                                 </el-row>
+                                                <el-row class="statusbox textcenter" type="flex" align="middle"
+                                                    style="height:40px;">
+                                                    <el-col class="textcenter" :span="12">
+                                                        Talent Stats {{computeattribute.RaisingTStatsPoint}}/{{TStatusPoint[this.status.Level-200]}}Pt.
+                                                    </el-col>
+                                                    <el-col v-if="computeattribute.RaisingTStatsPoint>TStatusPoint[this.status.Level-200]"
+                                                        class="textcenter" :span="12">
+                                                        Short of {{computeattribute['RaisingTStatsPoint']-TStatusPoint[this.status.Level-200]}}Pt.
+                                                    </el-col>
+                                                </el-row>
                                             </div>
                                             <el-row class="statusbox bg-purple-light" type="flex" align="middle">
                                                 <el-col class="textcenter" :span="12">ASPD</el-col>
@@ -2797,56 +2821,6 @@
                                                     <el-switch v-model="status.UseJobMaxPoint" v-on:change="onOption"
                                                         active-color="#13ce66" inactive-color="#8a9799">
                                                     </el-switch>
-                                                </el-col>
-                                            </el-row>
-                                            <el-row class="statusbox" type="flex" align="middle">
-                                                <el-col class="textcenter" :span="12">
-                                                    <span>Enable Trait Status</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="12">
-                                                    <el-switch v-model="enableTrait" v-on:change="onOption"
-                                                        active-color="#13ce66" inactive-color="#8a9799">
-                                                    </el-switch>
-                                                </el-col>
-                                            </el-row>
-                                            <el-row class="statusbox" type="flex" align="middle">
-                                                <el-col class="textcenter" :span="6">
-                                                    <span>Trans</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="6">
-                                                    <el-switch v-model="status.Transcendent" v-on:change="onOption"
-                                                        active-color="#13ce66" inactive-color="#8a9799">
-                                                    </el-switch>
-                                                </el-col>
-                                                <el-tooltip class="item" effect="dark" content='Trans +100Pt，Otherwise +52Pt'
-                                                    placement="top-start">
-                                                    <el-col class="textcenter" :span="6">Avail Status Pt.</el-col>
-                                                </el-tooltip>
-                                                <el-col class="textcenter" :span="6">{{computeattribute.StatsPoint}}
-                                                </el-col>
-                                            </el-row>
-                                            <el-row
-                                                v-show="(computeattribute['StatsPoint']-computeattribute['RaisingStatsPoint'])>=0"
-                                                class="statusbox" type="flex" align="middle">
-                                                <el-tooltip class="item" effect="dark" placement="top-start">
-                                                    <el-col class="textcenter" :span="6">Used Pt.</el-col>
-                                                </el-tooltip>
-                                                <el-col class="textcenter" :span="6">{{computeattribute.RaisingStatsPoint}}
-                                                </el-col>
-                                                <el-col class="textcenter" :span="12">Remaining
-                                                    {{computeattribute['StatsPoint']-computeattribute['RaisingStatsPoint']}}Pt.
-                                                </el-col>
-                                            </el-row>
-                                            <el-row
-                                                v-show="(computeattribute['StatsPoint']-computeattribute['RaisingStatsPoint'])<0"
-                                                class="statusbox" type="flex" align="middle" style="color: red;">
-                                                <el-tooltip class="item" effect="dark" placement="top-start">
-                                                    <el-col class="textcenter" :span="6">Used Pt.</el-col>
-                                                </el-tooltip>
-                                                <el-col class="textcenter" :span="6">{{computeattribute.RaisingStatsPoint}}
-                                                </el-col>
-                                                <el-col class="textcenter" :span="12">Short of
-                                                    {{computeattribute['RaisingStatsPoint']-computeattribute['StatsPoint']}}Pt.
                                                 </el-col>
                                             </el-row>
                                         </div>
@@ -5522,12 +5496,12 @@
 
                     { label: 'Matk', id: 'Matk', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '' },
                     { label: 'Matk %', id: 'MatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
-                    { label: 'Race %', id: 'RaceMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
-                    { label: 'Size %', id: 'SizeMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
-                    { label: 'Class %', id: 'LevelMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
-                    { label: 'vs. Element %', id: 'ElementalMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'M - Race %', id: 'RaceMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'M - Size %', id: 'SizeMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'M - Class %', id: 'LevelMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'M - vs. Element %', id: 'ElementalMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Element %', id: 'ElementalMagicPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
-                    { label: 'vs. Specific Monster %', id: 'MonsterMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'M - vs. Specific Monster %', id: 'MonsterMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Bypass MDEF%', id: 'BypassMDEFPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
 
                     { label: 'Skill Mod%', id: 'SkillDamagePercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
@@ -5909,7 +5883,6 @@
                     {id: 'SN', label: 'SuperNovice'},
                 ],
                 select_default: '',
-                enableTrait: false,
                 iroSizeFix: false,
                 computeattribute:
                 {
@@ -6752,8 +6725,6 @@
                         this.status_total.CON = Number(eval(cleanNum(this.status.CON))) + Number(this.status_add.CON) + Number(this.status_job.CON);
                         this.status_total.CRT = Number(eval(cleanNum(this.status.CRT))) + Number(this.status_add.CRT) + Number(this.status_job.CRT);
 
-                        if (!this.enableTrait) 
-                            this.status_total.POW = this.status_total.STA = this.status_total.WIS = this.status_total.S_P_L = this.status_total.CON = this.status_total.CRT = 0;
                         this.computeattribute['TransSTR'] = this.status_total.STR;
                         var TempDEX = this.status_total.DEX;
                         if (this.weapon.type.id === 'Bows' || this.weapon.type.id === 'Instruments' || this.weapon.type.id === 'Whips' || this.weapon.type.id === 'Guns') {
