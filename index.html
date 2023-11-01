@@ -2843,11 +2843,19 @@
                                             <el-col class="textcenter" :span="8" style="text-align: left;">
                                                 {{GetPureStats(status.STR)}} + {{status_total.STR-GetPureStats(status.STR)}}
                                             </el-col>
+                                            <el-col class="textcenter" :span="4">POW</el-col>
+                                            <el-col class="textcenter" :span="8" style="text-align: left;">
+                                                {{GetPureStats(status.POW)}} + {{status_total.POW-GetPureStats(status.POW)}}
+                                            </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" style="padding: 0% 5%;" :gutter="2">
                                             <el-col class="textcenter" :span="4">AGI</el-col>
                                             <el-col class="textcenter" :span="8" style="text-align: left;">
                                                 {{GetPureStats(status.AGI)}} + {{status_total.AGI-GetPureStats(status.AGI)}}
+                                            </el-col>
+                                            <el-col class="textcenter" :span="4">STA</el-col>
+                                            <el-col class="textcenter" :span="8" style="text-align: left;">
+                                                {{GetPureStats(status.STA)}} + {{status_total.STA-GetPureStats(status.STA)}}
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" style="padding: 0% 5%;" :gutter="2">
@@ -2855,11 +2863,19 @@
                                             <el-col class="textcenter" :span="8" style="text-align: left;">
                                                 {{GetPureStats(status.VIT)}} + {{status_total.VIT-GetPureStats(status.VIT)}}
                                             </el-col>
+                                            <el-col class="textcenter" :span="4">WIS</el-col>
+                                            <el-col class="textcenter" :span="8" style="text-align: left;">
+                                                {{GetPureStats(status.WIS)}} + {{status_total.WIS-GetPureStats(status.WIS)}}
+                                            </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" style="padding: 0% 5%;" :gutter="2">
                                             <el-col class="textcenter" :span="4">INT</el-col>
                                             <el-col class="textcenter" :span="8" style="text-align: left;">
                                                 {{GetPureStats(status.INT)}} + {{status_total.INT-GetPureStats(status.INT)}}
+                                            </el-col>
+                                            <el-col class="textcenter" :span="4">SPL</el-col>
+                                            <el-col class="textcenter" :span="8" style="text-align: left;">
+                                                {{GetPureStats(status.SPL)}} + {{status_total.S_P_L-GetPureStats(status.SPL)}}
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" style="padding: 0% 5%;" :gutter="2">
@@ -2867,11 +2883,19 @@
                                             <el-col class="textcenter" :span="8" style="text-align: left;">
                                                 {{GetPureStats(status.DEX)}} + {{status_total.DEX-GetPureStats(status.DEX)}}
                                             </el-col>
+                                            <el-col class="textcenter" :span="4">CON</el-col>
+                                            <el-col class="textcenter" :span="8" style="text-align: left;">
+                                                {{GetPureStats(status.CON)}} + {{status_total.CON-GetPureStats(status.CON)}}
+                                            </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" style="padding: 0% 5%;" :gutter="2">
                                             <el-col class="textcenter" :span="4">LUK</el-col>
                                             <el-col class="textcenter" :span="8" style="text-align: left;">
                                                 {{GetPureStats(status.LUK)}} + {{status_total.LUK-GetPureStats(status.LUK)}}
+                                            </el-col>
+                                            <el-col class="textcenter" :span="4">CRT</el-col>
+                                            <el-col class="textcenter" :span="8" style="text-align: left;">
+                                                {{GetPureStats(status.CRT)}} + {{status_total.CRT-GetPureStats(status.CRT)}}
                                             </el-col>
                                         </el-row>
                                     </div>
@@ -10137,6 +10161,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2023-11-01', content: 'Minor UI Change, Added Refine Field that can be referenced' },
                         { id: '2023-9-26', content: 'Size penalty bug has been fixed' },
                         { id: '2023-9-24', content: 'Completed 4th job HP/SP table' },
                         { id: '2023-9-23', content: 'Initial work on ASPD calculation' },
