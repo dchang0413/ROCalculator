@@ -815,7 +815,7 @@
                                             <span class="">{{ item.opersymbol }}</span>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <span class="">{{ item.totalvalue!=9999?item.totalvalue:'' }}</span>
+                                            <span class="textnowrap">{{ item.totalvalue!=9999?item.totalvalue:'' }}</span>
                                         </el-col>
                                         <el-col class="textcenter" :span="2">
                                             <span lass="">{{ item.suffixsymbol }}</span>
@@ -1625,7 +1625,7 @@
                                                 <span class="">{{ effecttypelist[GetETLIndex(effect.EffectType.id)].opersymbol }}</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="2">
-                                                <span class="">{{ effect.EffectNumber!=9999?effect.EffectNumber:'' }}</span>
+                                                <span class="textnowrap">{{ effect.EffectNumber!=9999?effect.EffectNumber:'' }}</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="1">
                                                 <span lass="">{{ effecttypelist[GetETLIndex(effect.EffectType.id)].suffixsymbol }}</span>
@@ -3125,7 +3125,7 @@
                                                     <span class="">{{ item.opersymbol }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="5">
-                                                    <span class="">{{ item.totalvalue!=9999?item.totalvalue:'' }}</span>
+                                                    <span class="textnowrap">{{ item.totalvalue!=9999?item.totalvalue:'' }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="2">
                                                     <span lass="">{{ item.suffixsymbol }}</span>
@@ -3832,7 +3832,7 @@
                                                     <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="8">
-                                                    <span class="">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="2">
                                                     <span lass="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
@@ -3855,7 +3855,7 @@
                                                     <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="8">
-                                                    <span class="">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="2">
                                                     <span lass="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
@@ -4013,7 +4013,7 @@
                                                     <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="8">
-                                                    <span class="">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="2">
                                                     <span lass="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
@@ -4036,7 +4036,7 @@
                                                     <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="8">
-                                                    <span class="">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="2">
                                                     <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
@@ -4076,6 +4076,18 @@
                                                 </el-button>
                                             </el-col>
                                         </el-row>
+                                        <el-row v-if="eqindex==0 || (eqindex > 2 && eqindex < 6)" class="effectline" :gutter="4" type="flex" align="middle">
+                                            <el-col :span="6" style="text-align: right;">
+                                                <span>Refine</span>
+                                            </el-col>
+                                            <el-col :span="6">
+                                                <div>
+                                                    <el-input v-model.number="equipspartlist[eqindex+2].refinelevel"
+                                                        v-on:input="CombineEquipsAttribute" placeholder="Refine">
+                                                    </el-input>
+                                                </div>
+                                            </el-col>
+                                        </el-row>
                                         <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                             <el-col class="textcenter" :span="4">
                                                 <div>
@@ -4113,7 +4125,7 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
@@ -4136,7 +4148,7 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
@@ -5204,7 +5216,7 @@
                                 <el-row class="statusbox" type="flex" align="middle" justify="space-around"
                                     style="height:40px;">
                                     <el-col class="bg-purple" style="text-align: right;">
-                                        <span>ASPD:{{attribute['ASPD']}} Delay Between ATK:</span>
+                                        <span>ASPD:{{status.ASPD}} Delay Between ATK:</span>
                                     </el-col>
                                     <el-col class="textcenter">
                                         <span>{{computeattribute['AspdDelay']}} s</span>
@@ -5435,14 +5447,14 @@
                 equipspartlist: [
                     { id: 'weaponr', label: 'MainHand', equipname: '', effectlist: [] },
                     { id: 'weaponl', label: 'OffHand', equipname: '', effectlist: [] },
-                    { id: 'helm', label: 'Upper', equipname: '', effectlist: [] },
-                    { id: 'helm1', label: 'Middle', equipname: '', effectlist: [] },
-                    { id: 'helm2', label: 'Lower', equipname: '', effectlist: [] },
-                    { id: 'armor', label: 'Armor', equipname: '', effectlist: [] },
-                    { id: 'robe', label: 'Garment', equipname: '', effectlist: [] },
-                    { id: 'shoes', label: 'Shoes', equipname: '', effectlist: [] },
-                    { id: 'acc1', label: 'Accessory', equipname: '', effectlist: [] },
-                    { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [] },
+                    { id: 'helm', label: 'Upper', equipname: '', effectlist: [], refinelevel: 0 },
+                    { id: 'helm1', label: 'Middle', equipname: '', effectlist: [], refinelevel: 0 },
+                    { id: 'helm2', label: 'Lower', equipname: '', effectlist: [], refinelevel: 0 },
+                    { id: 'armor', label: 'Armor', equipname: '', effectlist: [], refinelevel: 0 },
+                    { id: 'robe', label: 'Garment', equipname: '', effectlist: [], refinelevel: 0 },
+                    { id: 'shoes', label: 'Shoes', equipname: '', effectlist: [], refinelevel: 0 },
+                    { id: 'acc1', label: 'Accessory', equipname: '', effectlist: [], refinelevel: 0 },
+                    { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [], refinelevel: 0 },
                     { id: 'shadow', label: 'Shadow', equipname: '', effectlist: [] },
                     { id: 'costume', label: 'Costume', equipname: '', effectlist: [] },
                     { id: 'cardset', label: 'CardSets', equipname: '', effectlist: [] },
@@ -5496,12 +5508,12 @@
 
                     { label: 'Matk', id: 'Matk', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '' },
                     { label: 'Matk %', id: 'MatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
-                    { label: 'M - Race %', id: 'RaceMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
-                    { label: 'M - Size %', id: 'SizeMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
-                    { label: 'M - Class %', id: 'LevelMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
-                    { label: 'M - vs. Element %', id: 'ElementalMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'Magic - Race %', id: 'RaceMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'Magic - Size %', id: 'SizeMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'Magic - Class %', id: 'LevelMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'Magic - vs. Element %', id: 'ElementalMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Element %', id: 'ElementalMagicPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
-                    { label: 'M - vs. Specific Monster %', id: 'MonsterMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'Magic - vs. Specific Monster %', id: 'MonsterMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Bypass MDEF%', id: 'BypassMDEFPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
 
                     { label: 'Skill Mod%', id: 'SkillDamagePercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
@@ -6135,8 +6147,8 @@
                                     return xx[0].Enable? xx[0].EffectNumber:0;
                                 })
                                 .ToArray()
-                                .join("+");
-                            result = result == '' ? 0 : result;
+                                .join(")+(");
+                            result = result == '' ? 0 : "(" + result + ")";
 
                                 /*
                                     try{
@@ -9009,6 +9021,7 @@
                             label: _label,
                             equipname: '',
                             effectlist: [],
+                            refinelevel: 0,
                         })
                     this.CombineEquipsAttribute();
                 },
@@ -9050,6 +9063,7 @@
                                 id: this.equipspartlist[idx].id,
                                 label: this.equipspartlist[idx].label,
                                 equipname: this.StoreDB_Equip[_dbidx].equip.equipname,
+                                refinelevel: this.StoreDB_Equip[_dbidx].equip.refinelevel ? this.StoreDB_Equip[_dbidx].equip.refinelevel : 0,
                                 effectlist: _.cloneDeep(this.StoreDB_Equip[_dbidx].equip.effectlist),
                             })
                         this.CombineEquipsAttribute();
@@ -9422,6 +9436,7 @@
                                 id: this.equipspartlist[eqi].id,
                                 label: this.equipspartlist[eqi].label,
                                 equipname: cardnull? '':AllsetObject.Equip[eqi].equipname,
+                                refinelevel: AllsetObject.Equip[eqi].refinelevel ? AllsetObject.Equip[eqi].refinelevel : 0,
                                 effectlist: _.cloneDeep(cardnull?[]:AllsetObject.Equip[eqi].effectlist),
                             })
                     }
@@ -10099,11 +10114,16 @@
                         { str1: 'Msp', str2: 'this.status.MSP', description: 'MaxSP scaling' },
                         { str1: 'SLV', str2: 'this.skill.level', description: 'skill level' },
                         { str1: 'AEI', str2: 'this.skilloption.AttackElementalIdx', description: 'weapon attribute' },
+                        { str1: 'WEAR', str2: 'this.weapon.refinelevel', description: 'weapon refine' },
                         { str1: 'WLV', str2: 'this.weapon.level.id', description: 'weapon level' },
                         { str1: 'WGT', str2: 'this.weapon.Weight', description: 'weapon weight' },
                         { str1: 'WTI', str2: 'this.weapon.type.id', description: 'weapon type' },
                         { str1: 'SRL', str2: 'this.subweapon.refinelevel', description: 'shield refine' },
                         { str1: 'SHW', str2: 'this.subweapon.ShieldWeight', description: 'shield weight' },
+                        { str1: 'HATR', str2: 'this.equipspartlist[2].refinelevel', description: 'hat refine' },
+                        { str1: 'ARMORR', str2: 'this.equipspartlist[5].refinelevel', description: 'armor refine' },
+                        { str1: 'GARMR', str2: 'this.equipspartlist[6].refinelevel', description: 'garment refine' },
+                        { str1: 'SHOER', str2: 'this.equipspartlist[7].refinelevel', description: 'shoe refine' },
                         { str1: 'CRW', str2: 'this.skilloption.CarWeight', description: 'cart weight' },
                         { str1: 'ELV', str2: 'this.enemyattribute.level', description: 'enemy lvl' },
                         { str1: 'ESIZE', str2: 'this.enemyattribute.size', description: 'enemy size' },
@@ -10330,6 +10350,7 @@
                                     id: value.id,
                                     label: value.label,
                                     equipname: value.equipname,
+                                    refinelevel: value.refinelevel ? value.refinelevel : 0,
                                     effectlist: Object.values(value.effectlist),
                                 },
                                 date: Date.now(),
