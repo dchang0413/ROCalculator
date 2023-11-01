@@ -177,8 +177,6 @@
                                     Calculator supports 4th job stats and lv5 weapons<br>
                                     <br>
                                     WIP:<br>
-                                    HP/SP Table, right now we only have DragonKnight and Inqusitor at Lv250<br>
-                                    ASPD Calculation<br>
                                     Skill formula for iRO<br>
                                     More Equip Preset<br>
                                     <br><br><br>
@@ -4867,7 +4865,7 @@
                                                 <span>vs. Race%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{effecttypelist[GetETLIndex('RaceAtkPercent')].totalvalue}} %</span>
+                                                <span>{{attribute['RaceAtkPercent']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -5716,6 +5714,7 @@
                     ElementalAtkPercent: 0,
                     LevelAtkPercent: 0,
                     SizeAtkPercent: 0,
+                    RaceAtkPercent: 0,
                     ElementalMatkPercent: 0,
                     ElementalMagicPercent: 0,
                     RaceMatkPercent: 0,
@@ -6996,7 +6995,7 @@
                     this.computeattribute.weaponatk_min += extraATK;
                     this.computeattribute.weaponatk_max += extraATK;
 
-                    var para_race = Number(1) + Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue))) / 100;
+                    var para_race = Number(1) + Number(this.attribute['RaceAtkPercent']) / 100;
                     var para_size = Number(1) + Number(this.attribute['SizeAtkPercent']) / 100;
                     var para_elemt = Number(1) + Number(this.attribute['ElementalAtkPercent']) / 100;
                     var para_level = Number(1) + Number(this.attribute['LevelAtkPercent']) / 100;
@@ -8970,7 +8969,10 @@
                     this.attribute['LevelAtkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LevelAtkPercent').totalvalue))) +
                                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='LevelAtkPercent').totalvalue);
                     this.attribute['SizeAtkPercent'] +=         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeAtkPercent').totalvalue)));
-
+                    this.attribute['RaceAtkPercent'] +=         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue)));
+                    console.log(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue));
+                    console.log(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue)));
+                    console.log(this.attribute['RaceAtkPercent']);
                     this.attribute['WeaponPerfection'] +=       Number(eval(this.effecttypelist.find(x => x.id == 'WeaponPerfection').totalvalue));
                     this.attribute['WeaponOccult'] +=           Number(eval(this.effecttypelist.find(x => x.id == 'WeaponOccult').totalvalue));
 
@@ -9629,7 +9631,7 @@
                         { skill: { id: 'RK_HUNDREDSPEAR(ex)', name: 'Hundred Spear(Dragonic Aura)', level: 10, formula: "(700+SLV*350)*BLV/100+5*50", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 0, FCT: 0, VCT: "(11-SLV)/10", CD: 3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv5 Clashing Spiral', } },
                         { skill: { id: 'RK_SONICWAVE', name: 'Sonic Wave', level: 10, formula: "(550+SLV*200)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: true, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 0, FCT: 0, VCT: 0, CD: 1.75, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'RK_STORMBLAST', name: 'Storm Blast', level: 1, formula: "(10+DOWN(STR/5.7))*100*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Not affected by Turisus', } },
-                        { skill: { id: 'RK_DRAGONBREATH', name: 'Dragon Breath', level: 10, formula: '(DOWN(HP/50)+DOWN(Msp/4))*SLV*BLV/100*DOWN((90+5*10+POW/5)*(1+PATK/100))/100', class: 'RK', DamageTypeIdx: 2, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 2, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Affected by HP/MaxSP，Assume Lv5 Dragon Training', } },
+                        { skill: { id: 'RK_DRAGONBREATH', name: 'Dragon Breath', level: 10, formula: '(DOWN(CHP/50)+DOWN(Msp/4))*SLV*BLV/100*DOWN((90+5*10+POW/5)*(1+PATK/100))/100', class: 'RK', DamageTypeIdx: 2, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 2, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Affected by HP/MaxSP，Assume Lv5 Dragon Training', } },
                         { skill: { id: 'DK_STORMSLASH', name: 'Storm Slash', level: 5, formula: "(SLV*120+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV", elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Turissus can double damage', } },
                         { skill: { id: 'DK_HACKANDSLASHER', name: 'Hack and Slash', level: 10, formula: "(SLV*120+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'DK_HACKANDSLASHER2HSPEAR', name: 'Hack and Slash(2HSpear)', level: 10, formula: "(500+SLV*250+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
@@ -9721,8 +9723,8 @@
                         { skill: { id: 'EM_TERRA_DRIVE', name: 'Terra Drive', level: 5, formula: '(SLV*1250+SPL*5)*BLV/100', class: 'SO', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 3, FCT: 1.5, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'EM_TERRA_DRIVE(ex)', name: 'Terra Drive(Spirit)', level: 5, formula: '(3500+SLV*1750+SPL*7)*BLV/100', class: 'SO', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 3, FCT: 1.5, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
 
-                        { skill: { id: 'MO_EXTREMITYFIST', name: 'Guillotine Fist', level: 5, formula: '(8+(SP-1)/10)*100', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 1, VCT: 2, CD: 0, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 1000, SpecialMATK1: 0, Note: '', } },
-                        { skill: { id: 'MO_EXTREMITYFIST(over5)', name: 'Guillotine(Sphere>5)', level: 5, formula: '(8+(SP-1)/10)*100*2', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 1, VCT: 2, CD: 0, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 2000, SpecialMATK1: 0, Note: '', } },
+                        { skill: { id: 'MO_EXTREMITYFIST', name: 'Guillotine Fist', level: 5, formula: '(8+(CSP-1)/10)*100', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 1, VCT: 2, CD: 0, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 1000, SpecialMATK1: 0, Note: '', } },
+                        { skill: { id: 'MO_EXTREMITYFIST(over5)', name: 'Guillotine(Sphere>5)', level: 5, formula: '(8+(CSP-1)/10)*100*2', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 1, VCT: 2, CD: 0, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 2000, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SR_TIGERCANNON', name: 'Tiger Cannon', level: 10, formula: '(DOWN(Mhp*(SLV*0.02+0.1))+DOWN(Msp*(SLV*0.01+0.05)))/4*(BLV/100)', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 2, CD: 3, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK8: 'SLV*240+ELV*40', SpecialMATK1: 0, Note: 'MaxHP/MaxSP Scaling', } },
                         { skill: { id: 'SR_TIGERCANNON(ex)', name: 'Tiger Cannon(Combo)', level: 10, formula: '(DOWN(Mhp*(SLV*0.02+0.1))+DOWN(Msp*(SLV*0.01+0.05)))/2*(BLV/100)*1.3333', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 2, CD: 3, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK8: 'SLV*500+ELV*40', SpecialMATK1: 0, Note: 'MaxHP/MaxSP Scaling', } },
                         { skill: { id: 'SR_RIDEINLIGHTNING', name: 'Lightning Ride', level: 5, formula: "(SLV*40+((WTI=='Knuckles')?SLV*50:0))*BLV/100", class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 5, elemental: 0, FCT: 0, VCT: 1, CD: 0.5, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Knuckle Increase Damage', } },
@@ -9732,7 +9734,7 @@
                         { skill: { id: 'SR_KNUCKLEARROW', name: 'Knuckle Arrow', level: 10, formula: '(500+SLV*100)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SR_KNUCKLEARROW(ex)', name: 'Knuckle Arrow(BOSS)', level: 10, formula: '(500+SLV*200)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SR_FALLENEMPIRE', name: 'Fallen Empire', level: 10, formula: '(100+300*SLV)*BLV/100+100*STR', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
-                        { skill: { id: 'SR_GATEOFHELL', name: 'Gate of Hell', level: 10, formula: '500*SLV*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -7, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: '(SP-100)*3+BLV*10+((Mhp>HP)?(Mhp-HP):0)', SpecialMATK1: 0, Note: 'Affected by HP/SP', } },
+                        { skill: { id: 'SR_GATEOFHELL', name: 'Gate of Hell', level: 10, formula: '500*SLV*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -7, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: '(CSP-100)*3+BLV*10+((Mhp>CHP)?(Mhp-CHP):0)', SpecialMATK1: 0, Note: 'Affected by HP/SP', } },
                         { skill: { id: 'IQ_THIRD_FLAME_BOMB', name: 'Third Flame Bomb', level: 5, formula: '(DOWN(Mhp*0.2)+SLV*650+POW*5)*(BLV/100)', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 3, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume 15 spheres (3 Hit)', } },
                         { skill: { id: 'IQ_EXPOSION_BLASTER', name: 'Explosion Blaster', level: 5, formula: '(650*SLV+POW*3)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 1, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'IQ_EXPOSION_BLASTER(ex)', name: 'Explosion Blaster(Oleum Sanctum)', level: 5, formula: '(850*SLV+POW*4)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 1, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
@@ -10124,16 +10126,16 @@
                         { str1: 'BDE', str2: 'eval(this.status.DEX)', description: 'Base DEX scaling' },
                         { str1: 'BLU', str2: 'eval(this.status.LUK)', description: 'Base LUK scaling' },
                         { str1: 'BPO', str2: 'eval(this.status.POW)', description: 'Base POW scaling' },
-                        { str1: 'BSTA', str2: 'eval(this.status.STA)', description: 'Base STA scaling' },
+                        { str1: 'BSA', str2: 'eval(this.status.STA)', description: 'Base STA scaling' },
                         { str1: 'BWI', str2: 'eval(this.status.WIS)', description: 'Base WIS scaling' },
-                        { str1: 'BSP', str2: 'eval(this.status.S_P_L)', description: 'Base SPL scaling' },
+                        { str1: 'BSP', str2: 'eval(this.status.SPL)', description: 'Base SPL scaling' },
                         { str1: 'BCR', str2: 'eval(this.status.CRT)', description: 'Base CRT scaling' },
                         { str1: 'BCO', str2: 'eval(this.status.CON)', description: 'Base CON scaling' },
                         { str1: 'PATK', str2: 'this.attribute.PATK', description: 'PATK scaling' },
                         { str1: 'BLV', str2: 'this.status.Level', description: 'base level scaling' },
                         { str1: 'JLV', str2: 'this.status.JOBLevel', description: 'job level scaling' },
-                        { str1: 'HP', str2: 'this.status.HP', description: 'current HP scaling' },
-                        { str1: 'SP', str2: 'this.status.SP', description: 'current SP scaling' },
+                        { str1: 'CHP', str2: 'this.status.HP', description: 'current HP scaling' },
+                        { str1: 'CSP', str2: 'this.status.SP', description: 'current SP scaling' },
                         { str1: 'Mhp', str2: 'this.status.MHP', description: 'MaxHP scaling' },
                         { str1: 'Msp', str2: 'this.status.MSP', description: 'MaxSP scaling' },
                         { str1: 'SLV', str2: 'this.skill.level', description: 'skill level' },
