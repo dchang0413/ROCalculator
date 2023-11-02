@@ -5085,7 +5085,7 @@
                                                 <span>Skill Mod%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
-                                                <span>{{effecttypelist[GetETLIndex('SkillDamagePercent')].totalvalue}} %</span>
+                                                <span>{{option.EquipSkillAddDamage}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -8035,7 +8035,7 @@
                     }
                     // 天龍光環
                     if (this.IsSupportActive('DK_DRAGONIC_AURA')){
-                        if (this.skill.id == 'RK_DRAGONBREATH' ) {
+                        if (this.skill.id == 'RK_DRAGONBREATH' || this.skill.id == 'RK_DRAGONBREATH_i') {
                             this.option.EquipSkillAddDamage += 100;
                         }
                     }
@@ -9631,6 +9631,7 @@
                         { skill: { id: 'RK_HUNDREDSPEAR(ex)', name: 'Hundred Spear(Dragonic Aura)', level: 10, formula: "(700+SLV*350)*BLV/100+5*50", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 0, FCT: 0, VCT: "(11-SLV)/10", CD: 3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv5 Clashing Spiral', } },
                         { skill: { id: 'RK_SONICWAVE', name: 'Sonic Wave', level: 10, formula: "(550+SLV*200)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: true, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 0, FCT: 0, VCT: 0, CD: 1.75, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'RK_STORMBLAST', name: 'Storm Blast', level: 1, formula: "(10+DOWN(STR/5.7))*100*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Not affected by Turisus', } },
+                        { skill: { id: 'RK_DRAGONBREATH_i', name: 'Dragon Breath(No POW/PATK)', level: 10, formula: '(DOWN(CHP/50)+DOWN(Msp/4))*SLV*BLV/100*DOWN(90+5*10)/100', class: 'RK', DamageTypeIdx: 2, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 2, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Affected by HP/MaxSP，Assume Lv5 Dragon Training', } },
                         { skill: { id: 'RK_DRAGONBREATH', name: 'Dragon Breath', level: 10, formula: '(DOWN(CHP/50)+DOWN(Msp/4))*SLV*BLV/100*DOWN((90+5*10+POW/5)*(1+PATK/100))/100', class: 'RK', DamageTypeIdx: 2, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 2, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Affected by HP/MaxSP，Assume Lv5 Dragon Training', } },
                         { skill: { id: 'DK_STORMSLASH', name: 'Storm Slash', level: 5, formula: "(SLV*120+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV", elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Turissus can double damage', } },
                         { skill: { id: 'DK_HACKANDSLASHER', name: 'Hack and Slash', level: 10, formula: "(SLV*120+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
