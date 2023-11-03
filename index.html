@@ -7158,7 +7158,7 @@
                             this.computeattribute.atkc6_max = this.MulOper(this.computeattribute.atkc6_max, para_melee);
                         }
                     }else{
-                        if( this.skill.id == 'RK_WINDCUTTER' )
+                        if( this.skill.id.includes('RK_WINDCUTTER') )
                         {
                             this.skill.ranged = (this.weapon.type.id == 'Spears')?true:false;
                         }
@@ -7435,7 +7435,7 @@
 
                     if (this.skill.laterformula == false) {
                         var para_skillpercent = Math.floor(this.option.SkillPercent) + Number(this.computeattribute['SpecialMATK1']) + Number(mflag);
-                        if (this.skill.id == 'SO_SPELLFIST'){
+                        if (this.skill.id.includes('SO_SPELLFIST')){
                             para_skillpercent = 100 + Number(this.computeattribute['SpecialMATK1']) + Number(mflag);;
                         }
                         this.computeattribute.skillmatk_min = Math.floor(this.computeattribute.matk1_min * Number(para_skillpercent / 100));
@@ -7477,7 +7477,7 @@
                     this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk4_max, Number(1) + Number(this.computeattribute['SpecialMATK3'] / 100));
 
 
-                    if (this.skill.id == 'SO_SPELLFIST'){
+                    if (this.skill.id.includes('SO_SPELLFIST')){
                         this.computeattribute.matk4_min = Math.floor(this.computeattribute.matk4_min * Number(Math.floor(this.option.SkillPercent) / 100));
                         this.computeattribute.matk4_max = Math.floor(this.computeattribute.matk4_max * Number(Math.floor(this.option.SkillPercent) / 100));
                     }
@@ -7628,7 +7628,7 @@
                             break;
                         case 1:
                             var _Damage;
-                            if(this.skill.id == 'WL_CHAINLIGHTNING') {
+                            if(this.skill.id.includes('WL_CHAINLIGHTNING')) {
                                 var _DamageTotalMin=0, _DamageTotalMax=0;
                                 this.computeattribute.matk4_min = 0;
                                 this.computeattribute.matk4_max = 0;
@@ -8014,7 +8014,7 @@
                     if (this.IsSupportActive('RK_GIANTGROWTH')){
                         this.status_add.STR += 30;
                         this.attribute['MELDP'] += 15;
-                        if (this.skill.id != 'RK_STORMBLAST')
+                        if (!this.skill.id.includes('RK_STORMBLAST'))
                         {
                             this.computeattribute['SpecialATK5'] += 250;
                         }
@@ -8035,7 +8035,7 @@
                     }
                     // 天龍光環
                     if (this.IsSupportActive('DK_DRAGONIC_AURA')){
-                        if (this.skill.id == 'RK_DRAGONBREATH' || this.skill.id == 'RK_DRAGONBREATH_i') {
+                        if (this.skill.id.includes('RK_DRAGONBREATH')) {
                             this.option.EquipSkillAddDamage += 100;
                         }
                     }
@@ -8230,7 +8230,7 @@
                     // 憤怒暴風
                     if (this.IsSupportActive('WH_CALAMITYGALE')){
                         this.attribute['RNGDP'] += 350;
-                        if( this.skill.id == 'WH_CRESCIVE_BOLT(min)' || this.skill.id == 'WH_CRESCIVE_BOLT(max)' ){
+                        if( this.skill.id.includes('WH_CRESCIVE_BOLT') ){
                             this.option.EquipSkillAddDamage += 20;
                         }
                     }
@@ -8239,7 +8239,7 @@
                         this.status_add.INT += 10;
                         this.attribute['SP'] += 400;
                     }
-                    if (this.skill.id == 'SN_SHARPSHOOTING'){
+                    if (this.skill.id.includes('SN_SHARPSHOOTING')){
                         this.attribute['CRI'] += 45;
                     }
                     // 練習舞蹈
@@ -8360,8 +8360,7 @@
                                 this.attribute['ELEDDI'] += 100;
                             }
                         }
-                        if (this.skill.id == 'AG_CRIMSON_ARROW(all)'||
-                            this.skill.id == 'AG_CRIMSON_ARROW(ex)'){
+                        if (this.skill.id.includes('AG_CRIMSON_ARROW')){
                             this.computeattribute['SpecialMATK1'] += eval(this.SkillFormulaReplace('(SLV*600+SPL*5)*BLV/100'));
                         }
                     }
@@ -8509,7 +8508,7 @@
                     }
                     // 召喚元素:阿爾多雷 火
                     if (this.IsSupportActive('EM_SUMMON_ELEMENTAL_ARDOR')){
-                        if (this.skill.id == 'SO_SPELLFIST' ) {
+                        if (this.skill.id.includes('SO_SPELLFIST') ) {
                             this.skilloption.AttackElementalIdx = 1;
                             if ( this.IsSupportActive('SO_EL_CONTROL(Lv1)') ){
                                 this.computeattribute['SpecialMATK1'] += 100;
@@ -8521,7 +8520,7 @@
                     }
                     // 召喚元素:迪盧比奧 水
                     if (this.IsSupportActive('EM_SUMMON_ELEMENTAL_DILUVIO')){
-                        if (this.skill.id == 'SO_SPELLFIST' ) {
+                        if (this.skill.id.includes('SO_SPELLFIST') ) {
                             this.skilloption.AttackElementalIdx = 2;
                             if ( this.IsSupportActive('SO_EL_CONTROL(Lv1)') ){
                                 this.computeattribute['SpecialMATK1'] += 100;
@@ -8533,7 +8532,7 @@
                     }
                     // 召喚元素:普羅賽拉 風
                     if (this.IsSupportActive('EM_SUMMON_ELEMENTAL_PROCELLA')){
-                        if (this.skill.id == 'SO_SPELLFIST' ) {
+                        if (this.skill.id.includes('SO_SPELLFIST') ) {
                             this.skilloption.AttackElementalIdx = 3;
                             if ( this.IsSupportActive('SO_EL_CONTROL(Lv1)') ){
                                 this.computeattribute['SpecialMATK1'] += 100;
@@ -8721,18 +8720,18 @@
                     }
                     //符
                     if (this.IsSupportActive('KO_KAHU_ENTEN')){
-                        if (this.skill.id == 'NJ_KOUENKA') this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAHU_ENTEN').lv * 20;
-                        if (this.skill.id == 'NJ_BAKUENRYU') this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAHU_ENTEN').lv * 100;
+                        if (this.skill.id.includes('NJ_KOUENKA')) this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAHU_ENTEN').lv * 20;
+                        if (this.skill.id.includes('NJ_BAKUENRYU')) this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAHU_ENTEN').lv * 100;
                         if (this.enemyattribute.elemental == 4) { this.attribute['ElementalAtkPercent'] += 30; }
                     }
                     if (this.IsSupportActive('KO_HYOUHU_HUBUKI')){
-                        if (this.skill.id == 'NJ_HYOUSENSOU') this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_HYOUHU_HUBUKI').lv * 20;
-                        if (this.skill.id == 'NJ_HYOUSYOURAKU') this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_HYOUHU_HUBUKI').lv * 100;
+                        if (this.skill.id.includes('NJ_HYOUSENSOU')) this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_HYOUHU_HUBUKI').lv * 20;
+                        if (this.skill.id.includes('NJ_HYOUSYOURAKU')) this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_HYOUHU_HUBUKI').lv * 100;
                         if (this.enemyattribute.elemental == 1) { this.attribute['ElementalAtkPercent'] += 30; }
                     }
                     if (this.IsSupportActive('KO_KAZEHU_SEIRAN')){
-                        if (this.skill.id == 'NJ_HUUJIN') this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAZEHU_SEIRAN').lv * 20;
-                        if (this.skill.id == 'NJ_KAMAITACHI') this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAZEHU_SEIRAN').lv * 100;
+                        if (this.skill.id.includes('NJ_HUUJIN')) this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAZEHU_SEIRAN').lv * 20;
+                        if (this.skill.id.includes('NJ_KAMAITACHI')) this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAZEHU_SEIRAN').lv * 100;
                         if (this.enemyattribute.elemental == 2) { this.attribute['ElementalAtkPercent'] += 30; }
                     }
                     if (this.IsSupportActive('KO_DOHU_KOUKAI')){
@@ -8753,10 +8752,9 @@
                     }
                     // 影子武士  八方還沒算進來
                     if (this.IsSupportActive('KG_KAGEMUSYA')){
-                        if (this.skill.id == 'KO_HUUMARANKA' ||
-                            this.skill.id == 'KO_BAKURETSU' ||
-                            this.skill.id == 'KO_JYUMONJIKIRI' ||
-                            this.skill.id == 'KO_JYUMONJIKIRI(buff)'
+                        if (this.skill.id.includes('KO_HUUMARANKA') ||
+                            this.skill.id.includes('KO_BAKURETSU') ||
+                            this.skill.id.includes('KO_JYUMONJIKIRI') 
                         ) {
                             this.option.EquipSkillAddDamage += 20;
                         }
@@ -8793,19 +8791,19 @@
                     }
                     //日星月光輝
                     if (this.IsSupportActive('SJ_LIGHTOFSUN')){
-                        if (this.skill.id == 'SJ_SOLARBURST')
+                        if (this.skill.id.includes('SJ_SOLARBURST'))
                         {
                             this.option.EquipSkillAddDamage += this.GetSupportSkill('SJ_LIGHTOFSUN').lv * 5;
                         }
                     }
                     if (this.IsSupportActive('SJ_LIGHTOFMOON')){
-                        if (this.skill.id == 'SJ_FULLMOONKICK')
+                        if (this.skill.id.includes('SJ_FULLMOONKICK'))
                         {
                             this.option.EquipSkillAddDamage += this.GetSupportSkill('SJ_LIGHTOFMOON').lv * 5;
                         }
                     }
                     if (this.IsSupportActive('SJ_LIGHTOFSTAR')){
-                        if (this.skill.id == 'SJ_FALLINGSTAR')
+                        if (this.skill.id.includes('SJ_FALLINGSTAR'))
                         {
                             this.option.EquipSkillAddDamage += this.GetSupportSkill('SJ_LIGHTOFSTAR').lv * 5;
                         }
@@ -8970,9 +8968,6 @@
                                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='LevelAtkPercent').totalvalue);
                     this.attribute['SizeAtkPercent'] +=         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeAtkPercent').totalvalue)));
                     this.attribute['RaceAtkPercent'] +=         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue)));
-                    console.log(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue));
-                    console.log(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue)));
-                    console.log(this.attribute['RaceAtkPercent']);
                     this.attribute['WeaponPerfection'] +=       Number(eval(this.effecttypelist.find(x => x.id == 'WeaponPerfection').totalvalue));
                     this.attribute['WeaponOccult'] +=           Number(eval(this.effecttypelist.find(x => x.id == 'WeaponOccult').totalvalue));
 
@@ -9681,7 +9676,7 @@
                         { skill: { id: 'WH_CRESCIVE_BOLT(min)', name: 'Crescive Bolt(min)', level: 10, formula: '(300*SLV+10*CON)*(BLV/100)', class: 'RA', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 1, VCT: 0, CD: 0, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'WH_CRESCIVE_BOLT(max)', name: 'Crescive Bolt(max)', level: 10, formula: '(300*SLV+10*CON)*1.3*(BLV/100)', class: 'RA', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 1, VCT: 0, CD: 0, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
 
-                        { skill: { id: 'LG_CANNONSPEAR_i', name: 'Cannon Spear -iRO', level: 5, formula: '(80+STR)*SLV*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: true, halfcri:true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
+                        { skill: { id: 'LG_CANNONSPEAR_i', name: 'Cannon Spear -iRO', level: 5, formula: '(80+STR)*SLV*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: true, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'LG_CANNONSPEAR', name: 'Cannon Spear', level: 5, formula: '(120+STR)*SLV*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: true, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 1.7, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'LG_CANNONSPEAR(ex)', name: 'Cannon Spear(Grand Judgement)', level: 5, formula: '(200+STR)*SLV*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: true, halfcri:true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
 
@@ -9734,6 +9729,7 @@
                         { skill: { id: 'SR_RAMPAGEBLASTER(ex)', name: 'Rampage Blast(Earth Shaker)', level: 5, formula: '(1000+350*SLV+500+SLV*200)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv5 Fury', } },
                         { skill: { id: 'SR_KNUCKLEARROW', name: 'Knuckle Arrow', level: 10, formula: '(500+SLV*100)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SR_KNUCKLEARROW(ex)', name: 'Knuckle Arrow(BOSS)', level: 10, formula: '(500+SLV*200)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
+                        { skill: { id: 'SR_SKYBLOW', name: 'Sky Blow', level: 5, formula: '(AGI+200*SLV)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SR_FALLENEMPIRE', name: 'Fallen Empire', level: 10, formula: '(100+300*SLV)*BLV/100+100*STR', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', } },
                         { skill: { id: 'SR_GATEOFHELL', name: 'Gate of Hell', level: 10, formula: '500*SLV*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -7, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: '(CSP-100)*3+BLV*10+((Mhp>CHP)?(Mhp-CHP):0)', SpecialMATK1: 0, Note: 'Affected by HP/SP', } },
                         { skill: { id: 'IQ_THIRD_FLAME_BOMB', name: 'Third Flame Bomb', level: 5, formula: '(DOWN(Mhp*0.2)+SLV*650+POW*5)*(BLV/100)', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 3, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume 15 spheres (3 Hit)', } },
