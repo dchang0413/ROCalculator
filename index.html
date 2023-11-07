@@ -5620,8 +5620,8 @@
                     { id: 'OneHandedSpears', label: '1HSpear', sizefix: { small: 75, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
                     { id: 'TwoHandedSpears', label: '2HSpear', sizefix: { small: 75, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
                     //Add other tags for "Axes"
-                    { id: 'OneHandedAxe', label: '1HAxe', sizefix: { small: 50, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
-                    { id: 'TwoHandedAxe', label: '2HAxe', sizefix: { small: 50, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
+                    { id: 'OneHandedAxe', label: '1HAxes', sizefix: { small: 50, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
+                    { id: 'TwoHandedAxe', label: '2HAxes', sizefix: { small: 50, middle: 75, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
                     { id: 'Maces', label: 'Mace', sizefix: { small: 75, middle: 100, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
                     { id: 'Knuckles', label: 'Knuckle', sizefix: { small: 100, middle: 100, large: 75 }, baseaspd: '', isRangedattack: false, isTwohand: false },
                     //Add other tags for "Rods"
@@ -6919,7 +6919,7 @@
                 ComputeSizefix() {
                     if (this.IsSupportActive('BS_WEAPONPERFECT')) {
                         this.computeattribute.sizefix = 100;
-                    } else if ((this.IsSupportActive('KN_RIDING')||this.IsSupportActive('RK_DRAGONTRAINING')) && this.weapon.type.id == 'Spears') {
+                    } else if ((this.IsSupportActive('KN_RIDING')||this.IsSupportActive('RK_DRAGONTRAINING')) && this.weapon.type.id.includes('Spear')) {
                         this.computeattribute.sizefix = 100;
                     } else {
                         switch (this.enemyattribute.size) {
@@ -7181,7 +7181,7 @@
                     }else{
                         if( this.skill.id.includes('RK_WINDCUTTER') )
                         {
-                            this.skill.ranged = (this.weapon.type.id == 'Spears')?true:false;
+                            this.skill.ranged = (this.weapon.type.id.include('Spear'))?true:false;
                         }
                         if (this.skill.ranged && this.skill.laterranged == false) {
                             this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, para_ranged);
@@ -7955,7 +7955,7 @@
                     if (this.IsSupportActive('SM_TWOHAND') && this.weapon.type.id == 'TwoHandedSword')
                         this.skilloption.WeaponMasteryATK+=4*this.GetSupportSkill('SM_TWOHAND').lv; 
 
-                    if (this.IsSupportActive('KN_SPEARMASTERY') && this.weapon.type.id == 'Spears')
+                    if (this.IsSupportActive('KN_SPEARMASTERY') && this.weapon.type.id.include('Spear'))
                         this.skilloption.WeaponMasteryATK+= (this.IsSupportActive('KN_RIDING')||this.IsSupportActive('RK_DRAGONTRAINING')) ?
                             5*this.GetSupportSkill('KN_SPEARMASTERY').lv : 4*this.GetSupportSkill('KN_SPEARMASTERY').lv; 
                     
@@ -7977,7 +7977,7 @@
                     }
 
                     if (this.IsSupportActive('NC_TRAININGAXE')){
-                        if(this.weapon.type.id == '1HAxes' || this.weapon.type.id == '2HAxes') {
+                        if(this.weapon.type.id.includes('Axe')) {
                             var _lv = this.GetSupportSkill('NC_TRAININGAXE').lv;
                             this.skilloption.WeaponMasteryATK+=5*_lv; 
                             this.attribute['HIT'] += 3*_lv;
@@ -7991,7 +7991,7 @@
                     if (this.IsSupportActive('NC_MADOLICENCE'))
                         this.skilloption.WeaponMasteryATK+= 15*this.GetSupportSkill('NC_MADOLICENCE').lv;
                         
-                    if (this.IsSupportActive('AM_AXEMASTERY') && (this.weapon.type.id == '1HAxes' || this.weapon.type.id == '2HAxes' || this.weapon.type.id == 'OneHandedSwords'))
+                    if (this.IsSupportActive('AM_AXEMASTERY') && (this.weapon.type.id.include('Axe') || this.weapon.type.id == 'OneHandedSwords'))
                         this.skilloption.WeaponMasteryATK+=3*this.GetSupportSkill('AM_AXEMASTERY').lv; 
 
                     if (this.IsSupportActive('GN_TRAINING_SWORD') && (this.weapon.type.id == 'OneHandedSwords' || this.weapon.type.id == 'Daggers')){
@@ -8067,7 +8067,7 @@
                     }
                     // 長矛加速術
                     if (this.IsSupportActive('CR_SPEARQUICKEN')) {
-                        if (this.weapon.type.id == 'Spears') {
+                        if (this.weapon.type.id.includes('Spear')) {
                             this.attribute['CRI'] += 30;
                             this.attribute['SKILLASPDP'] += 30;
                             this.attribute['ASPDP'] += 10;
@@ -8116,7 +8116,7 @@
                     }
                     //速度激發
                     if (this.IsSupportActive('BS_ADRENALINE')){
-                        if (this.weapon.type.id == '1HAxes' || this.weapon.type.id == '2HAxes' || this.weapon.type.id == 'Maces') {
+                        if (this.weapon.type.id.includes('Axe') || this.weapon.type.id.includes('Mace')) {
                             this.attribute['ASPDP'] += 10;
                             this.attribute['SKILLASPDP'] += 40;
                         }
