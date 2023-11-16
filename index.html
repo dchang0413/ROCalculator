@@ -7179,7 +7179,7 @@
                     }else{
                         if( this.skill.id.includes('RK_WINDCUTTER') )
                         {
-                            this.skill.ranged = (this.weapon.type.id.include('Spear'))?true:false;
+                            this.skill.ranged = (this.weapon.type.id.includes('Spear'))?true:false;
                         }
                         if (this.skill.ranged && this.skill.laterranged == false) {
                             this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, para_ranged);
@@ -7953,7 +7953,7 @@
                     if (this.IsSupportActive('SM_TWOHAND') && this.weapon.type.id == 'TwoHandedSword')
                         this.skilloption.WeaponMasteryATK+=4*this.GetSupportSkill('SM_TWOHAND').lv; 
 
-                    if (this.IsSupportActive('KN_SPEARMASTERY') && this.weapon.type.id.include('Spear'))
+                    if (this.IsSupportActive('KN_SPEARMASTERY') && this.weapon.type.id.includes('Spear'))
                         this.skilloption.WeaponMasteryATK+= (this.IsSupportActive('KN_RIDING')||this.IsSupportActive('RK_DRAGONTRAINING')) ?
                             5*this.GetSupportSkill('KN_SPEARMASTERY').lv : 4*this.GetSupportSkill('KN_SPEARMASTERY').lv; 
                     
@@ -7989,7 +7989,7 @@
                     if (this.IsSupportActive('NC_MADOLICENCE'))
                         this.skilloption.WeaponMasteryATK+= 15*this.GetSupportSkill('NC_MADOLICENCE').lv;
                         
-                    if (this.IsSupportActive('AM_AXEMASTERY') && (this.weapon.type.id.include('Axe') || this.weapon.type.id == 'OneHandedSwords'))
+                    if (this.IsSupportActive('AM_AXEMASTERY') && (this.weapon.type.id.includes('Axe') || this.weapon.type.id == 'OneHandedSwords'))
                         this.skilloption.WeaponMasteryATK+=3*this.GetSupportSkill('AM_AXEMASTERY').lv; 
 
                     if (this.IsSupportActive('GN_TRAINING_SWORD') && (this.weapon.type.id == 'OneHandedSwords' || this.weapon.type.id == 'Daggers')){
