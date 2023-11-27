@@ -7400,7 +7400,7 @@
                     this.computeattribute.weaponmatk_max = Number(this.attribute['StatusMATK']) +
                         Math.floor((Number(this.weapon.MATK) + Number(this.subweapon.MATK) + Number(this.weapon.refinematk)) * floatmatk_max) + Number(this.weapon.refineatk2);
 
-                    var para2 = Number(1) + (this.IsSupportActive('HW_MAGICPOWER') ? Number(this.GetSupportSkill('HW_MAGICPOWER').arg1 / 100) : 0);
+                    var para2 = Number(1) + (this.IsSupportActive('HW_MAGICPOWER') ? Number((this.GetSupportSkill('HW_MAGICPOWER').lv * 5) / 100) : 0);
                     var para3 = this.attribute['MATK'];
                     this.computeattribute.equipmatk_min = this.MulOper(this.computeattribute.weaponmatk_min, para2) + para3;
                     this.computeattribute.equipmatk_max = this.MulOper(this.computeattribute.weaponmatk_max, para2) + para3;
@@ -10152,7 +10152,7 @@
                         { skill: { id: 'WL_RELEASE', name: 'Release', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'WL_READING_SB', Note: '', } },
                         { skill: { id: 'WL_READING_SB', name: 'Reading Spellbook + Release', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'WL_RELEASE', Note: '', } },
                         { skill: { id: 'WL_RECOGNIZEDSPELL', name: 'Recognized Spell', maxlv: 5, lv: 5, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'HW_MAGICPOWER', name: 'Mystical Amplification', maxlv: 10, lv: 10, class: 'WL', changelv: false, argnum: 0, arg1: 50, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'HW_MAGICPOWER', name: 'Mystical Amplification', maxlv: 10, lv: 10, class: 'WL', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'MagicAddicted', name: 'Comet', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'WL_TELEKINESIS_INTENSE', name: 'Intensification', maxlv: 5, lv: 5, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'AG_TWOHANDSTAFF', name: 'Twohanded Staff Mastery', maxlv: 10, lv: 10, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
@@ -10278,8 +10278,6 @@
 
                         { skill: { id: 'NV_BREAKTHROUGH', name: 'Breakthrough', maxlv: 5, lv: 5, class: 'SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'NV_TRANSCENDENCE', name: 'Transcendence', maxlv: 5, lv: 5, class: 'SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'NV_BREAKTHROUGH', name: 'Breakthrough', maxlv: 5, lv: 0, class: 'SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'NV_TRANSCENDENCE', name: 'Transcendence', maxlv: 5, lv: 0, class: 'SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'HN_SELFSTUDY_TATICS', name: 'Selfstudy Tactics', maxlv: 10, lv: 10, class: 'SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'HN_SELFSTUDY_SOCERY', name: 'Selfstudy Sorcery', maxlv: 10, lv: 10, class: 'SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                     );
