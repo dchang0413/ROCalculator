@@ -1588,6 +1588,12 @@
                                 Load
                             </el-button>
                         </el-col>
+                        <el-col :span="5">
+                            <el-button v-on:click="loadAllDefaultEquip" icon="el-icon-check"
+                                type="success" type="primary" size="small">
+                                Load All Sets
+                            </el-button>
+                        </el-col>
                     </el-row>
                 </div>
                 <el-scrollbar wrap-class="EquipList-container" :native="false" :noresize="false">
@@ -1630,7 +1636,7 @@
                                             <el-col class="textcenter" :span="1">
                                                 <span class="">{{ effecttypelist[GetETLIndex(effect.EffectType.id)].opersymbol }}</span>
                                             </el-col>
-                                            <el-col class="textcenter" :span="2">
+                                            <el-col class="textcenter">
                                                 <span class="textnowrap">{{ effect.EffectNumber!=9999?effect.EffectNumber:'' }}</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="1">
@@ -9761,6 +9767,7 @@
                         { skill: { id: 'DK_DRAGONIC_BREATH_3', name: 'Dragonic Breath', level: 10, formula: "(50+(350+0.00625*Mhp+0.0125*Msp)*SLV+POW*7)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0.5, VCT: 2, CD: 0.5, GCD: 0.15, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
                         { skill: { id: 'DK_DRAGONIC_BREATH(ex)_3', name: 'Dragonic Breat(Dragonic Aura)', level: 10, formula: "(50+(350+0.00875*Mhp+0.0175*Msp)*SLV+POW*7)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
 
+                        { skill: { id: 'WZ_SIGHTRASHER', name: 'Sightrasher', level: 10, formula: '100+SLV*20', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 1, FCT: 0.08, VCT: 0.32, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'WL_CRIMSONROCK', name: 'Crimson Rock', level: 5, formula: '(700+SLV*600)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -7, elemental: 1, FCT: 1, VCT: 5, CD: 5, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'WL_EARTHSTRAIN', name: 'Earth Strain', level: 5, formula: '(1000+SLV*600)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -10, elemental: 4, FCT: 1, VCT: 6, CD: 7, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'WL_JACKFROST', name: 'Jack Frost', level: 5, formula: '(1000+SLV*300)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 2, FCT: 1, VCT: 4, CD: 4, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
@@ -10416,6 +10423,7 @@
                         { str1: 'Mhp', str2: 'this.status.MHP', description: 'MaxHP scaling' },
                         { str1: 'Msp', str2: 'this.status.MSP', description: 'MaxSP scaling' },
                         { str1: 'SLV', str2: 'this.skill.level', description: 'skill level' },
+                        { str1: 'SKID', str2: 'this.skill.id', description: 'Skill ID' },
                         { str1: 'AEI', str2: 'this.skilloption.AttackElementalIdx', description: 'weapon attribute' },
                         { str1: 'WEAR', str2: 'this.weapon.refinelevel', description: 'weapon refine' },
                         { str1: 'WLV', str2: 'this.weapon.level.id', description: 'weapon level' },
@@ -10668,6 +10676,13 @@
                             this.SaveEquipDB();
                         }
                     })
+                },
+                loadAllDefaultEquip(){
+                    for (const entry of this.default_equip){
+                        this.select_default = entry.id;
+                        this.loadDefaultEquip();
+                    }
+                    this.select_default = '';
                 },
                 getLoadedEquipNames(){
                     let loadedNames = [];
