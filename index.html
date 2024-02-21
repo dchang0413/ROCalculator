@@ -5263,19 +5263,52 @@
                                 </el-row>
                                 <el-row class="statusbox" type="flex" align="middle" justify="space-around"
                                     style="height:40px;">
-                                    <el-col class="bg-purple" style="text-align: right;">
-                                        <span>ASPD:{{status.ASPD}} Delay Between ATK:</span>
+                                    <el-col class="bg-purple" style="text-align: right;" :span="6">
+                                        <span>ASPD:</span>
                                     </el-col>
-                                    <el-col class="textcenter">
+                                    <el-col class="textcenter" :span="6">
+                                        <span>{{status.ASPD}}</span>
+                                    </el-col>
+                                    <el-col class="bg-purple" :span="6">
+                                        <span>Delay Between ATK:</span>
+                                    </el-col>
+                                    <el-col class="textcenter" :span="6">
                                         <span>{{computeattribute['AspdDelay']}} s</span>
                                     </el-col>
                                 </el-row>
                                 <div
-                                    v-show="(computeattribute['CastTime']+computeattribute['DelayTime'])>computeattribute['AspdDelay']">
+                                    v-show="(computeattribute['DelayTime'])>computeattribute['AspdDelay']">
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
                                         style="height:40px;">
                                         <el-col class="textcenter">
-                                            <span>Casting Time + Delay Time > Delay Between ATK</span>
+                                            <span>Cooldown/Delay > ASPD Delay</span>
+                                        </el-col>
+                                    </el-row>
+                                </div>
+                                <div
+                                    v-show="(computeattribute['DelayTime'])>computeattribute['AspdDelay']">
+                                    <el-row class="statusbox" type="flex" align="middle" justify="space-around"
+                                        style="height:40px;">
+                                        <el-col class="textcenter">
+                                            <span>Improving Cooldown/Cast Delay can improve spam</span>
+                                        </el-col>
+                                    </el-row>
+                                </div>
+                                <div
+                                    v-show="(computeattribute['DelayTime'])<computeattribute['AspdDelay']">
+                                    <el-row class="statusbox" type="flex" align="middle" justify="space-around"
+                                        style="height:40px;">
+                                        <el-col class="textcenter">
+                                            <span>Cooldown/Delay > ASPD Delay</span>
+                                        </el-col>
+                                    </el-row>
+                                </div>
+                                <div
+                                    v-show="(computeattribute['DelayTime'])<computeattribute['AspdDelay']">
+                                    <el-row class="statusbox" type="flex" align="middle" justify="space-around"
+                                        style="height:40px;">
+                                        <el-col class="textcenter">
+                                            <span>Improving ASPD can improve spam</span>
                                         </el-col>
                                     </el-row>
                                 </div>
@@ -5654,7 +5687,7 @@
                     'MI': { class: 'MI', Empty: 156, Daggers: -12, Bows: -10, Instruments: -5, Shield: -7 },
                     'WA': { class: 'WA', Empty: 156, Daggers: -12, Bows: -10, Whips: -5, Shield: -7 },
                     'SO': { class: 'SO', Empty: 156, Daggers: -10, OneHandedRods: -5, TwoHandedRods: -5, Books: -5, Shield: -5 },
-                    'GE': { class: 'GE', Empty: 156, Daggers: -10, OneHandedSwords: -4, OneHandedAxe: -11, TwoHandedAxe: -11, Maces: -5, Shield: -4 },
+                    'GE': { class: 'GE', Empty: 156, Daggers: -10, OneHandedSwords: -4, OneHandedAxe: -7, TwoHandedAxe: -11, Maces: -5, Shield: -4 },
                 },
                 lefthandweapon: false,
                 subhandtype: [
@@ -6972,8 +7005,8 @@
                         this.computeattribute.DelayTime = Math.floor(0.5 * _GCDRate) / 100 +
                             Math.floor(eval(this.SkillFormulaReplace(this.skill.GCD)) * _GCDRate) / 100;
                     }
-                    this.computeattribute.AspdDelay = Math.floor((200 - this.attribute.ASPD) / 50 * 100) / 100;
-                    var _MAxDelay = Math.max(this.computeattribute.CastTime + this.computeattribute.DelayTime, this.computeattribute.AspdDelay);
+                    this.computeattribute.AspdDelay = Math.floor((200 - this.status.ASPD) / 50 * 100) / 100;
+                    var _MAxDelay = Math.max(this.computeattribute.DelayTime, this.computeattribute.AspdDelay);
                     this.computeattribute.HitperSec = Math.floor(1 / _MAxDelay * 100) / 100;
                     if (this.computeattribute.HitperSec > 7.14) this.computeattribute.HitperSec = 7.14;
                 },
@@ -7373,7 +7406,7 @@
                     var EquipASPD = Math.floor(10*(195 - baseASPD2) * this.attribute['ASPDP']/100)/10;
                     //console.log('equip',EquipASPD);
 
-                    var finalASPD = Math.floor(baseASPD2 + EquipASPD + this.attribute['ASPD']);
+                    var finalASPD = Math.min(Math.floor(baseASPD2 + EquipASPD + this.attribute['ASPD']),193);
                     //console.log('final',baseASPD2 + EquipASPD + this.attribute['ASPD']);
                     this.status.ASPD = finalASPD;
                 },
@@ -8122,7 +8155,7 @@
                     if (this.IsSupportActive('BS_ADRENALINE')){
                         if (this.weapon.type.id.includes('Axe') || this.weapon.type.id.includes('Mace')) {
                             this.attribute['ASPDP'] += 10;
-                            this.attribute['SKILLASPDP'] += 40;
+                            this.attribute['SKILLASPDP'] += 30;
                         }
                     }
                     //毒耐性弱化
