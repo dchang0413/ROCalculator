@@ -5631,8 +5631,16 @@
                     { label: 'INT', id: 'INT', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
                     { label: 'DEX', id: 'DEX', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
                     { label: 'LUK', id: 'LUK', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
+                    { label: 'POW', id: 'POW', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
+                    { label: 'STA', id: 'STA', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
+                    { label: 'WIS', id: 'WIS', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
+                    { label: 'SPL', id: 'SPL', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
+                    { label: 'CON', id: 'CON', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
+                    { label: 'CRT', id: 'CRT', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
                     { label: 'ATK', id: 'ATK', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
                     { label: 'MATK', id: 'MATK', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
+                    { label: 'PATK', id: 'PATK', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
+                    { label: 'SMATK', id: 'SMATK', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
                     { label: 'Atk %', id: 'AtkPercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Matk %', id: 'MatkPercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'HP', id: 'HP', totalvalue: 0, opersymbol: '\+', suffixsymbol: '' },
@@ -6624,9 +6632,9 @@
                 OnComputeConsumable(){
                     this.consumableeffecttypelist = _.cloneDeep(this.consumableeffecttypelist_init);
 
-                    var _statusgtag = [ 'STR', 'AGI', 'VIT', 'INT', 'DEX', 'LUK', 'ATK', 'MATK', 'Cri'];
-                    var _ATKMATKUP = { ATKUP:0, MATKUP:0 };
-                    var _atkmatkuptag = [ 'ATKUP', 'MATKUP'];
+                    var _statusgtag = [ 'STR', 'AGI', 'VIT', 'INT', 'DEX', 'LUK', 'ATK', 'MATK', 'Cri', 'POW', 'STA', 'WIS', 'SPL', 'CON', 'CRT', 'PATK', 'SMATK'];
+                    var _ATKMATKUP = { ATKUP:0, MATKUP:0, };
+                    var _atkmatkuptag = [ 'ATKUP', 'MATKUP' ];
                     var _FixedCast = 0;
 
                     for( var i=0; i<this.consumablelist.length; ++i ){
@@ -9029,12 +9037,18 @@
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='DEX').totalvalue);
                     this.status_add.LUK +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LUK').totalvalue))) + _AllStatus +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='LUK').totalvalue);
-                    this.status_add.POW +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'POW').totalvalue)));
-                    this.status_add.STA +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'STA').totalvalue)));
-                    this.status_add.WIS +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'WIS').totalvalue)));
-                    this.status_add.SPL +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPL').totalvalue)));
-                    this.status_add.CON +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CON').totalvalue)));
-                    this.status_add.CRT +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRT').totalvalue)));
+                    this.status_add.POW +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'POW').totalvalue))) + 
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='POW').totalvalue);
+                    this.status_add.STA +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'STA').totalvalue))) + 
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='STA').totalvalue);
+                    this.status_add.WIS +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'WIS').totalvalue))) + 
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='WIS').totalvalue);
+                    this.status_add.SPL +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPL').totalvalue))) + 
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='SPL').totalvalue);
+                    this.status_add.CON +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CON').totalvalue))) + 
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='CON').totalvalue);
+                    this.status_add.CRT +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRT').totalvalue))) + 
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='CRT').totalvalue);
 
                     this.attribute['HP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'HP').totalvalue))) + 
                                                 Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'VIT').totalvalue))) +
@@ -9058,8 +9072,10 @@
                     this.attribute['MATKP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MatkPercent').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='MatkPercent').totalvalue);
 
-                    this.attribute['PATK'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'PATK').totalvalue)));
-                    this.attribute['SMATK'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SMATK').totalvalue)));
+                    this.attribute['PATK'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'PATK').totalvalue))) + 
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='PATK').totalvalue);
+                    this.attribute['SMATK'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SMATK').totalvalue))) + 
+                                                Number(this.consumableeffecttypelist.find(x=>x.id=='SMATK').totalvalue);
                     this.attribute['CRIDR'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRIDR').totalvalue)));
                     this.attribute['CRI'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'Cri').totalvalue))) +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='Cri').totalvalue);
@@ -10360,16 +10376,17 @@
                         { id:12204, name:'10 INT Food', active:false, group:'StatusG', INT:10},
                         { id:12205, name:'10 DEX Food', active:false, group:'StatusG', DEX:10},
                         { id:12206, name:'10 LUK Food', active:false, group:'StatusG', LUK:10},
-                        //{ id:14616, name:'STR Biscuit Stick', active:false, group:'StatusG', STR:15, ATKUP:11, editable:true},
-                        //{ id:14618, name:'AGI Biscuit Stick ', active:false, group:'StatusG', AGI:15},
-                        //{ id:14617, name:'VIT Biscuit Stick ', active:false, group:'StatusG', VIT:15},
-                        //{ id:14619, name:'INT Biscuit Stick ', active:false, group:'StatusG', INT:15, MATKUP:11, editable:true},
-                        //{ id:14620, name:'DEX Biscuit Stick ', active:false, group:'StatusG', DEX:15},
-                        //{ id:14621, name:'LUK Biscuit Stick ', active:false, group:'StatusG', LUK:15, Cri:11, editable:true},
+                        { id:14616, name:'STR Biscuit Stick', active:false, group:'StatusG', STR:15, ATKUP:11, editable:true},
+                        { id:14618, name:'AGI Biscuit Stick ', active:false, group:'StatusG', AGI:15},
+                        { id:14617, name:'VIT Biscuit Stick ', active:false, group:'StatusG', VIT:15},
+                        { id:14619, name:'INT Biscuit Stick ', active:false, group:'StatusG', INT:15, MATKUP:11, editable:true},
+                        { id:14620, name:'DEX Biscuit Stick ', active:false, group:'StatusG', DEX:15},
+                        { id:14621, name:'LUK Biscuit Stick ', active:false, group:'StatusG', LUK:15, Cri:11, editable:true},
                         { id:14886, name:'Ultimate Cook', active:false, group:'StatusG', STR:10, AGI:10, VIT:10, INT:10, DEX:10, LUK:10, ATK:30, MATK:30},
                         { id:12883, name:'Almighty', active:false, group:'StatusG', STR:10, AGI:10, VIT:10, INT:10, DEX:10, LUK:10, ATK:30, MATK:30},
                         { id:12646, name:'Pretzel', active:false, group:'StatusG', LUK:9, ATKUP:50, MATKUP:50},
                         //{ id:100098, name:'活力激發劑', active:false, group:'StatusG', STR:20, AGI:20, VIT:20, INT:20, DEX:20, LUK:20},
+                        { id:102803, name:'Force Booster', active:false, group:'StatusG', POW:5, STA:5, WIS:5, SPL:5, CON:5, CRT:5, PATK:10, SMATK:10},
 
                         { id:12429, name:'20 STR Food', active:false, group:'Status20G', STR:20},
                         { id:12433, name:'20 AGI Food', active:false, group:'Status20G', AGI:20},
@@ -10390,7 +10407,7 @@
                         //{ id:12418, name:'Full SwingK', active:false, group:'sp', ATK:50},
                         //{ id:12419, name:'Mana +', active:false, group:'sp', MATK:50},
                         //{ id:12796, name:'紅色狂暴藥水', active:false, group:'sp', ATK:30, MATK:30, VariableCastPercent:5, HPPercent:-10, SPPercent:-10},
-                        //{ id:14766, name:'魔幻香水', active:false, group:'sp', ATK:30, MATK:30, AtkPercent:1, MatkPercent:1, FixedCastPercent:30},
+                        { id:14766, name:'Limit Power Booster', active:false, group:'sp', ATK:30, MATK:30, AtkPercent:1, MatkPercent:1, FixedCastPercent:30},
                         { id:22511, name:'Fenrir\'s Power Scroll ', active:false, group:'sp', MATK:25, FixedCastPercent:50},
                         { id:23475, name:'Infinity Drink', active:false, group:'sp', HPPercent:5, SPPercent:5, RangedDamagePercent:5, CriDamagePercent:5, ElementalMagicPercent:5},
                         { id:14536, name:'Abrasive', active:false, group:'sp', Cri:30},
