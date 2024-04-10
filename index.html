@@ -2168,6 +2168,24 @@
                                 </el-row>
                             </div>
                         </el-row>
+                        <el-row class="effectline previeweffectbox" style="height:40px;">
+                            <el-col class="textcenter" >
+                                <span class="EffectType">ASPD</span>
+                            </el-col>
+                        </el-row>
+                        <el-row>
+                            <div class="Item" v-for="(item, index) in ConsumGroupFiltered('ASPDPot')" v-bind:key="item.id">
+                                <el-row class="optionbox" type="flex" align="middle" justify="end" style="padding: 0px 10px;">
+                                    <el-col class="textcenter">
+                                        <span class="EffectType">{{ item.name }}</span>
+                                    </el-col>
+                                    <el-col class="textcenter" :span="4">
+                                        <el-switch :value="item.active" v-on:change="OnEditConsumable(item.id)"
+                                            active-color="#13ce66" inactive-color="#8a9799"></el-switch>
+                                    </el-col>
+                                </el-row>
+                            </div>
+                        </el-row>
                     </el-scrollbar>
                 </el-col>
                 <el-col :span="5" class=" ">
@@ -5656,6 +5674,7 @@
                     { label: 'Element %', id: 'ElementalMagicPercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Magical Class %', id: 'LevelMatkPercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Cast Delay%', id: 'GCDPercent', totalvalue: 0, opersymbol: '\-', suffixsymbol: '\%' },
+                    { label: 'ASPD%', id: 'ASPDP', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
                 ],
                 weapontypelist: [
                     { id: 'Empty', label: 'Bare Hand', sizefix: { small: 100, middle: 100, large: 100 }, baseaspd: '', isRangedattack: false, isTwohand: false },
@@ -6634,14 +6653,17 @@
 
                     var _statusgtag = [ 'STR', 'AGI', 'VIT', 'INT', 'DEX', 'LUK', 'ATK', 'MATK', 'Cri', 'POW', 'STA', 'WIS', 'SPL', 'CON', 'CRT', 'PATK', 'SMATK'];
                     var _ATKMATKUP = { ATKUP:0, MATKUP:0, };
+                    var _SKILLASPDP = { ASPDP: 0 };
                     var _atkmatkuptag = [ 'ATKUP', 'MATKUP' ];
                     var _FixedCast = 0;
 
                     for( var i=0; i<this.consumablelist.length; ++i ){
                         if(this.consumablelist[i].active==false) continue;
                         // 素質系統 取最大
-                        if(this.consumablelist[i].group=='StatusG' ||
-                            this.consumablelist[i].group=='ATKMATKUP'){
+                        if( this.consumablelist[i].group=='StatusG' ||
+                            this.consumablelist[i].group=='ATKMATKUP' ||
+                            this.consumablelist[i].group=='ASPDPot'
+                        ){
                             for( var t=0; t<_statusgtag.length; ++t ){
                                 if( this.consumablelist[i][_statusgtag[t]] != null ){
                                     var _idx = this.consumableeffecttypelist.findIndex( i=> i.id == _statusgtag[t]);
@@ -6655,6 +6677,9 @@
                             }
                             if( this.consumablelist[i]['MATKUP'] != null ){
                                 _ATKMATKUP['MATKUP'] = Math.max(_ATKMATKUP['MATKUP'], this.consumablelist[i]['MATKUP']);
+                            }
+                            if( this.consumablelist[i]['ASPDP'] != null ){
+                                _SKILLASPDP['ASPDP'] = Math.max(_SKILLASPDP['ASPDP'], this.consumablelist[i]['ASPDP']);
                             }
                         }
                         // 獨立系統可疊加
@@ -6684,6 +6709,10 @@
                     this.consumableeffecttypelist[_idx].totalvalue += _ATKMATKUP["ATKUP"];
                     var _idx = this.consumableeffecttypelist.findIndex( i=> i.id == 'MATK');
                     this.consumableeffecttypelist[_idx].totalvalue += _ATKMATKUP["MATKUP"];
+
+                    // ASPD
+                    var _idx = this.consumableeffecttypelist.findIndex( i=> i.id == 'ASPDP');
+                    this.consumableeffecttypelist[_idx].totalvalue += _SKILLASPDP["ASPDP"];
 
                     // 戰鬥藥 糖果系統
                     _tag = [ 'LevelAtkPercent', 'MatkPercent', 'ATK', 'MATK', 'HPPercent', 'SPPercent', 'FixedCast' ];
@@ -9097,6 +9126,7 @@
                     this.attribute['ASPD'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ASPD').totalvalue)));
                     //this.attribute['ASPD'] +=   Number(this.status.ASPD);
                     this.attribute['ASPDP'] +=  Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AspdPercent').totalvalue)));
+                    this.attribute['SKILLASPDP'] += Number(this.consumableeffecttypelist.find(x=>x.id=='ASPDP').totalvalue);
                     //this.attribute['ASPDP'] =   -Math.abs(this.attribute['ASPDP']);
                     this.attribute['FCTP'] = Math.max(this.attribute['FCTP'],
                         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'FixedCastPercent').totalvalue))),
@@ -10438,6 +10468,11 @@
                         { id:12662, name:'Transformation Scroll (Banshee)', active:false, group:'TransScroll', MATK:25},
                         //{ id:22754, name:'變身卷軸(行妖術者)', active:false, group:'TransScroll', MATK:50},
                         //{ id:22755, name:'變身卷軸(風魔巫師)', active:false, group:'TransScroll', MATK:50},
+
+                        { id:645, name:'Concentration Potion', active:false, group:'ASPDPot', ASPDP:10},
+                        { id:656, name:'Awakening Potion', active:false, group:'ASPDPot', ASPDP:15},
+                        { id:657, name:'Berserk Potion', active:false, group:'ASPDPot', ASPDP:20},
+
                     );
 
                     this.KeywordReplaceList.push(
