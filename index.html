@@ -3194,7 +3194,7 @@
                         </el-row>
                     </el-scrollbar>
                 </el-col>
-                <el-col :span="6">
+                <el-col :span="5">
                     <el-scrollbar wrap-class="bodycol-container" :native="true" :noresize="false">
                         <el-row class="titlebox" :gutter="4" type="flex" align="middle" justify="end"
                             style="height:40px; padding: 0px 5px;">
@@ -3203,7 +3203,7 @@
                             <el-col class="textcenter" :span="6">
                                 <span class="textcenter">Skill</span>
                             </el-col>
-                            <el-col class="textcenter" :span="6" style="text-align: right;">
+                            <el-col class="textcenter" :span="7" style="text-align: right;">
                                 <el-tooltip class="item" effect="dark" content="Load Preconfigured Skills" placement="left">
                                     <el-button v-on:click="TogglePanel('SkillDBDialog')" size="mini">
                                         Skill Settings
@@ -3676,7 +3676,7 @@
                         </el-row>
                     </el-scrollbar>
                 </el-col>
-                <el-col :span="6">
+                <el-col :span="7">
                     <el-row class="titlebox" type="flex" align="middle" justify="space-around"
                         style="height:40px; padding: 0px 5px;">
                         <el-col class="textcenter" :span="6"> </el-col>
@@ -3701,6 +3701,14 @@
                             <div class="boxborder EquipBlock">
                                 <!--主手-->
                                 <div class="bg-purple" style="padding: 0px 2px;">
+                                    <el-col v-if="UIPanel['WeaponPanel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
+                                        <el-button type="info" v-on:click="TogglePanel('WeaponPanel')" size="mini"><i
+                                                class="el-icon-arrow-up"></i></el-button>
+                                    </el-col>
+                                    <el-col v-else="!UIPanel['WeaponPanel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
+                                        <el-button type="info" v-on:click="TogglePanel('WeaponPanel')" size="mini"><i
+                                                class="el-icon-arrow-down"></i></el-button>
+                                    </el-col>
                                     <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
@@ -3725,7 +3733,7 @@
                                             </el-button>
                                         </el-col>
                                     </el-row>
-                                    <el-row class="bg-purple" :gutter="4" style="padding: 5px 5px;">
+                                    <el-row v-show="UIPanel['WeaponPanel']==true" class="bg-purple" :gutter="4" style="padding: 5px 5px;">
                                         <el-row :gutter="4" type="flex" align="middle" justify="start">
                                             <el-col :span="4" style="text-align: right;">
                                                 <span>MainHand</span>
@@ -6230,6 +6238,8 @@
                     ATKPanel: true,
                     MATKPanel: true,
                     DragonBreathPanel: true,
+
+                    WeaponPanel: true,
                 },
             },
             methods: {
@@ -7148,19 +7158,19 @@
                     var para_elemt = Number(1) + Number(this.attribute['ElementalAtkPercent']) / 100;
                     var para_level = Number(1) + Number(this.attribute['LevelAtkPercent']) / 100;
                     var para_mons = Number(1) + Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MonsterAtkPercent').totalvalue))) / 100;
-                    var para_posion = Number(1) + (this.IsSupportActive('ASC_EDP') ? (Number(this.GetSupportSkill('ASC_EDP').arg2 / 100)) : Number(0));
+                    var para_poison = Number(1) + (this.IsSupportActive('ASC_EDP') ? (Number(this.GetSupportSkill('ASC_EDP').arg2 / 100)) : Number(0));
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.weaponatk_min, para_race);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.weaponatk_max, para_race);
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.atkequip_min, para_size);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.atkequip_max, para_size);
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.atkequip_min, para_elemt);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.atkequip_max, para_elemt);
+                    this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.atkequip_min, para_poison);
+                    this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.atkequip_max, para_poison);
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.atkequip_min, para_level);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.atkequip_max, para_level);
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.atkequip_min, para_mons);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.atkequip_max, para_mons);
-                    this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.atkequip_min, para_posion);
-                    this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.atkequip_max, para_posion);
 
                     // 霸氣 ATK% 似乎不適用小於1進位
                     // 從MulOper改為Mathfloor 捨去
