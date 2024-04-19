@@ -8292,9 +8292,8 @@
                     // 怒暴
                     if (this.IsSupportActive('SM_MAGNUM')){
                         this.option.MagnumPoison2Value = 20;
-                    }
+                    } else if (this.IsSupportActive('ASC_EDP')){
                     // 致毒
-                    if (this.IsSupportActive('ASC_EDP')){
                         this.option.MagnumPoison2Value = 25;
                     }
                     if (this.IsSupportActive('ASC_EDP') == false && this.IsSupportActive('SM_MAGNUM') == false) {
