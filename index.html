@@ -4989,6 +4989,15 @@
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
                                             style="height:40px;">
                                             <el-col class="bg-purple-light" :span="10" style="text-align: right;">
+                                                <span>Bypass RES%:</span>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="10">
+                                                <span>{{attribute['BYPASSRES']}} %</span>
+                                            </el-col>
+                                        </el-row>
+                                        <el-row class="statusbox" type="flex" align="middle" justify="space-around"
+                                            style="height:40px;">
+                                            <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                 <span>Skill Mod%:</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
@@ -5112,6 +5121,15 @@
                                             </el-col>
                                             <el-col class="textcenter" :span="10">
                                                 <span>{{attribute['BYPASSMDEF']}} %</span>
+                                            </el-col>
+                                        </el-row>
+                                        <el-row class="statusbox" type="flex" align="middle" justify="space-around"
+                                            style="height:40px;">
+                                            <el-col class="bg-purple-light" :span="10" style="text-align: right;">
+                                                <span>Bypass MRES%:</span>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="10">
+                                                <span>{{attribute['BYPASSMRES']}} %</span>
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -5651,6 +5669,7 @@
                     { label: 'Bonus Melee Damage %', id: 'MeleeDamageDealtIncreasedPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\-', suffixsymbol: '\%' },
                     { label: 'Bonus Range Damage %', id: 'RangedDamageDealtIncreasedPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\-', suffixsymbol: '\%' },
                     { label: 'Bypass DEF%', id: 'BypassDEFPercent', totalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'Bypass RES%', id: 'BypassRESPercent', totalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
 
                     { label: 'Matk', id: 'Matk', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '' },
                     { label: 'Matk %', id: 'MatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
@@ -5661,6 +5680,7 @@
                     { label: 'Element %', id: 'ElementalMagicPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Magic - vs. Specific Monster %', id: 'MonsterMatkPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Bypass MDEF%', id: 'BypassMDEFPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'Bypass MRES%', id: 'BypassMRESPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
 
                     { label: 'Skill Mod%', id: 'SkillDamagePercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Cooldown', id: 'CDTime', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\-', suffixsymbol: '\s' },
@@ -5841,6 +5861,7 @@
                     ELEDDI: 0, RNGDDI: 0, MELDDI: 0,  //damage dealt increased    ELEDDI = Element RNGDDI = Range MELDDI=melee
                     SK1VCTP: 0, SK2VCTP: 0, EQVCTP: 0, VCTS:0, FCT: 0, FCTP: 0, CD: 0, GCD: 0,
                     BYPASSDEF: 0, BYPASSMDEF: 0,
+                    BYPASSRES: 0, BYPASSMRES: 0,
                     WeaponPerfection: 0, WeaponOccult: 0,
                     ElementalMagicPercent: 0,
                     SizeMatkPercent: 0,
@@ -7371,7 +7392,7 @@
                             this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.RES);
                             this.computeattribute.atkc7_max = this.computeattribute.atkc7_max - Number(this.enemyattribute.RES);
                         } else {
-                            var parabypassRES = Number(1);//Number(1) - Number(this.attribute['BYPASSRES']) / 100;
+                            var parabypassRES = Number(1) - Number(this.attribute['BYPASSRES']) / 100;
                             var paraRES = ((2000 + this.MulOper(Number(this.enemyattribute.RES), parabypassRES)) /
                                     (2000 + 5 * this.MulOper(Number(this.enemyattribute.RES), parabypassRES)));
                             this.computeattribute.atkc7_min = Math.floor(this.computeattribute.atkc7_min * paraRES);
@@ -7639,7 +7660,7 @@
                     if (this.option.IgnoreMDEF == false) {
                         var paraMRES = Number(1);
                         if (this.enemyattribute.MRES > 0){
-                            var parabypassMRES = Number(1);//Number(1) - Number(this.attribute['BYPASSMRES']) / 100;
+                            var parabypassMRES = Number(1) - Number(this.attribute['BYPASSMRES']) / 100;
                             paraMRES = ((2000 + this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)) /
                                 (2000 + 5 * this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)));
                         }
@@ -8306,6 +8327,9 @@
                         this.attribute['MELDP'] += 10;
                         this.attribute['GCD'] += 10;
                     }
+                    if (this.IsSupportActive('SHC_POTENT_VENOM')){
+                        this.attribute['BYPASSRES'] += 3 * this.GetSupportSkill('SHC_POTENT_VENOM').lv; ;
+                    }
                     // 影刃旋舞
                     if (this.IsSupportActive('SHC_SHADOW_SENSE')){
                         if (this.weapon.type.id == 'Daggers' ) {
@@ -8869,6 +8893,12 @@
                     if (this.IsSupportActive('CD_PRESENS_ACIES')){
                         this.attribute['CRIDR'] += 10;
                     }
+                    if (this.IsSupportActive('CD_ARGUTUS_TELUM')){
+                        this.attribute['BYPASSRES'] += 25;
+                    }
+                    if (this.IsSupportActive('CD_ARGUTUS_VITA')){
+                        this.attribute['BYPASSMRES'] += 25;
+                    }
                     //神聖權能
                     if (this.IsSupportActive('CD_COMPETENTIA')){
                         this.attribute['PATK'] += 50;
@@ -9213,6 +9243,10 @@
                     if (this.attribute['BYPASSDEF'] > 100) this.attribute['BYPASSDEF'] = 100;
                     this.attribute['BYPASSMDEF'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'BypassMDEFPercent').totalvalue)));
                     if (this.attribute['BYPASSMDEF'] > 100) this.attribute['BYPASSMDEF'] = 100;
+                    this.attribute['BYPASSRES'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'BypassRESPercent').totalvalue)));
+                    if (this.attribute['BYPASSRES'] > 100) this.attribute['BYPASSRES'] = 100;
+                    this.attribute['BYPASSMRES'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'BypassMRESPercent').totalvalue)));
+                    if (this.attribute['BYPASSMRES'] > 100) this.attribute['BYPASSMRES'] = 100;
                     
                     this.attribute['ASPD'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ASPD').totalvalue)));
                     //this.attribute['ASPD'] +=   Number(this.status.ASPD);
@@ -10280,6 +10314,7 @@
                         { skill: { id: 'GC_POISONINGWEAPON:1', name: 'Poisonous Weapon:Pyrexia', maxlv: 1, lv: 1, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'GC_POISONINGWEAPON,GC_POISONINGWEAPON:2', Note: '', } },
                         { skill: { id: 'GC_POISONINGWEAPON:2', name: 'Poisonous Weapon:Magic Mushroom', maxlv: 1, lv: 1, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'GC_POISONINGWEAPON,GC_POISONINGWEAPON:1', Note: '', } },
                         { skill: { id: 'GC_POISONINGWEAPON', name: 'Poisonous Weapon:Other', maxlv: 1, lv: 1, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'GC_POISONINGWEAPON:1,GC_POISONINGWEAPON:2', Note: '', } },
+                        { skill: { id: 'SHC_POTENT_VENOM', name: 'Potent Venom', maxlv: 10, lv: 10, class: 'GX', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'SHC_SHADOW_SENSE', name: 'Shadow Sense', maxlv: 10, lv: 10, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
                         { skill: { id: 'RG_RAID', name: 'Sightless Mind(vs.Boss)', maxlv: 1, lv: 1, class: 'SC', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
@@ -10304,6 +10339,8 @@
                         { skill: { id: 'CD_RELIGIO', name: 'Religio', maxlv: 5, lv: 5, class: 'AB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'CD_BENEDICTUM', name: 'Benedictum', maxlv: 5, lv: 5, class: 'AB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'CD_PRESENS_ACIES', name: 'Presens Acies', maxlv: 5, lv: 5, class: 'AB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
+                        { skill: { id: 'CD_ARGUTUS_TELUM', name: 'Argutus Telum', maxlv: 5, lv: 5, class: 'AB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
+                        { skill: { id: 'CD_ARGUTUS_VITA', name: 'Argutus Vita', maxlv: 5, lv: 5, class: 'AB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'CD_COMPETENTIA', name: 'Competentia', maxlv: 5, lv: 5, class: 'AB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
                         { skill: { id: 'MO_IRONHAND', name: 'Iron Fists', maxlv: 10, lv: 10, class: 'SU,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
