@@ -431,7 +431,7 @@
                                     </el-switch>
                                 </el-col>
                             </el-row>
-                            <el-tooltip class="item" effect="dark"
+                            <el-row class="item" effect="dark"
                                 placement="bottom-start">
                                 <el-row class="optionbox" :gutter="4" type="flex" align="middle" justify="end">
                                     <el-col class="textcenter" :span="12">
@@ -443,7 +443,20 @@
                                         </el-switch>
                                     </el-col>
                                 </el-row>
-                            </el-tooltip>
+                            </el-row>
+                            <el-row class="item" effect="dark"
+                                placement="bottom-start">
+                                <el-row class="optionbox" :gutter="4" type="flex" align="middle" justify="end">
+                                    <el-col class="textcenter" :span="12">
+                                        <span>Bypass Hard DEF</span>
+                                    </el-col>
+                                    <el-col class="textcenter" :span="12">
+                                        <el-switch v-model="skill.bypassDEF" active-color="#13ce66"
+                                            v-on:change="onOption" inactive-color="#8a9799">
+                                        </el-switch>
+                                    </el-col>
+                                </el-row>
+                            </el-row>
                             <el-row class="optionbox" :gutter="4" type="flex" align="middle" justify="end">
                                 <el-col class="textcenter" :span="12">
                                     <span>Additional Range Mod(minimizing error)</span>
@@ -7366,7 +7379,7 @@
                         }
                     }
                     //敵方DEF
-                    if (this.option.IgnoreDEF == false) {
+                    if (this.option.IgnoreDEF == false || this.skill.bypassDEF == false) {
                         if (this.enemyattribute.WeaponDEF > 0){
                             if (isNA==false && this.skill.transWeaponDEF) {
                                 this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.WeaponDEF);
@@ -9924,8 +9937,8 @@
                         { skill: { id: 'DK_MADNESS_CRUSHER_3', name: 'Madness Crusher', level: 5, formula: "(400+SLV*800+POW*7+WLV*WGT)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 0, CD: 0, GCD: 0.25, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
                         { skill: { id: 'DK_DRAGONIC_AURA_3', name: 'Dragonic Aura', level: 10, formula: "(SLV*3650+POW*10)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
                         { skill: { id: 'DK_DRAGONIC_AURA(ex)_3', name: 'Dragonic Aura(Human/Angel)', level: 10, formula: "(SLV*3800+POW*10)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 2, CD: 0.5, GCD: 0.15, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
-                        { skill: { id: 'DK_DRAGONIC_BREATH_3', name: 'Dragonic Breath', level: 10, formula: "(50+(350+0.00625*Mhp+0.0125*Msp)*SLV+POW*7)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0.5, VCT: 2, CD: 0.5, GCD: 0.15, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
-                        { skill: { id: 'DK_DRAGONIC_BREATH(ex)_3', name: 'Dragonic Breat(Dragonic Aura)', level: 10, formula: "(50+(350+0.00875*Mhp+0.0175*Msp)*SLV+POW*7)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
+                        { skill: { id: 'DK_DRAGONIC_BREATH_3', name: 'Dragonic Breath', level: 10, formula: "(50+(350+0.00625*Mhp+0.0125*Msp)*SLV+POW*7)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, bypassDEF: true, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0.5, VCT: 2, CD: 0.5, GCD: 0.15, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
+                        { skill: { id: 'DK_DRAGONIC_BREATH(ex)_3', name: 'Dragonic Breath(Dragonic Aura)', level: 10, formula: "(50+(350+0.00875*Mhp+0.0175*Msp)*SLV+POW*7)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, bypassDEF: true, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
 
                         { skill: { id: 'WZ_SIGHTRASHER', name: 'Sightrasher', level: 10, formula: '100+SLV*20', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 1, FCT: 0.08, VCT: 0.32, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'WL_CRIMSONROCK', name: 'Crimson Rock', level: 5, formula: '(700+SLV*600)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -7, elemental: 1, FCT: 1, VCT: 5, CD: 5, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
@@ -10027,7 +10040,7 @@
                         { skill: { id: 'MT_MIGHTY_SMASH_3', name: 'Mighty Smash', level: 10, formula: '(100+300*SLV+POW*7)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 3, elemental: 0, FCT: 0, VCT: 0, CD: 0.3, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3,} },
                         { skill: { id: 'MT_MIGHTY_SMASH(ex)_3', name: 'Mighty Smash(Axe Stomp)', level: 10, formula: '(150+300*SLV+POW*7)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 5, elemental: 0, FCT: 0, VCT: 0, CD: 0.3, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3,} },
                         { skill: { id: 'MT_TRIPLE_LASER_3', name: 'Triple Laser', level: 5, formula: '(300+600*SLV+POW*10)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 3, elemental: 0, FCT: 0.5, VCT: 1, CD: 0.25, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3,} },
-                        { skill: { id: 'MT_SPARK_BLASTER_3', name: 'Spark Blaster', level: 10, formula: '(250+750*SLV+POW*7)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 2, elemental: 0, FCT: 0.5, VCT: 1.5, CD: 0.7, GCD: 0.25, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3,} },
+                        { skill: { id: 'MT_SPARK_BLASTER_3', name: 'Spark Blaster', level: 10, formula: '(250+750*SLV+POW*7)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, bypassDEF: true, laterformula: false, hitnumber: 2, elemental: 0, FCT: 0.5, VCT: 1.5, CD: 0.7, GCD: 0.25, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3,} },
 
                         { skill: { id: 'SN_SHARPSHOOTING', name: 'Focused Arrow Strike', level: 5, formula: '(300+300*SLV)*(BLV/100)', class: 'RA', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 0.5, CD: 0.15, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'RA_AIMEDBOLT', name: 'Aimed Bolt', level: 10, formula: '(500+SLV*20)*BLV/100', class: 'RA', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 5, elemental: 0, FCT: 1, VCT: 4, CD: 1, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
