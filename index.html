@@ -3135,18 +3135,26 @@
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" style="padding: 0% 5%;" :gutter="4">
                                             <el-col style="text-align: left;">
-                                                Soft DEF {{enemyattribute.StatusDEF}} + Hard DEF {{enemyattribute.WeaponDEF}}
+                                                Soft DEF {{enemyattribute.StatusDEF}}
                                             </el-col>
                                             <el-col style="text-align: left;">
-                                                Soft MDEF {{enemyattribute.StatusMDEF}} + Hard MDEF {{enemyattribute.WeaponMDEF}}
+                                                Soft MDEF {{enemyattribute.StatusMDEF}}
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" style="padding: 0% 5%;" :gutter="4">
                                             <el-col style="text-align: left;">
-                                                RES {{enemyattribute.RES}}
+                                                Hard DEF {{enemyattribute.WeaponDEF}} (-{{enemyattribute.WeaponDEFPercent}}%)
                                             </el-col>
                                             <el-col style="text-align: left;">
-                                                MRES {{enemyattribute.MRES}}
+                                                Hard MDEF {{enemyattribute.WeaponMDEF}} (-{{enemyattribute.WeaponMDEFPercent}}%)
+                                            </el-col>
+                                        </el-row>
+                                        <el-row class="statusbox" type="flex" align="middle" style="padding: 0% 5%;" :gutter="4">
+                                            <el-col style="text-align: left;">
+                                                RES {{enemyattribute.RES}} (-{{enemyattribute.RESPercent}}%)
+                                            </el-col>
+                                            <el-col style="text-align: left;">
+                                                MRES {{enemyattribute.MRES}} (-{{enemyattribute.MRESPercent}}%)
                                             </el-col>
                                         </el-row>
                                     </div>
@@ -3502,16 +3510,16 @@
                             </div>
                         </el-row>
 
-                        <el-row class="titlebox" type="flex" align="middle" justify="end"
+                        <el-row class="titlebox" type="flex" align="middle" justify="center"
                                 style="height:40px; padding: 0px 5px;">
                                 <el-col class="textcenter" :span="9">
                                 </el-col>
-                                <el-col class="textcenter" :span="6">
+                                <el-col class="textcenter" :span="6" >
                                     <span class="textcenter">Class Buffs</span>
                                 </el-col>
                                 <el-col class="textcenter" :span="6" style="text-align: right;">
                                     <el-button v-on:click="OpenSupportSkill()" size="small">
-                                        Additional Buffs
+                                        Other Buffs
                                     </el-button>
                                 </el-col>
                                 <el-col v-if="UIPanel['SupportSkillPanel']" class="textcenter" :span="3">
@@ -7657,21 +7665,27 @@
                     this.computeattribute.matk2_min = this.computeattribute.skillmatk_min;
                     this.computeattribute.matk2_max = this.computeattribute.skillmatk_max;
 
+                    var paraMRES = Number(1);
+                    if (this.enemyattribute.MRES > 0){
+                        var parabypassMRES = Number(1) - Number(this.attribute['BYPASSMRES']) / 100;
+                        paraMRES = (
+                            (2000 + this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)) /
+                            (2000 + 5 * this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)));
+                    }
+                    
+                    this.computeattribute.matk2_min = Math.floor(this.computeattribute.skillmatk_min * paraMRES);
+                    this.computeattribute.matk2_max = Math.floor(this.computeattribute.skillmatk_max * paraMRES);
+
                     if (this.option.IgnoreMDEF == false) {
-                        var paraMRES = Number(1);
-                        if (this.enemyattribute.MRES > 0){
-                            var parabypassMRES = Number(1) - Number(this.attribute['BYPASSMRES']) / 100;
-                            paraMRES = ((2000 + this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)) /
-                                (2000 + 5 * this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)));
-                        }
                         var parabypassMDEF = Number(1) - Number(this.attribute['BYPASSMDEF']) / 100;
                         var paraMDEF = Number(1);
                         if (this.enemyattribute.WeaponMDEF > 0) {
-                            paraMDEF = ((1000 + this.MulOper(Number(this.enemyattribute.WeaponMDEF), parabypassMDEF)) /
-                            (1000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponMDEF), parabypassMDEF)));
+                            paraMDEF = (
+                                (1000 + this.MulOper(Number(this.enemyattribute.WeaponMDEF), parabypassMDEF)) /
+                                (1000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponMDEF), parabypassMDEF)));
                         }
-                        this.computeattribute.matk2_min = Math.floor(Math.floor(this.computeattribute.skillmatk_min * paraMDEF) * paraMRES) - Number(this.enemyattribute.StatusMDEF);
-                        this.computeattribute.matk2_max = Math.floor(Math.floor(this.computeattribute.skillmatk_max * paraMDEF) * paraMRES) - Number(this.enemyattribute.StatusMDEF);
+                        this.computeattribute.matk2_min = Math.floor(this.computeattribute.matk2_min * paraMDEF) - Number(this.enemyattribute.StatusMDEF);
+                        this.computeattribute.matk2_max = Math.floor(this.computeattribute.matk2_max * paraMDEF) - Number(this.enemyattribute.StatusMDEF);
                     }
 
                     this.computeattribute.matk3_min = this.MulOper(this.computeattribute.matk2_min, Number(1) + Number(this.option.EquipSkillAddDamage / 100));
@@ -7791,6 +7805,22 @@
                     this.enemyattribute = Object.assign({}, item);
                     if( this.enemyattribute.LUK == null ) this.enemyattribute.LUK = 0;
                     if( this.enemyattribute.VIT == null ) this.enemyattribute.VIT = 0;
+
+                    this.enemyattribute.RESPercent = Number(100 * (1 - (
+                                (2000 + this.MulOper(Number(this.enemyattribute.RES), 1)) /
+                                (2000 + 5 * this.MulOper(Number(this.enemyattribute.RES), 1))))).toFixed(2);
+                    this.enemyattribute.WeaponDEFPercent = Number(100 * (1 - (
+                            (4000 + this.MulOper(Number(this.enemyattribute.WeaponDEF), 1)) /
+                            (4000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponDEF), 1))))).toFixed(2);
+                    this.enemyattribute.MRESPercent = Number(100 * (1 - (
+                            (2000 + this.MulOper(Number(this.enemyattribute.MRES), 1)) /
+                            (2000 + 5 * this.MulOper(Number(this.enemyattribute.MRES), 1))))).toFixed(2);
+                    this.enemyattribute.WeaponMDEFPercent = Number(100 * (1 - (
+                            (1000 + this.MulOper(Number(this.enemyattribute.WeaponMDEF), 1)) /
+                            (1000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponMDEF), 1))))).toFixed(2);
+
+                           
+
                     console.log("onSelectEnemy: " + this.enemyattribute.elemental);
                 },
                 onSkillPercentChange() {
@@ -10672,7 +10702,7 @@
                     );
 
                     this.UpdateLogList.push(
-                        { id: '2024-04-19', content: 'Updated EDP related calculation' },
+                        { id: '2024-04-19', content: 'Updated EDP related calculation<br>Display DEF/RES/RES/MRES damage reduction' },
                         { id: '2024-04-18', content: 'Added Bypass DEF config for skills on Counter Slash/Spark Blaster/Dragonic Breath' },
                         { id: '2024-04-10', content: 'Added Grade and Grade Tokens to equipments' },
                         { id: '2023-11-03', content: 'Versioning skills' },
