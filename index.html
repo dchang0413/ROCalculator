@@ -3135,26 +3135,47 @@
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" style="padding: 0% 5%;" :gutter="4">
                                             <el-col style="text-align: left;">
-                                                Soft DEF {{enemyattribute.StatusDEF}}
+                                                Soft DEF
                                             </el-col>
+                                            <el-col style="text-align: right;">
+                                                {{enemyattribute.StatusDEF}}
+                                            </el-col>
+                                            <el-col :span="2"></el-col>
                                             <el-col style="text-align: left;">
-                                                Soft MDEF {{enemyattribute.StatusMDEF}}
+                                                Soft MDEF
+                                            </el-col>
+                                            <el-col style="text-align: right;">
+                                                {{enemyattribute.StatusMDEF}}
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" style="padding: 0% 5%;" :gutter="4">
                                             <el-col style="text-align: left;">
-                                                Hard DEF {{enemyattribute.WeaponDEF}} (-{{enemyattribute.WeaponDEFPercent}}%)
+                                                Hard DEF
                                             </el-col>
+                                            <el-col style="text-align: right;">
+                                                {{enemyattribute.WeaponDEF}} (-{{enemyattribute.WeaponDEFPercent}}%)
+                                            </el-col>
+                                            <el-col :span="2"></el-col>
                                             <el-col style="text-align: left;">
-                                                Hard MDEF {{enemyattribute.WeaponMDEF}} (-{{enemyattribute.WeaponMDEFPercent}}%)
+                                                Hard MDEF
+                                            </el-col>
+                                            <el-col style="text-align: right;">
+                                                {{enemyattribute.WeaponMDEF}} (-{{enemyattribute.WeaponMDEFPercent}}%)
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" style="padding: 0% 5%;" :gutter="4">
                                             <el-col style="text-align: left;">
-                                                RES {{enemyattribute.RES}} (-{{enemyattribute.RESPercent}}%)
+                                                RES 
                                             </el-col>
+                                            <el-col style="text-align: right;">
+                                                {{enemyattribute.RES}} (-{{enemyattribute.RESPercent}}%)
+                                            </el-col>
+                                            <el-col :span="2"></el-col>
                                             <el-col style="text-align: left;">
-                                                MRES {{enemyattribute.MRES}} (-{{enemyattribute.MRESPercent}}%)
+                                                MRES 
+                                            </el-col>
+                                            <el-col style="text-align: right;">
+                                                {{enemyattribute.MRES}} (-{{enemyattribute.MRESPercent}}%)
                                             </el-col>
                                         </el-row>
                                     </div>
@@ -3700,8 +3721,14 @@
                 <el-col :span="7">
                     <el-row class="titlebox" type="flex" align="middle" justify="space-around"
                         style="height:40px; padding: 0px 5px;">
-                        <el-col class="textcenter" :span="6"> </el-col>
+                        <el-col class="textcenter" :span="2" style="padding-right: 9px;">
+                            <el-button type="info" v-on:click="ShrinkEquipPanels" size="mini">
+                                <span align="middle">Shrink All</span>
+                            </el-button>
+                        </el-col>
                         <el-col class="textcenter" :span="2"> </el-col>
+                        <el-col class="textcenter" :span="2"> </el-col>
+                        <el-col class="textcenter" :span="4"> </el-col>
                         <el-col class="textcenter" :span="10">
                             <span class="textcenter">Equip</span>
                         </el-col>
@@ -3722,12 +3749,12 @@
                             <div class="boxborder EquipBlock">
                                 <!--主手-->
                                 <div class="bg-purple" style="padding: 0px 2px;">
-                                    <el-col v-if="UIPanel['WeaponPanel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
-                                        <el-button type="info" v-on:click="TogglePanel('WeaponPanel')" size="mini"><i
+                                    <el-col v-if="UIPanel['MainHandPanel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
+                                        <el-button type="info" v-on:click="TogglePanel('MainHandPanel')" size="mini"><i
                                                 class="el-icon-arrow-up"></i></el-button>
                                     </el-col>
-                                    <el-col v-else="!UIPanel['WeaponPanel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
-                                        <el-button type="info" v-on:click="TogglePanel('WeaponPanel')" size="mini"><i
+                                    <el-col v-else="!UIPanel['MainHandPanel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
+                                        <el-button type="info" v-on:click="TogglePanel('MainHandPanel')" size="mini"><i
                                                 class="el-icon-arrow-down"></i></el-button>
                                     </el-col>
                                     <el-row class="effectline" :gutter="4" type="flex" align="middle">
@@ -3754,7 +3781,7 @@
                                             </el-button>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-show="UIPanel['WeaponPanel']==true" class="bg-purple" :gutter="4" style="padding: 5px 5px;">
+                                    <el-row v-show="UIPanel['MainHandPanel']==true" class="bg-purple" :gutter="4" style="padding: 5px 5px;">
                                         <el-row :gutter="4" type="flex" align="middle" justify="start">
                                             <el-col :span="4" style="text-align: right;">
                                                 <span>MainHand</span>
@@ -3890,7 +3917,7 @@
                                             </el-row>
                                         </el-row>
                                     </el-row>
-                                    <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-row v-if="UIPanel['MainHandPanel']" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
                                                 <span></span>
@@ -3915,7 +3942,7 @@
                                             </el-button>
                                         </el-col>
                                     </el-row>
-                                    <el-row>
+                                    <el-row v-show="UIPanel['MainHandPanel']==true">
                                         <div class="Item" v-for="(item, index) in equipspartlist[0].effectlist"
                                             v-bind:key="item.effecttypelist">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -3938,7 +3965,7 @@
                                             </el-row>
                                         </div>
                                     </el-row>
-                                    <el-row>
+                                    <el-row v-show="UIPanel['MainHandPanel']==true">
                                         <div class="Item bg-purple-light2" v-for="(item, index) in equipspartlist[14].effectlist"
                                             v-bind:key="item.effecttypelist" >
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -3964,6 +3991,14 @@
                                 </div>
                                 <!--副手-->
                                 <div class="bg-purple" style="padding: 0px 2px;">
+                                    <el-col v-if="UIPanel['OffhandPanel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
+                                        <el-button type="info" v-on:click="TogglePanel('OffHandPanel')" size="mini"><i
+                                                class="el-icon-arrow-up"></i></el-button>
+                                    </el-col>
+                                    <el-col v-else="!UIPanel['OffHandPanel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
+                                        <el-button type="info" v-on:click="TogglePanel('OffHandPanel')" size="mini"><i
+                                                class="el-icon-arrow-down"></i></el-button>
+                                    </el-col>
                                     <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
@@ -3989,7 +4024,7 @@
                                             </el-button>
                                         </el-col>
                                     </el-row>
-                                    <el-row class="statusbox bg-purple" :gutter="4" type="flex" align="middle"
+                                    <el-row v-show="UIPanel['OffHandPanel']==true" class="statusbox bg-purple" :gutter="4" type="flex" align="middle"
                                         justify="start" v-show="weapon.type.isTwohand?false:true">
                                         <el-col :span="4" style="text-align: right;">
                                             <span>OffHand</span>
@@ -4016,7 +4051,7 @@
                                         <el-col :span="5" style="text-align: right;">
                                         </el-col>
                                     </el-row>
-                                    <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                    <el-row v-show="UIPanel['OffhandPanel']==true" class="effectline" :gutter="4" type="flex" align="middle"
                                         v-show="subweapon.type.id==1">
                                         <el-col :span="6" style="text-align: right;">
                                             <span>Shield Refine: </span>
@@ -4084,7 +4119,7 @@
                                             </el-col>
                                         </el-row>
                                     </div>
-                                    <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-row v-show="UIPanel['OffHandPanel']==true" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
                                                 <span></span>
@@ -4109,7 +4144,7 @@
                                             </el-button>
                                         </el-col>
                                     </el-row>
-                                    <el-row>
+                                    <el-row v-show="UIPanel['OffHandPanel']==true">
                                         <div class="Item" v-for="(item, index) in equipspartlist[1].effectlist"
                                             v-bind:key="item.effecttypelist">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -4159,6 +4194,14 @@
                                 <!--裝備-->
                                 <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(2,14)">
                                     <div class="bg-purple-light" style="padding: 0px 4px;">
+                                        <el-col v-if="UIPanel[item.label+'Panel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
+                                            <el-button type="info" v-on:click="TogglePanel(item.label+'Panel')" size="mini"><i
+                                                    class="el-icon-arrow-up"></i></el-button>
+                                        </el-col>
+                                        <el-col v-else="!UIPanel[item.label+'Panel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
+                                            <el-button type="info" v-on:click="TogglePanel(item.label+'Panel')" size="mini"><i
+                                                    class="el-icon-arrow-down"></i></el-button>
+                                        </el-col>
                                         <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                             <el-col class="textcenter" :span="4">
                                                 <div>
@@ -4184,7 +4227,7 @@
                                                 </el-button>
                                             </el-col>
                                         </el-row>
-                                        <el-row v-if="eqindex==0 || (eqindex > 2 && eqindex < 6)" class="effectline" :gutter="4" type="flex" align="middle">
+                                        <el-row v-if="eqindex==0 || (eqindex > 2 && eqindex < 6)" v-show="UIPanel[item.label+'Panel']" class="effectline" :gutter="4" type="flex" align="middle">
                                             <el-col :span="6" style="text-align: right;">
                                                 <span>Refine</span>
                                             </el-col>
@@ -4209,7 +4252,7 @@
                                             <el-col :span="5" style="text-align: right;">
                                             </el-col>
                                         </el-row>
-                                        <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                        <el-row v-show="UIPanel[item.label+'Panel']" class="effectline" :gutter="4" type="flex" align="middle">
                                             <el-col class="textcenter" :span="4">
                                                 <div>
                                                     <span></span>
@@ -4234,7 +4277,7 @@
                                                 </el-button>
                                             </el-col>
                                         </el-row>
-                                        <el-row>
+                                        <el-row v-show="UIPanel[item.label+'Panel']">
                                             <div v-for="(item, index) in equipspartlist[eqindex+2].effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -4257,7 +4300,7 @@
                                                 </el-row>
                                             </div>
                                         </el-row>
-                                        <el-row>
+                                        <el-row v-show="UIPanel[item.label+'Panel']">
                                             <div v-for="(item, index) in equipspartlist[eqindex+2+14].effectlist"
                                                 v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -5625,8 +5668,8 @@
                     { id: 'armor', label: 'Armor', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
                     { id: 'robe', label: 'Garment', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
                     { id: 'shoes', label: 'Shoes', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'acc1', label: 'Accessory', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'acc1', label: 'Accessory1', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'acc2', label: 'Accessory2', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
                     { id: 'shadow', label: 'Shadow', equipname: '', effectlist: [] },
                     { id: 'costume', label: 'Costume', equipname: '', effectlist: [] },
                     { id: 'cardset', label: 'CardSets', equipname: '', effectlist: [] },
@@ -6281,10 +6324,30 @@
                     MATKPanel: true,
                     DragonBreathPanel: true,
 
-                    WeaponPanel: true,
+                    MainHandPanel: true,
+                    OffHandPanel: true,
+                    UpperPanel: true,
+                    MiddlePanel: true,
+                    LowerPanel: true,
+                    ArmorPanel: true,
+                    GarmentPanel: true,
+                    ShoesPanel: true,
+                    Accessory1Panel: true,
+                    Accessory2Panel: true,
+                    ShadowPanel: true,
+                    CostumePanel: true,
+                    CardSetsPanel: true,
+                    CustomPanel: true,
                 },
             },
             methods: {
+                ShrinkEquipPanels(){
+                    for (const [key, value] of Object.entries(this.equipspartlist.slice(0,14))){
+                        console.log(key);
+                        console.log(value.label);
+                        this.UIPanel[value.label+'Panel'] = false;
+                    }
+                },
                 TogglePanel(id) {
                     this.UIPanel[id] = !this.UIPanel[id];
                 },
