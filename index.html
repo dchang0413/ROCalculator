@@ -11026,7 +11026,6 @@
                     var data = {};
                     var effectlist = {};
                     var i = 0;
-                    var j = 0;
                     for (const [key, value] of Object.entries(this.StoreDB_Equip)) {
                         try{
                             data[i] = value.equip;
@@ -11037,13 +11036,7 @@
                                 data[i].idx = 1;
                                 data[i].subweapon = value.subweapon;
                             } else data[i].idx = 3;
-                            for (const [k, v] of Object.entries(value.equip.effectlist)) {
-                                effectlist[j] = v;
-                                j++
-                            }
-                            data[i].effectlist = effectlist;
-                            j = 0;
-                            effectlist = {};
+                            data[i].effectlist = _.cloneDeep(value.equip.effectlist);
                             i++;
                         } catch(e){
                             console.log('error geting equip name', e);
