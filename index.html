@@ -25,8 +25,14 @@
         gtag('js', new Date());
 
         gtag('config', 'UA-63581889-2');
+
+        var filename = "./styles.css";
+        var fileref = document.createElement("link");
+        fileref.rel = "stylesheet";
+        fileref.type = "text/css";
+        fileref.href = filename;
+        document.getElementsByTagName("head")[0].appendChild(fileref)
     </script>
-    <link rel='stylesheet' href='./styles.css' />
 </head>
 
 <body>
@@ -848,7 +854,7 @@
                     </el-col>
                 </el-col>
                 <el-col :span="4" class=" ">
-                    <el-scrollbar wrap-class="EquipEffectList-container" :native="false" :noresize="false">
+                    <el-scrollbar wrap-class="EquipStatList-container" :native="false" :noresize="false">
                         <el-row>
                             <div class="aboutbox" style="padding: 5px 10px; text-align:left">
                                 <el-row :class="PreviewETL[GetETLIndex('STR')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
