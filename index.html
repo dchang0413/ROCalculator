@@ -847,7 +847,7 @@
                         </el-scrollbar>
                     </el-col>
                 </el-col>
-                <el-col :span="6" class=" ">
+                <el-col :span="4" class=" ">
                     <el-scrollbar wrap-class="EquipEffectList-container" :native="false" :noresize="false">
                         <el-row>
                             <div class="aboutbox" style="padding: 5px 10px; text-align:left">
@@ -1047,16 +1047,16 @@
                         </el-row>
                     </el-scrollbar>
                 </el-col>
-                <el-col :span="6" class=" ">
+                <el-col :span="8" class=" ">
                     <el-scrollbar wrap-class="EquipEffectList-container" :native="false" :noresize="false">
                         <el-row>
                             <div class="aboutbox" style="padding: 5px 10px; text-align:left">
 
                                 <el-row :class="PreviewETL[GetETLIndex('SkillDamagePercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="8">
                                         Skill Damage%
                                     </el-col>
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
                                             v-model="PreviewETL[GetETLIndex('SkillDamagePercent')].totalvalue"
                                             v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
@@ -1065,10 +1065,10 @@
                                 </el-row>
 
                                 <el-row :class="PreviewETL[GetETLIndex('CDTime')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="8">
                                         Skill CD
                                     </el-col>
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
                                             v-model="PreviewETL[GetETLIndex('CDTime')].totalvalue"
                                             v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
@@ -1077,10 +1077,10 @@
                                 </el-row>
 
                                 <el-row :class="PreviewETL[GetETLIndex('GCDPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="8">
                                         Cast Delay%
                                     </el-col>
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
                                             v-model="PreviewETL[GetETLIndex('GCDPercent')].totalvalue"
                                             v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
@@ -1089,10 +1089,10 @@
                                 </el-row>
 
                                 <el-row :class="PreviewETL[GetETLIndex('VariableCastPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="8">
                                         VCT%
                                     </el-col>
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
                                             v-model="PreviewETL[GetETLIndex('VariableCastPercent')].totalvalue"
                                             v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
@@ -1101,10 +1101,10 @@
                                 </el-row>
 
                                 <el-row :class="PreviewETL[GetETLIndex('VariableCastSecond')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="8">
                                         VCT(s)
                                     </el-col>
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
                                             v-model="PreviewETL[GetETLIndex('VariableCastSecond')].totalvalue"
                                             v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
@@ -1113,10 +1113,10 @@
                                 </el-row>
 
                                 <el-row :class="PreviewETL[GetETLIndex('SPSkillVariableCastPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="8">
                                         SKILL VCT%
                                     </el-col>
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
                                             v-model="PreviewETL[GetETLIndex('SPSkillVariableCastPercent')].totalvalue"
                                             v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
@@ -1125,10 +1125,10 @@
                                 </el-row>
 
                                 <el-row :class="PreviewETL[GetETLIndex('FixedCast')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="8">
                                         FCT
                                     </el-col>
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
                                             v-model="PreviewETL[GetETLIndex('FixedCast')].totalvalue"
                                             v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
@@ -1137,10 +1137,10 @@
                                 </el-row>
 
                                 <el-row :class="PreviewETL[GetETLIndex('FixedCastPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="8">
                                         FCT%
                                     </el-col>
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
                                             v-model="PreviewETL[GetETLIndex('FixedCastPercent')].totalvalue"
                                             v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
@@ -1149,10 +1149,10 @@
                                 </el-row>
 
                                 <el-row :class="PreviewETL[GetETLIndex('ASPD')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="8">
                                         ASPD
                                     </el-col>
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
                                             v-model="PreviewETL[GetETLIndex('ASPD')].totalvalue"
                                             v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
@@ -1161,10 +1161,10 @@
                                 </el-row>
 
                                 <el-row :class="PreviewETL[GetETLIndex('AspdPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="8">
                                         ASPD%
                                     </el-col>
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
                                             v-model="PreviewETL[GetETLIndex('AspdPercent')].totalvalue"
                                             v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
@@ -1173,27 +1173,30 @@
                                 </el-row>
 
                                 <el-row :class="PreviewETL[GetETLIndex('Cri')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="8">
                                         CRIT
                                     </el-col>
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
                                             v-model="PreviewETL[GetETLIndex('Cri')].totalvalue"
                                             v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
                                         </el-input>
                                     </el-col>
                                 </el-row>
+                                <!--
+                                    currently unused
                                 <el-row :class="PreviewETL[GetETLIndex('ElementDamageDealtIncreasedPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="8">
                                         Reduce Ele Resist%
                                     </el-col>
-                                    <el-col class="textcenter" :span="12">
+                                    <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
                                             v-model="PreviewETL[GetETLIndex('ElementDamageDealtIncreasedPercent')].totalvalue"
                                             v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
                                         </el-input>
                                     </el-col>
                                 </el-row>
+                                -->
                             </div>
                         </el-row>
                     </el-scrollbar>
