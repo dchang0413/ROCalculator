@@ -7471,7 +7471,7 @@
                         }
                     }
                     //敵方DEF
-                    if (this.option.IgnoreDEF == false || this.skill.bypassDEF == false) {
+                    if (this.option.IgnoreDEF == false && this.skill.bypassDEF != true) {
                         if (this.enemyattribute.WeaponDEF > 0){
                             if (isNA==false && this.skill.transWeaponDEF) {
                                 this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.WeaponDEF);
@@ -9773,6 +9773,7 @@
                     this.$set(this.TempAllSet, 'Weapon', this.weapon);
                     this.$set(this.TempAllSet, 'SubWeapon', this.subweapon);
                     this.$set(this.TempAllSet, 'Status', this.status);
+                    this.$set(this.TempAllSet, 'JobStatus', this.status_job);
                     this.$set(this.TempAllSet, 'SkillName', this.skill.name);
                     this.$set(this.TempAllSet, 'Skill', this.skill);
                     this.$set(this.TempAllSet, 'SkillOption', this.skilloption);
@@ -10174,7 +10175,7 @@
                         { skill: { id: 'RA_ARROWSTORM', name: 'Arrow Storm', level: 10, formula: '(1000+SLV*100)*BLV/100', class: 'RA', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 0, FCT: 0.3, VCT: 2, CD: 3.2, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'RA_ARROWSTORM(ex)', name: 'Arrow Storm(Fear Breeze)', level: 10, formula: '(1000+SLV*170)*BLV/100', class: 'RA', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 0, FCT: 0.3, VCT: 2, CD: 3.2, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
 
-                        { skill: { id: 'WH_HAWK_RUSH_1', name: 'Hawk Rush', level: 5, formula: '(200*SLV+5*CON)*1.5*(BLV/100)', class: 'RA', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 1, } },
+                        { skill: { id: 'WH_HAWK_RUSH_1', name: 'Hawk Rush', level: 5, formula: '(100*SLV+5*CON)*1.5*(BLV/100)', class: 'RA', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 1, } },
 
                         { skill: { id: 'WH_CRESCIVE_BOLT(min)_2', name: 'Crescive Bolt(min)', level: 10, formula: '(300*SLV+10*CON)*(BLV/100)', class: 'RA', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 1, VCT: 0, CD: 0, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
                         { skill: { id: 'WH_CRESCIVE_BOLT(max)_2', name: 'Crescive Bolt(max)', level: 10, formula: '(300*SLV+10*CON)*1.3*(BLV/100)', class: 'RA', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 1, VCT: 0, CD: 0, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
@@ -10622,9 +10623,12 @@
                         { id: 20601, name: 'Jewel Ungoliant', level: 197, hp: 37847096, LUK: 64, VIT: 123, elemental: 0, elementallevel: 4, size: 2, StatusDEF: 193, WeaponDEF: 345, StatusMDEF: 399, WeaponMDEF: 90, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
                         { id: 20618, name: 'Bone Detardeurus', level: 209, hp: 88466828, LUK: 55, VIT: 173, elemental: 9, elementallevel: 4, size: 2, StatusDEF: 229, WeaponDEF: 451, StatusMDEF: 415, WeaponMDEF: 81, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
                         { id: 20621, name: 'Senior Red Pepper', level: 185, hp: 300000000, LUK: 57, VIT: 67, elemental: 7, elementallevel: 3, size: 1, StatusDEF: 0, WeaponDEF: 386, StatusMDEF: 0, WeaponMDEF: 113, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20892, name: 'Fallen Sakray', level: 240, hp: 1835856994, LUK: 69, VIT: 371, elemental: 0, elementallevel: 4, size: 2, StatusDEF: 349, WeaponDEF: 862, StatusMDEF: 426, WeaponMDEF: 92, RES: 445, MRES: 288, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20893, name: 'Princess Tiara', level: 240, hp: 1311066424, LUK: 75, VIT: 358, elemental: 9, elementallevel: 4, size: 2, StatusDEF: 336, WeaponDEF: 836, StatusMDEF: 513, WeaponMDEF: 99, RES: 430, MRES: 400, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-
+                        { id: 20892, name: 'Fallen Sakray', level: 240, hp: 1835856994, LUK: 69, VIT: 371, elemental: 0, elementallevel: 4, size: 1, StatusDEF: 349, WeaponDEF: 862, StatusMDEF: 426, WeaponMDEF: 92, RES: 445, MRES: 288, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
+                        { id: 20893, name: 'Princess Tiara', level: 240, hp: 1311066424, LUK: 75, VIT: 358, elemental: 9, elementallevel: 4, size: 1, StatusDEF: 336, WeaponDEF: 836, StatusMDEF: 513, WeaponMDEF: 99, RES: 430, MRES: 400, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
+                        { id: 20924, name: 'Amitera', level: 227, hp: 5814712, LUK: 140, VIT: 124, elemental: 4, elementallevel: 3, size: 1, StatusDEF: 213, WeaponDEF: 345, StatusMDEF: 101, WeaponMDEF: 237, RES: 141, MRES: 137, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
+                        { id: 20925, name: 'Litus', level: 228, hp: 6140768, LUK: 150, VIT: 127, elemental: 3, elementallevel: 3, size: 1, StatusDEF: 217, WeaponDEF: 421, StatusMDEF: 125, WeaponMDEF: 244, RES: 145, MRES: 144, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },                    
+                        { id: 20926, name: 'Fillia', level: 229, hp: 5766824, LUK: 161, VIT: 127, elemental: 1, elementallevel: 3, size: 1, StatusDEF: 216, WeaponDEF: 486, StatusMDEF: 130, WeaponMDEF: 245, RES: 145, MRES: 145, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
+                        { id: 20927, name: 'Vanilaqus', level: 230, hp: 6092880, LUK: 128, VIT: 145, elemental: 2, elementallevel: 3, size: 0, StatusDEF: 220, WeaponDEF: 431, StatusMDEF: 114, WeaponMDEF: 252, RES: 167, MRES: 151, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
                     );
                     this.consumablelist.push(
                         { id:12202, name:'10 STR Food', active:false, group:'StatusG', STR:10},
