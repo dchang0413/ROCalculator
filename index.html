@@ -8313,7 +8313,8 @@
                     }
                     //靈氣劍
                     if (this.IsSupportActive('LK_AURABLADE')) {
-                        this.computeattribute['SpecialATK8'] += this.status.Level * (3 + 1 * 5);
+                        console.log(this.GetSupportSkill('LK_AURABLADE'));
+                        this.computeattribute['SpecialATK8'] += this.status.Level * (3 + 1 * this.GetSupportSkill('LK_AURABLADE').lv);
                     }
                     // 狂怒之槍
                     if (this.IsSupportActive('LK_BERSERK')) {
@@ -10395,7 +10396,7 @@
                         { skill: { id: 'KN_RIDING', name: 'Cavalier Mastery', maxlv: 5, lv: 5, class: 'RK,RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'RK_DRAGONTRAINING', name: 'Dragon Training', maxlv: 5, lv: 5, class: 'RK', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SM_MAGNUM', name: 'Magnum Break', maxlv: 10, lv: 10, class: 'RK,RG,SN', changelv: false, argnum: 0, arg1: 20, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'LK_AURABLADE', name: 'Aura Blade', maxlv: 5, lv: 5, class: 'RK', changelv: false, argnum: 0, arg1: 8, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'LK_AURABLADE', name: 'Aura Blade', maxlv: 5, lv: 5, class: 'RK', changelv: true, argnum: 0, arg1: 8, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'LK_CONCENTRATION', name: 'Spear Dynamo', maxlv: 5, lv: 5, class: 'RK', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'LK_BERSERK', name: 'Berserk', maxlv: 1, lv: 1, class: 'RK', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'RK_GIANTGROWTH', name: 'Giant Growth', maxlv: 1, lv: 1, class: 'RK', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
