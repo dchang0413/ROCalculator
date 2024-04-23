@@ -7459,6 +7459,10 @@
                         para8 = Math.floor(para8 * 100 * paraAdvancedKatarReserchValue)/100;
                     }
 
+                    //RES
+                    this.enemyattribute.RESPercent = Number(100 * (1 - (
+                                (2000 + this.MulOper(Number(this.enemyattribute.RES), 1)) /
+                                (2000 + 5 * this.MulOper(Number(this.enemyattribute.RES), 1))))).toFixed(2);
                     if (this.enemyattribute.RES > 0){
                         if (isNA==false && this.skill.transWeaponDEF) {
                             this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.RES);
@@ -7480,6 +7484,9 @@
                     }
 
                     //敵方DEF
+                    this.enemyattribute.WeaponDEFPercent = Number(100 * (1 - (
+                            (4000 + this.MulOper(Number(this.enemyattribute.WeaponDEF), 1)) /
+                            (4000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponDEF), 1))))).toFixed(2);
                     if (this.option.IgnoreDEF == false && this.skill.bypassDEF != true) {
                         if (this.enemyattribute.WeaponDEF > 0){
                             if (isNA==false && this.skill.transWeaponDEF) {
@@ -7723,6 +7730,21 @@
                     this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.attribute['MELDDI'] / 100));
                     this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['MELDDI'] / 100));
 
+                    //MRES
+                    this.enemyattribute.MRESPercent = Number(100 * (1 - (
+                            (2000 + this.MulOper(Number(this.enemyattribute.MRES), 1)) /
+                            (2000 + 5 * this.MulOper(Number(this.enemyattribute.MRES), 1))))).toFixed(2);
+                    var paraMRES = Number(1);
+                    if (this.enemyattribute.MRES > 0){
+                        var parabypassMRES = Number(1) - Number(this.attribute['BYPASSMRES']) / 100;
+                        paraMRES = (
+                            (2000 + this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)) /
+                            (2000 + 5 * this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)));
+                    }
+                    
+                    this.computeattribute.matk1_min = Math.ceil(this.computeattribute.matk1_min * paraMRES);
+                    this.computeattribute.matk1_max = Math.ceil(this.computeattribute.matk1_max * paraMRES);
+
                     if (this.skill.laterformula == false) {
                         var para_skillpercent = Math.floor(this.option.SkillPercent) + Number(this.computeattribute['SpecialMATK1']) + Number(mflag);
                         if (this.skill.id.includes('SO_SPELLFIST')){
@@ -7740,17 +7762,10 @@
                     this.computeattribute.matk2_min = this.computeattribute.skillmatk_min;
                     this.computeattribute.matk2_max = this.computeattribute.skillmatk_max;
 
-                    var paraMRES = Number(1);
-                    if (this.enemyattribute.MRES > 0){
-                        var parabypassMRES = Number(1) - Number(this.attribute['BYPASSMRES']) / 100;
-                        paraMRES = (
-                            (2000 + this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)) /
-                            (2000 + 5 * this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)));
-                    }
-                    
-                    this.computeattribute.matk2_min = Math.floor(this.computeattribute.skillmatk_min * paraMRES);
-                    this.computeattribute.matk2_max = Math.floor(this.computeattribute.skillmatk_max * paraMRES);
-
+                    //MDEF
+                    this.enemyattribute.WeaponMDEFPercent = Number(100 * (1 - (
+                            (1000 + this.MulOper(Number(this.enemyattribute.WeaponMDEF), 1)) /
+                            (1000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponMDEF), 1))))).toFixed(2);
                     if (this.option.IgnoreMDEF == false) {
                         var parabypassMDEF = Number(1) - Number(this.attribute['BYPASSMDEF']) / 100;
                         var paraMDEF = Number(1);
@@ -10783,6 +10798,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-04-19', content: 'Corrected RES calculation' },
                         { id: '2024-04-19', content: 'Updated EDP related calculation<br>Display DEF/RES/RES/MRES damage reduction' },
                         { id: '2024-04-18', content: 'Added Bypass DEF config for skills on Counter Slash/Spark Blaster/Dragonic Breath' },
                         { id: '2024-04-10', content: 'Added Grade and Grade Tokens to equipments' },
