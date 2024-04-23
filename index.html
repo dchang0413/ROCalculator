@@ -7459,14 +7459,6 @@
                         para8 = Math.floor(para8 * 100 * paraAdvancedKatarReserchValue)/100;
                     }
 
-                    if( isNA ){
-                        this.computeattribute.atkc7_min = this.MulOper(this.computeattribute.atkc6_min, para_na);
-                        this.computeattribute.atkc7_max = this.MulOper(this.computeattribute.atkc6_max, para_na);
-                    }else{
-                        this.computeattribute.atkc7_min = this.MulOper(this.computeattribute.atkc6_min, para8);
-                        this.computeattribute.atkc7_max = this.MulOper(this.computeattribute.atkc6_max, para8);
-                    }
-
                     if (this.enemyattribute.RES > 0){
                         if (isNA==false && this.skill.transWeaponDEF) {
                             this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.RES);
@@ -7475,10 +7467,18 @@
                             var parabypassRES = Number(1) - Number(this.attribute['BYPASSRES']) / 100;
                             var paraRES = ((2000 + this.MulOper(Number(this.enemyattribute.RES), parabypassRES)) /
                                     (2000 + 5 * this.MulOper(Number(this.enemyattribute.RES), parabypassRES)));
-                            this.computeattribute.atkc7_min = Math.floor(this.computeattribute.atkc7_min * paraRES);
-                            this.computeattribute.atkc7_max = Math.floor(this.computeattribute.atkc7_max * paraRES);
+                            this.computeattribute.atkc6_min = Math.ceil(this.computeattribute.atkc6_min * paraRES);
+                            this.computeattribute.atkc6_max = Math.ceil(this.computeattribute.atkc6_max * paraRES);
                         }
                     }
+                    if( isNA ){
+                        this.computeattribute.atkc7_min = this.MulOper(this.computeattribute.atkc6_min, para_na);
+                        this.computeattribute.atkc7_max = this.MulOper(this.computeattribute.atkc6_max, para_na);
+                    }else{
+                        this.computeattribute.atkc7_min = this.MulOper(this.computeattribute.atkc6_min, para8);
+                        this.computeattribute.atkc7_max = this.MulOper(this.computeattribute.atkc6_max, para8);
+                    }
+
                     //敵方DEF
                     if (this.option.IgnoreDEF == false && this.skill.bypassDEF != true) {
                         if (this.enemyattribute.WeaponDEF > 0){
