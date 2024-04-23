@@ -236,6 +236,23 @@
             custom-class="Dialogue-container" width="60%" top="50px" center>
             <span slot="title">Special Thanks</span>
             <el-row :gutter="6">
+                <el-scrollbar wrap-class="englishThanksList-container" :native="false" :noresize="false">
+                    <div v-for="(item, index) in englishthanksList" :key="index">
+                        <div style="padding: 2px 5px;">
+                            <el-row class="statusbox greenbox" type="flex" align="middle" justify="space-around"
+                                style="height:50px;">
+                                <el-col class="textcenter" :span="10">
+                                    <span class="">{{ item.coop }}</span>
+                                </el-col>
+                                <el-col class="textcenter" :span="10" style="text-align: left;">
+                                    <span class="">{{ item.name }}</span>
+                                </el-col>
+                            </el-row>
+                        </div>
+                    </div>
+                </el-scrollbar>
+            </el-row>
+            <el-row :gutter="6">
                 <el-col :span="12">
                     <el-scrollbar wrap-class="ThanksList-container" :native="false" :noresize="false">
                         <div v-for="(item, index) in SpecialthanksList" :key="index">
@@ -5550,6 +5567,7 @@
 
                 SpecialthanksList: [],
                 DonatethanksList: [],
+                englishthanksList: [],
                 UpdateLogList: [],
                 CurrentUpdateVersion: '',
                 TStatusPoint: [7,10,13,16,19,26,29,32,35,38,45,48,51,54,57,64,67,70,73,76,83,86,89,92,95,102,105,108,111,114,121,124,127,130,133,140,143,146,149,152,159,162,165,168,171,178,181,184,187,190,197],
@@ -10996,6 +11014,11 @@
                         { id: 4, coop: '公式協力', name: '查爾斯 烈焰' },
                         { id: 4, coop: '公式協力', name: '阿松' },
                         { id: 0, coop: '公式協力', name: '琉璃廣' },
+                    );
+                    this.englishthanksList.push(
+                        { id: 0, coop: 'Formula Testing', name: 'zyn' },
+                        { id: 1, coop: 'Formula Testing', name: 'Sigma' },
+                        { id: 2, coop: 'Equip Input', name: 'Angux' },
                     );
 
                     console.log("LOAD DB");
