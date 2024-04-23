@@ -7502,10 +7502,12 @@
                     this.computeattribute.atkc8_min = this.computeattribute.atkc7_min;
                     this.computeattribute.atkc8_max = this.computeattribute.atkc7_max;
 
+                    /*
                     if ( isNA && this.subweapon.type.id == 2) {
                         this.computeattribute.atkc8_min = Math.floor(this.computeattribute.atkc7_min * Number(this.computeattribute['SpecialRLHand'] / 100));
                         this.computeattribute.atkc8_max = Math.floor(this.computeattribute.atkc7_max * Number(this.computeattribute['SpecialRLHand'] / 100));
                     }
+                    */
 
                     if (this.skill.ranged){
                         this.computeattribute.atkc8_min = Math.floor(this.computeattribute.atkc8_min * Number(1 + this.attribute['RNGDDI'] / 100));
@@ -7519,6 +7521,12 @@
                         var parasp6 = Number(this.computeattribute['SpecialATK7']);
                         this.computeattribute.atkc8_min += parasp6;
                         this.computeattribute.atkc8_max += parasp6;
+                            
+                        //靈氣劍技能有效
+                        var parasp6 = Number(this.computeattribute['SpecialATK8']);
+                        this.computeattribute.atkc8_min += parasp6;
+                        this.computeattribute.atkc8_max += parasp6;
+
                         // 技能遠傷
                         if (this.skill.ranged && this.skill.laterranged) {
                             this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, para_ranged);
@@ -7528,10 +7536,6 @@
                         this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100));
                         this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100));
 
-                        //靈氣劍技能有效
-                        var parasp6 = Number(this.computeattribute['SpecialATK8']);
-                        this.computeattribute.atkc8_min += parasp6;
-                        this.computeattribute.atkc8_max += parasp6
                     };
 
                     this.computeattribute.atkc9_min = this.computeattribute.atkc8_min;
