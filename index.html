@@ -7482,9 +7482,9 @@
                             this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.RES);
                             this.computeattribute.atkc7_max = this.computeattribute.atkc7_max - Number(this.enemyattribute.RES);
                         } else {
-                            var parabypassRES = Number(1) - Number(this.attribute['BYPASSRES']) / 100;
-                            var paraRES = ((2000 + this.MulOper(Number(this.enemyattribute.RES), parabypassRES)) /
-                                    (2000 + 5 * this.MulOper(Number(this.enemyattribute.RES), parabypassRES)));
+                            var parabypassRES = Math.max(Number(1) - Number(this.attribute['BYPASSRES']) / 100, 0.5);
+                            var remainingRES = Math.floor(Number(this.enemyattribute.RES) * parabypassRES);
+                            var paraRES = ((2000 + remainingRES) / (2000 + 5 * remainingRES));
                             this.computeattribute.atkc6_min = Math.ceil(this.computeattribute.atkc6_min * paraRES);
                             this.computeattribute.atkc6_max = Math.ceil(this.computeattribute.atkc6_max * paraRES);
                         }
@@ -7750,10 +7750,9 @@
                             (2000 + 5 * this.MulOper(Number(this.enemyattribute.MRES), 1))))).toFixed(2);
                     var paraMRES = Number(1);
                     if (this.enemyattribute.MRES > 0){
-                        var parabypassMRES = Number(1) - Number(this.attribute['BYPASSMRES']) / 100;
-                        paraMRES = (
-                            (2000 + this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)) /
-                            (2000 + 5 * this.MulOper(Number(this.enemyattribute.MRES), parabypassMRES)));
+                        var parabypassMRES = Math.max(Number(1) - Number(this.attribute['BYPASSMRES']) / 100,0.5);
+                        var remainingMRES = Math.floor(Number(this.enemyattribute.MRES)* parabypassMRES);
+                        paraMRES = ((2000 + remainingMRES) / (2000 + 5 * remainingMRES));
                     }
                     
                     this.computeattribute.matk1_min = Math.ceil(this.computeattribute.matk1_min * paraMRES);
@@ -10815,6 +10814,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-04-19', content: 'Corrected RES bypass calculation' },
                         { id: '2024-04-19', content: 'Corrected RES calculation' },
                         { id: '2024-04-19', content: 'Updated EDP related calculation<br>Display DEF/RES/RES/MRES damage reduction' },
                         { id: '2024-04-18', content: 'Added Bypass DEF config for skills on Counter Slash/Spark Blaster/Dragonic Breath' },
