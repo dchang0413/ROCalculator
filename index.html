@@ -7757,9 +7757,8 @@
                         var remainingMRES = Math.floor(Number(this.enemyattribute.MRES)* parabypassMRES);
                         paraMRES = ((2000 + remainingMRES) / (2000 + 5 * remainingMRES));
                     }
-                    
-                    this.computeattribute.matk1_min = Math.ceil(this.computeattribute.matk1_min * paraMRES);
-                    this.computeattribute.matk1_max = Math.ceil(this.computeattribute.matk1_max * paraMRES);
+                    this.computeattribute.matk1_min = Math.floor(this.computeattribute.matk1_min * paraMRES);
+                    this.computeattribute.matk1_max = Math.floor(this.computeattribute.matk1_max * paraMRES);
 
                     if (this.skill.laterformula == false) {
                         var para_skillpercent = Math.floor(this.option.SkillPercent) + Number(this.computeattribute['SpecialMATK1']) + Number(mflag);
