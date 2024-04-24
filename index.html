@@ -1615,9 +1615,8 @@
                             <span class=""><b>Load Equip List:</b></span>
                         </el-col>
                         <el-col :span="6"><!--default_equip-->
-                            <el-select v-model="status.select_default" v-on:change="updateSelectDefault" placeholder="">
-                                <el-option v-for="item in default_equip" :key="item.id" :label="item.label"
-                                    :value="item.id">
+                            <el-select v-model="status.select_default" v-on:change="updateSelectDefault" placeholder="" v-bind="select_default">
+                                <el-option v-for="item in default_equip" :key="item.id" :label="item.label" :value="item.id">
                                 </el-option>
                             </el-select>
                         </el-col>
