@@ -7757,8 +7757,8 @@
                         var remainingMRES = Math.floor(Number(this.enemyattribute.MRES)* parabypassMRES);
                         paraMRES = ((2000 + remainingMRES) / (2000 + 5 * remainingMRES));
                     }
-                    this.computeattribute.matk1_min = Math.floor(this.computeattribute.matk1_min * paraMRES);
-                    this.computeattribute.matk1_max = Math.floor(this.computeattribute.matk1_max * paraMRES);
+                    this.computeattribute.matk1_min = Math.ceil(this.computeattribute.matk1_min * paraMRES);
+                    this.computeattribute.matk1_max = Math.ceil(this.computeattribute.matk1_max * paraMRES);
 
                     if (this.skill.laterformula == false) {
                         var para_skillpercent = Math.floor(this.option.SkillPercent) + Number(this.computeattribute['SpecialMATK1']) + Number(mflag);
@@ -9381,9 +9381,9 @@
                     this.attribute['BYPASSMDEF'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'BypassMDEFPercent').totalvalue)));
                     if (this.attribute['BYPASSMDEF'] > 100) this.attribute['BYPASSMDEF'] = 100;
                     this.attribute['BYPASSRES'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'BypassRESPercent').totalvalue)));
-                    if (this.attribute['BYPASSRES'] > 100) this.attribute['BYPASSRES'] = 100;
+                    if (this.attribute['BYPASSRES'] > 50) this.attribute['BYPASSRES'] = 50;
                     this.attribute['BYPASSMRES'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'BypassMRESPercent').totalvalue)));
-                    if (this.attribute['BYPASSMRES'] > 100) this.attribute['BYPASSMRES'] = 100;
+                    if (this.attribute['BYPASSMRES'] > 50) this.attribute['BYPASSMRES'] = 50;
                     
                     this.attribute['ASPD'] +=   Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ASPD').totalvalue)));
                     //this.attribute['ASPD'] +=   Number(this.status.ASPD);
