@@ -7176,8 +7176,35 @@
                     var count = this.elementtypelist.length;
                     var _base = attackelementalid * count;
                     var _enemy = enemyelemental;
-                    var _level = (enemyelementlevel - 1) * count * count
+                    var _level = (enemyelementlevel - 1) * count * count;
                     var percent = this.elementalmap[_base + _enemy + _level];
+                    
+                    //火元素領域
+                    if (this.IsSupportActive('SA_VOLCANO')) {
+                        if (attackelementalid == 1) {
+                            var _lv = this.GetSupportSkill('SA_VOLCANO').lv;
+                            var _e = [0,10,14,17,19,20];
+                            percent += _e[_lv];
+                        }
+                    }
+                    //水元素領域
+                    if (this.IsSupportActive('SA_DELUGE')) {
+                        if (attackelementalid == 2) {
+                            var _lv = this.GetSupportSkill('SA_DELUGE').lv;
+                            var _h = [0,5,9,12,14,15];
+                            var _e = [0,10,14,17,19,20];
+                            this.attribute['HPP'] += _h[_lv];
+                            percent += _e[_lv];
+                        }
+                    }
+                    //風元素領域
+                    if (this.IsSupportActive('SA_VIOLENTGALE')) {
+                        if (attackelementalid == 3) {
+                            var _lv = this.GetSupportSkill('SA_VIOLENTGALE').lv;
+                            var _e = [0,10,14,17,19,20];
+                            percent += _e[_lv];
+                        }
+                    }
                     return percent;
                 },
                 ComputElementalPercent() {
@@ -8258,6 +8285,12 @@
                     this.option.EquipSkillAddDamage = 0;
                     if (this.skilloption.WeaponMasteryATKInput == '') this.skilloption.WeaponMasteryATKInput = 0;
                     this.skilloption.WeaponMasteryATK = this.skilloption.WeaponMasteryATKInput;
+                    
+                    this.skilloption.ElementalPercent = this.getElementalPercent(
+                        this.skilloption.AttackElementalIdx,
+                        this.enemyattribute.elemental,
+                        this.enemyattribute.elementallevel);
+
                     this.computeattribute['SpecialATK0'] = 0;   // 地符
                     this.computeattribute['SpecialATK1'] = 0;   // 僅剩下壞掉的祈禱文
                     this.computeattribute['SpecialATK2'] = 0;   // 練習舞蹈 砲彈ATK
@@ -8805,12 +8838,10 @@
                     }
                     //火元素領域
                     if (this.IsSupportActive('SA_VOLCANO')) {
-                        if (this.skilloption.AttackElementalIdx == 1) {
+                        if (this.skilloption.AttackElementalIdx == 1 || this.IsSupportActive('SM_MAGNUM')) {
                             var _lv = this.GetSupportSkill('SA_VOLCANO').lv;
-                            var _a = [0,3,6,9,12,15];
-                            var _e = [0,10,14,17,19,20];
+                            var _a = [0,10,15,20,25,30];
                             this.attribute['ATK'] += _a[_lv];
-                            this.attribute['ElementalMagicPercent'] += _e[_lv];
                         }
                     }
                     //水元素領域
@@ -8818,19 +8849,10 @@
                         if (this.skilloption.AttackElementalIdx == 2) {
                             var _lv = this.GetSupportSkill('SA_DELUGE').lv;
                             var _h = [0,5,9,12,14,15];
-                            var _e = [0,10,14,17,19,20];
                             this.attribute['HPP'] += _h[_lv];
-                            this.attribute['ElementalMagicPercent'] += _e[_lv];
                         }
                     }
-                    //風元素領域
-                    if (this.IsSupportActive('SA_VIOLENTGALE')) {
-                        if (this.skilloption.AttackElementalIdx == 3) {
-                            var _lv = this.GetSupportSkill('SA_VIOLENTGALE').lv;
-                            var _e = [0,10,14,17,19,20];
-                            this.attribute['ElementalMagicPercent'] += _e[_lv];
-                        }
-                    }
+
                     // 魔法書精熟
                     if (this.IsSupportActive('EM_MAGIC_BOOK_M') && this.weapon.type.id == 'Books'){
                         var _lv = this.GetSupportSkill('EM_MAGIC_BOOK_M').lv;
@@ -8978,7 +9000,7 @@
                     }
                     //神威祈福
                     if (this.IsSupportActive('PR_IMPOSITIO')){
-                        this.computeattribute['SpecialATK4'] += Number(this.GetSupportSkill('PR_IMPOSITIO').lv) * 5;
+                        this.attribute['ATK'] += Number(this.GetSupportSkill('PR_IMPOSITIO').lv) * 5;
                         this.attribute['MATK'] += Number(this.GetSupportSkill('PR_IMPOSITIO').lv) * 5;
                     }
                     // 神聖殿堂
@@ -8997,16 +9019,7 @@
                     //祈禱文
                     if (this.IsSupportActive('AB_ORATIO')){
                         if (this.skilloption.AttackElementalIdx == 6) {
-                            switch (this.skill.DamageTypeIdx) {
-                                case 0:
-                                    this.computeattribute['SpecialATK1'] += this.weapon.ATK * ((this.GetSupportSkill('AB_ORATIO').lv * 2) / 100);
-                                    break;
-                                case 1:
-                                    //this.attribute['ELEDDI'] += (this.GetSupportSkill('AB_ORATIO').lv * 2);
-                                    break;
-                                case 2:
-                                    break;
-                            }
+                            this.attribute['ELEDDI'] += (this.GetSupportSkill('AB_ORATIO').lv * 2);
                         }
                     }
                     //折枝
@@ -10570,7 +10583,7 @@
                         { skill: { id: 'SO_EARTH_INSIGNIA_ENEMY', name: 'Earth Insignia(Target)', maxlv: 3, lv: 3, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'SO_FIRE_INSIGNIA_ENEMY,SO_WATER_INSIGNIA_ENEMY,SO_WIND_INSIGNIA_ENEMY', Note: '', } },
                         { skill: { id: 'SA_VOLCANO', name: 'Volcano', maxlv: 5, lv: 5, class: 'SO', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'SA_DELUGE,SA_VIOLENTGALE', Note: '', } },
                         { skill: { id: 'SA_DELUGE', name: 'Deluge', maxlv: 5, lv: 5, class: 'SO', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'SA_VOLCANO,SA_VIOLENTGALE', Note: '', } },
-                        { skill: { id: 'SA_VIOLENTGALE', name: 'Whirldwind', maxlv: 5, lv: 5, class: 'SO', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'SA_VOLCANO,SA_DELUGE', Note: '', } },
+                        { skill: { id: 'SA_VIOLENTGALE', name: 'Whirlwind', maxlv: 5, lv: 5, class: 'SO', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'SA_VOLCANO,SA_DELUGE', Note: '', } },
                         { skill: { id: 'EM_MAGIC_BOOK_M', name: 'Magic Book Mastery', maxlv: 10, lv: 10, class: 'SO', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'EM_SPELL_ENCHANTING', name: 'Spell Enchanting', maxlv: 5, lv: 5, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'SO_EL_CONTROL(Lv1)', name: 'Spirit Control Lv.1', maxlv: 1, lv: 1, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
