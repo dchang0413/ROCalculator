@@ -7485,7 +7485,7 @@
                             this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.RES);
                             this.computeattribute.atkc7_max = this.computeattribute.atkc7_max - Number(this.enemyattribute.RES);
                         } else {
-                            var parabypassRES = Math.max(Number(1) - Number(this.attribute['BYPASSRES']) / 100, 0.5);
+                            var parabypassRES = Number(1) - Number(this.attribute['BYPASSRES']) / 100;
                             var remainingRES = Math.floor(Number(this.enemyattribute.RES) * parabypassRES);
                             var paraRES = ((2000 + remainingRES) / (2000 + 5 * remainingRES));
                             this.computeattribute.atkc6_min = Math.ceil(this.computeattribute.atkc6_min * paraRES);
@@ -7729,6 +7729,22 @@
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_level);
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_mons);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_mons);
+
+                    //MRES
+                    this.enemyattribute.MRESPercent = Number(100 * (1 - (
+                            (2000 + this.MulOper(Number(this.enemyattribute.MRES), 1)) /
+                            (2000 + 5 * this.MulOper(Number(this.enemyattribute.MRES), 1))))).toFixed(2);
+                    var paraMRES = Number(1);
+                    if (this.enemyattribute.MRES > 0){
+                        var parabypassMRES = Number(1) - Number(this.attribute['BYPASSMRES']) / 100;
+                        var remainingMRES = Math.floor(Number(this.enemyattribute.MRES) * parabypassMRES);
+                        console.log('rem mres: ',remainingMRES);
+                        paraMRES = ((2000 + remainingMRES) / (2000 + 5 * remainingMRES));
+                    }
+
+                    this.computeattribute.finalmatk_min = Math.ceil(this.computeattribute.finalmatk_min * paraMRES);
+                    this.computeattribute.finalmatk_max = Math.ceil(this.computeattribute.finalmatk_max * paraMRES);
+
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, Number(1) + Number(this.attribute['SMATK'] / 100));
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, Number(1) + Number(this.attribute['SMATK'] / 100));
 
@@ -7747,18 +7763,6 @@
                     this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.attribute['MELDDI'] / 100));
                     this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['MELDDI'] / 100));
 
-                    //MRES
-                    this.enemyattribute.MRESPercent = Number(100 * (1 - (
-                            (2000 + this.MulOper(Number(this.enemyattribute.MRES), 1)) /
-                            (2000 + 5 * this.MulOper(Number(this.enemyattribute.MRES), 1))))).toFixed(2);
-                    var paraMRES = Number(1);
-                    if (this.enemyattribute.MRES > 0){
-                        var parabypassMRES = Math.max(Number(1) - Number(this.attribute['BYPASSMRES']) / 100,0.5);
-                        var remainingMRES = Math.floor(Number(this.enemyattribute.MRES)* parabypassMRES);
-                        paraMRES = ((2000 + remainingMRES) / (2000 + 5 * remainingMRES));
-                    }
-                    this.computeattribute.matk1_min = Math.ceil(this.computeattribute.matk1_min * paraMRES);
-                    this.computeattribute.matk1_max = Math.ceil(this.computeattribute.matk1_max * paraMRES);
 
                     if (this.skill.laterformula == false) {
                         var para_skillpercent = Math.floor(this.option.SkillPercent) + Number(this.computeattribute['SpecialMATK1']) + Number(mflag);
