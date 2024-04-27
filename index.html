@@ -8839,10 +8839,15 @@
                     }
                     //火元素領域
                     if (this.IsSupportActive('SA_VOLCANO')) {
-                        if (this.skilloption.AttackElementalIdx == 1 || this.IsSupportActive('SM_MAGNUM')) {
+                        if (this.IsSupportActive('SM_MAGNUM')){
                             var _lv = this.GetSupportSkill('SA_VOLCANO').lv;
                             var _a = [0,10,15,20,25,30];
                             this.attribute['ATK'] += _a[_lv];
+                        } else if (this.skilloption.AttackElementalIdx == 1) {
+                            var _lv = this.GetSupportSkill('SA_VOLCANO').lv;
+                            var _a = [0,10,15,20,25,30];
+                            this.attribute['ATK'] += _a[_lv];
+                            this.attribute['MATK'] += _a[_lv];
                         }
                     }
                     //水元素領域
