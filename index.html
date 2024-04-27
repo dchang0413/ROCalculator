@@ -7560,13 +7560,6 @@
                     }
                     */
 
-                    if (this.skill.ranged){
-                        this.computeattribute.atkc8_min = Math.floor(this.computeattribute.atkc8_min * Number(1 + this.attribute['RNGDDI'] / 100));
-                        this.computeattribute.atkc8_max = Math.floor(this.computeattribute.atkc8_max * Number(1 + this.attribute['RNGDDI'] / 100));
-                    }else{
-                        this.computeattribute.atkc8_min = Math.floor(this.computeattribute.atkc8_min * Number(1 + this.attribute['MELDDI'] / 100));
-                        this.computeattribute.atkc8_max = Math.floor(this.computeattribute.atkc8_max * Number(1 + this.attribute['MELDDI'] / 100));
-                    }
 
                     if( isNA == false ){
                         var parasp6 = Number(this.computeattribute['SpecialATK7']);
@@ -7604,6 +7597,14 @@
                             this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
                             this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
                         }
+                    }
+
+                    if (this.skill.ranged){
+                        this.computeattribute.atkc9_min = Math.floor(this.computeattribute.atkc9_min * Number(1 + this.attribute['RNGDDI'] / 100));
+                        this.computeattribute.atkc9_max = Math.floor(this.computeattribute.atkc9_max * Number(1 + this.attribute['RNGDDI'] / 100));
+                    }else{
+                        this.computeattribute.atkc9_min = Math.floor(this.computeattribute.atkc9_min * Number(1 + this.attribute['MELDDI'] / 100));
+                        this.computeattribute.atkc9_max = Math.floor(this.computeattribute.atkc9_max * Number(1 + this.attribute['MELDDI'] / 100));
                     }
 
                     this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number(this.computeattribute['SpecialINSIGNIAENEMYMATK'] / 100));
