@@ -11119,7 +11119,7 @@
                     }
 
                     //const data = JSON.stringify(this.StoreDB_Equip)
-                    const blob = new Blob([JSON.stringify(data)], {type: 'text/plain'})
+                    const blob = new Blob([JSON.stringify(data,null,"\t")], {type: 'text/plain'})
                     const e = document.createEvent('MouseEvents'),
                     a = document.createElement('a');
                     a.download = "export.roc";
