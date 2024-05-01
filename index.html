@@ -7414,6 +7414,12 @@
                     this.computeattribute.atkc5_min += masteryATK + Number(this.computeattribute['SpecialATK2']);
                     this.computeattribute.atkc5_max += masteryATK + Number(this.computeattribute['SpecialATK2']);
 
+                    //Number(this.GetSupportSkill('ASC_KATAR').arg1 / 100);
+                    if (this.IsSupportActive('TK_POWER_OLD')){
+                        var paraKihop = Number(1) + Number(10 * (Number(this.GetSupportSkill('TK_POWER_OLD').arg1) - 1)/100);
+                        this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, paraKihop);
+                        this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, paraKihop);
+                    } else
                     if (this.IsSupportActive('TK_POWER')) {
                         var paraKihop = Number(1) + Number((10 + this.GetSupportSkill('TK_POWER').lv * 15) / 100);
                         this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, paraKihop);
@@ -10599,7 +10605,6 @@
                         { skill: { id: 'EM_SUMMON_ELEMENTAL_TERREMOTUS', name: 'Spirit Terremotus', maxlv: 1, lv: 1, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'EM_SUMMON_ELEMENTAL_ARDOR,EM_SUMMON_ELEMENTAL_DILUVIO,EM_SUMMON_ELEMENTAL_PROCELLA,EM_SUMMON_ELEMENTAL_SERPENS', Note: '', } },
                         { skill: { id: 'EM_SUMMON_ELEMENTAL_SERPENS', name: 'Spirit Serpens', maxlv: 1, lv: 1, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'EM_SUMMON_ELEMENTAL_ARDOR,EM_SUMMON_ELEMENTAL_DILUVIO,EM_SUMMON_ELEMENTAL_PROCELLA,EM_SUMMON_ELEMENTAL_TERREMOTUS,', Note: '', } },
 
-
                         { skill: { id: 'NJ_NEN', name: 'Ninja Aura', maxlv: 5, lv: 5, class: 'KO,OB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'KO_KAHU_ENTEN', name: 'Fire Charm', maxlv: 10, lv: 10, class: 'KO,OB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'KO_HYOUHU_HUBUKI,KO_KAZEHU_SEIRAN,KO_DOHU_KOUKAI', Note: '', } },
                         { skill: { id: 'KO_HYOUHU_HUBUKI', name: 'Ice Charm', maxlv: 10, lv: 10, class: 'KO,OB', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'KO_KAHU_ENTEN,KO_KAZEHU_SEIRAN,KO_DOHU_KOUKAI', Note: '', } },
@@ -10620,7 +10625,8 @@
 
                         { skill: { id: 'TK_SEVENWIND', name: 'Mild Wind', maxlv: 1, lv: 1, class: 'SE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'TK_RUN', name: 'Sprint', maxlv: 10, lv: 10, class: 'SE', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'TK_POWER', name: 'Kihop', maxlv: 5, lv: 5, class: 'SE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'TK_POWER_OLD', name: 'Kihop', maxlv: 5, lv: 5, class: 'SE', changelv: false, argnum: 1, arg1: 12, arg1desc: 'Party Size', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: 'TK_POWER', Note: '', } },
+                        { skill: { id: 'TK_POWER', name: 'Kihop - New', maxlv: 5, lv: 5, class: 'SE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: 'TK_POWER_OLD', Note: '', } },
                         { skill: { id: 'SG_HATE', name: 'SLS Wrath', maxlv: 10, lv: 0, class: 'SE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SG_Miracle', name: 'SLS Miracle', maxlv: 10, lv: 0, class: 'SE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SG_FUSION', name: 'SLS Union', maxlv: 10, lv: 0, class: 'SE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
