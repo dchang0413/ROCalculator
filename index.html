@@ -8864,6 +8864,14 @@
                             this.attribute['HPP'] += _h[_lv];
                         }
                     }
+                    if (
+                        this.IsSupportActive('SA_ENDOW_BLAZE') && this.skilloption.AttackElementalIdx == 1 ||
+                        this.IsSupportActive('SA_ENDOW_TSUNAMI') && this.skilloption.AttackElementalIdx == 2 ||
+                        this.IsSupportActive('SA_ENDOW_TORNADO') && this.skilloption.AttackElementalIdx == 3 ||
+                        this.IsSupportActive('SA_ENDOW_QUAKE') && this.skilloption.AttackElementalIdx == 4
+                    ){
+                        this.attribute['ElementalMagicPercent'] += 5;
+                    }
 
                     // 魔法書精熟
                     if (this.IsSupportActive('EM_MAGIC_BOOK_M') && this.weapon.type.id == 'Books'){
@@ -10612,7 +10620,7 @@
                         { skill: { id: 'WL_TELEKINESIS_INTENSE', name: 'Intensification', maxlv: 5, lv: 5, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'AG_TWOHANDSTAFF', name: 'Twohanded Staff Mastery', maxlv: 10, lv: 10, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'AG_CLIMAX(Lv1)', name: 'Climax Lv1', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'AG_CLIMAX(Lv2),AG_CLIMAX(Lv3),AG_CLIMAX(Lv4)', Note: '', } },
-                        { skill: { id: 'AG_CRYSTAL_IMPACT(Lv1)', name: 'Rain Of Crystal Lv1', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
+                        { skill: { id: 'AG_CRYSTAL_IMPACT(Lv1)', name: 'Crystal Impact Lv1', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         //{ skill: { id: 'AG_CLIMAX(Lv2)', name: '魔力巔峰Lv2', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'AG_CLIMAX(Lv1),AG_CLIMAX(Lv3),AG_CLIMAX(Lv4)', Note: '', } },
                         //{ skill: { id: 'AG_CLIMAX(Lv3)', name: '魔力巔峰Lv3', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'AG_CLIMAX(Lv1),AG_CLIMAX(Lv2),AG_CLIMAX(Lv4)', Note: '', } },
                         { skill: { id: 'AG_CLIMAX(Lv4)', name: 'Climax Lv4', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'AG_CLIMAX(Lv1),AG_CLIMAX(Lv2),AG_CLIMAX(Lv3),', Note: '', } },
@@ -10665,6 +10673,10 @@
                         { skill: { id: 'SA_VOLCANO', name: 'Volcano', maxlv: 5, lv: 5, class: 'SO', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'SA_DELUGE,SA_VIOLENTGALE', Note: '', } },
                         { skill: { id: 'SA_DELUGE', name: 'Deluge', maxlv: 5, lv: 5, class: 'SO', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'SA_VOLCANO,SA_VIOLENTGALE', Note: '', } },
                         { skill: { id: 'SA_VIOLENTGALE', name: 'Whirlwind', maxlv: 5, lv: 5, class: 'SO', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'SA_VOLCANO,SA_DELUGE', Note: '', } },
+                        { skill: { id: 'SA_ENDOW_BLAZE', name: 'Endow Blaze', maxlv: 5, lv: 5, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'SA_ENDOW_QUAKE', name: 'Endow Quake', maxlv: 5, lv: 5, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'SA_ENDOW_TORNADO', name: 'Endow Tornado', maxlv: 5, lv: 5, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'SA_ENDOW_TSUNAMI', name: 'Endow Tsunami', maxlv: 5, lv: 5, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'EM_MAGIC_BOOK_M', name: 'Magic Book Mastery', maxlv: 10, lv: 10, class: 'SO', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'EM_SPELL_ENCHANTING', name: 'Spell Enchanting', maxlv: 5, lv: 5, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'SO_EL_CONTROL(Lv1)', name: 'Spirit Control Lv.1', maxlv: 1, lv: 1, class: 'SO', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
