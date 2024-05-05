@@ -4476,7 +4476,7 @@
                                 </div>
 
                                 <!-- continue the rest-->
-                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(12,14)">
+                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(11,14)">
                                     <div class="bg-purple-light" style="padding: 0px 4px;">
                                         <el-col v-if="UIPanel[item.id+'Panel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
                                             <el-button type="info" v-on:click="TogglePanel(item.id+'Panel')" size="mini"><i
@@ -4494,25 +4494,25 @@
                                             </el-col>
                                             <el-col class="textcenter">
                                                 <div>
-                                                    <el-input v-model="equipspartlist[eqindex+12].equipname"
+                                                    <el-input v-model="equipspartlist[eqindex+11].equipname"
                                                         placeholder="Equip Name">
                                                     </el-input>
                                                 </div>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="onClearEquipPart(eqindex+12)" size="mini">
+                                                <el-button v-on:click="onClearEquipPart(eqindex+11)" size="mini">
                                                     Clear
                                                 </el-button>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+12)" type="success"
+                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+11)" type="success"
                                                     plain>
                                                     Edit
                                                 </el-button>
                                             </el-col>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-for="(item, index) in equipspartlist[eqindex+12].effectlist"
+                                            <div v-for="(item, index) in equipspartlist[eqindex+11].effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
