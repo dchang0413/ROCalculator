@@ -10165,11 +10165,11 @@
                 },
                 onLoadAllSetSave(AllsetObject) {
                     this.skill.name = AllsetObject.SkillName;
+                    console.log(AllsetObject);
                     for (eqi = 0; eqi < this.equipspartlist.length; ++eqi) {
                         //AllsetObject.Equip[eqi].effectlist.forEach(x=>x.Enable=x.Enable==null?true:x.Enable);
                         if (typeof(AllsetObject.Equip[eqi]) == 'undefined') continue;
                         if (eqi > AllsetObject.Equip.length) break;
-                        console.log(eqi, this.equipspartlist[eqi].id, AllsetObject.Equip[eqi].equipname);
                         var cardnull = (AllsetObject.Equip[eqi]==null)?true:false;
                         this.$set(this.equipspartlist,
                             eqi,
@@ -10188,9 +10188,7 @@
                     if (this.subweapon == null) this.subweapon = _.cloneDeep(this.subweapon_init);
 
                     this.status = _.cloneDeep(AllsetObject.Status);
-                    console.log(this.status);
                     this.CheckParam();
-                    console.log(this.status);
                     this.onChangeClass();
                     this.skill = _.cloneDeep(AllsetObject.Skill);
                     if( this.GetJobMapSkillIdx(this.skill.id) > -1 ){
@@ -10200,6 +10198,7 @@
                         this.JobMapedSkillId = this.skill.id;
                         this.StoreDB_JobMapedSkill.unshift({skill:this.skill});
                     }
+                    this.skill.level = AllsetObject.Skill.level;
                     this.skilloption = _.cloneDeep(AllsetObject.SkillOption);
                     //this.option = _.cloneDeep(AllsetObject.Option);
                     //this.CombineEquipsAttribute();
