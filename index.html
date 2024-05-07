@@ -7901,6 +7901,7 @@
                     }
                     return _L;
                 },
+                skillInUse(skillstring) { return skillstring.includes(this.skill.id.split("_")[1]); },
                 checkWeapGradeReq(grade)    { return this.checkGradeReq(0,grade); },
                 checkSubWeapGradeReq(grade) { return this.checkGradeReq(1,grade); },
                 checkHatGradeReq(grade)     { return this.checkGradeReq(2,grade); },
@@ -11099,6 +11100,7 @@
                         { str1: 'Mhp', str2: 'this.status.MHP', description: 'MaxHP scaling' },
                         { str1: 'Msp', str2: 'this.status.MSP', description: 'MaxSP scaling' },
                         { str1: 'SLV', str2: 'this.skill.level', description: 'skill level' },
+                        { str1: 'SKIDS', str2: 'this.skillInUse', description: 'SKIDS("skill id separated by space") return true if active skill is in use' },
                         { str1: 'SKID', str2: 'this.skill.id', description: 'Skill ID' },
                         { str1: 'AEI', str2: 'this.skilloption.AttackElementalIdx', description: 'weapon attribute' },
                         { str1: 'SWEAR', str2: 'this.subweapon.refinelevel', description: 'subweapon refine' },
@@ -11350,7 +11352,7 @@
                         let loadedNames = this.getLoadedEquipNames();
                         for (const [key, value] of Object.entries(json)) {
                             if (loadedNames.includes(value.equipname)) continue;
-                            this.StoreDB_Equip.unshift({
+                            this.StoreDB_Equip.push({
                                 uuid: this._uuid(),
                                 equip: {
                                     id: value.id,
