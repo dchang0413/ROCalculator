@@ -4414,7 +4414,7 @@
                                         </el-row>
                                     </div>
                                 </div>
-                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(29,33)">
+                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(28,33)">
                                     <div class="bg-purple-light" style="padding: 0px 4px;">
                                         <el-col v-if="UIPanel[item.id+'Panel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
                                             <el-button type="info" v-on:click="TogglePanel(item.id+'Panel')" size="mini"><i
@@ -4432,25 +4432,25 @@
                                             </el-col>
                                             <el-col class="textcenter">
                                                 <div>
-                                                    <el-input v-model="equipspartlist[eqindex+29].equipname"
+                                                    <el-input v-model="equipspartlist[eqindex+28].equipname"
                                                         placeholder="Equip Name">
                                                     </el-input>
                                                 </div>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="onClearEquipPart(eqindex+29)" size="mini">
+                                                <el-button v-on:click="onClearEquipPart(eqindex+28)" size="mini">
                                                     Clear
                                                 </el-button>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+29)" type="success"
+                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+28)" type="success"
                                                     plain>
                                                     Edit
                                                 </el-button>
                                             </el-col>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-for="(item, index) in equipspartlist[eqindex+29].effectlist"
+                                            <div v-for="(item, index) in equipspartlist[eqindex+28].effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
@@ -6570,7 +6570,7 @@
                     for (const [key, value] of Object.entries(this.equipspartlist.slice(0,14))){
                         this.UIPanel[value.id+'Panel'] = false;
                     }
-                    for (const [key, value] of Object.entries(this.equipspartlist.slice(29,33))){
+                    for (const [key, value] of Object.entries(this.equipspartlist.slice(28,33))){
                         this.UIPanel[value.id+'Panel'] = false;
                     }
                 },
@@ -7901,7 +7901,7 @@
                     }
                     return _L;
                 },
-                skillInUse(skillstring) { return skillstring.includes(this.skill.id.split("_")[1]); },
+                skillInUse(skillstring) { return skillstring.includes(this.skill.id.split(/_(.*)/s)[1]); },
                 checkWeapGradeReq(grade)    { return this.checkGradeReq(0,grade); },
                 checkSubWeapGradeReq(grade) { return this.checkGradeReq(1,grade); },
                 checkHatGradeReq(grade)     { return this.checkGradeReq(2,grade); },
@@ -11124,6 +11124,7 @@
                         { str1: 'ELV', str2: 'this.enemyattribute.level', description: 'enemy lvl' },
                         { str1: 'ESIZE', str2: 'this.enemyattribute.size', description: 'enemy size' },
                         { str1: 'EVit', str2: 'this.enemyattribute.VIT', description: 'enemy VIT' },
+                        { str1: 'EEI', str2: 'this.enemyattribute.elemental', description: 'enemy element' },
                         { str1: 'MUL', str2: 'this.MulOper', description: 'MUL(A,B) = A*B, if B>1 then floor result, if B<1 then ceil result' },
                         { str1: 'DOWN', str2: 'Math.floor', description: 'DOWN(A) floor...' },
                         { str1: 'UP', str2: 'Math.ceil', description: 'UP(A) ceil...' },
