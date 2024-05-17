@@ -3913,10 +3913,10 @@
                                                     <el-input v-model.number="weapon.Weight" placeholder="WGT">
                                                     </el-input>
                                                 </el-col>
-                                                <el-col v-if="status.classid=='ME'|status.classid=='GE'" :span="12" style="text-align: right;">
+                                                <el-col v-if="status.classid=='ME'|status.classid=='GE'|status.classid=='RE'|status.classid=='RA'|status.classid=='MI'|status.classid=='WA'" :span="12" style="text-align: right;">
                                                     <span>Cannon ATK: </span>
                                                 </el-col>
-                                                <el-col v-if="status.classid=='ME'|status.classid=='GE'" :span="12">
+                                                <el-col v-if="status.classid=='ME'|status.classid=='GE'|status.classid=='RE'|status.classid=='RA'|status.classid=='MI'|status.classid=='WA'" :span="12">
                                                     <el-input v-model.number="weapon.BulletATK" placeholder="Cannon ATK">
                                                     </el-input>
                                                 </el-col>
@@ -6146,6 +6146,7 @@
                     LevelAtkPercent: 0,
                     SizeAtkPercent: 0,
                     RaceAtkPercent: 0,
+                    MonsterAtkPercent: 0,
                     ElementalMatkPercent: 0,
                     ElementalMagicPercent: 0,
                     RaceMatkPercent: 0,
@@ -7261,7 +7262,8 @@
 
                         this.computeattribute['TransSTR'] = this.status_total.STR;
                         var TempDEX = this.status_total.DEX;
-                        if (this.weapon.type.id === 'Bows' || this.weapon.type.id === 'Instruments' || this.weapon.type.id === 'Whips' || this.weapon.type.id === 'Guns') {
+                        
+                        if (['Bows', 'Instruments', 'Whips', 'Pistol', 'Rifle', 'Shotgun', 'Gatling', 'Launcher'].includes(this.weapon.type.id)) {
                             this.computeattribute['TransSTR'] = this.status_total.DEX;
                             TempDEX = this.status_total.STR;
                         }
@@ -7501,8 +7503,8 @@
                         this.computeattribute.atkc2_min = Number(this.computeattribute.atkc1_min);
                         this.computeattribute.atkc2_max = Number(this.computeattribute.atkc1_max);
                     }
-                    this.computeattribute.atkc2_min += Number(this.weapon.ArrowATK);
-                    this.computeattribute.atkc2_max += Number(this.weapon.ArrowATK);
+                    this.computeattribute.atkc2_min += Number(this.weapon.BulletATK);
+                    this.computeattribute.atkc2_max += Number(this.weapon.BulletATK);
 
                     var para5 = 0; //屬性
                     if (this.IsSupportActive('SM_MAGNUM')) { para5 = 1; }
@@ -7523,7 +7525,7 @@
                     var para_size = Number(1) + Number(this.attribute['SizeAtkPercent']) / 100;
                     var para_elemt = Number(1) + Number(this.attribute['ElementalAtkPercent']) / 100;
                     var para_level = Number(1) + Number(this.attribute['LevelAtkPercent']) / 100;
-                    var para_mons = Number(1) + Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MonsterAtkPercent').totalvalue))) / 100;
+                    var para_mons = Number(1) + Number(this.attribute['MonsterAtkPercent']) / 100;
                     var para_poison = Number(1) + (this.IsSupportActive('ASC_EDP') ? (Number(this.GetSupportSkill('ASC_EDP').arg2 / 100)) : Number(0));
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.weaponatk_min, para_race);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.weaponatk_max, para_race);
@@ -9685,11 +9687,11 @@
                     this.attribute['LevelMatkPercent'] +=       Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LevelMatkPercent').totalvalue)));
                     this.attribute['SizeMatkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeMatkPercent').totalvalue)));
                     this.attribute['ElementalAtkPercent'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'ElementalAtkPercent').totalvalue)));
-
                     this.attribute['LevelAtkPercent'] +=        Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LevelAtkPercent').totalvalue))) +
                                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='LevelAtkPercent').totalvalue);
                     this.attribute['SizeAtkPercent'] +=         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeAtkPercent').totalvalue)));
                     this.attribute['RaceAtkPercent'] +=         Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue)));
+                    this.attribute['MonsterAtkPercent'] +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MonsterAtkPercent').totalvalue)));
                     this.attribute['WeaponPerfection'] +=       Number(eval(this.effecttypelist.find(x => x.id == 'WeaponPerfection').totalvalue));
                     this.attribute['WeaponOccult'] +=           Number(eval(this.effecttypelist.find(x => x.id == 'WeaponOccult').totalvalue));
 
