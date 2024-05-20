@@ -4648,11 +4648,24 @@
                                                         <span>{{record.title}}:</span>
                                                     </el-col>
                                                     <el-col v-show="typeof record.val1 !== 'undefined' && typeof record.val1 !== 'undefined'" class="textcenter" :span="10">
-                                                        <span>{{record.val1}} ~
-                                                            {{record.val2}}</span>
+                                                        <!--<span>{{record.val1}} ~ {{record.val2}}</span>-->
+
+                                                        <el-tooltip class="item" effect="dark" placement="left">
+                                                            <template #content>
+                                                                <span> {{record.tooltip}} </span>
+                                                              </template>
+                                                            <el-col class="textcenter">{{record.val1}} ~ {{record.val2}}</el-col>
+                                                        </el-tooltip>
+
                                                     </el-col>
                                                     <el-col v-show="typeof record.val !== 'undefined'" class="textcenter" :span="10">
-                                                        <span>{{record.val}}</span>
+                                                        <!--<span>{{record.val}}</span>-->
+                                                        <el-tooltip class="item" effect="dark" placement="left">
+                                                            <template #content>
+                                                                <span> {{record.tooltip}} </span>
+                                                              </template>
+                                                            <el-col class="textcenter">{{record.val}}</el-col>
+                                                        </el-tooltip>
                                                     </el-col>
                                                     <el-col v-if="record.method" class="textcenter" :span="6">
                                                         <span>({{record.method}} {{record.diff}})</span>
@@ -7517,8 +7530,27 @@
                     }
                     if (method == 'x') method = '×';
                     if (method == '/') method = '÷';
-                    if (vals.length == 1 || vals[0] == [vals[1]]) this.computeRecord.push({title:title, val: vals[0], method: method, diff: diff});
-                    else this.computeRecord.push({title:title, val1: vals[0], val2:vals[1], method: method, diff: diff})
+                    
+                    let lastRecord = this.computeRecord.slice(-1);
+                    let tooltip = '';
+                    if (lastRecord.length){
+                        if (vals.length == 1 || vals[0] == vals[1]){
+                            if (typeof lastRecord[0].val != 'undefined'){
+                                tooltip = '('+(vals[0]-lastRecord[0].val)+')';
+                            } else {
+                                tooltip = '('+(vals[0]-lastRecord[0].val1)+')/('+(vals[0]-lastRecord[0].val2)+')';
+                            }
+                        } else {
+                            if (typeof lastRecord[0].val != 'undefined'){
+                                tooltip = '('+(vals[0]-lastRecord[0].val)+')/('+(vals[1]-lastRecord[0].val)+')';
+                            } else {
+                                tooltip = '('+(vals[0]-lastRecord[0].val1)+')/('+(vals[1]-lastRecord[0].val2)+')';
+                            }
+                        }
+                    }
+                    
+                    if (vals.length == 1 || vals[0] == vals[1]) this.computeRecord.push({title:title, val: vals[0], method: method, diff: diff, tooltip: tooltip});
+                    else this.computeRecord.push({title:title, val1: vals[0], val2:vals[1], method: method, diff: diff, tooltip: tooltip})
                 },
                 ComputeATKAttribute( isNA, isCRI ) {
                     this.resetRecord();
@@ -8401,42 +8433,6 @@
                     } catch (e) {
                     console.log( "錯誤:" + e);
                     }
-                   /*
-                    var originstring = f;
-                    var currentindex = 0;
-                    var newstring = "";
-                    var tempstring = "";
-                    var findindex = -1;
-                    console.log("originstring: "+originstring);
-                    try{
-                    while (currentindex < originstring.length)
-                    {
-                        originstring = originstring.slice(currentindex,200);
-                        for (x of this.KeywordReplaceList) {
-                            findindex = originstring.indexOf(x.str1, currentindex);
-                            if (findindex > -1)
-                            {
-                                var slicestring = originstring.slice(currentindex, findindex);
-                                currentindex += x.str1.length;
-                                newstring.concat(slicestring);
-                                newstring.concat(x.str2);
-                            }
-                        }
-                        if( findindex == -1)
-                        {
-                            var slicestring = originstring.slice(currentindex);
-                            newstring.concat(slicestring);
-                            console.log("notfind: "+originstring + "," + newstring);
-                            break;
-                        }
-                    }
-                    console.log("new: "+newstring);
-
-                    } catch (e) {
-                    console.log( "錯誤:" + e);
-                    }
-                    return newstring;
-                    */
                 },
                 onSpecialATKChange() {
                     this.onSkillPercentChange();
