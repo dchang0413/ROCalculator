@@ -8048,7 +8048,6 @@
                     }
                     return _L;
                 },
-                //skillstring.split(" ").filter(x => x.includes(this.skill.id.match(/\d+|[^\d_.-]+/g)[1])).length;
                 skillInUse(skillstring) { return skillstring.includes(this.skill.id.split(/^.*?_(.*?)([_(].*)?$/s)[1]); },
                 checkWeapGradeReq(grade)    { return this.checkGradeReq(0,grade); },
                 checkSubWeapGradeReq(grade) { return this.checkGradeReq(1,grade); },
@@ -8395,7 +8394,7 @@
                 SkillFormulaReplace(f) {
                     try{
                     for (x of this.KeywordReplaceList) {
-                        f = f.toString().replace(new RegExp(x.str1, "g"), x.str2);
+                        f = f.toString().replace(new RegExp(`(?<=\\b)${x.str1}(?=\\b)`, "g"), x.str2);
                     }
                     return f;
                     } catch (e) {
