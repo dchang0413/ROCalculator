@@ -4194,7 +4194,7 @@
                                             </el-row>
                                         </div>
                                     </el-row>
-                                    <el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true">
                                         <div v-for="(item, index) in equipspartlist[1+14].effectlist"
                                             v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -4640,6 +4640,32 @@
                                     </el-row>
                                     <el-collapse-transition>
                                         <div v-show="UIPanel['ATKCompute']">
+                                            <div v-for="(record) in computeRecord">
+                                                <el-row v-if="record.title == 'divider'" class="statusbox" type="flex" align="middle" justify="space-around" style="min-height: 0px; height:3px;"></el-row>
+
+                                                <el-row v-else class="statusbox" type="flex" align="middle" justify="space-around" style="height:3px;">
+                                                    <el-col class="bg-purple-light" :span="8" style="text-align: right;">
+                                                        <span>{{record.title}}:</span>
+                                                    </el-col>
+                                                    <el-col v-show="typeof record.val1 !== 'undefined' && typeof record.val1 !== 'undefined'" class="textcenter" :span="10">
+                                                        <span>{{record.val1}} ~
+                                                            {{record.val2}}</span>
+                                                    </el-col>
+                                                    <el-col v-show="typeof record.val !== 'undefined'" class="textcenter" :span="10">
+                                                        <span>{{record.val}}</span>
+                                                    </el-col>
+                                                    <el-col v-if="record.method" class="textcenter" :span="6">
+                                                        <span>({{record.method}} {{record.diff}})</span>
+                                                    </el-col>
+                                                    <el-col v-else class="textcenter" :span="6">
+                                                        <span></span>
+                                                    </el-col>
+
+                                                </el-row>
+
+                                            </div>
+                                        </div>
+                                        <!-- <div v-show="UIPanel['ATKCompute']">
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
                                                 style="height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
@@ -4740,7 +4766,7 @@
                                                         {{computeattribute.atkc7_max}}</span>
                                                 </el-col>
                                             </el-row>
-                                        </div>
+                                        </div> -->
                                     </el-collapse-transition>
 
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -6351,6 +6377,7 @@
                 ],
                 select_default: '',
                 iroSizeFix: false,
+                computeRecord: [],
                 computeattribute:
                 {
                     StatsPoint: 0,
@@ -7479,25 +7506,57 @@
                     this.computeattribute.HitperSec = Math.floor(1 / _MAxDelay * 100) / 100;
                     if (this.computeattribute.HitperSec > 7.14) this.computeattribute.HitperSec = 7.14;
                 },
+                resetRecord(){
+                    this.computeRecord = [];
+                },
+                setRecord(title,vals,method,diff,difftype=''){
+                    if (diff == 0 && method == '+') return;
+                    if (difftype == 'p') {
+                        if (diff == 1) return;
+                        diff = Math.floor(diff*100)+'%';
+                    }
+                    if (method == 'x') method = '×';
+                    if (method == '/') method = '÷';
+                    if (vals.length == 1 || vals[0] == [vals[1]]) this.computeRecord.push({title:title, val: vals[0], method: method, diff: diff});
+                    else this.computeRecord.push({title:title, val1: vals[0], val2:vals[1], method: method, diff: diff})
+                },
                 ComputeATKAttribute( isNA, isCRI ) {
-
+                    this.resetRecord();
                     var para1 = this.computeattribute['TransSTR'] / 200;
                     var para2 = this.weapon.level.id * 0.05
                     this.computeattribute.atkc0_min = Math.floor(Number(Number(this.weapon.ATK)) * (1 + para1 - para2));
                     this.computeattribute.atkc0_max = Math.floor(Number(Number(this.weapon.ATK)) * (1 + para1 + para2));
-                    if (this.IsSupportActive('BS_MAXIMIZE')) this.computeattribute.atkc0_min = this.computeattribute.atkc0_max;
-                    if (isCRI) this.computeattribute.atkc0_min = this.computeattribute.atkc0_max;
+
+                    this.setRecord('Weapon ATK',[this.weapon.ATK],'','');
+                    this.setRecord('Stat ATK%',[Math.floor(Number(Number(this.weapon.ATK)) * (1 + para1))],'x',1+para1);
+                    this.setRecord('Weap Lv. Variance',[this.computeattribute.atkc0_min,this.computeattribute.atkc0_max],'±',para2,'p');
+
+                    if (this.IsSupportActive('BS_MAXIMIZE')) {
+                        this.computeattribute.atkc0_min = this.computeattribute.atkc0_max;
+                        this.setRecord('Maximize Power',[this.computeattribute.atkc0_min,this.computeattribute.atkc0_max],'','');
+                    }
+                    if (isCRI) {
+                        this.computeattribute.atkc0_min = this.computeattribute.atkc0_max;
+                        this.setRecord('Crit',[this.computeattribute.atkc0_min,this.computeattribute.atkc0_max],'','');
+                    }
+
 
                     var para3 = Number(this.weapon.refineatk) + this.computeattribute['SpecialATK1'];
                     var paraminirefineatk2 = this.weapon.refineatk2 > 0 ? 1 : 0;
                     this.computeattribute.atkc1_min = Number(this.computeattribute.atkc0_min) + para3 + Number(paraminirefineatk2);
                     this.computeattribute.atkc1_max = Number(this.computeattribute.atkc0_max) + para3 + Number(this.weapon.refineatk2);
+
+                    this.setRecord('Refine ATK',[this.computeattribute.atkc1_min,this.computeattribute.atkc1_max],'+',
+                    Number(para3 + Number(paraminirefineatk2))+'/'+Number(para3 + Number(this.weapon.refineatk2)));
+
                     this.computeattribute.atkc1_min = Math.floor(this.computeattribute.atkc1_min * (1 + this.computeattribute['SpecialATK0']));
                     this.computeattribute.atkc1_max = Math.floor(this.computeattribute.atkc1_max * (1 + this.computeattribute['SpecialATK0']));
 
                     if (this.computeattribute.sizefix < 100) {
                         this.computeattribute.atkc2_min = Math.floor(Number(this.computeattribute.atkc1_min) * (this.computeattribute.sizefix / 100));
                         this.computeattribute.atkc2_max = Math.floor(Number(this.computeattribute.atkc1_max) * (this.computeattribute.sizefix / 100));
+                        
+                        this.setRecord('Size Penalty',[this.computeattribute.atkc2_min,this.computeattribute.atkc2_max],'x',this.computeattribute.sizefix / 100,'p');
                     }
                     else {
                         this.computeattribute.atkc2_min = Number(this.computeattribute.atkc1_min);
@@ -7505,6 +7564,8 @@
                     }
                     this.computeattribute.atkc2_min += Number(this.weapon.BulletATK);
                     this.computeattribute.atkc2_max += Number(this.weapon.BulletATK);
+
+                    this.setRecord('Ammo ATK',[this.computeattribute.atkc2_min,this.computeattribute.atkc2_max],'+',Number(this.weapon.BulletATK));
 
                     var para5 = 0; //屬性
                     if (this.IsSupportActive('SM_MAGNUM')) { para5 = 1; }
@@ -7515,11 +7576,19 @@
                     var para6 = Number(1) + (this.option.MagnumPoison2Value / 100) * (para5value / 100);
                     this.computeattribute.weaponatk_min = this.MulOper(this.computeattribute.atkc2_min, para6);
                     this.computeattribute.weaponatk_max = this.MulOper(this.computeattribute.atkc2_max, para6);
+
+                    if (para5 == 1){
+                        this.setRecord('Magnum Break',[this.computeattribute.weaponatk_min,this.computeattribute.weaponatk_max],'x',para6,'p');
+                    } else if (para5 == 5){
+                        this.setRecord('EDP ATK',[this.computeattribute.weaponatk_min,this.computeattribute.weaponatk_max],'x',para6,'p');
+                    }
                     
                     let extraATK = this.attribute['ATK'];
                     
                     this.computeattribute.weaponatk_min += extraATK;
                     this.computeattribute.weaponatk_max += extraATK;
+                    
+                    this.setRecord('Extra ATK',[this.computeattribute.weaponatk_min,this.computeattribute.weaponatk_max],'+',extraATK);
 
                     var para_race = Number(1) + Number(this.attribute['RaceAtkPercent']) / 100;
                     var para_size = Number(1) + Number(this.attribute['SizeAtkPercent']) / 100;
@@ -7529,16 +7598,27 @@
                     var para_poison = Number(1) + (this.IsSupportActive('ASC_EDP') ? (Number(this.GetSupportSkill('ASC_EDP').arg2 / 100)) : Number(0));
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.weaponatk_min, para_race);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.weaponatk_max, para_race);
+                    this.setRecord('Race%',[this.computeattribute.atkequip_min,this.computeattribute.atkequip_max],'x',para_race,'p');
+
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.atkequip_min, para_size);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.atkequip_max, para_size);
+                    this.setRecord('Size%',[this.computeattribute.atkequip_min,this.computeattribute.atkequip_max],'x',para_size,'p');
+
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.atkequip_min, para_elemt);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.atkequip_max, para_elemt);
+                    this.setRecord('Vs. Element%',[this.computeattribute.atkequip_min,this.computeattribute.atkequip_max],'x',para_elemt,'p');
+
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.atkequip_min, para_poison);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.atkequip_max, para_poison);
+                    this.setRecord('EDP',[this.computeattribute.atkequip_min,this.computeattribute.atkequip_max],'x',para_poison,'p');
+                    
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.atkequip_min, para_level);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.atkequip_max, para_level);
+                    this.setRecord('Class%',[this.computeattribute.atkequip_min,this.computeattribute.atkequip_max],'x',para_level,'p');
+
                     this.computeattribute.atkequip_min = this.MulOper(this.computeattribute.atkequip_min, para_mons);
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.atkequip_max, para_mons);
+                    this.setRecord('Specific Mob',[this.computeattribute.atkequip_min,this.computeattribute.atkequip_max],'x',para_mons,'p');
 
                     // 霸氣 ATK% 似乎不適用小於1進位
                     // 從MulOper改為Mathfloor 捨去
@@ -7559,6 +7639,9 @@
                     
                     this.computeattribute.atkc4_min = this.computeattribute.atkequip_min + this.computeattribute.atkbranch_min;
                     this.computeattribute.atkc4_max = this.computeattribute.atkequip_max + this.computeattribute.atkbranch_max;
+                    if (this.computeattribute.atkbranch_min)
+                        this.setRecord('ATK%',[this.computeattribute.atkc4_min,this.computeattribute.atkc4_max],'+',
+                            this.computeattribute.atkbranch_min+'/'+this.computeattribute.atkbranch_max);
 
                     this.computeattribute.atkc4_min = this.MulOper(this.computeattribute.atkc4_min, Number(1) - Number(this.enemyattribute.raceResist / 100));
                     this.computeattribute.atkc4_max = this.MulOper(this.computeattribute.atkc4_max, Number(1) - Number(this.enemyattribute.raceResist / 100));
@@ -7568,9 +7651,11 @@
 
                     this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc4_min, Number(this.skilloption.ElementalPercent / 100));
                     this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc4_max, Number(this.skilloption.ElementalPercent / 100));
+                    this.setRecord('Element Advantage',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'x',Number(this.skilloption.ElementalPercent / 100),'p');
 
                     this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, Number(1) + Number(this.attribute['ELEDDI'] / 100));
                     this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, Number(1) + Number(this.attribute['ELEDDI'] / 100));
+                    this.setRecord('Element Resist',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'x',Number(1) + Number(this.attribute['ELEDDI'] / 100),'p');
 
                     var para7 = Number(this.attribute['StatusATK']);
                     if( isNA ) { //普攻
@@ -7593,12 +7678,23 @@
                             this.enemyattribute.elemental,
                             this.enemyattribute.elementallevel);
                     }
-                    para7 = this.MulOper(Number(para7), Number(para7ele / 100));
+                    
+                    if (para7ele != 100){
+                        this.setRecord('divider','');
+                        this.setRecord('Status ATK',[para7],'','');
+                        para7 = this.MulOper(Number(para7), Number(para7ele / 100));
+                        this.setRecord('Element Advantage',[para7],'x',Number(para7ele / 100),'p');
+                        this.setRecord('divider','');
+                    }
+                    
                     this.computeattribute.atkc5_min += Number(para7) + Number(this.computeattribute['SpecialATK4']) + Number(this.computeattribute['SpecialATKFront']);
                     this.computeattribute.atkc5_max += Number(para7) + Number(this.computeattribute['SpecialATK4']) + Number(this.computeattribute['SpecialATKFront']);
+                    this.setRecord('+Status ATK',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'+',
+                        Number(para7) + Number(this.computeattribute['SpecialATK4']) + Number(this.computeattribute['SpecialATKFront']));
 
                     this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, Number(1) + Number(this.attribute['PATK'] / 100));
                     this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, Number(1) + Number(this.attribute['PATK'] / 100));
+                    this.setRecord('PATK',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'x',Number(1) + Number(this.attribute['PATK'] / 100),'p');
 
                     let masteryATK = Number(this.skilloption.WeaponMasteryATK);
                     if (!isNA){
@@ -7623,17 +7719,21 @@
                     }
                     this.computeattribute.atkc5_min += masteryATK + Number(this.computeattribute['SpecialATK2']);
                     this.computeattribute.atkc5_max += masteryATK + Number(this.computeattribute['SpecialATK2']);
+                    this.setRecord('Mastery/Cannon ATK',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'+',
+                        masteryATK + Number(this.computeattribute['SpecialATK2']));
 
                     //Number(this.GetSupportSkill('ASC_KATAR').arg1 / 100);
                     if (this.IsSupportActive('TK_POWER_OLD')){
                         var paraKihop = Number(1) + Number(10 * (Number(this.GetSupportSkill('TK_POWER_OLD').arg1) - 1)/100);
                         this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, paraKihop);
                         this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, paraKihop);
+                        this.setRecord('Kihop',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'x',paraKihop,'p');
                     } else
                     if (this.IsSupportActive('TK_POWER')) {
                         var paraKihop = Number(1) + Number((10 + this.GetSupportSkill('TK_POWER').lv * 15) / 100);
                         this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, paraKihop);
                         this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, paraKihop);
+                        this.setRecord('Kihop',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'x',paraKihop,'p');
                     }
 
                     var paraSLSO = 0;
@@ -7642,6 +7742,7 @@
                         paraSLSO = 1 + Math.floor(paraSLSO / 3) / 100;
                         this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, paraSLSO);
                         this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, paraSLSO);
+                        this.setRecord('Miracle',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'x',paraSLSO,'p');
                     }
                     else if (this.IsSupportActive('SG_HATE')) {
                         switch (this.enemyattribute.size) {
@@ -7656,6 +7757,7 @@
                         paraSLSO = 1 + Math.floor(paraSLSO / 3) / 100;
                         this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, paraSLSO);
                         this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, paraSLSO);
+                        this.setRecord('SLS Wrath',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'x',paraSLSO,'p');
                     }
 
                     this.computeattribute.atkc6_min = this.computeattribute.atkc5_min;
@@ -7668,12 +7770,14 @@
                         if( isCRI ){
                             this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, para_crid);
                             this.computeattribute.atkc6_max = this.MulOper(this.computeattribute.atkc6_max, para_crid);
+                            this.setRecord('Crit Mod%',[this.computeattribute.atkc6_min,this.computeattribute.atkc6_max],'x',para_crid,'p');
                         }
                     }
                     else{
                         if( this.skill.critical && isCRI ){
                             this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, para_crid);
                             this.computeattribute.atkc6_max = this.MulOper(this.computeattribute.atkc6_max, para_crid);
+                            this.setRecord('Crit Mod%',[this.computeattribute.atkc6_min,this.computeattribute.atkc6_max],'x',para_crid,'p');
                         }
                     }
 
@@ -7686,9 +7790,11 @@
                         if (this.weapon.type.isRangedattack) {
                             this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, para_ranged);
                             this.computeattribute.atkc6_max = this.MulOper(this.computeattribute.atkc6_max, para_ranged);
+                            this.setRecord('Range Mod%',[this.computeattribute.atkc6_min,this.computeattribute.atkc6_max],'x',para_ranged,'p');
                         }else{
                             this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, para_melee);
                             this.computeattribute.atkc6_max = this.MulOper(this.computeattribute.atkc6_max, para_melee);
+                            this.setRecord('Melee Mod%',[this.computeattribute.atkc6_min,this.computeattribute.atkc6_max],'x',para_melee,'p');
                         }
                     }else{
                         if( this.skill.id.includes('RK_WINDCUTTER') )
@@ -7698,11 +7804,33 @@
                         if (this.skill.ranged && this.skill.laterranged == false) {
                             this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, para_ranged);
                             this.computeattribute.atkc6_max = this.MulOper(this.computeattribute.atkc6_max, para_ranged);
+                            this.setRecord('Range Mod%',[this.computeattribute.atkc6_min,this.computeattribute.atkc6_max],'x',para_ranged,'p');
                         }else if(this.skill.ranged == false){
                             this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, para_melee);
                             this.computeattribute.atkc6_max = this.MulOper(this.computeattribute.atkc6_max, para_melee);
+                            this.setRecord('Melee Mod%',[this.computeattribute.atkc6_min,this.computeattribute.atkc6_max],'x',para_melee,'p');
                         }
                     }
+
+                    //RES
+                    this.enemyattribute.RESPercent = Number(100 * (1 - (
+                                (2000 + this.MulOper(Number(this.enemyattribute.RES), 1)) /
+                                (2000 + 5 * this.MulOper(Number(this.enemyattribute.RES), 1))))).toFixed(2);
+                    if (this.enemyattribute.RES > 0){
+                        if (isNA==false && this.skill.transWeaponDEF) {
+                            this.computeattribute.atkc6_min = this.computeattribute.atkc6_min - Number(this.enemyattribute.RES);
+                            this.computeattribute.atkc6_max = this.computeattribute.atkc6_max - Number(this.enemyattribute.RES);
+                            this.setRecord('RES',[this.computeattribute.atkc6_min,this.computeattribute.atkc6_max],'-',Number(this.enemyattribute.RES));
+                        } else {
+                            var parabypassRES = Number(1) - Number(this.attribute['BYPASSRES']) / 100;
+                            var remainingRES = Math.floor(Number(this.enemyattribute.RES) * parabypassRES);
+                            var paraRES = ((2000 + remainingRES) / (2000 + 5 * remainingRES));
+                            this.computeattribute.atkc6_min = Math.ceil(this.computeattribute.atkc6_min * paraRES);
+                            this.computeattribute.atkc6_max = Math.ceil(this.computeattribute.atkc6_max * paraRES);
+                            this.setRecord('RES',[this.computeattribute.atkc6_min,this.computeattribute.atkc6_max],'x',paraRES,'p');
+                        }
+                    }
+
 
                     //技能倍率
                     var para_na = Number(this.computeattribute['SpecialATK6']);
@@ -7715,25 +7843,12 @@
                     //高階拳刃修練
                     if (this.IsSupportActive('ASC_KATAR') && this.weapon.type.id == 'Katars') {
                         var paraAdvancedKatarReserchValue = Number(1) + Number(this.GetSupportSkill('ASC_KATAR').arg1 / 100);
-                        para_na = Math.floor(para_na * 100 * paraAdvancedKatarReserchValue)/100;
-                        para8 = Math.floor(para8 * 100 * paraAdvancedKatarReserchValue)/100;
-                    }
-
-                    //RES
-                    this.enemyattribute.RESPercent = Number(100 * (1 - (
-                                (2000 + this.MulOper(Number(this.enemyattribute.RES), 1)) /
-                                (2000 + 5 * this.MulOper(Number(this.enemyattribute.RES), 1))))).toFixed(2);
-                    if (this.enemyattribute.RES > 0){
-                        if (isNA==false && this.skill.transWeaponDEF) {
-                            this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.RES);
-                            this.computeattribute.atkc7_max = this.computeattribute.atkc7_max - Number(this.enemyattribute.RES);
-                        } else {
-                            var parabypassRES = Number(1) - Number(this.attribute['BYPASSRES']) / 100;
-                            var remainingRES = Math.floor(Number(this.enemyattribute.RES) * parabypassRES);
-                            var paraRES = ((2000 + remainingRES) / (2000 + 5 * remainingRES));
-                            this.computeattribute.atkc6_min = Math.ceil(this.computeattribute.atkc6_min * paraRES);
-                            this.computeattribute.atkc6_max = Math.ceil(this.computeattribute.atkc6_max * paraRES);
-                        }
+                            para_na = Math.floor(para_na * 100 * paraAdvancedKatarReserchValue)/100;
+                            this.setRecord('divider','');
+                            this.setRecord('Skill ATK%',[Math.floor(para8*100)+'%'],'','');
+                            para8 = Math.floor(para8 * 100 * paraAdvancedKatarReserchValue)/100;
+                            this.setRecord('Adv. Katar',[Math.floor(para8*100)+'%'],'x',paraAdvancedKatarReserchValue,'p');
+                            this.setRecord('divider','');
                     }
                     if( isNA ){
                         this.computeattribute.atkc7_min = this.MulOper(this.computeattribute.atkc6_min, para_na);
@@ -7741,6 +7856,7 @@
                     }else{
                         this.computeattribute.atkc7_min = this.MulOper(this.computeattribute.atkc6_min, para8);
                         this.computeattribute.atkc7_max = this.MulOper(this.computeattribute.atkc6_max, para8);
+                        this.setRecord('Skill Modifier',[this.computeattribute.atkc7_min,this.computeattribute.atkc7_max],'x',para8,'p');
                     }
 
                     //敵方DEF
@@ -7752,17 +7868,20 @@
                             if (isNA==false && this.skill.transWeaponDEF) {
                                 this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.WeaponDEF);
                                 this.computeattribute.atkc7_max = this.computeattribute.atkc7_max - Number(this.enemyattribute.WeaponDEF);
+                                this.setRecord('HDEF',[this.computeattribute.atkc7_min,this.computeattribute.atkc7_max],'-',Number(this.enemyattribute.WeaponDEF));
                             } else {
                                 var parabypassDEF = Number(1) - Number(this.attribute['BYPASSDEF']) / 100;
                                 var paraDEF = ((4000 + this.MulOper(Number(this.enemyattribute.WeaponDEF), parabypassDEF)) /
                                     (4000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponDEF), parabypassDEF)));
                                 this.computeattribute.atkc7_min = Math.floor(this.computeattribute.atkc7_min * paraDEF);
                                 this.computeattribute.atkc7_max = Math.floor(this.computeattribute.atkc7_max * paraDEF);
+                                this.setRecord('HDEF',[this.computeattribute.atkc7_min,this.computeattribute.atkc7_max],'x',para8,'p');
                             }
                         }
                         if (this.enemyattribute.StatusDEF > 0){
                             this.computeattribute.atkc7_min = this.computeattribute.atkc7_min - Number(this.enemyattribute.StatusDEF);
                             this.computeattribute.atkc7_max = this.computeattribute.atkc7_max - Number(this.enemyattribute.StatusDEF);
+                            this.setRecord('SDEF',[this.computeattribute.atkc7_min,this.computeattribute.atkc7_max],'-',Number(this.enemyattribute.StatusDEF));
                         }
                     }
 
@@ -7781,20 +7900,25 @@
                         var parasp6 = Number(this.computeattribute['SpecialATK7']);
                         this.computeattribute.atkc8_min += parasp6;
                         this.computeattribute.atkc8_max += parasp6;
+                        this.setRecord('Skill Additional',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'+',parasp6);
                             
                         //靈氣劍技能有效
                         var parasp6 = Number(this.computeattribute['SpecialATK8']);
                         this.computeattribute.atkc8_min += parasp6;
                         this.computeattribute.atkc8_max += parasp6;
+                        this.setRecord('Aura Blade',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'+',parasp6);
 
                         // 技能遠傷
                         if (this.skill.ranged && this.skill.laterranged) {
                             this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, para_ranged);
                             this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, para_ranged);
+                            this.setRecord('Additional Range Mod%',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'x',para_ranged,'p');
                         }
                         // 技能增傷裝
                         this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100));
                         this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100));
+                        this.setRecord('Skill Mod%',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'x',
+                            Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100),'p');
 
                     };
 
@@ -7812,24 +7936,34 @@
                         if (this.skill.critical && isCRI) {
                             this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
                             this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
+                            this.setRecord('C.RATE',[this.computeattribute.atkc9_min,this.computeattribute.atkc9_max],'x',
+                                Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100),'p');
                         }
                     }
 
                     if (this.skill.ranged){
                         this.computeattribute.atkc9_min = Math.floor(this.computeattribute.atkc9_min * Number(1 + this.attribute['RNGDDI'] / 100));
                         this.computeattribute.atkc9_max = Math.floor(this.computeattribute.atkc9_max * Number(1 + this.attribute['RNGDDI'] / 100));
+                        this.setRecord('Range Damage Inc%',[this.computeattribute.atkc9_min,this.computeattribute.atkc9_max],'x',
+                            Number(1 + this.attribute['RNGDDI'] / 100),'p');
                     }else{
                         this.computeattribute.atkc9_min = Math.floor(this.computeattribute.atkc9_min * Number(1 + this.attribute['MELDDI'] / 100));
                         this.computeattribute.atkc9_max = Math.floor(this.computeattribute.atkc9_max * Number(1 + this.attribute['MELDDI'] / 100));
+                        this.setRecord('Melee Damage Inc%',[this.computeattribute.atkc9_min,this.computeattribute.atkc9_max],'x',
+                            Number(1 + this.attribute['MELDDI'] / 100),'p');
                     }
 
                     this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number(this.computeattribute['SpecialINSIGNIAENEMYMATK'] / 100));
                     this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number(this.computeattribute['SpecialINSIGNIAENEMYMATK'] / 100));
+                    this.setRecord('Insignia',[this.computeattribute.atkc9_min,this.computeattribute.atkc9_max],'x',
+                        Number(1) + Number(this.computeattribute['SpecialINSIGNIAENEMYMATK'] / 100),'p');
 
                     // 天怒
                     if (this.IsSupportActive('PR_LEXAETERNA')) {
                         this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number(100 / 100));
                         this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number(100 / 100));
+                        this.setRecord('Lex Aeterna',[this.computeattribute.atkc9_min,this.computeattribute.atkc9_max],'x',
+                            Number(1) + Number(100 / 100),'p');
                     }
 
 
@@ -7840,9 +7974,12 @@
                             _paradiv *= -1;
                             this.computeattribute.atkc9_min = Math.floor(this.computeattribute.atkc9_min / _paradiv);
                             this.computeattribute.atkc9_max = Math.floor(this.computeattribute.atkc9_max / _paradiv);
+                            this.setRecord('Hit Count',[this.computeattribute.atkc9_min,this.computeattribute.atkc9_max],'/',_paradiv);
                         }
                         this.computeattribute.atkmulti_min = this.computeattribute.atkc9_min * _paradiv;
                         this.computeattribute.atkmulti_max = this.computeattribute.atkc9_max * _paradiv;
+                        if (_paradiv != 1) 
+                            this.setRecord('Total',[this.computeattribute.atkmulti_min,this.computeattribute.atkmulti_max],'',);
                     }
 
                     if( isNA ){
