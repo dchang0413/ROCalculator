@@ -7558,7 +7558,7 @@
                     this.computeattribute.atkc0_max = Math.floor(Number(Number(this.weapon.ATK)) * (1 + para1 + para2));
 
                     this.setRecord('Weapon ATK',[this.weapon.ATK],'','');
-                    this.setRecord('Stat ATK%',[Math.floor(Number(Number(this.weapon.ATK)) * (1 + para1))],'x',(1+para1)*100+'%');
+                    this.setRecord('Stat ATK%',[Math.floor(Number(Number(this.weapon.ATK)) * (1 + para1))],'x',((1+para1)*100).toFixed(1)+'%');
                     this.setRecord('Weap Lv. Variance',[this.computeattribute.atkc0_min,this.computeattribute.atkc0_max],'±',para2,'p');
 
                     if (this.IsSupportActive('BS_MAXIMIZE')) {
