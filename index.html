@@ -4648,24 +4648,22 @@
                                                         <span>{{record.title}}:</span>
                                                     </el-col>
                                                     <el-col v-show="typeof record.val1 !== 'undefined' && typeof record.val1 !== 'undefined'" class="textcenter" :span="10">
-                                                        <!--<span>{{record.val1}} ~ {{record.val2}}</span>-->
-
-                                                        <el-tooltip class="item" effect="dark" placement="left">
+                                                        <el-tooltip v-if="record.tooltip" class="item" effect="dark" placement="left">
                                                             <template #content>
                                                                 <span> {{record.tooltip}} </span>
                                                               </template>
                                                             <el-col class="textcenter">{{record.val1}} ~ {{record.val2}}</el-col>
                                                         </el-tooltip>
-
+                                                        <span v-else>{{record.val1}} ~ {{record.val2}}</span>
                                                     </el-col>
                                                     <el-col v-show="typeof record.val !== 'undefined'" class="textcenter" :span="10">
-                                                        <!--<span>{{record.val}}</span>-->
-                                                        <el-tooltip class="item" effect="dark" placement="left">
+                                                        <el-tooltip v-if="record.tooltip" class="item" effect="dark" placement="left">
                                                             <template #content>
                                                                 <span> {{record.tooltip}} </span>
                                                               </template>
                                                             <el-col class="textcenter">{{record.val}}</el-col>
                                                         </el-tooltip>
+                                                        <span v-else>{{record.val}}</span>
                                                     </el-col>
                                                     <el-col v-if="record.method" class="textcenter" :span="6">
                                                         <span>({{record.method}} {{record.diff}})</span>
@@ -7533,7 +7531,7 @@
                     
                     let lastRecord = this.computeRecord.slice(-1);
                     let tooltip = '';
-                    if (lastRecord.length){
+                    if (lastRecord.length && (lastRecord[0].val || lastRecord[0].val1)){
                         if (vals.length == 1 || vals[0] == vals[1]){
                             if (typeof lastRecord[0].val != 'undefined'){
                                 tooltip = '('+(vals[0]-lastRecord[0].val)+')';
@@ -7560,7 +7558,7 @@
                     this.computeattribute.atkc0_max = Math.floor(Number(Number(this.weapon.ATK)) * (1 + para1 + para2));
 
                     this.setRecord('Weapon ATK',[this.weapon.ATK],'','');
-                    this.setRecord('Stat ATK%',[Math.floor(Number(Number(this.weapon.ATK)) * (1 + para1))],'x',1+para1);
+                    this.setRecord('Stat ATK%',[Math.floor(Number(Number(this.weapon.ATK)) * (1 + para1))],'x',(1+para1)*100+'%');
                     this.setRecord('Weap Lv. Variance',[this.computeattribute.atkc0_min,this.computeattribute.atkc0_max],'±',para2,'p');
 
                     if (this.IsSupportActive('BS_MAXIMIZE')) {
@@ -7888,7 +7886,7 @@
                     }else{
                         this.computeattribute.atkc7_min = this.MulOper(this.computeattribute.atkc6_min, para8);
                         this.computeattribute.atkc7_max = this.MulOper(this.computeattribute.atkc6_max, para8);
-                        this.setRecord('Skill Modifier',[this.computeattribute.atkc7_min,this.computeattribute.atkc7_max],'x',para8,'p');
+                        this.setRecord('Skill Multiplier',[this.computeattribute.atkc7_min,this.computeattribute.atkc7_max],'x',para8,'p');
                     }
 
                     //敵方DEF
