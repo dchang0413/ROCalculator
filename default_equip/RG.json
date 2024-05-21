@@ -667,5 +667,539 @@
 			}
 		],
 		"idx": 3
-	}
+	},
+	"10": {
+        "id": "weaponr",
+        "label": "MainHand",
+        "equipname": "Poenitentia Asta",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": 10,
+                "EffectType": {
+                    "id": "AtkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(SKIDS(\"OVERBRAND\")?3*DOWN(WEAR/2)+(WEAR>8?25:0):0)+(SKIDS(\"OVERSLASH\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAR>6?10:0)",
+                "EffectType": {
+                    "id": "VariableCastSecond"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAR>10?10:0)",
+                "EffectType": {
+                    "id": "LevelAtkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(2)?1:0)",
+                "EffectType": {
+                    "id": "PATK"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(3)?1:0)",
+                "EffectType": {
+                    "id": "POW"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "OneHandedSpears",
+                "label": "1HSpear",
+                "sizefix": {
+                    "small": 75,
+                    "middle": 75,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "205",
+            "MATK": 0,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 190,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    },
+	"11": {
+        "id": "weaponr",
+        "label": "MainHand",
+        "equipname": "Poenitentia Gladius",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": 10,
+                "EffectType": {
+                    "id": "MatkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(SKIDS(\"RAYOFGENESIS\")?4*DOWN(WEAR/2)+(WEAR>8?25:0):0)+(SKIDS(\"CROSS_RAIN\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAR>6?10:0)",
+                "EffectType": {
+                    "id": "VariableCastSecond"
+                },
+                "Enable": true
+            },
+            {
+				"EffectNumber": "AEI==6?(WEAR>10?10:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+            {
+                "EffectNumber": "(WEAG(2)?1:0)",
+                "EffectType": {
+                    "id": "SMATK"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(3)?1:0)",
+                "EffectType": {
+                    "id": "SPL"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "OneHandedSwords",
+                "label": "1HSword",
+                "sizefix": {
+                    "small": 75,
+                    "middle": 100,
+                    "large": 75
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "195",
+            "MATK": 250,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 180,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    },
+	"12": {
+        "id": "weaponr",
+        "label": "MainHand",
+        "equipname": "Vivatus Fides Guardian Spear",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": "(WEAG(3)?7:0)",
+                "EffectType": {
+                    "id": "AtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+                "EffectType": {
+                    "id": "ElementalAtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "LevelAtkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"OVERBRAND\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(12*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAR>8?10:0)",
+                "EffectType": {
+                    "id": "GCDPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "PATK"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "POW"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "OneHandedSpears",
+                "label": "1HSpear",
+                "sizefix": {
+                    "small": 75,
+                    "middle": 75,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "220",
+            "MATK": 0,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 180,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    },
+	"13": {
+        "id": "weaponr",
+        "label": "MainHand",
+        "equipname": "Vivatus Fides Guardian Sword",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": "(WEAG(3)?7:0)",
+                "EffectType": {
+                    "id": "MatkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+                "EffectType": {
+                    "id": "ElementalMatkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"RAYOFGENESIS\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(12*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Matk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(SKIDS(\"RAYOFGENESIS\")&&WEAR>8)?0.5:0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            },
+			{
+				"EffectNumber": "(AEI==6||AEI==0)?(WEAR>11?15:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "SMATK"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "SPL"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "OneHandedSwords",
+                "label": "1HSword",
+                "sizefix": {
+                    "small": 75,
+                    "middle": 100,
+                    "large": 75
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "200",
+            "MATK": 220,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 200,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    },
+	"14": {
+        "id": "weaponr",
+        "label": "MainHand",
+        "equipname": "Adulter Fides Guardian Spear",
+        "refinelevel": 12,
+        "grade": {
+            "id": 0,
+            "label": "No Grade"
+        },
+        "effectlist": [
+			{
+                "EffectNumber": "(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "LevelAtkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"OVERBRAND\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(12*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAR>8?10:0)",
+                "EffectType": {
+                    "id": "GCDPercent"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "OneHandedSpears",
+                "label": "1HSpear",
+                "sizefix": {
+                    "small": 75,
+                    "middle": 75,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 4,
+                "label": "Lv. 4 Weapon",
+                "upgradeatk": 7,
+                "saferefine": 4,
+                "overatk": 14
+            },
+            "grade": {
+                "id": 0,
+                "label": "No Grade"
+            },
+            "ATK": "220",
+            "MATK": 0,
+            "refinelevel": 12,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 180,
+            "refineatk": 84,
+            "refinematk": 84,
+            "refineatk2": 112
+        }
+    },
+	"15": {
+        "id": "weaponr",
+        "label": "MainHand",
+        "equipname": "Adulter Fides Guardian Sword",
+        "refinelevel": 12,
+        "grade": {
+            "id": 0,
+            "label": "No Grade"
+        },
+        "effectlist": [
+			{
+				"EffectNumber": "(AEI==6||AEI==0)?(WEAR>11?15:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+            {
+                "EffectNumber": "SKIDS(\"RAYOFGENESIS\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(12*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Matk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(SKIDS(\"RAYOFGENESIS\")&&WEAR>8)?0.5:0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "OneHandedSwords",
+                "label": "1HSword",
+                "sizefix": {
+                    "small": 75,
+                    "middle": 100,
+                    "large": 75
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 4,
+                "label": "Lv. 4 Weapon",
+                "upgradeatk": 7,
+                "saferefine": 4,
+                "overatk": 14
+            },
+            "grade": {
+                "id": 0,
+                "label": "No Grade"
+            },
+            "ATK": "200",
+            "MATK": 220,
+            "refinelevel": 12,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 200,
+            "refineatk": 84,
+            "refinematk": 84,
+            "refineatk2": 112
+        }
+    }
 }
