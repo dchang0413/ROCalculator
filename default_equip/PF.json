@@ -1264,5 +1264,233 @@
             "refinematk": 84,
             "refineatk2": 112
         }
-    }
+    },
+    "16": {
+		"id": "robe",
+		"label": "Garment",
+		"equipname": "Legendary Performer Manteau",
+		"refinelevel": 13,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 30,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": 150,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(GARMR>10?10:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"METALICSOUND\")?(25+(GARMR>10?25:0)+(GARMR>11?75:0)+((GARMG(4)&&GARMR>12)?60:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>11?10:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+                "EffectNumber": "AEI==0?(GARMG(2)?20:0):0",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            },
+			{
+				"EffectNumber": "GARMG(3)?20:0",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"idx": 3
+	},
+    "17": {
+		"id": "robe",
+		"label": "Garment",
+		"equipname": "Legendary Performer Manteau(Loud Park)",
+		"refinelevel": 13,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+            {
+				"EffectNumber": "ARMORR>10?300:150",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(GARMR>10?10:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "ARMORR>10?20:0",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"METALICSOUND\")?(25+(GARMR>10?25:0)+(GARMR>11?75:0)+((GARMG(4)&&GARMR>12)?60:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>11?10:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+                "EffectNumber": "AEI==0?(ARMORR*7+(GARMG(2)?20:0)):0",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            },
+			{
+				"EffectNumber": "GARMG(3)?20:0",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "ARMORR>12?230:30",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "ARMORR>12?200:0",
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "ARMORR>12?200:0",
+				"EffectType": {
+					"id": "LUK"
+				},
+				"Enable": true
+			}
+		],
+		"idx": 3
+	},
+    "18": {
+		"id": "acc1",
+		"label": "Accessory",
+		"equipname": "Divine Bell",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 30,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": 30,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(SKIDS(\"REVERBERATION\")?40:0)+(SKIDS(\"METALICSOUND\")?150:0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "SKIDS(\"METALICSOUND REVERBERATION\")?50:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			}
+		],
+		"idx": 3
+	}
 }
