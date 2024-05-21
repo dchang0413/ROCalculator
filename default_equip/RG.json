@@ -127,21 +127,14 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "WEAR*20",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 30,
+				"EffectNumber": "CCL=='RG'?30:0",
 				"EffectType": {
 					"id": "AspdPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 30,
+				"EffectNumber": "CCL=='RG'?30:0",
 				"EffectType": {
 					"id": "Cri"
 				},
@@ -229,14 +222,14 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "GARMR>10?(2*DOWN(BLV/2)):0",
+				"EffectNumber": "SKIDS('CANNONSPEAR BANISHINGPOINT')?(GARMR>10?(2*DOWN(MIN(240,BLV)/2)):0):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "HATR>10?0.5:0",
+				"EffectNumber": "SKIDS('CANNONSPEAR')?(HATR>10?0.5:0)",
 				"EffectType": {
 					"id": "CDTime"
 				},
@@ -277,7 +270,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "7*SRL",
+				"EffectNumber": "SKIDS('EARTHDRIVE')?(7*SRL):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -320,28 +313,28 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "CCL=='RG'?10:5",
 				"EffectType": {
 					"id": "STR"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "CCL=='RG'?10:5",
 				"EffectType": {
 					"id": "INT"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "CCL=='RG'?10:5",
 				"EffectType": {
 					"id": "DEX"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 100,
+				"EffectNumber": "CCL=='RG'?100:0",
 				"EffectType": {
 					"id": "Atk"
 				},
@@ -355,21 +348,21 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 1.5,
+				"EffectNumber": "SKIDS('EARTHDRIVE')?1.5:0",
 				"EffectType": {
 					"id": "CDTime"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 30,
+				"EffectNumber": "CCL=='RG'?30:0",
 				"EffectType": {
 					"id": "GCDPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 0.5,
+				"EffectNumber": "SKIDS('EARTHDRIVE')?0.5:0",
 				"EffectType": {
 					"id": "VariableCastSecond"
 				},
@@ -403,7 +396,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "FLOOR(BLV/10)",
+				"EffectNumber": "SKIDS('CROSS_RAIN JUDGEMENT_CROSS')?(FLOOR(BLV/10)):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -430,14 +423,14 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "ARMORR>10?30+FLOOR(BLV/2):(ARMORR>9?30:0)",
+				"EffectNumber": "SKIDS('CANNONSPEAR')?(ARMORR>10?30+FLOOR(BLV/2):(ARMORR>9?30:0)):(SKIDS('BANISHINGPOINT')?(ARMORR>10?(DOWN(BLV/2)*2):0):0)",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "ARMORR>9?1.5:0",
+				"EffectNumber": "SKIDS('CANNONSPEAR')?(ARMORR>9?1.5:0):0",
 				"EffectType": {
 					"id": "CDTime"
 				},
@@ -485,18 +478,18 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 70,
+				"EffectNumber": "CCL=='RG'?70:0",
 				"EffectType": {
 					"id": "RaceAtkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 100,
+				"EffectNumber": "SKIDS('BANISHINGPOINT')?100:0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
-				"Enable": false
+				"Enable": true
 			},
 			{
 				"EffectNumber": 10,
@@ -506,12 +499,19 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 25,
+				"EffectNumber": "CCL=='RG'?25:0",
 				"EffectType": {
 					"id": "HPPercent"
 				},
 				"Enable": true
-			}
+			},
+			{
+                "EffectNumber": "SKIDS('OVERBRAND')?1:0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            }
 		],
 		"idx": 3
 	},
@@ -568,7 +568,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "7*SRL",
+				"EffectNumber": "SKIDS('EARTHDRIVE')?(7*SRL):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -652,7 +652,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "GARMR>10?(2*DOWN(MIN(240,BLV)/2)):0",
+				"EffectNumber": "SKIDS('CANNONSPEAR BANISHINGPOINT')?(GARMR>10?(2*DOWN(MIN(240,BLV)/2)):0):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
