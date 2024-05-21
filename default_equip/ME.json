@@ -98,7 +98,7 @@
 	"1": {
 		"id": "weaponr",
 		"label": "MainHand",
-		"equipname": "Awakened Meteor Striker (AC)",
+		"equipname": "Awakened Meteor Striker",
 		"refinelevel": 0,
 		"grade": {
 			"id": 0,
@@ -120,7 +120,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "WEAR>8?15:0",
+				"EffectNumber": "SKIDS('ARMSCANNON')?(WEAR>8?25:0):(SKIDS('VULCANARM BOOSTKNUCKLE')?(10*DOWN(WEAR/3)+(WEAR>6?15:0)):0)",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -181,28 +181,28 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": "BLV",
+				"EffectNumber": "CCL=='ME'?BLV:0",
 				"EffectType": {
 					"id": "Atk"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 70,
+				"EffectNumber": "CCL=='ME'?70:0",
 				"EffectType": {
 					"id": "RangedDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "ARMORR>6?100:(ARMORR>4?50:0)",
+				"EffectNumber": "SKIDS('ARMSCANNON')?(ARMORR>6?100:(ARMORR>4?50:0)):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 30,
+				"EffectNumber": "CCL=='ME'?30:0",
 				"EffectType": {
 					"id": "GCDPercent"
 				},
@@ -243,14 +243,14 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 75,
+				"EffectNumber": "SKIDS('ARMSCANNON')?75:0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 20,
+				"EffectNumber": "CCL=='ME'?20:0",
 				"EffectType": {
 					"id": "GCDPercent"
 				},
@@ -277,7 +277,7 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 15,
+				"EffectNumber": "CCL=='ME'?15:0",
 				"EffectType": {
 					"id": "SizeAtkPercent"
 				},
@@ -325,7 +325,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SRL>10?15:0",
+				"EffectNumber": "SKIDS('ARMSCANNON CARTCANNON')?(SRL>10?15:0):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -464,28 +464,28 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "CCL=='ME'?10:5",
 				"EffectType": {
 					"id": "STR"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "CCL=='ME'?10:5",
 				"EffectType": {
 					"id": "VIT"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "CCL=='ME'?10:5",
 				"EffectType": {
 					"id": "DEX"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 100,
+				"EffectNumber": "CCL=='ME'?100:0",
 				"EffectType": {
 					"id": "Atk"
 				},
@@ -499,14 +499,14 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 30,
+				"EffectNumber": "CCL=='ME'?30:0",
 				"EffectType": {
 					"id": "GCDPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 50,
+				"EffectNumber": "SKIDS('ARMCANNON')?50:0",
 				"EffectType": {
 					"id": "SPSkillVariableCastPercent"
 				},
@@ -539,7 +539,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "DOWN(BLV/3)",
+				"EffectNumber": "SKIDS('ARMSCANNON)?DOWN(BLV/3):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
