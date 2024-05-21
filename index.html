@@ -7825,6 +7825,10 @@
                             this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, para_melee);
                             this.computeattribute.atkc6_max = this.MulOper(this.computeattribute.atkc6_max, para_melee);
                             this.setRecord('Melee Mod%',[this.computeattribute.atkc6_min,this.computeattribute.atkc6_max],'x',para_melee,'p');
+
+                            var para_enchant_shad = this.IsSupportActive('SHC_ENCHANTING_SHADOW') ? Number(this.GetSupportSkill('SHC_ENCHANTING_SHADOW').arg1 * 0.03) : 0;
+                            this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, 1 + para_enchant_shad);
+                            this.computeattribute.atkc6_max = this.MulOper(this.computeattribute.atkc6_max, 1 + para_enchant_shad);
                         }
                     }else{
                         if( this.skill.id.includes('RK_WINDCUTTER') )
@@ -7839,8 +7843,14 @@
                             this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, para_melee);
                             this.computeattribute.atkc6_max = this.MulOper(this.computeattribute.atkc6_max, para_melee);
                             this.setRecord('Melee Mod%',[this.computeattribute.atkc6_min,this.computeattribute.atkc6_max],'x',para_melee,'p');
+
+                            var para_enchant_shad = this.IsSupportActive('SHC_ENCHANTING_SHADOW') ? Number(this.GetSupportSkill('SHC_ENCHANTING_SHADOW').arg1 * 0.03) : 0;
+                            this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, 1 + para_enchant_shad);
+                            this.computeattribute.atkc6_max = this.MulOper(this.computeattribute.atkc6_max, 1 + para_enchant_shad);
+                            this.setRecord('Enchanting Shadow',[this.computeattribute.atkc6_min,this.computeattribute.atkc6_max],'x',1+para_enchant_shad,'p');
                         }
                     }
+
 
                     //RES
                     this.enemyattribute.RESPercent = Number(100 * (1 - (
@@ -10905,6 +10915,7 @@
                         { skill: { id: 'GC_POISONINGWEAPON:2', name: 'Poisonous Weapon:Magic Mushroom', maxlv: 1, lv: 1, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'GC_POISONINGWEAPON,GC_POISONINGWEAPON:1', Note: '', } },
                         { skill: { id: 'GC_POISONINGWEAPON', name: 'Poisonous Weapon:Other', maxlv: 1, lv: 1, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'GC_POISONINGWEAPON:1,GC_POISONINGWEAPON:2', Note: '', } },
                         { skill: { id: 'SHC_POTENT_VENOM', name: 'Potent Venom', maxlv: 10, lv: 10, class: 'GX', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
+                        { skill: { id: 'SHC_ENCHANTING_SHADOW', name: 'Enchanting Shadow', maxlv: 5, lv: 5, class: 'GX', changelv: false, argnum: 1, arg1: 20, arg1desc: 'Stack Count', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'SHC_SHADOW_SENSE', name: 'Shadow Sense', maxlv: 10, lv: 10, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
                         { skill: { id: 'RG_RAID', name: 'Sightless Mind(vs.Boss)', maxlv: 1, lv: 1, class: 'SC', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
