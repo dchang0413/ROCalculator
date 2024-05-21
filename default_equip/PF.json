@@ -194,28 +194,28 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 30,
+				"EffectNumber": "['MI','WA'].includes(CCL)?30:0",
 				"EffectType": {
 					"id": "INT"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 150,
+				"EffectNumber": "['MI','WA'].includes(CCL)?150:0",
 				"EffectType": {
 					"id": "Matk"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 70,
+				"EffectNumber": "['MI','WA'].inclues(CCL)?70:0",
 				"EffectType": {
 					"id": "SizeMatkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "ARMORR>10?100:(ARMORR>8?50:0)",
+				"EffectNumber": "SKIDS(\"METALICSOUND\")?(ARMORR>10?100:(ARMORR>8?50:0)):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -242,28 +242,28 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": "GARMR>10?10:(GARMR>6?5:2)+20",
+				"EffectNumber": "GARMR>10?10:(GARMR>6?5:2)+(['MI','WA'].inclues(CCL)?20:0)",
 				"EffectType": {
 					"id": "RangedDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "['MI','WA'].inclues(CCL)?10:0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 2,
+				"EffectNumber": "['MI','WA'].inclues(CCL)?2:0",
 				"EffectType": {
 					"id": "CDTime"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "['MI','WA'].inclues(CCL)?10:0",
 				"EffectType": {
 					"id": "GCDPercent"
 				},
@@ -1276,14 +1276,14 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 30,
+				"EffectNumber": "['MI','WA'].inclues(CCL)?30:0",
 				"EffectType": {
 					"id": "INT"
 				},
 				"Enable": true
 			},
             {
-				"EffectNumber": 150,
+				"EffectNumber": "['MI','WA'].inclues(CCL)?150:0",
 				"EffectType": {
 					"id": "Matk"
 				},
@@ -1297,7 +1297,7 @@
 				"Enable": true
 			},
             {
-				"EffectNumber": 10,
+				"EffectNumber": "['MI','WA'].inclues(CCL)?10:0",
 				"EffectType": {
 					"id": "ElementalMatkPercent"
 				},
@@ -1345,7 +1345,7 @@
 		},
 		"effectlist": [
             {
-				"EffectNumber": "ARMORR>10?300:150",
+				"EffectNumber": "(ARMORR>10?150:0)+(['MI','WA'].inclues(CCL)?150:0)",
 				"EffectType": {
 					"id": "Matk"
 				},
@@ -1359,7 +1359,7 @@
 				"Enable": true
 			},
             {
-				"EffectNumber": 10,
+				"EffectNumber": "['MI','WA'].inclues(CCL)?10:0",
 				"EffectType": {
 					"id": "ElementalMatkPercent"
 				},
@@ -1401,7 +1401,7 @@
 				"Enable": true
 			},
             {
-				"EffectNumber": "ARMORR>12?230:30",
+				"EffectNumber": "(ARMORR>12?230:0)+(['MI','WA'].inclues(CCL)?30:0)",
 				"EffectType": {
 					"id": "INT"
 				},
@@ -1484,7 +1484,7 @@
 				"Enable": true
 			},
             {
-				"EffectNumber": 50,
+				"EffectNumber": "['MI','WA'].inclues(CCL)?50:0",
 				"EffectType": {
 					"id": "BypassMDEFPercent"
 				},
