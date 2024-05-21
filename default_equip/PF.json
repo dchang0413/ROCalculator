@@ -1337,22 +1337,15 @@
     "17": {
 		"id": "robe",
 		"label": "Garment",
-		"equipname": "Legendary Performer Manteau(+13 Loud Park Combo)",
+		"equipname": "Legendary Performer Manteau(Loud Park)",
 		"refinelevel": 13,
 		"grade": {
 			"id": 4,
 			"label": "A"
 		},
 		"effectlist": [
-			{
-				"EffectNumber": 30,
-				"EffectType": {
-					"id": "INT"
-				},
-				"Enable": true
-			},
             {
-				"EffectNumber": 300,
+				"EffectNumber": "ARMORR>10?300:150",
 				"EffectType": {
 					"id": "Matk"
 				},
@@ -1373,7 +1366,7 @@
 				"Enable": true
 			},
             {
-				"EffectNumber": 20,
+				"EffectNumber": "ARMORR>10?20:0",
 				"EffectType": {
 					"id": "LevelMatkPercent"
 				},
@@ -1394,7 +1387,7 @@
 				"Enable": true
 			},
 			{
-                "EffectNumber": "AEI==0?(91+(GARMG(2)?20:0)):0",
+                "EffectNumber": "AEI==0?(ARMORR*7+(GARMG(2)?20:0)):0",
                 "EffectType": {
                     "id": "ElementalMagicPercent"
                 },
@@ -1408,21 +1401,21 @@
 				"Enable": true
 			},
             {
-				"EffectNumber": 200,
+				"EffectNumber": "ARMORR>12?230:30",
 				"EffectType": {
 					"id": "INT"
 				},
 				"Enable": true
 			},
             {
-				"EffectNumber": 200,
+				"EffectNumber": "ARMORR>12?200:0",
 				"EffectType": {
 					"id": "DEX"
 				},
 				"Enable": true
 			},
             {
-				"EffectNumber": 200,
+				"EffectNumber": "ARMORR>12?200:0",
 				"EffectType": {
 					"id": "LUK"
 				},
