@@ -999,7 +999,7 @@
             {
                 "EffectNumber": "(WEAR>10?10:0)",
                 "EffectType": {
-                    "id": "LevelAtkPercent"
+                    "id": "MeleeDamagePercent"
                 },
                 "Enable": true
             },
@@ -1170,7 +1170,7 @@
 			{
                 "EffectNumber": "(WEAR>11?15:0)",
                 "EffectType": {
-                    "id": "LevelAtkPercent"
+                    "id": "MeleeDamagePercent"
                 },
                 "Enable": true
             },
@@ -1350,84 +1350,84 @@
         }
     },
 	"21": {
-        "id": "weaponr",
-        "label": "MainHand",
-        "equipname": "Adulter Fides Scepter",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
+		"id": "weaponr",
+		"label": "MainHand",
+		"equipname": "Adulter Fides Scepter",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "LevelAtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"CART_TORNADO\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>8?10:0)",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Maces",
-                "label": "Mace",
-                "sizefix": {
-                    "small": 75,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "230",
-            "MATK": 0,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 300,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
+				"EffectNumber": "12*(DOWN(WEAR/3))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>11?15:0",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"CART_TORNADO\")?(WEAR>10?55:(WEAR>6?30:10)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>8?10:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Maces",
+				"label": "Mace",
+				"sizefix": {
+					"small": 75,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "230",
+			"MATK": 0,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 300,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
 	"22": {
         "id": "weaponr",
         "label": "MainHand",
-        "equipname": "Adulter Fides Katar",
+        "equipname": "Adulter Fides Rapier",
         "refinelevel": 12,
         "grade": {
             "id": 0,
@@ -1442,7 +1442,7 @@
                 "Enable": true
             },
             {
-                "EffectNumber": "SKIDS(\"CARTCANNON\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+                "EffectNumber": "SKIDS(\"CARTCANNON\")?(WEAR>10?55:(WEAR>6?30:10)):0",
                 "EffectType": {
                     "id": "SkillDamagePercent"
                 },
