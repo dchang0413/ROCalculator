@@ -5,35 +5,35 @@
         "equipname": "Amazing Grace",
         "effectlist": {
             "0": {
-                "EffectNumber": 30,
+                "EffectNumber": "CCL=='AB'?30:0",
                 "EffectType": {
                     "id": "INT"
                 },
                 "Enable": true
             },
             "1": {
-                "EffectNumber": 150,
+                "EffectNumber": "CCL=='AB'?150:0",
                 "EffectType": {
                     "id": "Matk"
                 },
                 "Enable": true
             },
             "2": {
-                "EffectNumber": 70,
+                "EffectNumber": "CCL=='AB'?70:0",
                 "EffectType": {
                     "id": "SizeMatkPercent"
                 },
                 "Enable": true
             },
             "3": {
-                "EffectNumber": "(ARMORR>9?15:0)",
+                "EffectNumber": "ARMORR>9?(AEI==6?15:0):0",
                 "EffectType": {
                     "id": "ElementalMagicPercent"
                 },
                 "Enable": true
             },
             "4": {
-                "EffectNumber": "(ARMORR>4?50:0)+(ARMORR>6?50:0)",
+                "EffectNumber": "SKIDS('ADORAMUS JUDEX')?(ARMORR>6?100:(ARMORR>4?50:0)):0",
                 "EffectType": {
                     "id": "SkillDamagePercent"
                 },
@@ -64,28 +64,28 @@
                 "Enable": true
             },
             "1": {
-                "EffectNumber": 10,
+                "EffectNumber": "[6,3,0].includes(AEI)?10:0",
                 "EffectType": {
                     "id": "ElementalMagicPercent"
                 },
                 "Enable": true
             },
             "2": {
-                "EffectNumber": "DOWN(BLV/3)",
+                "EffectNumber": "SKIDS('ADORAMUS JUDEX')?DOWN(BLV/3):0",
                 "EffectType": {
                     "id": "SkillDamagePercent"
                 },
                 "Enable": true
             },
             "3": {
-                "EffectNumber": 30,
+                "EffectNumber": "CCL=='AB'?30:0",
                 "EffectType": {
                     "id": "VariableCastPercent"
                 },
                 "Enable": true
             },
             "4": {
-                "EffectNumber": 15,
+                "EffectNumber": "CCL=='AB'?15:0",
                 "EffectType": {
                     "id": "AspdPercent"
                 },
@@ -99,22 +99,36 @@
         "label": "Accessory",
         "equipname": "Valkryie Drop",
         "refinelevel": 0,
-        "effectlist": {
-            "0": {
-                "EffectNumber": 15,
+        "effectlist": [
+            {
+                "EffectNumber": "CCL=='AB'?15:0",
                 "EffectType": {
                     "id": "SizeMatkPercent"
                 },
                 "Enable": true
             },
-            "1": {
-                "EffectNumber": "3*DOWN(BLV/2)",
+            {
+                "EffectNumber": "10",
+                "EffectType": {
+                    "id": "VariableCastPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(MANUS)?(3*DOWN(BLV/2)):0",
                 "EffectType": {
                     "id": "SkillDamagePercent"
                 },
                 "Enable": true
-            }
-        },
+            },
+            {
+				"EffectNumber": "5",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+        ],
         "idx": 3
     },
     "3": {
@@ -131,14 +145,14 @@
                 "Enable": false
             },
             "1": {
-                "EffectNumber": 25,
+                "EffectNumber": "CCL=='AB'?25:0",
                 "EffectType": {
                     "id": "LevelMatkPercent"
                 },
                 "Enable": true
             },
             "2": {
-                "EffectNumber": 40,
+                "EffectNumber": "[0,4,8,9].includes(EEI)?40:0",
                 "EffectType": {
                     "id": "ElementalMatkPercent"
                 },
@@ -152,7 +166,7 @@
                 "Enable": true
             },
             "4": {
-                "EffectNumber": 50,
+                "EffectNumber": "SKIDS('ADORAMUS JUDEX')?50:0",
                 "EffectType": {
                     "id": "SPSkillVariableCastPercent"
                 },
@@ -182,7 +196,7 @@
                 "Enable": true
             },
             "1": {
-                "EffectNumber": "SHOER>6?10:(SHOER>4?5:2)",
+                "EffectNumber": "AEI==6?(SHOER>6?10:(SHOER>4?5:2)):0",
                 "EffectType": {
                     "id": "ElementalMagicPercent"
                 },
@@ -199,6 +213,13 @@
                 "EffectNumber": "SHOER>6?20:(SHOER>4?10:3)",
                 "EffectType": {
                     "id": "SPPercent"
+                },
+                "Enable": true
+            },
+            "4": {
+                "EffectNumber": "SKIDS('JUDEX')?30:0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
                 },
                 "Enable": true
             }
@@ -223,31 +244,31 @@
                 "EffectType": {
                     "id": "RaceMatkPercent"
                 },
-                "Enable": true
+                "Enable": false
             },
             "2": {
-                "EffectNumber": "WEAR>8?50:(WEAR>6?30:0)",
+                "EffectNumber": "[7,9].includes(EEI)?(WEAR>8?50:(WEAR>6?30:0)):0",
                 "EffectType": {
                     "id": "ElementalMatkPercent"
                 },
                 "Enable": true
             },
             "3": {
-                "EffectNumber": "SHOER>6?10:(SHOER>4?5:2)",
+                "EffectNumber": "AEI==6?(SHOER>6?10:(SHOER>4?5:2)):0",
                 "EffectType": {
                     "id": "ElementalMagicPercent"
                 },
                 "Enable": true
             },
             "4": {
-                "EffectNumber": "WEAR>8?150:130",
+                "EffectNumber": "SKIDS('ADORAMUS')?(WEAR>8?150:130):(SKIDS('JUDEX')?30:0)",
                 "EffectType": {
                     "id": "SkillDamagePercent"
                 },
                 "Enable": true
             },
             "5": {
-                "EffectNumber": 50,
+                "EffectNumber": "SKIDS('ADORAMUS JUDEX')?50:0",
                 "EffectType": {
                     "id": "SPSkillVariableCastPercent"
                 },
@@ -288,17 +309,17 @@
                 "EffectType": {
                     "id": "RaceMatkPercent"
                 },
-                "Enable": true
+                "Enable": false
             },
             "2": {
-                "EffectNumber": "FLOOR(WEAR/2)+(WEAR>6?10:0)",
+                "EffectNumber": "AEI==6?(FLOOR(WEAR/2)+(WEAR>6?10:0)):0",
                 "EffectType": {
                     "id": "ElementalMagicPercent"
                 },
                 "Enable": true
             },
             "3": {
-                "EffectNumber": "5*FLOOR(WEAR/3)+(WEAR>10?15:0)",
+                "EffectNumber": "SKIDS('ADORAMUS')?(5*FLOOR(WEAR/3)+(WEAR>10?15:0)):0",
                 "EffectType": {
                     "id": "SkillDamagePercent"
                 },
@@ -373,17 +394,17 @@
                 "EffectType": {
                     "id": "RaceMatkPercent"
                 },
-                "Enable": true
+                "Enable": false
             },
             "3": {
-                "EffectNumber": "FLOOR(WEAR/2)+(WEAR>6?10:0)",
+                "EffectNumber": "AEI==6?(FLOOR(WEAR/2)+(WEAR>6?10:0)):0",
                 "EffectType": {
                     "id": "ElementalMagicPercent"
                 },
                 "Enable": true
             },
             "4": {
-                "EffectNumber": "5*FLOOR(WEAR/3)+(WEAR>10?15:0)",
+                "EffectNumber": "SKIDS('ADORAMUS')?(5*FLOOR(WEAR/3)+(WEAR>10?15:0)):0",
                 "EffectType": {
                     "id": "SkillDamagePercent"
                 },
