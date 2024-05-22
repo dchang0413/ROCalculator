@@ -74,21 +74,21 @@
         },
         "effectlist": {
             "0": {
-                "EffectNumber": 40,
+                "EffectNumber": "CCL=='SO'?40:0",
                 "EffectType": {
                     "id": "INT"
                 },
                 "Enable": true
             },
             "1": {
-                "EffectNumber": 180,
+                "EffectNumber": "CCL=='SO'?180:0",
                 "EffectType": {
                     "id": "Matk"
                 },
                 "Enable": true
             },
             "2": {
-                "EffectNumber": 50,
+                "EffectNumber": "CCL=='SO'?50:0",
                 "EffectType": {
                     "id": "MatkPercent"
                 },
@@ -102,7 +102,7 @@
                 "Enable": true
             },
             "4": {
-                "EffectNumber": 36,
+                "EffectNumber": "CCL=='SO'?36:0",
                 "EffectType": {
                     "id": "GCDPercent"
                 },
@@ -127,44 +127,65 @@
     },
     "2": {
         "id": "acc1",
-        "label": "Accessory",
-        "equipname": "Sixth Sense Ring",
-        "refinelevel": 0,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": {
-            "0": {
-                "EffectNumber": 7,
-                "EffectType": {
-                    "id": "INT"
-                },
-                "Enable": true
-            },
-            "1": {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            "2": {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "ElementalMatkPercent"
-                },
-                "Enable": true
-            },
-            "3": {
-                "EffectNumber": "FLOOR(BLV/5)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            }
-        },
-        "idx": 3
+		"label": "Accessory",
+		"equipname": "Sixth Sense Ring",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 7,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(CCL=='SO'&&[0,1,3,4].includes(EEI))?10:0",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "FLOOR(BLV/5)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='SO'?1:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='SO'?30:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='SO'?15:0",
+				"EffectType": {
+					"id": "SPSkillVariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"idx": 3
     },
     "3": {
         "id": "armor",
@@ -184,28 +205,28 @@
                 "Enable": true
             },
             "1": {
-                "EffectNumber": 180,
+                "EffectNumber": "CCL=='SO'?180:0",
                 "EffectType": {
                     "id": "Matk"
                 },
                 "Enable": true
             },
             "2": {
-                "EffectNumber": 70,
+                "EffectNumber": "CCL=='SO'?70:0",
                 "EffectType": {
                     "id": "RaceMatkPercent"
                 },
                 "Enable": true
             },
             "3": {
-                "EffectNumber": "ARMORR>9?15:0",
+                "EffectNumber": "(ARMORR>9&&AEI<6)?15:0",
                 "EffectType": {
                     "id": "ElementalMagicPercent"
                 },
                 "Enable": true
             },
             "4": {
-                "EffectNumber": 12,
+                "EffectNumber": "CCL=='SO'?12:0",
                 "EffectType": {
                     "id": "AspdPercent"
                 },
@@ -814,21 +835,21 @@
                 "Enable": true
             },
             "1": {
-                "EffectNumber": 15,
+                "EffectNumber": "CCL=='SO'?15:0",
                 "EffectType": {
                     "id": "GCDPercent"
                 },
                 "Enable": true
             },
             "2": {
-                "EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?100:0",
+                "EffectNumber": "(SKIDS(\"PSYCHIC_WAVE\")&&CCL=='SO')?100:0",
                 "EffectType": {
                     "id": "FixedCastPercent"
                 },
                 "Enable": true
             },
             "3": {
-                "EffectNumber": "SKIDS(\"DIAMONDDUST EARTHGRAVE\")?4:0",
+                "EffectNumber": "(SKIDS(\"DIAMONDDUST EARTHGRAVE\")&&CCL=='SO')?4:0",
                 "EffectType": {
                     "id": "CDTime"
                 },

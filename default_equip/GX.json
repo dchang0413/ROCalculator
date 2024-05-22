@@ -98,7 +98,7 @@
 	"1": {
 		"id": "acc2",
 		"label": "Accessory",
-		"equipname": "Abyss King Ring (RC)",
+		"equipname": "Abyss King Ring",
 		"refinelevel": 0,
 		"grade": {
 			"id": 0,
@@ -127,48 +127,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "FLOOR(BLV/10)",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			}
-		],
-		"idx": 3
-	},
-	"2": {
-		"id": "acc2",
-		"label": "Accessory",
-		"equipname": "Abyss King Ring (CRS)",
-		"refinelevel": 0,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": 2,
-				"EffectType": {
-					"id": "STR"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 1,
-				"EffectType": {
-					"id": "AGI"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 6,
-				"EffectType": {
-					"id": "LevelAtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "MIN(FLOOR(BLV/4),50)",
+				"EffectNumber": "SKIDS(\"ROLLINGCUTTER\")?FLOOR(BLV/10):(SKIDS('CROSSRIPPERSLASHER')?MIN(FLOOR(BLV/4),50):0)",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -215,28 +174,28 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "CCL=='GX'?10:5",
 				"EffectType": {
 					"id": "STR"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "CCL=='GX'?10:5",
 				"EffectType": {
 					"id": "AGI"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "CCL=='GX'?10:5",
 				"EffectType": {
 					"id": "DEX"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 200,
+				"EffectNumber": "CCL=='GX'?200:0",
 				"EffectType": {
 					"id": "Atk"
 				},
@@ -245,26 +204,26 @@
 			{
 				"EffectNumber": 5,
 				"EffectType": {
-					"id": "AtkPercent"
+					"id": "LevelAtkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 30,
+				"EffectNumber": "CCL=='GX'?30:0",
 				"EffectType": {
 					"id": "GCDPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 2,
+				"EffectNumber": "CCL=='GX'?2:0",
 				"EffectType": {
 					"id": "ASPD"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 15,
+				"EffectNumber": "CCL=='GX'?15:0",
 				"EffectType": {
 					"id": "SPPercent"
 				},
@@ -551,14 +510,14 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 50,
+				"EffectNumber": "CCL=='GX'?50:0",
 				"EffectType": {
 					"id": "LevelAtkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 500,
+				"EffectNumber": "SKIDS(\"ROLLINGCUTTER\")?500:0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -599,28 +558,28 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 20,
+				"EffectNumber": "CCL=='GX'?20:0",
 				"EffectType": {
 					"id": "LevelAtkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 100,
+				"EffectNumber": "CCL=='GX'?100:0",
 				"EffectType": {
 					"id": "BypassDEFPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SHOER>6?(2*BLV+300):(SHOER>4?BLV:0)",
+				"EffectNumber": "SKIDS('METEORASSAULT'):(SHOER>6?(2*BLV+300):(SHOER>4?BLV:0)):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 100,
+				"EffectNumber": "SKIDS('METEORASSAULT')?100:0",
 				"EffectType": {
 					"id": "SPSkillVariableCastPercent"
 				},
@@ -646,7 +605,7 @@
 	"10": {
 		"id": "helm",
 		"label": "Upper",
-		"equipname": "Old Bone Circlet (CI)(Acute 5)",
+		"equipname": "Old Bone Circlet (Acute 5)",
 		"refinelevel": 12,
 		"grade": {
 			"id": 0,
@@ -668,7 +627,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "15*DOWN(HATR/2)",
+				"EffectNumber": "SKIDS('CROSSIMPACT')?15*DOWN(HATR/2):(SKIDS('CROSSRIPPERSLASHER')?20*DOWN(HATR/2):0)",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -838,21 +797,21 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 150,
+				"EffectNumber": "CCL=='GX'?150:0",
 				"EffectType": {
 					"id": "Atk"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 35,
+				"EffectNumber": "CCL=='GX'?35:0",
 				"EffectType": {
 					"id": "RaceAtkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 35,
+				"EffectNumber": "CCL=='GX'?35:10",
 				"EffectType": {
 					"id": "HPPercent"
 				},
@@ -886,7 +845,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 100,
+				"EffectNumber": "SKIDS('CROSSIMPACT)?100:0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -913,28 +872,28 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 25,
+				"EffectNumber": "CCL=='GX'?25:0",
 				"EffectType": {
 					"id": "AtkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 25,
+				"EffectNumber": "CCL=='GX'?25:0",
 				"EffectType": {
 					"id": "ElementalAtkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(HATR>11?3:(HATR>10?2:1))*MIN(210,BLV)",
+				"EffectNumber": "SKIDS('METEORASSAULT')?(HATR>11?3:(HATR>10?2:1))*MIN(210,BLV):(SKIDS('BREAKER')?(HATR>11?2:(HATR>10?1:0))*MIN(210,BLV):0)",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "MIN(36,HATR*3)+20",
+				"EffectNumber": "MIN(36,HATR*3)+(CCL=='GX'?20:0)",
 				"EffectType": {
 					"id": "GCDPercent"
 				},
@@ -943,47 +902,7 @@
 		],
 		"idx": 3
 	},
-	"16": {
-		"id": "helm",
-		"label": "Upper",
-		"equipname": "Ghost Whisper (SD)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": 25,
-				"EffectType": {
-					"id": "AtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 25,
-				"EffectType": {
-					"id": "ElementalAtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(HATR>11?2:(HATR>10?1:0))*MIN(210,BLV)",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "MIN(36,HATR*3)+20",
-				"EffectType": {
-					"id": "GCDPercent"
-				},
-				"Enable": true
-			}
-		],
-		"idx": 3
-	},
+	
 	"17": {
 		"id": "weaponr",
 		"label": "MainHand",

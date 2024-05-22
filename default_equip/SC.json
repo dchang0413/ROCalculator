@@ -50,21 +50,21 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 20,
+				"EffectNumber": "CCL=='SC'?20:0",
 				"EffectType": {
 					"id": "LevelAtkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 100,
+				"EffectNumber": "CCL=='SC'?100:0",
 				"EffectType": {
 					"id": "BypassDEFPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 100,
+				"EffectNumber": "SKIDS('FATALMENACE')?100:0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -125,7 +125,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "DOWN(BLV/10)",
+				"EffectNumber": "SKIDS('ABYSS_SQUARE ABYSS_STRIKE')?(DOWN(BLV/10)):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -159,7 +159,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "BLV",
+				"EffectNumber": "SKIDS('TRIANGLESHOT')?BLV:0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -226,14 +226,14 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 20,
+				"EffectNumber": "CCL=='SC'?20:0",
 				"EffectType": {
 					"id": "SizeAtkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 150,
+				"EffectNumber": "SKIDS('TRIANGLESHOT')?150:0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -259,21 +259,21 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 30,
+				"EffectNumber": "CCL=='SC'?30:0",
 				"EffectType": {
 					"id": "AGI"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 150,
+				"EffectNumber": "CCL=='SC'?150:0",
 				"EffectType": {
 					"id": "Atk"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 70,
+				"EffectNumber": "CCL=='SC'?70:0",
 				"EffectType": {
 					"id": "RaceAtkPercent"
 				},

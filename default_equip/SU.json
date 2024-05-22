@@ -19,7 +19,7 @@
                 "Enable": true
             },
             {
-                "EffectNumber": 10,
+                "EffectNumber": "CCL=='SU'?10:0",
                 "EffectType": {
                     "id": "RangedDamagePercent"
                 },
@@ -40,7 +40,7 @@
                 "Enable": true
             },
             {
-                "EffectNumber": "DOWN(BLV/2)",
+                "EffectNumber": "SKIDS('CHAINLIGHTNING VARETYR_SPEAR RIDEINLIGHTNING')?(DOWN(BLV/2)):0",
                 "EffectType": {
                     "id": "SkillDamagePercent"
                 },
@@ -54,9 +54,16 @@
                 "Enable": true
             },
             {
-                "EffectNumber": 100,
+                "EffectNumber": "SKIDS('RIDEINLIGHTNING')?100:0",
                 "EffectType": {
                     "id": "SPSkillVariableCastPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS('VARETYR_SPEAR')?1:0",
+                "EffectType": {
+                    "id": "CDTime"
                 },
                 "Enable": true
             }
@@ -78,7 +85,7 @@
         },
         "effectlist": [
             {
-                "EffectNumber": 15,
+                "EffectNumber": "CCL=='SU'?15:0",
                 "EffectType": {
                     "id": "SizeAtkPercent"
                 },
@@ -88,6 +95,13 @@
                 "EffectNumber": 15,
                 "EffectType": {
                     "id": "HPPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS('RAMPAGEBLASTER')?0.2:0",
+                "EffectType": {
+                    "id": "CDTime"
                 },
                 "Enable": true
             }

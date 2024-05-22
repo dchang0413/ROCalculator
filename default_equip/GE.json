@@ -120,7 +120,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(WEAR>8?25:0)+(FLOOR(WEAR/3)*7)",
+				"EffectNumber": "SKIDS('CARTCANNON')?((WEAR>8?25:0)+(FLOOR(WEAR/3)*7)):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -188,7 +188,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "WEAR>8?25:0",
+				"EffectNumber": "SKIDS('CARTCANNON')?(WEAR>8?25:0):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -263,7 +263,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SRL>10?15:0",
+				"EffectNumber": "SKIDS('ARMSCANNON CARTCANNON')?(SRL>10?15:0):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -334,7 +334,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "WEAR>8?20:0",
+				"EffectNumber": "SKIDS('CARTCANNON')?(WEAR>8?20:0):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -450,7 +450,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "15+(ARMORR+GARMR+SHOER>27?15:0)",
+				"EffectNumber": "SKIDS('CARTCANNON')?(15+(ARMORR+GARMR+SHOER>27?15:0))",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -491,7 +491,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "WEAR>8?20:0",
+				"EffectNumber": "SKIDS('CARTCANNON')?(WEAR>8?20:0):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -552,7 +552,7 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 50,
+				"EffectNumber": "CCL=='GE'?50:0",
 				"EffectType": {
 					"id": "LevelAtkPercent"
 				},
@@ -566,7 +566,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 75,
+				"EffectNumber": "CCL=='GE'?100:15",
 				"EffectType": {
 					"id": "GCDPercent"
 				},
@@ -607,7 +607,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "15*FLOOR(HATR/2)",
+				"EffectNumber": "SKIDS('CARTCANNON')?(15*FLOOR(HATR/2)):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -744,7 +744,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "FLOOR(BLV/10)",
+				"EffectNumber": "SKIDES('ACIDIFIED_ZONE_GROUND')?(FLOOR(BLV/10)):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -764,28 +764,28 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": "15*5",
+				"EffectNumber": "CCL=='GE'?75:0",
 				"EffectType": {
 					"id": "Atk"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "2*DOWN(BLV/20)",
+				"EffectNumber": "SKIDS('CARTCANNON')?(2*DOWN(BLV/20)):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 5,
+				"EffectNumber": "CCL=='GE'?5:0",
 				"EffectType": {
 					"id": "AspdPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "2*5",
+				"EffectNumber": "CCL=='GE'?10:0",
 				"EffectType": {
 					"id": "HPPercent"
 				},
@@ -812,7 +812,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "CCL=='GE'?10:0",
 				"EffectType": {
 					"id": "SizeAtkPercent"
 				},
@@ -826,11 +826,18 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "2*DOWN(BLV/3)",
+				"EffectNumber": "CCL=='GE'?10:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('CART_TORNADO')?(2*DOWN(BLV/3)):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
-				"Enable": false
+				"Enable": true
 			}
 		],
 		"idx": 3
@@ -846,23 +853,37 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": "7*10",
+				"EffectNumber": "CCL=='GE'?70:0",
 				"EffectType": {
 					"id": "RaceAtkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "2*BLV",
+				"EffectNumber": "SKIDS('CARTCANNON')?(2*BLV):(SKIDS('CART_TORNADO')?BLV:0)",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "50*BLV",
+				"EffectNumber": "CCL=='GE'?(50*BLV):0",
 				"EffectType": {
 					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SPPercent"
 				},
 				"Enable": true
 			}
@@ -880,35 +901,35 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 20,
+				"EffectNumber": "CCL=='GE'?20:0",
 				"EffectType": {
 					"id": "LevelAtkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 100,
+				"EffectNumber": "CCL=='GE'?100:0",
 				"EffectType": {
 					"id": "BypassDEFPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SHOER>8?FLOOR(BLV/2):0",
+				"EffectNumber": "SKIDS('CARTCANNON')?(SHOER>8?FLOOR(BLV/2):0):(SKIDS('CART_TORNADO')?100:0)",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SHOER>8?50:0",
+				"EffectNumber": "SKIDS('CARTCANNON')?(SHOER>8?50:0):0",
 				"EffectType": {
 					"id": "SPSkillVariableCastPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 20,
+				"EffectNumber": "CCL=='GE'?20:0",
 				"EffectType": {
 					"id": "AspdPercent"
 				},
@@ -956,7 +977,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "DOWN(BLV/2)",
+				"EffectNumber": "SKIDS('CARTCANNON')?(DOWN(MIN(BLV,250)/2)):(SKIDS('ACIDIFIED_ZONE_GROUND')?(DOWN(BLV/10)):0)",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
