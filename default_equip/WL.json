@@ -12,14 +12,14 @@
                 "Enable": true
             },
             "1": {
-                "EffectNumber": 50,
+                "EffectNumber": "SKIDS('COMET')?50:(CLL=='WL'&&SKIDS('JACKFROST')?50:0)",
                 "EffectType": {
                     "id": "SkillDamagePercent"
                 },
                 "Enable": true
             },
             "2": {
-                "EffectNumber": 30,
+                "EffectNumber": "CLL=='WL'?30:0",
                 "EffectType": {
                     "id": "GCDPercent"
                 },
@@ -35,28 +35,28 @@
         "equipname": "Four of a Kind",
         "effectlist": {
             "0": {
-                "EffectNumber": 30,
+                "EffectNumber": "CLL=='WL'?30:0",
                 "EffectType": {
                     "id": "INT"
                 },
                 "Enable": true
             },
             "1": {
-                "EffectNumber": 150,
+                "EffectNumber": "CLL=='WL'?150:0",
                 "EffectType": {
                     "id": "Matk"
                 },
                 "Enable": true
             },
             "2": {
-                "EffectNumber": 70,
+                "EffectNumber": "CLL=='WL'?70:0",
                 "EffectType": {
                     "id": "RaceMatkPercent"
                 },
                 "Enable": true
             },
             "3": {
-                "EffectNumber": "ARMORR>11?15:0",
+                "EffectNumber": "AEI<5?(ARMORR>11?15:0):0",
                 "EffectType": {
                     "id": "ElementalMagicPercent"
                 },

@@ -1,1 +1,118 @@
-{"0":{"id":"weaponr","label":"MainHand","equipname":"Awakened Spirit Pendulum (Espa)","refinelevel":0,"effectlist":{"0":{"EffectNumber":"15*FLOOR(WEAR/2)","EffectType":{"id":"Matk"},"Enable":true},"1":{"EffectNumber":"2*FLOOR(WEAR/3)","EffectType":{"id":"ElementalMagicPercent"},"Enable":true},"2":{"EffectNumber":"WEAR>6?15:0","EffectType":{"id":"SkillDamagePercent"},"Enable":true},"3":{"EffectNumber":"WEAR>6?10:0","EffectType":{"id":"VariableCastPercent"},"Enable":true}},"idx":0,"weapon":{"type":{"id":"OneHandedRods","label":"1HRod","sizefix":{"small":100,"middle":100,"large":100},"baseaspd":"","isRangedattack":false,"isTwohand":false},"level":{"id":4,"label":"Lv. 4 Weapon","upgradeatk":7,"saferefine":4,"overatk":14},"grade":{"id":0,"label":"No Grade"},"ATK":"70","MATK":190,"refinelevel":12,"ArrowATK":0,"BulletATK":0,"Weight":120,"refineatk":84,"refinematk":84,"refineatk2":112}},"1":{"id":"weaponr","label":"MainHand","equipname":"Awakened Spirit Pendulum (Eswoo)","refinelevel":0,"effectlist":{"0":{"EffectNumber":"15*FLOOR(WEAR/2)","EffectType":{"id":"Matk"},"Enable":true},"1":{"EffectNumber":"2*FLOOR(WEAR/3)","EffectType":{"id":"ElementalMagicPercent"},"Enable":true},"2":{"EffectNumber":"WEAR>8?25:0","EffectType":{"id":"SkillDamagePercent"},"Enable":true},"3":{"EffectNumber":"WEAR>6?10:0","EffectType":{"id":"VariableCastPercent"},"Enable":true}},"idx":0,"weapon":{"type":{"id":"OneHandedRods","label":"1HRod","sizefix":{"small":100,"middle":100,"large":100},"baseaspd":"","isRangedattack":false,"isTwohand":false},"level":{"id":4,"label":"Lv. 4 Weapon","upgradeatk":7,"saferefine":4,"overatk":14},"grade":{"id":0,"label":"No Grade"},"ATK":"70","MATK":190,"refinelevel":12,"ArrowATK":0,"BulletATK":0,"Weight":120,"refineatk":84,"refinematk":84,"refineatk2":112}},"2":{"id":"robe","label":"Garment","equipname":"Day of the Dead","refinelevel":7,"effectlist":{"0":{"EffectNumber":25,"EffectType":{"id":"INT"},"Enable":true},"1":{"EffectNumber":25,"EffectType":{"id":"MatkPercent"},"Enable":true},"2":{"EffectNumber":"GARMR>6?20:(GARM>4?10:5)","EffectType":{"id":"AspdPercent"},"Enable":true},"3":{"EffectNumber":7500,"EffectType":{"id":"HP"},"Enable":true}},"idx":3}}
+{
+	"0": {
+		"id": "weaponr",
+		"label": "MainHand",
+		"equipname": "Awakened Spirit Pendulum (Espa)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "15*FLOOR(WEAR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*FLOOR(WEAR/3)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('SPA')?(WEAR>6?15:0):(SKIDS('SWHOO')?(WEAR>8?25:0):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedRods",
+				"label": "1HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "70",
+			"MATK": 190,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 120,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	"2": {
+		"id": "robe",
+		"label": "Garment",
+		"equipname": "Day of the Dead",
+		"refinelevel": 7,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 25,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 25,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>6?20:(GARM>4?10:5)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 7500,
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			}
+		],
+		"idx": 3
+	}
+}
