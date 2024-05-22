@@ -9614,6 +9614,11 @@
                             this.option.EquipSkillAddDamage += this.GetSupportSkill('SJ_LIGHTOFSTAR').lv * 5;
                         }
                     }
+                    // 兵法修練
+                    if (this.IsSupportActive('SKE_WAR_BOOK_MASTERY')){
+                        this.attritube['PATK'] += this.GetSupportSkill('SKE_WAR_BOOK_MASTERY').lv + 2;
+                        this.attritube['HIT'] += this.GetSupportSkill('SKE_WAR_BOOK_MASTERY').lv * 3;
+                    }
 
                     //生命力量
                     if (this.IsSupportActive('SU_POWEROFLIFE')){
