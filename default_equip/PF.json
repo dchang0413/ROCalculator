@@ -1,6 +1,7 @@
 {
 	"0": {
 		"id": "helm",
+        "itemid": 18976,
 		"label": "Upper",
 		"equipname": "Old Maestro Song's Hat MA5",
 		"effectlist": [
@@ -55,6 +56,7 @@
 	},
 	"1": {
 		"id": "weaponr",
+        "itemid": 32110,
 		"label": "MainHand",
 		"equipname": "Safety Lute",
 		"refinelevel": 0,
@@ -151,6 +153,7 @@
 	},
 	"2": {
 		"id": "acc1",
+        "itemid": 490427,
 		"label": "Accessory",
 		"equipname": "Ring of Storm",
 		"refinelevel": 0,
@@ -185,6 +188,7 @@
 	},
 	"3": {
 		"id": "armor",
+        "itemid": 450258,
 		"label": "Armor",
 		"equipname": "Loud Park",
 		"refinelevel": 11,
@@ -233,6 +237,7 @@
 	},
 	"4": {
 		"id": "robe",
+        "itemid": 480064,
 		"label": "Garment",
 		"equipname": "Storm Muffler",
 		"refinelevel": 11,
@@ -288,6 +293,7 @@
 	},
 	"5": {
         "id": "weaponr",
+        "itemid": 570013,
         "label": "MainHand",
         "equipname": "Poenitentia Chorda",
         "refinelevel": 14,
@@ -377,6 +383,7 @@
     },
 	"6": {
         "id": "weaponr",
+        "itemid": 580013,
         "label": "MainHand",
         "equipname": "Poenitentia Flagellum",
         "refinelevel": 14,
@@ -466,6 +473,7 @@
     },
 	"7": {
         "id": "weaponr",
+        "itemid": 700025,
         "label": "MainHand",
         "equipname": "Poenitentia Vatia",
         "refinelevel": 14,
@@ -555,6 +563,7 @@
     },
 	"8": {
         "id": "weaponr",
+        "itemid": 570020,
         "label": "MainHand",
         "equipname": "Vivatus Fides Harp",
         "refinelevel": 14,
@@ -658,6 +667,7 @@
     },
 	"9": {
         "id": "weaponr",
+        "itemid": 570019,
         "label": "MainHand",
         "equipname": "Vivatus Fides Violin",
         "refinelevel": 14,
@@ -761,6 +771,7 @@
     },
 	"10": {
         "id": "weaponr",
+        "itemid": 580020,
         "label": "MainHand",
         "equipname": "Vivatus Fides Ribbon",
         "refinelevel": 14,
@@ -864,6 +875,7 @@
     },
 	"11": {
         "id": "weaponr",
+        "itemid": 580019,
         "label": "MainHand",
         "equipname": "Vivatus Fides Chain Rope",
         "refinelevel": 14,
@@ -967,6 +979,7 @@
     },
 	"12": {
         "id": "weaponr",
+        "itemid": 570018,
         "label": "MainHand",
         "equipname": "Adulter Fides Harp",
         "refinelevel": 12,
@@ -1042,6 +1055,7 @@
     },
 	"13": {
         "id": "weaponr",
+        "itemid": 570017,
         "label": "MainHand",
         "equipname": "Adulter Fides Violin",
         "refinelevel": 12,
@@ -1117,6 +1131,7 @@
     },
 	"14": {
         "id": "weaponr",
+        "itemid": 580018,
         "label": "MainHand",
         "equipname": "Adulter Fides Ribbon",
         "refinelevel": 12,
@@ -1192,6 +1207,7 @@
     },
 	"15": {
         "id": "weaponr",
+        "itemid": 580017,
         "label": "MainHand",
         "equipname": "Adulter Fides Chain Rope",
         "refinelevel": 12,
@@ -1267,6 +1283,7 @@
     },
     "16": {
 		"id": "robe",
+        "itemid": 480455,
 		"label": "Garment",
 		"equipname": "Legendary Performer Manteau",
 		"refinelevel": 13,
@@ -1332,100 +1349,60 @@
 				"Enable": true
 			}
 		],
+        "combolist": [
+            {
+                "itemids": [450258],
+                "effectlist": [
+                    {
+                        "EffectNumber": "ARMORR>10?150:0",
+                        "EffectType": {
+                            "id": "Matk"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "ARMORR>10?20:0",
+                        "EffectType": {
+                            "id": "LevelMatkPercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "AEI==0?(ARMORR*7):0",
+                        "EffectType": {
+                            "id": "ElementalMagicPercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "ARMORR>12?200:0",
+                        "EffectType": {
+                            "id": "INT"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "ARMORR>12?200:0",
+                        "EffectType": {
+                            "id": "DEX"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "ARMORR>12?200:0",
+                        "EffectType": {
+                            "id": "LUK"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
 		"idx": 3
 	},
     "17": {
-		"id": "robe",
-		"label": "Garment",
-		"equipname": "Legendary Performer Manteau(Loud Park)",
-		"refinelevel": 13,
-		"grade": {
-			"id": 4,
-			"label": "A"
-		},
-		"effectlist": [
-            {
-				"EffectNumber": "(ARMORR>10?150:0)+(['MI','WA'].includes(CCL)?150:0)",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-            {
-				"EffectNumber": "(GARMR>10?10:0)",
-				"EffectType": {
-					"id": "MatkPercent"
-				},
-				"Enable": true
-			},
-            {
-				"EffectNumber": "['MI','WA'].includes(CCL)?10:0",
-				"EffectType": {
-					"id": "ElementalMatkPercent"
-				},
-				"Enable": true
-			},
-            {
-				"EffectNumber": "ARMORR>10?20:0",
-				"EffectType": {
-					"id": "LevelMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SKIDS(\"METALICSOUND\")?(25+(GARMR>10?25:0)+(GARMR>11?75:0)+((GARMG(4)&&GARMR>12)?60:0)):0",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(GARMR>11?10:0)",
-				"EffectType": {
-					"id": "AllStatus"
-				},
-				"Enable": true
-			},
-			{
-                "EffectNumber": "AEI==0?(ARMORR*7+(GARMG(2)?20:0)):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
-			{
-				"EffectNumber": "GARMG(3)?20:0",
-				"EffectType": {
-					"id": "SMATK"
-				},
-				"Enable": true
-			},
-            {
-				"EffectNumber": "(ARMORR>12?230:0)+(['MI','WA'].includes(CCL)?30:0)",
-				"EffectType": {
-					"id": "INT"
-				},
-				"Enable": true
-			},
-            {
-				"EffectNumber": "ARMORR>12?200:0",
-				"EffectType": {
-					"id": "DEX"
-				},
-				"Enable": true
-			},
-            {
-				"EffectNumber": "ARMORR>12?200:0",
-				"EffectType": {
-					"id": "LUK"
-				},
-				"Enable": true
-			}
-		],
-		"idx": 3
-	},
-    "18": {
 		"id": "acc1",
+        "itemid": 490553,
 		"label": "Accessory",
 		"equipname": "Divine Bell",
 		"refinelevel": 0,

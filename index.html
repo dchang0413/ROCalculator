@@ -6637,11 +6637,19 @@
                     this.elementalmap = this.ElementTableLastest? this.elementalmap_fix : this.elementalmap_old;
                 },
                 SearchForComboItems() {
-                    available_combos = this.equipspartlist.filter(x => x.combolist !== undefined && x.combolist.length > 0);
                     const itemIdSet = new Set(this.equipspartlist.map(item => item.itemid));
-                    this.EquipComboEffectList = available_combos.flatMap(x => 
-                        x.combolist.filter(y => y.itemid !== 0 && itemIdSet.has(y.itemid) && y.itemid !== x.itemid)
-                    );
+                    const available_combos = this.equipspartlist.filter(x => x.combolist !== undefined && x.combolist.length > 0);
+
+                    this.EquipComboEffectList = [];
+                    for (let x of available_combos) {
+                        // Filter the combolist where all itemids are in the itemIdSet
+                        const yy = x.combolist.filter(y => 
+                            y.itemids !== undefined && y.itemids.length > 0 &&
+                            y.itemids.every(id => itemIdSet.has(id)) &&
+                            y.itemids.every(id => id !== x.itemid)
+                        );
+                        this.EquipComboEffectList.push(...yy);
+                    }
                 },
                 CombineEquipsAndCombos() {
                     this.EquipAndComboEffectList = [...this.equipspartlist, ...this.EquipComboEffectList];
