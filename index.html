@@ -5764,6 +5764,8 @@
                 EquipSelectId: '',
                 EquipSelectLabel: '',
                 EquipSelectEffect: [],
+                EquipComboEffectList: [],
+                EquipAndComboEffectList: [],
                 TempEffectTypeList: [],
                 EquipEffectTabPage: 'ATK',
                 PreviewETL_init: [],
@@ -5910,39 +5912,39 @@
                     },
                 ],
                 equipspartlist: [
-                    { id: 'weaponr', label: 'MainHand', equipname: '', effectlist: [] },
-                    { id: 'weaponl', label: 'OffHand', equipname: '', effectlist: [] },
-                    { id: 'helm', label: 'Upper', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'helm1', label: 'Middle', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'helm2', label: 'Lower', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'armor', label: 'Armor', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'robe', label: 'Garment', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'shoes', label: 'Shoes', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'acc1', label: 'Accessory', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'shadow', label: 'S.Weapon', equipname: '', effectlist: [] },
-                    { id: 'costume', label: 'Costume', equipname: '', effectlist: [] },
-                    { id: 'cardset', label: 'CardSets', equipname: '', effectlist: [] },
-                    { id: 'other', label: 'Custom', equipname: '', effectlist: [] },
-                    { id: 'weaponrcard', label: 'MainHandCards', equipname: '', effectlist: [] },
-                    { id: 'weaponlcard', label: 'OffHandCards', equipname: '', effectlist: [] },
-                    { id: 'helmcard', label: 'Upper Card', equipname: '', effectlist: [] },
-                    { id: 'helm1card', label: 'Middle Card', equipname: '', effectlist: [] },
-                    { id: 'helm2card', label: 'Lower Card', equipname: '', effectlist: [] },
-                    { id: 'armorcard', label: 'Armor Card', equipname: '', effectlist: [] },
-                    { id: 'robecard', label: 'Garment Card', equipname: '', effectlist: [] },
-                    { id: 'shoescard', label: 'Shoes Card', equipname: '', effectlist: [] },
-                    { id: 'acc1card', label: 'Acc Card', equipname: '', effectlist: [] },
-                    { id: 'acc2card', label: 'Acc Card', equipname: '', effectlist: [] },
-                    { id: 'shadowenchant', label: 'Shadow Enchant', equipname: '', effectlist: [] },
-                    { id: 'costumeenchant', label: 'Costume Enchant', equipname: '', effectlist: [] },
-                    { id: 'cardset2', label: 'CardSets2', equipname: '', effectlist: [] },
-                    { id: 'other2', label: 'Custom2', equipname: '', effectlist: [] },
-                    { id: 'shadowshld', label: 'S.Shield', equipname: '', effectlist: [] },
-                    { id: 'shadowarmor', label: 'S.Armor', equipname: '', effectlist: [] },
-                    { id: 'shadowshoe', label: 'S.Shoes', equipname: '', effectlist: [] },
-                    { id: 'shadowearring', label: 'S.Earring', equipname: '', effectlist: [] },
-                    { id: 'shadowpendant', label: 'S.Pendant', equipname: '', effectlist: [] },
+                    { id: 'weaponr', label: 'MainHand', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponl', label: 'OffHand', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'helm', label: 'Upper', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'helm1', label: 'Middle', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'helm2', label: 'Lower', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'armor', label: 'Armor', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'robe', label: 'Garment', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'shoes', label: 'Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'acc1', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'shadow', label: 'S.Weapon', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costume', label: 'Costume', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'cardset', label: 'CardSets', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'other', label: 'Custom', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponrcard', label: 'MainHandCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponlcard', label: 'OffHandCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'helmcard', label: 'Upper Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'helm1card', label: 'Middle Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'helm2card', label: 'Lower Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'armorcard', label: 'Armor Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'robecard', label: 'Garment Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shoescard', label: 'Shoes Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'acc1card', label: 'Acc Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'acc2card', label: 'Acc Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowenchant', label: 'Shadow Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costumeenchant', label: 'Costume Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'cardset2', label: 'CardSets2', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'other2', label: 'Custom2', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowshld', label: 'S.Shield', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowarmor', label: 'S.Armor', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowshoe', label: 'S.Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowearring', label: 'S.Earring', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowpendant', label: 'S.Pendant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                 ],
                 effecttypelist: [
                     { label: 'STR', id: 'STR', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '' },
@@ -6634,6 +6636,16 @@
                     this.ElementTableLastest = !this.ElementTableLastest;
                     this.elementalmap = this.ElementTableLastest? this.elementalmap_fix : this.elementalmap_old;
                 },
+                SearchForComboItems() {
+                    available_combos = this.equipspartlist.filter(x => x.combolist !== undefined && x.combolist.length > 0);
+                    const itemIdSet = new Set(this.equipspartlist.map(item => item.itemid));
+                    this.EquipComboEffectList = available_combos.flatMap(x => 
+                        x.combolist.filter(y => y.itemid !== 0 && itemIdSet.has(y.itemid) && y.itemid !== x.itemid)
+                    );
+                },
+                CombineEquipsAndCombos() {
+                    this.EquipAndComboEffectList = [...this.equipspartlist, ...this.EquipComboEffectList];
+                },
                 CombineEquipsAttribute() {
                     /*this.equipspartlist.forEach(element =>{
                         element.effectlist.forEach(ele => {
@@ -6642,10 +6654,12 @@
                             //this.SkillFormulaReplace()
                         })
                     })*/
+                    this.SearchForComboItems();
+                    this.CombineEquipsAndCombos();
                     this.effecttypelist.forEach(element => {
                         var result = 0;
                         if (element.id == 'FixedCastPercent') {
-                            result = Enumerable.From(this.equipspartlist)
+                            result = Enumerable.From(this.EquipAndComboEffectList)
                                 .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
                                 .Select(function (x) {
                                     var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()))
@@ -6663,7 +6677,7 @@
                                 })
                                 .Sum();
                                 */
-                            result = Enumerable.From(this.equipspartlist)
+                            result = Enumerable.From(this.EquipAndComboEffectList)
                                 .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
                                 .Select(function (x) {
                                     var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()))
@@ -9909,9 +9923,11 @@
                         idx,
                         {
                             id: _id,
+                            itemid: 0,
                             label: _label,
                             equipname: '',
                             effectlist: [],
+                            combolist: [],
                             refinelevel: 0,
                             grade: {id:0},
                         })
@@ -9947,17 +9963,20 @@
                             if( this.equipspartlist[22].equipname == '' ) { idx = 22; }
                         }
                         this.StoreDB_Equip[_dbidx].equip.effectlist.forEach(x=>x.Enable=x.Enable==null?true:x.Enable);
+                        this.StoreDB_Equip[_dbidx].equip.combolist.forEach(x=>x.effectlist.forEach(y=>y.Enable=y.Enable==null?true:y.Enable));
                         this.$set(this.equipspartlist,
                             idx,
                             {
                                 //id: this.StoreDB_Equip[_dbidx].equip.id,
                                 //label: this.StoreDB_Equip[_dbidx].equip.label,
                                 id: this.equipspartlist[idx].id,
+                                itemid: this.StoreDB_Equip[_dbidx].equip.itemid,
                                 label: this.equipspartlist[idx].label,
                                 equipname: this.StoreDB_Equip[_dbidx].equip.equipname,
                                 refinelevel: this.StoreDB_Equip[_dbidx].equip.refinelevel ? this.StoreDB_Equip[_dbidx].equip.refinelevel : 0,
                                 grade: this.StoreDB_Equip[_dbidx].equip.grade ? this.StoreDB_Equip[_dbidx].equip.grade : this.weapongradelist[0],
                                 effectlist: _.cloneDeep(this.StoreDB_Equip[_dbidx].equip.effectlist),
+                                combolist: _.cloneDeep(this.StoreDB_Equip[_dbidx].equip.combolist),
                             })
                         this.CombineEquipsAttribute();
                     }
@@ -10331,11 +10350,13 @@
                             eqi,
                             {
                                 id: this.equipspartlist[eqi].id,
+                                itemid: AllsetObject.Equip[eqi].itemid ? AllsetObject.Equip[eqi].itemid : 0,
                                 label: this.equipspartlist[eqi].label,
                                 equipname: cardnull? '':AllsetObject.Equip[eqi].equipname,
                                 refinelevel: AllsetObject.Equip[eqi].refinelevel ? AllsetObject.Equip[eqi].refinelevel : 0,
                                 grade: AllsetObject.Equip[eqi].grade ? AllsetObject.Equip[eqi].grade : this.weapongradelist[0],
                                 effectlist: _.cloneDeep(cardnull?[]:AllsetObject.Equip[eqi].effectlist),
+                                combolist: _.cloneDeep(cardnull?[]:AllsetObject.Equip[eqi].combolist),
                             })
                     }
                     this.weapon = _.cloneDeep(AllsetObject.Weapon);
@@ -11514,11 +11535,13 @@
                                 uuid: this._uuid(),
                                 equip: {
                                     id: value.id,
+                                    itemid: value.itemid ? value.itemid : 0,
                                     label: value.label,
                                     equipname: value.equipname,
                                     refinelevel: value.refinelevel ? value.refinelevel : 0,
                                     grade: value.grade ? value.grade : this.weapongradelist[0],
                                     effectlist: Object.values(value.effectlist),
+                                    combolist: value.combolist ? Object.values(value.combolist) : [],
                                 },
                                 date: Date.now(),
                                 weapon: value.idx < 2 ? ((value.idx == 0) ?
@@ -11552,6 +11575,7 @@
                 exportSavedEquip(){
                     var data = {};
                     var effectlist = {};
+                    var combolist = {};
                     var i = 0;
                     for (const [key, value] of Object.entries(this.StoreDB_Equip)) {
                         try{
@@ -11564,9 +11588,10 @@
                                 data[i].subweapon = value.subweapon;
                             } else data[i].idx = 3;
                             data[i].effectlist = _.cloneDeep(value.equip.effectlist);
+                            data[i].combolist = _.cloneDeep(value.equip.combolist);
                             i++;
                         } catch(e){
-                            console.log('error geting saved equip', e);
+                            console.log('error getting saved equip', e);
                         }
                     }
 
