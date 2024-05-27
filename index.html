@@ -6642,7 +6642,6 @@
 
                     this.EquipComboEffectList = [];
                     for (let x of available_combos) {
-                        // Filter the combolist where all itemids are in the itemIdSet
                         const yy = x.combolist.filter(y => 
                             y.itemids !== undefined && y.itemids.length > 0 &&
                             y.itemids.every(id => itemIdSet.has(id)) &&
