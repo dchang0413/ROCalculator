@@ -3945,7 +3945,7 @@
                                             </el-row>
                                         </el-row>
                                     </el-row>
-                                    <el-row v-if="UIPanel['weaponrPanel']" class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-row v-if="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
                                                 <span></span>
@@ -3965,6 +3965,81 @@
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
                                             <el-button v-on:click="OpenEditEquipDialogue(14)" type="success"
+                                                plain>
+                                                Edit
+                                            </el-button>
+                                        </el-col>
+                                    </el-row>
+                                    <el-row v-if="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'" class="effectline" :gutter="4" type="flex" align="middle">
+                                        <el-col class="textcenter" :span="4">
+                                            <div>
+                                                <span></span>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter">
+                                            <div>
+                                                <el-input v-model="equipspartlist[15].equipname"
+                                                    placeholder="Card Name">
+                                                </el-input>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="onClearEquipPart(15)" size="mini">
+                                                Clear
+                                            </el-button>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="OpenEditEquipDialogue(15)" type="success"
+                                                plain>
+                                                Edit
+                                            </el-button>
+                                        </el-col>
+                                    </el-row>
+                                    <el-row v-if="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'" class="effectline" :gutter="4" type="flex" align="middle">
+                                        <el-col class="textcenter" :span="4">
+                                            <div>
+                                                <span></span>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter">
+                                            <div>
+                                                <el-input v-model="equipspartlist[16].equipname"
+                                                    placeholder="Card Name">
+                                                </el-input>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="onClearEquipPart(16)" size="mini">
+                                                Clear
+                                            </el-button>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="OpenEditEquipDialogue(16)" type="success"
+                                                plain>
+                                                Edit
+                                            </el-button>
+                                        </el-col>
+                                    </el-row>
+                                    <el-row v-if="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'" class="effectline" :gutter="4" type="flex" align="middle">
+                                        <el-col class="textcenter" :span="4">
+                                            <div>
+                                                <span></span>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter">
+                                            <div>
+                                                <el-input v-model="equipspartlist[17].equipname"
+                                                    placeholder="Card Name">
+                                                </el-input>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="onClearEquipPart(17)" size="mini">
+                                                Clear
+                                            </el-button>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="OpenEditEquipDialogue(17)" type="success"
                                                 plain>
                                                 Edit
                                             </el-button>
@@ -3993,7 +4068,7 @@
                                             </el-row>
                                         </div>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponrPanel']==true">
+                                    <el-row v-show="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'">
                                         <div class="Item bg-purple-light2" v-for="(item, index) in equipspartlist[14].effectlist"
                                             v-bind:key="item.effecttypelist" >
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -4012,6 +4087,75 @@
                                                 </el-col>
                                                     <el-col class="textcenter"  :span="5">
                                                         <el-checkbox v-model="item.Enable" @change="EnableEffect(14, index)"></el-checkbox>
+                                                    </el-col>
+                                            </el-row>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'">
+                                        <div class="Item bg-purple-light2" v-for="(item, index) in equipspartlist[15].effectlist"
+                                            v-bind:key="item.effecttypelist" >
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                justify="end" style="height:40px;">
+                                                <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                    <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="8">
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span lass="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                </el-col>
+                                                    <el-col class="textcenter"  :span="5">
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(15, index)"></el-checkbox>
+                                                    </el-col>
+                                            </el-row>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'">
+                                        <div class="Item bg-purple-light2" v-for="(item, index) in equipspartlist[16].effectlist"
+                                            v-bind:key="item.effecttypelist" >
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                justify="end" style="height:40px;">
+                                                <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                    <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="8">
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span lass="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                </el-col>
+                                                    <el-col class="textcenter"  :span="5">
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(16, index)"></el-checkbox>
+                                                    </el-col>
+                                            </el-row>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'">
+                                        <div class="Item bg-purple-light2" v-for="(item, index) in equipspartlist[17].effectlist"
+                                            v-bind:key="item.effecttypelist" >
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                justify="end" style="height:40px;">
+                                                <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                    <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="8">
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span lass="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                </el-col>
+                                                    <el-col class="textcenter"  :span="5">
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(17, index)"></el-checkbox>
                                                     </el-col>
                                             </el-row>
                                         </div>
@@ -4146,7 +4290,7 @@
                                             </el-col>
                                         </el-row>
                                     </div>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true" class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
                                                 <span></span>
@@ -4154,18 +4298,118 @@
                                         </el-col>
                                         <el-col class="textcenter">
                                             <div>
-                                                <el-input v-model="equipspartlist[1+14].equipname"
+                                                <el-input v-model="equipspartlist[1+17].equipname"
                                                     placeholder="Card Name">
                                                 </el-input>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="onClearEquipPart(1+14)" size="mini">
+                                            <el-button v-on:click="onClearEquipPart(1+17)" size="mini">
                                                 Clear
                                             </el-button>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="OpenEditEquipDialogue(1+14)" type="success"
+                                            <el-button v-on:click="OpenEditEquipDialogue(1+17)" type="success"
+                                                plain>
+                                                Edit
+                                            </el-button>
+                                        </el-col>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
+                                        <el-col class="textcenter" :span="4">
+                                            <div>
+                                                <span></span>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter">
+                                            <div>
+                                                <el-input v-model="equipspartlist[2+17].equipname"
+                                                    placeholder="Card Name">
+                                                </el-input>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="onClearEquipPart(2+17)" size="mini">
+                                                Clear
+                                            </el-button>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="OpenEditEquipDialogue(2+17)" type="success"
+                                                plain>
+                                                Edit
+                                            </el-button>
+                                        </el-col>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
+                                        <el-col class="textcenter" :span="4">
+                                            <div>
+                                                <span></span>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter">
+                                            <div>
+                                                <el-input v-model="equipspartlist[3+17].equipname"
+                                                    placeholder="Card Name">
+                                                </el-input>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="onClearEquipPart(3+17)" size="mini">
+                                                Clear
+                                            </el-button>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="OpenEditEquipDialogue(3+17)" type="success"
+                                                plain>
+                                                Edit
+                                            </el-button>
+                                        </el-col>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
+                                        <el-col class="textcenter" :span="4">
+                                            <div>
+                                                <span></span>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter">
+                                            <div>
+                                                <el-input v-model="equipspartlist[4+17].equipname"
+                                                    placeholder="Card Name">
+                                                </el-input>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="onClearEquipPart(4+17)" size="mini">
+                                                Clear
+                                            </el-button>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="OpenEditEquipDialogue(4+17)" type="success"
+                                                plain>
+                                                Edit
+                                            </el-button>
+                                        </el-col>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1" class="effectline" :gutter="4" type="flex" align="middle">
+                                        <el-col class="textcenter" :span="4">
+                                            <div>
+                                                <span></span>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter">
+                                            <div>
+                                                <el-input v-model="equipspartlist[5+17].equipname"
+                                                    placeholder="Card Name">
+                                                </el-input>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="onClearEquipPart(5+17)" size="mini">
+                                                Clear
+                                            </el-button>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="OpenEditEquipDialogue(5+17)" type="success"
                                                 plain>
                                                 Edit
                                             </el-button>
@@ -4194,8 +4438,8 @@
                                             </el-row>
                                         </div>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true">
-                                        <div v-for="(item, index) in equipspartlist[1+14].effectlist"
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
+                                        <div v-for="(item, index) in equipspartlist[1+17].effectlist"
                                             v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                 justify="end" style="height:40px;">
@@ -4212,7 +4456,99 @@
                                                     <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter"  :span="5">
-                                                    <el-checkbox v-model="item.Enable" @change="EnableEffect(1+14, index)"></el-checkbox>
+                                                    <el-checkbox v-model="item.Enable" @change="EnableEffect(1+17, index)"></el-checkbox>
+                                                </el-col>
+                                            </el-row>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
+                                        <div v-for="(item, index) in equipspartlist[2+17].effectlist"
+                                            v-bind:key="item.effecttypelist" class="bg-purple-light2">
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                justify="end" style="height:40px;">
+                                                <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                    <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="8">
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter"  :span="5">
+                                                    <el-checkbox v-model="item.Enable" @change="EnableEffect(2+17, index)"></el-checkbox>
+                                                </el-col>
+                                            </el-row>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
+                                        <div v-for="(item, index) in equipspartlist[3+17].effectlist"
+                                            v-bind:key="item.effecttypelist" class="bg-purple-light2">
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                justify="end" style="height:40px;">
+                                                <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                    <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="8">
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter"  :span="5">
+                                                    <el-checkbox v-model="item.Enable" @change="EnableEffect(3+17, index)"></el-checkbox>
+                                                </el-col>
+                                            </el-row>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
+                                        <div v-for="(item, index) in equipspartlist[4+17].effectlist"
+                                            v-bind:key="item.effecttypelist" class="bg-purple-light2">
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                justify="end" style="height:40px;">
+                                                <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                    <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="8">
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter"  :span="5">
+                                                    <el-checkbox v-model="item.Enable" @change="EnableEffect(4+17, index)"></el-checkbox>
+                                                </el-col>
+                                            </el-row>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1">
+                                        <div v-for="(item, index) in equipspartlist[5+17].effectlist"
+                                            v-bind:key="item.effecttypelist" class="bg-purple-light2">
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                justify="end" style="height:40px;">
+                                                <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                    <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="8">
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="2">
+                                                    <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter"  :span="5">
+                                                    <el-checkbox v-model="item.Enable" @change="EnableEffect(5+17, index)"></el-checkbox>
                                                 </el-col>
                                             </el-row>
                                         </div>
@@ -4287,18 +4623,18 @@
                                             </el-col>
                                             <el-col class="textcenter">
                                                 <div>
-                                                    <el-input v-model="equipspartlist[eqindex+2+14].equipname"
+                                                    <el-input v-model="equipspartlist[eqindex+5+17].equipname"
                                                         placeholder="Card Name">
                                                     </el-input>
                                                 </div>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="onClearEquipPart(eqindex+2+14)" size="mini">
+                                                <el-button v-on:click="onClearEquipPart(eqindex+5+17)" size="mini">
                                                     Clear
                                                 </el-button>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+2+14)" type="success"
+                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+5+17)" type="success"
                                                     plain>
                                                     Edit
                                                 </el-button>
@@ -4328,7 +4664,7 @@
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-for="(item, index) in equipspartlist[eqindex+2+14].effectlist"
+                                            <div v-for="(item, index) in equipspartlist[eqindex+6+17].effectlist"
                                                 v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
@@ -4345,7 +4681,7 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+2+14, index)"></el-checkbox>
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+6+17, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
@@ -4414,7 +4750,7 @@
                                         </el-row>
                                     </div>
                                 </div>
-                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(28,33)">
+                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(35,40)">
                                     <div class="bg-purple-light" style="padding: 0px 4px;">
                                         <el-col v-if="UIPanel[item.id+'Panel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
                                             <el-button type="info" v-on:click="TogglePanel(item.id+'Panel')" size="mini"><i
@@ -4432,25 +4768,25 @@
                                             </el-col>
                                             <el-col class="textcenter">
                                                 <div>
-                                                    <el-input v-model="equipspartlist[eqindex+28].equipname"
+                                                    <el-input v-model="equipspartlist[eqindex+35].equipname"
                                                         placeholder="Equip Name">
                                                     </el-input>
                                                 </div>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="onClearEquipPart(eqindex+28)" size="mini">
+                                                <el-button v-on:click="onClearEquipPart(eqindex+35)" size="mini">
                                                     Clear
                                                 </el-button>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+28)" type="success"
+                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+35)" type="success"
                                                     plain>
                                                     Edit
                                                 </el-button>
                                             </el-col>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-for="(item, index) in equipspartlist[eqindex+28].effectlist"
+                                            <div v-for="(item, index) in equipspartlist[eqindex+35].effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
@@ -4467,7 +4803,7 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+2, index)"></el-checkbox>
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+35, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
@@ -5926,8 +6262,15 @@
                     { id: 'costume', label: 'Costume', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'cardset', label: 'CardSets', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'other', label: 'Custom', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'weaponrcard', label: 'MainHandCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'weaponlcard', label: 'OffHandCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shieldcard', label: 'shieldcard', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'helmcard', label: 'Upper Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'helm1card', label: 'Middle Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'helm2card', label: 'Lower Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
@@ -6387,6 +6730,8 @@
                     {id: 'SL', label: 'SoulReaper'},
                     {id: 'SUM', label: 'Summoner'},
                     {id: 'SN', label: 'SuperNovice'},
+                    {id: 'WEAPCARD', label: 'WeaponCard'},
+                    {id: 'SHIELDCARD', label: 'ShieldCard'},
                 ],
                 select_default: '',
                 iroSizeFix: false,
@@ -6832,6 +7177,39 @@
                         })
                     */
                 },
+                clearCardsFromEquipment(ids){
+                    if(ids.length > 0){
+                        for(const idx of ids){
+                            const _id = this.equipspartlist[idx].id;
+                            const _label = this.equipspartlist[idx].label;
+                            this.$set(this.equipspartlist,
+                            idx,
+                            {
+                                id: _id,
+                                label: _label,
+                                equipname: '',
+                                effectlist: [],
+                                itemid: 0,
+                                combolist: []
+                            });
+                        }
+                    }
+                },
+                onGearUpdate(){
+                    if(this.weapon.type.id == 'Empty'){
+                        this.clearCardsFromEquipment([14, 15, 16, 17]);
+                    }
+                    if(this.subweapon.type.id == 0){
+                        this.clearCardsFromEquipment([18, 19, 20, 21, 22]);
+                    }
+                    if(this.subweapon.type.id == 1){
+                        this.clearCardsFromEquipment([18, 19, 20, 21]);
+                    }
+                    if(this.subweapon.type.id > 1){
+                        this.clearCardsFromEquipment([22]);
+                    }
+                    this.CombineEquipsAttribute();
+                },
                 onEditEquipClear(){
                     this.PreviewETL = _.cloneDeep(this.PreviewETL_init);
                 },
@@ -7037,6 +7415,7 @@
                     this.ComputRefineATK();
                 },
                 onSelectedWeaponType(item) {
+                    this.onGearUpdate();
                     this.ChangeWeapon();
                 },
                 ChangeWeapon() {
@@ -9951,23 +10330,29 @@
                             if( this.equipspartlist[9].equipname == '' ) { idx = 9; }
                             if( this.equipspartlist[8].equipname == '' ) { idx = 8; }
                         }
-                        if (idx == 14 || idx == 15)
+                        if (idx == 14 || idx == 15 || idx == 16 || idx == 17 || idx == 18 || idx == 19 || idx == 20 || idx == 21)
                         {
                             idx = 14;
+                            if( this.equipspartlist[21].equipname == '' ) { idx = 21; }
+                            if( this.equipspartlist[20].equipname == '' ) { idx = 20; }
+                            if( this.equipspartlist[19].equipname == '' ) { idx = 19; }
+                            if( this.equipspartlist[18].equipname == '' ) { idx = 18; }
+                            if( this.equipspartlist[17].equipname == '' ) { idx = 17; }
+                            if( this.equipspartlist[16].equipname == '' ) { idx = 16; }
                             if( this.equipspartlist[15].equipname == '' ) { idx = 15; }
                             if( this.equipspartlist[14].equipname == '' ) { idx = 14; }
                         }
-                        if (idx == 16 || idx == 17)
+                        if (idx == 23 || idx == 24)
                         {
-                            idx = 16;
-                            if( this.equipspartlist[17].equipname == '' ) { idx = 17; }
-                            if( this.equipspartlist[16].equipname == '' ) { idx = 16; }
-                        }
-                        if (idx == 22 || idx == 23)
-                        {
-                            idx = 22;
+                            idx = 23;
+                            if( this.equipspartlist[24].equipname == '' ) { idx = 24; }
                             if( this.equipspartlist[23].equipname == '' ) { idx = 23; }
-                            if( this.equipspartlist[22].equipname == '' ) { idx = 22; }
+                        }
+                        if (idx == 29 || idx == 30)
+                        {
+                            idx = 29;
+                            if( this.equipspartlist[30].equipname == '' ) { idx = 30; }
+                            if( this.equipspartlist[29].equipname == '' ) { idx = 29; }
                         }
                         this.StoreDB_Equip[_dbidx].equip.effectlist.forEach(x=>x.Enable=x.Enable==null?true:x.Enable);
                         this.StoreDB_Equip[_dbidx].equip.combolist.forEach(x=>x.effectlist.forEach(y=>y.Enable=y.Enable==null?true:y.Enable));
@@ -9985,6 +10370,7 @@
                                 effectlist: _.cloneDeep(this.StoreDB_Equip[_dbidx].equip.effectlist),
                                 combolist: _.cloneDeep(this.StoreDB_Equip[_dbidx].equip.combolist),
                             })
+                        this.onGearUpdate();
                         this.CombineEquipsAttribute();
                     }
                     if (idx == 0 && this.StoreDB_Equip[_dbidx].weapon != null) {
