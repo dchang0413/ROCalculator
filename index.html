@@ -3994,6 +3994,30 @@
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponrPanel']==true">
+                                        <div v-for="(combo, idx) in equipspartlist[0].combolist">
+                                            <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                                <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                    justify="end" style="height:40px;">
+                                                    <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                        <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="8">
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter"  :span="5">
+                                                        <el-checkbox :disabled="!SearchForItemIds(combo.itemids)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
+                                                    </el-col>
+                                                </el-row>
+                                            </div>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponrPanel']==true">
                                         <div class="Item bg-purple-light2" v-for="(item, index) in equipspartlist[14].effectlist"
                                             v-bind:key="item.effecttypelist" >
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -4195,6 +4219,30 @@
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true">
+                                        <div v-for="(combo, idx) in equipspartlist[1].combolist">
+                                            <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                                <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                    justify="end" style="height:40px;">
+                                                    <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                        <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="8">
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter"  :span="5">
+                                                        <el-checkbox :disabled="!SearchForItemIds(combo.itemids)" v-model="item.Enable" @change="EnableEffect(1, index)"></el-checkbox>
+                                                    </el-col>
+                                                </el-row>
+                                            </div>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true">
                                         <div v-for="(item, index) in equipspartlist[1+14].effectlist"
                                             v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -4325,6 +4373,30 @@
                                                         <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+2, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
+                                            </div>
+                                        </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']">
+                                            <div v-for="(combo, idx) in equipspartlist[eqindex+2].combolist">
+                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                                    <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                        justify="end" style="height:40px;">
+                                                        <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                            <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="8">
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter"  :span="5">
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo.itemids)" v-model="item.Enable" @change="EnableEffect(eqindex+2, index)"></el-checkbox>
+                                                        </el-col>
+                                                    </el-row>
+                                                </div>
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
@@ -6649,6 +6721,13 @@
                         );
                         this.EquipComboEffectList.push(...yy);
                     }
+                },
+                SearchForItemIds(ids) {
+                    const itemIdSet = new Set(this.equipspartlist.map(item => item.itemid));
+                    if(ids.every(id => itemIdSet.has(id))) {
+                        return true;
+                    }
+                    return false;
                 },
                 CombineEquipsAndCombos() {
                     this.EquipAndComboEffectList = [...this.equipspartlist, ...this.EquipComboEffectList];
