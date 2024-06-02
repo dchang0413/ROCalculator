@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-clipboard2/0.3.1/vue-clipboard.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-63581889-2"></script>
@@ -836,6 +837,13 @@
                     </el-button>
                 </el-col>
             </el-row>
+            <el-row v-if="PreviewCombo.length || showExport">
+                <div>
+                    <el-button v-on:click="OpenEditEquipComboDialogue(-1)">{{PreviewSelName}}</el-button>
+                    <el-button v-if="showExport" v-on:click="AppendEquipCombo">+</el-button>
+                    <el-button v-for="(item, index) in PreviewCombo" v-on:click="OpenEditEquipComboDialogue(index)">+{{item.equipname}}</el-button>
+                  </div>    
+            </el-row>
             <el-row :gutter="2">
                 <el-col :span="6" class="statusbox ">
                     <el-col class="textcenter" :span="24">
@@ -1206,6 +1214,17 @@
                                         </el-input>
                                     </el-col>
                                 </el-row>
+
+                                <el-row v-if="ComboSelectId!==false" :gutter="6" type="flex" align="middle">
+                                    <el-col class="textcenter" :span="8">
+                                        Combo IDs
+                                    </el-col>
+                                    <el-col class="textcenter" :span="16">
+                                        <el-input v-model="PreviewComboIDs" v-on:keyup.native="updateComboIDs" placeholder="Value">
+                                        </el-input>
+                                    </el-col>
+                                </el-row>
+                                
                                 <!--
                                     currently unused
                                 <el-row :class="PreviewETL[GetETLIndex('ElementDamageDealtIncreasedPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
@@ -4068,7 +4087,31 @@
                                             </el-row>
                                         </div>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'">
+                                    <el-row v-show="UIPanel['weaponrPanel']==true">
+                                        <div v-for="(combo, idx) in equipspartlist[0].combolist">
+                                            <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                                <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                    justify="end" style="height:40px;">
+                                                    <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                        <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="8">
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter"  :span="5">
+                                                        <el-checkbox :disabled="!SearchForItemIds(combo.itemids)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
+                                                    </el-col>
+                                                </el-row>
+                                            </div>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponrPanel']==true">
                                         <div class="Item bg-purple-light2" v-for="(item, index) in equipspartlist[14].effectlist"
                                             v-bind:key="item.effecttypelist" >
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -4438,8 +4481,32 @@
                                             </el-row>
                                         </div>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
-                                        <div v-for="(item, index) in equipspartlist[1+17].effectlist"
+                                    <el-row v-show="UIPanel['weaponlPanel']==true">
+                                        <div v-for="(combo, idx) in equipspartlist[1].combolist">
+                                            <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                                <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                    justify="end" style="height:40px;">
+                                                    <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                        <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="8">
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter"  :span="5">
+                                                        <el-checkbox :disabled="!SearchForItemIds(combo.itemids)" v-model="item.Enable" @change="EnableEffect(1, index)"></el-checkbox>
+                                                    </el-col>
+                                                </el-row>
+                                            </div>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true">
+                                        <div v-for="(item, index) in equipspartlist[1+14].effectlist"
                                             v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                 justify="end" style="height:40px;">
@@ -4664,7 +4731,31 @@
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-for="(item, index) in equipspartlist[eqindex+6+17].effectlist"
+                                            <div v-for="(combo, idx) in equipspartlist[eqindex+2].combolist">
+                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                                    <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                        justify="end" style="height:40px;">
+                                                        <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                            <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="8">
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter"  :span="5">
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo.itemids)" v-model="item.Enable" @change="EnableEffect(eqindex+2, index)"></el-checkbox>
+                                                        </el-col>
+                                                    </el-row>
+                                                </div>
+                                            </div>
+                                        </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']">
+                                            <div v-for="(item, index) in equipspartlist[eqindex+2+14].effectlist"
                                                 v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
@@ -6098,6 +6189,7 @@
                 StoreDB_SearchString: '',
                 StoreDB_Equip: [],
                 EquipSelectId: '',
+                ComboSelectId: false,
                 EquipSelectLabel: '',
                 EquipSelectEffect: [],
                 EquipComboEffectList: [],
@@ -6107,6 +6199,9 @@
                 PreviewETL_init: [],
                 PreviewETL: [],
                 PreviewEN: '',  // 預覽裝備名字
+                PreviewSelName: '',
+                PreviewComboIDs: [],
+                PreviewCombo: [],
                 showExport: window.location.href.includes('localhost'),
 
                 StoreDB_Consumable: [],
@@ -6995,6 +7090,13 @@
                         this.EquipComboEffectList.push(...yy);
                     }
                 },
+                SearchForItemIds(ids) {
+                    const itemIdSet = new Set(this.equipspartlist.map(item => item.itemid));
+                    if(ids.every(id => itemIdSet.has(id))) {
+                        return true;
+                    }
+                    return false;
+                },
                 CombineEquipsAndCombos() {
                     this.EquipAndComboEffectList = [...this.equipspartlist, ...this.EquipComboEffectList];
                 },
@@ -7138,6 +7240,8 @@
                 },
                 CloseEffectDialogue() {
                     this.EquipSelectId = '';
+                    this.ComboSelectId = false;
+                    this.PreviewComboIDs = [];
                 },
                 OpenEditEquipDialogue(eqindex) {
                     this.UIPanel['EditEquipDialog'] = true;
@@ -7145,7 +7249,7 @@
                     this.EquipSelectLabel = this.equipspartlist[eqindex].label;
 
                     this.PreviewETL = _.cloneDeep(this.PreviewETL_init);
-                    this.PreviewEN = this.equipspartlist[eqindex].equipname;
+                    this.PreviewEN = this.PreviewSelName = this.equipspartlist[eqindex].equipname;
                     this.equipspartlist[eqindex].effectlist.forEach(element => {
                         for (let preview of this.PreviewETL) {
                             if (element.EffectType.id == preview.id) {
@@ -7154,10 +7258,52 @@
                             }
                         };
                     });
-
+                    this.PreviewCombo = this.equipspartlist[eqindex].combolist;
+                    this.ComboSelectId = false;
+                },
+                OpenEditEquipComboDialogue(comboindex){
+                    this.PreviewETL = _.cloneDeep(this.PreviewETL_init);
+                    if (comboindex == -1){
+                        this.PreviewComboIDs = [];
+                        this.ComboSelectId = false;
+                        this.PreviewEN = this.equipspartlist[this.EquipSelectId].equipname;
+                        this.equipspartlist[this.EquipSelectId].effectlist.forEach(element => {
+                            for (let preview of this.PreviewETL) {
+                                if (element.EffectType.id == preview.id) {
+                                    preview.totalvalue = element.EffectNumber;
+                                    break;
+                                }
+                            };
+                        });
+                    } else {
+                        this.ComboSelectId = comboindex;
+                        this.PreviewComboIDs = this.equipspartlist[this.EquipSelectId].combolist[comboindex].itemids;
+                        this.PreviewEN = this.equipspartlist[this.EquipSelectId].combolist[comboindex].equipname;
+                        this.equipspartlist[this.EquipSelectId].combolist[comboindex].effectlist.forEach(element => {
+                            for (let preview of this.PreviewETL) {
+                                if (element.EffectType.id == preview.id) {
+                                    preview.totalvalue = element.EffectNumber;
+                                    break;
+                                }
+                            };
+                        });
+                    }
+                },
+                AppendEquipCombo(){
+                    if (!this.EquipSelectId) return;
+                    if (!this.equipspartlist[this.EquipSelectId].combolist) this.equipspartlist[this.EquipSelectId].combolist=[{itemids:[],equipname:"NewCombo",effectlist:[]}];
+                    else this.equipspartlist[this.EquipSelectId].combolist.push({itemids:[],equipname:"NewCombo",effectlist:[]});
+                },
+                updateComboIDs(){
+                    if (!this.EquipSelectId) return;
+                    if (isNaN(this.ComboSelectId)) return;
+                    let val = this.PreviewComboIDs.split(',');
+                    this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].itemids = val.map(Number);
                 },
                 CloseEditEquipDialogue() {
                     this.EquipSelectId = '';
+                    this.ComboSelectId = false;
+                    this.PreviewComboIDs = [];
                 },
                 GetETLIndex(id) {
                     return this.PreviewETL.findIndex(i => i.id === id)
@@ -7217,35 +7363,68 @@
                     this.ClosePanel('EditEquipDialog');
                 },
                 onEditEquipConfirm( save ){
-                    this.equipspartlist[this.EquipSelectId].equipname = this.PreviewEN;
+                    if (this.ComboSelectId === false){
+                        this.equipspartlist[this.EquipSelectId].equipname = this.PreviewEN;
 
-                    var _oldenablemap=[];
-                    for( let item of this.equipspartlist[this.EquipSelectId].effectlist){
-                        _oldenablemap.push({ EffectID:item.EffectType.id, Enable:item.Enable });
-                    }
+                        var _oldenablemap=[];
+                        for( let item of this.equipspartlist[this.EquipSelectId].effectlist){
+                            _oldenablemap.push({ EffectID:item.EffectType.id, Enable:item.Enable });
+                        }
 
-                    var _idx = 0;
-                    for (let preview of this.PreviewETL) {
-                        if( preview.totalvalue != 0 ){
-                            var _enable = true;
-                            var _oldidx = _oldenablemap.findIndex(x=>x.EffectID==preview.id);
-                            if( _oldidx >-1 ) _enable = _oldenablemap[_oldidx].Enable;
-                            if(!isNaN(preview.totalvalue)) preview.totalvalue = eval(preview.totalvalue);
-                            this.$set(this.equipspartlist[this.EquipSelectId].effectlist,
-                                _idx,
-                                {
-                                    EffectNumber: preview.totalvalue,
-                                    EffectType: {id: preview.id},
-                                    Enable: _enable,
-                                })
-                            _idx += 1;
-                        }else{
-                            var _ri = this.equipspartlist[this.EquipSelectId].effectlist.findIndex(i => i.EffectType.id == preview.id);
-                            if (_ri >= 0) {
-                                this.equipspartlist[this.EquipSelectId].effectlist.splice(_ri, 1)
+                        var _idx = 0;
+                        for (let preview of this.PreviewETL) {
+                            if( preview.totalvalue != 0 ){
+                                var _enable = true;
+                                var _oldidx = _oldenablemap.findIndex(x=>x.EffectID==preview.id);
+                                if( _oldidx >-1 ) _enable = _oldenablemap[_oldidx].Enable;
+                                if(!isNaN(preview.totalvalue)) preview.totalvalue = eval(preview.totalvalue);
+                                this.$set(this.equipspartlist[this.EquipSelectId].effectlist,
+                                    _idx,
+                                    {
+                                        EffectNumber: preview.totalvalue,
+                                        EffectType: {id: preview.id},
+                                        Enable: _enable,
+                                    })
+                                _idx += 1;
+                            }else{
+                                var _ri = this.equipspartlist[this.EquipSelectId].effectlist.findIndex(i => i.EffectType.id == preview.id);
+                                if (_ri >= 0) {
+                                    this.equipspartlist[this.EquipSelectId].effectlist.splice(_ri, 1)
+                                }
+                            }
+                        }
+                    } else {
+                        this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].equipname = this.PreviewEN;
+
+                        var _oldenablemap=[];
+                        for( let item of this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].effectlist){
+                            _oldenablemap.push({ EffectID:item.EffectType.id, Enable:item.Enable });
+                        }
+
+                        var _idx = 0;
+                        for (let preview of this.PreviewETL) {
+                            if( preview.totalvalue != 0 ){
+                                var _enable = true;
+                                var _oldidx = _oldenablemap.findIndex(x=>x.EffectID==preview.id);
+                                if( _oldidx >-1 ) _enable = _oldenablemap[_oldidx].Enable;
+                                if(!isNaN(preview.totalvalue)) preview.totalvalue = eval(preview.totalvalue);
+                                this.$set(this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].effectlist,
+                                    _idx,
+                                    {
+                                        EffectNumber: preview.totalvalue,
+                                        EffectType: {id: preview.id},
+                                        Enable: _enable,
+                                    })
+                                _idx += 1;
+                            }else{
+                                var _ri = this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].effectlist.findIndex(i => i.EffectType.id == preview.id);
+                                if (_ri >= 0) {
+                                    this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].effectlist.splice(_ri, 1)
+                                }
                             }
                         }
                     }
+                    
                     if( save ){
                         this.onSaveEquip(this.EquipSelectId);
                     }
@@ -11906,6 +12085,7 @@
                         { id: 0, coop: '公式協力', name: '琉璃廣' },
                     );
                     this.englishthanksList.push(
+                        { id: 0, coop: 'Major Contributor', name: 'Pingaify' },
                         { id: 0, coop: 'Formula Testing', name: 'zyn' },
                         { id: 1, coop: 'Formula Testing', name: 'Sigma' },
                         { id: 2, coop: 'Equip Input', name: 'Angux' },
