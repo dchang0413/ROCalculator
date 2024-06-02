@@ -6946,8 +6946,8 @@
                 },
                 AppendEquipCombo(){
                     if (!this.EquipSelectId) return;
-                    if (!this.equipspartlist[this.EquipSelectId].combolist) this.equipspartlist[this.EquipSelectId].combolist=[{itemids:[],equipname:"NewCombo"}];
-                    else this.equipspartlist[this.EquipSelectId].combolist.push({itemids:[],equipname:"NewCombo"});
+                    if (!this.equipspartlist[this.EquipSelectId].combolist) this.equipspartlist[this.EquipSelectId].combolist=[{itemids:[],equipname:"NewCombo",effectlist:[]}];
+                    else this.equipspartlist[this.EquipSelectId].combolist.push({itemids:[],equipname:"NewCombo",effectlist:[]});
                 },
                 updateComboIDs(){
                     if (!this.EquipSelectId) return;
