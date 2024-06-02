@@ -1,6 +1,129 @@
 {
-    "0": {
-        "id": "helm2",
+	"0": {
+		"id": "acc1",
+		"label": "Accessory",
+		"equipname": "Peuz's Seal",
+		"effectlist": [
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			}
+		],
+		"itemid": 2884,
+		"combolist": [],
+		"refinelevel": 0,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
+	},
+	"1": {
+		"id": "shoes",
+		"label": "Shoes",
+		"equipname": "Peuz's Greaves",
+		"effectlist": [
+			{
+				"EffectNumber": "SHOER>7?(SHOER-7):0",
+				"EffectType": {
+					"id": "AGI"
+				},
+				"Enable": true
+			}
+		],
+		"itemid": 2476,
+		"combolist": [],
+		"refinelevel": 0,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
+	},
+	"2": {
+		"id": "robe",
+		"label": "Garment",
+		"equipname": "Peuz's Manteau",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			}
+		],
+		"itemid": 2575,
+		"combolist": [],
+		"refinelevel": 0,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
+	},
+	"3": {
+		"id": "armor",
+		"label": "Armor",
+		"equipname": "Peuz's Plate",
+		"effectlist": [
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			}
+		],
+		"itemid": 15037,
+		"combolist": [
+			{
+				"itemids": [
+					2476,
+					2575,
+					2884
+				],
+				"equipname": "Peuz's set",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"WINDCUTTER SONICWAVE\")?100:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "ASPD"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"refinelevel": 0,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
+	},
+	"4": {
+		"id": "helm2",
 		"itemid": 420329,
 		"label": "Lower",
 		"equipname": "Twinhead Dragon Scale",
@@ -26,8 +149,10 @@
 		],
 		"combolist": [
 			{
-				"itemids": [450216],
-				"equipname" : "Twinhead Dragonmail",
+				"itemids": [
+					450216
+				],
+				"equipname": "Twinhead Dragonmail",
 				"effectlist": [
 					{
 						"EffectNumber": "ARMORR>13?10:0",
@@ -110,121 +235,124 @@
 			}
 		],
 		"idx": 3
-    },
-    "2": {
-        "id": "robe",
-        "itemid": 480369,
-        "label": "Garment",
-        "equipname": "Scarlet Hero Manteau",
-        "refinelevel": 11,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "(DOWN(GARMR/2)*10)+(BLV>99?50:0)",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('BOWLINGBASH')&&BLV<100?50:0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "DOWN(GARMR/4)*4",
-                "EffectType": {
-                    "id": "SizeAtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(GARMR>8?10:0)+(BLV>99&&BLV<170&&CCL=='RK'?10:0)+(BLV>169&&CCL=='RK'?30:0)",
-                "EffectType": {
-                    "id": "MeleeDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(DOWN(GARMR/2)*3)+(BLV>99&&CCL=='RK'?15:0)",
-                "EffectType": {
-                    "id": "VariableCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "GARMR>10&&BLV<100?20:(GARMR>6?10:0)",
-                "EffectType": {
-                    "id": "AspdPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    "3": {
-        "id": "weaponr",
-        "itemid": 21058,
-        "label": "MainHand",
-        "equipname": "Awakened Dragonic Slayer",
-        "refinelevel": 0,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "WEAR>8?10:0",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "5*FLOOR(WEAR/3)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>10?17:(WEAR>6?10:0)",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>6?10:0",
-                "EffectType": {
-                    "id": "VariableCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "5*FLOOR(WEAR/2)",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "5*FLOOR(WEAR/2)+(WEAR>10?5:0)",
-                "EffectType": {
-                    "id": "SPPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "combolist": [
+	},
+	"5": {
+		"id": "robe",
+		"itemid": 480369,
+		"label": "Garment",
+		"equipname": "Scarlet Hero Manteau",
+		"refinelevel": 11,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
 			{
-				"itemids": [22238],
-				"equipname" : "Great Hero's Boot",
+				"EffectNumber": "(DOWN(GARMR/2)*10)+(BLV>99?50:0)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('BOWLINGBASH')&&BLV<100?50:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(GARMR/4)*4",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>8?10:0)+(BLV>99&&BLV<170&&CCL=='RK'?10:0)+(BLV>169&&CCL=='RK'?30:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(GARMR/2)*3)+(BLV>99&&CCL=='RK'?15:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>10&&BLV<100?20:(GARMR>6?10:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	"6": {
+		"id": "weaponr",
+		"itemid": 21058,
+		"label": "MainHand",
+		"equipname": "Awakened Dragonic Slayer",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "WEAR>8?10:0",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5*FLOOR(WEAR/3)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?17:(WEAR>6?10:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5*FLOOR(WEAR/2)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5*FLOOR(WEAR/2)+(WEAR>10?5:0)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [
+					22238
+				],
+				"equipname": "Great Hero's Boot",
 				"effectlist": [
 					{
 						"EffectNumber": 10,
@@ -243,1182 +371,1202 @@
 				]
 			}
 		],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedSword",
-                "label": "2HSword",
-                "sizefix": {
-                    "small": 75,
-                    "middle": 75,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "200",
-            "MATK": 0,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 200,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
-    "4": {
-        "id": "armor",
-        "itemid": 15405,
-        "label": "Armor",
-        "equipname": "Fafnir Scale",
-        "refinelevel": 7,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "CCL=='RK'?20:0",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('DRAGONBREATH')?50:0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "ARMORR>6?10:(ARMORR>4?5:0)+(CCL=='RK'?20:0)",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "ARMORR>6?50:(ARMORR>4?30:10)",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "ARMORR>6?50:(ARMORR>4?30:10)",
-                "EffectType": {
-                    "id": "SPPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    "5": {
-        "id": "robe",
-        "itemid": 480084,
-        "label": "Garment",
-        "equipname": "Fafnir Breath",
-        "refinelevel": 11,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "GARMR>10?20:(GARMR>8?10:0)",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('DRAGONBREATH')?100:0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "GARMR>15?20:(GARMR>8?8:3)",
-                "EffectType": {
-                    "id": "AspdPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='RK'?20:0",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='RK'?20:0",
-                "EffectType": {
-                    "id": "SPPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    "6": {
-        "id": "shoes",
-        "itemid": 2433,
-        "label": "Shoes",
-        "equipname": "Diabolus Boots",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "10*BLV",
-                "EffectType": {
-                    "id": "HP"
-                },
-                "Enable": true
-            }
-        ],
-        "combolist": [
-            {
-                "itemids": [2537],
-				"equipname" : "Diabolus Manteau",
-                "effectlist": [
-                    {
-                        "EffectNumber": 6,
-                        "EffectType": {
-                            "id": "HPPercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            }
-        ],
-        "idx": 3
-    },
-    "7": {
-        "id": "helm",
-        "itemid": 400177,
-        "label": "Upper",
-        "equipname": "Fafnir Helm",
-        "refinelevel": 9,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "CCL=='RK'?50:0",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('DRAGONBREATH')?(HATR>8?150:(HATR>6?80:30)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "10+(CCL=='RK'?20:0)",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='RK'?0.2:0",
-                "EffectType": {
-                    "id": "FixedCast"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='RK'?25:0",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='RK'?25:0",
-                "EffectType": {
-                    "id": "SPPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    "8": {
-        "id": "acc2",
-        "itemid": 490319,
-        "label": "Accessory",
-        "equipname": "Y.S.F. Ring",
-        "refinelevel": 0,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 20,
-                "EffectType": {
-                    "id": "VIT"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "DOWN(BLV/2)*(SKIDS('DRAGONBREATH')?1:(SKIDS('HUNDREDSPEAR')?3:0))",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 15,
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"HUNDREDSPEAR\")?1:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    "9": {
-        "id": "helm1",
-        "itemid": 19495,
-        "label": "Middle",
-        "equipname": "Diabolus Wing",
-        "refinelevel": 0,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "AllStatus"
-                },
-                "Enable": true
-            }
-        ],
-        "combolist": [
-            {
-                "itemids": [2433],
-				"equipname" : "Diabolus Boots",
-                "effectlist": [
-                    {
-                        "EffectNumber": "20*SHOER",
-                        "EffectType": {
-                            "id": "Atk"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "20*SHOER",
-                        "EffectType": {
-                            "id": "Matk"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "100*BLV",
-                        "EffectType": {
-                            "id": "HP"
-                        },
-                        "Enable": true
-                    }
-                ]
-            }
-        ],
-        "idx": 3
-    },
-    "10": {
-        "id": "helm2",
-        "itemid": 420028,
-        "label": "Lower",
-        "equipname": "Imperial Glory",
-        "refinelevel": 0,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "3*DOWN((BAG+BVI)/50)",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    "11": {
-        "id": "acc1",
-        "itemid": 490207,
-        "label": "Accessory",
-        "equipname": "Memento Mori",
-        "refinelevel": 0,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "AllStatus"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "LevelAtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "LevelMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    "12": {
-        "id": "shoes",
-        "itemid": 470206,
-        "label": "Shoes",
-        "equipname": "Prana Boots",
-        "refinelevel": 11,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "3*SHOER",
-                "EffectType": {
-                    "id": "INT"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "3*SHOER",
-                "EffectType": {
-                    "id": "DEX"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SHOER>10?30:(SHOER>8?15:0)",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "1000*SHOER",
-                "EffectType": {
-                    "id": "HP"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    "13": {
-        "id": "armor",
-        "itemid": 450216,
-        "label": "Armor",
-        "equipname": "Twinhead Dragonmail",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "CCL=='RK'?70:0",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('DRAGONBREATH')?(ARMORR>11?150:100):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='RK'?30:0",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='RK'?50:10",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='RK'?50:10",
-                "EffectType": {
-                    "id": "SPPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    "14": {
-        "id": "weaponr",
-        "itemid": 32007,
-        "label": "MainHand",
-        "equipname": "God Eater Dragon Spear",
-        "refinelevel": 0,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 3,
-                "EffectType": {
-                    "id": "STR"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 5,
-                "EffectType": {
-                    "id": "DEX"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "2*WEAR",
-                "EffectType": {
-                    "id": "LevelAtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('DRAGONBREATH')?50:0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>9?70:0",
-                "EffectType": {
-                    "id": "FixedCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "2*WEAR",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "OneHandedSpears",
-                "label": "1HSpear",
-                "sizefix": {
-                    "small": 75,
-                    "middle": 75,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "360",
-            "MATK": 280,
-            "refinelevel": 10,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 380,
-            "refinematk": 70,
-            "refineatk": 70,
-            "refineatk2": 84
-        }
-    },
-    "15": {
-        "id": "shoes",
-        "itemid": 470084,
-        "label": "Shoes",
-        "equipname": "Rune Greave",
-        "refinelevel": 7,
-        "grade": {
-            "id": 0
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "CCL=='RK'?30:0",
-                "EffectType": {
-                    "id": "AllStatus"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('HUNDREDSPEAR')?200:0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": false
-            },
-            {
-                "EffectNumber": "SKIDS('HUNDREDSPEAR')?1:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": false
-            },
-            {
-                "EffectNumber": "SHOER>6?20:(SHOER>4?10:0)",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='RK'?50:0",
-                "EffectType": {
-                    "id": "FixedCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SHOER>6?20:(SHOER>4?10:3)",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SHOER>6?20:(SHOER>4?10:3)",
-                "EffectType": {
-                    "id": "SPPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    "16": {
-        "id": "weaponr",
-        "itemid": 600014,
-        "label": "MainHand",
-        "equipname": "Poenitentia Ensis",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"IGNITIONBREAK\")?3*DOWN(WEAR/2)+(WEAR>8?25:0):0)+(SKIDS(\"STORMSLASH\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>6?10:0)",
-                "EffectType": {
-                    "id": "VariableCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"IGNITIONBREAK\")&&WEAR>10)?0.7:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(2)?1:0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?2:0)",
-                "EffectType": {
-                    "id": "POW"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedSword",
-                "label": "2HSword",
-                "sizefix": {
-                    "small": 75,
-                    "middle": 75,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "315",
-            "MATK": 0,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 220,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedSword",
+				"label": "2HSword",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "200",
+			"MATK": 0,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 200,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	"7": {
+		"id": "armor",
+		"itemid": 15405,
+		"label": "Armor",
+		"equipname": "Fafnir Scale",
+		"refinelevel": 7,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "CCL=='RK'?20:0",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('DRAGONBREATH')?50:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>6?10:(ARMORR>4?5:0)+(CCL=='RK'?20:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>6?50:(ARMORR>4?30:10)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>6?50:(ARMORR>4?30:10)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	"8": {
+		"id": "robe",
+		"itemid": 480084,
+		"label": "Garment",
+		"equipname": "Fafnir Breath",
+		"refinelevel": 11,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "GARMR>10?20:(GARMR>8?10:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('DRAGONBREATH')?100:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>15?20:(GARMR>8?8:3)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'?20:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'?20:0",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	"9": {
+		"id": "shoes",
+		"itemid": 2433,
+		"label": "Shoes",
+		"equipname": "Diabolus Boots",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "10*BLV",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [
+					2537
+				],
+				"equipname": "Diabolus Manteau",
+				"effectlist": [
+					{
+						"EffectNumber": 6,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"10": {
+		"id": "helm",
+		"itemid": 400177,
+		"label": "Upper",
+		"equipname": "Fafnir Helm",
+		"refinelevel": 9,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "CCL=='RK'?50:0",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('DRAGONBREATH')?(HATR>8?150:(HATR>6?80:30)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10+(CCL=='RK'?20:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'?0.2:0",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'?25:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'?25:0",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	"11": {
+		"id": "acc2",
+		"itemid": 490319,
+		"label": "Accessory",
+		"equipname": "Y.S.F. Ring",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "VIT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(BLV/2)*(SKIDS('DRAGONBREATH')?1:(SKIDS('HUNDREDSPEAR')?3:0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HUNDREDSPEAR\")?1:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	"12": {
+		"id": "helm1",
+		"itemid": 19495,
+		"label": "Middle",
+		"equipname": "Diabolus Wing",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [
+					2433
+				],
+				"equipname": "Diabolus Boots",
+				"effectlist": [
+					{
+						"EffectNumber": "20*SHOER",
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "20*SHOER",
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "100*BLV",
+						"EffectType": {
+							"id": "HP"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"13": {
+		"id": "helm2",
+		"itemid": 420028,
+		"label": "Lower",
+		"equipname": "Imperial Glory",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "3*DOWN((BAG+BVI)/50)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	"14": {
+		"id": "acc1",
+		"itemid": 490207,
+		"label": "Accessory",
+		"equipname": "Memento Mori",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	"15": {
+		"id": "shoes",
+		"itemid": 470206,
+		"label": "Shoes",
+		"equipname": "Prana Boots",
+		"refinelevel": 11,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "3*SHOER",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "3*SHOER",
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>10?30:(SHOER>8?15:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "1000*SHOER",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	"16": {
+		"id": "armor",
+		"itemid": 450216,
+		"label": "Armor",
+		"equipname": "Twinhead Dragonmail",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "CCL=='RK'?70:0",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('DRAGONBREATH')?(ARMORR>11?150:100):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'?30:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'?50:10",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'?50:10",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
 	"17": {
-        "id": "weaponr",
-        "itemid": 630009,
-        "label": "MainHand",
-        "equipname": "Poenitentia Katapulta",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"HUNDREDSPEAR\")?3*DOWN(WEAR/2)+(WEAR>8?25:0):0)+(SKIDS(\"MADNESS_CRUSHER\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>6?10:0)",
-                "EffectType": {
-                    "id": "VariableCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"HUNDREDSPEAR\")&&WEAR>10)?2:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(2)?1:0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?2:0)",
-                "EffectType": {
-                    "id": "POW"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedSpears",
-                "label": "2HSpear",
-                "sizefix": {
-                    "small": 75,
-                    "middle": 75,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "320",
-            "MATK": 0,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 230,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
+		"id": "weaponr",
+		"itemid": 32007,
+		"label": "MainHand",
+		"equipname": "God Eater Dragon Spear",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*WEAR",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('DRAGONBREATH')?50:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>9?70:0",
+				"EffectType": {
+					"id": "FixedCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*WEAR",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedSpears",
+				"label": "1HSpear",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "360",
+			"MATK": 280,
+			"refinelevel": 10,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 380,
+			"refinematk": 70,
+			"refineatk": 70,
+			"refineatk2": 84
+		}
+	},
 	"18": {
-        "id": "weaponr",
-        "itemid": 600018,
-        "label": "MainHand",
-        "equipname": "Vivatus Fides Two-handed Sword",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "(WEAG(3)?7:0)",
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
+		"id": "shoes",
+		"itemid": 470084,
+		"label": "Shoes",
+		"equipname": "Rune Greave",
+		"refinelevel": 7,
+		"grade": {
+			"id": 0
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
-                "EffectType": {
-                    "id": "ElementalAtkPercent"
-                },
-                "Enable": true
-            },
+				"EffectNumber": "CCL=='RK'?30:0",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "MeleeDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"WINDCUTTER\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(18*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>8?10:0)",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "POW"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedSword",
-                "label": "2HSword",
-                "sizefix": {
-                    "small": 75,
-                    "middle": 75,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "300",
-            "MATK": 0,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 400,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
+				"EffectNumber": "SKIDS('HUNDREDSPEAR')?200:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": false
+			},
+			{
+				"EffectNumber": "SKIDS('HUNDREDSPEAR')?1:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": false
+			},
+			{
+				"EffectNumber": "SHOER>6?20:(SHOER>4?10:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'?50:0",
+				"EffectType": {
+					"id": "FixedCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>6?20:(SHOER>4?10:3)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>6?20:(SHOER>4?10:3)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
 	"19": {
-        "id": "weaponr",
-        "itemid": 630013,
-        "label": "MainHand",
-        "equipname": "Vivatus Fides Lance",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "(WEAG(3)?7:0)",
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
+		"id": "weaponr",
+		"itemid": 600014,
+		"label": "MainHand",
+		"equipname": "Poenitentia Ensis",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
-                "EffectType": {
-                    "id": "ElementalAtkPercent"
-                },
-                "Enable": true
-            },
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"HUNDREDSPEAR\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(18*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"HUNDREDSPEAR\")&&WEAR>8)?1.5:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "POW"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedSpears",
-                "label": "2HSpear",
-                "sizefix": {
-                    "small": 75,
-                    "middle": 75,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "270",
-            "MATK": 0,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 380,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
+				"EffectNumber": "(SKIDS(\"IGNITIONBREAK\")?3*DOWN(WEAR/2)+(WEAR>8?25:0):0)+(SKIDS(\"STORMSLASH\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?10:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"IGNITIONBREAK\")&&WEAR>10)?0.7:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?1:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?2:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedSword",
+				"label": "2HSword",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "315",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 220,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
 	"20": {
-        "id": "weaponr",
-        "itemid": 600017,
-        "label": "MainHand",
-        "equipname": "Adulter Fides Two-handed Sword",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
+		"id": "weaponr",
+		"itemid": 630009,
+		"label": "MainHand",
+		"equipname": "Poenitentia Katapulta",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "MeleeDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"WINDCUTTER\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(18*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>8?10:0)",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedSword",
-                "label": "2HSword",
-                "sizefix": {
-                    "small": 75,
-                    "middle": 75,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "300",
-            "MATK": 0,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 400,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"HUNDREDSPEAR\")?3*DOWN(WEAR/2)+(WEAR>8?25:0):0)+(SKIDS(\"MADNESS_CRUSHER\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?10:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"HUNDREDSPEAR\")&&WEAR>10)?2:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?1:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?2:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedSpears",
+				"label": "2HSpear",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "320",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 230,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
 	"21": {
-        "id": "weaponr",
-        "itemid": 630012,
-        "label": "MainHand",
-        "equipname": "Adulter Fides Lance",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
+		"id": "weaponr",
+		"itemid": 600018,
+		"label": "MainHand",
+		"equipname": "Vivatus Fides Two-handed Sword",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"HUNDREDSPEAR\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(18*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"HUNDREDSPEAR\")&&WEAR>8)?1.5:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedSpears",
-                "label": "2HSpear",
-                "sizefix": {
-                    "small": 75,
-                    "middle": 75,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "270",
-            "MATK": 0,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 380,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    }
+				"EffectNumber": "(WEAG(3)?7:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"WINDCUTTER\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(18*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?10:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedSword",
+				"label": "2HSword",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "300",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 400,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	"22": {
+		"id": "weaponr",
+		"itemid": 630013,
+		"label": "MainHand",
+		"equipname": "Vivatus Fides Lance",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(WEAG(3)?7:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HUNDREDSPEAR\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(18*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"HUNDREDSPEAR\")&&WEAR>8)?1.5:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedSpears",
+				"label": "2HSpear",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "270",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 380,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	"23": {
+		"id": "weaponr",
+		"itemid": 600017,
+		"label": "MainHand",
+		"equipname": "Adulter Fides Two-handed Sword",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"WINDCUTTER\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(18*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?10:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedSword",
+				"label": "2HSword",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "300",
+			"MATK": 0,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 400,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	"24": {
+		"id": "weaponr",
+		"itemid": 630012,
+		"label": "MainHand",
+		"equipname": "Adulter Fides Lance",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HUNDREDSPEAR\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(18*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"HUNDREDSPEAR\")&&WEAR>8)?1.5:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedSpears",
+				"label": "2HSpear",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "270",
+			"MATK": 0,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 380,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	}
 }
