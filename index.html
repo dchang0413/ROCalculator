@@ -16,6 +16,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-clipboard2/0.3.1/vue-clipboard.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.min.js"></script>
+    <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-63581889-2"></script>
@@ -836,6 +837,13 @@
                     </el-button>
                 </el-col>
             </el-row>
+            <el-row v-if="PreviewCombo.length || showExport">
+                <div>
+                    <el-button v-on:click="OpenEditEquipComboDialogue(-1)">{{PreviewSelName}}</el-button>
+                    <el-button v-if="showExport" v-on:click="AppendEquipCombo">+</el-button>
+                    <el-button v-for="(item, index) in PreviewCombo" v-on:click="OpenEditEquipComboDialogue(index)">+{{item.equipname}}</el-button>
+                  </div>    
+            </el-row>
             <el-row :gutter="2">
                 <el-col :span="6" class="statusbox ">
                     <el-col class="textcenter" :span="24">
@@ -1206,6 +1214,17 @@
                                         </el-input>
                                     </el-col>
                                 </el-row>
+
+                                <el-row v-if="ComboSelectId!==false" :gutter="6" type="flex" align="middle">
+                                    <el-col class="textcenter" :span="8">
+                                        Combo IDs
+                                    </el-col>
+                                    <el-col class="textcenter" :span="16">
+                                        <el-input v-model="PreviewComboIDs" v-on:keyup.native="updateComboIDs" placeholder="Value">
+                                        </el-input>
+                                    </el-col>
+                                </el-row>
+                                
                                 <!--
                                     currently unused
                                 <el-row :class="PreviewETL[GetETLIndex('ElementDamageDealtIncreasedPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
@@ -3994,6 +4013,30 @@
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponrPanel']==true">
+                                        <div v-for="(combo, idx) in equipspartlist[0].combolist">
+                                            <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                                <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                    justify="end" style="height:40px;">
+                                                    <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                        <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="8">
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter"  :span="5">
+                                                        <el-checkbox :disabled="!SearchForItemIds(combo.itemids)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
+                                                    </el-col>
+                                                </el-row>
+                                            </div>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponrPanel']==true">
                                         <div class="Item bg-purple-light2" v-for="(item, index) in equipspartlist[14].effectlist"
                                             v-bind:key="item.effecttypelist" >
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -4195,6 +4238,30 @@
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true">
+                                        <div v-for="(combo, idx) in equipspartlist[1].combolist">
+                                            <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                                <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                    justify="end" style="height:40px;">
+                                                    <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                        <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="8">
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter"  :span="5">
+                                                        <el-checkbox :disabled="!SearchForItemIds(combo.itemids)" v-model="item.Enable" @change="EnableEffect(1, index)"></el-checkbox>
+                                                    </el-col>
+                                                </el-row>
+                                            </div>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true">
                                         <div v-for="(item, index) in equipspartlist[1+14].effectlist"
                                             v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -4325,6 +4392,30 @@
                                                         <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+2, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
+                                            </div>
+                                        </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']">
+                                            <div v-for="(combo, idx) in equipspartlist[eqindex+2].combolist">
+                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                                    <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                        justify="end" style="height:40px;">
+                                                        <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                            <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="8">
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter"  :span="5">
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo.itemids)" v-model="item.Enable" @change="EnableEffect(eqindex+2, index)"></el-checkbox>
+                                                        </el-col>
+                                                    </el-row>
+                                                </div>
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
@@ -5762,13 +5853,19 @@
                 StoreDB_SearchString: '',
                 StoreDB_Equip: [],
                 EquipSelectId: '',
+                ComboSelectId: false,
                 EquipSelectLabel: '',
                 EquipSelectEffect: [],
+                EquipComboEffectList: [],
+                EquipAndComboEffectList: [],
                 TempEffectTypeList: [],
                 EquipEffectTabPage: 'ATK',
                 PreviewETL_init: [],
                 PreviewETL: [],
                 PreviewEN: '',  // 預覽裝備名字
+                PreviewSelName: '',
+                PreviewComboIDs: [],
+                PreviewCombo: [],
                 showExport: window.location.href.includes('localhost'),
 
                 StoreDB_Consumable: [],
@@ -5910,39 +6007,39 @@
                     },
                 ],
                 equipspartlist: [
-                    { id: 'weaponr', label: 'MainHand', equipname: '', effectlist: [] },
-                    { id: 'weaponl', label: 'OffHand', equipname: '', effectlist: [] },
-                    { id: 'helm', label: 'Upper', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'helm1', label: 'Middle', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'helm2', label: 'Lower', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'armor', label: 'Armor', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'robe', label: 'Garment', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'shoes', label: 'Shoes', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'acc1', label: 'Accessory', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'shadow', label: 'S.Weapon', equipname: '', effectlist: [] },
-                    { id: 'costume', label: 'Costume', equipname: '', effectlist: [] },
-                    { id: 'cardset', label: 'CardSets', equipname: '', effectlist: [] },
-                    { id: 'other', label: 'Custom', equipname: '', effectlist: [] },
-                    { id: 'weaponrcard', label: 'MainHandCards', equipname: '', effectlist: [] },
-                    { id: 'weaponlcard', label: 'OffHandCards', equipname: '', effectlist: [] },
-                    { id: 'helmcard', label: 'Upper Card', equipname: '', effectlist: [] },
-                    { id: 'helm1card', label: 'Middle Card', equipname: '', effectlist: [] },
-                    { id: 'helm2card', label: 'Lower Card', equipname: '', effectlist: [] },
-                    { id: 'armorcard', label: 'Armor Card', equipname: '', effectlist: [] },
-                    { id: 'robecard', label: 'Garment Card', equipname: '', effectlist: [] },
-                    { id: 'shoescard', label: 'Shoes Card', equipname: '', effectlist: [] },
-                    { id: 'acc1card', label: 'Acc Card', equipname: '', effectlist: [] },
-                    { id: 'acc2card', label: 'Acc Card', equipname: '', effectlist: [] },
-                    { id: 'shadowenchant', label: 'Shadow Enchant', equipname: '', effectlist: [] },
-                    { id: 'costumeenchant', label: 'Costume Enchant', equipname: '', effectlist: [] },
-                    { id: 'cardset2', label: 'CardSets2', equipname: '', effectlist: [] },
-                    { id: 'other2', label: 'Custom2', equipname: '', effectlist: [] },
-                    { id: 'shadowshld', label: 'S.Shield', equipname: '', effectlist: [] },
-                    { id: 'shadowarmor', label: 'S.Armor', equipname: '', effectlist: [] },
-                    { id: 'shadowshoe', label: 'S.Shoes', equipname: '', effectlist: [] },
-                    { id: 'shadowearring', label: 'S.Earring', equipname: '', effectlist: [] },
-                    { id: 'shadowpendant', label: 'S.Pendant', equipname: '', effectlist: [] },
+                    { id: 'weaponr', label: 'MainHand', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponl', label: 'OffHand', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'helm', label: 'Upper', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'helm1', label: 'Middle', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'helm2', label: 'Lower', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'armor', label: 'Armor', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'robe', label: 'Garment', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'shoes', label: 'Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'acc1', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'shadow', label: 'S.Weapon', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costume', label: 'Costume', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'cardset', label: 'CardSets', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'other', label: 'Custom', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponrcard', label: 'MainHandCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponlcard', label: 'OffHandCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'helmcard', label: 'Upper Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'helm1card', label: 'Middle Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'helm2card', label: 'Lower Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'armorcard', label: 'Armor Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'robecard', label: 'Garment Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shoescard', label: 'Shoes Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'acc1card', label: 'Acc Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'acc2card', label: 'Acc Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowenchant', label: 'Shadow Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costumeenchant', label: 'Costume Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'cardset2', label: 'CardSets2', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'other2', label: 'Custom2', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowshld', label: 'S.Shield', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowarmor', label: 'S.Armor', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowshoe', label: 'S.Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowearring', label: 'S.Earring', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowpendant', label: 'S.Pendant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                 ],
                 effecttypelist: [
                     { label: 'STR', id: 'STR', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '' },
@@ -6634,6 +6731,30 @@
                     this.ElementTableLastest = !this.ElementTableLastest;
                     this.elementalmap = this.ElementTableLastest? this.elementalmap_fix : this.elementalmap_old;
                 },
+                SearchForComboItems() {
+                    const itemIdSet = new Set(this.equipspartlist.map(item => item.itemid));
+                    const available_combos = this.equipspartlist.filter(x => x.combolist !== undefined && x.combolist.length > 0);
+
+                    this.EquipComboEffectList = [];
+                    for (let x of available_combos) {
+                        const yy = x.combolist.filter(y => 
+                            y.itemids !== undefined && y.itemids.length > 0 &&
+                            y.itemids.every(id => itemIdSet.has(id)) &&
+                            y.itemids.every(id => id !== x.itemid)
+                        );
+                        this.EquipComboEffectList.push(...yy);
+                    }
+                },
+                SearchForItemIds(ids) {
+                    const itemIdSet = new Set(this.equipspartlist.map(item => item.itemid));
+                    if(ids.every(id => itemIdSet.has(id))) {
+                        return true;
+                    }
+                    return false;
+                },
+                CombineEquipsAndCombos() {
+                    this.EquipAndComboEffectList = [...this.equipspartlist, ...this.EquipComboEffectList];
+                },
                 CombineEquipsAttribute() {
                     /*this.equipspartlist.forEach(element =>{
                         element.effectlist.forEach(ele => {
@@ -6642,10 +6763,12 @@
                             //this.SkillFormulaReplace()
                         })
                     })*/
+                    this.SearchForComboItems();
+                    this.CombineEquipsAndCombos();
                     this.effecttypelist.forEach(element => {
                         var result = 0;
                         if (element.id == 'FixedCastPercent') {
-                            result = Enumerable.From(this.equipspartlist)
+                            result = Enumerable.From(this.EquipAndComboEffectList)
                                 .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
                                 .Select(function (x) {
                                     var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()))
@@ -6663,7 +6786,7 @@
                                 })
                                 .Sum();
                                 */
-                            result = Enumerable.From(this.equipspartlist)
+                            result = Enumerable.From(this.EquipAndComboEffectList)
                                 .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
                                 .Select(function (x) {
                                     var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()))
@@ -6772,6 +6895,8 @@
                 },
                 CloseEffectDialogue() {
                     this.EquipSelectId = '';
+                    this.ComboSelectId = false;
+                    this.PreviewComboIDs = [];
                 },
                 OpenEditEquipDialogue(eqindex) {
                     this.UIPanel['EditEquipDialog'] = true;
@@ -6779,7 +6904,7 @@
                     this.EquipSelectLabel = this.equipspartlist[eqindex].label;
 
                     this.PreviewETL = _.cloneDeep(this.PreviewETL_init);
-                    this.PreviewEN = this.equipspartlist[eqindex].equipname;
+                    this.PreviewEN = this.PreviewSelName = this.equipspartlist[eqindex].equipname;
                     this.equipspartlist[eqindex].effectlist.forEach(element => {
                         for (let preview of this.PreviewETL) {
                             if (element.EffectType.id == preview.id) {
@@ -6788,10 +6913,52 @@
                             }
                         };
                     });
-
+                    this.PreviewCombo = this.equipspartlist[eqindex].combolist;
+                    this.ComboSelectId = false;
+                },
+                OpenEditEquipComboDialogue(comboindex){
+                    this.PreviewETL = _.cloneDeep(this.PreviewETL_init);
+                    if (comboindex == -1){
+                        this.PreviewComboIDs = [];
+                        this.ComboSelectId = false;
+                        this.PreviewEN = this.equipspartlist[this.EquipSelectId].equipname;
+                        this.equipspartlist[this.EquipSelectId].effectlist.forEach(element => {
+                            for (let preview of this.PreviewETL) {
+                                if (element.EffectType.id == preview.id) {
+                                    preview.totalvalue = element.EffectNumber;
+                                    break;
+                                }
+                            };
+                        });
+                    } else {
+                        this.ComboSelectId = comboindex;
+                        this.PreviewComboIDs = this.equipspartlist[this.EquipSelectId].combolist[comboindex].itemids;
+                        this.PreviewEN = this.equipspartlist[this.EquipSelectId].combolist[comboindex].equipname;
+                        this.equipspartlist[this.EquipSelectId].combolist[comboindex].effectlist.forEach(element => {
+                            for (let preview of this.PreviewETL) {
+                                if (element.EffectType.id == preview.id) {
+                                    preview.totalvalue = element.EffectNumber;
+                                    break;
+                                }
+                            };
+                        });
+                    }
+                },
+                AppendEquipCombo(){
+                    if (!this.EquipSelectId) return;
+                    if (!this.equipspartlist[this.EquipSelectId].combolist) this.equipspartlist[this.EquipSelectId].combolist=[{itemids:[],equipname:"NewCombo",effectlist:[]}];
+                    else this.equipspartlist[this.EquipSelectId].combolist.push({itemids:[],equipname:"NewCombo",effectlist:[]});
+                },
+                updateComboIDs(){
+                    if (!this.EquipSelectId) return;
+                    if (isNaN(this.ComboSelectId)) return;
+                    let val = this.PreviewComboIDs.split(',');
+                    this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].itemids = val.map(Number);
                 },
                 CloseEditEquipDialogue() {
                     this.EquipSelectId = '';
+                    this.ComboSelectId = false;
+                    this.PreviewComboIDs = [];
                 },
                 GetETLIndex(id) {
                     return this.PreviewETL.findIndex(i => i.id === id)
@@ -6818,35 +6985,68 @@
                     this.ClosePanel('EditEquipDialog');
                 },
                 onEditEquipConfirm( save ){
-                    this.equipspartlist[this.EquipSelectId].equipname = this.PreviewEN;
+                    if (this.ComboSelectId === false){
+                        this.equipspartlist[this.EquipSelectId].equipname = this.PreviewEN;
 
-                    var _oldenablemap=[];
-                    for( let item of this.equipspartlist[this.EquipSelectId].effectlist){
-                        _oldenablemap.push({ EffectID:item.EffectType.id, Enable:item.Enable });
-                    }
+                        var _oldenablemap=[];
+                        for( let item of this.equipspartlist[this.EquipSelectId].effectlist){
+                            _oldenablemap.push({ EffectID:item.EffectType.id, Enable:item.Enable });
+                        }
 
-                    var _idx = 0;
-                    for (let preview of this.PreviewETL) {
-                        if( preview.totalvalue != 0 ){
-                            var _enable = true;
-                            var _oldidx = _oldenablemap.findIndex(x=>x.EffectID==preview.id);
-                            if( _oldidx >-1 ) _enable = _oldenablemap[_oldidx].Enable;
-                            if(!isNaN(preview.totalvalue)) preview.totalvalue = eval(preview.totalvalue);
-                            this.$set(this.equipspartlist[this.EquipSelectId].effectlist,
-                                _idx,
-                                {
-                                    EffectNumber: preview.totalvalue,
-                                    EffectType: {id: preview.id},
-                                    Enable: _enable,
-                                })
-                            _idx += 1;
-                        }else{
-                            var _ri = this.equipspartlist[this.EquipSelectId].effectlist.findIndex(i => i.EffectType.id == preview.id);
-                            if (_ri >= 0) {
-                                this.equipspartlist[this.EquipSelectId].effectlist.splice(_ri, 1)
+                        var _idx = 0;
+                        for (let preview of this.PreviewETL) {
+                            if( preview.totalvalue != 0 ){
+                                var _enable = true;
+                                var _oldidx = _oldenablemap.findIndex(x=>x.EffectID==preview.id);
+                                if( _oldidx >-1 ) _enable = _oldenablemap[_oldidx].Enable;
+                                if(!isNaN(preview.totalvalue)) preview.totalvalue = eval(preview.totalvalue);
+                                this.$set(this.equipspartlist[this.EquipSelectId].effectlist,
+                                    _idx,
+                                    {
+                                        EffectNumber: preview.totalvalue,
+                                        EffectType: {id: preview.id},
+                                        Enable: _enable,
+                                    })
+                                _idx += 1;
+                            }else{
+                                var _ri = this.equipspartlist[this.EquipSelectId].effectlist.findIndex(i => i.EffectType.id == preview.id);
+                                if (_ri >= 0) {
+                                    this.equipspartlist[this.EquipSelectId].effectlist.splice(_ri, 1)
+                                }
+                            }
+                        }
+                    } else {
+                        this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].equipname = this.PreviewEN;
+
+                        var _oldenablemap=[];
+                        for( let item of this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].effectlist){
+                            _oldenablemap.push({ EffectID:item.EffectType.id, Enable:item.Enable });
+                        }
+
+                        var _idx = 0;
+                        for (let preview of this.PreviewETL) {
+                            if( preview.totalvalue != 0 ){
+                                var _enable = true;
+                                var _oldidx = _oldenablemap.findIndex(x=>x.EffectID==preview.id);
+                                if( _oldidx >-1 ) _enable = _oldenablemap[_oldidx].Enable;
+                                if(!isNaN(preview.totalvalue)) preview.totalvalue = eval(preview.totalvalue);
+                                this.$set(this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].effectlist,
+                                    _idx,
+                                    {
+                                        EffectNumber: preview.totalvalue,
+                                        EffectType: {id: preview.id},
+                                        Enable: _enable,
+                                    })
+                                _idx += 1;
+                            }else{
+                                var _ri = this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].effectlist.findIndex(i => i.EffectType.id == preview.id);
+                                if (_ri >= 0) {
+                                    this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].effectlist.splice(_ri, 1)
+                                }
                             }
                         }
                     }
+                    
                     if( save ){
                         this.onSaveEquip(this.EquipSelectId);
                     }
@@ -9909,9 +10109,11 @@
                         idx,
                         {
                             id: _id,
+                            itemid: 0,
                             label: _label,
                             equipname: '',
                             effectlist: [],
+                            combolist: [],
                             refinelevel: 0,
                             grade: {id:0},
                         })
@@ -9947,17 +10149,20 @@
                             if( this.equipspartlist[22].equipname == '' ) { idx = 22; }
                         }
                         this.StoreDB_Equip[_dbidx].equip.effectlist.forEach(x=>x.Enable=x.Enable==null?true:x.Enable);
+                        this.StoreDB_Equip[_dbidx].equip.combolist.forEach(x=>x.effectlist.forEach(y=>y.Enable=y.Enable==null?true:y.Enable));
                         this.$set(this.equipspartlist,
                             idx,
                             {
                                 //id: this.StoreDB_Equip[_dbidx].equip.id,
                                 //label: this.StoreDB_Equip[_dbidx].equip.label,
                                 id: this.equipspartlist[idx].id,
+                                itemid: this.StoreDB_Equip[_dbidx].equip.itemid,
                                 label: this.equipspartlist[idx].label,
                                 equipname: this.StoreDB_Equip[_dbidx].equip.equipname,
                                 refinelevel: this.StoreDB_Equip[_dbidx].equip.refinelevel ? this.StoreDB_Equip[_dbidx].equip.refinelevel : 0,
                                 grade: this.StoreDB_Equip[_dbidx].equip.grade ? this.StoreDB_Equip[_dbidx].equip.grade : this.weapongradelist[0],
                                 effectlist: _.cloneDeep(this.StoreDB_Equip[_dbidx].equip.effectlist),
+                                combolist: _.cloneDeep(this.StoreDB_Equip[_dbidx].equip.combolist),
                             })
                         this.CombineEquipsAttribute();
                     }
@@ -10331,11 +10536,13 @@
                             eqi,
                             {
                                 id: this.equipspartlist[eqi].id,
+                                itemid: AllsetObject.Equip[eqi].itemid ? AllsetObject.Equip[eqi].itemid : 0,
                                 label: this.equipspartlist[eqi].label,
                                 equipname: cardnull? '':AllsetObject.Equip[eqi].equipname,
                                 refinelevel: AllsetObject.Equip[eqi].refinelevel ? AllsetObject.Equip[eqi].refinelevel : 0,
                                 grade: AllsetObject.Equip[eqi].grade ? AllsetObject.Equip[eqi].grade : this.weapongradelist[0],
                                 effectlist: _.cloneDeep(cardnull?[]:AllsetObject.Equip[eqi].effectlist),
+                                combolist: _.cloneDeep(cardnull?[]:AllsetObject.Equip[eqi].combolist),
                             })
                     }
                     this.weapon = _.cloneDeep(AllsetObject.Weapon);
@@ -11514,11 +11721,13 @@
                                 uuid: this._uuid(),
                                 equip: {
                                     id: value.id,
+                                    itemid: value.itemid ? value.itemid : 0,
                                     label: value.label,
                                     equipname: value.equipname,
                                     refinelevel: value.refinelevel ? value.refinelevel : 0,
                                     grade: value.grade ? value.grade : this.weapongradelist[0],
                                     effectlist: Object.values(value.effectlist),
+                                    combolist: value.combolist ? Object.values(value.combolist) : [],
                                 },
                                 date: Date.now(),
                                 weapon: value.idx < 2 ? ((value.idx == 0) ?
@@ -11552,6 +11761,7 @@
                 exportSavedEquip(){
                     var data = {};
                     var effectlist = {};
+                    var combolist = {};
                     var i = 0;
                     for (const [key, value] of Object.entries(this.StoreDB_Equip)) {
                         try{
@@ -11564,9 +11774,10 @@
                                 data[i].subweapon = value.subweapon;
                             } else data[i].idx = 3;
                             data[i].effectlist = _.cloneDeep(value.equip.effectlist);
+                            data[i].combolist = _.cloneDeep(value.equip.combolist);
                             i++;
                         } catch(e){
-                            console.log('error geting saved equip', e);
+                            console.log('error getting saved equip', e);
                         }
                     }
 

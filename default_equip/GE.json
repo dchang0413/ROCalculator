@@ -1,6 +1,7 @@
 {
 	"0": {
 		"id": "weaponr",
+		"itemid": 500009,
 		"label": "MainHand",
 		"equipname": "Dragon Slayer's Longsword",
 		"refinelevel": 0,
@@ -97,6 +98,7 @@
 	},
 	"1": {
 		"id": "weaponr",
+		"itemid": 16093,
 		"label": "MainHand",
 		"equipname": "Coolant Injector [Memory]",
 		"refinelevel": 0,
@@ -165,6 +167,7 @@
 	},
 	"2": {
 		"id": "weaponr",
+		"itemid": 16093,
 		"label": "MainHand",
 		"equipname": "Coolant Injector",
 		"refinelevel": 0,
@@ -233,6 +236,7 @@
 	},
 	"3": {
 		"id": "weaponl",
+		"itemid": 28982,
 		"label": "OffHand",
 		"equipname": "Angel's Shield",
 		"refinelevel": 0,
@@ -311,6 +315,7 @@
 	},
 	"4": {
 		"id": "weaponr",
+		"itemid": 500013,
 		"label": "MainHand",
 		"equipname": "Awakened Red Lotus Sword",
 		"refinelevel": 0,
@@ -346,6 +351,28 @@
 					"id": "VariableCastPercent"
 				},
 				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [22238],
+				"equipname" : "Great Hero's Boots",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
 			}
 		],
 		"idx": 0,
@@ -386,6 +413,7 @@
 	},
 	"5": {
 		"id": "armor",
+		"itemid": 450100,
 		"label": "Armor",
 		"equipname": "Grace Cart Cannon Suit",
 		"refinelevel": 9,
@@ -416,58 +444,66 @@
 				"Enable": true
 			}
 		],
-		"idx": 3
-	},
-	"6": {
-		"id": "armor",
-		"label": "Armor",
-		"equipname": "Grace Cart Cannon Suit (Set)",
-		"refinelevel": 9,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
+		"combolist": [
 			{
-				"EffectNumber": 100,
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
+				"itemids": [470020, 480018],
+				"equipname" : "Grace Set",
+				"effectlist": [
+					{
+						"EffectNumber": "(ARMORR+GARMR+SHOER)>26?5:0",
+						"EffectType": {
+							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ARMORR+GARMR+SHOER)>26?3:0",
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ARMORR+GARMR+SHOER)>26?(SKIDS('CARTCANNON')?15:0):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
 			},
 			{
-				"EffectNumber": "2+(ARMORR+GARMR+SHOER>27?3:0)",
-				"EffectType": {
-					"id": "AtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR>8?10:0",
-				"EffectType": {
-					"id": "RangedDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SKIDS('CARTCANNON')?(15+(ARMORR+GARMR+SHOER>27?15:0))",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>6?25:5)+(ARMORR+GARMR+SHOER>27?5:0)",
-				"EffectType": {
-					"id": "VariableCastPercent"
-				},
-				"Enable": true
+				"itemids": [470020, 480018, 490019],
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('CARTCANNON')?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
 			}
 		],
 		"idx": 3
 	},
-	"7": {
+	"6": {
 		"id": "weaponr",
+		"itemid": 16088,
 		"label": "MainHand",
 		"equipname": "Saphir Hall-OS",
 		"refinelevel": 0,
@@ -541,8 +577,9 @@
 			"refineatk2": 98
 		}
 	},
-	"8": {
+	"7": {
 		"id": "helm",
+		"itemid": 19453,
 		"label": "Upper",
 		"equipname": "Jejecap Type J",
 		"refinelevel": 0,
@@ -575,8 +612,9 @@
 		],
 		"idx": 3
 	},
-	"9": {
+	"8": {
 		"id": "helm",
+		"itemid": 18977,
 		"label": "Upper",
 		"equipname": "Old Midas Whisper MA5",
 		"refinelevel": 12,
@@ -637,8 +675,9 @@
 		],
 		"idx": 3
 	},
-	"10": {
+	"9": {
 		"id": "weaponr",
+		"itemid": 520003,
 		"label": "MainHand",
 		"equipname": "Scythe of Ice Flame",
 		"refinelevel": 0,
@@ -719,8 +758,9 @@
 			"refineatk2": 112
 		}
 	},
-	"11": {
+	"10": {
 		"id": "helm",
+		"itemid": 400421,
 		"label": "Upper",
 		"equipname": "Two Tone Cap",
 		"refinelevel": 10,
@@ -753,8 +793,9 @@
 		],
 		"idx": 3
 	},
-	"12": {
+	"11": {
 		"id": "acc1",
+		"itemid": 28533,
 		"label": "Accessory",
 		"equipname": "Chemical Glove",
 		"refinelevel": 0,
@@ -794,8 +835,9 @@
 		],
 		"idx": 3
 	},
-	"13": {
+	"12": {
 		"id": "acc1",
+		"itemid": 490146,
 		"label": "Accessory",
 		"equipname": "Paracelsus Glove",
 		"refinelevel": 0,
@@ -842,8 +884,9 @@
 		],
 		"idx": 3
 	},
-	"14": {
+	"13": {
 		"id": "armor",
+		"itemid": 450208,
 		"label": "Armor",
 		"equipname": "Paracelsus Coat",
 		"refinelevel": 0,
@@ -890,8 +933,9 @@
 		],
 		"idx": 3
 	},
-	"15": {
+	"14": {
 		"id": "shoes",
+		"itemid": 470061,
 		"label": "Shoes",
 		"equipname": "Cylinder Boots",
 		"refinelevel": 12,
@@ -952,8 +996,9 @@
 		],
 		"idx": 3
 	},
-	"16": {
+	"15": {
 		"id": "acc1",
+		"itemid": 490428,
 		"label": "Accessory",
 		"equipname": "Chemical Resistance Glove",
 		"refinelevel": 0,
@@ -986,8 +1031,9 @@
 		],
 		"idx": 3
 	},
-	"17": {
+	"16": {
         "id": "weaponr",
+		"itemid": 590017,
         "label": "MainHand",
         "equipname": "Poenitentia Pendulus",
         "refinelevel": 14,
@@ -1075,8 +1121,9 @@
             "refineatk2": 0
         }
     },
-	"18": {
+	"17": {
         "id": "weaponr",
+		"itemid": 500020,
         "label": "MainHand",
         "equipname": "Poenitentia Rigula",
         "refinelevel": 14,
@@ -1164,8 +1211,9 @@
             "refineatk2": 0
         }
     },
-	"19": {
+	"18": {
         "id": "weaponr",
+		"itemid": 590024,
         "label": "MainHand",
         "equipname": "Vivatus Fides Scepter",
         "refinelevel": 14,
@@ -1267,8 +1315,9 @@
             "refineatk2": 0
         }
     },
-	"20": {
+	"19": {
         "id": "weaponr",
+		"itemid": 500028,
         "label": "MainHand",
         "equipname": "Vivatus Fides Rapier",
         "refinelevel": 14,
@@ -1370,8 +1419,9 @@
             "refineatk2": 0
         }
     },
-	"21": {
+	"20": {
 		"id": "weaponr",
+		"itemid": 590022,
 		"label": "MainHand",
 		"equipname": "Adulter Fides Scepter",
 		"refinelevel": 12,
@@ -1445,8 +1495,9 @@
 			"refineatk2": 112
 		}
 	},
-	"22": {
+	"21": {
         "id": "weaponr",
+		"itemid": 500026,
         "label": "MainHand",
         "equipname": "Adulter Fides Rapier",
         "refinelevel": 12,

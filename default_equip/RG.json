@@ -1,6 +1,7 @@
 {
 	"0": {
 		"id": "weaponr",
+		"itemid": 500009,
 		"label": "MainHand",
 		"equipname": "Dragon Slayer's Longsword",
 		"refinelevel": 0,
@@ -97,6 +98,7 @@
 	},
 	"1": {
 		"id": "weaponr",
+		"itemid": 13465,
 		"label": "MainHand",
 		"equipname": "Save the King",
 		"refinelevel": 0,
@@ -186,8 +188,9 @@
 	},
 	"2": {
 		"id": "robe",
+		"itemid": 480365,
 		"label": "Garment",
-		"equipname": "Fallen Protect Manteau (Set)",
+		"equipname": "Fallen Protect Manteau",
 		"refinelevel": 11,
 		"grade": {
 			"id": 0
@@ -229,13 +232,6 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SKIDS('CANNONSPEAR')?(HATR>10?0.5:0)",
-				"EffectType": {
-					"id": "CDTime"
-				},
-				"Enable": true
-			},
-			{
 				"EffectNumber": "GARMR>6?10:0",
 				"EffectType": {
 					"id": "AspdPercent"
@@ -243,10 +239,26 @@
 				"Enable": true
 			}
 		],
+		"combolist": [
+			{
+				"itemids": [18983],
+				"equipname" : "Old Casket of Protection",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS('CANNONSPEAR')?(HATR>10?0.5:0)",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	},
 	"3": {
 		"id": "weaponl",
+		"itemid": 28922,
 		"label": "OffHand",
 		"equipname": "Illusion Sacred Mission",
 		"refinelevel": 0,
@@ -277,6 +289,56 @@
 				"Enable": true
 			}
 		],
+		"combolist": [
+			{
+				"itemids": [420310],
+				"equipname" : "Plastic Blue Rose",
+				"effectlist": [
+					{
+						"EffectNumber": "SWEAR>9?5:0",
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "3*DOWN(SWEAR/2)",
+						"EffectType": {
+							"id": "ElementalAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SWEAR>9?5:0",
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "3*DOWN(SWEAR/2)",
+						"EffectType": {
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SWEAR>9?7:0",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 1,
+						"EffectType": {
+							"id": "ASPD"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 0,
 		"weapon": {
 			"type": {
@@ -304,6 +366,7 @@
 	},
 	"4": {
 		"id": "acc1",
+		"itemid": 32263,
 		"label": "Accessory",
 		"equipname": "Shield Ring",
 		"refinelevel": 0,
@@ -373,6 +436,7 @@
 	},
 	"5": {
 		"id": "helm",
+		"itemid": 400454,
 		"label": "Upper",
 		"equipname": "Khalitzburg Knight White Helm",
 		"refinelevel": 10,
@@ -407,8 +471,9 @@
 	},
 	"6": {
 		"id": "helm2",
+		"itemid": 420246,
 		"label": "Lower",
-		"equipname": "Arbitrator Shawl (Set)",
+		"equipname": "Arbitrator Shawl",
 		"refinelevel": 0,
 		"grade": {
 			"id": 0,
@@ -416,23 +481,9 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": "10+(ARMORR>8?15:5)",
+				"EffectNumber": 10,
 				"EffectType": {
 					"id": "AtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SKIDS('CANNONSPEAR')?(ARMORR>10?30+FLOOR(BLV/2):(ARMORR>9?30:0)):(SKIDS('BANISHINGPOINT')?(ARMORR>10?(DOWN(BLV/2)*2):0):0)",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SKIDS('CANNONSPEAR')?(ARMORR>9?1.5:0):0",
-				"EffectType": {
-					"id": "CDTime"
 				},
 				"Enable": true
 			},
@@ -442,26 +493,56 @@
 					"id": "GCDPercent"
 				},
 				"Enable": true
-			},
+			}
+		],
+		"combolist": [
 			{
-				"EffectNumber": "ARMORR>8?15:(ARMORR>7?5:0)",
-				"EffectType": {
-					"id": "HPPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR>8?15:(ARMORR>7?5:0)",
-				"EffectType": {
-					"id": "SPPercent"
-				},
-				"Enable": true
+				"itemids": [450257],
+				"equipname" : "Platinum Arbitrator",
+				"effectlist": [
+					{
+						"EffectNumber": "ARMORR>8?15:5",
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('CANNONSPEAR')?(ARMORR>10?30+FLOOR(BLV/2):(ARMORR>9?30:0)):(SKIDS('BANISHINGPOINT')?(ARMORR>10?(DOWN(BLV/2)*2):0):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('CANNONSPEAR')?(ARMORR>9?1.5:0):0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "ARMORR>8?15:(ARMORR>7?5:0)",
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "ARMORR>8?15:(ARMORR>7?5:0)",
+						"EffectType": {
+							"id": "SPPercent"
+						},
+						"Enable": true
+					}
+				]
 			}
 		],
 		"idx": 3
 	},
 	"7": {
 		"id": "armor",
+		"itemid": 450257,
 		"label": "Armor",
 		"equipname": "Platinum Arbitrator",
 		"refinelevel": 11,
@@ -516,160 +597,8 @@
 		"idx": 3
 	},
 	"8": {
-		"id": "weaponl",
-		"label": "OffHand",
-		"equipname": "Illusion Sacred Mission (Set)",
-		"refinelevel": 0,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": 3,
-				"EffectType": {
-					"id": "VIT"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 2,
-				"EffectType": {
-					"id": "INT"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SWEAR>9?5:0",
-				"EffectType": {
-					"id": "AtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "3*DOWN(SWEAR/2)",
-				"EffectType": {
-					"id": "ElementalAtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SWEAR>9?5:0",
-				"EffectType": {
-					"id": "MatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "3*DOWN(SWEAR/2)",
-				"EffectType": {
-					"id": "ElementalMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SKIDS('EARTHDRIVE')?(7*SRL):0",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SWEAR>9?7:0",
-				"EffectType": {
-					"id": "GCDPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 1,
-				"EffectType": {
-					"id": "ASPD"
-				},
-				"Enable": true
-			}
-		],
-		"idx": 0,
-		"weapon": {
-			"type": {
-				"id": 1,
-				"label": "Shield"
-			},
-			"level": {
-				"id": 1,
-				"label": "Lv. 1 Weapon",
-				"upgradeatk": 2,
-				"saferefine": 7,
-				"overatk": 3
-			},
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
-			"ATK": 0,
-			"MATK": 0,
-			"refinelevel": 12,
-			"ShieldWeight": 160,
-			"refinematk": 24,
-			"refineatk": 24
-		}
-	},
-	"9": {
-		"id": "robe",
-		"label": "Garment",
-		"equipname": "Fallen Protect Manteau",
-		"refinelevel": 11,
-		"grade": {
-			"id": 0
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "20*DOWN(GARMR/2)",
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "GARMR>6?7:0",
-				"EffectType": {
-					"id": "AtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "5*DOWN(GARMR/4)",
-				"EffectType": {
-					"id": "SizeAtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "GARMR>8?15:0",
-				"EffectType": {
-					"id": "RangedDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SKIDS('CANNONSPEAR BANISHINGPOINT')?(GARMR>10?(2*DOWN(MIN(240,BLV)/2)):0):0",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "GARMR>6?10:0",
-				"EffectType": {
-					"id": "AspdPercent"
-				},
-				"Enable": true
-			}
-		],
-		"idx": 3
-	},
-	"10": {
         "id": "weaponr",
+		"itemid": 530010,
         "label": "MainHand",
         "equipname": "Poenitentia Asta",
         "refinelevel": 14,
@@ -757,8 +686,9 @@
             "refineatk2": 0
         }
     },
-	"11": {
+	"9": {
         "id": "weaponr",
+		"itemid": 500019,
         "label": "MainHand",
         "equipname": "Poenitentia Gladius",
         "refinelevel": 14,
@@ -846,8 +776,9 @@
             "refineatk2": 0
         }
     },
-	"12": {
+	"10": {
         "id": "weaponr",
+		"itemid": 530014,
         "label": "MainHand",
         "equipname": "Vivatus Fides Guardian Spear",
         "refinelevel": 14,
@@ -949,8 +880,9 @@
             "refineatk2": 0
         }
     },
-	"13": {
+	"11": {
         "id": "weaponr",
+		"itemid": 500027,
         "label": "MainHand",
         "equipname": "Vivatus Fides Guardian Sword",
         "refinelevel": 14,
@@ -1052,8 +984,9 @@
             "refineatk2": 0
         }
     },
-	"14": {
+	"12": {
         "id": "weaponr",
+		"itemid": 530013,
         "label": "MainHand",
         "equipname": "Adulter Fides Guardian Spear",
         "refinelevel": 12,
@@ -1127,8 +1060,9 @@
             "refineatk2": 112
         }
     },
-	"15": {
+	"13": {
         "id": "weaponr",
+		"itemid": 500025,
         "label": "MainHand",
         "equipname": "Adulter Fides Guardian Sword",
         "refinelevel": 12,
