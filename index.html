@@ -10893,12 +10893,13 @@
                 },
                 onLoadAllSetSave(AllsetObject) {
                     this.skill.name = AllsetObject.SkillName;
-                    console.log(AllsetObject);
                     for (eqi = 0; eqi < this.equipspartlist.length; ++eqi) {
                         //AllsetObject.Equip[eqi].effectlist.forEach(x=>x.Enable=x.Enable==null?true:x.Enable);
                         if (typeof(AllsetObject.Equip[eqi]) == 'undefined') continue;
                         if (eqi > AllsetObject.Equip.length) break;
                         var cardnull = (AllsetObject.Equip[eqi]==null)?true:false;
+                        var combonull = cardnull && typeof AllsetObject.Equip[eqi].combolist != undefined?false:true
+                        console.log(combonull);
                         this.$set(this.equipspartlist,
                             eqi,
                             {
@@ -10909,7 +10910,7 @@
                                 refinelevel: AllsetObject.Equip[eqi].refinelevel ? AllsetObject.Equip[eqi].refinelevel : 0,
                                 grade: AllsetObject.Equip[eqi].grade ? AllsetObject.Equip[eqi].grade : this.weapongradelist[0],
                                 effectlist: _.cloneDeep(cardnull?[]:AllsetObject.Equip[eqi].effectlist),
-                                combolist: _.cloneDeep(cardnull?[]:AllsetObject.Equip[eqi].combolist),
+                                combolist: _.cloneDeep(combonull?[]:AllsetObject.Equip[eqi].combolist),
                             })
                     }
                     this.weapon = _.cloneDeep(AllsetObject.Weapon);
