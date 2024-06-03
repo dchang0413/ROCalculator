@@ -841,7 +841,7 @@
                 <div>
                     <el-button v-on:click="OpenEditEquipComboDialogue(-1)">{{PreviewSelName}}</el-button>
                     <el-button v-if="showExport" v-on:click="AppendEquipCombo">+</el-button>
-                    <el-button v-for="(item, index) in PreviewCombo" v-on:click="OpenEditEquipComboDialogue(index)">+{{item.equipname}}</el-button>
+                    <el-button v-for="(item, index) in PreviewCombo" v-on:click=" OpenEditEquipComboDialogue(index)">+{{item.equipname}}</el-button>
                   </div>    
             </el-row>
             <el-row :gutter="2">
@@ -4397,7 +4397,7 @@
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-if="combo.effectlist.length" class="textcenter bg-purple-light4">Combo Effect</div>
+                                            <div v-if="equipspartlist[eqindex+2].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
                                             <div v-for="(combo, idx) in equipspartlist[eqindex+2].combolist">
                                                 <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
