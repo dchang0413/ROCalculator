@@ -3670,5 +3670,439 @@
 			}
 		],
 		"idx": 3
-	}
+	},
+	"61": {
+        "id": "shieldcard",
+        "itemid": 27385,
+        "label": "ShieldCards",
+        "equipname": "Mutating Khalitzburg Card",
+        "effectlist": [],
+        "combolist": [
+            {
+                "itemids": [27384],
+                "equipname": "Mutating White Knight Card",
+                "effectlist": [
+                    {
+                        "EffectNumber": 5,
+                        "EffectType": {
+                            "id": "SizeMatkPercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+        "idx": 3
+    },
+	"62": {
+        "id": "weaponcard",
+        "itemid": 27384,
+        "label": "WeaponCards",
+        "equipname": "Mutating White Knight Card",
+        "effectlist": [
+            {
+                "EffectNumber": 15,
+                "EffectType": {
+                    "id": "Matk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": 20,
+                "EffectType": {
+                    "id": "SizeMatkPercent"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 3
+    },
+	"63": {
+        "id": "weaponcard",
+        "itemid": 300124,
+        "label": "WeaponCards",
+        "equipname": "Blue Pitaya Card",
+        "effectlist": [
+            {
+                "EffectNumber": "((WTI=='OneHandedRods'|WTI=='TwoHandedRods')&&AEI==2)?(10+(WEAR>8?10:0)+(WEAR>13?10:0)):0",
+                "EffectType": {
+                    "id": "ElementalMatkPercent"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 3
+    },
+	"64": {
+        "id": "weaponcard",
+        "itemid": 31023,
+        "label": "WeaponCards",
+        "equipname": "Celine Kimi Card",
+        "effectlist": [
+            {
+                "EffectNumber": 10,
+                "EffectType": {
+                    "id": "MatkPercent"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 3
+    },
+	"65": {
+        "id": "armorcard",
+        "itemid": 4392,
+        "label": "Armor Card",
+        "equipname": "Dame of Sentinel Card",
+        "effectlist": [
+            {
+                "EffectNumber": "FLOOR(BVI/18)",
+                "EffectType": {
+                    "id": "DEX"
+                },
+                "Enable": true
+            }
+        ],
+        "combolist": [],
+        "idx": 3
+    },
+    "66": {
+        "id": "armorcard",
+        "itemid": 4393,
+        "label": "Armor Card",
+        "equipname": "Mistress of Shelter Card",
+        "effectlist": [
+            {
+                "EffectNumber": "FLOOR(BST/18)",
+                "EffectType": {
+                    "id": "INT"
+                },
+                "Enable": true
+            }
+        ],
+        "combolist": [],
+        "idx": 3
+    },
+	"67": {
+		"id": "shadowshld",
+		"itemid": 24754,
+		"label": "S.Shield",
+		"equipname": "Magical Spell Shadow Shield",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "FLOOR(SHSHIER/2)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHSHIER>6?3:0)+(SHSHIER>8?3:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"idx": 3
+	},
+	"68": {
+		"id": "shadow",
+		"itemid": 24753,
+		"label": "S.Weapon",
+		"equipname": "Magical Spell Shadow Weapon",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "FLOOR(SHWEAR/2)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHWEAR>6?3:0)+(SHWEAR>8?3:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [24754],
+				"equipname": "Magical Spell Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"69": {
+		"id": "shadowarmor",
+		"itemid": 24883,
+		"label": "S.Armor",
+		"equipname": "Full Spell Shadow Armor",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "FLOOR(SHARMORR/2)",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHARMORR>9?2:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [24884],
+				"equipname": "Full Spell Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?5:0",
+						"EffectType": {
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?10:0",
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [24753],
+				"equipname": "Magical Spell Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHWEAR)>17?3:0",
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHWEAR)>17?3:0",
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"70": {
+		"id": "shadowshoe",
+		"itemid": 24884,
+		"label": "S.Shoes",
+		"equipname": "Full Spell Shadow Shoes",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "FLOOR(SHSHOER/2)",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHSHOER>9?2:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [24754],
+				"equipname": "Magical Spell Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHIER)>17?3:0",
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHIER)>17?3:0",
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"71": {
+        "id": "shoescard",
+        "itemid": 300081,
+        "label": "Shoes Card",
+        "equipname": "Research Assistant Bot Card",
+        "effectlist": [
+            {
+                "EffectNumber": 2,
+                "EffectType": {
+                    "id": "INT"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": 10,
+                "EffectType": {
+                    "id": "HPPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": 10,
+                "EffectType": {
+                    "id": "SPPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "SKIDS(\"FIREBALL\")?25:0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 3
+    },
+	"72": {
+        "id": "acc1card",
+        "itemid": 300104,
+        "label": "Acc Card",
+        "equipname": "Bookworm Card",
+        "effectlist": [
+            {
+                "EffectNumber": 2,
+                "EffectType": {
+                    "id": "INT"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": 1,
+                "EffectType": {
+                    "id": "VIT"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": 10,
+                "EffectType": {
+                    "id": "HPPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "SKIDS(\"PSYCHIC_WAVE DIAMONDDUST\")?10:0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            }
+        ],
+		"combolist": [
+			{
+				"itemids": [300081, 300124],
+				"equipname": "Blue Pitaya Card + Research Assistant Bot Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"PSYCHIC_WAVE DIAMONDDUST\")?20:0)+(SKIDS(\"PSYCHIC_WAVE\")?(5*FLOOR(SHOER/2)):0)+(SKIDS(\"DIAMONDDUST\")?(5*FLOOR(WEAR/2)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 3
+    }
 }

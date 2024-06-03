@@ -4276,5 +4276,310 @@
 			}
 		],
 		"idx": 3
-	}
+	},
+	"80": {
+		"id": "shadowarmor",
+		"itemid": 24872,
+		"label": "S.Armor",
+		"equipname": "Full Power Shadow Armor",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "FLOOR(SHARMORR/2)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "FLOOR(SHARMORR/2)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHARMORR>9?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [24873],
+				"equipname": "Full Power Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?5:0",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?5:0",
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?10:0",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [24751],
+				"equipname": "Physical Power Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHWEAR)>17?3:0",
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHWEAR)>17?3:0",
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"81": {
+		"id": "shadowshoe",
+		"itemid": 24873,
+		"label": "S.Shoes",
+		"equipname": "Full Power Shadow Shoes",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "FLOOR(SHSHOER/2)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "FLOOR(SHSHOER/2)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHSHOER>9?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [24752],
+				"equipname": "Physical Power Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHIER)>17?3:0",
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHIER)>17?3:0",
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"82": {
+        "id": "shieldcard",
+        "itemid": 4609,
+        "label": "ShieldCards",
+        "equipname": "Khalitzburg Knight Card",
+        "effectlist": [],
+        "combolist": [
+            {
+                "itemids": [4608],
+                "equipname": "White Knight Card",
+                "effectlist": [
+                    {
+                        "EffectNumber": 15,
+                        "EffectType": {
+                            "id": "SizeAtkPercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+        "idx": 3
+    },
+	"83": {
+        "id": "weaponcard",
+        "itemid": 4608,
+        "label": "WeaponCards",
+        "equipname": "White Knight Card",
+        "effectlist": [
+            {
+                "EffectNumber": 15,
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": 20,
+                "EffectType": {
+                    "id": "SizeAtkPercent"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 3
+    },
+	"84": {
+        "id": "robecard",
+        "itemid": 300270,
+        "label": "Garment Card",
+        "equipname": "Empathizer Card",
+        "effectlist": [
+            {
+                "EffectNumber": 10,
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "-25",
+                "EffectType": {
+                    "id": "SPPercent"
+                },
+                "Enable": true
+            }
+        ],
+        "combolist": [
+            {
+                "itemids": [4392],
+                "equipname": "Dame of Sentinel Card",
+                "effectlist": [
+                    {
+                        "EffectNumber": "BLV>199?(15*FLOOR(BDE/40)):0",
+                        "EffectType": {
+                            "id": "RangedDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+        "idx": 3
+    },
+    "85": {
+        "id": "robecard",
+        "itemid": 300271,
+        "label": "Garment Card",
+        "equipname": "Happiness Giver Card",
+        "effectlist": [
+            {
+                "EffectNumber": 10,
+                "EffectType": {
+                    "id": "MeleeDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "-25",
+                "EffectType": {
+                    "id": "SPPercent"
+                },
+                "Enable": true
+            }
+        ],
+        "combolist": [
+            {
+                "itemids": [4393],
+                "equipname": "Mistress of Shelter Card",
+                "effectlist": [
+                    {
+                        "EffectNumber": "BLV>199?(15*FLOOR(BST/40)):0",
+                        "EffectType": {
+                            "id": "MeleeDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+        "idx": 3
+    }
 }
