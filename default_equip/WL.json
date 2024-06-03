@@ -621,5 +621,67 @@
             "refinematk": 84,
             "refineatk2": 112
         }
-    }
+    },
+    "10": {
+		"id": "helm",
+        "itemid": 18978,
+		"label": "Upper",
+		"equipname": "Old Magic Stone Hat",
+		"effectlist": [
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "4*HATR",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"SOULEXPANSION\")?15:0)*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "SKIDS(\"CRIMSONROCK\")?(1+(0.1*HATR)):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(HATR/5)",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(HATR/2)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(HATR/2)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
+	}
 }
