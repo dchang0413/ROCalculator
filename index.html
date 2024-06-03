@@ -4793,6 +4793,18 @@
                                                 </el-button>
                                             </el-col>
                                         </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']" class="effectline" :gutter="4" type="flex" align="middle">
+                                            <el-col :span="6" style="text-align: right;">
+                                                <span>Refine</span>
+                                            </el-col>
+                                            <el-col :span="6">
+                                                <div>
+                                                    <el-input v-model.number="equipspartlist[eqindex+10].refinelevel"
+                                                        v-on:input="CombineEquipsAttribute" placeholder="Refine">
+                                                    </el-input>
+                                                </div>
+                                            </el-col>
+                                        </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
                                             <div v-for="(item, index) in equipspartlist[eqindex+10].effectlist"
                                                 v-bind:key="item.effecttypelist">
@@ -4851,6 +4863,18 @@
                                                     plain>
                                                     Edit
                                                 </el-button>
+                                            </el-col>
+                                        </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']" class="effectline" :gutter="4" type="flex" align="middle">
+                                            <el-col :span="6" style="text-align: right;">
+                                                <span>Refine</span>
+                                            </el-col>
+                                            <el-col :span="6">
+                                                <div>
+                                                    <el-input v-model.number="equipspartlist[eqindex+28].refinelevel"
+                                                        v-on:input="CombineEquipsAttribute" placeholder="Refine">
+                                                    </el-input>
+                                                </div>
                                             </el-col>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
@@ -6330,7 +6354,7 @@
                     { id: 'shoes', label: 'Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
                     { id: 'acc1', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
                     { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'shadow', label: 'S.Weapon', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadow', label: 'S.Weapon', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
                     { id: 'costume', label: 'Costume', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'cardset', label: 'CardSets', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'other', label: 'Custom', equipname: '', effectlist: [], itemid: 0, combolist: [] },
@@ -6355,11 +6379,11 @@
                     { id: 'costumeenchant', label: 'Costume Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'cardset2', label: 'CardSets2', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'other2', label: 'Custom2', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'shadowshld', label: 'S.Shield', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'shadowarmor', label: 'S.Armor', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'shadowshoe', label: 'S.Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'shadowearring', label: 'S.Earring', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'shadowpendant', label: 'S.Pendant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadowshld', label: 'S.Shield', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
+                    { id: 'shadowarmor', label: 'S.Armor', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
+                    { id: 'shadowshoe', label: 'S.Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
+                    { id: 'shadowearring', label: 'S.Earring', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
+                    { id: 'shadowpendant', label: 'S.Pendant', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
                 ],
                 effecttypelist: [
                     { label: 'STR', id: 'STR', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '' },
@@ -11845,6 +11869,12 @@
                         { str1: 'ARMORR', str2: 'this.equipspartlist[5].refinelevel', description: 'armor refine' },
                         { str1: 'GARMR', str2: 'this.equipspartlist[6].refinelevel', description: 'garment refine' },
                         { str1: 'SHOER', str2: 'this.equipspartlist[7].refinelevel', description: 'shoe refine' },
+                        { str1: 'SHWEAR', str2: 'this.equipspartlist[10].refinelevel', description: 'shadow weapon refine' },
+                        { str1: 'SHSHIER', str2: 'this.equipspartlist[28].refinelevel', description: 'shadow shield refine' },
+                        { str1: 'SHARMORR', str2: 'this.equipspartlist[29].refinelevel', description: 'shadow armor refine' },
+                        { str1: 'SHSHOER', str2: 'this.equipspartlist[30].refinelevel', description: 'shadow shoes refine' },
+                        { str1: 'SHACCRR', str2: 'this.equipspartlist[31].refinelevel', description: 'shadow accessory right refine' },
+                        { str1: 'SHACCLR', str2: 'this.equipspartlist[32].refinelevel', description: 'shadow accessory left refine' },
                         { str1: 'WEAG', str2: 'this.checkWeapGradeReq', description: 'Weapon grade WEAG(\'A\') or WEAG(4) will return true if grade is A or higher' },
                         { str1: 'SWEAG', str2: 'this.checkSubWeapGradeReq', description: 'Subweapon grade SWEAG(\'A\') or SWEAG(4) will return true if grade is A or higher' },
                         { str1: 'HATG', str2: 'this.checkHatGradeReq', description: 'Hat grade HATG(\'A\') or HATG(4) will return true if grade is A or higher' },

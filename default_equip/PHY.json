@@ -4072,5 +4072,209 @@
 		},
 		"effectlist": [],
 		"idx": 3
+	},
+	"75": {
+		"id": "helm2",
+		"itemid": 420110,
+		"label": "Lower",
+		"equipname": "Old Camouflage Scarf",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "DOWN(BLV/10)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(BLV/10)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"idx": 3
+	},
+	"76": {
+		"id": "helm1",
+		"itemid": 19451,
+		"label": "Middle",
+		"equipname": "Heavenly Order",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "2*DOWN(BST/18)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(BAG/18)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(BVI/18)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(BIN/18)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(BDE/18)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "15*DOWN(BLU/18)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "15*DOWN(BLU/18)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			}
+		],
+		"idx": 3
+	},
+	"77": {
+		"id": "helm",
+		"itemid": 19409,
+		"label": "Upper",
+		"equipname": "Black Feather",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"FEINTBOMB\")?((HATR>6?15:0)+(HATR>8?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>9?100:0",
+				"EffectType": {
+					"id": "BypassDEFPercent"
+				},
+				"Enable": true
+			}
+		],
+		"idx": 3
+	},
+	"78": {
+		"id": "shadowshld",
+		"itemid": 24752,
+		"label": "S.Shield",
+		"equipname": "Physical Power Shadow Shield",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "FLOOR(SHSHIER/2)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHSHIER>6?3:0)+(SHSHIER>8?3:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+		"idx": 3
+	},
+	"79": {
+		"id": "shadow",
+		"itemid": 24751,
+		"label": "S.Weapon",
+		"equipname": "Physical Power Shadow Weapon",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "FLOOR(SHWEAR/2)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHWEAR>6?3:0)+(SHWEAR>8?3:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [24752],
+				"equipname": "Physical Power Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 }
