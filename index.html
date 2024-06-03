@@ -7576,7 +7576,6 @@
                     this.ComputRefineATK();
                 },
                 onSelectedWeaponType(item) {
-                    this.onGearUpdate();
                     this.ChangeWeapon();
                 },
                 ChangeWeapon() {
@@ -7597,7 +7596,7 @@
                         this.subweapon.MATK = 0;
                         this.subweapon.ShieldWeight = 0;
                     }*/
-
+                    this.onGearUpdate();
                     this.ComputRefineATK();
                     this.ComputeSizefix();
                     this.onOption();
