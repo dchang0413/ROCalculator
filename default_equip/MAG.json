@@ -3719,7 +3719,7 @@
     },
 	"63": {
         "id": "weaponcard",
-        "itemid": 4608,
+        "itemid": 300124,
         "label": "WeaponCards",
         "equipname": "Blue Pitaya Card",
         "effectlist": [
@@ -4015,5 +4015,94 @@
 			}
 		],
 		"idx": 3
-	}
+	},
+	"71": {
+        "id": "shoescard",
+        "itemid": 300081,
+        "label": "Shoes Card",
+        "equipname": "Research Assistant Bot Card",
+        "effectlist": [
+            {
+                "EffectNumber": 2,
+                "EffectType": {
+                    "id": "INT"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": 10,
+                "EffectType": {
+                    "id": "HPPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": 10,
+                "EffectType": {
+                    "id": "SPPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "SKIDS(\"FIREBALL\")?25:0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 3
+    },
+	"72": {
+        "id": "acc1card",
+        "itemid": 300104,
+        "label": "Acc Card",
+        "equipname": "Bookworm Card",
+        "effectlist": [
+            {
+                "EffectNumber": 2,
+                "EffectType": {
+                    "id": "INT"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": 1,
+                "EffectType": {
+                    "id": "VIT"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": 10,
+                "EffectType": {
+                    "id": "HPPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "SKIDS(\"PSYCHIC_WAVE DIAMONDDUST\")?10:0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            }
+        ],
+		"combolist": [
+			{
+				"itemids": [300081, 300124],
+				"equipname": "Blue Pitaya Card + Research Assistant Bot Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"PSYCHIC_WAVE DIAMONDDUST\")?20:0)+(SKIDS(\"PSYCHIC_WAVE\")?(5*FLOOR(SHOER/2)):0)+(SKIDS(\"DIAMONDDUST\")?(5*FLOOR(WEAR/2)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 3
+    }
 }
