@@ -841,7 +841,7 @@
                 <div>
                     <el-button v-on:click="OpenEditEquipComboDialogue(-1)">{{PreviewSelName}}</el-button>
                     <el-button v-if="showExport" v-on:click="AppendEquipCombo">+</el-button>
-                    <el-button v-for="(item, index) in PreviewCombo" v-on:click="OpenEditEquipComboDialogue(index)">+{{item.equipname}}</el-button>
+                    <el-button v-for="(item, index) in PreviewCombo" v-on:click="onEditEquipConfirm(false,false); OpenEditEquipComboDialogue(index)">+{{item.equipname}}</el-button>
                   </div>    
             </el-row>
             <el-row :gutter="2">
@@ -4088,6 +4088,7 @@
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponrPanel']==true">
+                                        <div v-if="equipspartlist[0].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
                                         <div v-for="(combo, idx) in equipspartlist[0].combolist">
                                             <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -4105,7 +4106,7 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox :disabled="!SearchForItemIds(combo.itemids)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
@@ -4441,6 +4442,7 @@
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true">
+                                        <div v-if="equipspartlist[1].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
                                         <div v-for="(combo, idx) in equipspartlist[1].combolist">
                                             <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -4458,7 +4460,7 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox :disabled="!SearchForItemIds(combo.itemids)" v-model="item.Enable" @change="EnableEffect(1, index)"></el-checkbox>
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(1, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
@@ -4673,6 +4675,7 @@
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
+                                            <div v-if="equipspartlist[eqindex+2].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
                                             <div v-for="(combo, idx) in equipspartlist[eqindex+2].combolist">
                                                 <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -4690,7 +4693,7 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox :disabled="!SearchForItemIds(combo.itemids)" v-model="item.Enable" @change="EnableEffect(eqindex+2, index)"></el-checkbox>
+                                                            <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+2, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
@@ -5201,7 +5204,7 @@
                                                 {{computeattribute.normalcritical_max | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="attribute['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
+                                    <el-row v-if="status.ASPD!=0" class="statusbox" type="flex" align="middle" justify="space-around"
                                         style="height:40px;">
                                         <el-col class="" :span="10" style="text-align: right;">
                                             <span>Basic Attack DPS</span>
@@ -5276,7 +5279,7 @@
                                             <span>{{computeattribute.SkillDamageCRI_max | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="attribute['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
+                                    <el-row v-if="status.ASPD!=0" class="statusbox" type="flex" align="middle" justify="space-around"
                                         style="height:40px;">
                                         <el-col class="" :span="10" style="text-align: right;">
                                             <span>Skill DPS</span>
@@ -5425,7 +5428,7 @@
                                             <span>{{computeattribute.matkmulti_avg | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="attribute['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
+                                    <el-row v-if="status.ASPD!=0" class="statusbox" type="flex" align="middle" justify="space-around"
                                         style="height:40px;">
                                         <el-col class="" :span="10" style="text-align: right;">
                                             <span>Skill DPS</span>
@@ -5452,7 +5455,7 @@
                                             <span>{{computeattribute.DragonBreathDMG | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="attribute['ASPD']!=0" class="statusbox" type="flex" align="middle" justify="space-around"
+                                    <el-row v-if="status.ASPD!=0" class="statusbox" type="flex" align="middle" justify="space-around"
                                         style="height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Skill DPS</span>
@@ -7333,7 +7336,7 @@
                 onEditEquipCancel(){
                     this.ClosePanel('EditEquipDialog');
                 },
-                onEditEquipConfirm( save ){
+                onEditEquipConfirm( save , closePanel = true){
                     if (this.ComboSelectId === false){
                         this.equipspartlist[this.EquipSelectId].equipname = this.PreviewEN;
 
@@ -7399,7 +7402,7 @@
                     if( save ){
                         this.onSaveEquip(this.EquipSelectId);
                     }
-                    this.ClosePanel('EditEquipDialog');
+                    if (closePanel) this.ClosePanel('EditEquipDialog');
                     this.CombineEquipsAttribute();
                 },
                 OpenTextDialog(type) {
