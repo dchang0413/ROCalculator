@@ -1,200 +1,5 @@
 {
 	"0": {
-		"id": "shoes",
-		"itemid": 470266,
-		"label": "Shoes",
-		"equipname": "Mythical Moonlight Paw (Moonlight Flower)",
-		"refinelevel": 13,
-		"grade": {
-			"id": 4,
-			"label": "A"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "2*DOWN(SHOER/2)+(SHOER>12?250:0)",
-				"EffectType": {
-					"id": "INT"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SHOER>12?250:0",
-				"EffectType": {
-					"id": "DEX"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SHOER>12?250:0",
-				"EffectType": {
-					"id": "LUK"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "DOWN(SHOER/3)",
-				"EffectType": {
-					"id": "SPL"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "DOWN(SHOER/3)",
-				"EffectType": {
-					"id": "CON"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "DOWN(SHOER/3)+(SHOEG(3)?15:0)",
-				"EffectType": {
-					"id": "SMATK"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "10*DOWN(SHOER/2)",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SHOER>7?20:10",
-				"EffectType": {
-					"id": "MatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(SHOER>10?15:0)+(SHOEG(2)?15:0)",
-				"EffectType": {
-					"id": "SizeMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 40,
-				"EffectType": {
-					"id": "LevelMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SHOER>9?30:0",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": false
-			},
-			{
-				"EffectNumber": "(SHOER>8?0.3:0)+((SHOEG(4)&&SHOER>12)?0.7:0)",
-				"EffectType": {
-					"id": "FixedCast"
-				},
-				"Enable": true
-			}
-		],
-		"idx": 3
-	},
-	"1": {
-		"id": "armor",
-		"itemid": 450355,
-		"label": "Armor",
-		"equipname": "Violent Dragon Shadow Armor (Nidhoggur Shadow)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0
-		},
-		"effectlist": [
-			{
-				"EffectNumber": 10,
-				"EffectType": {
-					"id": "AllStatus"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "DOWN(ARMORR/3)",
-				"EffectType": {
-					"id": "SPL"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "DOWN(ARMORR/3)",
-				"EffectType": {
-					"id": "CON"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 15,
-				"EffectType": {
-					"id": "SMATK"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "10*(BLV/10)",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "2*DOWN(ARMORR/2)",
-				"EffectType": {
-					"id": "MatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR>10?25:0",
-				"EffectType": {
-					"id": "SizeMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 30,
-				"EffectType": {
-					"id": "LevelMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR>8?20:0",
-				"EffectType": {
-					"id": "ElementalMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR>12?15:0",
-				"EffectType": {
-					"id": "GCDPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 15,
-				"EffectType": {
-					"id": "HPPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 15,
-				"EffectType": {
-					"id": "SPPercent"
-				},
-				"Enable": true
-			}
-		],
-		"idx": 3
-	},
-	"2": {
 		"id": "armor",
 		"itemid": 450355,
 		"label": "Armor",
@@ -273,6 +78,28 @@
 					"id": "SPPercent"
 				},
 				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [4456],
+				"equipname": "Nidhoggur Shadow Card",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
 			}
 		],
 		"idx": 3
@@ -591,104 +418,6 @@
 		],
 		"idx": 3
 	},
-	"5": {
-		"id": "shoes",
-		"itemid": 470266,
-		"label": "Shoes",
-		"equipname": "Mythical Moonlight Paw (Cat O' Nine Tails)",
-		"refinelevel": 13,
-		"grade": {
-			"id": 4,
-			"label": "A"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "2*DOWN(SHOER/2)+(SHOER>12?150:0)",
-				"EffectType": {
-					"id": "INT"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SHOER>12?150:0",
-				"EffectType": {
-					"id": "DEX"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SHOER>12?150:0",
-				"EffectType": {
-					"id": "LUK"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "DOWN(SHOER/3)",
-				"EffectType": {
-					"id": "SPL"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "DOWN(SHOER/3)",
-				"EffectType": {
-					"id": "CON"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "DOWN(SHOER/3)+(SHOEG(3)?15:0)",
-				"EffectType": {
-					"id": "SMATK"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "10*DOWN(SHOER/2)",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SHOER>7?20:10",
-				"EffectType": {
-					"id": "MatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(SHOER>10?15:0)+(SHOEG(2)?15:0)",
-				"EffectType": {
-					"id": "SizeMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 15,
-				"EffectType": {
-					"id": "LevelMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SHOER>9?30:0",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": false
-			},
-			{
-				"EffectNumber": "(SHOER>8?0.3:0)+((SHOEG(4)&&SHOER>12)?0.7:0)",
-				"EffectType": {
-					"id": "FixedCast"
-				},
-				"Enable": true
-			}
-		],
-		"idx": 3
-	},
 	"6": {
 		"id": "shoes",
 		"itemid": 470266,
@@ -762,6 +491,76 @@
 					"id": "FixedCast"
 				},
 				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [4131],
+				"equipname": "Moonlight Flower Card",
+				"effectlist": [
+					{
+						"EffectNumber": "SHOER>12?250:0",
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>12?250:0",
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>12?250:0",
+						"EffectType": {
+							"id": "LUK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [4290],
+				"equipname": "Cat O' Nine Tails Card",
+				"effectlist": [
+					{
+						"EffectNumber": "SHOER>12?150:0",
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>12?150:0",
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>12?150:0",
+						"EffectType": {
+							"id": "LUK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
 			}
 		],
 		"idx": 3
@@ -2167,13 +1966,6 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SKID=='WZ_SIGHTRASHER'?1500:0",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			},
-			{
 				"EffectNumber": "GARMR",
 				"EffectType": {
 					"id": "AspdPercent"
@@ -2181,53 +1973,26 @@
 				"Enable": true
 			}
 		],
-		"idx": 3
-	},
-	"32": {
-		"id": "robe",
-		"itemid": 20991,
-		"label": "Garment",
-		"equipname": "Fairy of Eden (Veritas)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
+		"combolist": [
 			{
-				"EffectNumber": 40,
-				"EffectType": {
-					"id": "INT"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "GARMR>8?10:0",
-				"EffectType": {
-					"id": "AllStatus"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "GARMR*2",
-				"EffectType": {
-					"id": "MatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SKID=='WZ_SIGHTRASHER'?1500:0",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "GARMR",
-				"EffectType": {
-					"id": "AspdPercent"
-				},
-				"Enable": true
+				"itemids": [27087],
+				"equipname": "Wizard of Veritas Card",
+				"effectlist": [
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKID=='WZ_SIGHTRASHER'?1500:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
 			}
 		],
 		"idx": 3
@@ -2736,150 +2501,6 @@
         },
         "idx": 3
     },
-	"42": {
-		"id": "helm1",
-		"itemid": 410254,
-		"label": "Middle",
-		"equipname": "Ancient Morocc Noble Jewelry (Marduk+Pharaoh)",
-		"effectlist": [
-			{
-				"EffectNumber": "40+5*DOWN(BST/8)+3*DOWN(BAG/8)+2*DOWN(BVI/8)+2*DOWN(BDE/8)",
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 37,
-				"EffectType": {
-					"id": "ElementalAtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "40+5*DOWN(BIN/8)+3*DOWN(BLU/8)+2*DOWN(BVI/8)+2*DOWN(BDE/8)",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 37,
-				"EffectType": {
-					"id": "ElementalMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 23,
-				"EffectType": {
-					"id": "GCDPercent"
-				},
-				"Enable": true
-			}
-		],
-		"refinelevel": 0,
-		"grade": {
-			"id": 0
-		},
-		"idx": 3
-	},
-	"43": {
-		"id": "helm1",
-		"itemid": 410254,
-		"label": "Middle",
-		"equipname": "Ancient Morocc Noble Jewelry (Pharaoh)",
-		"effectlist": [
-			{
-				"EffectNumber": "40+5*DOWN(BST/8)+3*DOWN(BAG/8)+2*DOWN(BVI/8)+2*DOWN(BDE/8)",
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 25,
-				"EffectType": {
-					"id": "ElementalAtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "40+5*DOWN(BIN/8)+3*DOWN(BLU/8)+2*DOWN(BVI/8)+2*DOWN(BDE/8)",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 25,
-				"EffectType": {
-					"id": "ElementalMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 15,
-				"EffectType": {
-					"id": "GCDPercent"
-				},
-				"Enable": true
-			}
-		],
-		"refinelevel": 0,
-		"grade": {
-			"id": 0
-		},
-		"idx": 3
-	},
-	"44": {
-		"id": "helm1",
-		"itemid": 410254,
-		"label": "Middle",
-		"equipname": "Ancient Morocc Noble Jewelry (Marduk)",
-		"effectlist": [
-			{
-				"EffectNumber": "40+5*DOWN(BST/8)+3*DOWN(BAG/8)+2*DOWN(BVI/8)+2*DOWN(BDE/8)",
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 12,
-				"EffectType": {
-					"id": "ElementalAtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "40+5*DOWN(BIN/8)+3*DOWN(BLU/8)+2*DOWN(BVI/8)+2*DOWN(BDE/8)",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 12,
-				"EffectType": {
-					"id": "ElementalMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 8,
-				"EffectType": {
-					"id": "GCDPercent"
-				},
-				"Enable": true
-			}
-		],
-		"refinelevel": 0,
-		"grade": {
-			"id": 0
-		},
-		"idx": 3
-	},
 	"45": {
 		"id": "helm1",
 		"itemid": 410254,
@@ -2899,6 +2520,62 @@
 					"id": "Matk"
 				},
 				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [4112],
+				"equipname": "Marduk Card",
+				"effectlist": [
+					{
+						"EffectNumber": 12,
+						"EffectType": {
+							"id": "ElementalAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 12,
+						"EffectType": {
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 8,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [4148],
+				"equipname": "Pharaoh Card",
+				"effectlist": [
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "ElementalAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
 			}
 		],
 		"refinelevel": 0,
@@ -4103,6 +3780,2335 @@
 				]
 			}
 		],
+        "idx": 3
+    },
+	"73": {
+        "id": "helmcard",
+        "itemid": 4556,
+        "label": "Upper Card",
+        "equipname": "Fenrir Card",
+        "effectlist": [
+            {
+                "EffectNumber": "50+(5*HATR)",
+                "EffectType": {
+                    "id": "Matk"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": 70,
+                "EffectType": {
+                    "id": "FixedCastPercent"
+                },
+                "Enable": true
+            }
+        ],
+		"combolist": [],
+        "idx": 3
+    },
+	"74": {
+        "id": "helmcard",
+        "itemid": 4557,
+        "label": "Upper Card",
+        "equipname": "Weakened Fenrir Card",
+        "effectlist": [
+            {
+                "EffectNumber": 25,
+                "EffectType": {
+                    "id": "Matk"
+                },
+                "Enable": true
+            }
+        ],
+		"combolist": [],
+        "idx": 3
+    },
+	"75": {
+        "id": "helmcard",
+        "itemid": 4148,
+        "label": "Upper Card",
+        "equipname": "Pharaoh Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"76": {
+        "id": "robecard",
+        "itemid": 4576,
+        "label": "Garment Card",
+        "equipname": "Gioia Card",
+        "effectlist": [
+			{
+                "EffectNumber": "(AEI==3||AEI==8)?100:0",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            }
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"77": {
+        "id": "robecard",
+        "itemid": 27221,
+        "label": "Garment Card",
+        "equipname": "Sealed Gioia Card",
+        "effectlist": [
+			{
+                "EffectNumber": "(AEI==3||AEI==8)?(GARMR>14?75:50):0",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            }
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"78": {
+        "id": "robecard",
+        "itemid": 27362,
+        "label": "Garment Card",
+        "equipname": "Polluted Queen Spider Card",
+        "effectlist": [
+			{
+                "EffectNumber": "(AEI==2||AEI==4)?100:0",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            }
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"79": {
+        "id": "robecard",
+        "itemid": 300201,
+        "label": "Garment Card",
+        "equipname": "Sealed Polluted Spider Queen Card",
+        "effectlist": [
+			{
+                "EffectNumber": "(AEI==2||AEI==4)?(GARMR>14?75:50):0",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            }
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"80": {
+        "id": "robecard",
+        "itemid": 27381,
+        "label": "Garment Card",
+        "equipname": "Phantom of Himmelmez Card",
+        "effectlist": [
+			{
+                "EffectNumber": "(AEI==0||AEI==6)?100:0",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            }
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"81": {
+        "id": "robecard",
+        "itemid": 300145,
+        "label": "Garment Card",
+        "equipname": "Abysmal Witch Card",
+        "effectlist": [
+			{
+                "EffectNumber": "(AEI==1||AEI==7)?100:0",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            }
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"82": {
+        "id": "robecard",
+        "itemid": 300382,
+        "label": "Garment Card",
+        "equipname": "Aquila Card",
+        "effectlist": [
+			{
+                "EffectNumber": "(AEI==5||AEI==9)?100:0",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            }
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"83": {
+        "id": "helmcard",
+        "itemid": 4132,
+        "label": "Upper Card",
+        "equipname": "Mistress Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"84": {
+        "id": "helmcard",
+        "itemid": 4484,
+        "label": "Upper Card",
+        "equipname": "Sealed Mistress Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"85": {
+        "id": "shieldcard",
+        "itemid": 4128,
+        "label": "ShieldCards",
+        "equipname": "Golden Thief Bug Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"86": {
+        "id": "shieldcard",
+        "itemid": 4146,
+        "label": "ShieldCards",
+        "equipname": "Maya Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"87": {
+        "id": "shieldcard",
+        "itemid": 27212,
+        "label": "ShieldCards",
+        "equipname": "Sealed Maya Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"88": {
+        "id": "shieldcard",
+        "itemid": 300239,
+        "label": "ShieldCards",
+        "equipname": "Silent Maya Card",
+        "effectlist": [
+			{
+                "EffectNumber": 50,
+                "EffectType": {
+                    "id": "RaceMatkPercent"
+                },
+                "Enable": true
+            }
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"89": {
+        "id": "helmcard",
+        "itemid": 4489,
+        "label": "Upper Card",
+        "equipname": "Sealed Pharaoh Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"90": {
+        "id": "shoescard",
+        "itemid": 4168,
+        "label": "Shoes Card",
+        "equipname": "Dark Lord Card",
+        "effectlist": [],
+		"combolist": [
+			{
+				"itemids": [4169],
+				"equipname": "Dark Illusion Card",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "SPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 3
+    },
+	"91": {
+        "id": "shoescard",
+        "itemid": 4488,
+        "label": "Shoes Card",
+        "equipname": "Sealed Dark Lord Card",
+        "effectlist": [],
+		"combolist": [
+			{
+				"itemids": [4169],
+				"equipname": "Dark Illusion Card",
+				"effectlist": [
+					{
+						"EffectNumber": "SHOER>14?10:5",
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>14?10:5",
+						"EffectType": {
+							"id": "SPPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 3
+    },
+	"92": {
+        "id": "helmcard",
+        "itemid": 4169,
+        "label": "Upper Card",
+        "equipname": "Dark Illusion Card",
+        "effectlist": [
+			{
+				"EffectNumber": -10,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": -10,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"93": {
+        "id": "robecard",
+        "itemid": 27104,
+        "label": "Garment Card",
+        "equipname": "Angry Dracula Card",
+        "effectlist": [],
+		"combolist": [
+			{
+				"itemids": [27105],
+				"equipname": "Bomi Card",
+				"effectlist": [
+					{
+						"EffectNumber": "GARMR>8?2000:1000",
+						"EffectType": {
+							"id": "HP"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "GARMR>8?100:50",
+						"EffectType": {
+							"id": "SP"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 3
+    },
+	"94": {
+        "id": "acc1card",
+        "itemid": 27105,
+        "label": "Acc Card",
+        "equipname": "Bomi Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"95": {
+        "id": "helmcard",
+        "itemid": 4330,
+        "label": "Upper Card",
+        "equipname": "Evil Snake Lord Card",
+        "effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"96": {
+        "id": "shoescard",
+        "itemid": 4236,
+        "label": "Shoes Card",
+        "equipname": "Amon Ra Card",
+        "effectlist": [
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"97": {
+        "id": "shoescard",
+        "itemid": 4495,
+        "label": "Shoes Card",
+        "equipname": "Sealed Amon Ra Card",
+        "effectlist": [
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"98": {
+        "id": "armorcard",
+        "itemid": 4652,
+        "label": "Armor Card",
+        "equipname": "Nightmare Amon Ra Card",
+        "effectlist": [
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"99": {
+        "id": "armorcard",
+        "itemid": 300209,
+        "label": "Armor Card",
+        "equipname": "Sealed Grave Amon Ra Card",
+        "effectlist": [
+			{
+				"EffectNumber": "ARMORR>14?37:25",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>14?37:25",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"100": {
+        "id": "helmcard",
+        "itemid": 4372,
+        "label": "Upper Card",
+        "equipname": "White Lady Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"101": {
+        "id": "helmcard",
+        "itemid": 4538,
+        "label": "Upper Card",
+        "equipname": "Sealed White Lady Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"102": {
+        "id": "robecard",
+        "itemid": 4675,
+        "label": "Garment Card",
+        "equipname": "Arch Bishop Margaretha Card",
+        "effectlist": [
+			{
+				"EffectNumber": "(BLV>174?10:0)+(GARMR>9?10:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='AB'?10:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [4685],
+				"equipname": "True Margaretha Sorin Card",
+				"effectlist": [
+					{
+						"EffectNumber": 100,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 3
+    },
+	"103": {
+        "id": "robecard",
+        "itemid": 4678,
+        "label": "Garment Card",
+        "equipname": "Warlock Kathryne Card",
+        "effectlist": [
+			{
+				"EffectNumber": "(BLV>174?10:0)+(GARMR>9?10:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='WL'?15:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [4686],
+				"equipname": "True Kathryne Keyron Card",
+				"effectlist": [
+					{
+						"EffectNumber": 100,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 3
+    },
+	"104": {
+        "id": "robecard",
+        "itemid": 4671,
+        "label": "Garment Card",
+        "equipname": "Sorcerer Celia Card",
+        "effectlist": [
+			{
+				"EffectNumber": "(BLV>174?10:0)+(GARMR>9?10:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='SO'?10:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='SO'?10:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [4692],
+				"equipname": "True Celia Alde Card",
+				"effectlist": [
+					{
+						"EffectNumber": 100,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 3
+    },
+	"105": {
+        "id": "weaponcard",
+        "itemid": 4685,
+        "label": "WeaponCards",
+        "equipname": "True Margaretha Sorin Card",
+        "effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"ADORAMUS\")?(20+(WLV==4?20:0)+(WEAR>9?20:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"106": {
+        "id": "weaponcard",
+        "itemid": 4686,
+        "label": "WeaponCards",
+        "equipname": "True Kathryne Keyron Card",
+        "effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"CRIMSONROCK\")?(20+(WLV==4?20:0)+(WEAR>9?20:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"107": {
+        "id": "weaponcard",
+        "itemid": 4692,
+        "label": "WeaponCards",
+        "equipname": "True Celia Alde Card",
+        "effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"VARETYR_SPEAR\")?(20+(WLV==4?20:0)+(WEAR>9?20:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"108": {
+        "id": "armorcard",
+        "itemid": 4363,
+        "label": "Armor Card",
+        "equipname": "High Priest Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"109": {
+        "id": "armorcard",
+        "itemid": 4501,
+        "label": "Armor Card",
+        "equipname": "Sealed High Priest Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"110": {
+        "id": "helmcard",
+        "itemid": 4365,
+        "label": "Upper Card",
+        "equipname": "High Wizard Card",
+        "effectlist": [
+			{
+				"EffectNumber": -100,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"111": {
+        "id": "helmcard",
+        "itemid": 4541,
+        "label": "Upper Card",
+        "equipname": "Sealed High Wizard Card",
+        "effectlist": [
+			{
+				"EffectNumber": "HATR>14?-120:-150",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"112": {
+        "id": "armorcard",
+        "itemid": 4561,
+        "label": "Armor Card",
+        "equipname": "Professor Card",
+        "effectlist": [
+			{
+				"EffectNumber": "7+(BDE>109?7:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"113": {
+        "id": "armorcard",
+        "itemid": 27214,
+        "label": "Armor Card",
+        "equipname": "Sealed Professor Celia Card",
+        "effectlist": [
+			{
+				"EffectNumber": "ARMORR>14?(5+(BDE>109?5:0)):(3+(BDE>109?3:0))",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"114": {
+        "id": "helmcard",
+        "itemid": 4364,
+        "label": "Upper Card",
+        "equipname": "Margaretha Sorin Card",
+        "effectlist": [
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"115": {
+        "id": "helmcard",
+        "itemid": 4366,
+        "label": "Upper Card",
+        "equipname": "Kathryne Keyron Card",
+        "effectlist": [
+			{
+				"EffectNumber": "HATR>8?2:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"116": {
+        "id": "robecard",
+        "itemid": 4568,
+        "label": "Garment Card",
+        "equipname": "Celia Alde Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"117": {
+        "id": "helmcard",
+        "itemid": 4374,
+        "label": "Upper Card",
+        "equipname": "Vesper Card",
+        "effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 30,
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"118": {
+        "id": "helmcard",
+        "itemid": 4503,
+        "label": "Upper Card",
+        "equipname": "Sealed Vesper Card",
+        "effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>14?25:15",
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"119": {
+        "id": "helmcard",
+        "itemid": 4403,
+        "label": "Upper Card",
+        "equipname": "Kiel-D-01 Card",
+        "effectlist": [
+			{
+				"EffectNumber": 30,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"120": {
+        "id": "helmcard",
+        "itemid": 4480,
+        "label": "Upper Card",
+        "equipname": "Sealed Kiel Card",
+        "effectlist": [
+			{
+				"EffectNumber": "HATR>14?20:15",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"121": {
+        "id": "armorcard",
+        "itemid": 27113,
+        "label": "Armor Card",
+        "equipname": "Awakened Ktullanux Card",
+        "effectlist": [
+			{
+				"EffectNumber": "AEI==2?(20+(3*ARMORR)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"122": {
+        "id": "shoescard",
+        "itemid": 4441,
+        "label": "Shoes Card",
+        "equipname": "Fallen Bishop Card",
+        "effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": -50,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"123": {
+        "id": "shoescard",
+        "itemid": 4539,
+        "label": "Shoes Card",
+        "equipname": "Sealed Fallen Bishop Card",
+        "effectlist": [
+			{
+				"EffectNumber": "SHOER>14?8:5",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": -50,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>14?33:25",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"124": {
+        "id": "acc1card",
+        "itemid": 4145,
+        "label": "Acc Card",
+        "equipname": "Beelzebub Card",
+        "effectlist": [
+			{
+				"EffectNumber": 30,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"125": {
+        "id": "acc1card",
+        "itemid": 4486,
+        "label": "Acc Card",
+        "equipname": "Sealed Beelzebub Card",
+        "effectlist": [
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"126": {
+        "id": "armorcard",
+        "itemid": 4456,
+        "label": "Armor Card",
+        "equipname": "Nidhoggur Shadow Card",
+        "effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='WL'?50:0",
+				"EffectType": {
+					"id": "FixedCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"127": {
+        "id": "shoescard",
+        "itemid": 4290,
+        "label": "Shoes Card",
+        "equipname": "Cat O' Nine Tails Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"128": {
+        "id": "weaponcard",
+        "itemid": 27087,
+        "label": "WeaponCards",
+        "equipname": "Wizard of Veritas Card",
+        "effectlist": [
+			{
+				"EffectNumber": 25,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	"129": {
+        "id": "helmcard",
+        "itemid": 4112,
+        "label": "Upper Card",
+        "equipname": "Marduk Card",
+        "effectlist": [],
+		"combolist": [],
+        "idx": 3
+    },
+	"130": {
+        "id": "shoes",
+        "itemid": 22203,
+        "label": "Shoes",
+        "equipname": "Space Shoes",
+        "effectlist": [
+			{
+				"EffectNumber": "5*SHOER",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*SHOER",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*SHOER",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>9?15:0",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [4168],
+				"equipname": "Dark Lord Card",
+				"effectlist": [
+					{
+						"EffectNumber": "BLV>99?(10*SHOER):(5*SHOER)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 3
+    },
+	"131": {
+        "id": "helm1",
+        "itemid": 410342,
+        "label": "Middle",
+        "equipname": "Purified Pigeon",
+        "effectlist": [
+			{
+				"EffectNumber": 12,
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [700035],
+				"equipname": "Vivatus Fides Aiming Bow",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [520009],
+				"equipname": "Vivatus Fides Axe",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [700034],
+				"equipname": "Vivatus Fides Ballista",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [540026],
+				"equipname": "Vivatus Fides Bible",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [580019],
+				"equipname": "Vivatus Fides Chain Rope",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [610022],
+				"equipname": "Vivatus Fides Chakram",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [560021],
+				"equipname": "Vivatus Fides Claw",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [700033],
+				"equipname": "Vivatus Fides Cross Bow",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [650021],
+				"equipname": "Vivatus Fides Cross Huuma Shuriken",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [510033],
+				"equipname": "Vivatus Fides Dagger",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [550063],
+				"equipname": "Vivatus Fides Dark Wand",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [550066],
+				"equipname": "Vivatus Fides Foxtail Model",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [550065],
+				"equipname": "Vivatus Fides Foxtail Wand",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [830011],
+				"equipname": "Vivatus Fides Gatling Gun",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [530014],
+				"equipname": "Vivatus Fides Guardian Spear",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [500027],
+				"equipname": "Vivatus Fides Guardian Sword",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [570020],
+				"equipname": "Vivatus Fides Harp",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [650022],
+				"equipname": "Vivatus Fides Huuma Shuriken",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [610023],
+				"equipname": "Vivatus Fides Katar",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [560020],
+				"equipname": "Vivatus Fides Knuckle",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [630013],
+				"equipname": "Vivatus Fides Lance",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [840007],
+				"equipname": "Vivatus Fides Launcher",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [590023],
+				"equipname": "Vivatus Fides Mace",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [540024],
+				"equipname": "Vivatus Fides Magic Book",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [540025],
+				"equipname": "Vivatus Fides Poison Book",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [500028],
+				"equipname": "Vivatus Fides Rapier",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [800012],
+				"equipname": "Vivatus Fides Revolver",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [580020],
+				"equipname": "Vivatus Fides Ribbon",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [810008],
+				"equipname": "Vivatus Fides Rifle",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [640022],
+				"equipname": "Vivatus Fides Rod",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [590024],
+				"equipname": "Vivatus Fides Scepter",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [820006],
+				"equipname": "Vivatus Fides Shotgun",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [550064],
+				"equipname": "Vivatus Fides Soul Stick",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [540045],
+				"equipname": "Vivatus Fides Stardust Book",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [640021],
+				"equipname": "Vivatus Fides Two-handed Staff",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [600018],
+				"equipname": "Vivatus Fides Two-handed Sword",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [570019],
+				"equipname": "Vivatus Fides Violin",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [550029],
+				"equipname": "Vivatus Fides Wand",
+				"effectlist": [
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 300,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 3
+    },
+	"132": {
+		"id": "acc1",
+		"itemid": 490208,
+		"label": "Accessory",
+		"equipname": "Palace Ring",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemids": [21018],
+				"equipname": "Lindy Hop",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(WEAR/2)",
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"IGNITIONBREAK\")?1.5:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [28010],
+				"equipname": "Juliette D Rachel",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(WEAR/2)",
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"DARKCLAW\")?8:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [2027],
+				"equipname": "Sunflower Boy",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(WEAR/2)",
+						"EffectType": {
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"TETRAVORTEX\")?30:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemids": [31026],
+				"equipname": "Stephen Jack Ernest Wolf Card",
+				"effectlist": [
+					{
+						"EffectNumber": 200,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 200,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"133": {
+        "id": "shoescard",
+        "itemid": 31026,
+        "label": "Shoes Card",
+        "equipname": "Stephen Jack Ernest Wolf Card",
+        "effectlist": [],
+		"combolist": [],
         "idx": 3
     }
 }
