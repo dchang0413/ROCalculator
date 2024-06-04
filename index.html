@@ -4089,8 +4089,10 @@
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponrPanel']==true">
                                         <div v-if="equipspartlist[0].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
-                                        <div v-for="(combo, idx) in equipspartlist[0].combolist">
-                                            <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                        <div v-for="(combo, idx) in equipspartlist[0].combolist" class="bg-purple-light3">
+                                            <div class="divider-purple"></div>
+                                            <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                            <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
@@ -4140,9 +4142,11 @@
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'">
                                         <div v-for="(card, cardidx) in equipspartlist.slice(14, 18)">
-                                            <div v-if="card.combolist.length" class="textcenter bg-purple-light7">Card Combo Effect: {{ cardidx + 1 }} - {{ card.equipname }}</div>
-                                            <el-row v-for="(combo, idx) in card.combolist">
-                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light6">
+                                            <div v-if="card.combolist.length" class="textcenter bg-green-light2">Card Combo Effect: {{ cardidx + 1 }} - {{ card.equipname }}</div>
+                                            <el-row v-for="(combo, idx) in card.combolist" class="bg-green-light1">
+                                                <div class="divider-green"></div>
+                                                <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                         justify="end" style="height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;" :span="12">
@@ -4445,8 +4449,10 @@
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true">
                                         <div v-if="equipspartlist[1].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
-                                        <div v-for="(combo, idx) in equipspartlist[1].combolist">
-                                            <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                        <div v-for="(combo, idx) in equipspartlist[1].combolist" class="bg-purple-light3">
+                                            <div class="divider-purple"></div>
+                                            <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                            <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
@@ -4496,9 +4502,11 @@
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
                                         <div v-for="(card, cardidx) in equipspartlist.slice(18,22)">
-                                            <div v-if="card.combolist.length" class="textcenter bg-purple-light7">Card Combo Effect: {{ cardidx + 1 }} - {{ card.equipname }}</div>
-                                            <el-row v-for="(combo, idx) in card.combolist">
-                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light6">
+                                            <div v-if="card.combolist.length" class="textcenter bg-green-light2">Card Combo Effect: {{ cardidx + 1 }} - {{ card.equipname }}</div>
+                                            <el-row v-for="(combo, idx) in card.combolist" class="bg-green-light1">
+                                                <div class="divider-green"></div>
+                                                <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                         justify="end" style="height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;" :span="12">
@@ -4546,9 +4554,11 @@
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1">
-                                        <div v-if="equipspartlist[5+17].combolist.length" class="textcenter bg-purple-light7">Card Combo Effect</div>
-                                        <div v-for="(combo, idx) in equipspartlist[5+17].combolist">
-                                            <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light6">
+                                        <div v-if="equipspartlist[5+17].combolist.length" class="textcenter bg-green-light2">Card Combo Effect</div>
+                                        <div v-for="(combo, idx) in equipspartlist[5+17].combolist" class="bg-green-light1">
+                                            <div class="divider-green"></div>
+                                            <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                            <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
@@ -4682,8 +4692,10 @@
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
                                             <div v-if="equipspartlist[eqindex+2].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
-                                            <div v-for="(combo, idx) in equipspartlist[eqindex+2].combolist">
-                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                            <div v-for="(combo, idx) in equipspartlist[eqindex+2].combolist" class="bg-purple-light3">
+                                                <div class="divider-purple"></div>
+                                                <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                         justify="end" style="height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;" :span="12">
@@ -4730,9 +4742,11 @@
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-if="equipspartlist[eqindex+6+17].combolist.length" class="textcenter bg-purple-light7">Card Combo Effect</div>
-                                            <div v-for="(combo, idx) in equipspartlist[eqindex+6+17].combolist">
-                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light6">
+                                            <div v-if="equipspartlist[eqindex+6+17].combolist.length" class="textcenter bg-green-light2">Card Combo Effect</div>
+                                            <div v-for="(combo, idx) in equipspartlist[eqindex+6+17].combolist" class="bg-green-light1">
+                                                <div class="divider-green"></div>
+                                                <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                         justify="end" style="height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;" :span="12">
@@ -4830,8 +4844,10 @@
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
                                             <div v-if="equipspartlist[eqindex+10].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
-                                            <div v-for="(combo, idx) in equipspartlist[eqindex+10].combolist">
-                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                            <div v-for="(combo, idx) in equipspartlist[eqindex+10].combolist" class="bg-purple-light3">
+                                                <div class="divider-purple"></div>
+                                                <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                         justify="end" style="height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;" :span="12">
