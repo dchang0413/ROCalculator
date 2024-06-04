@@ -6207,5 +6207,84 @@
 			}
 		],
         "idx": 3
-    }
+    },
+	"191": {
+		"id": "robe",
+		"itemid": 480149,
+		"label": "Garment",
+		"equipname": "Battle Aura Manteau",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "4*FLOOR(GARMR/3)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "4*FLOOR(GARMR/3)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>8?10:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [18979],
+                "itemid_any": [],
+				"equipname": "Old Blazing Soul",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"RAMPAGEBLASTER EARTHSHAKER\")?(2*HATR):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"RAMPAGEBLASTER EARTHSHAKER\")?(0.1*FLOOR(HATR/2)):0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [4430],
+                "itemid_any": [],
+				"equipname": "Ifrit Card",
+				"effectlist": [
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "RaceAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 150,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": false
+					}
+				]
+			}
+		],
+		"idx": 3
+	}
 }
