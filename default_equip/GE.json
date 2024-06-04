@@ -447,53 +447,33 @@
 		],
 		"combolist": [
 			{
-				"itemid_every": [470020, 480018],
+				"itemid_every": [470020, 480018, 490019],
                 "itemid_any": [],
 				"equipname" : "Grace Set",
 				"effectlist": [
 					{
-						"EffectNumber": "(ARMORR+GARMR+SHOER)>26?5:0",
-						"EffectType": {
-							"id": "VariableCastPercent"
-						},
-						"Enable": true
-					},
-					{
-						"EffectNumber": "(ARMORR+GARMR+SHOER)>26?3:0",
-						"EffectType": {
-							"id": "AtkPercent"
-						},
-						"Enable": true
-					},
-					{
-						"EffectNumber": "(ARMORR+GARMR+SHOER)>26?(SKIDS('CARTCANNON')?15:0):0",
+						"EffectNumber": "SKIDS('CARTCANNON')?15:0",
 						"EffectType": {
 							"id": "SkillDamagePercent"
 						},
 						"Enable": true
-					}
-				]
-			},
-			{
-				"itemid_every": [470020, 480018, 490019],
-                "itemid_any": [],
-				"effectlist": [
+					},
 					{
-						"EffectNumber": 5,
+						"EffectNumber": "(ARMORR+GARMR+SHOER)>26?10:5",
 						"EffectType": {
 							"id": "VariableCastPercent"
 						},
 						"Enable": true
 					},
 					{
-						"EffectNumber": 2,
+						"EffectNumber": "(ARMORR+GARMR+SHOER)>26?5:2",
 						"EffectType": {
 							"id": "AtkPercent"
 						},
 						"Enable": true
 					},
 					{
-						"EffectNumber": "SKIDS('CARTCANNON')?15:0",
+						"EffectNumber": "SKIDS('CARTCANNON')?((ARMORR+GARMR+SHOER)>26?30:15):0",
 						"EffectType": {
 							"id": "SkillDamagePercent"
 						},
