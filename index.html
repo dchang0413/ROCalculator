@@ -2379,7 +2379,7 @@
                             <span class=""><b>Location</b></span>
                         </el-col>
                         <el-col class="textcenter">
-                            <span class=""><b>Equip Name</b></span>
+                            <span class=""><b>Enchant Name</b></span>
                         </el-col>
                         <el-col :span="3">
                             <el-button v-on:click="onRemoveAllEquipSave()" icon="el-icon-delete"
@@ -2388,8 +2388,17 @@
                         </el-col>
                         <el-col :span="3" v-if="showExport">
                             <el-button v-on:click="exportSavedEquip" icon="el-icon-check" type="primary" size="small">
-                                Export Equip List
+                                Export Enchant List
                             </el-button>
+                        </el-col>
+                        <el-col :span="5">
+                            <span></span>
+                        </el-col>
+                        <el-col :span="6"><!--default_equip-->
+                            <span></span>
+                        </el-col>
+                        <el-col :span="5">
+                            <span></span>
                         </el-col>
                         <el-col :span="5">
                             <el-button v-on:click="loadEnchants" icon="el-icon-check"
@@ -4077,7 +4086,7 @@
                                     <el-row v-if="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <span></span>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(14)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
@@ -4102,7 +4111,7 @@
                                     <el-row v-if="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <span></span>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(15)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
@@ -4127,7 +4136,7 @@
                                     <el-row v-if="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <span></span>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(16)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
@@ -4152,7 +4161,7 @@
                                     <el-row v-if="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <span></span>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(17)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
@@ -4173,6 +4182,35 @@
                                                 Edit
                                             </el-button>
                                         </el-col>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'">
+                                        <div v-for="(enchant, idx) in equipspartlist.slice(40, 43)">
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                                <el-col class="textcenter" :span="4">
+                                                    <div>
+                                                        <el-button class="enchantSwitch" @click="enchantSwitch(idx+40)"><img src='/img/enchant.png'></el-button>
+                                                    </div>
+                                                </el-col>
+                                                <el-col class="textcenter">
+                                                    <div>
+                                                        <el-input v-model="enchant.equipname"
+                                                            placeholder="Enchant Name">
+                                                        </el-input>
+                                                    </div>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="5">
+                                                    <el-button v-on:click="onClearEquipPart(idx+40)" size="mini">
+                                                        Clear
+                                                    </el-button>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="5">
+                                                    <el-button v-on:click="OpenEditEquipDialogue(idx+40)" type="success"
+                                                        plain>
+                                                        Edit
+                                                    </el-button>
+                                                </el-col>
+                                            </el-row>
+                                        </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponrPanel']==true">
                                         <div class="Item" v-for="(item, index) in equipspartlist[0].effectlist"
@@ -4412,7 +4450,7 @@
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <span></span>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(1+17)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
@@ -4437,7 +4475,7 @@
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <span></span>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(2+17)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
@@ -4462,7 +4500,7 @@
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <span></span>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(3+17)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
@@ -4487,7 +4525,7 @@
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <span></span>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(4+17)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
@@ -4512,7 +4550,7 @@
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <span></span>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(5+17)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
@@ -4533,6 +4571,64 @@
                                                 Edit
                                             </el-button>
                                         </el-col>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
+                                        <div v-for="(enchant, idx) in equipspartlist.slice(43, 46)">
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                                <el-col class="textcenter" :span="4">
+                                                    <div>
+                                                        <el-button class="enchantSwitch" @click="enchantSwitch(idx+43)"><img src='/img/enchant.png'></el-button>
+                                                    </div>
+                                                </el-col>
+                                                <el-col class="textcenter">
+                                                    <div>
+                                                        <el-input v-model="enchant.equipname"
+                                                            placeholder="Enchant Name">
+                                                        </el-input>
+                                                    </div>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="5">
+                                                    <el-button v-on:click="onClearEquipPart(idx+43)" size="mini">
+                                                        Clear
+                                                    </el-button>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="5">
+                                                    <el-button v-on:click="OpenEditEquipDialogue(idx+43)" type="success"
+                                                        plain>
+                                                        Edit
+                                                    </el-button>
+                                                </el-col>
+                                            </el-row>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1">
+                                        <div v-for="(enchant, idx) in equipspartlist.slice(46, 49)">
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                                <el-col class="textcenter" :span="4">
+                                                    <div>
+                                                        <el-button class="enchantSwitch" @click="enchantSwitch(idx+46)"><img src='/img/enchant.png'></el-button>
+                                                    </div>
+                                                </el-col>
+                                                <el-col class="textcenter">
+                                                    <div>
+                                                        <el-input v-model="enchant.equipname"
+                                                            placeholder="Enchant Name">
+                                                        </el-input>
+                                                    </div>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="5">
+                                                    <el-button v-on:click="onClearEquipPart(idx+46)" size="mini">
+                                                        Clear
+                                                    </el-button>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="5">
+                                                    <el-button v-on:click="OpenEditEquipDialogue(idx+46)" type="success"
+                                                        plain>
+                                                        Edit
+                                                    </el-button>
+                                                </el-col>
+                                            </el-row>
+                                        </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true">
                                         <div class="Item" v-for="(item, index) in equipspartlist[1].effectlist"
@@ -7310,6 +7406,9 @@
                 },
                 ClosePanel(id) {
                     this.UIPanel[id] = false;
+                    if(id === "EquipDBDialog" || id === "EnchantDialog"){
+                        this.ItemDesiredPosition = -1;
+                    }
                 },
                 OpenPanel(id) {
                     this.UIPanel[id] = true;
@@ -7589,7 +7688,7 @@
                         })
                     */
                 },
-                clearCardsFromEquipment(ids){
+                clearItemFromEquipment(ids){
                     if(ids.length > 0){
                         for(const idx of ids){
                             const _id = this.equipspartlist[idx].id;
@@ -7609,16 +7708,16 @@
                 },
                 onGearUpdate(){
                     if(this.weapon.type.id == 'Empty'){
-                        this.clearCardsFromEquipment([14, 15, 16, 17]);
+                        this.clearItemFromEquipment([14, 15, 16, 17, 40, 41, 42]);
                     }
                     if(this.subweapon.type.id == 0){
-                        this.clearCardsFromEquipment([18, 19, 20, 21, 22]);
+                        this.clearItemFromEquipment([18, 19, 20, 21, 22, 43, 44, 45, 46, 47, 48]);
                     }
                     if(this.subweapon.type.id == 1){
-                        this.clearCardsFromEquipment([18, 19, 20, 21]);
+                        this.clearItemFromEquipment([18, 19, 20, 21, 43, 44, 45]);
                     }
                     if(this.subweapon.type.id > 1){
-                        this.clearCardsFromEquipment([22]);
+                        this.clearItemFromEquipment([22, 46, 47, 48]);
                     }
                     this.CombineEquipsAttribute();
                 },
@@ -10819,7 +10918,6 @@
                                 effectlist: _.cloneDeep(this.StoreDB_Equip[_dbidx].equip.effectlist),
                                 combolist: _.cloneDeep(this.StoreDB_Equip[_dbidx].equip.combolist),
                             })
-                        this.ItemDesiredPosition = -1;
                         this.onGearUpdate();
                         this.CombineEquipsAttribute();
                     }
