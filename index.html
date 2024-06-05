@@ -223,7 +223,7 @@
 
                                     <div style="padding: 0px 0px 20px 50px;">
                                         <el-col class="textcenter" style="text-align: left;">
-                                            <div v-html="item.content"></div>
+                                            <div style="word-break:break-word" v-html="item.content"></div>
                                         </el-col>
                                     </div>
                                 </el-row>
@@ -11966,6 +11966,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-06-04', content: 'Combo/Card Functionalitiy Reworked<br><br>Some of the old saves may have their cards mispositioned due to the update but luckily it shouldn\'t be that hard to fix as we\'re implemting better ways to fill out the builds' },
                         { id: '2024-04-19', content: 'Corrected RES bypass calculation' },
                         { id: '2024-04-19', content: 'Corrected RES calculation' },
                         { id: '2024-04-19', content: 'Updated EDP related calculation<br>Display DEF/RES/RES/MRES damage reduction' },
