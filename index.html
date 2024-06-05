@@ -8168,8 +8168,8 @@
                             Math.floor(eval(this.SkillFormulaReplace(this.skill.GCD)) * _GCDRate) / 100;
                     }
                     this.computeattribute.AspdDelay = Math.floor((200 - this.status.ASPD) / 50 * 100) / 100;
-                    var _MAxDelay = Math.max(this.computeattribute.DelayTime, this.computeattribute.AspdDelay);
-                    this.computeattribute.HitperSec = Math.floor(1 / _MAxDelay * 100) / 100;
+                    var _MaxDelay = Math.max(this.computeattribute.DelayTime, this.computeattribute.AspdDelay);
+                    this.computeattribute.HitperSec = Math.floor(1 / _MaxDelay * 100) / 100;
                     if (this.computeattribute.HitperSec > 7.14) this.computeattribute.HitperSec = 7.14;
                 },
                 resetRecord(){
@@ -9021,6 +9021,7 @@
                         console.log( "SkillPercent error:" + e);
                         console.log( "_formula:" + _formula + " try declare to " + f);
                     }
+                    this.ComputeASPD();
                     this.ComputeCastDelay();
                     this.ClosePanel('ATKPanel');
                     this.ClosePanel('MATKPanel');
