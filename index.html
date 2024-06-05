@@ -4656,20 +4656,20 @@
                                             </el-col>
                                             <el-col class="textcenter">
                                                 <div>
-                                                    <el-input v-model="equipspartlist[eqindex+6+17].equipname"
+                                                    <el-input v-model="equipspartlist[eqindex+23].equipname"
                                                         placeholder="Card Name">
                                                     </el-input>
-                                                    <el-button v-if="equipspartlist[eqindex+6+17].enchant" class="enchantSwitch" @click="enchantSwitch(equipspartlist[eqindex+6+17])"><img src='/img/enchant.png'></el-button>
-                                                    <el-button v-else class="enchantSwitch" @click="enchantSwitch(equipspartlist[eqindex+6+17])"><img src='/img/card.png'></el-button>
+                                                    <el-button v-if="equipspartlist[eqindex+23].enchant" class="enchantSwitch" @click="enchantSwitch(eqindex+23)"><img src='/img/enchant.png'></el-button>
+                                                    <el-button v-else class="enchantSwitch" @click="enchantSwitch(eqindex+23)"><img src='/img/card.png'></el-button>
                                                 </div>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="onClearEquipPart(eqindex+6+17)" size="mini">
+                                                <el-button v-on:click="onClearEquipPart(eqindex+23)" size="mini">
                                                     Clear
                                                 </el-button>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+6+17)" type="success"
+                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+23)" type="success"
                                                     plain>
                                                     Edit
                                                 </el-button>
@@ -4726,8 +4726,8 @@
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-if="equipspartlist[eqindex+6+17].effectlist.length" class="textcenter bg-purple-light5">Card Effect</div>
-                                            <div v-for="(item, index) in equipspartlist[eqindex+6+17].effectlist"
+                                            <div v-if="equipspartlist[eqindex+23].effectlist.length" class="textcenter bg-purple-light5">Card Effect</div>
+                                            <div v-for="(item, index) in equipspartlist[eqindex+23].effectlist"
                                                 v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
@@ -4744,14 +4744,14 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+6+17, index)"></el-checkbox>
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+23, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-if="equipspartlist[eqindex+6+17].combolist.length" class="textcenter bg-green-light2">Card Combo Effect</div>
-                                            <div v-for="(combo, idx) in equipspartlist[eqindex+6+17].combolist" class="bg-green-light1">
+                                            <div v-if="equipspartlist[eqindex+23].combolist.length" class="textcenter bg-green-light2">Card Combo Effect</div>
+                                            <div v-for="(combo, idx) in equipspartlist[eqindex+23].combolist" class="bg-green-light1">
                                                 <div class="divider-green"></div>
                                                 <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
                                                 <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
@@ -4770,7 +4770,7 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(eqindex+6+17, index)"></el-checkbox>
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(eqindex+23, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
@@ -6286,6 +6286,9 @@
                 TempAllSet: {},
 
                 EquipText: '',
+                
+                EnchantingLocation: false,
+                AvailableEnchants: [],
 
                 ElementTableShow: [],
                 ElementTableIndex: 1,
@@ -6418,16 +6421,16 @@
                     },
                 ],
                 equipspartlist: [
-                    { id: 'weaponr', label: 'MainHand', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'weaponl', label: 'OffHand', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'helm', label: 'Upper', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'helm1', label: 'Middle', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'helm2', label: 'Lower', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'armor', label: 'Armor', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'robe', label: 'Garment', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'shoes', label: 'Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'acc1', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
-                    { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0} },
+                    { id: 'weaponr', label: 'MainHand', equipname: '', effectlist: [], itemid: 0, combolist: [], availableEnchants:[] },
+                    { id: 'weaponl', label: 'OffHand', equipname: '', effectlist: [], itemid: 0, combolist: [], availableEnchants:[] },
+                    { id: 'helm', label: 'Upper', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0}, availableEnchants:[] },
+                    { id: 'helm1', label: 'Middle', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0}, availableEnchants:[] },
+                    { id: 'helm2', label: 'Lower', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0}, availableEnchants:[] },
+                    { id: 'armor', label: 'Armor', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0}, availableEnchants:[] },
+                    { id: 'robe', label: 'Garment', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0}, availableEnchants:[] },
+                    { id: 'shoes', label: 'Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0}, availableEnchants:[] },
+                    { id: 'acc1', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0}, availableEnchants:[] },
+                    { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0}, availableEnchants:[] },
                     { id: 'shadow', label: 'S.Weapon', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
                     { id: 'costume', label: 'Costume', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'cardset', label: 'CardSets', equipname: '', effectlist: [], itemid: 0, combolist: [] },
@@ -10782,9 +10785,24 @@
                     this.ElementTableIndex = level;
                     this.onOpenElementTable();
                 },
-                enchantSwitch(obj){
-                    obj.enchant = !obj.enchant;
+                enchantSwitch(index){
                     this.OpenPanel('EnchantDialog');
+
+                    this.EnchantingLocation = index;
+                    this.fetchAvailableEnchants(index);
+
+                    this.equipspartlist[index].enchant = !this.equipspartlist[index].enchant;
+                },
+                fetchAvailableEnchants(index){
+                    let cardToEquipMapping = {
+                        15:1, 16:1, 17:1, 18:1,
+                        19:2, 20:2, 21:2, 22:2, 23:2,
+                        24:3, 25:4, 26:5, 
+                        27:6, 28:7, 29:8,
+                        30:9, 31:10 
+                    };
+
+                    this.AvailableEnchants = 'availableEnchants' in this.equipspartlist[cardToEquipMapping[index]] ? this.equipspartlist[cardToEquipMapping[index]] : [];
                 },
                 SetElementTableCellClass(_value){
                     if(_value > 100)
