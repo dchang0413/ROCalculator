@@ -1635,8 +1635,8 @@
                         </el-col>
                         <el-col :span="6"><!--default_equip-->
                             <el-select v-model="status.select_default" v-on:change="updateSelectDefault" placeholder="" v-bind="select_default">
-                                <el-option v-for="item in default_equip" :key="item.id" :label="item.label" :value="item.id">
-                                </el-option>
+                                <el-option v-if="showExport" value="GEN" label="General"></el-option>
+                                <el-option v-for="item in default_equip" :key="item.id" :label="item.label" :value="item.id"></el-option>
                             </el-select>
                         </el-col>
                         <el-col :span="5">
@@ -12210,6 +12210,12 @@
                             this.SaveEquipDB();
                         }
                     })
+                    if (['PHY','MAG'].includes(this.select_default) && !this.showExport){
+                        var tmpSel = this.select_default;
+                        this.select_default = 'GEN';
+                        this.loadDefaultEquip();
+                        this.select_default = tmpSel;
+                    }
                 },
                 loadAllDefaultEquip(){
                     for (const entry of this.default_equip){
