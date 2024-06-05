@@ -10467,7 +10467,7 @@
                     this.attribute['GCD'] +=    Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'GCDPercent').totalvalue)));
                     this.attribute['GCD'] = -Math.abs(this.attribute['GCD']);
                     this.attribute['CD'] =      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CDTime').totalvalue)));
-                    this.attribute['CD'] = -Math.abs(this.attribute['CD']);
+                    this.attribute['CD'] = Math.round(-Math.abs(this.attribute['CD'])*100)/100;
 
                     this.attribute['WeaponATK'] =   this.attribute['ATK'] + 
                                                     Number(this.weapon.ATK) + this.weapon.refineatk 
