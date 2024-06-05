@@ -4108,7 +4108,7 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox :disabled="!SearchForItemIds(combo.itemid_every, combo.itemid_any)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
+                                                        <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
@@ -4162,7 +4162,7 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox :disabled="!SearchForItemIds(combo.itemid_every, combo.itemid_any)" v-model="item.Enable" @change="EnableEffect(cardidx+18, index)"></el-checkbox>
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(cardidx+18, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
@@ -4468,7 +4468,7 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox :disabled="!SearchForItemIds(combo.itemid_every, combo.itemid_any)" v-model="item.Enable" @change="EnableEffect(1, index)"></el-checkbox>
+                                                        <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(1, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
@@ -4522,7 +4522,7 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox :disabled="!SearchForItemIds(combo.itemid_every, combo.itemid_any)" v-model="item.Enable" @change="EnableEffect(cardidx+18, index)"></el-checkbox>
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(cardidx+18, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
@@ -4574,7 +4574,7 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox :disabled="!SearchForItemIds(combo.itemid_every, combo.itemid_any)" v-model="item.Enable" @change="EnableEffect(5+17, index)"></el-checkbox>
+                                                        <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(5+17, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
@@ -4711,7 +4711,7 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox :disabled="!SearchForItemIds(combo.itemid_every, combo.itemid_any)" v-model="item.Enable" @change="EnableEffect(eqindex+2, index)"></el-checkbox>
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(eqindex+2, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
@@ -4762,7 +4762,7 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox :disabled="!SearchForItemIds(combo.itemid_every, combo.itemid_any)" v-model="item.Enable" @change="EnableEffect(eqindex+6+17, index)"></el-checkbox>
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(eqindex+6+17, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
@@ -4863,7 +4863,7 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox :disabled="!SearchForItemIds(combo.itemid_every, combo.itemid_any)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
@@ -4960,7 +4960,7 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox :disabled="!SearchForItemIds(combo.itemid_every, combo.itemid_any)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
@@ -7164,7 +7164,9 @@
                         }
                     }
                 },
-                SearchForItemIds(itemid_every, itemid_any) {
+                SearchForItemIds(combo) {
+                    let itemid_every = 'itemid_every' in combo ? combo.itemid_every : [];
+                    let itemid_any = 'item_any' in combo ? combo.itemid_any : []; 
                     const itemIdSet = new Set(this.equipspartlist.filter(item => item.itemid > 0).map(item => item.itemid));
                     if(itemid_every.length > 0 && itemid_every.every(id => itemIdSet.has(id))) {
                         return true;
