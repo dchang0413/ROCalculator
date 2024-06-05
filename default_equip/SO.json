@@ -924,5 +924,58 @@
 			"id": 0
 		},
 		"idx": 3
-	}
+	},
+    "13": {
+        "id": "acc1card",
+        "itemid": 300104,
+        "label": "Acc Card",
+        "equipname": "Bookworm Card",
+        "effectlist": [
+            {
+                "EffectNumber": 2,
+                "EffectType": {
+                    "id": "INT"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": 1,
+                "EffectType": {
+                    "id": "VIT"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": 10,
+                "EffectType": {
+                    "id": "HPPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "SKIDS(\"PSYCHIC_WAVE DIAMONDDUST\")?10:0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            }
+        ],
+		"combolist": [
+			{
+				"itemid_every": [300081, 300124],
+                "itemid_any": [],
+				"equipname": "Blue Pitaya Card + Research Assistant Bot Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"PSYCHIC_WAVE DIAMONDDUST\")?20:0)+(SKIDS(\"PSYCHIC_WAVE\")?(5*FLOOR(SHOER/2)):0)+(SKIDS(\"DIAMONDDUST\")?(5*FLOOR(WEAR/2)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 3
+    }
 }
