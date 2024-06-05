@@ -7165,13 +7165,11 @@
                     }
                 },
                 SearchForItemIds(combo) {
-                    let itemid_every = 'itemid_every' in combo ? combo.itemid_every : [];
-                    let itemid_any = 'item_any' in combo ? combo.itemid_any : []; 
                     const itemIdSet = new Set(this.equipspartlist.filter(item => item.itemid > 0).map(item => item.itemid));
-                    if(itemid_every.length > 0 && itemid_every.every(id => itemIdSet.has(id))) {
+                    if(combo !== undefined && combo.itemid_every !== undefined && combo.itemid_every.length > 0 && combo.itemid_every.every(id => itemIdSet.has(id))) {
                         return true;
                     }
-                    if(itemid_any.length > 0 && itemid_any.some(id => itemIdSet.has(id))) {
+                    if(combo !== undefined && combo.itemid_any !== undefined && combo.itemid_any.length > 0 && combo.itemid_any.some(id => itemIdSet.has(id))) {
                         return true;
                     }
                     return false;
