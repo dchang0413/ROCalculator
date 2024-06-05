@@ -10993,7 +10993,7 @@
                         if (typeof(AllsetObject.Equip[eqi]) == 'undefined') continue;
                         if (eqi > AllsetObject.Equip.length) break;
                         var cardnull = (AllsetObject.Equip[eqi]==null)?true:false;
-                        var combonull = cardnull && typeof AllsetObject.Equip[eqi].combolist != undefined?false:true;
+                        var combonull = AllsetObject.Equip[eqi].combolist !== undefined ? false:true;
                         this.$set(this.equipspartlist,
                             eqi,
                             {
