@@ -2345,6 +2345,12 @@
                 </el-col>
             </el-row>
         </el-dialog>
+        
+        <el-dialog :visible.sync="UIPanel['EnchantDialog']" v-on:close="ClosePanel('EnchantDialog')"
+            custom-class="Dialogue-container" width="65%" top="50px" center>
+            <span slot="title">Enchants</span>
+
+        </el-dialog>
         <el-dialog :visible.sync="UIPanel['ElementTableDialog']" v-on:close="ClosePanel('ElementTableDialog')"
             custom-class="Dialogue-container" width="65%" top="50px" center>
             <span slot="title">Element Table</span>
@@ -4653,6 +4659,8 @@
                                                     <el-input v-model="equipspartlist[eqindex+6+17].equipname"
                                                         placeholder="Card Name">
                                                     </el-input>
+                                                    <el-button v-if="equipspartlist[eqindex+6+17].enchant" class="enchantSwitch" @click="enchantSwitch(equipspartlist[eqindex+6+17])"><img src='/img/enchant.png'></el-button>
+                                                    <el-button v-else class="enchantSwitch" @click="enchantSwitch(equipspartlist[eqindex+6+17])"><img src='/img/card.png'></el-button>
                                                 </div>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
@@ -6424,23 +6432,23 @@
                     { id: 'costume', label: 'Costume', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'cardset', label: 'CardSets', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'other', label: 'Custom', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'shieldcard', label: 'shieldcard', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'helmcard', label: 'Upper Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'helm1card', label: 'Middle Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'helm2card', label: 'Lower Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'armorcard', label: 'Armor Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'robecard', label: 'Garment Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'shoescard', label: 'Shoes Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'acc1card', label: 'Acc Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'acc2card', label: 'Acc Card', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'weaponcard', label: 'WeaponCards', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'shieldcard', label: 'shieldcard', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'helmcard', label: 'Upper Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'helm1card', label: 'Middle Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'helm2card', label: 'Lower Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'armorcard', label: 'Armor Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'robecard', label: 'Garment Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'shoescard', label: 'Shoes Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'acc1card', label: 'Acc Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'acc2card', label: 'Acc Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'shadowenchant', label: 'Shadow Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'costumeenchant', label: 'Costume Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'cardset2', label: 'CardSets2', equipname: '', effectlist: [], itemid: 0, combolist: [] },
@@ -7085,6 +7093,7 @@
                     SupportSkillDialog: false,
                     EquipTextDialog: false,
                     QuickCalcDialog: false,
+                    EnchantDialog: false,
                     ElementTableDialog: false,
                     WeaponSizeTableDialog: false,
 
@@ -10773,6 +10782,10 @@
                     this.ElementTableIndex = level;
                     this.onOpenElementTable();
                 },
+                enchantSwitch(obj){
+                    obj.enchant = !obj.enchant;
+                    this.OpenPanel('EnchantDialog');
+                },
                 SetElementTableCellClass(_value){
                     if(_value > 100)
                     {
@@ -10790,7 +10803,7 @@
                 },
                 onOpenElementTable(){
                     this.ElementTableShow = [];
-                   this.OpenPanel('ElementTableDialog');
+                    this.OpenPanel('ElementTableDialog');
                 },
                 CloseSkillFormulaDialogue() {
                     if (this.skill.formula == '')
