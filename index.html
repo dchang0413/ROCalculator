@@ -7572,7 +7572,7 @@
                                 .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
                                 .Select(function (x) {
                                     var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()))
-                                    return xx[0].Enable ? ('baseIndex' in x && xx[0].EffectNumber? xx[0].EffectNumber.replace('GEARR','this.equipspartlist['+x.baseIndex+'].refinelevel') : xx[0].EffectNumber) : 0;
+                                    return xx[0].Enable ? ('baseIndex' in x && typeof xx[0].EffectNumber == 'string' ? xx[0].EffectNumber.replace('GEARR','this.equipspartlist['+x.baseIndex+'].refinelevel') : xx[0].EffectNumber) : 0;
                                 })
                                 .ToArray()
                                 .join(")+(");
