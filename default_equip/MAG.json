@@ -3486,7 +3486,7 @@
 		"itemid": 24754,
 		"label": "S.Shield",
 		"equipname": "Magical Spell Shadow Shield",
-		"refinelevel": 0,
+		"refinelevel": 10,
 		"grade": {
 			"id": 0,
 			"label": "No Grade"
@@ -3514,7 +3514,7 @@
 		"itemid": 24753,
 		"label": "S.Weapon",
 		"equipname": "Magical Spell Shadow Weapon",
-		"refinelevel": 0,
+		"refinelevel": 10,
 		"grade": {
 			"id": 0,
 			"label": "No Grade"
@@ -3558,7 +3558,7 @@
 		"itemid": 24883,
 		"label": "S.Armor",
 		"equipname": "Full Spell Shadow Armor",
-		"refinelevel": 0,
+		"refinelevel": 10,
 		"grade": {
 			"id": 0,
 			"label": "No Grade"
@@ -3658,7 +3658,7 @@
 		"itemid": 24884,
 		"label": "S.Shoes",
 		"equipname": "Full Spell Shadow Shoes",
-		"refinelevel": 0,
+		"refinelevel": 10,
 		"grade": {
 			"id": 0,
 			"label": "No Grade"
@@ -5153,5 +5153,260 @@
         "effectlist": [],
 		"combolist": [],
         "idx": 3
-    }
+    },
+	"134": {
+		"id": "shadowearring",
+		"itemid": 24665,
+		"label": "S.Earring",
+		"equipname": "Full Tempest Shadow Earring",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5+DOWN(SHACCRR/2)",
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [24668],
+				"itemid_any": [],
+				"equipname": "Full Tempest Shadow Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>17?100:0",
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"135": {
+		"id": "shadowpendant",
+		"itemid": 24668,
+		"label": "S.Pendant",
+		"equipname": "Full Tempest Shadow Pendant",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5+DOWN(SHACCRR/2)",
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	"136": {
+		"id": "shadowarmor",
+		"itemid": 24667,
+		"label": "S.Armor",
+		"equipname": "Full Tempest Shadow Armor",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5+DOWN(SHACCRR/2)",
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [24666],
+				"itemid_any": [],
+				"equipname": "Full Tempest Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>17?100:0",
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"137": {
+		"id": "shadowshoe",
+		"itemid": 24666,
+		"label": "S.Shoes",
+		"equipname": "Full Tempest Shadow Shoes",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5+DOWN(SHACCRR/2)",
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	"138": {
+		"id": "shadowarmor",
+		"itemid": 24554,
+		"label": "S.Armor",
+		"equipname": "Psychic Shadow Armor",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "10*SHARMORR",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?(5+(2*DOWN(SHARMORR/2))):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [24555, 24556],
+				"itemid_any": [],
+				"equipname": "Psychic Shadow Set",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?(SHARMORR+SHSHOER+SHSHIER):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"139": {
+		"id": "shadowshoe",
+		"itemid": 24556,
+		"label": "S.Shoes",
+		"equipname": "Psychic Shadow Shoes",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "10*SHSHOER",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	"140": {
+		"id": "shadowshld",
+		"itemid": 24555,
+		"label": "S.Shield",
+		"equipname": "Psychic Shadow Shield",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "10*SHSHIER",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==0?(3+(SHSHIER>6?3:0)+(SHSHIER>8?4:0)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	}
 }

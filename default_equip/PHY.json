@@ -3823,7 +3823,7 @@
 		"itemid": 24752,
 		"label": "S.Shield",
 		"equipname": "Physical Power Shadow Shield",
-		"refinelevel": 0,
+		"refinelevel": 10,
 		"grade": {
 			"id": 0,
 			"label": "No Grade"
@@ -3851,7 +3851,7 @@
 		"itemid": 24751,
 		"label": "S.Weapon",
 		"equipname": "Physical Power Shadow Weapon",
-		"refinelevel": 0,
+		"refinelevel": 10,
 		"grade": {
 			"id": 0,
 			"label": "No Grade"
@@ -3895,7 +3895,7 @@
 		"itemid": 24872,
 		"label": "S.Armor",
 		"equipname": "Full Power Shadow Armor",
-		"refinelevel": 0,
+		"refinelevel": 10,
 		"grade": {
 			"id": 0,
 			"label": "No Grade"
@@ -4009,7 +4009,7 @@
 		"itemid": 24873,
 		"label": "S.Shoes",
 		"equipname": "Full Power Shadow Shoes",
-		"refinelevel": 0,
+		"refinelevel": 10,
 		"grade": {
 			"id": 0,
 			"label": "No Grade"
@@ -6285,6 +6285,166 @@
 				]
 			}
 		],
+		"idx": 3
+	},
+	"192": {
+		"id": "shadowearring",
+		"itemid": 24661,
+		"label": "S.Earring",
+		"equipname": "Full Penetration Shadow Earring",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5+DOWN(SHACCRR/2)",
+				"EffectType": {
+					"id": "BypassDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [24662],
+				"itemid_any": [],
+				"equipname": "Full Penetration Shadow Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>17?100:0",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"193": {
+		"id": "shadowpendant",
+		"itemid": 24662,
+		"label": "S.Pendant",
+		"equipname": "Full Penetration Shadow Pendant",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5+DOWN(SHACCRR/2)",
+				"EffectType": {
+					"id": "BypassDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	"194": {
+		"id": "shadowarmor",
+		"itemid": 24663,
+		"label": "S.Armor",
+		"equipname": "Full Penetration Shadow Armor",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5+DOWN(SHACCRR/2)",
+				"EffectType": {
+					"id": "BypassDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [24664],
+				"itemid_any": [],
+				"equipname": "Full Penetration Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>17?100:0",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	"195": {
+		"id": "shadowshoe",
+		"itemid": 24664,
+		"label": "S.Shoes",
+		"equipname": "Full Penetration Shadow Shoes",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5+DOWN(SHACCRR/2)",
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
 		"idx": 3
 	}
 }

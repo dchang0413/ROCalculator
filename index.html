@@ -5482,8 +5482,10 @@
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
                                             <div v-if="equipspartlist[eqindex+35].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
-                                            <div v-for="(combo, idx) in equipspartlist[eqindex+35].combolist">
-                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist" class="bg-purple-light3">
+                                            <div v-for="(combo, idx) in equipspartlist[eqindex+35].combolist" class="bg-purple-light3">
+                                                <div class="divider-purple"></div>
+                                                <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                         justify="end" style="height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;" :span="12">
