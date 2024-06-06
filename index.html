@@ -6791,19 +6791,6 @@
                 PageOptions: [10, 25, 50, 100],
                 PageIndex: 1,
                 ItemsPerPage: 25,
-                bootstrapPaginationClasses: { // http://getbootstrap.com/docs/4.1/components/pagination/
-                    ul: 'pagination',
-                    li: 'page-item',
-                    liActive: 'active',
-                    liDisable: 'disabled',
-                    button: 'page-link'
-                },
-                customLabels: {
-                    first: false,
-                    prev: 'Previous',
-                    next: 'Next',
-                    last: false
-                },
 
                 StoreDB_Status: [],
                 StatusName: '',
@@ -7734,6 +7721,12 @@
                     this.UIPanel[id] = false;
                     if(id === "CardDialog" || id === "EnchantDialog"){
                         this.ItemDesiredPosition = -1;
+                        this.PageIndex = 1;
+                        this.updateItemsPerPage(this.PageOptions[1]);
+                    }
+                    if(id === "EquipDBDialog"){
+                        this.PageIndex = 1;
+                        this.updateItemsPerPage(this.PageOptions[1]);
                     }
                 },
                 OpenPanel(id) {
