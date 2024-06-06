@@ -1256,5 +1256,53 @@
 			"refinematk": 84,
 			"refineatk2": 112
 		}
+	},
+	"16": {
+		"id": "helm",
+        "itemid": 19475,
+		"label": "Upper",
+		"equipname": "Circlet of Time(Royal Guard)",
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"BANISHINGPOINT CANNONSPEAR\")?(15*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
 	}
 }

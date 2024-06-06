@@ -1100,5 +1100,53 @@
         ],
         "combolist": [],
         "idx": 3
-    }
+    },
+    "15": {
+		"id": "helm",
+        "itemid": 19480,
+		"label": "Upper",
+		"equipname": "Circlet of Time(Archbishop)",
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "3*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"ADORAMUS\")?(20*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==6?(7*DOWN(HATR/4)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
+	}
 }

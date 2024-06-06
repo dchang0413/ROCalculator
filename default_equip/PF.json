@@ -1526,5 +1526,53 @@
 			"id": 0
 		},
 		"idx": 3
+	},
+    "19": {
+		"id": "helm",
+        "itemid": 19485,
+		"label": "Upper",
+		"equipname": "Circlet of Time(Wanderer Maestro)",
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"REVERBERATION METALICSOUND\")?(20*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==0?(7*DOWN(HATR/4)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
 	}
 }
