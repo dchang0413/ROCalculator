@@ -7534,6 +7534,7 @@
                     return false;
                 },
                 CombineEquipsAndCombos() {
+                    this.equipspartlist.forEach((element, i)=>{ console.log(i, element.id); element.baseIndex = this.fetchEnchantBaseIndex(i)});
                     this.EquipAndComboEffectList = [...this.equipspartlist, ...this.EquipComboEffectList];
                 },
                 CombineEquipsAttribute() {
@@ -7571,7 +7572,7 @@
                                 .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
                                 .Select(function (x) {
                                     var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()))
-                                    return xx[0].Enable? xx[0].EffectNumber:0;
+                                    return xx[0].Enable ? ('baseIndex' in x ? xx[0].EffectNumber.replace('GEARR','this.equipspartlist['+x.baseIndex+'].refinelevel') : xx[0].EffectNumber) : 0;
                                 })
                                 .ToArray()
                                 .join(")+(");
@@ -11189,7 +11190,7 @@
                     this.OpenPanel('EnchantDialog');
                     this.loadEnchants();
                     const filter = this.fetchEnchantMapping(index);
-                    this.onFilterPart(filter);
+                    //this.onFilterPart(filter);
                     this.ItemDesiredPosition = index;
                 },
                 fetchEnchantMapping(index){
@@ -11201,6 +11202,17 @@
                         "Garment Enchant": [63, 64, 65],
                         "Shoes Enchant": [66, 67, 68],
                         "Accessory Enchant": [69, 70, 71, 72, 73, 74]
+                    };
+                    return Object.keys(enchantLabelToEquip).find(x => enchantLabelToEquip[x].includes(index));
+                },
+                fetchEnchantBaseIndex(index){
+                    let enchantLabelToEquip = {
+                        0 : [40, 41, 42, 43],
+                        1 : [48, 49, 50, 44, 45, 46, 47],
+                        2 : [51, 52, 53],
+                        5 : [60, 61, 62],
+                        6 : [63, 64, 65],
+                        7 : [66, 67, 68],
                     };
                     return Object.keys(enchantLabelToEquip).find(x => enchantLabelToEquip[x].includes(index));
                 },
