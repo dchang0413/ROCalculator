@@ -738,5 +738,207 @@
 			"id": 0
 		},
 		"idx": 3
+	},
+    "10": {
+        "id": "weaponr",
+        "itemid": 560009,
+        "label": "MainHand",
+        "equipname": "Awakened Ray Knuckle",
+        "refinelevel": 12,
+        "grade": {
+            "id": 0,
+            "label": "No Grade"
+        },
+        "effectlist": [
+			{
+                "EffectNumber": "(WEAR>10?10:0)",
+                "EffectType": {
+                    "id": "HPPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(SKIDS(\"TIGERCANNON\")?((4*DOWN(WEAR/3))+(WEAR>6?15:0)):0)+(SKIDS(\"GATEOFHELL\")?((WEAR>6?20:0)+(WEAR>10?15:0)):0)",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "15*DOWN(WEAR/3)",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(SKIDS(\"TIGERCANNON\")&&WEAR>8)?1:0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            }
+        ],
+        "combolist": [
+			{
+				"itemid_every": [22238],
+                "itemid_any": [],
+				"equipname" : "Great Hero's Boots",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "VIT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 7,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Knuckles",
+                "label": "Knuckle",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 75
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 4,
+                "label": "Lv. 4 Weapon",
+                "upgradeatk": 7,
+                "saferefine": 4,
+                "overatk": 14
+            },
+            "grade": {
+                "id": 0,
+                "label": "No Grade"
+            },
+            "ATK": "205",
+            "MATK": 0,
+            "refinelevel": 12,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 80,
+            "refineatk": 84,
+            "refinematk": 84,
+            "refineatk2": 112
+        }
+    },
+    "11": {
+		"id": "helm",
+        "itemid": 400307,
+		"label": "Upper",
+		"equipname": "Ally of the Demons",
+		"effectlist": [
+			{
+				"EffectNumber": "3*HATR",
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HOWLINGOFLION\")?(50+(HATR>6?75:0)+(HATR>8?100:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 25,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 25,
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": 9999,
+				"EffectType": {
+					"id": "WeaponPerfection"
+				},
+				"Enable": true
+			}
+		],
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
+	},
+    "12": {
+		"id": "acc1",
+        "itemid": 490130,
+		"label": "Accessory",
+		"equipname": "Sky Blow Ring",
+		"effectlist": [
+			{
+				"EffectNumber": 27,
+				"EffectType": {
+					"id": "AGI"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SKYBLOW\")?(2*BLV):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
 	}
 }
