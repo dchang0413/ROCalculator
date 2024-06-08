@@ -2383,7 +2383,7 @@
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['CardDialog']" v-on:close="ClosePanel('CardDialog')"
             custom-class="Dialogue-container" width="80%" top="50px" center>
-            <span slot="title">Card List</span>
+            <span slot="title">Card List <b>{{fetchCardMapping(ItemDesiredPosition)}}</b></span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
                     <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
