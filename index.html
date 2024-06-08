@@ -1594,17 +1594,17 @@
                     <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
                         <el-row class="statusbox bg-purple-light" :span="4" :gutter="4" type="flex" align="middle">
                             <el-col class="textcenter" >
-                                    <el-input v-model="StoreDB_SearchString" @input="onFliterEquipSearch" placeholder="Search" clearable>
+                                    <el-input v-model="StoreDB_SearchString" @input="onFilterEquipSearch" placeholder="Search" clearable>
                                     </el-input>
                             </el-col>
                         </el-row>
                         <el-col class="textcenter" :span="2">
-                            <el-button v-on:click="onFliterEquipClear">
+                            <el-button v-on:click="onFilterEquipClear">
                                 All
                             </el-button>
                         </el-col>
                         <el-col class="textcenter" style="text-align: left;" :span="18">
-                            <el-checkbox-group v-model="StoreDB_EquipFliterGroup" v-on:change="onFliterEquipPart"
+                            <el-checkbox-group v-model="StoreDB_EquipFilterGroup" v-on:change="onFilterEquipPart"
                                 fill="#909399" text-color="white">
                                 <el-checkbox-button v-for="item in FilterEquipList(0, 40)" :label="item.label" :key="item.id">
                                     {{item.label}}
@@ -1671,7 +1671,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFliterEquipPreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -2389,17 +2389,17 @@
                     <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
                         <el-row class="statusbox bg-purple-light" :span="4" :gutter="4" type="flex" align="middle">
                             <el-col class="textcenter" >
-                                    <el-input v-model="StoreDB_SearchString" @input="onFliterEquipSearch" placeholder="Search" clearable>
+                                    <el-input v-model="StoreDB_SearchString" @input="onFilterEquipSearch" placeholder="Search" clearable>
                                     </el-input>
                             </el-col>
                         </el-row>
                         <el-col class="textcenter" :span="2">
-                            <el-button v-on:click="onFliterEquipClear">
+                            <el-button v-on:click="onFilterEquipClear">
                                 All
                             </el-button>
                         </el-col>
                         <el-col class="textcenter" style="text-align: left;" :span="18">
-                            <el-checkbox-group v-model="StoreDB_EquipFliterGroup" v-on:change="onFliterEquipPart"
+                            <el-checkbox-group v-model="StoreDB_EquipFilterGroup" v-on:change="onFilterEquipPart"
                                 fill="#909399" text-color="white">
                                 <el-checkbox-button v-for="item in FilterEquipList(14, 31)" :label="item.label" :key="item.id">
                                     {{item.label}}
@@ -2460,7 +2460,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFliterEquipPreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -2542,12 +2542,12 @@
                     <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
                         <el-row class="statusbox bg-purple-light" :span="4" :gutter="4" type="flex" align="middle">
                             <el-col class="textcenter" >
-                                    <el-input v-model="StoreDB_SearchString" @input="onFilterEnchantFlag" placeholder="Search" clearable>
+                                    <el-input v-model="StoreDB_SearchString" @input="onFilterEnchantSearch" placeholder="Search" clearable>
                                     </el-input>
                             </el-col>
                         </el-row>
                         <el-col class="textcenter" :span="2">
-                            <el-button v-on:click="onFliterEquipClear">
+                            <el-button v-on:click="onFilterEquipClear">
                                 All
                             </el-button>
                         </el-col>
@@ -2607,7 +2607,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFliterEquipPreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -6790,10 +6790,11 @@
                 StatusName: '',
                 StatusBulidString: '',
 
-                StoreDB_EquipFliterGroup: [],
+                StoreDB_EquipFilterGroup: [],
                 StoreDB_EquipFilterList: [],
                 StoreDB_EnchantFlags: [],
                 StoreDB_EnchantFilterList: [],
+                StoreDB_EnchantSearchString: '',
                 StoreDB_SearchString: '',
                 StoreDB_Equip: [],
                 StoreDB_Enchant: [],
@@ -9804,7 +9805,7 @@
                     });
                     this.onOption();
                 },
-                onFliterSupportSkillJobGroup() {
+                onFilterSupportSkillJobGroup() {
                     console.log("GG "+this.SupportSkillJobGroup);
                 },
                 IsSupportActive(id){
@@ -11283,7 +11284,7 @@
                                 console.log('error deleting equip', e);
                             }
                         }
-                        this.onFliterEquipPart();
+                        this.onFilterEquipPart();
                     }
                 },
                 onRemoveEquipSave(uuid) {
@@ -11292,26 +11293,33 @@
                         this.StoreDB_Equip.splice(_dbidx, 1)
                         this.SaveEquipDB();
                     }
-                    this.onFliterEquipPart();
+                    this.onFilterEquipPart();
                 },
                 onOpenEquipDB() {
                     if( this.StoreDB_SearchString.trim() != '' ){
-                        this.onFliterEquipSearch();
+                        this.onFilterEquipSearch();
                     }else{
-                        this.onFliterEquipPart();
+                        this.onFilterEquipPart();
                     }
                     this.OpenPanel('EquipDBDialog');
                 },
                 onFilterSearch(searchString) {
-                    this.StoreDB_EquipFliterGroup = [];
+                    this.StoreDB_EquipFilterGroup = [];
                     this.StoreDB_EquipFilterList = this.StoreDB_Equip.filter(post => {
                         //return post.equip.equipname.includes(this.StoreDB_SearchString)
                         return searchString.toLowerCase().split(' ').every(v => post.equip.equipname.toLowerCase().includes(v));
                     });
                 },
-                onFliterEquipSearch() {
-                    this.StoreDB_EquipFliterGroup = [];
+                onFilterEquipSearch() {
+                    this.StoreDB_EquipFilterGroup = [];
                     this.StoreDB_EquipFilterList = this.StoreDB_Equip.filter(post => {
+                        //return post.equip.equipname.includes(this.StoreDB_SearchString)
+                        return this.StoreDB_SearchString.toLowerCase().split(' ').every(v => post.equip.equipname.toLowerCase().includes(v));
+                    });
+                },
+                onFilterEnchantSearch(){
+                    this.StoreDB_EquipEnchantFlags = [];
+                    this.StoreDB_EnchantFilterList = this.StoreDB_Enchant.filter(post => {
                         //return post.equip.equipname.includes(this.StoreDB_SearchString)
                         return this.StoreDB_SearchString.toLowerCase().split(' ').every(v => post.equip.equipname.toLowerCase().includes(v));
                     });
@@ -11338,7 +11346,7 @@
                     }
                 },
                 onFilterEnchantFlag() {
-                    this.StoreDB_SearchString = '';
+                    this.StoreDB_EnchantSearchString = '';
                     if( this.StoreDB_EnchantFlags.length>1 ){
                         this.StoreDB_EnchantFlags.splice(0,1);
                     }
@@ -11358,12 +11366,12 @@
                         this.$set( this.StoreDB_EnchantFilterList[i], 'preview', false);
                     }
                 },
-                onFliterEquipPart() {
+                onFilterEquipPart() {
                     this.StoreDB_SearchString = '';
-                    if( this.StoreDB_EquipFliterGroup.length>1 ){
-                        this.StoreDB_EquipFliterGroup.splice(0,1);
+                    if( this.StoreDB_EquipFilterGroup.length>1 ){
+                        this.StoreDB_EquipFilterGroup.splice(0,1);
                     }
-                    var _tempgroup = this.StoreDB_EquipFliterGroup;
+                    var _tempgroup = this.StoreDB_EquipFilterGroup;
                     this.StoreDB_EquipFilterList = _tempgroup.length > 0 ?
                         this.StoreDB_Equip.filter(
                             function (saverow) {
@@ -11381,12 +11389,12 @@
                         this.$set( this.StoreDB_EquipFilterList[i], 'preview', false);
                     }
                 },
-                onFliterEquipClear() {
+                onFilterEquipClear() {
                     this.StoreDB_SearchString = '';
-                    this.StoreDB_EquipFliterGroup = [];
-                    this.onFliterEquipPart();
+                    this.StoreDB_EquipFilterGroup = [];
+                    this.onFilterEquipPart();
                 },
-                onFliterEquipPreview(index){
+                onFilterEquipPreview(index){
                     this.$set( this.StoreDB_EquipFilterList[index], 'preview', !this.StoreDB_EquipFilterList[index].preview);
                 },
                 SaveEquipDB() {
@@ -13144,7 +13152,7 @@
                 },
                 /*
                 StoreDB_EquipFiltered() {
-                    var _tempgroup = this.StoreDB_EquipFliterGroup;
+                    var _tempgroup = this.StoreDB_EquipFilterGroup;
                     return _tempgroup.length > 0 ?
                         this.StoreDB_Equip.filter(
                             function (saverow) {
