@@ -6804,6 +6804,7 @@
                 StoreDB_EquipLoadedNames: new Set(),
                 StoreDB_EnchantLoadedNames: new Set(),
                 StoreDB_CardLoadedNames: new Set(),
+                DataOptions: new Set(["equip", "enchant", "card"]),
                 EquipSelectId: '',
                 ComboSelectId: false,
                 EquipSelectLabel: '',
@@ -11205,9 +11206,7 @@
                     this.CombineEquipsAttribute();
                 },
                 onLoadDataSave(uuid, kind) {
-                    const options = new Set(["equip", "enchant", "card"]);
-
-                    if(!options.has(kind)) return;
+                    if(!this.DataOptions.has(kind)) return;
 
                     var useDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : this.StoreDB_Card;
                     var _dbidx = useDB.findIndex(x => x.uuid == uuid);
@@ -11278,10 +11277,9 @@
                     }
                 },
                 onRemoveAllDataSave(kind){
-                    const options = new Set(["equip", "enchant", "card"]);
                     var uuid;
 
-                    if(!options.has(kind)) return;
+                    if(!this.DataOptions.has(kind)) return;
 
                     if (kind === 'enchant'){
                         this.StoreDB_EnchantLoadedNames = new Set();
@@ -13106,13 +13104,12 @@
                     this.select_default = '';
                 },
                 exportSavedData(kind){
-                    const options = new Set(["equip", "enchant", "card"]);
                     var data = [];
                     var effectlist = {};
                     var combolist = {};
                     var i = 0;
 
-                    if(!options.has(kind)) return;
+                    if(!this.DataOptions.has(kind)) return;
 
                     let exportDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : this.StoreDB_Card;
                     for (const [key, value] of Object.entries(exportDB)) {
