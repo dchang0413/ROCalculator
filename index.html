@@ -1604,7 +1604,7 @@
                             </el-button>
                         </el-col>
                         <el-col class="textcenter" style="text-align: left;" :span="18">
-                            <el-checkbox-group v-model="StoreDB_EquipFilterGroup" v-on:change="onFilterEquipPart"
+                            <el-checkbox-group v-model="StoreDB_EquipFilterGroup" v-on:change="onFilterEquipPart(false)"
                                 fill="#909399" text-color="white">
                                 <el-checkbox-button v-for="item in FilterEquipList(0, 40)" :label="item.label" :key="item.id">
                                     {{item.label}}
@@ -2399,9 +2399,9 @@
                             </el-button>
                         </el-col>
                         <el-col class="textcenter" style="text-align: left;" :span="18">
-                            <el-checkbox-group v-model="StoreDB_EquipFilterGroup" v-on:change="onFilterEquipPart"
+                            <el-checkbox-group v-model="StoreDB_EquipFilterGroup" v-on:change="onFilterEquipPart(true)"
                                 fill="#909399" text-color="white">
-                                <el-checkbox-button v-for="item in FilterEquipList(14, 31)" :label="item.label" :key="item.id">
+                                <el-checkbox-button v-for="item in FilterEquipList(14, 31)" :disabled="!onCheckActiveCardLabel(item.label)" :label="item.label" :key="item.id">
                                     {{item.label}}
                                 </el-checkbox-button>
                             </el-checkbox-group>
@@ -11289,7 +11289,7 @@
                                 console.log('error deleting equips', e);
                             }
                         }
-                        this.onFilterEquipPart();
+                        this.onFilterEquipPart(false);
                     }
                 },
                 onRemoveEquipSave(uuid) {
@@ -11298,13 +11298,13 @@
                         this.StoreDB_Equip.splice(_dbidx, 1)
                         this.SaveEquipDB();
                     }
-                    this.onFilterEquipPart();
+                    this.onFilterEquipPart(false);
                 },
                 onOpenEquipDB() {
                     if( this.StoreDB_SearchString.trim() != '' ){
                         this.onFilterEquipSearch();
                     }else{
-                        this.onFilterEquipPart();
+                        this.onFilterEquipPart(false);
                     }
                     this.OpenPanel('EquipDBDialog');
                 },
@@ -11386,24 +11386,32 @@
                         this.$set( this.StoreDB_EnchantFilterList[i], 'preview', false);
                     }
                 },
-                onFilterEquipPart() {
+                onFilterEquipPart(isCard) {
                     this.StoreDB_SearchString = '';
                     if( this.StoreDB_EquipFilterGroup.length>1 ){
                         this.StoreDB_EquipFilterGroup.splice(0,1);
                     }
                     var _tempgroup = this.StoreDB_EquipFilterGroup;
                     this.StoreDB_EquipFilterList = _tempgroup.length > 0 ?
-                        this.StoreDB_Equip.filter(
-                            function (saverow) {
-                                return _tempgroup.indexOf(saverow.equip.label) > -1;
-                            }
-                        ).sort((a, b) => a.equip.label > b.equip.label ? 1 :
-                            a.equip.label === b.equip.label ?
-                                ((a.date > b.date) ? -1 : 1) : -1
-                        )
-                        :
-                        this.StoreDB_Equip
-                        ;
+                    this.StoreDB_Equip.filter(
+                        function (saverow) {
+                            return _tempgroup.indexOf(saverow.equip.label) > -1;
+                        }
+                    ).sort((a, b) => a.equip.label > b.equip.label ? 1 :
+                        a.equip.label === b.equip.label ?
+                            ((a.date > b.date) ? -1 : 1) : -1
+                    )
+                    :
+                    isCard ?
+                    this.StoreDB_Equip.filter(x =>
+                        x.equip.label === this.fetchCardMapping(this.ItemDesiredPosition)
+                    ).sort((a, b) => a.equip.label > b.equip.label ? 1 :
+                        a.equip.label === b.equip.label ?
+                            ((a.date > b.date) ? -1 : 1) : -1
+                    )
+                    :
+                    this.StoreDB_Equip
+                    ;
                     for( var i=0; i<this.StoreDB_EquipFilterList.length; ++i)
                     {
                         this.$set( this.StoreDB_EquipFilterList[i], 'preview', false);
@@ -11412,7 +11420,7 @@
                 onFilterEquipClear() {
                     this.StoreDB_SearchString = '';
                     this.StoreDB_EquipFilterGroup = [];
-                    this.onFilterEquipPart();
+                    this.onFilterEquipPart(false);
                 },
                 onFilterEnchantClear() {
                     this.StoreDB_SearchString = '';
@@ -11518,6 +11526,9 @@
                         "Acc Card": [29, 30]
                     }
                     return Object.keys(cardLabelToEquip).find(x => cardLabelToEquip[x].includes(index));
+                },
+                onCheckActiveCardLabel(label){
+                    return this.fetchCardMapping(this.ItemDesiredPosition) === label;
                 },
                 enchantSwitch(index){
                     //const filter = this.fetchEnchantMapping(index);
