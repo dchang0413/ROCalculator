@@ -13106,13 +13106,13 @@
                     this.select_default = '';
                 },
                 exportSavedData(kind){
-                    const datatypes = new Set(["equip", "enchant", "card"]);
+                    const options = new Set(["equip", "enchant", "card"]);
                     var data = [];
                     var effectlist = {};
                     var combolist = {};
                     var i = 0;
 
-                    if(!datatypes.has(kind)) return;
+                    if(!options.has(kind)) return;
 
                     let exportDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : this.StoreDB_Card;
                     for (const [key, value] of Object.entries(exportDB)) {
