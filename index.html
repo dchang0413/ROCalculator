@@ -13050,36 +13050,37 @@
                     this.select_default = '';
                 },
                 exportSavedEquip(enchant=false){
-                    var data = {};
+                    var data = [];
                     var effectlist = {};
                     var combolist = {};
                     var i = 0;
                     let exportDB = enchant ? this.StoreDB_Enchant : this.StoreDB_Equip
                     for (const [key, value] of Object.entries(exportDB)) {
                         try{
-                            data[i] = value.equip;
+                            var obj = value.equip;
                             if (value.weapon) {
-                                data[i].idx = 0;
-                                data[i].weapon = value.weapon;
+                                obj.idx = 0;
+                                obj.weapon = value.weapon;
                             } else if (value.subweapon) {
-                                data[i].idx = 1;
-                                data[i].subweapon = value.subweapon;
-                            } else data[i].idx = 3;
-                            data[i].effectlist = _.cloneDeep(value.equip.effectlist);
-                            data[i].combolist = _.cloneDeep(value.equip.combolist);
+                                obj.idx = 1;
+                                obj.subweapon = value.subweapon;
+                            } else obj.idx = 3;
+                            obj.effectlist = _.cloneDeep(value.equip.effectlist);
+                            obj.combolist = _.cloneDeep(value.equip.combolist);
 
-                            if (data[i].label.includes('Enchant')){
+                            if (obj.label.includes('Enchant')){
                                 var flags = [];
-                                data[i].effectlist.forEach((ele)=>{
+                                obj.effectlist.forEach((ele)=>{
                                     var effectObj = this.effecttypelist.find((eff)=>eff.id == ele.EffectType.id);
                                     if (effectObj) flags.push( effectObj.category );
                                 });
-                                data[i].combolist.forEach((ele)=>{
+                                obj.combolist.forEach((ele)=>{
                                     var effectObj = this.effecttypelist.find((eff)=>eff.id == ele.EffectType.id);
                                     if (effectObj) flags.push( effectObj.category );
                                 });
-                                if (flags.length) data[i].flags = flags.join(',');
+                                if (flags.length) obj.flags = flags.join(',');
                             }
+                            data.push(obj);
                             i++;
                         } catch(e){
                             console.log('error getting saved equip', e);
