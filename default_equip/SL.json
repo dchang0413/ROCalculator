@@ -1,5 +1,5 @@
-{
-	"0": {
+[
+	{
 		"id": "weaponr",
 		"itemid": 550015,
 		"label": "MainHand",
@@ -98,7 +98,7 @@
 			"refineatk2": 112
 		}
 	},
-	"2": {
+	{
 		"id": "robe",
 		"itemid": 480228,
 		"label": "Garment",
@@ -139,5 +139,53 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+        "itemid": 19487,
+		"label": "Upper",
+		"equipname": "Circlet of Time(Soul Reaper)",
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"CURSEEXPLOSION SWHOO\")?(20*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==7?(7*DOWN(HATR/4)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
 	}
-}
+]

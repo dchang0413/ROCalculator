@@ -1,5 +1,5 @@
-{
-    "1": {
+[
+    {
         "id": "helm2",
         "itemid": 420198,
         "label": "Lower",
@@ -34,7 +34,7 @@
         ],
         "idx": 3
     },
-    "2": {
+    {
         "id": "weaponr",
         "itemid": 560012,
         "label": "MainHand",
@@ -124,7 +124,7 @@
             "refineatk2": 0
         }
     },
-	"3": {
+	{
         "id": "weaponr",
         "itemid": 560013,
         "label": "MainHand",
@@ -207,7 +207,7 @@
             "refineatk2": 0
         }
     },
-	"4": {
+	{
         "id": "weaponr",
         "itemid": 560020,
         "label": "MainHand",
@@ -311,7 +311,7 @@
             "refineatk2": 0
         }
     },
-	"5": {
+	{
         "id": "weaponr",
         "itemid": 560021,
         "label": "MainHand",
@@ -415,7 +415,7 @@
             "refineatk2": 0
         }
     },
-	"6": {
+	{
         "id": "weaponr",
         "itemid": 560018,
         "label": "MainHand",
@@ -491,7 +491,7 @@
             "refineatk2": 112
         }
     },
-	"7": {
+	{
         "id": "weaponr",
         "itemid": 560019,
         "label": "MainHand",
@@ -567,7 +567,7 @@
             "refineatk2": 112
         }
     },
-    "8": {
+    {
 		"id": "helm",
         "itemid": 18979,
 		"label": "Upper",
@@ -614,5 +614,465 @@
 			"id": 0
 		},
 		"idx": 3
+	},
+    {
+		"id": "helm",
+        "itemid": 19481,
+		"label": "Upper",
+		"equipname": "Circlet of Time(Sura)",
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"KNUCKLEARROW\")?(20*DOWN(HATR/3)):0)+(SKIDS(\"TIGERCANNON\")?(10*DOWN(HATR/3)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
+	},
+    {
+        "id": "weaponr",
+        "itemid": 560009,
+        "label": "MainHand",
+        "equipname": "Awakened Ray Knuckle",
+        "refinelevel": 12,
+        "grade": {
+            "id": 0,
+            "label": "No Grade"
+        },
+        "effectlist": [
+			{
+                "EffectNumber": "(WEAR>10?10:0)",
+                "EffectType": {
+                    "id": "HPPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(SKIDS(\"TIGERCANNON\")?((4*DOWN(WEAR/3))+(WEAR>6?15:0)):0)+(SKIDS(\"GATEOFHELL\")?((WEAR>6?20:0)+(WEAR>10?15:0)):0)",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "15*DOWN(WEAR/3)",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(SKIDS(\"TIGERCANNON\")&&WEAR>8)?1:0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            }
+        ],
+        "combolist": [
+			{
+				"itemid_every": [22238],
+                "itemid_any": [],
+				"equipname" : "Great Hero's Boots",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "VIT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 7,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Knuckles",
+                "label": "Knuckle",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 75
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 4,
+                "label": "Lv. 4 Weapon",
+                "upgradeatk": 7,
+                "saferefine": 4,
+                "overatk": 14
+            },
+            "grade": {
+                "id": 0,
+                "label": "No Grade"
+            },
+            "ATK": "205",
+            "MATK": 0,
+            "refinelevel": 12,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 80,
+            "refineatk": 84,
+            "refinematk": 84,
+            "refineatk2": 112
+        }
+    },
+    {
+		"id": "helm",
+        "itemid": 400307,
+		"label": "Upper",
+		"equipname": "Ally of the Demons",
+		"effectlist": [
+			{
+				"EffectNumber": "3*HATR",
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HOWLINGOFLION\")?(HATR>8?225:(HATR>6?125:50)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='SU'?25:0",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='SU'?25:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": 9999,
+				"EffectType": {
+					"id": "WeaponPerfection"
+				},
+				"Enable": true
+			}
+		],
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
+	},
+    {
+		"id": "acc1",
+        "itemid": 490130,
+		"label": "Accessory",
+		"equipname": "Sky Blow Ring",
+		"effectlist": [
+			{
+				"EffectNumber": "CCL=='SU'?27:7",
+				"EffectType": {
+					"id": "AGI"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SKYBLOW\")?(2*BLV):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='SU'?10:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "CCL=='SU'?20:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "CCL=='SU'?20:0",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
+	},
+    {
+        "id": "acc1card",
+        "itemid": 300116,
+        "label": "Acc Card",
+        "equipname": "Powerful Magic Card",
+        "effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"RAMPAGEBLASTER TIGERCANNON\")?10:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [27311, 300093],
+				"itemid_any": [],
+				"equipname": "Mutant Plaga Card + Papila Ruba Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"RAMPAGEBLASTER\")?(20+(5*DOWN(WEAR/2))):0)+(SKIDS(\"TIGERCANNON\")?(20+(5*DOWN(SHOER/2))):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+        "idx": 3
+    },
+	{
+        "id": "weaponcard",
+        "itemid": 27311,
+        "label": "Weapon Card",
+        "equipname": "Mutant Plaga Card",
+        "effectlist": [
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ESIZE==2?(WEAR+(WEAR>9?15:0)):0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	{
+        "id": "shoescard",
+        "itemid": 300093,
+        "label": "Shoes Card",
+        "equipname": "Papila Ruba Card",
+        "effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HOLYLIGHT\")?50:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+        "idx": 3
+    },
+	{
+		"id": "shadow",
+		"itemid": 24479,
+		"label": "S.Weapon",
+		"equipname": "Skyblow Shadow Weapon",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "3+(SHWEAR>6?3:0)+(SHWEAR>8?4:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [24480, 24481],
+				"itemid_any": [],
+				"equipname": "Skyblow Shadow Set",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"SKYBLOW\")?(SHWEAR+SHACCRR+SHACCLR):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [24306],
+				"itemid_any": [],
+				"equipname": "Sura Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": "40+SHWEAR+SHSHIER",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 24481,
+		"label": "S.Earring",
+		"equipname": "Skyblow Shadow Earring",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "2+DOWN(SHACCRR/3)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 24480,
+		"label": "S.Pendant",
+		"equipname": "Skyblow Shadow Pendant",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"SKYBLOW\")?(5+(2*DOWN(SHACCLR/2))):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
-}
+]

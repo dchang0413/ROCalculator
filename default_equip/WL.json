@@ -1,88 +1,88 @@
-{
-    "0": {
+[
+    {
         "id": "acc1",
         "itemid": 490029,
         "label": "Accessory",
         "equipname": "Geffenia Ice Magic Tool",
-        "effectlist": {
-            "0": {
+        "effectlist": [
+            {
                 "EffectNumber": 10,
                 "EffectType": {
                     "id": "SizeMatkPercent"
                 },
                 "Enable": true
             },
-            "1": {
+            {
                 "EffectNumber": "SKIDS('COMET')?50:(CLL=='WL'&&SKIDS('JACKFROST')?50:0)",
                 "EffectType": {
                     "id": "SkillDamagePercent"
                 },
                 "Enable": true
             },
-            "2": {
+            {
                 "EffectNumber": "CLL=='WL'?30:0",
                 "EffectType": {
                     "id": "GCDPercent"
                 },
                 "Enable": true
             }
-        },
+        ],
         "refinelevel": 0,
         "idx": 3
     },
-    "1": {
+    {
         "id": "armor",
         "itemid": 450226,
         "label": "Armor",
         "equipname": "Four of a Kind",
-        "effectlist": {
-            "0": {
+        "effectlist": [
+            {
                 "EffectNumber": "CLL=='WL'?30:0",
                 "EffectType": {
                     "id": "INT"
                 },
                 "Enable": true
             },
-            "1": {
+            {
                 "EffectNumber": "CLL=='WL'?150:0",
                 "EffectType": {
                     "id": "Matk"
                 },
                 "Enable": true
             },
-            "2": {
+            {
                 "EffectNumber": "CLL=='WL'?70:0",
                 "EffectType": {
                     "id": "RaceMatkPercent"
                 },
                 "Enable": true
             },
-            "3": {
+            {
                 "EffectNumber": "AEI<5?(ARMORR>11?15:0):0",
                 "EffectType": {
                     "id": "ElementalMagicPercent"
                 },
                 "Enable": true
             },
-            "4": {
+            {
                 "EffectNumber": 10,
                 "EffectType": {
                     "id": "HPPercent"
                 },
                 "Enable": true
             },
-            "5": {
+            {
                 "EffectNumber": 10,
                 "EffectType": {
                     "id": "SPPercent"
                 },
                 "Enable": true
             }
-        },
+        ],
         "refinelevel": 12,
         "idx": 3
     },
-    "2": {
+    {
         "id": "weaponr",
         "itemid": 640014,
         "label": "MainHand",
@@ -172,7 +172,7 @@
             "refineatk2": 0
         }
     },
-    "3": {
+    {
         "id": "weaponr",
         "itemid": 640015,
         "label": "MainHand",
@@ -262,7 +262,7 @@
             "refineatk2": 0
         }
     },
-    "6": {
+    {
         "id": "weaponr",
         "itemid": 640022,
         "label": "MainHand",
@@ -366,7 +366,7 @@
             "refineatk2": 0
         }
     },
-    "7": {
+    {
         "id": "weaponr",
         "itemid": 640021,
         "label": "MainHand",
@@ -470,7 +470,7 @@
             "refineatk2": 0
         }
     },
-    "8": {
+    {
         "id": "weaponr",
         "itemid": 640020,
         "label": "MainHand",
@@ -546,7 +546,7 @@
             "refineatk2": 112
         }
     },
-    "9": {
+    {
         "id": "weaponr",
         "itemid": 640019,
         "label": "MainHand",
@@ -622,7 +622,7 @@
             "refineatk2": 112
         }
     },
-    "10": {
+    {
 		"id": "helm",
         "itemid": 18978,
 		"label": "Upper",
@@ -684,7 +684,7 @@
 		},
 		"idx": 3
 	},
-    "11": {
+    {
         "id": "weaponr",
         "itemid": 2027,
         "label": "MainHand",
@@ -753,41 +753,52 @@
             "refineatk2": 112
         }
     },
-    "12": {
-        "id": "shoescard",
-        "itemid": 300081,
-        "label": "Shoes Card",
-        "equipname": "Research Assistant Bot Card",
-        "effectlist": [
+    {
+		"id": "helm",
+        "itemid": 19482,
+		"label": "Upper",
+		"equipname": "Circlet of Time(Warlock)",
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "3*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
             {
-                "EffectNumber": 2,
-                "EffectType": {
-                    "id": "INT"
-                },
-                "Enable": true
-            },
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
 			{
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
+				"EffectNumber": "SKIDS(\"CHAINLIGHTNING JACKFROST\")?(20*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
 			{
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "SPPercent"
-                },
-                "Enable": true
-            },
-			{
-                "EffectNumber": "SKIDS(\"FIREBALL\")?25:0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    }
-}
+				"EffectNumber": "(AEI==2||AEI==3)?(5*DOWN(HATR/4)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
+		"idx": 3
+	}
+]
