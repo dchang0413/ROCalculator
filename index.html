@@ -1622,12 +1622,12 @@
                             <span class=""><b>Equip Name</b></span>
                         </el-col>
                         <el-col :span="3">
-                            <el-button v-on:click="onRemoveAllEquipSave(false)" icon="el-icon-delete"
+                            <el-button v-on:click="onRemoveAllDataSave('equip')" icon="el-icon-delete"
                                 type="danger" size="mini">
                             </el-button>
                         </el-col>
                         <el-col :span="3" v-if="showExport">
-                            <el-button v-on:click="exportSavedEquip(false)" icon="el-icon-check" type="primary" size="small">
+                            <el-button v-on:click="exportSavedData('equip')" icon="el-icon-check" type="primary" size="small">
                                 Export Equip List
                             </el-button>
                         </el-col>
@@ -1675,7 +1675,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onLoadEquipSave(item.uuid)" icon="el-icon-check"
+                                        <el-button v-on:click="onLoadDataSave(item.uuid, 'equip')" icon="el-icon-check"
                                             type="success" type="primary" size="small">
                                             Load
                                         </el-button>
@@ -2388,7 +2388,7 @@
                     <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
                         <el-row class="statusbox bg-purple-light" :span="4" :gutter="4" type="flex" align="middle">
                             <el-col class="textcenter" >
-                                    <el-input v-model="StoreDB_SearchString" @input="onFilterCardSearch" placeholder="Search" clearable>
+                                    <el-input v-model="StoreDB_CardSearchString" @input="onFilterCardSearch" placeholder="Search" clearable>
                                     </el-input>
                             </el-col>
                         </el-row>
@@ -2398,7 +2398,7 @@
                             </el-button>
                         </el-col>
                         <el-col class="textcenter" style="text-align: left;" :span="18">
-                            <el-checkbox-group v-model="StoreDB_EquipFilterGroup" v-on:change="onFilterEquipPart"
+                            <el-checkbox-group v-model="StoreDB_CardFilterGroup" v-on:change="onFilterCardPart"
                                 fill="#909399" text-color="white">
                                 <el-checkbox-button v-for="item in FilterEquipList(14, 31)" :disabled="true" :label="item.label" :key="item.id">
                                     {{item.label}}
@@ -2416,12 +2416,12 @@
                             <span class=""><b>Card Name</b></span>
                         </el-col>
                         <el-col :span="3">
-                            <el-button v-on:click="onRemoveAllEquipSave(false)" icon="el-icon-delete"
+                            <el-button v-on:click="onRemoveAllDataSave('card')" icon="el-icon-delete"
                                 type="danger" size="mini">
                             </el-button>
                         </el-col>
                         <el-col :span="3" v-if="showExport">
-                            <el-button v-on:click="exportSavedEquip(false)" icon="el-icon-check" type="primary" size="small">
+                            <el-button v-on:click="exportSavedData('card')" icon="el-icon-check" type="primary" size="small">
                                 Export Card List
                             </el-button>
                         </el-col>
@@ -2435,7 +2435,7 @@
                             <span></span>
                         </el-col>
                         <el-col :span="5">
-                            <el-button v-on:click="loadAllDefaultEquip" icon="el-icon-check"
+                            <el-button v-on:click="loadCards" icon="el-icon-check"
                                 type="success" type="primary" size="small">
                                 Load Cards
                             </el-button>
@@ -2443,7 +2443,7 @@
                     </el-row>
                 </div>
                 <el-scrollbar id="CardListCont" wrap-class="EquipList-container" :native="false" :noresize="false">
-                    <div v-for="(item, index) in StoreDB_EquipFilterList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)" v-bind:key="item.uuid">
+                    <div v-for="(item, index) in StoreDB_CardFilterList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)" v-bind:key="item.uuid">
                         <div style="padding: 5px 5px;">
                             <el-row class="effectline" :class="index%2==0?'bg-purple-light':'bg-purple'">
                                 <el-row class="effectline" :gutter="4" type="flex" align="middle">
@@ -2464,7 +2464,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onLoadEquipSave(item.uuid)" icon="el-icon-check"
+                                        <el-button v-on:click="onLoadDataSave(item.uuid, 'card')" icon="el-icon-check"
                                             type="success" type="primary" size="small">
                                             Load
                                         </el-button>
@@ -2524,7 +2524,7 @@
                                 class="m-0"
                                 align="right"
                                 v-model="PageIndex"
-                                :total-rows="StoreDB_EquipCount"
+                                :total-rows="StoreDB_CardCount"
                                 :per-page="ItemsPerPage"
                                 aria-controls="CardListCont">
                             </b-pagination>
@@ -2541,7 +2541,7 @@
                     <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
                         <el-row class="statusbox bg-purple-light" :span="4" :gutter="4" type="flex" align="middle">
                             <el-col class="textcenter" >
-                                    <el-input v-model="StoreDB_SearchString" @input="onFilterEnchantSearch" placeholder="Search" clearable>
+                                    <el-input v-model="StoreDB_EnchantSearchString" @input="onFilterEnchantSearch" placeholder="Search" clearable>
                                     </el-input>
                             </el-col>
                         </el-row>
@@ -2566,12 +2566,12 @@
                             <span class=""><b>Enchant Name</b></span>
                         </el-col>
                         <el-col :span="3">
-                            <el-button v-on:click="onRemoveAllEquipSave(true)" icon="el-icon-delete"
+                            <el-button v-on:click="onRemoveAllDataSave('enchant')" icon="el-icon-delete"
                                 type="danger" size="mini">
                             </el-button>
                         </el-col>
                         <el-col :span="3" v-if="showExport">
-                            <el-button v-on:click="exportSavedEquip(true)" icon="el-icon-check" type="primary" size="small">
+                            <el-button v-on:click="exportSavedData('enchant')" icon="el-icon-check" type="primary" size="small">
                                 Export Enchant List
                             </el-button>
                         </el-col>
@@ -2611,7 +2611,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onLoadEquipSave(item.uuid,true)" icon="el-icon-check"
+                                        <el-button v-on:click="onLoadDataSave(item.uuid, 'enchant')" icon="el-icon-check"
                                             type="success" type="primary" size="small">
                                             Load
                                         </el-button>
@@ -6794,11 +6794,17 @@
                 StoreDB_EnchantFlags: [],
                 StoreDB_EnchantFilterList: [],
                 StoreDB_EnchantSearchString: '',
+                StoreDB_CardFilterGroup: [],
+                StoreDB_CardFilterList: [],
+                StoreDB_CardSearchString: '',
                 StoreDB_SearchString: '',
                 StoreDB_Equip: [],
                 StoreDB_Enchant: [],
+                StoreDB_Card: [],
                 StoreDB_EquipLoadedNames: new Set(),
                 StoreDB_EnchantLoadedNames: new Set(),
+                StoreDB_CardLoadedNames: new Set(),
+                DataOptions: new Set(["equip", "enchant", "card"]),
                 EquipSelectId: '',
                 ComboSelectId: false,
                 EquipSelectLabel: '',
@@ -11199,8 +11205,10 @@
                         })
                     this.CombineEquipsAttribute();
                 },
-                onLoadEquipSave(uuid, enchant=false) {
-                    var useDB = enchant ? this.StoreDB_Enchant : this.StoreDB_Equip;
+                onLoadDataSave(uuid, kind) {
+                    if(!this.DataOptions.has(kind)) return;
+
+                    var useDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : this.StoreDB_Card;
                     var _dbidx = useDB.findIndex(x => x.uuid == uuid);
                     var idx = this.equipspartlist.findIndex(x => x.id == useDB[_dbidx].equip.id);
                     if (idx > -1) {
@@ -11268,9 +11276,12 @@
                         this.ChangeWeapon();
                     }
                 },
-                onRemoveAllEquipSave(enchant){
+                onRemoveAllDataSave(kind){
                     var uuid;
-                    if (enchant){
+
+                    if(!this.DataOptions.has(kind)) return;
+
+                    if (kind === 'enchant'){
                         this.StoreDB_EnchantLoadedNames = new Set();
                         for (const [key, value] of Object.entries(this.StoreDB_Enchant)) {
                             try{
@@ -11281,6 +11292,17 @@
                             }
                         }
                         this.onFilterEnchantFlag();
+                    } else if (kind === 'card'){
+                        this.StoreDB_CardLoadedNames = new Set();
+                        for (const [key, value] of Object.entries(this.StoreDB_Card)) {
+                            try{
+                                this.StoreDB_Card.splice(value.uuid, 1);
+                                this.SaveCardDB();
+                            } catch(e){
+                                console.log('error deleting cards', e);
+                            }
+                        }
+                        this.onFilterCardPart();
                     } else {
                         this.StoreDB_EquipLoadedNames = new Set();
                         for (const [key, value] of Object.entries(this.StoreDB_Equip)) {
@@ -11310,13 +11332,6 @@
                     }
                     this.OpenPanel('EquipDBDialog');
                 },
-                onFilterSearch(searchString) {
-                    this.StoreDB_EquipFilterGroup = [];
-                    this.StoreDB_EquipFilterList = this.StoreDB_Equip.filter(post => {
-                        //return post.equip.equipname.includes(this.StoreDB_SearchString)
-                        return searchString.toLowerCase().split(' ').every(v => post.equip.equipname.toLowerCase().includes(v));
-                    });
-                },
                 onFilterEquipSearch() {
                     this.StoreDB_EquipFilterGroup = [];
                     this.StoreDB_EquipFilterList = this.StoreDB_Equip.filter(post => {
@@ -11330,9 +11345,8 @@
                         filter = this.fetchCardMapping(this.ItemDesiredPosition).toLowerCase();
                     }
 
-                    this.StoreDB_EquipFilterList = this.StoreDB_Equip.filter(post => {
-                        //return post.equip.equipname.includes(this.StoreDB_SearchString)
-                        return this.StoreDB_SearchString.toLowerCase().split(' ').every(v =>
+                    this.StoreDB_CardFilterList = this.StoreDB_Card.filter(post => {
+                        return this.StoreDB_CardSearchString.toLowerCase().split(' ').every(v =>
                             post.equip.equipname.toLowerCase().includes(v) &&
                             post.equip.label.toLowerCase().includes(filter)
                         );
@@ -11341,29 +11355,40 @@
                 onFilterEnchantSearch(){
                     this.StoreDB_EquipEnchantFlags = [];
                     this.StoreDB_EnchantFilterList = this.StoreDB_Enchant.filter(post => {
-                        //return post.equip.equipname.includes(this.StoreDB_SearchString)
-                        return this.StoreDB_SearchString.toLowerCase().split(' ').every(v => post.equip.equipname.toLowerCase().includes(v));
+                        return this.StoreDB_EnchantSearchString.toLowerCase().split(' ').every(v => post.equip.equipname.toLowerCase().includes(v));
                     });
                 },
                 onFilterPart(label) {
-                    this.StoreDB_EquipFilterList = this.StoreDB_Equip.filter(x => x.equip.label === label).sort(
+                    this.StoreDB_CardFilterList = this.StoreDB_Card.filter(x => x.equip.label === label).sort(
                         (a, b) => a.equip.label > b.equip.label ? 1 :
                         a.equip.label === b.equip.label ?
                             ((a.date > b.date) ? -1 : 1) : -1
                     );
-                    for(let i = 0; i < this.StoreDB_EquipFilterList.length; ++i){
-                        this.$set(this.StoreDB_EquipFilterList[i], 'preview', false);
+                    for(let i = 0; i < this.StoreDB_CardFilterList.length; ++i){
+                        this.$set(this.StoreDB_CardFilterList[i], 'preview', false);
                     }
                 },
-                onFilterEnchants(labels) {
-                    const uniqueLabels = new Set(labels);
-                    this.StoreDB_EquipFilterList = this.StoreDB_Equip.filter(x => uniqueLabels.has(x.equip.label)).sort(
-                        (a, b) => a.equip.label > b.equip.label ? 1 :
+                onFilterCardPart() {
+                    this.StoreDB_CardSearchString = '';
+                    if( this.StoreDB_CardFilterGroup.length>1 ){
+                        this.StoreDB_CardFilterGroup.splice(0,1);
+                    }
+                    var _tempgroup = this.StoreDB_CardFilterGroup;
+                    this.StoreDB_CardFilterList = _tempgroup.length > 0 ?
+                    this.StoreDB_Card.filter(
+                        function (saverow) {
+                            return _tempgroup.indexOf(saverow.equip.label) > -1;
+                        }
+                    ).sort((a, b) => a.equip.label > b.equip.label ? 1 :
                         a.equip.label === b.equip.label ?
                             ((a.date > b.date) ? -1 : 1) : -1
-                    );
-                    for(let i = 0; i < this.StoreDB_EquipFilterList.length; ++i){
-                        this.$set(this.StoreDB_EquipFilterList[i], 'preview', false);
+                    )
+                    :
+                    this.StoreDB_Card
+                    ;
+                    for( var i=0; i<this.StoreDB_CardFilterList.length; ++i)
+                    {
+                        this.$set( this.StoreDB_CardFilterList[i], 'preview', false);
                     }
                 },
                 onFilterEnchantFlag() {
@@ -11416,12 +11441,12 @@
                     this.onFilterEquipPart();
                 },
                 onFilterEnchantClear() {
-                    this.StoreDB_SearchString = '';
+                    this.StoreDB_EnchantSearchString = '';
                     this.StoreDB_EnchantFlags = [];
                     this.onFilterEnchantFlag();
                 },
                 onFilterCardClear() {
-                    this.StoreDB_SearchString = '';
+                    this.StoreDB_CardSearchString = '';
                     this.onFilterCardSearch();
                 },
                 onFilterEquipPreview(index){
@@ -11434,6 +11459,10 @@
                 SaveEnchantDB(){
                     const parsed = JSON.stringify(this.StoreDB_Enchant);
                     localStorage.setItem('StoreDB_Enchant', parsed);
+                },
+                SaveCardDB(){
+                    const parsed = JSON.stringify(this.StoreDB_Card);
+                    localStorage.setItem('StoreDB_Card', parsed);
                 },
                 onSaveStatus() {
                     // https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/
@@ -11503,7 +11532,7 @@
                 },
                 cardSwitch(index){
                     const filter = this.fetchCardMapping(index);
-                    this.StoreDB_EquipFilterGroup = [filter];
+                    this.StoreDB_CardFilterGroup = [filter];
                     this.onFilterPart(filter);
                     this.OpenPanel('CardDialog');
                     this.ItemDesiredPosition = index;
@@ -11520,18 +11549,11 @@
                     }
                     return Object.keys(cardLabelToEquip).find(x => cardLabelToEquip[x].includes(index));
                 },
-                onCheckActiveCardLabel(label){
-                    console.log(this.StoreDB_EquipFilterGroup);
-                    return this.fetchCardMapping(this.ItemDesiredPosition) === label;
-                },
                 enchantSwitch(index){
-                    //const filter = this.fetchEnchantMapping(index);
-                    //this.onFilterPart(filter);
                     const enchantsLabel = ["Weapon Enchant", "Shield Enchant",
                                            "Helm Enchant", "Armor Enchant",
                                            "Garment Enchant", "Shoes Enchant",
                                            "Accessory Enchant"];
-                    //this.onFilterEnchants(enchantsLabel);
                     this.OpenPanel('EnchantDialog');
                     this.onFilterEnchantFlag();
                     this.ItemDesiredPosition = index;
@@ -11558,17 +11580,6 @@
                         7 : [66, 67, 68],
                     };
                     return Object.keys(enchantLabelToEquip).find(x => enchantLabelToEquip[x].includes(index));
-                },
-                fetchAvailableEnchants(index){
-                    let cardToEquipMapping = {
-                        15:1, 16:1, 17:1, 18:1,
-                        19:2, 20:2, 21:2, 22:2, 23:2,
-                        24:3, 25:4, 26:5, 
-                        27:6, 28:7, 29:8,
-                        30:9, 31:10 
-                    };
-
-                    this.AvailableEnchants = 'availableEnchants' in this.equipspartlist[cardToEquipMapping[index]] ? this.equipspartlist[cardToEquipMapping[index]] : [];
                 },
                 getEnchantWithEffects(start, end){
                     const enchants = this.equipspartlist.slice(start, end).filter(x => x.effectlist.length > 0);
@@ -11931,6 +11942,14 @@
                         try {
                             this.StoreDB_Enchant = JSON.parse(localStorage.getItem('StoreDB_Enchant'));
                             Enumerable.From(this.StoreDB_Enchant).OrderBy(x => x.equip.id);
+                        } catch (e) {
+                            console.log("catch e:" + e);
+                        }
+                    }
+                    if (localStorage.getItem('StoreDB_Card')) {
+                        try {
+                            this.StoreDB_Card = JSON.parse(localStorage.getItem('StoreDB_Card'));
+                            Enumerable.From(this.StoreDB_Card).OrderBy(x => x.equip.id);
                         } catch (e) {
                             console.log("catch e:" + e);
                         }
@@ -12993,8 +13012,36 @@
                 updateSelectDefault(ele){
                     this.select_default = ele;
                 },
+                loadCards(){
+                    let href = window.location.href+'default_equip/CARDS.json';
+                    fetch(href, {cache: "no-cache"})
+                    .then(res => res.json())
+                    .then(json => {
+                        for (const [key, value] of Object.entries(json)) {
+                            if (this.StoreDB_CardLoadedNames.has(value.equipname)) continue;
+                            this.StoreDB_Card.push({
+                                uuid: this._uuid(),
+                                equip: {
+                                    id: value.id,
+                                    itemid: value.itemid ? value.itemid : 0,
+                                    label: value.label,
+                                    equipname: value.equipname,
+                                    effectlist: Object.values(value.effectlist),
+                                    combolist: value.combolist ? Object.values(value.combolist) : [],
+                                    flags: value.flags ? value.flags : [],
+                                },
+                                date: Date.now(),
+                            });
+                            this.StoreDB_CardLoadedNames.add(value.equipname);
+                        }
+                        this.SaveCardDB();
+                    })
+                    .finally(() => {
+                        this.onFilterCardSearch();
+                    })
+                },
                 loadEnchants(){
-                    let href = window.location.href+'default_equip/enchants.json';
+                    let href = window.location.href+'default_equip/ENCHANTS.json';
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
@@ -13056,12 +13103,15 @@
                     }
                     this.select_default = '';
                 },
-                exportSavedEquip(enchant=false){
+                exportSavedData(kind){
                     var data = [];
                     var effectlist = {};
                     var combolist = {};
                     var i = 0;
-                    let exportDB = enchant ? this.StoreDB_Enchant : this.StoreDB_Equip
+
+                    if(!this.DataOptions.has(kind)) return;
+
+                    let exportDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : this.StoreDB_Card;
                     for (const [key, value] of Object.entries(exportDB)) {
                         try{
                             var obj = value.equip;
@@ -13166,6 +13216,9 @@
                 },
                 StoreDB_EnchantCount() {
                     return this.StoreDB_EnchantFilterList.length;
+                },
+                StoreDB_CardCount() {
+                    return this.StoreDB_CardFilterList.length;
                 },
                 /*
                 StoreDB_EquipFiltered() {
