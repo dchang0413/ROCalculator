@@ -2389,12 +2389,12 @@
                     <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
                         <el-row class="statusbox bg-purple-light" :span="4" :gutter="4" type="flex" align="middle">
                             <el-col class="textcenter" >
-                                    <el-input v-model="StoreDB_SearchString" @input="onFilterEquipSearch" placeholder="Search" clearable>
+                                    <el-input v-model="StoreDB_SearchString" @input="onFilterCardSearch" placeholder="Search" clearable>
                                     </el-input>
                             </el-col>
                         </el-row>
                         <el-col class="textcenter" :span="2">
-                            <el-button v-on:click="onFilterEquipClear">
+                            <el-button v-on:click="onFilterCardClear">
                                 All
                             </el-button>
                         </el-col>
@@ -2436,7 +2436,7 @@
                             <span></span>
                         </el-col>
                         <el-col :span="5">
-                            <el-button v-on:click="loadEnchants" icon="el-icon-check"
+                            <el-button v-on:click="loadAllDefaultEquip" icon="el-icon-check"
                                 type="success" type="primary" size="small">
                                 Load Cards
                             </el-button>
@@ -6798,6 +6798,8 @@
                 StoreDB_SearchString: '',
                 StoreDB_Equip: [],
                 StoreDB_Enchant: [],
+                StoreDB_EquipLoadedNames: new Set(),
+                StoreDB_EnchantLoadedNames: new Set(),
                 EquipSelectId: '',
                 ComboSelectId: false,
                 EquipSelectLabel: '',
@@ -11318,6 +11320,21 @@
                         return this.StoreDB_SearchString.toLowerCase().split(' ').every(v => post.equip.equipname.toLowerCase().includes(v));
                     });
                 },
+                onFilterCardSearch() {
+                    let filter = 'card';
+                    if(this.ItemDesiredPosition > -1) {
+                        filter = this.fetchCardMapping(this.ItemDesiredPosition).toLowerCase();
+                    }
+
+                    this.StoreDB_EquipFilterGroup = [];
+                    this.StoreDB_EquipFilterList = this.StoreDB_Equip.filter(post => {
+                        //return post.equip.equipname.includes(this.StoreDB_SearchString)
+                        return this.StoreDB_SearchString.toLowerCase().split(' ').every(v =>
+                            post.equip.equipname.toLowerCase().includes(v) &&
+                            post.equip.label.toLowerCase().includes(filter)
+                        );
+                    });
+                },
                 onFilterEnchantSearch(){
                     this.StoreDB_EquipEnchantFlags = [];
                     this.StoreDB_EnchantFilterList = this.StoreDB_Enchant.filter(post => {
@@ -11394,6 +11411,11 @@
                     this.StoreDB_SearchString = '';
                     this.StoreDB_EquipFilterGroup = [];
                     this.onFilterEquipPart();
+                },
+                onFilterCardClear() {
+                    this.StoreDB_SearchString = '';
+                    this.StoreDB_EquipFilterGroup = [];
+                    this.onFilterCardSearch();
                 },
                 onFilterEquipPreview(index){
                     this.$set( this.StoreDB_EquipFilterList[index], 'preview', !this.StoreDB_EquipFilterList[index].preview);
@@ -12963,9 +12985,8 @@
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
-                        let loadedNames = this.getLoadedEquipNames();
                         for (const [key, value] of Object.entries(json)) {
-                            if (loadedNames.includes(value.equipname)) continue;
+                            if (this.StoreDB_EnchantLoadedNames.has(value.equipname)) continue;
                             this.StoreDB_Enchant.push({
                                 uuid: this._uuid(),
                                 equip: {
@@ -12979,6 +13000,7 @@
                                 },
                                 date: Date.now(),
                             });
+                            this.StoreDB_EnchantLoadedNames.add(value.equipname);
                             this.SaveEnchantDB();
                         }
                     })
@@ -12988,9 +13010,8 @@
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
-                        let loadedNames = this.getLoadedEnchantNames();
                         for (const [key, value] of Object.entries(json)) {
-                            if (loadedNames.includes(value.equipname)) continue;
+                            if (this.StoreDB_EquipLoadedNames.has(value.equipname)) continue;
                             this.StoreDB_Equip.push({
                                 uuid: this._uuid(),
                                 equip: {
@@ -13010,6 +13031,7 @@
                                 null,
                                 subweapon: value.subweapon
                             });
+                            this.StoreDB_EquipLoadedNames.add(value.equipname);
                             this.SaveEquipDB();
                         }
                     })
@@ -13026,28 +13048,6 @@
                         this.loadDefaultEquip();
                     }
                     this.select_default = '';
-                },
-                getLoadedEquipNames(){
-                    let loadedNames = [];
-                    for (const [key, value] of Object.entries(this.StoreDB_Equip)) {
-                        try{
-                            loadedNames.push(value.equip.equipname);
-                        } catch(e){
-                            console.log('error geting equip name', e);
-                        }
-                    }
-                    return loadedNames;
-                },
-                getLoadedEnchantNames(){
-                    let loadedNames = [];
-                    for (const [key, value] of Object.entries(this.StoreDB_Enchant)) {
-                        try{
-                            loadedNames.push(value.equip.equipname);
-                        } catch(e){
-                            console.log('error geting equip name', e);
-                        }
-                    }
-                    return loadedNames;
                 },
                 exportSavedEquip(enchant=false){
                     var data = {};
