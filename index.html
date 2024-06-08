@@ -51,16 +51,16 @@
                 <el-row>
                     <div class="aboutbox" style="padding: 5px 40px; text-align:left">
                         <el-row :gutter="4" align="left">
-                            <b>����ͪߩѦ�����߾���������������������</b><br>
+                            <b>這個計算機在使用上需要對裝備有一定的了解</b><br>
                             <b>You will need proper understanding of equipment to fully utilize this calculator</b><br><br>
                         </el-row>
                         <el-row :gutter="4" align="left">
-                            ��������ٻ�������Գ?��?����ۡ��<br>
+                            如果對於某件裝不知道怎樣填歡迎發問<br>
                             Feel free to ask if you don't know how to plug in values <br>
                             I'm probably not that interested in helping but do ask -Cate<br>
                             <br>
-                            ����������������� ʦ������������ӱ����߿������ݬ��<br>
-                            ����������ͪ�������<br>
+                            建議在輸入要換的裝前 可以先看現有裝打蛋測試傷害是否符合<br>
+                            才開始換成預計要換的裝<br>
                             Recommended to test your current damage before swapping gears<br>
                         </el-row>
                     </div>
@@ -86,9 +86,9 @@
                             <el-col class="textcenter">
                                 <br>
                                 Toss A Coin To Your Witcher<br>
-                                <span>Donate Link to Landgris��</span><a href="https://pse.is/T52DP"
+                                <span>Donate Link to Landgris</span><a href="https://pse.is/T52DP"
                                     target="_blank"><span style="color:steelblue">O-Pay</span></a><br>
-                                <span>Donate Link to Cate��</span><a href="https://www.paypal.com/donate?business=5ZRZ2BGT89MS6&currency_code=USD"
+                                <span>Donate Link to Cate</span><a href="https://www.paypal.com/donate?business=5ZRZ2BGT89MS6&currency_code=USD"
                                     target="_blank"><span style="color:steelblue">PayPal</span></a><br>
                             </el-col>
                         </el-row>
@@ -96,7 +96,7 @@
                             <el-col class="textcenter">
                                 <br>
                                 Contact Info<br>
-                                TwRO:������ յ�� 200��ִ����<br>
+                                TwRO:巴基力 蘭禮 200等獵靈士<br>
                                 E-mail:valkyrie7744533@gmail.com<br>
                                 Twitter @Landgris<br>
                                 PTT ID: valkyria<br>
@@ -128,17 +128,17 @@
                             </el-image>
                         </el-row>
                         <el-row :gutter="4" type="flex" align="left" justify="center">
-                            ����ͪߩѦ��������ʫ�������������ʦ�����������������ۡ��߿��??��ܨ����<br>
-                            ��ʦ����ߩ���������?����<br><br>
-                            ����Ҵ12���������������������<br>
-                            ����������Φ��?��! �������������Ѻ�⣬������ʦ��������ʥ��������<br>
-                            �������BUG����ʥ��������?�����������ա������������ҡ��������������?<br>
-                            ?��ʦ������ʫ����ʥ��200�����������<br><br>
-                            ������������ͪߩѦ��?�?���������������ᡢ����ͪߩ��������?ٻ����ڪ<br>
-                            �����Ү����ʦ���������֧̿�����ު������<br><br>
+                            這個計算機是希望大家在換裝備的時候可以不用借裝或是買到才發現傷害怎麼沒變？！<br>
+                            就可以先用算的少走一些冤枉路<br><br>
+                            從去年12月完成後一直更新到現在<br>
+                            沒想到時間過這麼快! 好險有在寫更新紀錄，沒事就可以看看到底加了多少東西<br>
+                            除了修正BUG、增加新功能、填各職業技能坑、各種測試公式、還要隨版本更新跑<br>
+                            為了可以更雲玩家還增加了200等的素質點數<br><br>
+                            如果覺得這個計算機有幫助你選擇到適合的裝備、或是計算是否打的贏某隻怪物<br>
+                            想要斗內的話可以按下面的連結，我會非常感謝<br><br>
                         </el-row>
                         <el-row :gutter="4" type="flex" align="left" justify="center">
-                            <b>����ͱ�����Ӥ����?������ID�������٣���������?ʥ������٣Ӥ��</b><br><br>
+                            <b>寄信告訴我訂單編號跟伺服器ID或想要的名字，我會把你加入感謝名單！</b><br><br>
                         </el-row>
                         <el-row :gutter="4" type="flex" align="left" justify="center">
                             <br>This calculator is for people to test equipment without having to borrrow/buy first<br>
@@ -698,7 +698,7 @@
                 </el-col>
                 <el-col :span="20">
                     <div>
-                        <el-input v-model="QuickCalc.formula" v-on:change="onQuickCalcInput" placeholder="ߩ��">
+                        <el-input v-model="QuickCalc.formula" v-on:change="onQuickCalcInput" placeholder="算式">
                         </el-input>
                     </div>
                 </el-col>
@@ -719,7 +719,7 @@
                 </el-col>
                 <el-col class="textcenter" :span="20">
                     <div>
-                        <el-input v-model="QuickCalc.remark" placeholder="����">
+                        <el-input v-model="QuickCalc.remark" placeholder="備註">
                         </el-input>
                     </div>
                 </el-col>
@@ -1788,7 +1788,7 @@
                                 <span>Character Save Name</span>
                             </el-col>
                             <el-col class="textcenter">
-                                <el-input v-model="StatusName" placeholder="����������?٣">
+                                <el-input v-model="StatusName" placeholder="要儲存的角色檔名">
                                 </el-input>
                             </el-col>
                         </el-row>
@@ -3348,7 +3348,7 @@
                                     <el-col :span="12" offset="12">
                                         <div class="textcenter grid-content">
                                             <el-select value-key="id" v-model="enemyattribute"
-                                                v-on:change="onSelectEnemy" placeholder="������۰">
+                                                v-on:change="onSelectEnemy" placeholder="選擇敵方">
                                                 <el-option v-for="item in enemylist" :key="item.id"
                                                     :label="item.name" :value="item">
                                                 </el-option>
@@ -4130,7 +4130,7 @@
                     <el-scrollbar wrap-class="body2col-container" :native="true" :noresize="false">
                         <el-row>
                             <div class="boxborder EquipBlock">
-                                <!--��-->
+                                <!--主手-->
                                 <div class="bg-purple" style="padding: 0px 2px;">
                                     <el-col v-if="UIPanel['weaponrPanel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
                                         <el-button type="info" v-on:click="TogglePanel('weaponrPanel')" size="mini"><i
@@ -4562,7 +4562,7 @@
                                         </div>
                                     </el-row>
                                 </div>
-                                <!--���-->
+                                <!--副手-->
                                 <div class="bg-purple" style="padding: 0px 2px;">
                                     <el-col v-if="UIPanel['weaponlPanel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
                                         <el-button type="info" v-on:click="TogglePanel('weaponlPanel')" size="mini"><i
@@ -5058,7 +5058,7 @@
                                         </div>
                                     </el-row>
                                 </div>
-                                <!--����-->
+                                <!--裝備-->
                                 <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(2,10)">
                                     <div class="bg-purple-light" style="padding: 0px 4px;">
                                         <el-col v-if="UIPanel[item.id+'Panel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
@@ -5568,7 +5568,7 @@
 
                             </div>
                         </el-row>
-                        <!--����-->
+                        <!--武器-->
                         <el-row class="titlebox" type="flex" align="middle" justify="space-around" style="height:40px;">
                             <el-col class="textcenter" :span="10">
                                 <span class="textcenter">Equipment Total Stats</span>
@@ -6810,7 +6810,7 @@
                 EquipEffectTabPage: 'ATK',
                 PreviewETL_init: [],
                 PreviewETL: [],
-                PreviewEN: '',  // ��������٣��
+                PreviewEN: '',  // 預覽裝備名字
                 PreviewSelName: '',
                 PreviewComboIDs: [],
                 PreviewCombo: [],
@@ -7264,13 +7264,13 @@
                 SP_NotFix: 0,
                 SP_Fix: 0,
                 /*
-                 SK1VCTP %����� ����ѷ��
-                 SK2VCTP %������� ����?
-                 EQVCTP %ܨ����
-                 VCTS ܨ����
-                 FCT ͳ����
-                 FCTP ͳ��%
-                 GCD ����%
+                 SK1VCTP %布萊齊 犧牲祈福
+                 SK2VCTP %指定技能 小雪獸卡
+                 EQVCTP %變詠裝
+                 VCTS 變詠秒
+                 FCT 固詠秒
+                 FCTP 固詠%
+                 GCD 共延%
                 */
                 attribute: {
                     StatusATK: 0, WeaponATK: 0, StatusMATK: 0, WeaponMATK: 0,
@@ -7450,20 +7450,20 @@
                     { id: 2, label: 'Dragon Breath' }
                 ],
                 skilloption: {
-                    AttackElementalIdx: 0,      //��ʫ��̪����
-                    ElementalPercent: 0,        //��������
+                    AttackElementalIdx: 0,      //玩家攻擊屬性
+                    ElementalPercent: 0,        //屬性倍率
                     WeaponMasteryATKInput: 0,
-                    WeaponMasteryATK: 0,        //������֣
-                    CarWeight: 10500,               //��������
+                    WeaponMasteryATK: 0,        //武器修練
+                    CarWeight: 10500,               //手推車重量
                 },
                 option_init: '',
                 option:
                 {
-                    MagnumPoison2Value: 0,          //������Ը
+                    MagnumPoison2Value: 0,          //怒暴致毒
                     SkillPercent: 0,
                     SkillFormulaError: '',
-                    EquipSkillAddDamage: 0,         //����������߿
-                    BaseCriticalValue: 40,          //������̪��߿
+                    EquipSkillAddDamage: 0,         //裝備技能增傷
+                    BaseCriticalValue: 40,          //基礎暴擊增傷
                     IgnoreDEF: false,
                     IgnoreMDEF: false,
                     MemoryofThanatosCard: false,
@@ -7506,41 +7506,41 @@
                     enemydef: 0,
                     enemymdef: 0,
 
-                    SpecialATK0: 0, // �ݬ
-                    SpecialATK1: 0, // ���� ������ѷԪ��
-                    SpecialATK2: 0, // ���ʥ?  ������������ͭ��+ATK%���(��ATK)+SpecialATK2   ��԰֣� ����
-                    SpecialATK3: 0, // ����
-                    SpecialATK4: 0, // ��֣ʥ? ��֣ ����
-                    // ��������*SpecialATK5+SpecialATK6
-                    SpecialATK5: 0, // ��������?  ���������� DEF����  ��߯
-                    SpecialATK6: 0, // �������ʥ?  ���������� DEF����  ��?  ��������
-                    SpecialATK7: 0, // �������ʥ?  DEF���� ����
-                    SpecialATK8: 0, // �������ʥ?  DEF���� ��Ѩ��
+                    SpecialATK0: 0, // 地符
+                    SpecialATK1: 0, // 無用 壞掉的祈禱文
+                    SpecialATK2: 0, // 特殊加值  種族體型屬性階級+ATK%分支(後ATK)+SpecialATK2   舞蹈練習 砲彈
+                    SpecialATK3: 0, // 無用
+                    SpecialATK4: 0, // 修練加值 修練 神威
+                    // 技能倍率*SpecialATK5+SpecialATK6
+                    SpecialATK5: 0, // 特殊技能乘值  技能倍率後 DEF之前  狙殺
+                    SpecialATK6: 0, // 特殊普攻加值  技能倍率後 DEF之前  凶砍  狂怒之槍
+                    SpecialATK7: 0, // 特殊技能加值  DEF之後 虎砲
+                    SpecialATK8: 0, // 特殊普攻加值  DEF之後 靈氣劍
                     SpecialATKFront: 0,
-                    SpecialRLHand: 0,   //����? ������֣ ����/����
+                    SpecialRLHand: 0,   //特殊乘值 左右手修練 刺客/忍者
 
-                    atkc0_min: 0,   //��������ATK x [ 1 + ( STR �� 200 ) - ( �������� x 0.05 )
-                    atkc0_max: 0,   //��������ATK x [ 1 + ( STR �� 200 ) + ( �������� x 0.05 )
+                    atkc0_min: 0,   //武器基礎ATK x [ 1 + ( STR ÷ 200 ) - ( 武器等級 x 0.05 )
+                    atkc0_max: 0,   //武器基礎ATK x [ 1 + ( STR ÷ 200 ) + ( 武器等級 x 0.05 )
 
-                    atkc1_min: 0,   // atkc0 + ��֡ATK  + SpecialATK1 )
+                    atkc1_min: 0,   // atkc0 + 精煉ATK  + SpecialATK1 )
                     atkc1_max: 0,
 
-                    atkc2_min: 0,   //(atkc1 x �������� + ���ATK)
+                    atkc2_min: 0,   //(atkc1 x 體形修正 + 箭矢ATK)
                     atkc2_max: 0,
 
                     weaponatk_min: 0,
                     weaponatk_max: 0,
-                    //(atkc2 x ( 1 + ����20�� ��  ��٤��Ը25%(�����)  x  ������ ) + ?��ATK))
+                    //(atkc2 x ( 1 + 怒暴20％ 或  致命塗毒25%(二選一)  x  屬性表 ) + 卡裝ATK))
 
                     atkequip_min: 0,
                     atkequip_max: 0,
-                    //weaponatk_min x ( 1 + ����ATK% ) x ( 1 + ����ATK% ) x (1 + ����ATK% ) x ( 1 + ͭ��ATK% ) x ( 1 + ��٤��Ը )
+                    //weaponatk_min x ( 1 + 種族ATK% ) x ( 1 + 體型ATK% ) x (1 + 屬性ATK% ) x ( 1 + 階級ATK% ) x ( 1 + 致命塗毒 )
 
                     atkbranch_min: 0,
                     atkbranch_max: 0,
-                    //weaponatk_min x (?ѨATK% + ATK% )
-                    //x ��۰( 1 - ������߿% ) x ( 1 - ͭ����߿% ) x ( 1 - ��̪������߿% ) x ( 1 - ��ڪ������߿% )
-                    //+ ����ATK
+                    //weaponatk_min x (霸氣ATK% + ATK% )
+                    //x 對方( 1 - 體型減傷% ) x ( 1 - 階級減傷% ) x ( 1 - 攻擊屬性減傷% ) x ( 1 - 怪物屬性減傷% )
+                    //+ 砲彈ATK
 
                     atkc4_min: 0,
                     atkc4_max: 0,
@@ -7548,21 +7548,21 @@
 
                     atkc5_min: 0,
                     atkc5_max: 0,
-                    //atkc4_max x �������� x (1 + ��ұ) x (������������ 1 - 25%)
-                    // + ����ATK x 2+ ��֡ATK + ����?�� + SpecialATK4
+                    //atkc4_max x 屬性倍率 x (1 + 屬耐) x (使用左手武器時 1 - 25%)
+                    // + 素質ATK x 2+ 修煉ATK + 武器強悍 + SpecialATK4
 
                     atkc6_min: 0,
                     atkc6_max: 0,
-                    atkskillcritical_min: 0,  //������̪
-                    atkskillcritical_max: 0,  //������̪
-                    //x ���� ( 1 + ������߿% ) x ( 1 +��̪��߿?��% )
-                    //x ��۰??�� ( 1 + 10% )x ��۰ ( 1 -  ������߿% ) x ( 1 - ������߿%) x ( 1 - ��̪��߿%)
+                    atkskillcritical_min: 0,  //技能暴擊
+                    atkskillcritical_max: 0,  //技能暴擊
+                    //x 本身 ( 1 + 遠距增傷% ) x ( 1 +暴擊增傷卡裝% )
+                    //x 對方為喵族 ( 1 + 10% )x 對方 ( 1 -  遠距減傷% ) x ( 1 - 種族減傷%) x ( 1 - 暴擊減傷%)
 
                     atkc7_min: 0,
                     atkc7_max: 0,
-                    //x ����( ��������% x [��ݨ?��]��������������߿125% + SpecialATK5)
-                    //x ( ��ͭ������֣���� x 2% + 10%)
-                    //x ��۰ ( ( 4000 + ��DEF ) �� ( 4000 + 10 x ��DEF ) ) - ��DEF
+                    //x 本身( 技能倍率% x [戰斧颶風]的風屬性武器增傷125% + SpecialATK5)
+                    //x ( 高階拳刃修練等級 x 2% + 10%)
+                    //x 對方 ( ( 4000 + 後DEF ) ÷ ( 4000 + 10 x 後DEF ) ) - 前DEF
 
                     normalattack_min: 0,
                     normalattack_max: 0,
@@ -7571,10 +7571,10 @@
                     NADamageCRI_max: 0,
                     normalattack_DPS: 0,
 
-                    atkc8_min: 0,// x ( 1 + ������߿��?��%) x ( 1 + ������߿������% )
+                    atkc8_min: 0,// x ( 1 + 技能增傷的卡裝%) x ( 1 + 技能增傷的技能% )
                     atkc8_max: 0,
 
-                    atkc9_min: 0,// x ( 1 + ������߿��?��%) x ( 1 + ������߿������% )
+                    atkc9_min: 0,// x ( 1 + 技能增傷的卡裝%) x ( 1 + 技能增傷的技能% )
                     atkc9_max: 0,
                     atkc9_avg: 0,
 
@@ -7588,37 +7588,37 @@
                     SkillDamageCRI_avg: 0,
                     atkmulti_DPS: 0,
                     /*
-                    x ( ���֧̪ 1 + 100% )
-                    x ( ��̪ 1 + 30%(BOSS����?15%) )
-                    x (�����֣���� x 10% + 50% �� ����֣���� x 10% + 30%)
-                    x ��۰(1 + ���ت������ x 20% )
-                    x ��۰(1 - ˼���������� x 20% )
-                    x ��۰(1 - ��˧���� 90% )
-                    x ��۰(1 - ���� 90% )
+                    x ( 二刀連擊 1 + 100% )
+                    x ( 潛擊 1 + 30%(BOSS型怪為15%) )
+                    x (右手修練等級 x 10% + 50% 或 左手修練等級 x 10% + 30%)
+                    x 對方(1 + 抵抗魔法等級 x 20% )
+                    x 對方(1 - 鋼筋鐵骨等級 x 20% )
+                    x 對方(1 - 金剛不壞 90% )
+                    x 對方(1 - 俯身 90% )
                     */
 
-                    SpecialMATK1: 0, // �������ʥ?  ���������� ��ʥ��  ����ݬ?
-                    SpecialMATK1: 0, // ��������?  ���������� �����
-                    SpecialMATK3: 0, // ��������?  mdef���� �������� ��ҷ
-                    SpecialINSIGNIAENEMYMATK: 0, // ڣ��
+                    SpecialMATK1: 0, // 特殊技能加值  技能倍率後 用加的  忍者符咒
+                    SpecialMATK1: 0, // 特殊技能乘值  技能倍率後 用乘的
+                    SpecialMATK3: 0, // 特殊技能乘值  mdef之後 屬性之前 終念
+                    SpecialINSIGNIAENEMYMATK: 0, // 紋章
 
-                    weaponmatk_min: 0,  // statusmatk + (( ����MATK + ��֡MATK ) x ( 1 -  �������� x 0.10 ))
-                    weaponmatk_max: 0,  // statusmatk + (( ����MATK + ��֡MATK ) x ( 1 +  �������� x 0.10 ))
-                    equipmatk_min: 0,   // weaponmatk_min x (1 + 0.05 �� ت���������� ) + ?��MATK )
+                    weaponmatk_min: 0,  // statusmatk + (( 武器MATK + 精煉MATK ) x ( 1 -  武器等級 x 0.10 ))
+                    weaponmatk_max: 0,  // statusmatk + (( 武器MATK + 精煉MATK ) x ( 1 +  武器等級 x 0.10 ))
+                    equipmatk_min: 0,   // weaponmatk_min x (1 + 0.05 × 魔力增幅等級 ) + 卡裝MATK )
                     equipmatk_max: 0,
-                    matkpercent_min: 0, // equipmatk_min x ����( 1 + MATK��߿%)
+                    matkpercent_min: 0, // equipmatk_min x 本身( 1 + MATK增傷%)
                     matkpercent_max: 0,
-                    finalmatk_min: 0,   // x ( 1 + �۰������߿%) x ( 1 + ��۰������߿%) x ( 1+ ������߿%) x (1 + ������߿%)
+                    finalmatk_min: 0,   // x ( 1 + 我方屬性增傷%) x ( 1 + 對方屬性增傷%) x ( 1+ 種族增傷%) x (1 + 體型增傷%)
                     finalmatk_max: 0,
-                    matk1_min: 0,  // ��۰??�� ( 1 + 10% ) x ��۰(1 -  ������߿%) x ( 1-  ������߿%) x ( 1 - ������߿%) x ( 1 -  ͭ����߿% )
+                    matk1_min: 0,  // 對方為喵族 ( 1 + 10% ) x 對方(1 -  體型減傷%) x ( 1-  屬性減傷%) x ( 1 - 種族減傷%) x ( 1 -  階級減傷% )
                     matk1_max: 0,
-                    skillmatk_min: 0,   //x ����(��������%)
+                    skillmatk_min: 0,   //x 本身(技能倍率%)
                     skillmatk_max: 0,
-                    matk2_min: 0,      //x ��۰(1000+��MDEF) / (1000+10 x ��MDEF) - ��MDEF)
+                    matk2_min: 0,      //x 對方(1000+後MDEF) / (1000+10 x 後MDEF) - 前MDEF)
                     matk2_max: 0,
-                    matk3_min: 0,       // x (1 + ������߿��?��%)  x (1 + ������߿������%)
+                    matk3_min: 0,       // x (1 + 技能增傷的卡裝%)  x (1 + 技能增傷的技能%)
                     matk3_max: 0,
-                    matk4_min: 0,       // x ��������
+                    matk4_min: 0,       // x 屬性倍率
                     matk4_max: 0,
                     matk4_avg: 0,
                     matkmulti_min: 0,
@@ -7629,36 +7629,36 @@
                     matkmulti_DPS: 0,
 
                     /*
-                    ت������߿������=
+                    魔法最終傷害公式=
                     ((( INT + INT/2 + LUK/3 + BaseLv/4 + DEX/5 )
-                    + (( ����MATK + ��֡MATK ) x ( 1 ��  �������� x 0.10 ))
-                    x (1 + 0.05 �� ت���������� ) + ?��MATK )
-                    x ����( 1 + MATK��߿%) x ( 1 + �۰������߿%) x ( 1 + ��۰������߿%) x ( 1+ ������߿%) x (1 + ������߿%)
-                    x ��۰??�� ( 1 + 10% )
-                    x ��۰(1 -  ������߿%) x ( 1-  ������߿%) x ( 1 - ������߿%) x ( 1 -  ͭ����߿% )
-                    x ����(��������%)
-                    x ��۰(1000+��MDEF) / (1000+10 x ��MDEF) - ��MDEF)
-                    x ��������
-                    x (1 + ������߿��?��%)  x (1 + ������߿������%)
-                    x ( ��������������(������׫ʥ) 1 + 100% )
-                    x ( ��̪ 1 + 30%(BOSS����?15%) )
+                    + (( 武器MATK + 精煉MATK ) x ( 1 ±  武器等級 x 0.10 ))
+                    x (1 + 0.05 × 魔力增幅等級 ) + 卡裝MATK )
+                    x 本身( 1 + MATK增傷%) x ( 1 + 我方屬性增傷%) x ( 1 + 對方屬性增傷%) x ( 1+ 種族增傷%) x (1 + 體型增傷%)
+                    x 對方為喵族 ( 1 + 10% )
+                    x 對方(1 -  體型減傷%) x ( 1-  屬性減傷%) x ( 1 - 種族減傷%) x ( 1 -  階級減傷% )
+                    x 本身(技能倍率%)
+                    x 對方(1000+後MDEF) / (1000+10 x 後MDEF) - 前MDEF)
+                    x 屬性倍率
+                    x (1 + 技能增傷的卡裝%)  x (1 + 技能增傷的技能%)
+                    x ( 天使之怒或天罰(效果不累加) 1 + 100% )
+                    x ( 潛擊 1 + 30%(BOSS型怪為15%) )
                     */
 
                     DragonBreathDMG: 0,
                     DragonBreathDMG_DPS: 0,
                     /*
                         (DOWN(HP/50)+DOWN(SP/4))*SLV*BLV/150*1.2
-                        ������HP��? / 50��+��MaxSP / 4������ �������� �� BaseLv /150 ����0.95 + ף�������� �� 0.05��
-                        ������������DEF + ��������DEF����
-                        ����1 + ������̪��?��+%������
-                        �� ������
+                        ｛〔（HP現值 / 50）+（MaxSP / 4）〕× 技能等級 × BaseLv /150 ×（0.95 + 龍騎術等級 × 0.05）
+                        －（目標素質DEF + 目標裝備DEF）｝
+                        ×（1 + 遠距攻擊力卡裝+%總和）
+                        × 屬性表
                     */
 
                     CastDEXINT: 0,      // INT*0.5 + DEX
-                    CastTime: 0,    // ��������
-                    DelayTime: 0,   // Լ������������
-                    HitperSec: 0,   // ����ʦ������� = 50 / ( 200 - ASPD)
-                    AspdDelay: 0,   // ���������� = ( 200 - ASPD) / 50
+                    CastTime: 0,    // 詠唱時間
+                    DelayTime: 0,   // 獨延共延取最大
+                    HitperSec: 0,   // 一秒可以打的次數 = 50 / ( 200 - ASPD)
+                    AspdDelay: 0,   // 施展動作秒數 = ( 200 - ASPD) / 50
                 },
                 UIPanel: {
                     General: false,
@@ -7835,7 +7835,7 @@
                                         }
                                         return f;
                                     } catch (e) {
-                                        console.log( "��:" + e);
+                                        console.log( "錯誤:" + e);
                                     }
                                 */
                         }
@@ -7844,8 +7844,8 @@
                     });
                     this.onOption();
                     /*
-                    //�������� ATK ����ʥ��
-                    //۰����
+                    //全身裝的 ATK 效果加總
+                    //方法一
                     var idd = 'ATK'
                     var ef = Enumerable
                         .from(this.equipspartlist)
@@ -7858,7 +7858,7 @@
                         .sum();
                     console.log(ef);
 
-                    //۰��2 ���� https://stackoverflow.com/questions/33739726/linq-js-get-subitems
+                    //方法2 參考 https://stackoverflow.com/questions/33739726/linq-js-get-subitems
                     var result = Enumerable.from(this.equipspartlist)
                         .where("($.effectlist).some(function (x) { return x.EffectType.id == 'ATK'; })")
                         .select("Number($.effectlist[0].EffectNumber)")
@@ -7870,7 +7870,7 @@
                 AddEffect() {
                     if (this.effectdialogue.EffectNumber === '') { return; }
 
-                    // ��?������������������
+                    // 檢查已經存在該效果後覆蓋
                     if (this.equipspartlist[this.EquipSelectId].effectlist.length > 0) {
                         var index = this.equipspartlist[this.EquipSelectId].effectlist.findIndex(x => this.effectdialogue.EffectType.label === x.EffectType.label);
 
@@ -8378,7 +8378,7 @@
 
                     for( var i=0; i<this.consumablelist.length; ++i ){
                         if(this.consumablelist[i].active==false) continue;
-                        // ����ͧ�� ������
+                        // 素質系統 取最大
                         if( this.consumablelist[i].group=='StatusG' ||
                             this.consumablelist[i].group=='ATKMATKUP' ||
                             this.consumablelist[i].group=='ASPDPot'
@@ -8401,7 +8401,7 @@
                                 _SKILLASPDP['ASPDP'] = Math.max(_SKILLASPDP['ASPDP'], this.consumablelist[i]['ASPDP']);
                             }
                         }
-                        // Լءͧ��ʦ��ʥ
+                        // 獨立系統可疊加
                         if(this.consumablelist[i].group=='HPSP' ||
                             this.consumablelist[i].group=='Status20G' ||
                             this.consumablelist[i].group=='sp'){
@@ -8423,7 +8423,7 @@
                         }
                     }
 
-                    // ATKMATKUPͧ�� ������
+                    // ATKMATKUP系統 取最大
                     var _idx = this.consumableeffecttypelist.findIndex( i=> i.id == 'ATK');
                     this.consumableeffecttypelist[_idx].totalvalue += _ATKMATKUP["ATKUP"];
                     var _idx = this.consumableeffecttypelist.findIndex( i=> i.id == 'MATK');
@@ -8433,7 +8433,7 @@
                     var _idx = this.consumableeffecttypelist.findIndex( i=> i.id == 'ASPDP');
                     this.consumableeffecttypelist[_idx].totalvalue += _SKILLASPDP["ASPDP"];
 
-                    // ��?� ����ͧ��
+                    // 戰鬥藥 糖果系統
                     _tag = [ 'LevelAtkPercent', 'MatkPercent', 'ATK', 'MATK', 'HPPercent', 'SPPercent', 'FixedCast' ];
                     var _idx = this.consumablelist.findIndex(i=>i.group=='Radio1' && i.active==true);
                     if( _idx > -1 ){
@@ -8454,7 +8454,7 @@
                             }
                         };
                     }
-                    // ܨ������
+                    // 變身卷軸
                     _tag = [ 'MATK', 'RangedDamagePercent', 'SPPercent', 'HPPercent', 'Cri' ];
                     var _idx = this.consumablelist.findIndex(i=>i.group=='TransScroll' && i.active==true);
                         if( _idx > -1 ){
@@ -8466,7 +8466,7 @@
                         }
                     }
 
-                    // ͳ������
+                    // 固詠修正
                     var _id = this.consumableeffecttypelist.findIndex( i=> i.id == 'FixedCastPercent');
                     this.consumableeffecttypelist[_id].totalvalue = _FixedCast;
                 },
@@ -8704,7 +8704,7 @@
                     var _level = (enemyelementlevel - 1) * count * count;
                     var percent = this.elementalmap[_base + _enemy + _level];
                     
-                    //��������
+                    //火元素領域
                     if (this.IsSupportActive('SA_VOLCANO')) {
                         if (attackelementalid == 1) {
                             var _lv = this.GetSupportSkill('SA_VOLCANO').lv;
@@ -8712,7 +8712,7 @@
                             percent += _e[_lv];
                         }
                     }
-                    //�������
+                    //水元素領域
                     if (this.IsSupportActive('SA_DELUGE')) {
                         if (attackelementalid == 2) {
                             var _lv = this.GetSupportSkill('SA_DELUGE').lv;
@@ -8722,7 +8722,7 @@
                             percent += _e[_lv];
                         }
                     }
-                    //��������
+                    //風元素領域
                     if (this.IsSupportActive('SA_VIOLENTGALE')) {
                         if (attackelementalid == 3) {
                             var _lv = this.GetSupportSkill('SA_VIOLENTGALE').lv;
@@ -8773,14 +8773,14 @@
                         eval(this.SkillFormulaReplace(this.skill.CD)) - (-this.attribute['CD']));
 
                     if(this.IsSupportActive('WL_RELEASE'))
-                    {   //����0 GCD��
+                    {   //詠唱0 GCD維持
                         this.computeattribute.CastTime = 0;
                         this.computeattribute.DelayTime = Math.floor(eval(this.SkillFormulaReplace(this.skill.GCD)) * _GCDRate) / 100;
                         //iRO - Release has 1 cd
                         this.computeattribute.DelayTime = Math.max(this.computeattribute.DelayTime,1);
                     }
                     if(this.IsSupportActive('WL_READING_SB'))
-                    {   //ͳ��1 ܨ��5 GCD0.5
+                    {   //固詠1 變詠5 GCD0.5
                         this.computeattribute.CastTime =
                             (5 + this.attribute['VCTS']) * (1 - Math.sqrt(_StatusDI / 530)) * (1 + this.attribute['EQVCTP'] / 100) * 
                             (1 + this.attribute['SK1VCTP'] / 100) * (1 + this.attribute['SK2VCTP'] / 100) +
@@ -8803,8 +8803,8 @@
                         if (diff == 1) return;
                         diff = Math.floor(diff*100)+'%';
                     }
-                    if (method == 'x') method = '��';
-                    if (method == '/') method = '��';
+                    if (method == 'x') method = '×';
+                    if (method == '/') method = '÷';
                     
                     let lastRecord = this.computeRecord.slice(-1);
                     let tooltip = '';
@@ -8836,7 +8836,7 @@
 
                     this.setRecord('Weapon ATK',[this.weapon.ATK],'','');
                     this.setRecord('Stat ATK%',[Math.floor(Number(Number(this.weapon.ATK)) * (1 + para1))],'x',((1+para1)*100).toFixed(1)+'%');
-                    this.setRecord('Weap Lv. Variance',[this.computeattribute.atkc0_min,this.computeattribute.atkc0_max],'��',para2,'p');
+                    this.setRecord('Weap Lv. Variance',[this.computeattribute.atkc0_min,this.computeattribute.atkc0_max],'±',para2,'p');
 
                     if (this.IsSupportActive('BS_MAXIMIZE')) {
                         this.computeattribute.atkc0_min = this.computeattribute.atkc0_max;
@@ -8874,7 +8874,7 @@
 
                     this.setRecord('Ammo ATK',[this.computeattribute.atkc2_min,this.computeattribute.atkc2_max],'+',Number(this.weapon.BulletATK));
 
-                    var para5 = 0; //����
+                    var para5 = 0; //屬性
                     if (this.IsSupportActive('SM_MAGNUM')) { para5 = 1; }
                     else if (this.IsSupportActive('ASC_EDP')) { para5 = 5; }
                     var para5value = this.getElementalPercent(para5,
@@ -8927,8 +8927,8 @@
                     this.computeattribute.atkequip_max = this.MulOper(this.computeattribute.atkequip_max, para_mons);
                     this.setRecord('Specific Mob',[this.computeattribute.atkequip_min,this.computeattribute.atkequip_max],'x',para_mons,'p');
 
-                    // ?Ѩ ATK% �������������1����
-                    // ��MulOper��?Mathfloor ����
+                    // 霸氣 ATK% 似乎不適用小於1進位
+                    // 從MulOper改為Mathfloor 捨去
                     this.computeattribute.atkbranch_min = Math.floor(this.computeattribute.weaponatk_min * (this.attribute['ATKP']) / 100);
                     this.computeattribute.atkbranch_max = Math.floor(this.computeattribute.weaponatk_max * (this.attribute['ATKP']) / 100);
                     /*
@@ -8965,11 +8965,11 @@
                     this.setRecord('Element Resist',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'x',Number(1) + Number(this.attribute['ELEDDI'] / 100),'p');
 
                     var para7 = Number(this.attribute['StatusATK']);
-                    if( isNA ) { //����
-                        if( this.subweapon.type.id != 2 ){  //����ު������
+                    if( isNA ) { //普攻
+                        if( this.subweapon.type.id != 2 ){  //普攻非雙持狀態
                             para7 += Number(this.attribute['StatusATK']);
                         }
-                    }else{  //����
+                    }else{  //技能
                         para7 += Number(this.attribute['StatusATK']);
                     }
                     var para7ele = 100;
@@ -9088,9 +9088,9 @@
                         }
                     }
 
-                    //������߿ this.skill.laterranged������ӫ
+                    //遠程增傷 this.skill.laterranged分前後段
                     var para_ranged = Number(1) + Number(this.attribute['RNGDP']) / 100;
-                    //����߿��
+                    //近戰傷害
                     var para_melee = Number(1) + Number(this.attribute['MELDP']) / 100;
 
                     if( isNA ){
@@ -9149,7 +9149,7 @@
                     }
 
 
-                    //��������
+                    //技能倍率
                     var para_na = Number(this.computeattribute['SpecialATK6']);
                     var skillPercent = Number(this.option.SkillPercent);
 
@@ -9157,7 +9157,7 @@
                     para_na = Number(1) + Number(para_na / 100);
                     para8 = Number(para8 / 100);
                     
-                    //��ͭ������֣
+                    //高階拳刃修練
                     if (this.IsSupportActive('ASC_KATAR') && this.weapon.type.id == 'Katars') {
                         var paraAdvancedKatarReserchValue = Number(1) + Number(this.GetSupportSkill('ASC_KATAR').arg1 / 100);
                             para_na = Math.floor(para_na * 100 * paraAdvancedKatarReserchValue)/100;
@@ -9176,7 +9176,7 @@
                         this.setRecord('Skill Multiplier',[this.computeattribute.atkc7_min,this.computeattribute.atkc7_max],'x',para8,'p');
                     }
 
-                    //��۰DEF
+                    //敵方DEF
                     this.enemyattribute.WeaponDEFPercent = Number(100 * (1 - (
                             (4000 + this.MulOper(Number(this.enemyattribute.WeaponDEF), 1)) /
                             (4000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponDEF), 1))))).toFixed(2);
@@ -9219,19 +9219,19 @@
                         this.computeattribute.atkc8_max += parasp6;
                         this.setRecord('Skill Additional',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'+',parasp6);
                             
-                        //��Ѩ����������
+                        //靈氣劍技能有效
                         var parasp6 = Number(this.computeattribute['SpecialATK8']);
                         this.computeattribute.atkc8_min += parasp6;
                         this.computeattribute.atkc8_max += parasp6;
                         this.setRecord('Aura Blade',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'+',parasp6);
 
-                        // ������߿
+                        // 技能遠傷
                         if (this.skill.ranged && this.skill.laterranged) {
                             this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, para_ranged);
                             this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, para_ranged);
                             this.setRecord('Additional Range Mod%',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'x',para_ranged,'p');
                         }
-                        // ������߿��
+                        // 技能增傷裝
                         this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100));
                         this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100));
                         this.setRecord('Skill Mod%',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'x',
@@ -9243,13 +9243,13 @@
                     this.computeattribute.atkc9_max = this.computeattribute.atkc8_max;
 
                     if( isNA ){
-                        // ������̪ *1.4
+                        // 普攻暴擊 *1.4
                         if( isCRI ){
                             this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
                             this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
                         }
                     }else{
-                        // ������̪ *1.4
+                        // 技能暴擊 *1.4
                         if (this.skill.critical && isCRI) {
                             this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
                             this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
@@ -9275,7 +9275,7 @@
                     this.setRecord('Insignia',[this.computeattribute.atkc9_min,this.computeattribute.atkc9_max],'x',
                         Number(1) + Number(this.computeattribute['SpecialINSIGNIAENEMYMATK'] / 100),'p');
 
-                    // ����
+                    // 天怒
                     if (this.IsSupportActive('PR_LEXAETERNA')) {
                         this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number(100 / 100));
                         this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number(100 / 100));
@@ -9546,23 +9546,23 @@
                     };
                     /*
 
-                        weaponmatk_min: 0,  // statusmatk + (( ����MATK + ��֡MATK ) x ( 1 -  �������� x 0.10 ))
-                        weaponmatk_max: 0,  // statusmatk + (( ����MATK + ��֡MATK ) x ( 1 +  �������� x 0.10 ))
-                        equipmatk_min: 0,   // weaponmatk_min x (1 + 0.05 �� ت���������� ) + ?��MATK )
+                        weaponmatk_min: 0,  // statusmatk + (( 武器MATK + 精煉MATK ) x ( 1 -  武器等級 x 0.10 ))
+                        weaponmatk_max: 0,  // statusmatk + (( 武器MATK + 精煉MATK ) x ( 1 +  武器等級 x 0.10 ))
+                        equipmatk_min: 0,   // weaponmatk_min x (1 + 0.05 × 魔力增幅等級 ) + 卡裝MATK )
                         equipmatk_max: 0,
-                        matkpercent_min: 0, // equipmatk_min x ����( 1 + MATK��߿%)
+                        matkpercent_min: 0, // equipmatk_min x 本身( 1 + MATK增傷%)
                         matkpercent_max: 0,
-                        finalmatk_min: 0,   // x ( 1 + �۰������߿%) x ( 1 + ��۰������߿%) x ( 1+ ������߿%) x (1 + ������߿%)
+                        finalmatk_min: 0,   // x ( 1 + 我方屬性增傷%) x ( 1 + 對方屬性增傷%) x ( 1+ 種族增傷%) x (1 + 體型增傷%)
                         finalmatk_max: 0,
-                        matk1_min: 0,  // ��۰??�� ( 1 + 10% ) x ��۰(1 -  ������߿%) x ( 1-  ������߿%) x ( 1 - ������߿%) x ( 1 -  ͭ����߿% )
+                        matk1_min: 0,  // 對方為喵族 ( 1 + 10% ) x 對方(1 -  體型減傷%) x ( 1-  屬性減傷%) x ( 1 - 種族減傷%) x ( 1 -  階級減傷% )
                         matk1_max: 0,
-                        skillmatk_min: 0,   //x ����(��������%)
+                        skillmatk_min: 0,   //x 本身(技能倍率%)
                         skillmatk_max: 0,
-                        matk2_min: 0,      //x ��۰(1000+��MDEF) / (1000+10 x ��MDEF) - ��MDEF)
+                        matk2_min: 0,      //x 對方(1000+後MDEF) / (1000+10 x 後MDEF) - 前MDEF)
                         matk2_max: 0,
-                        matk3_min: 0,       // x ��������
+                        matk3_min: 0,       // x 屬性倍率
                         matk3_max: 0,
-                        matk4_min: 0,       // x (1 + ������߿��?��%)  x (1 + ������߿������%)
+                        matk4_min: 0,       // x (1 + 技能增傷的卡裝%)  x (1 + 技能增傷的技能%)
                         matk4_max: 0,
                     */
 
@@ -9585,18 +9585,18 @@
                             this.computeattribute.DragonBreathDMG = this.computeattribute.DragonBreathDMG - Number(this.enemyattribute.WeaponDEF) - Number(this.enemyattribute.StatusDEF);
                         }
                     }
-                    //������߿��
+                    //技能增傷裝
                     this.computeattribute.DragonBreathDMG = this.MulOper(this.computeattribute.DragonBreathDMG, Number(1) + Number(this.option.EquipSkillAddDamage / 100));
 
-                    //������߿
+                    //遠程增傷
                     var para_ranged = Number(1) + Number(this.attribute['RNGDP']) / 100;
                     if (this.skill.ranged) {
                         this.computeattribute.DragonBreathDMG = this.MulOper(this.computeattribute.DragonBreathDMG, para_ranged);
                     }
-                    //������߿
+                    //屬性增傷
                     this.computeattribute.DragonBreathDMG = this.MulOper(this.computeattribute.DragonBreathDMG, Number(this.skilloption.ElementalPercent / 100));
 
-                    // ����
+                    // 天怒
                     if (this.IsSupportActive('PR_LEXAETERNA')) {
                         this.computeattribute.DragonBreathDMG = this.MulOper(this.computeattribute.DragonBreathDMG, Number(1) + Number(100 / 100));
                     }
@@ -9608,7 +9608,7 @@
 
                 },
                 onSelectEnemy(item) {
-                    // ������ ��?����
+                    // 拿資料 傳值就好
                     //https://wcc723.github.io/javascript/2017/12/10/javascript-reference/
                     this.enemyattribute = Object.assign({}, item);
                     if( this.enemyattribute.LUK == null ) this.enemyattribute.LUK = 0;
@@ -9716,7 +9716,7 @@
                     }
                     return f;
                     } catch (e) {
-                    console.log( "��:" + e);
+                    console.log( "錯誤:" + e);
                     }
                 },
                 onSpecialATKChange() {
@@ -9888,7 +9888,7 @@
                     this.DefaultDB_SupportSkill.forEach( function(item, i) {
                             item.skill.active = false;
                     });
-                    this.ComputeSizefix(); // ����onOption
+                    this.ComputeSizefix(); // 包含onOption
                     this.onOption();
                 },
                 onOption() {
@@ -9928,20 +9928,20 @@
                         this.enemyattribute.elemental,
                         this.enemyattribute.elementallevel);
 
-                    this.computeattribute['SpecialATK0'] = 0;   // �ݬ
-                    this.computeattribute['SpecialATK1'] = 0;   // ������������ѷԪ��
-                    this.computeattribute['SpecialATK2'] = 0;   // ֣���԰ ����ATK
-                    this.computeattribute['SpecialATK3'] = 0;   // ������
-                    this.computeattribute['SpecialATK4'] = 0;   // ��֣ ����
-                    this.computeattribute['SpecialATK5'] = 0;   // ��߯ ��1 ��?
-                    this.computeattribute['SpecialATK6'] = 0;   // ��������
-                    this.computeattribute['SpecialATK7'] = 0;   // ����
-                    this.computeattribute['SpecialATK8'] = 0;   // ��Ѩ��
-                    this.computeattribute['SpecialATKFront'] = 0;   // ��ATK��ATK
-                    this.computeattribute['SpecialMATK1'] = 0;   // ��������ʥ ����ݬ ت������������׾+100 ��֮
-                    this.computeattribute['SpecialMATK2'] = 0;   // ���������
-                    this.computeattribute['SpecialMATK3'] = 0;   // ��ҷ
-                    this.computeattribute['SpecialINSIGNIAENEMYMATK'] = 0; //ڣ��
+                    this.computeattribute['SpecialATK0'] = 0;   // 地符
+                    this.computeattribute['SpecialATK1'] = 0;   // 僅剩下壞掉的祈禱文
+                    this.computeattribute['SpecialATK2'] = 0;   // 練習舞蹈 砲彈ATK
+                    this.computeattribute['SpecialATK3'] = 0;   // 暫時無
+                    this.computeattribute['SpecialATK4'] = 0;   // 修練 神威
+                    this.computeattribute['SpecialATK5'] = 0;   // 狙殺 盧1 兇砍
+                    this.computeattribute['SpecialATK6'] = 0;   // 狂怒之槍
+                    this.computeattribute['SpecialATK7'] = 0;   // 虎砲
+                    this.computeattribute['SpecialATK8'] = 0;   // 靈氣劍
+                    this.computeattribute['SpecialATKFront'] = 0;   // 前ATK前ATK
+                    this.computeattribute['SpecialMATK1'] = 0;   // 技能倍率加 忍者符 魔力拳高等元素箭類+100 震裂
+                    this.computeattribute['SpecialMATK2'] = 0;   // 技能倍率乘
+                    this.computeattribute['SpecialMATK3'] = 0;   // 終念
+                    this.computeattribute['SpecialINSIGNIAENEMYMATK'] = 0; //紋章
 
                     //��֣
                     if (this.IsSupportActive('SM_SWORD') && (this.weapon.type.id == 'Daggers' || this.weapon.type.id == 'OneHandedSwords'))
@@ -10004,7 +10004,7 @@
                     
                     if (this.IsSupportActive('RL_RICHS_COIN')){ if(this.weapon.type.id == 'Guns' ){ this.skilloption.WeaponMasteryATK+=30;} }
 
-                    //������̪������ʥ
+                    //雙手劍攻擊速度增加
                     if (this.IsSupportActive('KN_TWOHANDQUICKEN')) {
                         if (this.weapon.type.id == 'TwoHandedSword') {
                             this.attribute['CRI'] += 12;
@@ -10013,20 +10013,20 @@
                             this.attribute['ASPDP'] += 10;
                         }
                     }
-                    // ���
+                    // 集中
                     if (this.IsSupportActive('LK_CONCENTRATION')) {
                         this.attribute['ATKP'] += 15;
                         this.attribute['HIT'] += 50;
                     }
-                    //��Ѩ��
+                    //靈氣劍
                     if (this.IsSupportActive('LK_AURABLADE')) {
                         this.computeattribute['SpecialATK8'] += this.status.Level * (3 + this.GetSupportSkill('LK_AURABLADE').lv);
                     }
-                    // ��������
+                    // 狂怒之槍
                     if (this.IsSupportActive('LK_BERSERK')) {
                         this.computeattribute['SpecialATK6'] += 200;
                     }
-                    // ����߱?:��������(��1)
+                    // 突里薩茲:力量成長(盧1)
                     if (this.IsSupportActive('RK_GIANTGROWTH')){
                         this.status_add.STR += 30;
                         this.attribute['MELDP'] += 15;
@@ -10036,11 +10036,11 @@
                         }
                         this.computeattribute['SpecialATK6'] += 250;
                     }
-                    // ����?:��?�(��5)
+                    // 艾伊瓦茲:提升鬥志(盧5)
                     if (this.IsSupportActive('RK_FIGHTINGSPIRIT')){
                         this.attribute['ATK'] += 70;
                     }
-                    // �������:������ۡ(��10)
+                    // 力量根源:盧恩爆發(盧10)
                     if (this.IsSupportActive('RK_LUXANIMA')){
                         this.attribute['MELDP'] += 30;
                         this.attribute['RNGDP'] += 30;
@@ -10049,18 +10049,18 @@
                         this.attribute['HPP'] += 30;
                         this.attribute['SPP'] += 30;
                     }
-                    // ��ף����
+                    // 天龍光環
                     if (this.IsSupportActive('DK_DRAGONIC_AURA')){
                         if (this.skill.id.includes('RK_DRAGONBREATH')) {
                             this.option.EquipSkillAddDamage += 100;
                         }
                     }
 
-                    // ����
+                    // 信任
                     if (this.IsSupportActive('CR_TRUST')) {
                         this.attribute['HP'] += 2000;
                     }
-                    // ����ʥ����
+                    // 長矛加速術
                     if (this.IsSupportActive('CR_SPEARQUICKEN')) {
                         if (this.weapon.type.id.includes('Spear')) {
                             this.attribute['CRI'] += 30;
@@ -10068,12 +10068,12 @@
                             this.attribute['ASPDP'] += 10;
                         }
                     }
-                    // ��?
+                    // 盾咒
                     if (this.IsSupportActive('LG_SHIELDSPELL')){
                         this.attribute['ATK'] += this.GetSupportSkill('LG_SHIELDSPELL').arg1;
                         this.attribute['MATK'] += this.GetSupportSkill('LG_SHIELDSPELL').arg1;
                     }
-                    // ����
+                    // 靈感
                     if (this.IsSupportActive('LG_INSPIRATION')){
                         this.attribute['HPP'] += 20;
                         this.attribute['ATK'] += 200;
@@ -10087,50 +10087,50 @@
                         this.status_add.DEX += _ad;
                         this.status_add.LUK += _ad;
                     }
-                    // ��̪ʭ��
+                    // 攻擊架式
                     if (this.IsSupportActive('IG_ATTACK_STANCE')){
                         this.attribute['PATK'] += 15;
                         this.attribute['SMATK'] += 15;
                     }
-                    // �������
+                    // 抗性聖盾
                     if (this.IsSupportActive('IG_HOLY_SHIELD')){
                         if (this.skilloption.AttackElementalIdx == 6) {
                             this.attribute['ElementalMagicPercent'] += 15;
                         }
                     }
-                    // ����
+                    // 怒暴
                     if (this.IsSupportActive('SM_MAGNUM')){
                         this.option.MagnumPoison2Value = 20;
                     } else if (this.IsSupportActive('ASC_EDP')){
-                    // ��Ը
+                    // 致毒
                         this.option.MagnumPoison2Value = 25;
                     }
                     if (this.IsSupportActive('ASC_EDP') == false && this.IsSupportActive('SM_MAGNUM') == false) {
                         this.option.MagnumPoison2Value = 0;
                     }
-                    //����̭ۡ
+                    //速度激發
                     if (this.IsSupportActive('BS_ADRENALINE')){
                         if (this.weapon.type.id.includes('Axe') || this.weapon.type.id.includes('Mace')) {
                             this.attribute['ASPDP'] += 10;
                             this.attribute['SKILLASPDP'] += 30;
                         }
                     }
-                    //Ըұ�����
+                    //毒耐性弱化
                     if (this.IsSupportActive('GC_VENOMIMPRESS')){
                         if (this.skilloption.AttackElementalIdx == 5) {
                             this.attribute['ELEDDI'] += this.GetSupportSkill('GC_VENOMIMPRESS').lv * 10;
                         }
                     }
-                    // мԸ����
+                    // 劇毒武器
                     if (this.IsSupportActive('GC_POISONINGWEAPON')){
                         this.attribute['MELDP'] += 10;
                     }
-                    // мԸ����:��ܻ
+                    // 劇毒武器:熱病
                     if (this.IsSupportActive('GC_POISONINGWEAPON:1')){
                         this.attribute['MELDP'] += 10;
                         this.attribute['CRIDP'] += 15;
                     }
-                    // мԸ����:����
+                    // 劇毒武器:狂笑
                     if (this.IsSupportActive('GC_POISONINGWEAPON:2')){
                         this.attribute['MELDP'] += 10;
                         this.attribute['GCD'] += 10;
@@ -10138,7 +10138,7 @@
                     if (this.IsSupportActive('SHC_POTENT_VENOM')){
                         this.attribute['BYPASSRES'] += 3 * this.GetSupportSkill('SHC_POTENT_VENOM').lv; ;
                     }
-                    // �������
+                    // 影刃旋舞
                     if (this.IsSupportActive('SHC_SHADOW_SENSE')){
                         if (this.weapon.type.id == 'Daggers' ) {
                             this.attribute['CRI'] += 50;
@@ -10148,50 +10148,50 @@
                         }
                     }
 
-                    // ��̪
+                    // 潛擊
                     if (this.IsSupportActive('RG_RAID')){
                         this.attribute['MELDDI'] += this.attribute['MELDDI'] > 0 ? 115 : 15;
                         this.attribute['RNGDDI'] += this.attribute['RNGDDI'] > 0 ? 115 : 15;
                     }
-                    //?��
+                    //撼動
                     if (this.IsSupportActive('MT_QUAKE')){
                         this.attribute['MELDDI'] += this.attribute['MELDDI'] > 0 ? 150 : 50;
                         this.attribute['RNGDDI'] += this.attribute['RNGDDI'] > 0 ? 150 : 50;
                     }
-                    // ����
+                    // 爪痕
                     if (this.IsSupportActive('GC_DARKCROW')) {
                         this.attribute['MELDDI'] += this.attribute['MELDDI'] > 0 ? 175 : 75;
                     }
-                    // ����?������
+                    // 爆炸孢子狀態
                     if (this.IsSupportActive('GN_SPORE')){
                         this.attribute['RNGDDI'] += this.attribute['RNGDDI'] > 0 ? 105 : 5;
                     }
 
-                    // �������ҷ?
+                    // 自動魅影念咒
                     if (this.IsSupportActive('SC_AUTOSHADOWSPELL')){
                         this.attribute['MATK'] += 50;
                     }
-                    // ӭ��&��������
+                    // 短劍&弓弩精熟
                     if (this.IsSupportActive('ABC_DAGGER_AND_BOW_M')){
                         if(this.enemyattribute.size == 0) this.attribute['SizeAtkPercent'] += 10;
                         if(this.enemyattribute.size == 1) this.attribute['SizeAtkPercent'] += 15;
                         if(this.enemyattribute.size == 2) this.attribute['SizeAtkPercent'] += 20;
                     }
-                    // ت������
+                    // 魔劍精熟
                     if (this.IsSupportActive('ABC_MAGIC_SWORD_M')){
                         this.attribute['SizeMatkPercent'] += 15;
                     }
 
-                    // ���?��
+                    // 大聲吶喊
                     if (this.IsSupportActive('MC_LOUD')){
                         this.status_add.STR += 4;
                         this.attribute['ATK'] += 30;
                     }
-                    //����������̪
+                    //無視體型攻擊
                     if (this.IsSupportActive('BS_WEAPONPERFECT')){
                         this.attribute['WeaponPerfection'] = 9999;
                     }
-                    // ��?
+                    // 兇砍
                     if (this.IsSupportActive('BS_OVERTHRUST25')){
                         this.computeattribute['SpecialATK5'] += 5 * 5;
                         this.computeattribute['SpecialATK6'] += 5 * 5;
@@ -10204,32 +10204,32 @@
                         this.computeattribute['SpecialATK5'] += 5 * 20;
                         this.computeattribute['SpecialATK6'] += 5 * 20;
                     }
-                    //��̪
+                    //衝擊
                     if (this.IsSupportActive('MT_RUSH')){
                         this.attribute['MELDP'] += 50;
                         this.attribute['RNGDP'] += 50;
                     }
-                    // ��ߣ����
+                    // 火山塵暴
                     if (this.IsSupportActive('MH_PYROCLASTIC')){
                         this.attribute['ATK'] += Number(this.GetSupportSkill('MH_PYROCLASTIC').arg1) + 10 * 20;
                     }
-                    // ����ʥ��
+                    // 手推車加速
                     if (this.IsSupportActive('GN_CARTBOOST')){
                         this.skilloption.WeaponMasteryATK+=50;
                     }
                     if (this.skill.cannon) {
                         this.computeattribute['SpecialATK2'] += this.weapon.BulletATK;
                     }
-                    // ?������
+                    // 鶚梟之眼
                     if (this.IsSupportActive('AC_OWL')){
                         this.status_add.DEX += 10;
                     }
-                    // ��������
+                    // 心神凝聚
                     if (this.IsSupportActive('AC_CONCENTRATION')){
                         this.status_add.AGI += (Math.floor((Number(this.status.AGI.toString().split('+', 1)[0])+this.status_job.AGI+(this.GetSupportSkill('AC_CONCENTRATION').arg1))*(2+this.GetSupportSkill('AC_CONCENTRATION').lv)*0.01));
                         this.status_add.DEX += (Math.floor((Number(this.status.DEX.toString().split('+', 1)[0])+this.status_job.DEX+(this.IsSupportActive('AC_OWL')?10:0)+(this.GetSupportSkill('AC_CONCENTRATION').arg2))*(2+this.GetSupportSkill('AC_CONCENTRATION').lv)*0.01));
                     }
-                    // ��߯
+                    // 狙殺
                     if (this.IsSupportActive('SN_SIGHT')){
                         this.status_add.STR += 5;
                         this.status_add.AGI += 5;
@@ -10241,18 +10241,18 @@
                         this.computeattribute['SpecialATK5'] += 10 * 2;
                         this.computeattribute['SpecialATK6'] += 10 * 2;
                     }
-                    // ������̪
+                    // 菁英狙擊
                     if (this.IsSupportActive('RA_UNLIMIT')){
                         this.attribute['RNGDP'] += this.GetSupportSkill('RA_UNLIMIT').lv * 50 + 100;
                     }
-                    // ��������
+                    // 憤怒暴風
                     if (this.IsSupportActive('WH_CALAMITYGALE')){
                         this.attribute['RNGDP'] += 350;
                         if( this.skill.id.includes('WH_CRESCIVE_BOLT') ){
                             this.option.EquipSkillAddDamage += 20;
                         }
                     }
-                    // ��??ϼ
+                    // 陷阱研究
                     if (this.IsSupportActive('RA_RESEARCHTRAP')){
                         this.status_add.INT += 10;
                         this.attribute['SP'] += 400;
@@ -10260,93 +10260,93 @@
                     if (this.skill.id.includes('SN_SHARPSHOOTING')){
                         this.attribute['CRI'] += 45;
                     }
-                    // ֣���԰
+                    // 練習舞蹈
                     if (this.IsSupportActive('BA_MUSICALLESSON')){
                         this.attribute['ATK'] += 3 * 10;
                         this.attribute['SPP'] += 10;
                         this.attribute['CRI'] += 10;
                     }
-                    // Τ��
+                    // 課程
                     if (this.IsSupportActive('WM_LESSON')){
                         this.attribute['SP'] += 300;
                     }
-                    // ������
+                    // 布萊奇
                     if (this.IsSupportActive('BA_POEMBRAGI')){
                         this.attribute['SK1VCTP'] += 2 * 10;
                         this.attribute['GCD'] += 3 * 10;
                     }
-                    // �������̪
+                    // 朝風車突擊
                     if (this.IsSupportActive('MI_RUSH_WINDMILL')){
                         this.attribute['ATK'] += 20+2*10;
                     }
-                    // ҳ������
+                    // 女神之吻
                     if (this.IsSupportActive('DC_FORTUNEKISS')){
                         this.attribute['CRI'] += 10;
                         this.attribute['CRIDP'] += 20;
                     }
-                    // �����?��
+                    // 伊登的蘋果
                     if (this.IsSupportActive('BA_APPLEIDUN')){
                         this.attribute['HPP'] += 20;
                     }
-                    // ?Ҵ��
+                    // 豐年頌
                     if (this.IsSupportActive('WM_FRIGG_SONG')){
                         this.attribute['HPP'] += 25;
                     }
-                    // ��������
+                    // 月光小夜曲
                     if (this.IsSupportActive('WA_MOONLIT_SERENADE')){
                         this.attribute['MATK'] += 20+2*10;
                     }
-                    // ������
+                    // 搖擺舞
                     if (this.IsSupportActive('WA_SWING_DANCE')){
                         this.attribute['FCTP'] = Math.max(this.attribute['FCTP'], 30);
                         this.attribute['SKILLASPDP'] += 25;
                     }
-                    // ���������
+                    // 雷拉多露水
                     if (this.IsSupportActive('WM_LERADS_DEW')){
                         this.attribute['HPP'] += 17+Math.floor(10/3);
                     }
-                    // ����?���
+                    // 無限哼唱聲
                     if (this.IsSupportActive('WM_UNLIMITED_HUMMING_VOICE')){
                         this.attribute['ElementalMagicPercent'] += 20;
                     }
-                    // �������
+                    // 與狼共舞
                     if (this.IsSupportActive('WM_DANCE_WITH_WUG')){
                         this.attribute['FCTP'] = Math.max(this.attribute['FCTP'], 70);
                         this.attribute['SKILLASPDP'] += 25;
                         this.attribute['RNGDP'] += 5;
                     }
-                    // ��������
+                    // 舞台禮儀
                     if (this.IsSupportActive('TR_STAGE_MANNER')){
                         this.attribute['PATK'] += 15;
                         this.attribute['SMATK'] += 15;
                     }
-                    // ٺ������
+                    // 暮色小夜曲
                     if (this.IsSupportActive('TR_JAWAII_SERENADE')){
                         this.attribute['SMATK'] += 15;
                     }
-                    // ��������������
+                    // 普隆德拉進行曲
                     if (this.IsSupportActive('TR_PRON_MARCH')){
                         this.attribute['PATK'] += 15;
                     }
 
-                    // ت����Ը
+                    // 魔力中毒
                     if (this.IsSupportActive('MagicAddicted')){
                         this.attribute['ELEDDI'] += 50;
                     }
-                    // ��пҷ��
+                    // 終極念力
                     if (this.IsSupportActive('WL_TELEKINESIS_INTENSE')){
                         if (this.skilloption.AttackElementalIdx == 8) {
                             this.computeattribute['SpecialMATK3'] += 200;
                             this.attribute['SK1VCTP'] += 50;
                         }
                     }
-                    // ����������֣��
+                    // 雙手杖使用熟練度
                     if (this.IsSupportActive('AG_TWOHANDSTAFF')){
                         this.attribute['SMATK'] += this.GetSupportSkill('AG_TWOHANDSTAFF').lv * 2;
                     }
-                    // ت��?��
+                    // 魔力巔峰
                     if (this.IsSupportActive('AG_CLIMAX(Lv1)')){
-                        //�������
+                        //水晶波爆
                         if (this.IsSupportActive('AG_CRYSTAL_IMPACT(Lv1)'))
                         {
                             if (this.skilloption.AttackElementalIdx == 2) {
@@ -10354,16 +10354,16 @@
                             }
                         }
                     }
-                    // ت��?��
+                    // 魔力巔峰
                     if (this.IsSupportActive('AG_CLIMAX(Lv4)')){
-                        //ؿ������
+                        //萬紫千紅
                         if (this.IsSupportActive('AG_ALL_BLOOM(Lv4)'))
                         {
                             if (this.skilloption.AttackElementalIdx == 1) {
                                 this.attribute['ELEDDI'] += 100;
                             }
                         }
-                        //?��?��
+                        //毀滅颶風
                         if (this.IsSupportActive('AG_DESTRUCTIVE_HURRICANE(Lv4)'))
                         {
                             this.attribute['MATK'] += 100;
@@ -10371,7 +10371,7 @@
                                 this.attribute['ElementalMagicPercent'] += 30;
                             }
                         }
-                        //��֮��
+                        //震裂術
                         if (this.IsSupportActive('AG_VIOLENT_QUAKE(Lv4)'))
                         {
                             if (this.skilloption.AttackElementalIdx == 4) {
@@ -10384,23 +10384,23 @@
                     }
 
 
-                    // ף���
+                    // 龍知識
                     if (this.IsSupportActive('SA_DRAGONOLOGY')){
                         this.status_add.INT += 3;
-                        //��������
+                        //缺對種族
                     }
-                    // ��?
+                    // 打強
                     if (this.IsSupportActive('SO_STRIKING')){
                         this.attribute['ATK'] += 100;
                         //this.computeattribute['SpecialATK1'] += 100;   //old
                     }
-                    // �Ը
+                    // 雲毒
                     if (this.IsSupportActive('SO_CLOUD_POSION')){
                         if (this.skilloption.AttackElementalIdx == 5) {
                             this.attribute['ELEDDI'] += 25;
                         }
                     }
-                    // ڣ��
+                    // 紋章
                     if (this.IsSupportActive('SO_FIRE_INSIGNIA')) {
                         if(this.GetSupportSkill('SO_FIRE_INSIGNIA').lv==2)
                         {
@@ -10473,7 +10473,7 @@
                             this.computeattribute['SpecialINSIGNIAENEMYMATK'] = 50;
                         }
                     }
-                    //��������
+                    //火元素領域
                     if (this.IsSupportActive('SA_VOLCANO')) {
                         if (this.IsSupportActive('SM_MAGNUM')){
                             var _lv = this.GetSupportSkill('SA_VOLCANO').lv;
@@ -10486,7 +10486,7 @@
                             this.attribute['MATK'] += _a[_lv];
                         }
                     }
-                    //�������
+                    //水元素領域
                     if (this.IsSupportActive('SA_DELUGE')) {
                         if (this.skilloption.AttackElementalIdx == 2) {
                             var _lv = this.GetSupportSkill('SA_DELUGE').lv;
@@ -10503,7 +10503,7 @@
                         this.attribute['ElementalMagicPercent'] += 5;
                     }
 
-                    // ت��������
+                    // 魔法書精熟
                     if (this.IsSupportActive('EM_MAGIC_BOOK_M') && this.weapon.type.id == 'Books'){
                         var _lv = this.GetSupportSkill('EM_MAGIC_BOOK_M').lv;
                         if (this.skilloption.AttackElementalIdx == 1) {
@@ -10522,11 +10522,11 @@
                             this.attribute['ElementalMagicPercent'] += _lv;
                         }
                     }
-                    // ?��ݷ��
+                    // 咒力賦予
                     if (this.IsSupportActive('EM_SPELL_ENCHANTING')){
                         this.attribute['SMATK'] += this.GetSupportSkill('EM_SPELL_ENCHANTING').lv*4;
                     }
-                    // ������:������ ��
+                    // 召喚元素:阿爾多雷 火
                     if (this.IsSupportActive('EM_SUMMON_ELEMENTAL_ARDOR')){
                         if (this.skill.id.includes('SO_SPELLFIST') ) {
                             this.skilloption.AttackElementalIdx = 1;
@@ -10538,7 +10538,7 @@
                             this.attribute['ElementalMagicPercent'] += 10;
                         }
                     }
-                    // ������:�������� �
+                    // 召喚元素:迪盧比奧 水
                     if (this.IsSupportActive('EM_SUMMON_ELEMENTAL_DILUVIO')){
                         if (this.skill.id.includes('SO_SPELLFIST') ) {
                             this.skilloption.AttackElementalIdx = 2;
@@ -10550,7 +10550,7 @@
                             this.attribute['ElementalMagicPercent'] += 10;
                         }
                     }
-                    // ������:�������� ��
+                    // 召喚元素:普羅賽拉 風
                     if (this.IsSupportActive('EM_SUMMON_ELEMENTAL_PROCELLA')){
                         if (this.skill.id.includes('SO_SPELLFIST') ) {
                             this.skilloption.AttackElementalIdx = 3;
@@ -10562,19 +10562,19 @@
                             this.attribute['ElementalMagicPercent'] += 10;
                         }
                     }
-                    // ������:����ذ���� �
+                    // 召喚元素:泰雷莫圖斯 地
                     if (this.IsSupportActive('EM_SUMMON_ELEMENTAL_TERREMOTUS')){
                         if (this.skilloption.AttackElementalIdx == 4){
                             this.attribute['ElementalMagicPercent'] += 10;
                         }
                     }
-                    // ������:�������� Ը
+                    // 召喚元素:普羅賽拉 毒
                     if (this.IsSupportActive('EM_SUMMON_ELEMENTAL_SERPENS')){
                         if (this.skilloption.AttackElementalIdx == 5){
                             this.attribute['ElementalMagicPercent'] += 10;
                         }
                     }
-                    // ʥ��
+                    // 加速
                     if (this.IsSupportActive('AL_INCAGI')){
                         this.status_add.AGI += 12;
                         this.attribute['SKILLASPDP'] += 10;
@@ -10584,7 +10584,7 @@
                         this.status_add.AGI += 12 + jc;
                         this.attribute['SKILLASPDP'] += 10 + jc;
                     }
-                    // ����
+                    // 天賜
                     if (this.IsSupportActive('AL_BLESSING')){
                         this.status_add.STR += 10;
                         this.status_add.INT += 10;
@@ -10605,7 +10605,7 @@
                     if (this.IsSupportActive('MO_CALLSPIRITS')){
                         this.skilloption.WeaponMasteryATK += this.GetSupportSkill('MO_CALLSPIRITS').lv * 3;
                     }
-                    // ����-��
+                    // 點穴-反
                     if (this.IsSupportActive('SR_GENTLETOUCH_CHANGE')){
                         //this.computeattribute['SpecialATK1'] += (this.status_total.STR / 2 + this.status_total.DEX / 4) * 5 / 5;
                         this.attribute['SKILLASPDP'] += this.status_total.AGI * 5 / 60;
@@ -10617,7 +10617,7 @@
                             this.option.EquipSkillAddDamage += 30;
                         }
                     }
-                    // ����-��
+                    // 點穴-活
                     if (this.IsSupportActive('SR_GENTLETOUCH_REVITALIZE')){
                         if (this.skill.id.includes('SR_TIGERCANNON') || this.skill.id.includes('SR_GATEOFHELL'))
                         {
@@ -10625,7 +10625,7 @@
                         }
                         this.attribute['HPP'] += 10;
                     }
-                    //��ף���
+                    //潛龍昇天
                     if (this.IsSupportActive('SR_RAISINGDRAGON')){
                         this.attribute['HPP'] += 10;
                         this.attribute['SPP'] += 10;
@@ -10634,7 +10634,7 @@
                     if (this.IsSupportActive('SR_FLASHCOMBO')){
                         this.attribute['ATK'] += 120;
                     }
-                    //̱����ҷ
+                    //堅毅信念
                     if (this.IsSupportActive('IQ_POWERFUL_FAITH')){
                         this.attribute['ATK'] += 30;
                         this.attribute['PATK'] += 15;
@@ -10644,16 +10644,16 @@
                         this.attribute['RNGDDI'] += this.attribute['RNGDDI'] > 0 ? 115 : 15;
                     }
 
-                    //����ѷ��
+                    //犧牲祈福
                     if (this.IsSupportActive('PR_SUFFRAGIUM')){
                         this.attribute['SK1VCTP'] += 5 + this.GetSupportSkill('PR_SUFFRAGIUM').lv * 5;
                     }
-                    //����ѷ��
+                    //神威祈福
                     if (this.IsSupportActive('PR_IMPOSITIO')){
                         this.attribute['ATK'] += Number(this.GetSupportSkill('PR_IMPOSITIO').lv) * 5;
                         this.attribute['MATK'] += Number(this.GetSupportSkill('PR_IMPOSITIO').lv) * 5;
                     }
-                    // �������
+                    // 神聖殿堂
                     if (this.IsSupportActive('HP_BASILICA')){
                         if (this.skilloption.AttackElementalIdx == 6) {
                             this.attribute['ElementalMagicPercent'] += 15;
@@ -10662,38 +10662,38 @@
                             this.attritube['ElementalAtkPercent'] += 25;
                         }
                     }
-                    //���
+                    //聖典
                     if (this.IsSupportActive('AB_SECRAMENT')){
                         this.attribute['FCTP'] = Math.max(this.attribute['FCTP'], 50);
                     }
-                    //ѷԪ��
+                    //祈禱文
                     if (this.IsSupportActive('AB_ORATIO')){
                         if (this.skilloption.AttackElementalIdx == 6) {
                             this.attribute['ELEDDI'] += (this.GetSupportSkill('AB_ORATIO').lv * 2);
                         }
                     }
-                    //��
+                    //折枝
                     if (this.IsSupportActive('AB_LAUDARAMUS')){
                         this.attribute['CRIDP'] += Number(this.GetSupportSkill('AB_LAUDARAMUS').lv) * 5;
                     }
-                    //���
+                    //贖罪
                     if (this.IsSupportActive('AB_EXPIATIO')){
                         this.attribute['BYPASSDEF'] += Number(this.GetSupportSkill('AB_EXPIATIO').lv) * 5;
                         this.attribute['BYPASSMDEF'] += Number(this.GetSupportSkill('AB_EXPIATIO').lv) * 5;
                     }
-                    //��������
+                    //全心奉獻
                     if (this.IsSupportActive('CD_RELIGIO')){
                         this.status_add.SPL += 10;
                         this.status_add.WIS += 10;
                         this.status_add.STA += 10;
                     }
-                    //������ʰ
+                    //祝福讚歌
                     if (this.IsSupportActive('CD_BENEDICTUM')){
                         this.status_add.POW += 10;
                         this.status_add.CON += 10;
                         this.status_add.CRT += 10;
                     }
-                    //��֮���
+                    //爆裂聖光
                     if (this.IsSupportActive('CD_PRESENS_ACIES')){
                         this.attribute['CRIDR'] += 10;
                     }
@@ -10703,16 +10703,16 @@
                     if (this.IsSupportActive('CD_ARGUTUS_VITA')){
                         this.attribute['BYPASSMRES'] += 25;
                     }
-                    //�������
+                    //神聖權能
                     if (this.IsSupportActive('CD_COMPETENTIA')){
                         this.attribute['PATK'] += 50;
                         this.attribute['SMATK'] += 50;
                     }
-                    //����
+                    //融合
                     if (this.IsSupportActive('SG_FUSION')){
                         this.skill.critical = true;
                     }
-                    //����
+                    //靈魂
                     if (this.IsSupportActive('SP_SOULCOLLECT')){
                         this.attribute['MATK'] += this.GetSupportSkill('SP_SOULCOLLECT').lv * 3;
                     }
@@ -10737,23 +10737,23 @@
                             this.attribute['ELEDDI'] += 100;
                         }
                     }
-                    // ������?ϼ
+                    // 引魂術研究?ϼ
                     if (this.IsSupportActive('SOA_SOUL_MASTERY')){
                         this.status_add.SPL += this.GetSupportSkill('SOA_SOUL_MASTERY').lv;
                     }
-                    // ݬ??ϼ
+                    // ݬ符咒研究ϼ
                     if (this.IsSupportActive('SOA_TALISMAN_MASTERY')){
                         this.attritube['SMATK'] += this.GetSupportSkill('SOA_TALISMAN_MASTERY').lv;
                     }
-                    // ����ݬ
+                    // 武士符
                     if (this.IsSupportActive('SOA_TALISMAN_OF_WARRIOR')){
                         this.attritube['PATK'] += this.GetSupportSkill('SOA_TALISMAN_OF_WARRIOR').lv * 2;
                     }
-                    // ����ݬ
+                    // 法師符
                     if (this.IsSupportActive('SOA_TALISMAN_OF_MAGICIAN')){
                         this.attritube['SMATK'] += this.GetSupportSkill('SOA_TALISMAN_OF_MAGICIAN').lv * 2;
                     }
-                    // ����ݬ
+                    // 五行符
                     if (this.IsSupportActive('SOA_TALISMAN_OF_FIVE_ELEMENTS')){
                         var _value = this.GetSupportSkill('SOA_TALISMAN_OF_FIVE_ELEMENTS').lv * 4
                         if (this.enemyattribute.elemental == 0 ||
@@ -10766,24 +10766,24 @@
                             this.attritube['ElementalMatkPercent'] += _value;
                         }
                     }
-                    // �������
+                    // 天地神靈
                     if (this.IsSupportActive('SOA_SOUL_OF_HEAVEN_AND_EARTH')){
                         this.attritube['RNGDP'] += this.GetSupportSkill('SOA_TALISMAN_MASTERY').lv * 2 + 5;
                         this.attritube['MELDP'] += this.GetSupportSkill('SOA_TALISMAN_MASTERY').lv * 2 + 5;
                         this.attritube['ElementalMagicPercent'] += this.GetSupportSkill('SOA_TALISMAN_MASTERY').lv * 2 + 5;
                     }
 
-                    // ��۰��������
+                    // 四方五行狀態
                     if (this.IsSupportActive('CIRCLE_OF_DIRECTIONS_AND_ELEMENTALS')){
                         this.attritube['SMATK'] += this.GetSupportSkill('CIRCLE_OF_DIRECTIONS_AND_ELEMENTALS').lv * 5;
                     }
 
-                    // ҷ
+                    // 念
                     if (this.IsSupportActive('NJ_NEN')){
                         this.status_add.STR += 5;
                         this.status_add.INT += 5;
                     }
-                    //ݬ
+                    //符
                     if (this.IsSupportActive('KO_KAHU_ENTEN')){
                         if (this.skill.id.includes('NJ_KOUENKA')) this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAHU_ENTEN').lv * 20;
                         if (this.skill.id.includes('NJ_BAKUENRYU')) this.computeattribute['SpecialMATK1'] += this.GetSupportSkill('KO_KAHU_ENTEN').lv * 100;
@@ -10804,18 +10804,18 @@
                         this.computeattribute['SpecialATK0'] += val;
                         if (this.enemyattribute.elemental == 3) { this.attribute['ElementalAtkPercent'] += 30; }
                     }
-                    //�׿�
+                    //十六夜
                     if (this.IsSupportActive('KO_IZAYOI')){
                         this.attribute['MATK'] += Math.floor(this.status.JOBLevel / 2) * 5;
                         this.attribute['SK1VCTP'] += 50;
                         this.attribute['FCTP'] = Math.max(this.attribute['FCTP'], 100);
                     }
-                    //߾����
+                    //上弦月
                     if (this.IsSupportActive('OB_ZANGETSU')){
                         this.attribute['ATK'] += Math.floor(this.status.Level / 3) + 5 * 20;
                         this.attribute['MATK'] += Math.floor(this.status.Level / 3) + 5 * 20;
                     }
-                    // �������  ��۰����ߩ����
+                    // 影子武士  八方還沒算進來
                     if (this.IsSupportActive('KG_KAGEMUSYA')){
                         if (this.skill.id.includes('KO_HUUMARANKA') ||
                             this.skill.id.includes('KO_BAKURETSU') ||
@@ -10824,15 +10824,15 @@
                             this.option.EquipSkillAddDamage += 20;
                         }
                     }
-                    //?��������
+                    //?瘋狂凱斯樂
                     if (this.IsSupportActive('GS_MADNESSCANCEL')){
                         this.attribute['ATK'] += 100;
                     }
-                    //̫������
+                    //格林狂熱
                     if (this.IsSupportActive('GS_GATLINGFEVER')){
                         this.attribute['ATK'] += 120;
                     }
-                    //�����Ӧ
+                    //白金祭壇
                     if (this.IsSupportActive('RL_P_ALTER')){
                         this.attribute['ATK'] += 150;
                     } 
@@ -10840,22 +10840,22 @@
                     if (this.IsSupportActive('NW_P_F_I')){
                         this.attritube['PATK'] += this.GetSupportSkill('NW_P_F_I').lv + 2;
                     }
-                    //״������
+                    //榴彈精通
                     if (this.IsSupportActive('NW_GRENADE_MASTERY')){
                         this.status_add.CON += this.GetSupportSkill('NW_GRENADE_MASTERY').lv;
                     }
-                    //�������
+                    //王牌出手
                     if (this.IsSupportActive('NW_HIDDEN_CARD')){
                         this.attritube['PATK'] += this.GetSupportSkill('NW_HIDDEN_CARD').lv * 3;
                         this.attritube['RNGDP'] += this.GetSupportSkill('NW_HIDDEN_CARD').lv * 10;
                     }
-                    //���?��
+                    //專注瞄準
                     if (this.IsSupportActive('NW_INTENSIVE_AIM')){
                         this.attritube['ATK'] += 150;
                         this.attritube['HIT'] += 250;
                         this.attritube['CRI'] += 30;
                     }
-                    //�������������
+                    //日月星宇宙英姿
                     if (this.IsSupportActive('SJ_SUNSTANCE')){
                         this.attribute['ATKP'] += 5;
                     }
@@ -10873,7 +10873,7 @@
                         this.status_add.DEX += 5;
                         this.status_add.LUK += 5;
                     }
-                    //����������
+                    //日星月光輝
                     if (this.IsSupportActive('SJ_LIGHTOFSUN')){
                         if (this.skill.id.includes('SJ_SOLARBURST'))
                         {
@@ -10892,33 +10892,33 @@
                             this.option.EquipSkillAddDamage += this.GetSupportSkill('SJ_LIGHTOFSTAR').lv * 5;
                         }
                     }
-                    // ܲ����֣
+                    // 兵法修練
                     if (this.IsSupportActive('SKE_WAR_BOOK_MASTERY')){
                         this.attritube['PATK'] += this.GetSupportSkill('SKE_WAR_BOOK_MASTERY').lv + 2;
                         this.attritube['HIT'] += this.GetSupportSkill('SKE_WAR_BOOK_MASTERY').lv * 3;
                     }
 
-                    //��٤����
+                    //生命力量
                     if (this.IsSupportActive('SU_POWEROFLIFE')){
                         this.attribute['CRI'] += 20;
                         this.attribute['HIT'] += 20;
                         //this.attribute['FLEE'] += 20;
                         this.attribute['RNGDP'] += 20;
                     }
-                    //�������
+                    //大地力量
                     if (this.IsSupportActive('SU_POWEROFLAND')){
                         this.attribute['MATKP'] += 20;
                     }
-                    //??/??����
+                    //喵喵/喵喵不休
                     if (this.IsSupportActive('SU_CHATTERING')){
                         this.attribute['MATK'] += 100;
                     }
-                    //����
+                    //蝦群
                     if (this.IsSupportActive('SU_BUNCHOFSHRIMP')){
                         this.attribute['ATKP'] += 10;
                         this.attribute['MATKP'] += 10;
                     }
-                    //��ˣ������
+                    //捲甲蟲暴衝
                     if (this.IsSupportActive('SU_ARCLOUSEDASH')){
                         this.status_add.AGI += 40;
                         if(this.status.classid == 'SUM')
@@ -10926,19 +10926,19 @@
                             this.attribute['RNGDP'] += 10;
                         }
                     }
-                    //��ڪ����
+                    //靈物互動
                     if (this.IsSupportActive('SH_MYSTICAL_CREATURE_MASTERY')){
                         var _value = this.GetSupportSkill('SH_MYSTICAL_CREATURE_MASTERY').lv % 2==1 ? 1 : 2;
                         this.attritube['PATK'] += _value;
                         this.attritube['SMATK'] += _value;
                     }
-                    //��ڪ����
+                    //靈物祝福
                     if (this.IsSupportActive('SH_BLESSING_OF_MYSTICAL_CREATURES')){
                             var _value = this.GetSupportSkill('SH_BLESSING_OF_MYSTICAL_CREATURES').lv * 10;
                             this.attritube['PATK'] += _value;
                             this.attritube['SMATK'] += _value;
                     }
-                    //������������
+                    //神龜海洋慶典
                     if (this.IsSupportActive('SH_MARINE_FESTIVAL_OF_KI_SUL')){
                         if ( this.IsSupportActive('CD_BENEDICTUM') == false)
                         {
@@ -10948,7 +10948,7 @@
                             this.status_add.CON += _value;
                         }
                     }
-                    //���������
+                    //神龜沙雕節
                     if (this.IsSupportActive('SH_SANDY_FESTIVAL_OF_KI_SUL')){
                         if ( this.IsSupportActive('CD_RELIGIO') == false)
                         {
@@ -10958,34 +10958,34 @@
                             this.status_add.STA += _value;
                         }
                     }
-                    //������׵
+                    //急速交流
                     if (this.IsSupportActive('SH_TEMPORARY_COMMUNION')){
                         var _value = this.GetSupportSkill('SH_TEMPORARY_COMMUNION').lv * 3;
                         this.attritube['PATK'] += _value;
                         this.attritube['SMATK'] += _value;
                     }
-                    //����п��
+                    //突破極限
                     if (this.IsSupportActive('NV_BREAKTHROUGH')){
                         this.attribute['ATK'] += 100;
                         this.attribute['HP'] += 2000;
                         this.attribute['SP'] += 200;
                     }
-                    //��������
+                    //心靈超越
                     if (this.IsSupportActive('NV_TRANSCENDENCE')){
                         this.attribute['MATK'] += 100;
                         this.attribute['HP'] += 2000;
                         this.attribute['SP'] += 200;
                     }
-                    //��������
+                    //自學策略
                     if (this.IsSupportActive('HN_SELFSTUDY_TATICS')){
                         this.attritube['PATK'] += this.GetSupportSkill('HN_SELFSTUDY_TATICS').lv; 
                     }
-                    //����ت��
+                    //自學魔法
                     if (this.IsSupportActive('HN_SELFSTUDY_SOCERY')){
                         this.attritube['SMATK'] += this.GetSupportSkill('HN_SELFSTUDY_SOCERY').lv; 
                     }
 
-                    // ��������
+                    // 奧汀神力
                     if (this.IsSupportActive('ALL_ODINS_POWER') && this.GetSupportSkill('ALL_ODINS_POWER').lv > 0) {
                         var _lv = this.GetSupportSkill('ALL_ODINS_POWER').lv;
                         this.attribute['ATK'] += _lv * 30 + 40;
@@ -11148,7 +11148,7 @@
                     this.computeattribute['SpecialATK4'] += eval(this.SkillFormulaReplace(this.skill.SpecialATK4));
                     this.computeattribute['SpecialATK5'] += eval(this.SkillFormulaReplace(this.skill.SpecialATK5));
                     this.computeattribute['SpecialATK6'] += eval(this.SkillFormulaReplace(this.skill.SpecialATK6));
-                    //����HP��ߩ�� �� ��?
+                    //改到HP技算後 因 羅剎
                     //this.computeattribute['SpecialATK7'] += eval(this.SkillFormulaReplace(this.skill.SpecialATK7));
                     this.computeattribute['SpecialATK8'] += eval(this.SkillFormulaReplace(this.skill.SpecialATK8));
                     this.computeattribute['SpecialMATK1'] += eval(this.SkillFormulaReplace(this.skill.SpecialMATK1));
@@ -11430,7 +11430,7 @@
                 },
                 onSaveStatus() {
                     // https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/
-                    // let copy = $.extend(true, {}, obj); //���� jquery.extend
+                    // let copy = $.extend(true, {}, obj); //使用 jquery.extend
                     // JSON.parse(JSON.stringify(this.))
                     if (this.StatusName.trim() == '') return;
                     this.StoreDB_Status.unshift({
@@ -11487,7 +11487,7 @@
                         const parsed = JSON.stringify(this.StoreDB_QuickCalc);
                         localStorage.setItem('StoreDB_QuickCalc', parsed);
                     } catch (e) {
-                        this.QuickCalc.solution = "��:" + e;
+                        this.QuickCalc.solution = "錯誤:" + e;
                     }
                 },
                 SetElementTableLevel(level){
@@ -11591,7 +11591,7 @@
                 },
                 onSaveSkill() {
                     // https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/
-                    // let copy = $.extend(true, {}, obj); //���� jquery.extend
+                    // let copy = $.extend(true, {}, obj); //使用 jquery.extend
                     // JSON.parse(JSON.stringify(this.))
                     if (this.skill.formula == '') { this.option.SkillFormulaError = "����?��"; return; }
                     if (this.skill.name == '') { this.option.SkillFormulaError = "����٣?��"; return; }
@@ -11607,7 +11607,7 @@
                         });
                         this.SaveSkillDB();
                     } catch (e) {
-                        this.option.SkillFormulaError = "������ " + e;
+                        this.option.SkillFormulaError = "公式錯誤 " + e;
                     }
                 },
                 GetJobMapSkillIdx(skillid){
@@ -11858,12 +11858,12 @@
                     this.$refs.fileInputImport.value = "";
                 },
                 // https://ithelp.ithome.com.tw/articles/10229587
-                // ����utf-8��ݬ�?��base64??
+                // 使用utf-8字符集进行base64编码
                 utoa(str) {
                     return window.btoa(unescape(encodeURIComponent(str)));
                 },
                 // http://levy.work/2017-03-24-black-magic-js-atob-with-utf8/
-                // ����utf-8��ݬ����base64��ݬ��
+                // 使用utf-8字符集解析base64字符串
                 atou(str) {
                     return decodeURIComponent(escape(atob(str.replace(/-/g, "+").replace(/_/g, "/").replace(/%/g, '%25'))));
                 },
@@ -11967,10 +11967,10 @@
                         { skill: { id: 'RK_HUNDREDSPEAR', name: 'Hundred Spear', level: 10, formula: "(600+SLV*200)*BLV/100+5*50", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 0, FCT: 0, VCT: "(11-SLV)/10", CD: 3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv5 Clashing Spiral', Version: 0, } },
                         { skill: { id: 'RK_SONICWAVE', name: 'Sonic Wave', level: 10, formula: "(550+SLV*200)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: true, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 0, FCT: 0, VCT: 0, CD: 1.75, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'RK_STORMBLAST', name: 'Storm Blast', level: 1, formula: "(10+DOWN(STR/5.7))*100*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Not affected by Turisus', Version: 0, } },
-                        { skill: { id: 'RK_DRAGONBREATH_i', name: 'Dragon Breath', level: 10, formula: '(DOWN(CHP/50)+DOWN(Msp/4))*SLV*BLV/100*DOWN(90+5*10)/100', class: 'RK', DamageTypeIdx: 2, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 2, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Affected by HP/MaxSP��Assume Lv5 Dragon Training', Version: 0, } },
+                        { skill: { id: 'RK_DRAGONBREATH_i', name: 'Dragon Breath', level: 10, formula: '(DOWN(CHP/50)+DOWN(Msp/4))*SLV*BLV/100*DOWN(90+5*10)/100', class: 'RK', DamageTypeIdx: 2, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 2, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Affected by HP/MaxSP Assume Lv5 Dragon Training', Version: 0, } },
                         
                         { skill: { id: 'RK_HUNDREDSPEAR(ex)_2', name: 'Hundred Spear(Dragonic Aura)', level: 10, formula: "(700+SLV*350)*BLV/100+5*50", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 0, FCT: 0, VCT: "(11-SLV)/10", CD: 3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv5 Clashing Spiral', Version: 2, } },
-                        { skill: { id: 'RK_DRAGONBREATH_2', name: 'Dragon Breath', level: 10, formula: '(DOWN(CHP/50)+DOWN(Msp/4))*SLV*BLV/100*DOWN((90+5*10+POW/5)*(1+PATK/100))/100', class: 'RK', DamageTypeIdx: 2, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 2, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Affected by HP/MaxSP��Assume Lv5 Dragon Training', Version: 2, } },
+                        { skill: { id: 'RK_DRAGONBREATH_2', name: 'Dragon Breath', level: 10, formula: '(DOWN(CHP/50)+DOWN(Msp/4))*SLV*BLV/100*DOWN((90+5*10+POW/5)*(1+PATK/100))/100', class: 'RK', DamageTypeIdx: 2, ranged: true, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0.5, VCT: 2, CD: 0, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Affected by HP/MaxSP Assume Lv5 Dragon Training', Version: 2, } },
                         { skill: { id: 'DK_STORMSLASH_2', name: 'Storm Slash', level: 5, formula: "(SLV*120+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV", elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Turisus can double damage (30% chance)', Version: 2, } },
                         { skill: { id: 'DK_HACKANDSLASHER_2', name: 'Hack and Slash', level: 10, formula: "(SLV*120+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
                         { skill: { id: 'DK_HACKANDSLASHER2HSPEAR_2', name: 'Hack and Slash(2HSpear)', level: 10, formula: "(500+SLV*250+POW*5)*BLV/100", class: 'RK', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
@@ -11997,7 +11997,7 @@
                         { skill: { id: 'WL_COMET', name: 'Comet', level: 5, formula: '(3000+SLV*600)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -10, elemental: 0, FCT: 2, VCT: 10, CD: 20, GCD: 1.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
 
                         { skill: { id: 'AG_SOUL_VC_STRIKE_1', name: 'Soul Vulcan Strike', level: 5, formula: '(SLV*180+SPL*3)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV+2", elemental: 8, FCT: 1, VCT: 1, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 1, } },
-                        { skill: { id: 'AG_MYSTERY_ILLUSION_1', name: 'Mystery Illusion', level: 5, formula: '(SLV*250+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 14, elemental: 7, FCT: 0, VCT: 0, CD: 4, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Hit count is 7/7/10/10/14��preset to 14', Version: 1, } },
+                        { skill: { id: 'AG_MYSTERY_ILLUSION_1', name: 'Mystery Illusion', level: 5, formula: '(SLV*250+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 14, elemental: 7, FCT: 0, VCT: 0, CD: 4, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Hit count is 7/7/10/10/14, preset to 14', Version: 1, } },
 
                         { skill: { id: 'AG_CRIMSON_ARROW(all)_2', name: 'Crimson Arrow(Total)', level: 5, formula: '(SLV*300+SPL*3)*BLV/100+(SLV*600+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 1, FCT: 1.5, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
                         { skill: { id: 'AG_CRIMSON_ARROW(ex)_2', name: 'Crimson Arrow(Explosion)', level: 5, formula: '(SLV*600+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -2, elemental: 1, FCT: 1.5, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
@@ -12006,9 +12006,9 @@
                         { skill: { id: 'AG_FLORAL_FLARE_ROAD_3', name: 'Floral Flare Road', level: 5, formula: '(50+SLV*740+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 5, elemental: 1, FCT: 0, VCT: 0, CD: 5, GCD: 0.25, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },         
                         { skill: { id: 'AG_CRIMSON_ARROW(all)_3', name: 'Crimson Arrow(Total)', level: 5, formula: '(SLV*350+SPL*3)*BLV/100+(SLV*700+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 1, FCT: 1.5, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
                         { skill: { id: 'AG_CRIMSON_ARROW(ex)_3', name: 'Crimson Arrow(Explosion)', level: 5, formula: '(SLV*700+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -2, elemental: 1, FCT: 1.5, VCT: 0, CD: 0.3, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
-                        { skill: { id: 'AG_ALL_BLOOM_3', name: 'All Bloom', level: 5, formula: '(200+SLV*1200+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV*2", elemental: 1, FCT: 0, VCT: 0, CD: 6, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Flower Amount = SLV*4��at random location', Version: 3, } },
-                        { skill: { id: 'AG_ALL_BLOOM(3)_3', name: 'All Bloom(Climax3)', level: 5, formula: '(200+SLV*1200+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV*2", elemental: 1, FCT: 0, VCT: 0, CD: 6, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, SpecialMATK3: 300, Note: 'Flower Amount = SLV*4��at random location', Version: 3, } },
-                        { skill: { id: 'AG_ALL_BLOOM(5)_3', name: 'All Bloom(Climax5)', level: 5, formula: '(200+SLV*1200+SPL*5+85000)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV*2", elemental: 1, FCT: 0, VCT: 0, CD: 6, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Flower Amount = SLV*4��at random location', Version: 3, } },
+                        { skill: { id: 'AG_ALL_BLOOM_3', name: 'All Bloom', level: 5, formula: '(200+SLV*1200+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV*2", elemental: 1, FCT: 0, VCT: 0, CD: 6, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Flower Amount = SLV*4, at random location', Version: 3, } },
+                        { skill: { id: 'AG_ALL_BLOOM(3)_3', name: 'All Bloom(Climax3)', level: 5, formula: '(200+SLV*1200+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV*2", elemental: 1, FCT: 0, VCT: 0, CD: 6, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, SpecialMATK3: 300, Note: 'Flower Amount = SLV*4, at random location', Version: 3, } },
+                        { skill: { id: 'AG_ALL_BLOOM(5)_3', name: 'All Bloom(Climax5)', level: 5, formula: '(200+SLV*1200+SPL*5+85000)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV*2", elemental: 1, FCT: 0, VCT: 0, CD: 6, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Flower Amount = SLV*4, at random location', Version: 3, } },
                         { skill: { id: 'AG_RAIN_OF_CRYSTAL_3', name: 'Rain of Crystal', level: 5, formula: '(180+SLV*760+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 8, elemental: 2, FCT: 0, VCT: 0, CD: 5, GCD: 0.25, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
                         { skill: { id: 'AG_FROZEN_SLASH_3', name: 'Frozen Slash', level: 5, formula: '(250+SLV*900+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 2, FCT: 0, VCT: 0, CD: 0.45, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
                         { skill: { id: 'AG_FROZEN_SLASH(ex)_3', name: 'Frozen Slash(Climax)', level: 5, formula: '(400+SLV*1250+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 2, FCT: 0, VCT: 0, CD: 0.45, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
@@ -12030,7 +12030,7 @@
                         { skill: { id: 'AG_VIOLENT_QUAKE(1)_3', name: 'Violent Quake(Climax1)', level: 5, formula: '(SLV*950+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV*8", elemental: 4, FCT: 0, VCT: 0, CD: 6, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },         
                         { skill: { id: 'AG_VIOLENT_QUAKE(3)_3', name: 'Violent Quake(Climax3)', level: 5, formula: '(SLV*950+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV*4", elemental: 4, FCT: 0, VCT: 0, CD: 6, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK3: 200, Note: '', Version: 3, } },         
                         { skill: { id: 'AG_DEADLY_PROJECTION_3', name: 'Deadly Projection', level: 5, formula: '(SLV*2800+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 9, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
-                        { skill: { id: 'AG_MYSTERY_ILLUSION_3', name: 'Mystery Illusion', level: 5, formula: '(SLV*950+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 14, elemental: 7, FCT: 0, VCT: 0, CD: 4, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Hit count is 7/7/10/10/14��preset to 14', Version: 3, } },
+                        { skill: { id: 'AG_MYSTERY_ILLUSION_3', name: 'Mystery Illusion', level: 5, formula: '(SLV*950+SPL*5)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 14, elemental: 7, FCT: 0, VCT: 0, CD: 4, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Hit count is 7/7/10/10/14,preset to 14', Version: 3, } },
                         { skill: { id: 'AG_SOUL_VC_STRIKE_3', name: 'Soul Vulcan Strike', level: 5, formula: '(SLV*250+SPL*3)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: "SLV+2", elemental: 8, FCT: 1, VCT: 1, CD: 0.7, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
                         { skill: { id: 'AG_ASTRAL_STRIKE_3', name: 'Astral Strike', level: 10, formula: '(300+SLV*1800+SPL*3)*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 6, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
                         { skill: { id: 'AG_ASTRAL_STRIKE(all)_3', name: 'Astral Strike(Total)', level: 10, formula: '(300+SLV*1800+SPL*3)*BLV/100+(650+SLV*10+SPL*3)*12*BLV/100', class: 'WL', DamageTypeIdx: 1, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 6, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3, } },
@@ -12352,8 +12352,8 @@
                     );
 
                     this.DefaultDB_SupportSkill.push(
-                        //{ skill: { id: 'TEST1', name: '������1', maxlv: 10, lv: 10, class: 'RK,RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'TEST2', Note: '', } },
-                        //{ skill: { id: 'TEST2', name: '������2', maxlv: 10, lv: 10, class: 'RK,RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'TEST1', Note: '', } },
+                        //{ skill: { id: 'TEST1', name: '測試用1', maxlv: 10, lv: 10, class: 'RK,RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'TEST2', Note: '', } },
+                        //{ skill: { id: 'TEST2', name: '測試用2', maxlv: 10, lv: 10, class: 'RK,RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'TEST1', Note: '', } },
                         { skill: { id: 'SM_SWORD', name: 'Sword Mastery', maxlv: 10, lv: 10, class: 'RK,RG,SC,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SM_TWOHAND', name: 'Two Hand Sword Mastery', maxlv: 10, lv: 10, class: 'RK', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'KN_TWOHANDQUICKEN', name: 'Two Hand Quicken', maxlv: 10, lv: 10, class: 'RK', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
@@ -12376,7 +12376,7 @@
                         { skill: { id: 'IG_ATTACK_STANCE', name: 'Attack Stance', maxlv: 5, lv: 5, class: 'RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'IG_HOLY_SHIELD', name: 'Holy Shield', maxlv: 5, lv: 5, class: 'RG', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
-                        //{ skill: { id: '', name: '������̪', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        //{ skill: { id: '', name: '天使之擊', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'AS_KATAR', name: 'Katar Mastery', maxlv: 10, lv: 10, class: 'GX', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'ASC_EDP', name: 'Enchant Deadly Poison', maxlv: 5, lv: 5, class: 'GX', changelv: false, argnum: 0, arg1: 25, arg1desc: '', arg2: 300, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'GC_VENOMIMPRESS', name: 'Venom Impression', maxlv: 5, lv: 5, class: 'GX', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
@@ -12447,8 +12447,8 @@
                         { skill: { id: 'AG_TWOHANDSTAFF', name: 'Twohanded Staff Mastery', maxlv: 10, lv: 10, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'AG_CLIMAX(Lv1)', name: 'Climax Lv1', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'AG_CLIMAX(Lv2),AG_CLIMAX(Lv3),AG_CLIMAX(Lv4)', Note: '', } },
                         { skill: { id: 'AG_CRYSTAL_IMPACT(Lv1)', name: 'Crystal Impact Lv1', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
-                        //{ skill: { id: 'AG_CLIMAX(Lv2)', name: 'ت��?��Lv2', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'AG_CLIMAX(Lv1),AG_CLIMAX(Lv3),AG_CLIMAX(Lv4)', Note: '', } },
-                        //{ skill: { id: 'AG_CLIMAX(Lv3)', name: 'ت��?��Lv3', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'AG_CLIMAX(Lv1),AG_CLIMAX(Lv2),AG_CLIMAX(Lv4)', Note: '', } },
+                        //{ skill: { id: 'AG_CLIMAX(Lv2)', name: '魔力巔峰Lv2', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'AG_CLIMAX(Lv1),AG_CLIMAX(Lv3),AG_CLIMAX(Lv4)', Note: '', } },
+                        //{ skill: { id: 'AG_CLIMAX(Lv3)', name: '魔力巔峰Lv3', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'AG_CLIMAX(Lv1),AG_CLIMAX(Lv2),AG_CLIMAX(Lv4)', Note: '', } },
                         { skill: { id: 'AG_CLIMAX(Lv4)', name: 'Climax Lv4', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'AG_CLIMAX(Lv1),AG_CLIMAX(Lv2),AG_CLIMAX(Lv3),', Note: '', } },
                         { skill: { id: 'AG_ALL_BLOOM(Lv4)', name: 'All Bloom Lv4', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'AG_VIOLENT_QUAKE(Lv4)', name: 'Violent Quake Lv4', maxlv: 1, lv: 1, class: 'WL', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
@@ -12630,7 +12630,7 @@
                         { id:14886, name:'Ultimate Cook', active:false, group:'StatusG', STR:10, AGI:10, VIT:10, INT:10, DEX:10, LUK:10, ATK:30, MATK:30},
                         { id:12883, name:'Almighty', active:false, group:'StatusG', STR:10, AGI:10, VIT:10, INT:10, DEX:10, LUK:10, ATK:30, MATK:30},
                         { id:12646, name:'Pretzel', active:false, group:'StatusG', LUK:9, ATKUP:50, MATKUP:50},
-                        //{ id:100098, name:'����̭ۡ�', active:false, group:'StatusG', STR:20, AGI:20, VIT:20, INT:20, DEX:20, LUK:20},
+                        //{ id:100098, name:'活力激發劑', active:false, group:'StatusG', STR:20, AGI:20, VIT:20, INT:20, DEX:20, LUK:20},
                         { id:102803, name:'Force Booster', active:false, group:'StatusG', POW:5, STA:5, WIS:5, SPL:5, CON:5, CRT:5, PATK:10, SMATK:10},
 
                         { id:12429, name:'20 STR Food', active:false, group:'Status20G', STR:20},
@@ -12651,25 +12651,25 @@
                         { id:12404, name:'Energizing Potion ', active:false, group:'sp', AtkPercent:2, MatkPercent:2},
                         //{ id:12418, name:'Full SwingK', active:false, group:'sp', ATK:50},
                         //{ id:12419, name:'Mana +', active:false, group:'sp', MATK:50},
-                        //{ id:12796, name:'����������', active:false, group:'sp', ATK:30, MATK:30, VariableCastPercent:5, HPPercent:-10, SPPercent:-10},
+                        //{ id:12796, name:'紅色狂暴藥水', active:false, group:'sp', ATK:30, MATK:30, VariableCastPercent:5, HPPercent:-10, SPPercent:-10},
                         { id:14766, name:'Limit Power Booster', active:false, group:'sp', ATK:30, MATK:30, AtkPercent:1, MatkPercent:1, FixedCastPercent:30},
                         { id:22511, name:'Fenrir\'s Power Scroll ', active:false, group:'sp', MATK:25, FixedCastPercent:50},
                         { id:23475, name:'Infinity Drink', active:false, group:'sp', HPPercent:5, SPPercent:5, RangedDamagePercent:5, CriDamagePercent:5, ElementalMagicPercent:5},
                         { id:14536, name:'Abrasive', active:false, group:'sp', Cri:30},
-                        //{ id:100293, name:'��-D-01����', active:false, group:'sp', GCDPercent:30},
+                        //{ id:100293, name:'齊爾-D-01卷軸', active:false, group:'sp', GCDPercent:30},
 
                         { id:12791, name:'Combat Pill', active:false, group:'Radio1', LevelAtkPercent:5, MatkPercent:5, HPPercent:-3, SPPercent:-3},
                         { id:12792, name:'Advance Combat Pill', active:false, group:'Radio1', LevelAtkPercent:10, MatkPercent:10, HPPercent:-5, SPPercent:-5},
 
-                        //{ id:14586, name:'ԯԯ��', active:false, group:'Radio2', ATK:20},
-                        //{ id:12596, name:'ت������', active:false, group:'Radio2', MATK:30, FixedCastPercent:70},
+                        //{ id:14586, name:'跳跳糖', active:false, group:'Radio2', ATK:20},
+                        //{ id:12596, name:'魔法糖果', active:false, group:'Radio2', MATK:30, FixedCastPercent:70},
 
                         { id:12424, name:'HP Increase Potion (Large)', active:false, group:'HPSP', HP:'2500+DOWN(BLV*10/3)'},
                         { id:12427, name:'SP Increase Potion (Large)', active:false, group:'HPSP', SPPercent:'5+DOWN(BLV/10)'},
-                        //{ id:12274, name:'�ӡ', active:false, group:'HPSP', HPPercent:5},
+                        //{ id:12274, name:'仙丹', active:false, group:'HPSP', HPPercent:5},
                         { id:12436, name:'Vitata500', active:false, group:'HPSP', SPPercent:5},
                         { id:14600, name:'Mental Potion', active:false, group:'HPSP', SPPercent:10},
-                        //{ id:14602, name:'������?����', active:false, group:'HPSP', HPPercent:100},
+                        //{ id:14602, name:'塔奧群卡卷軸', active:false, group:'HPSP', HPPercent:100},
 
                         { id:11592, name:'Trans Candy Red', active:false, group:'TransScroll', HPPercent:20},
                         { id:11593, name:'Trans Candy Blue', active:false, group:'TransScroll', SPPercent:20},
@@ -12677,12 +12677,12 @@
 
                         { id:12659, name:'Transformation Scroll (Raydric Archer)', active:false, group:'TransScroll', RangedDamagePercent:25},
                         { id:12660, name:'Transformation Scroll (Mavka)', active:false, group:'TransScroll', RangedDamagePercent:25},
-                        //{ id:22752, name:'ܨ������(������)', active:false, group:'TransScroll', RangedDamagePercent:30},
-                        //{ id:22753, name:'ܨ������(̳������)', active:false, group:'TransScroll', RangedDamagePercent:30},
+                        //{ id:22752, name:'變身卷軸(蓋俄斯提)', active:false, group:'TransScroll', RangedDamagePercent:30},
+                        //{ id:22753, name:'變身卷軸(犬妖弓箭手)', active:false, group:'TransScroll', RangedDamagePercent:30},
                         { id:12661, name:'Transformation Scroll (Marduk)', active:false, group:'TransScroll', MATK:25},
                         { id:12662, name:'Transformation Scroll (Banshee)', active:false, group:'TransScroll', MATK:25},
-                        //{ id:22754, name:'ܨ������(��������)', active:false, group:'TransScroll', MATK:50},
-                        //{ id:22755, name:'ܨ������(��ت����)', active:false, group:'TransScroll', MATK:50},
+                        //{ id:22754, name:'變身卷軸(行妖術者)', active:false, group:'TransScroll', MATK:50},
+                        //{ id:22755, name:'變身卷軸(風魔巫師)', active:false, group:'TransScroll', MATK:50},
 
                         { id:645, name:'Concentration Potion', active:false, group:'ASPDPot', ASPDP:10},
                         { id:656, name:'Awakening Potion', active:false, group:'ASPDPot', ASPDP:15},
@@ -12785,138 +12785,138 @@
                         { id: '2023-06-28', content: 'Adjusted ATK calculation for iRO size penalty on extra ATK' },
                         { id: '2023-06-27', content: 'Translated Most of the page, Adde Tokens for Equip Values' },
                         { id: '2023-03-28', content: 'Offhand now increase PATK SMATK by (refine*2)' },
-                        { id: '2022-10-04', content: '������߿ͪߩ �������������� ����?>Matk% >���� >�������� >���� >���� >ͭ�� >������ >SMATK' },
-                        { id: '2022-07-27', content: '��ʥ�������� ������̪<br>����ʥ������̪Լ��/����' },
-                        { id: '2022-07-12', content: '��ʥ�������� ��ݨ?��(����)<br>ڣ��(��۰)����������Դ����߿�������������<br>ڣ��(�۰)���ʦ���������' },
-                        { id: '2022-06-28', content: '��������л��(����/ʦ��μ)<br>��ʥ�������� ������' },
-                        { id: '2022-06-24', content: '��ʥ ����ף��, ���� Lv250��HPSP' },
-                        { id: '2022-06-22', content: '�����������1��ͪߩATK��1�����(ڪ��ҷ��)' },
-                        { id: '2022-06-09', content: '��ʥ�������� C.Rate' },
-                        { id: '2022-05-24', content: '��ʥ�������� ����֧̪' },
-                        { id: '2022-05-18', content: '������������������������(������)<br>����������� ����������������' },
-                        { id: '2022-04-24', content: '����ף��������<br>��ʥ�������� ����̪,??���,��������,����,������̪,������<br>��ʥ���������� ��������,��ף����,��̪(����),?��(����)<br>��������߿����(��?������ݻ)' },
-                        { id: '2022-04-10', content: 'ף��Ѩ��߿��ͪߩ����POW?PATK<br>����������� ʥ��?���������������85%<br>������������ �������ȡ�׵����ժ��̪��' },
-                        { id: '2022-04-06', content: '��ʥ���������� ��֮���,�������Lv1,�����������<br>��ʥ�������� ������̪,��������,�������,�������,�������,Ը�����,��٤����(�������),ʥ������̪(��������),ۯ����̪(��������)<br>����ت�������� �������������' },
-                        { id: '2022-04-02', content: '���������������� ۯ����̪,ʥ������̪,���է��,�������,����ޫ��,������,ʥ����' },
-                        { id: '2022-04-01', content: '��������201�߾�������������<br>����������������Ѻ������BUG' },
-                        { id: '2022-03-30', content: '��ʥ����������<br>��ʥ�������� ?��ت��,�������,��̿�����̪' },
-                        { id: '2022-03-28', content: '��ʥ����������' },
-                        { id: '2022-03-26', content: '����μ����SPL��<br>��������������+������ͪߩ���(NaN)<br>����������Φ200�������������������ʥ<br>������֣ATK������' },
-                        { id: '2022-03-22', content: '���������� 200���߾����?<br>����JOBػ��ʥ��������?JOB50���������(����������)<br>��ʥ������������<br>��ʥGrade����<br>����������ʥ�����ǡ�PATK��SMATK<br>����������ʥPATK��SMATK<br>����٣������?߲�/���' },
-                        { id: '2022-02-10', content: '����ܨ������% ?ݶ������ͪߩ��' },
-                        { id: '2022-01-20', content: '������������ ���������� ߿����-2��?2<br>������������ ��ݨ?��߿����1��?-6' },
-                        { id: '2021-12-03', content: '����߾���������ף������ͪߩ��BUG' },
-                        { id: '2021-11-28', content: '����ت����̪��ͭ��%����������<br>��ʥ������� ����ʥ��/ ����?������<br>������������?����ұ��<br>��ʥ��߿ұ��<br>����������ʥ ����ұ������߿ұ��' },
-                        { id: '2021-11-25', content: '��ʥ�������� ���?��<br>��ʥ������� �ۯ/����ت����+�ۯ<br>������������ ����ܨ��������������?������ټ��֧���ۯ(��ͪ�������)' },
-                        { id: '2021-11-19', content: '��ʥ����/μ����������?<br>������������ ���է����Լ������' },
-                        { id: '2021-11-18', content: '������߿�������<br>���������̪?�� ܨ��??��ATK' },
-                        { id: '2021-11-17', content: '��������ޫ�ӡ���٤������֧̪��������' },
-                        { id: '2021-11-16', content: '�������������(�������) �����ث������� ����' },
-                        { id: '2021-11-15', content: '�������������(��ݻ��ڱ������������������)<br>��߿�ͪߩ����˽?���� ' },
-                        { id: '2021-10-23', content: '��ʥ�������� ����ף����<br>��ʥ������������<br>��ʥ����μ���� �������� CRW' },
-                        { id: '2021-09-22', content: '��ʥ�������� ?�����' },
-                        { id: '2021-09-08', content: '��ʥ������� ��̪<br>��ʥ�������� ������̪<br>��ʥ����μ���� SRL������֡?<br>��ʥ������֡����ձ��' },
-                        { id: '2021-09-06', content: '��������������� ����������̪������������BUG' },
-                        { id: '2021-08-17', content: '����ݻ���������� ܨ������̾?����<br>����ͪߩѦܫͣ���� by wildsky' },
-                        { id: '2021-08-09', content: '��ʥ�������� ��������' },
-                        { id: '2021-08-06', content: '��ʥ�������� �������' },
-                        { id: '2021-07-27', content: '����������� �������ALL+5' },
-                        { id: '2021-07-26', content: '��ʥ������� �������������/����������<br>����������� ����������?�������������ʥ����' },
-                        { id: '2021-07-18', content: '��ʥ�������� ت���ڭ' },
-                        { id: '2021-07-09', content: '��������μ���� SHW���������������������' },
-                        { id: '2021-07-07', content: '������������ ������̪�������̪��45%<br>������������ ��Ѩߤ������Լ������<br>����������ʥ������߿' },
-                        { id: '2021-06-28', content: '����������� ��1(������̪��)/��?/��Ѩ�� ���ʦ�?������߿' },
-                        { id: '2021-06-17', content: '��ʥ�������� ����<br>������������ ܨ������(��)������' },
-                        { id: '2021-06-15', content: '����������̪ʥ������������BUG<br>�������������ʦ�������Ѧ����̪��' },
-                        { id: '2021-06-10', content: '��ʥ�������� �?��԰<br>��ʥ������� ݣ������/?��������/̫������/�����Ӧ<br>����׾��������ʦ���������ATK' },
-                        { id: '2021-06-02', content: '��ʥ������۰ յӹ(����)' },
-                        { id: '2021-05-26', content: '��������/��۰/�������ϡ��������<br>��������������ʦ�������μ����������?��' },
-                        { id: '2021-05-25', content: 'ʥ?������л����ܩ����?����<br>����мԸ����:���� ������' },
-                        { id: '2021-05-24', content: '��������ϡ�' },
-                        { id: '2021-05-23', content: '��ʥ�������� ׵����ժ<br>��ʥ������� ?��(����)' },
-                        { id: '2021-05-20', content: '������ͭ������֣������Ө����׾����BUG' },
-                        { id: '2021-05-14', content: '��ʥ������л��<br>������������������������<br>��̪�����߿����������ʥ���������' },
-                        { id: '2021-04-25', content: '��ʥ������� мԸ����:��ܻ/мԸ����:����<br>����?Ӥ��ʥ����߾��������?' },
-                        { id: '2021-04-19', content: '������������ ����Լ������' },
-                        { id: '2021-04-17', content: '��ʥ����� ��/�������������<br>��ʥ�������� ?߫����?����<br>��ʥ��۰���� VIT<br>���ݻ������BLV 186���HPSP<br>������������ ����Լ��<br>����������۰ ������تڪ��ߩMDEF<br>����HP��ʥ��(��)������ʥ����' },
-                        { id: '2021-03-30', content: '��ʥ�������� ����ڪ/��������<br>������������ ����ʥ��������<br>������������ ��������' },
-                        { id: '2021-03-24', content: '������������ ������������?3/30������' },
-                        { id: '2021-03-21', content: '��ʥ�������� ?��ݨ<br>������٤������������' },
-                        { id: '2021-03-17', content: '��ʥͪߩ߿����г' },
-                        { id: '2021-03-15', content: '��ʥ�������� ��٤����<br>������̪��������׾��ܨ��(����ޫ��/��٤����)<br>����������������<br>����ʥ����������?��������������<br>����߲����̪��������?0.5s<br>���������� ������׾��������������?' },
-                        { id: '2021-02-28', content: '��ʥ�������� ����(��������)<br>������������ ��������(������)' },
-                        { id: '2021-02-27', content: '��ʥ������� �����?�� ?Ҵ��<br>������������ ����?��������' },
-                        { id: '2021-02-26', content: '����������� ����߿����μ ��Ѩ��/��1/��������/��?' },
-                        { id: '2021-02-24', content: '��ʥ������� ��ˣ������ ����<br>��ʥ�������׾ ܨ������' },
-                        { id: '2021-02-22', content: '��ʥ������� ڣ�� ������' },
-                        { id: '2021-02-21', content: '���������186�߾�����������<br>����֣���԰ ��ʥMSP' },
-                        { id: '2021-02-20', content: '���������������������߿�����' },
-                        { id: '2021-02-19', content: '�����������ʭϰ����<br>���������٣&?������?����?Ӥ / ������� / ��������?��<br>����������ʦ��������&���������<br>����������������߿��/����Ѻ��������߿��<br>����?Ӥ��ʥ�����?,?٣?���٣.roc<br>��ʥ������������<br>��֣ATK���ʦ������������' },
-                        { id: '2021-02-17', content: '��ʥ������ͪ��������186~200 HPSP���� (200������������)<br>���������������������������������JOB����?70<br>�������������� ��̪������%?10+�����JOB/10<br>������۰�������� ������تڪ����ߩڪ��?50<br>��ʥ��۰�������� �����ͯ������ ??��������������' },
-                        { id: '2021-02-05', content: '����?��ݻ����׾���Ѧ� ����?��(��߾��) ����?��(����) ����?��(���)<br>����CRI��Φ100�� DPSͪߩ�������<br>����?��ձ������������������<br>��ʥ�������� ܨ��s (?ͳ����ܨ�����)<br>����JOBػ��ʥ�����������?�?J70' },
-                        { id: '2021-01-29', content: '��ʥJOB������Ө������� ��?��������JOB���?�JLV?��70 ����ܨ��?job70���?<br>����ϡ� ?��ձ��<br>����ݻ�������� ����JOBػ���������������' },
-                        { id: '2021-01-25', content: '������������ ֧���̪��ͪߩ۰�� ?�1~4������߿��<br>��ʥ������������ ���SpecialATKFront(��ATK)' },
-                        { id: '2021-01-18', content: '��������߿����������ӫ���������<br>��ʥ��۰�������� ������تڪ (�)(��)(��)' },
-                        { id: '2021-01-06', content: '��ʥ���������������� ����߱?:��������(��1)/����?��:��?�(��5)/�������:������ۡ(��10)<br>��ʥף��Ѩ����������������<br>��ʥ�������� ������̪' },
-                        { id: '2021-01-05', content: '��ʥ�������� ����ޫ��/��٤��֮/��������/������̪��<br>����ޫ��/��������/ʥ���� ��ͳ��ܨ��Լ�������������������������������<br>����ͪߩϡ��������<br>DPSͪߩ���ASPD��?0��' },
-                        { id: '2020-12-29', content: '������������ ��������̪�����' },
-                        { id: '2020-12-07', content: '��ʥ��۰�������� ��٣����' },
-                        { id: '2020-11-15', content: '�������� ף��Ѩ��߿��������ʥ������ت����Ը?������߿��<br>��ʥ����Ѧ������ ��ݨ?��' },
-                        { id: '2020-11-11', content: '��������������� ������ݻ������ߢ���������?������ء?������BUG' },
-                        { id: '2020-11-06', content: '��ʥ������������ ҳ������/��??ϼ<br>������������ ت������׾�������??����?������' },
-                        { id: '2020-11-04', content: '"����"����������ʥ������������<br>��ʥ������������ мԸ����<br>������̪߿��ݩ������۰��<br>��������ݻ����֣?������ͪߩѦ��������BUG' },
-                        { id: '2020-10-29', content: '������������ ���������BLV����?100' },
-                        { id: '2020-10-28', content: '��ʥ����������������� ��������<br>���������������� ?������/?�������/�����<br>��ʥ���������� ��������<br>�������������������ܨ?����<br>��������ATK������������Ѧ��/�����������<br>������������ڪ��������?��۰�ң�����������?������ӣ�����ͪߩ���������߿��<br>������������ ��?����������' },
-                        { id: '2020-10-16', content: '����ѷԪ��ڪ����߿ͪߩ۰��(��߿���������)<br>��ʥ������������ ������ڣ��(����/�)' },
-                        { id: '2020-09-25', content: '���������������� ���� ������������?����������ʥ�����' },
-                        { id: '2020-09-20', content: '������������ ܡ����/���?��/��?�� ��������' },
-                        { id: '2020-09-18', content: '��ʥ�������� ������/?������<br>������������ ܡ����/���?��/��?��/��������/?������<br>��ʥ������������ ت����Ը' },
-                        { id: '2020-08-23', content: '��ʥ�������� ����' },
-                        { id: '2020-08-19', content: '��ʥ������������ ������/��Ѩߤ��/��Ѩߤ��(����)/��������/��������(BOSS)/��?����̪<br>��ʥ������������ ���� ����-��/����-��/��??���<br>��ʥ������������ ����&���� �������̪/��������/������/���������/����?���/�������<br>������������ ������������������<br>��ʥ��������HPSPձ<br>��ʥ������������<br>��ʥ����μ����WTI ����׾��' },
-                        { id: '2020-08-17', content: '��ʥ������������ ѷԪ��' },
-                        { id: '2020-08-13', content: '���������������� ����������̪/�����������������������������ͪߩ�����' },
-                        { id: '2020-08-11', content: '������������?JOB���������μ���������ͪߩ�?�����' },
-                        { id: '2020-08-03', content: '��������۰������?������Ӥ<br><span style="margin-left:2em">��������������������<br><span style="margin-left:2em">�������������ʥ��������Ӥ' },
-                        { id: '2020-08-01', content: '�������DB������������<br>��ʥ�������DB���&��������' },
-                        { id: '2020-07-28', content: '��ʥ������������ ?������/��������' },
-                        { id: '2020-07-20', content: '���������������� ����ѷ����������<br>����HPSP��������ʥ����BLV����' },
-                        { id: '2020-07-17', content: '������?�׾Matk%����������' },
-                        { id: '2020-07-16', content: '��ʥ����JOBػ��ʥ����������μ(������)<br>���������?����������ͪߩ����<br>����JOBʥ������������ͪߩ����' },
-                        { id: '2020-07-14', content: '��ʥ�������� ��������<br>��ʥ������������ ��пҷ��<br>��������������μ����' },
-                        { id: '2020-07-10', content: '������������������??��/μ��<br>������������ ������������Լ��?3������?0��<br>���������������� ����-������MHP-20%����' },
-                        { id: '2020-07-08', content: '��ʥ�����ϡ�(���������������̸��������٥)<br>��ʥ��۰�������� �������(����)/�����?<br>��ʥ�������٣Ӥ<br>' },
-                        { id: '2020-06-29', content: '��������������̪/���������������������������BUG<br>' },
-                        { id: '2020-06-23', content: '��ʥ�������� ������߿��/����������̪/����������<br>��ʥ�����?٣������<br>������������?�������<br>�������������� ت��?����' },
-                        { id: '2020-06-17', content: '����������������������!<br>������������?���������(��������������)<br>����ݻ����������' },
-                        { id: '2020-06-16', content: '�������� ����ʥ���ߡ�����ޫ����ʥ��ͪߩ��߿<br>����������ʥڪ��/ت������تڪڪ��߿<br>��������������ʥ ��٤����/��������<br>���������������??�������ң�������������������?ϡ' },
-                        { id: '2020-06-15', content: '������?����ة߾�������ᣬʦ��������������?����<br>���������Ѣ<�������>��ʦ��������߿���������<br>���������������������ͪߩ�������������' },
-                        { id: '2020-06-11', content: '��ʥ��������������׾ ����������<br>��յ����??��<br>��ʥ�������' },
-                        { id: '2020-06-08', content: '�����������������׿�ٻ������������ڰ������<br>�����ݬ����ͪߩ����<br>��������������٢��������� ���������������������<br>��ʥ��������������̪Լء����' },
-                        { id: '2020-06-04', content: '������������ ��٢���������<br>�����ݬ����?10%<br>��ʥ��۰�������� �����������Ӥ/����<br>��ʥ���֧̿��?' },
-                        { id: '2020-06-01', content: '��ʥ��������?Ӥ��������(��?)<br>��ʥμ������<br>��ʥ����?�ձ' },
-                        { id: '2020-05-20', content: '��ʥ��������?Ӥ ����ף/?����/?��ժ/����<br>������������185��׾�𶣬��?��������<br>��ʥ������������ �������<br>������������������ݬ ��ʥ��л����۰ڪ����߿<br>������������������ݬ/�����������߿�������?����<br><span style="margin-left:2em"><I>��������������(185������?)����������������������������</I>' },
-                        { id: '2020-05-19', content: '������ͪߩ����200��<br>��ʥ��۰���������������' },
-                        { id: '2020-05-16', content: '��������������������<br>��������������تޫ?��ޫ��(185)��٢�����(185)����������' },
-                        { id: '2020-05-08', content: '߿��ͪߩ��ʥ������<br>����������������ޫ��/��٢�����(185)������' },
-                        { id: '2020-05-07', content: '��ʥ����?Ӥ ʥ����/������/����ޫ��<br>����?Ӥ��ʥ/����ݻ����������185��������<br>����?Ӥ��ʥ����ձ��<br>����&����ձ�����ڡ���ʥDEX+INT/2ͪߩ<br>������̪������??7.14(DPSͪߩ��)' },
-                        { id: '2020-05-04', content: '��ʥ����/���������������������<br>����������������ت��?�������������������ATK����' },
-                        { id: '2020-04-29', content: '��ʥ߲�����HP/SPͪߩ<br>����������ʥHP��HP%��SP��SP%<br>��������ϡ��/����?Ӥ����<br>��ʥ����?Ӥ ����ޫ��/��٢�����(�����߿)<br>�������������' },
-                        { id: '2020-04-07', content: '������ҷ������۰��߿��ͪߩ<br>����������߿������<br>��ʥ����?Ӥ ����?/��������/����?/����?' },
-                        { id: '2020-04-01', content: '������ͪߩ��ʥ�����?(ڱ����52��)<br>��������ܨ��ͳ������Φ߾�����������<br>��ʥ��۰����<br>��������ϡ������' },
-                        { id: '2020-03-24', content: '������������߿��ݻ���������������<br>��������ʥ�����������?��߿<br>����߲����̪��̪�����?-3' },
-                        { id: '2020-03-18', content: '�������Matk����ͪߩ��BUG' },
-                        { id: '2020-03-15', content: '������?�������������������?��������BUG<br/>��ʥ����ͪߩ�?Ү��Atk/Matk�����������?��۰����?����?����<br/>��ʥ����?����������ͪߩ(����/����/��DPS)<br/>��ʥ����?Ӥ �����/?������/?�������<br/>��������?Ӥ����' },
-                        { id: '2020-03-14', content: '��ʥͪߩʦ��/���������<br/>��ʥݻ��UI�������<br/>��ʥ����?Ӥ ��تޫ?��ޫ��/��٢�����' },
-                        { id: '2020-03-10', content: '��ʥ�������<br/>��������ձ�����ǡ���ʥ�����������' },
-                        { id: '2020-03-08', content: '����߿��ͪߩ����۰��<br/>����ձ����ʥ߿��׾�� (ڪ��/ت��/ף��)<br/>��ʥ����?Ӥ ף��Ѩ��/��ʰ/ت����/����������/�?��̪/??������/?������<br/>��ʥ������������ ?�������' },
-                        { id: '2020-03-03', content: '��������/����?Ӥ����<br/>��ʥ����?Ӥ��������<br/>��ʥ����ձ��HPSP<br/>��ʥ��۰ձ��Level<br/>��ʥ����μ���� HP/SP/ELV<br/>��ʥ����֪��' },
-                        { id: '2020-03-01', content: '��ʥ������������ ���&�� ������׾<br/>��ʥ����&����ͪߩ<br/>��ʥ����&DPSͪߩ<br/>��ʥ����ձASPD����������ܨ������<br/>��������?Ӥ����' },
-                        { id: '2020-02-10', content: '������������������߿������۰�� �������������ʥ<br/>����������ʥ������߿%<br/>��ʥ������������ ������׾ ����<br/>��ʥ������������ ������׾ �������(����߿)' },
-                        { id: '2020-01-04', content: '������߿������߿?��������������<br/>������?��?��������μ��<br/>???ʥ������������ ������׾ ������/����������/��Ѩ<br/>��ʥ������������ ����/����/ִ����׾' },
-                        { id: '2019-12-23', content: '��������?������/ت��������ͪߩ(����)۰��<br/>��������ݩ��߿��?����������<br/>����ATK������߿/��߿������<br/>��ʥڪ��������ӫͪߩ<br/>����������ӫ/��߿������UIձ��' },
-                        { id: '2019-12-21', content: '��������������BLV���?100<br/>��۰��Ү����������' },
-                        { id: '2019-12-19', content: '��������������Φ100%߾�������<br/>����������ʥʥ������������������<br/>����?Ӥ��������۰��<br/>����������ʥ STR AGI VIT INT DEX LUK ������<br/>��ʥ����μ���� WLV<br/>����ATK����ʭϰ' },
-                        { id: '2019-12-18', content: '�������ATK����������ʥ��<br/>����ͭ��MATK%������<br/>��ʥ������������<br/>��ʥ������������ ��?/���?��/��ߣ����<br/>��ʥ������׾ ����/����/��?<br/>��ʥ�������� ��������/��������<br/>��ʥ����μ���� JLV/WGT/SHW' },
+                        { id: '2022-10-04', content: '調整法傷計算 體型的公式位置 目前為>Matk% >體型 >對屬性怪 >屬性 >種族 >階級 >特定怪 >SMATK' },
+                        { id: '2022-07-27', content: '增加預設技能 狂暴射擊<br>更新加農砲攻擊獨延/暴率' },
+                        { id: '2022-07-12', content: '增加預設技能 戰斧颶風(踏滅)<br>紋章(敵方)現在所有技能都會增傷，使用時須注意<br>紋章(我方)現在可以選擇等級' },
+                        { id: '2022-06-28', content: '新屬性相剋表(預設/可開關)<br>增加預設技能 火焰彈' },
+                        { id: '2022-06-24', content: '增加 盧恩龍爵, 聖裁者 Lv250的HPSP' },
+                        { id: '2022-06-22', content: '修改倍率小於1時計算ATK誤差1的問題(物理念屬)' },
+                        { id: '2022-06-09', content: '增加裝備效果 C.Rate' },
+                        { id: '2022-05-24', content: '增加預設技能 靈魂連擊' },
+                        { id: '2022-05-18', content: '修正虎砲額外技能倍率公式(不顯示)<br>調整輔助技能 舞台禮儀顯示等級' },
+                        { id: '2022-04-24', content: '修正龍火倍率錯誤<br>增加預設技能 節奏射擊,玫瑰箭矢,金屬狂怒,殘響,風暴斬擊,橫揮斬<br>增加四轉輔助技能 憤怒風暴,天龍光環,衝擊(狀態),撼動(狀態)<br>移除一半暴傷選項(現為預設全部)' },
+                        { id: '2022-04-10', content: '龍之氣息傷害計算帶入POW跟PATK<br>修改輔助技能 加油為不看隊友數量最高85%<br>調整預設技能 太陽爆炸、流星殞落攻擊次數' },
+                        { id: '2022-04-06', content: '增加四轉輔助技能 爆裂聖光,精靈控制Lv1,高等元素精靈<br>增加預設技能 漸進射擊,灼熱岩漿,鑽石風暴,雷霆陣地,大地驅動,毒液沼澤,致命威脅(深淵匕首),加農砲攻擊(末日審判),放逐攻擊(末日審判)<br>修改魔力拳公式 支援高等元素精靈' },
+                        { id: '2022-04-02', content: '修改預設技能倍率 放逐攻擊,加農砲攻擊,支配烙印,創世之光,噴射飛拳,火神砲,加農砲' },
+                        { id: '2022-04-01', content: '修正等級201以上基本素質點數錯誤<br>修正讀取擴充職業紀錄失敗BUG' },
+                        { id: '2022-03-30', content: '增加四轉輔助技能<br>增加預設技能 豔紅魔矢,深淵墳場,終結深淵攻擊' },
+                        { id: '2022-03-28', content: '增加四轉輔助技能' },
+                        { id: '2022-03-26', content: '修正關鍵字SPL錯誤<br>修正特質點使用+號總量計算出錯(NaN)<br>修正等級超過200時基本素質點還持續增加<br>修正修練ATK位置錯誤' },
+                        { id: '2022-03-22', content: '新增特質點 200等以上會開啟<br>代入JOB滿等加成素質點為JOB50的四轉職業(包含特質點)<br>增加五級武器選項<br>增加Grade設定<br>裝備設定增加特質點、PATK、SMATK<br>一般總覽增加PATK、SMATK<br>職業名稱更改為三轉/四轉' },
+                        { id: '2022-02-10', content: '修正變動詠唱% 為負的時候計算錯誤' },
+                        { id: '2022-01-20', content: '修正預設技能 重金屬音樂 傷害次數-2改為2<br>修正預設技能 戰斧颶風傷害次數1改為-6' },
+                        { id: '2021-12-03', content: '修正上次更新導致龍火無法計算的BUG' },
+                        { id: '2021-11-28', content: '調整魔法攻擊對階級%的公式位置<br>增加輔助技能 手推車加速/ 爆炸孢子狀態<br>調整屬性抗性為屬性耐性<br>增加遠傷耐性<br>裝備設定增加 屬性耐性、遠傷耐性' },
+                        { id: '2021-11-25', content: '增加預設技能 大地毀滅<br>增加輔助技能 釋放/閱讀魔法書+釋放<br>　　　　　　 會改變當前技能的詠唱跟延遲來模擬連續施放(不計施法動作)' },
+                        { id: '2021-11-19', content: '增加重整/關閉時的提醒視窗<br>修正預設技能 支配烙印的獨延時間' },
+                        { id: '2021-11-18', content: '調整暴傷小數點問題<br>輔助技能打擊強化 變更為卡裝ATK' },
+                        { id: '2021-11-17', content: '調整風壓飛刃、致命威脅的連擊公式順序' },
+                        { id: '2021-11-16', content: '四轉前優化公式(全數完成) 有問題麻煩在回報 感謝' },
+                        { id: '2021-11-15', content: '四轉前優化公式(有部分未完成請參考巴哈文章)<br>暴傷在計算時皆降為一半 ' },
+                        { id: '2021-10-23', content: '增加預設技能 手推車龍捲風<br>增加設定手推車重量<br>增加公式關鍵字 手推車重量 CRW' },
+                        { id: '2021-09-22', content: '增加預設技能 強制驅逐' },
+                        { id: '2021-09-08', content: '增加輔助技能 潛擊<br>增加預設技能 重壓盾擊<br>增加公式關鍵字 SRL盾牌精煉值<br>增加盾牌精煉輸入欄位' },
+                        { id: '2021-09-06', content: '修正預設輔助技能 怒爆會把攻擊屬性改成火的BUG' },
+                        { id: '2021-08-17', content: '調整部分效果文字 變得更簡潔跟統一<br>調整計算機邊界樣式 by wildsky' },
+                        { id: '2021-08-09', content: '增加預設技能 神之威壓' },
+                        { id: '2021-08-06', content: '增加預設技能 創世之光' },
+                        { id: '2021-07-27', content: '修正輔助技能 宇宙英姿ALL+5' },
+                        { id: '2021-07-26', content: '增加輔助技能 日月星宇宙英姿/日月星光輝<br>修正輔助技能 日星月憎惡跟奇蹟現在無法疊加效果' },
+                        { id: '2021-07-18', content: '增加預設技能 魔獸擺尾' },
+                        { id: '2021-07-09', content: '修正公式關鍵字 SHW盾牌重量沒有效果的問題' },
+                        { id: '2021-07-07', content: '修正預設技能 銳利射擊現在有暴擊率45%<br>修正預設技能 爆氣散彈共延獨延時間<br>技能設定增加一半爆傷' },
+                        { id: '2021-06-28', content: '修正輔助技能 盧1(風暴衝擊外)/兇砍/靈氣劍 現在可以為技能增傷' },
+                        { id: '2021-06-17', content: '增加預設技能 風刃<br>修正一般總覽 變動詠唱(秒)顯示錯誤' },
+                        { id: '2021-06-15', content: '修正雙手劍攻擊加速沒有效果的BUG<br>修正幸運棒棒條可以調整隨機的爆擊率' },
+                        { id: '2021-06-10', content: '增加預設技能 圓桌舞蹈<br>增加輔助技能 富翁的財貨/瘋狂凱斯樂/格林狂熱/白金祭壇<br>武器類型槍藥現在可以設定子彈ATK' },
+                        { id: '2021-06-02', content: '增加預設敵方 蘭達(紅椒)' },
+                        { id: '2021-05-26', content: '調整素質/敵方/輔助技能區域折疊功能<br>額外輔助技能現在可以使用開關讓他顯示在主畫面' },
+                        { id: '2021-05-25', content: '加強屬性相剋表的辨識度跟功能<br>修正劇毒武器:狂笑 共延錯誤' },
+                        { id: '2021-05-24', content: '調整技能區域' },
+                        { id: '2021-05-23', content: '增加預設技能 流星墜落<br>增加輔助技能 跑步(被動)' },
+                        { id: '2021-05-20', content: '修正高階拳刃修練沒有判斷武器類型的BUG' },
+                        { id: '2021-05-14', content: '增加屬性相剋表<br>調整一般總覽的項目及順序<br>爆擊技能在傷害顯示多增加了暴率提示' },
+                        { id: '2021-04-25', content: '增加輔助技能 劇毒武器:熱病/劇毒武器:狂笑<br>配置清單增加排序上下功能按鈕' },
+                        { id: '2021-04-19', content: '修正預設技能 殘響獨延時間' },
+                        { id: '2021-04-17', content: '增加消耗品 紅/藍色藥草活化液<br>增加預設技能 強酸火煙瓶投擲<br>增加敵方設定 VIT<br>補齊部分職業BLV 186以後HPSP<br>修改預設技能 殘響獨延<br>修正預設敵方 測試用魔物減算MDEF<br>修正HP增加藥水(大)沒有增加的錯誤' },
+                        { id: '2021-03-30', content: '增加預設技能 地獄植物/爆炸苞子<br>修改預設技能 手推車加農砲倍率<br>修改預設技能 殘響共延' },
+                        { id: '2021-03-24', content: '修改預設技能 殘響公式倍率為3/30優化後' },
+                        { id: '2021-03-21', content: '增加預設技能 迴旋斧<br>修正致命威脅共延時間' },
+                        { id: '2021-03-17', content: '增加計算傷害平均' },
+                        { id: '2021-03-15', content: '增加預設技能 致命威脅<br>修改攻擊次數因武器類型變更(風壓飛刃/致命威脅)<br>修正百矛穿刺公式<br>修正加農砲沒有開啟使用砲彈的功能<br>修正三角射擊共延時間為0.5s<br>調整大暴雨 因武器類型不同的公式合併' },
+                        { id: '2021-02-28', content: '增加預設技能 虎砲(大地崩纏後)<br>修正預設技能 虎砲倍率(小數點差異)' },
+                        { id: '2021-02-27', content: '增加輔助技能 伊登的蘋果 豐年頌<br>修正預設技能 朔月腳技能倍率' },
+                        { id: '2021-02-26', content: '修正輔助技能 普攻傷害相關 靈氣劍/盧1/狂怒之槍/兇砍' },
+                        { id: '2021-02-24', content: '增加輔助技能 捲甲蟲暴衝 蝦群<br>增加消耗品分類 變身卷軸' },
+                        { id: '2021-02-22', content: '增加輔助技能 紋章 元素領域' },
+                        { id: '2021-02-21', content: '修正轉生後186以上血量錯誤的問題<br>修正練習舞蹈 增加MSP' },
+                        { id: '2021-02-20', content: '修正輔助技能怒暴沒有增傷的問題' },
+                        { id: '2021-02-19', content: '額外輔助技能架構重寫<br>整頁儲存改名&拆開功能為配置清單 / 儲存配置 / 讀取配置檔案<br>儲存配置現在可以儲存職業&輔助技能了<br>儲存配置現在會記錄傷害/配置紀錄會顯示傷害<br>配置清單增加下載按鈕,檔名為儲存名.roc<br>增加額外技能頁面<br>修練ATK現在可以輔助技能選擇' },
+                        { id: '2021-02-17', content: '增加目前統計的各職業186~200 HPSP資料 (200等缺盧恩騎士)<br>修改慈悲術、純白百合花的預設施展者JOB等級為70<br>修正純白百合花 攻擊後延遲%為10+施展者JOB/10<br>修正敵方預設資料 測試用魔物的減算物防為50<br>增加敵方預設資料 珠寶溫古力安特 骷髏迪塔勒泰晤勒斯' },
+                        { id: '2021-02-05', content: '修改卡片部位分類載入機制 頭飾卡片(頭上中) 武器卡片(主副手) 飾品卡片(左右)<br>修正CRI超過100時 DPS計算錯誤的問題<br>修正卡片欄位打勾功能異常的問題<br>增加裝備效果 變詠s (為固定減變詠秒數)<br>代入JOB滿等加成素質點現在強制為J70' },
+                        { id: '2021-01-29', content: '增加JOB等級判斷代入點數 開啟自動代入JOB點數並且JLV填入70 就會變更為job70的數值<br>裝備區域 卡片欄位<br>修正部分情況下 代入JOB滿等素質點錯誤的問題' },
+                        { id: '2021-01-25', content: '修改預設技能 連鎖電擊的計算方式 為第1~4下的總傷害<br>增加額外技能選項 特殊SpecialATKFront(前ATK)' },
+                        { id: '2021-01-18', content: '修正普攻傷害會被技能段數影響的問題<br>增加敵方預設資料 測試用魔物 (小)(中)(大)' },
+                        { id: '2021-01-06', content: '增加劍士額外技能選項 突里薩茲:力量成長(盧1)/艾伊瓦茲盧:提升鬥志(盧5)/力量根源:盧恩爆發(盧10)<br>增加龍之氣息的一般總覽項目<br>增加預設技能 風暴衝擊' },
+                        { id: '2021-01-05', content: '增加預設技能 風壓飛刃/致命爆裂/百矛穿刺/音速衝擊波<br>風壓飛刃/百矛穿刺/加農砲 的固詠變詠獨延共延現在會依照技能等級自動調整<br>調整計算區塊的排版<br>DPS計算僅在ASPD不為0時' },
+                        { id: '2020-12-29', content: '修正預設技能 艾斯核攻擊次數問題' },
+                        { id: '2020-12-07', content: '增加敵方預設資料 無名劍士' },
+                        { id: '2020-11-15', content: '預設技能 龍之氣息傷害公式增加了對應魔力中毒跟技能增傷裝<br>增加預設機匠技能 戰斧颶風' },
+                        { id: '2020-11-11', content: '修正裝備儲存頁面 當選擇部位同時刪除裝備時，畫面不會立即更新的BUG' },
+                        { id: '2020-11-06', content: '增加額外技能選項 女神之吻/陷阱研究<br>額外技能選項 魔法師分類現在被分為咒術士跟妖術師' },
+                        { id: '2020-11-04', content: '"一般"總覽頁面增加更多整合資料<br>增加額外技能選項 劇毒武器<br>修改暴擊傷害浮動顯示方式<br>修正設定部分精練值會導致計算機無回應的BUG' },
+                        { id: '2020-10-29', content: '修正預設技能 十字斬技能BLV倍率為100' },
+                        { id: '2020-10-28', content: '增加預設十字斬首者技能 心靈震波<br>修改預設技能公式 迴旋刀刃/迴旋十字斬/十字斬<br>增加新技能設定 一半暴率<br>修正拳刃現在會將暴率變為兩倍<br>修改砲彈ATK現在只有在選擇機匠/基因才會出現<br>修改雙持武器時物理技能的填入方式，不需要將副手清空了，但也不會計算雙刀的普攻傷害<br>修正預設技能 凍僵術技能倍率' },
+                        { id: '2020-10-16', content: '修正祈禱文物理增傷計算方式(法傷仍在測試中)<br>增加額外技能選項 各屬性紋章(對敵/我)' },
+                        { id: '2020-09-25', content: '修正額外技能選項 拳皇 日星月的奇蹟跟憎惡不能疊加的問題' },
+                        { id: '2020-09-20', content: '修正預設技能 碧血隕石/地牛翻身/凍僵術 詠唱時間' },
+                        { id: '2020-09-18', content: '增加預設技能 地獄火焰/毀滅彗星<br>修改預設技能 碧血隕石/地牛翻身/凍僵術/靈魂爆炸/迴旋刀刃<br>增加額外技能選項 魔力中毒' },
+                        { id: '2020-08-23', content: '增加預設技能 殘響' },
+                        { id: '2020-08-19', content: '增加預設修羅技能 雷光彈/爆氣散彈/爆氣散彈(標記)/修羅身彈/修羅身彈(BOSS)/羅剎破凰擊<br>增加額外技能選項 修羅 點穴-反/點穴-活/潛��昇天<br>增加額外技能選項 浪跡&樂師 朝風車突擊/月光小夜曲/搖擺舞/雷拉多露水/無限哼唱聲/與狼共舞<br>更新預設技能 重金屬音樂延遲設定<br>增加輸入現有HPSP欄<br>增加技能備註顯示<br>增加公式關鍵字WTI 武器類型' },
+                        { id: '2020-08-17', content: '增加額外技能選項 祈禱文' },
+                        { id: '2020-08-13', content: '修正額外技能選項 無視體型攻擊/騎乘術拿長矛時體型修正不會重新計算的問題' },
+                        { id: '2020-08-11', content: '修正心神凝聚跟JOB代入點數開關順序會影響計算數值的問題' },
+                        { id: '2020-08-03', content: '技能選擇方式修改為下拉選單<br><span style="margin-left:2em">依照職業顯示預設技能<br><span style="margin-left:2em">載入其他技能會加入下拉選單' },
+                        { id: '2020-08-01', content: '裝備儲存DB篩選功能修改<br>增加裝備儲存DB搜尋&預覽功能' },
+                        { id: '2020-07-28', content: '增加額外技能選項 鴞梟之眼/心神凝聚' },
+                        { id: '2020-07-20', content: '修改額外技能選項 神威祈福公式位置<br>修改HPSP增大藥水增加帶入BLV公式' },
+                        { id: '2020-07-17', content: '修正戰鬥藥類Matk%沒帶入的錯誤' },
+                        { id: '2020-07-16', content: '增加代入JOB滿等加成素質點開關(全職業)<br>修正消耗品清空時沒重新計算的錯誤<br>修正JOB加成素質點重複計算的錯誤' },
+                        { id: '2020-07-14', content: '增加預設技能 靈魂爆炸<br>增加額外技能選項 終極念力<br>修改裝備效果開關樣式' },
+                        { id: '2020-07-10', content: '裝備效果移除功能更改為啟用/關閉<br>修正預設技能 重金屬音樂的獨延為3秒共延為0秒<br>修正額外技能選項 點穴-反沒有MHP-20%的錯誤' },
+                        { id: '2020-07-08', content: '增加消耗品區域(適用整頁儲存，詳見討論串說明)<br>增加敵方預設資料 闇答萊屍(挑戰)/希爾梅茲<br>增加感謝贊助名單<br>' },
+                        { id: '2020-06-29', content: '修正無視體型攻擊/浸透勁效果移除時效果依然存在的BUG<br>' },
+                        { id: '2020-06-23', content: '增加裝備效果 近距離傷害/無視體型攻擊/浸透勁效果<br>增加儲存前檔名設定提醒<br>修正主副手無法清空的問題<br>移除額外技能選項 魔劍卡效果' },
+                        { id: '2020-06-17', content: '裝備效果設定頁面大更新!<br>減少裝備效果所佔的儲存空間(此次更新後所儲存的)<br>修改部分效果文字' },
+                        { id: '2020-06-16', content: '預設技能 手推車加農砲、爆炸飛刀增加後計算遠傷<br>裝備效果增加物理/魔法特定魔物物增傷<br>額外技能選項增加 致命爪痕/天使之怒<br>額外技能選項大主教跟修羅分開，奧丁之神力移動到大主教區' },
+                        { id: '2020-06-15', content: '修正存檔後又馬上修改裝備，可能會覆蓋之前存檔的錯誤<br>修正載入早期<整頁儲存>有可能會有遠傷不影響的錯誤<br>修正載入技能時不會重新計算屬性倍率的問題' },
+                        { id: '2020-06-11', content: '增加額外技能選項分類 超級初心者<br>多蘭族改為喵族<br>增加贊助頁面' },
+                        { id: '2020-06-08', content: '修正額外技能選項十六夜某些情況會有些微差異的錯誤<br>修改地符公式計算位置<br>修正預設技能幽冥十字斬公式 有整頁儲存的需要重新指定<br>增加預設技能銳利射擊獨立延遲' },
+                        { id: '2020-06-04', content: '修改預設技能 幽冥十字斬公式<br>修改地符倍率為10%<br>增加敵方預設資料 施密特國王簡單/困難<br>增加贊助連結按鈕' },
+                        { id: '2020-06-01', content: '增加預設技能清單邪靈爆炸(詛咒)<br>增加關於面板<br>增加更新概要欄' },
+                        { id: '2020-05-20', content: '增加預設技能清單 爆炎龍/冰閃槍/冰晶落/朔風<br>預設技能擴充185分類移除，改為確定版本<br>增加額外技能選項 影子武士<br>額外技能選項火水風地符 增加對剋屬敵方物理增傷<br>額外技能選項火水風地符/影子武士的增傷現在會檢查技能<br><span style="margin-left:2em"><I>如果有使用之前(185技能預估)的儲存資料要重新指定技能才會套用</I>' },
+                        { id: '2020-05-19', content: '素質點計算支援到200等<br>增加敵方預設資料幻影龜島' },
+                        { id: '2020-05-16', content: '修正無法選擇拳刃的錯誤<br>修正預設技能風魔飛鏢之飛舞(185)幽冥十字斬(185)延遲設定錯誤' },
+                        { id: '2020-05-08', content: '傷害計算增加千分號<br>修正預設技能爆炸飛刀/幽冥十字斬(185)公式錯誤' },
+                        { id: '2020-05-07', content: '增加技能清單 加農砲/火神砲/噴射飛拳<br>技能清單增加/修改部分擴充職業185更新技能<br>技能清單增加備註欄位<br>詠唱&延遲欄位調整、增加DEX+INT/2計算<br>每秒攻擊次數最大值為7.14(DPS計算同)' },
+                        { id: '2020-05-04', content: '增加裝備/整合效果的文字複製功能<br>修正額外裝備選項魔劍卡對於無視防禦沒有影響ATK的錯誤' },
+                        { id: '2020-04-29', content: '增加三轉職業HP/SP計算<br>裝備效果增加HP、HP%、SP、SP%<br>調整素質區塊/素質清單樣式<br>增加技能清單 爆炸飛刀/幽冥十字斬(十字創傷)<br>整頁儲存測試中' },
+                        { id: '2020-04-07', content: '修正對念屬性敵方的傷害計算<br>調整技能遠傷的位置<br>增加技能清單 紅焰腳/太陽爆炸/朔月腳/艾斯帕' },
+                        { id: '2020-04-01', content: '素質點計算增加轉生按鈕(未轉生少52點)<br>修正裝備變詠固詠會超過上限會錯誤的問題<br>增加敵方資料<br>調整技能區塊顯示' },
+                        { id: '2020-03-24', content: '修正白字普攻傷害部分情況會錯誤的問題<br>修正手推車加農砲設定現在為遠傷<br>修正三角射擊攻擊次數現在為-3' },
+                        { id: '2020-03-18', content: '修正副手Matk不被計算的BUG' },
+                        { id: '2020-03-15', content: '修正不清空就儲存裝備會導致存檔被覆蓋的BUG<br/>增加一般計算遊戲內後Atk/Matk面板顯示的數值，方便檢查裝備填寫錯誤<br/>增加武器為拳刃時左手的計算(普攻/普爆/普DPS)<br/>增加技能清單 十字斬/迴旋刀刃/迴旋十字斬<br/>調整技能清單樣式' },
+                        { id: '2020-03-14', content: '增加計算可用/已用素質點<br/>增加部分UI折疊功能<br/>增加技能清單 風魔飛鏢之飛舞/幽冥十字斬' },
+                        { id: '2020-03-10', content: '增加武器儲存<br/>調整武器欄位位置、增加副手裝備設定' },
+                        { id: '2020-03-08', content: '修改傷害計算顯示方式<br/>技能欄位增加傷害類型 (物理/魔法/龍息)<br/>增加技能清單 龍之氣息/謳歌/魔力拳/重金屬音樂/小雞啄擊/獼猴桃梗槍/貓薄荷隕石<br/>增加技能額外選項 喵族召喚師' },
+                        { id: '2020-03-03', content: '修改素質/技能清單樣式<br/>增加技能清單預設技能<br/>增加素質欄位HPSP<br/>增加敵方欄位Level<br/>增加公式關鍵字 HP/SP/ELV<br/>增加更新列表' },
+                        { id: '2020-03-01', content: '增加額外技能選項 影狼&朧 詩舞分類<br/>增加詠唱&延遲計算<br/>增加暴率&DPS計算<br/>增加素質欄ASPD、裝備效果變詠設定<br/>修改技能清單樣式' },
+                        { id: '2020-02-10', content: '修改裝備技能倍率增傷的輸入方式 改由裝備效果增加<br/>裝備效果增加技能增傷%<br/>增加額外技能選項 劍士分類 靈感<br/>增加額外技能選項 服事分類 神聖殿堂(僅法傷)' },
+                        { id: '2020-01-04', content: '修正法傷技能增傷跟屬性倍率的順序<br/>修正兇砍開啟後無法被關閉<br/>���加額外技能選項 服事分類 慈悲術/純白百合花/蓄氣<br/>增加額外技能選項 跆拳/拳皇/獵靈分類' },
+                        { id: '2019-12-23', content: '修改武器值最大化/魔法省悟的計算(顯示)方式<br/>修正武器浮動傷害為無條件捨去<br/>修正ATK公式暴傷/遠傷的順序<br/>增加物理技能多段計算<br/>簡化沒有多段/暴傷技能的UI欄位' },
+                        { id: '2019-12-21', content: '修正公式中用到BLV最低為100<br/>敵方的內建資料修改' },
+                        { id: '2019-12-19', content: '修正無視防禦超過100%上限的問題<br/>技能設定增加加農砲彈、半無視防禦<br/>技能清單修改顯示方式<br/>裝備效果增加 STR AGI VIT INT DEX LUK 全能力<br/>增加公式關鍵字 WLV<br/>修改ATK公式架構' },
+                        { id: '2019-12-18', content: '修正箭矢ATK沒有被正確加入<br/>修正階級MATK%代入錯誤<br/>增加輸入職業等級<br/>增加額外技能選項 盾咒/大聲吶喊/火山塵暴<br/>增加裝備分類 頭中/頭下/套卡<br/>增加武器選項 武器重量/盾牌重量<br/>增加公式關鍵字 JLV/WGT/SHW' },
                     );
                     try {
                         this.CurrentUpdateVersion = JSON.parse(localStorage.getItem('CurrentUpdateVersion'));
@@ -12932,38 +12932,38 @@
                     }
 
                     this.DonatethanksList.push(
-                        { id: 5000, coop: '�������', name: '���� ����' },
-                        { id: 2666, coop: '�������', name: '���� SayuriYuka' },
-                        { id: 1000, coop: '�������', name: '���' },
-                        { id: 1000, coop: '�������', name: '���� ����?' },
-                        { id: 1000, coop: '�������', name: '������ ����?' },
-                        { id: 0, coop: '�������', name: '������������' },
-                        { id: 777, coop: '�������', name: '������ ����' },
-                        { id: 500, coop: '�������', name: 'YOY' },
-                        { id: 500, coop: '�������', name: '?���������� ��' },
-                        { id: 500, coop: '�������', name: '���� ��������' },
-                        { id: 500, coop: '�������', name: '�����ơ������ע���֣��������ʡ�' },
-                        { id: 300, coop: '�������', name: '���� �չ' },
-                        { id: 300, coop: '�������', name: '?��� �������к' },
-                        { id: 200, coop: '�������', name: '���� Rein' },
-                        { id: 100, coop: '�������', name: '���� Lawrel��' },
-                        { id: 66, coop: '�������', name: '������ YU0520' },
+                        { id: 5000, coop: '感謝贊助', name: '波利 凌玆' },
+                        { id: 2666, coop: '感謝贊助', name: '波利 SayuriYuka' },
+                        { id: 1000, coop: '感謝贊助', name: '悠哉' },
+                        { id: 1000, coop: '感謝贊助', name: '波利 蒼藍鴿' },
+                        { id: 1000, coop: '感謝贊助', name: '愛麗絲 波尼喵' },
+                        { id: 0, coop: '感謝贊助', name: '水水寶武防代衝' },
+                        { id: 777, coop: '感謝贊助', name: '巴基力 沐沐' },
+                        { id: 500, coop: '感謝贊助', name: 'YOY' },
+                        { id: 500, coop: '感謝贊助', name: '鄰居漂亮大姐姐 春' },
+                        { id: 500, coop: '感謝贊助', name: '波利 神奇海豹' },
+                        { id: 500, coop: '感謝贊助', name: '【唯璇】☆波利↙代練★坐吸最狂◇' },
+                        { id: 300, coop: '感謝贊助', name: '波利 亞嵐' },
+                        { id: 300, coop: '感謝贊助', name: '查爾斯 錫瓦的巴耶克' },
+                        { id: 200, coop: '感謝贊助', name: '波利 Rein' },
+                        { id: 100, coop: '感謝贊助', name: '波利 Lawrel★' },
+                        { id: 66, coop: '感謝贊助', name: '巴基力 YU0520' },
                     );
                     this.SpecialthanksList.push(
-                        { id: 0, coop: '��������', name: '��?' },
-                        { id: 4, coop: '������������', name: '?��� ������' },
-                        { id: 5, coop: 'KRO��������', name: 'PTT sqky990 ���몵�Ȫ�' },
-                        { id: 5, coop: 'KRO��������', name: 'PTT ��' },
-                        { id: 1, coop: '��������', name: '�� & ����' },
-                        { id: 2, coop: '��������', name: '�����' },
-                        { id: 3, coop: '��������', name: '�˴' },
-                        { id: 3, coop: '��������', name: '�������' },
-                        { id: 3, coop: '��������', name: '?��� ?��??�����֡�' },
-                        { id: 3, coop: '��������', name: '���� ������' },
-                        { id: 3, coop: '��������', name: '������ ?����shopping?' },
-                        { id: 4, coop: '��������', name: '?��� ֭��' },
-                        { id: 4, coop: '��������', name: '���' },
-                        { id: 0, coop: '��������', name: '׸����' },
+                        { id: 0, coop: '公式協力', name: '賴喵' },
+                        { id: 4, coop: '公式測試協力', name: '查爾斯 鶴之翼' },
+                        { id: 5, coop: 'KRO測試協力', name: 'PTT sqky990 霧雨さとり' },
+                        { id: 5, coop: 'KRO測試協力', name: 'PTT 梡' },
+                        { id: 1, coop: '測試協力', name: '少爺 & 太太' },
+                        { id: 2, coop: '測試協力', name: '夕華。' },
+                        { id: 3, coop: '測試協力', name: '水絳' },
+                        { id: 3, coop: '測試協力', name: '蒼之聖典' },
+                        { id: 3, coop: '測試協力', name: '查爾斯 ︴★﹑莓〃琥珀°' },
+                        { id: 3, coop: '測試協力', name: '波利 懶惰牛' },
+                        { id: 3, coop: '測試協力', name: '巴基力 咱們來shopping吧' },
+                        { id: 4, coop: '公式協力', name: '查爾斯 烈焰' },
+                        { id: 4, coop: '公式協力', name: '阿松' },
+                        { id: 0, coop: '公式協力', name: '琉璃廣' },
                     );
                     this.englishthanksList.push(
                         { id: 0, coop: 'Major Contributor', name: 'Pingaify' },
@@ -13106,7 +13106,7 @@
                 OpenUrl(urlstring) {
                     window.open(urlstring, '_blank');
                 },
-                // ?������ا ����?����
+                // 產生唯一碼 給存檔使用
                 // https://cythilya.github.io/2017/03/12/uuid/
                 _uuid() {
                     var d = Date.now();
@@ -13146,7 +13146,7 @@
             filters: {
                 currency(val) {
                     return val.toFixed(0).replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
-                    /* return price.toLocaleString('en-US');  ����죣��?������*/
+                    /* return price.toLocaleString('en-US');  寫法二：轉為千分號*/
                 },
                 currency2(val) {
                     return val.toFixed(2)
@@ -13211,7 +13211,7 @@
                 this.onChangeClass();
                 this.onChangeSupportClass();
                 this.OpenPanel('General');
-                window.onbeforeunload = e => {   //μ�� ��������
+                window.onbeforeunload = e => {   //關閉 重新整理
                     return ''
                 };
             }
