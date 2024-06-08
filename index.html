@@ -2572,7 +2572,7 @@
                             </el-button>
                         </el-col>
                         <el-col :span="3" v-if="showExport">
-                            <el-button v-on:click="exportSavedEquip" icon="el-icon-check" type="primary" size="small">
+                            <el-button v-on:click="exportSavedEquip(true)" icon="el-icon-check" type="primary" size="small">
                                 Export Enchant List
                             </el-button>
                         </el-col>
@@ -13019,12 +13019,13 @@
                     }
                     return loadedNames;
                 },
-                exportSavedEquip(){
+                exportSavedEquip(enchant=false){
                     var data = {};
                     var effectlist = {};
                     var combolist = {};
                     var i = 0;
-                    for (const [key, value] of Object.entries(this.StoreDB_Equip)) {
+                    let exportDB = enchant ? this.StoreDB_Enchant : this.StoreDB_Equip
+                    for (const [key, value] of Object.entries(exportDB)) {
                         try{
                             data[i] = value.equip;
                             if (value.weapon) {
