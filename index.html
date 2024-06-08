@@ -1604,7 +1604,7 @@
                             </el-button>
                         </el-col>
                         <el-col class="textcenter" style="text-align: left;" :span="18">
-                            <el-checkbox-group v-model="StoreDB_EquipFilterGroup" v-on:change="onFilterEquipPart(false)"
+                            <el-checkbox-group v-model="StoreDB_EquipFilterGroup" v-on:change="onFilterEquipPart"
                                 fill="#909399" text-color="white">
                                 <el-checkbox-button v-for="item in FilterEquipList(0, 40)" :label="item.label" :key="item.id">
                                     {{item.label}}
@@ -1636,7 +1636,6 @@
                         </el-col>
                         <el-col :span="6"><!--default_equip-->
                             <el-select v-model="status.select_default" v-on:change="updateSelectDefault" placeholder="" v-bind="select_default">
-                                <el-option v-if="showExport" value="GEN" label="General"></el-option>
                                 <el-option v-for="item in default_equip" :key="item.id" :label="item.label" :value="item.id"></el-option>
                             </el-select>
                         </el-col>
@@ -2399,9 +2398,9 @@
                             </el-button>
                         </el-col>
                         <el-col class="textcenter" style="text-align: left;" :span="18">
-                            <el-checkbox-group v-model="StoreDB_EquipFilterGroup" v-on:change="onFilterEquipPart(true)"
+                            <el-checkbox-group v-model="StoreDB_EquipFilterGroup" v-on:change="onFilterEquipPart"
                                 fill="#909399" text-color="white">
-                                <el-checkbox-button v-for="item in FilterEquipList(14, 31)" :disabled="!onCheckActiveCardLabel(item.label)" :label="item.label" :key="item.id">
+                                <el-checkbox-button v-for="item in FilterEquipList(14, 31)" :disabled="true" :label="item.label" :key="item.id">
                                     {{item.label}}
                                 </el-checkbox-button>
                             </el-checkbox-group>
@@ -7469,6 +7468,7 @@
                     MemoryofThanatosCard: false,
                 },
                 default_equip: [
+                    {id: 'GEN', label: 'General'},
                     {id: 'PHY', label: 'Physical'},
                     {id: 'MAG', label: 'Magical'},
                     {id: 'RK', label: 'RuneKnight'},
@@ -7735,10 +7735,12 @@
                     this.UIPanel[id] = false;
                     if(id === "CardDialog" || id === "EnchantDialog"){
                         this.ItemDesiredPosition = -1;
+                        this.StoreDB_EquipFilterGroup = [];
                         this.PageIndex = 1;
                         this.updateItemsPerPage(this.PageOptions[1]);
                     }
                     if(id === "EquipDBDialog"){
+                        this.StoreDB_EquipFilterGroup = [];
                         this.PageIndex = 1;
                         this.updateItemsPerPage(this.PageOptions[1]);
                     }
@@ -11289,7 +11291,7 @@
                                 console.log('error deleting equips', e);
                             }
                         }
-                        this.onFilterEquipPart(false);
+                        this.onFilterEquipPart();
                     }
                 },
                 onRemoveEquipSave(uuid) {
@@ -11298,13 +11300,13 @@
                         this.StoreDB_Equip.splice(_dbidx, 1)
                         this.SaveEquipDB();
                     }
-                    this.onFilterEquipPart(false);
+                    this.onFilterEquipPart();
                 },
                 onOpenEquipDB() {
                     if( this.StoreDB_SearchString.trim() != '' ){
                         this.onFilterEquipSearch();
                     }else{
-                        this.onFilterEquipPart(false);
+                        this.onFilterEquipPart();
                     }
                     this.OpenPanel('EquipDBDialog');
                 },
@@ -11328,7 +11330,6 @@
                         filter = this.fetchCardMapping(this.ItemDesiredPosition).toLowerCase();
                     }
 
-                    this.StoreDB_EquipFilterGroup = [];
                     this.StoreDB_EquipFilterList = this.StoreDB_Equip.filter(post => {
                         //return post.equip.equipname.includes(this.StoreDB_SearchString)
                         return this.StoreDB_SearchString.toLowerCase().split(' ').every(v =>
@@ -11386,7 +11387,7 @@
                         this.$set( this.StoreDB_EnchantFilterList[i], 'preview', false);
                     }
                 },
-                onFilterEquipPart(isCard) {
+                onFilterEquipPart() {
                     this.StoreDB_SearchString = '';
                     if( this.StoreDB_EquipFilterGroup.length>1 ){
                         this.StoreDB_EquipFilterGroup.splice(0,1);
@@ -11402,14 +11403,6 @@
                             ((a.date > b.date) ? -1 : 1) : -1
                     )
                     :
-                    isCard ?
-                    this.StoreDB_Equip.filter(x =>
-                        x.equip.label === this.fetchCardMapping(this.ItemDesiredPosition)
-                    ).sort((a, b) => a.equip.label > b.equip.label ? 1 :
-                        a.equip.label === b.equip.label ?
-                            ((a.date > b.date) ? -1 : 1) : -1
-                    )
-                    :
                     this.StoreDB_Equip
                     ;
                     for( var i=0; i<this.StoreDB_EquipFilterList.length; ++i)
@@ -11420,7 +11413,7 @@
                 onFilterEquipClear() {
                     this.StoreDB_SearchString = '';
                     this.StoreDB_EquipFilterGroup = [];
-                    this.onFilterEquipPart(false);
+                    this.onFilterEquipPart();
                 },
                 onFilterEnchantClear() {
                     this.StoreDB_SearchString = '';
@@ -11429,7 +11422,6 @@
                 },
                 onFilterCardClear() {
                     this.StoreDB_SearchString = '';
-                    this.StoreDB_EquipFilterGroup = [];
                     this.onFilterCardSearch();
                 },
                 onFilterEquipPreview(index){
@@ -11511,6 +11503,7 @@
                 },
                 cardSwitch(index){
                     const filter = this.fetchCardMapping(index);
+                    this.StoreDB_EquipFilterGroup = [filter];
                     this.onFilterPart(filter);
                     this.OpenPanel('CardDialog');
                     this.ItemDesiredPosition = index;
@@ -11528,6 +11521,7 @@
                     return Object.keys(cardLabelToEquip).find(x => cardLabelToEquip[x].includes(index));
                 },
                 onCheckActiveCardLabel(label){
+                    console.log(this.StoreDB_EquipFilterGroup);
                     return this.fetchCardMapping(this.ItemDesiredPosition) === label;
                 },
                 enchantSwitch(index){
@@ -13054,12 +13048,6 @@
                             this.SaveEquipDB();
                         }
                     })
-                    if (['PHY','MAG'].includes(this.select_default) && !this.showExport){
-                        var tmpSel = this.select_default;
-                        this.select_default = 'GEN';
-                        this.loadDefaultEquip();
-                        this.select_default = tmpSel;
-                    }
                 },
                 loadAllDefaultEquip(){
                     for (const entry of this.default_equip){
