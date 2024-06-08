@@ -1622,12 +1622,12 @@
                             <span class=""><b>Equip Name</b></span>
                         </el-col>
                         <el-col :span="3">
-                            <el-button v-on:click="onRemoveAllEquipSave()" icon="el-icon-delete"
+                            <el-button v-on:click="onRemoveAllEquipSave(false)" icon="el-icon-delete"
                                 type="danger" size="mini">
                             </el-button>
                         </el-col>
                         <el-col :span="3" v-if="showExport">
-                            <el-button v-on:click="exportSavedEquip" icon="el-icon-check" type="primary" size="small">
+                            <el-button v-on:click="exportSavedEquip(false)" icon="el-icon-check" type="primary" size="small">
                                 Export Equip List
                             </el-button>
                         </el-col>
@@ -2417,12 +2417,12 @@
                             <span class=""><b>Card Name</b></span>
                         </el-col>
                         <el-col :span="3">
-                            <el-button v-on:click="onRemoveAllEquipSave()" icon="el-icon-delete"
+                            <el-button v-on:click="onRemoveAllEquipSave(false)" icon="el-icon-delete"
                                 type="danger" size="mini">
                             </el-button>
                         </el-col>
                         <el-col :span="3" v-if="showExport">
-                            <el-button v-on:click="exportSavedEquip" icon="el-icon-check" type="primary" size="small">
+                            <el-button v-on:click="exportSavedEquip(false)" icon="el-icon-check" type="primary" size="small">
                                 Export Card List
                             </el-button>
                         </el-col>
@@ -2567,7 +2567,7 @@
                             <span class=""><b>Enchant Name</b></span>
                         </el-col>
                         <el-col :span="3">
-                            <el-button v-on:click="onRemoveAllEquipSave()" icon="el-icon-delete"
+                            <el-button v-on:click="onRemoveAllEquipSave(true)" icon="el-icon-delete"
                                 type="danger" size="mini">
                             </el-button>
                         </el-col>
@@ -2612,7 +2612,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onLoadEquipSave(item.uuid)" icon="el-icon-check"
+                                        <el-button v-on:click="onLoadEquipSave(item.uuid,true)" icon="el-icon-check"
                                             type="success" type="primary" size="small">
                                             Load
                                         </el-button>
@@ -11193,9 +11193,10 @@
                         })
                     this.CombineEquipsAttribute();
                 },
-                onLoadEquipSave(uuid) {
-                    var _dbidx = this.StoreDB_Equip.findIndex(x => x.uuid == uuid);
-                    var idx = this.equipspartlist.findIndex(x => x.id == this.StoreDB_Equip[_dbidx].equip.id);
+                onLoadEquipSave(uuid, enchant=false) {
+                    var useDB = enchant ? this.StoreDB_Enchant : this.StoreDB_Equip;
+                    var _dbidx = useDB.findIndex(x => x.uuid == uuid);
+                    var idx = this.equipspartlist.findIndex(x => x.id == useDB[_dbidx].equip.id);
                     if (idx > -1) {
                         if(this.ItemDesiredPosition > -1){
                             idx = this.ItemDesiredPosition;
@@ -11232,46 +11233,58 @@
                                 if( this.equipspartlist[29].equipname == '' ) { idx = 29; }
                             }
                         }
-                        console.log("Load Equip " + idx + ": " + this.StoreDB_Equip[_dbidx].equip.equipname);
-                        this.StoreDB_Equip[_dbidx].equip.effectlist.forEach(x=>x.Enable=x.Enable==null?true:x.Enable);
-                        this.StoreDB_Equip[_dbidx].equip.combolist.forEach(x=>x.effectlist.forEach(y=>y.Enable=y.Enable==null?true:y.Enable));
+                        console.log("Load Equip " + idx + ": " + useDB[_dbidx].equip.equipname);
+                        useDB[_dbidx].equip.effectlist.forEach(x=>x.Enable=x.Enable==null?true:x.Enable);
+                        useDB[_dbidx].equip.combolist.forEach(x=>x.effectlist.forEach(y=>y.Enable=y.Enable==null?true:y.Enable));
                         this.$set(this.equipspartlist,
                             idx,
                             {
                                 //id: this.StoreDB_Equip[_dbidx].equip.id,
                                 //label: this.StoreDB_Equip[_dbidx].equip.label,
                                 id: this.equipspartlist[idx].id,
-                                itemid: this.StoreDB_Equip[_dbidx].equip.itemid,
+                                itemid: useDB[_dbidx].equip.itemid,
                                 label: this.equipspartlist[idx].label,
-                                equipname: this.StoreDB_Equip[_dbidx].equip.equipname,
-                                refinelevel: this.StoreDB_Equip[_dbidx].equip.refinelevel ? this.StoreDB_Equip[_dbidx].equip.refinelevel : 0,
-                                grade: this.StoreDB_Equip[_dbidx].equip.grade ? this.StoreDB_Equip[_dbidx].equip.grade : this.weapongradelist[0],
-                                effectlist: _.cloneDeep(this.StoreDB_Equip[_dbidx].equip.effectlist),
-                                combolist: _.cloneDeep(this.StoreDB_Equip[_dbidx].equip.combolist),
+                                equipname: useDB[_dbidx].equip.equipname,
+                                refinelevel: useDB[_dbidx].equip.refinelevel ? useDB[_dbidx].equip.refinelevel : 0,
+                                grade: useDB[_dbidx].equip.grade ? useDB[_dbidx].equip.grade : this.weapongradelist[0],
+                                effectlist: _.cloneDeep(useDB[_dbidx].equip.effectlist),
+                                combolist: _.cloneDeep(useDB[_dbidx].equip.combolist),
                             })
                         this.onGearUpdate();
                         this.CombineEquipsAttribute();
                     }
-                    if (idx == 0 && this.StoreDB_Equip[_dbidx].weapon != null) {
-                        this.weapon = _.cloneDeep(this.StoreDB_Equip[_dbidx].weapon);
+                    if (idx == 0 && useDB[_dbidx].weapon != null) {
+                        this.weapon = _.cloneDeep(useDB[_dbidx].weapon);
                         this.ChangeWeapon();
                     }
-                    if (idx == 1 && this.StoreDB_Equip[_dbidx].weapon != null) {
-                        this.subweapon = _.cloneDeep(this.StoreDB_Equip[_dbidx].weapon);
+                    if (idx == 1 && useDB[_dbidx].weapon != null) {
+                        this.subweapon = _.cloneDeep(useDB[_dbidx].weapon);
                         this.ChangeWeapon();
                     }
                 },
-                onRemoveAllEquipSave(){
+                onRemoveAllEquipSave(enchant){
                     var uuid;
-                    for (const [key, value] of Object.entries(this.StoreDB_Equip)) {
-                        try{
-                            this.StoreDB_Equip.splice(value.uuid, 1);
-                        this.SaveEquipDB();
-                        } catch(e){
-                            console.log('error deleting equip', e);
+                    if (enchant){
+                        for (const [key, value] of Object.entries(this.StoreDB_Enchant)) {
+                            try{
+                                this.StoreDB_Enchant.splice(value.uuid, 1);
+                                this.SaveEnchantDB();
+                            } catch(e){
+                                console.log('error deleting equip', e);
+                            }
                         }
+                        this.onFilterEnchantFlag();
+                    } else {
+                        for (const [key, value] of Object.entries(this.StoreDB_Equip)) {
+                            try{
+                                this.StoreDB_Equip.splice(value.uuid, 1);
+                                this.SaveEquipDB();
+                            } catch(e){
+                                console.log('error deleting equip', e);
+                            }
+                        }
+                        this.onFliterEquipPart();
                     }
-                    this.onFliterEquipPart();
                 },
                 onRemoveEquipSave(uuid) {
                     var _dbidx = this.StoreDB_Equip.findIndex(x => x.uuid == uuid);
