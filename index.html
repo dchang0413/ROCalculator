@@ -2542,7 +2542,7 @@
                     <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
                         <el-row class="statusbox bg-purple-light" :span="4" :gutter="4" type="flex" align="middle">
                             <el-col class="textcenter" >
-                                    <el-input v-model="StoreDB_SearchString" @input="onFliterEquipSearch" placeholder="Search" clearable>
+                                    <el-input v-model="StoreDB_SearchString" @input="onFilterEnchantFlag" placeholder="Search" clearable>
                                     </el-input>
                             </el-col>
                         </el-row>
@@ -2672,7 +2672,7 @@
                                 class="m-0"
                                 align="right"
                                 v-model="PageIndex"
-                                :total-rows="StoreDB_EquipCount"
+                                :total-rows="StoreDB_EnchantCount"
                                 :per-page="ItemsPerPage"
                                 aria-controls="EnchantListCont">
                             </b-pagination>
@@ -6796,6 +6796,7 @@
                 StoreDB_EnchantFilterList: [],
                 StoreDB_SearchString: '',
                 StoreDB_Equip: [],
+                StoreDB_Enchant: [],
                 EquipSelectId: '',
                 ComboSelectId: false,
                 EquipSelectLabel: '',
@@ -7099,7 +7100,7 @@
                 ],
 
                 effectFlagList: [
-                    { label: 'Stats', flag: 'Stats' },
+                    { label: 'Stat', flag: 'Stat' },
                     { label: 'Melee', flag: 'Melee' },
                     { label: 'Range', flag: 'Range' },
                     { label: 'Crit', flag: 'Crit' },
@@ -11330,13 +11331,13 @@
                     }
                     var _tempgroup = this.StoreDB_EnchantFlags;
                     this.StoreDB_EnchantFilterList = _tempgroup.length > 0 ?
-                        this.StoreDB_Equip.filter(
+                        this.StoreDB_Enchant.filter(
                             function (saverow) {
                                 return 'flags' in saverow.equip ? saverow.equip.flags.includes(_tempgroup[0]) : -1;
                             }
                         )
                         :
-                        this.StoreDB_Equip
+                        this.StoreDB_Enchant
                         ;
 
                     for( var i=0; i<this.StoreDB_EnchantFilterList.length; ++i)
@@ -11378,6 +11379,10 @@
                 SaveEquipDB() {
                     const parsed = JSON.stringify(this.StoreDB_Equip);
                     localStorage.setItem('StoreDB_Equip', parsed);
+                },
+                SaveEnchantDB(){
+                    const parsed = JSON.stringify(this.StoreDB_Enchant);
+                    localStorage.setItem('StoreDB_Enchant', parsed);
                 },
                 onSaveStatus() {
                     // https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/
@@ -11470,8 +11475,9 @@
                                            "Helm Enchant", "Armor Enchant",
                                            "Garment Enchant", "Shoes Enchant",
                                            "Accessory Enchant"];
-                    this.onFilterEnchants(enchantsLabel);
+                    //this.onFilterEnchants(enchantsLabel);
                     this.OpenPanel('EnchantDialog');
+                    this.onFilterEnchantFlag();
                     this.ItemDesiredPosition = index;
                 },
                 fetchEnchantMapping(index){
@@ -11861,6 +11867,14 @@
                         try {
                             this.StoreDB_Equip = JSON.parse(localStorage.getItem('StoreDB_Equip'));
                             Enumerable.From(this.StoreDB_Equip).OrderBy(x => x.equip.id);
+                        } catch (e) {
+                            console.log("catch e:" + e);
+                        }
+                    }
+                    if (localStorage.getItem('StoreDB_Enchant')) {
+                        try {
+                            this.StoreDB_Enchant = JSON.parse(localStorage.getItem('StoreDB_Enchant'));
+                            Enumerable.From(this.StoreDB_Enchant).OrderBy(x => x.equip.id);
                         } catch (e) {
                             console.log("catch e:" + e);
                         }
@@ -12928,7 +12942,7 @@
                         let loadedNames = this.getLoadedEquipNames();
                         for (const [key, value] of Object.entries(json)) {
                             if (loadedNames.includes(value.equipname)) continue;
-                            this.StoreDB_Equip.push({
+                            this.StoreDB_Enchant.push({
                                 uuid: this._uuid(),
                                 equip: {
                                     id: value.id,
@@ -12941,7 +12955,7 @@
                                 },
                                 date: Date.now(),
                             });
-                            this.SaveEquipDB();
+                            this.SaveEnchantDB();
                         }
                     })
                 },
@@ -12950,7 +12964,7 @@
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
-                        let loadedNames = this.getLoadedEquipNames();
+                        let loadedNames = this.getLoadedEnchantNames();
                         for (const [key, value] of Object.entries(json)) {
                             if (loadedNames.includes(value.equipname)) continue;
                             this.StoreDB_Equip.push({
@@ -12986,6 +13000,17 @@
                 getLoadedEquipNames(){
                     let loadedNames = [];
                     for (const [key, value] of Object.entries(this.StoreDB_Equip)) {
+                        try{
+                            loadedNames.push(value.equip.equipname);
+                        } catch(e){
+                            console.log('error geting equip name', e);
+                        }
+                    }
+                    return loadedNames;
+                },
+                getLoadedEnchantNames(){
+                    let loadedNames = [];
+                    for (const [key, value] of Object.entries(this.StoreDB_Enchant)) {
                         try{
                             loadedNames.push(value.equip.equipname);
                         } catch(e){
@@ -13100,6 +13125,9 @@
                 StoreDB_EquipCount() {
                     return this.StoreDB_EquipFilterList.length;
                 },
+                StoreDB_EnchantCount() {
+                    return this.StoreDB_EnchantFilterList.length;
+                },
                 /*
                 StoreDB_EquipFiltered() {
                     var _tempgroup = this.StoreDB_EquipFliterGroup;
@@ -13121,8 +13149,6 @@
             },
             mounted() {
                 this.LoadDB();
-                this.loadAllDefaultEquip();
-                this.loadEnchants();
                 this.attribute_init = Object.assign({}, this.attribute);
                 this.status_add_init = Object.assign({}, this.status_add);
                 this.status_job_init = Object.assign({}, this.status_job);
