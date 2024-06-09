@@ -1063,5 +1063,233 @@
             "refineatk": 0,
             "refineatk2": 0
         }
-    }
+    },
+    {
+		"id": "helm",
+        "itemid": 400180,
+		"label": "Upper",
+        "refinelevel": 12,
+		"equipname": "Helm of Faith (Sura)",
+		"effectlist": [
+			{
+				"EffectNumber": "10*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>6?5:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"TIGERCANNON\")?(15*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+        "combolist": [
+            {
+                "itemid_every": [
+                    560018
+                ],
+                "itemid_any": [],
+                "equipname": "Adulter Fides Knuckle",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "MeleeDamagePercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "SKIDS(\"TIGERCANNON\")?(5*DOWN(WEAR/3)):0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    560020
+                ],
+                "itemid_any": [],
+                "equipname": "Vivatus Fides Knuckle",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "MeleeDamagePercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "(SKIDS(\"TIGERCANNON\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"THIRD_FLAME_BOMB\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+		"idx": 3
+	},
+    {
+		"id": "helm",
+        "itemid": 400181,
+		"label": "Upper",
+        "refinelevel": 12,
+		"equipname": "Helm of Faith II (Sura)",
+		"effectlist": [
+			{
+				"EffectNumber": "10*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>6?5:0",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"RAMPAGEBLASTER\")?(15*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+        "combolist": [
+            {
+                "itemid_every": [
+                    560019
+                ],
+                "itemid_any": [],
+                "equipname": "Adulter Fides Claw",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "RangedDamagePercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "SKIDS(\"RAMPAGEBLASTER\")?(5*DOWN(WEAR/3)):0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    560021
+                ],
+                "itemid_any": [],
+                "equipname": "Vivatus Fides Claw",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "RangedDamagePercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "(SKIDS(\"RAMPAGEBLASTER\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"EXPOSION_BLASTER\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+		"idx": 3
+	}
 ]

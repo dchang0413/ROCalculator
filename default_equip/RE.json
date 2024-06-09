@@ -17,14 +17,14 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "3*DOWN(ARMORR/3)+(CCL?'RE'?15:0)",
+				"EffectNumber": "3*DOWN(ARMORR/3)+(CCL=='RE'?15:0)",
 				"EffectType": {
 					"id": "DEX"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "CCL=='RE?75:0",
+				"EffectNumber": "CCL=='RE'?75:0",
 				"EffectType": {
 					"id": "Atk"
 				},
@@ -115,5 +115,1257 @@
 			"id": 0
 		},
 		"idx": 3
-	}
+	},
+	{
+		"id": "helm",
+        "itemid": 400237,
+		"label": "Upper",
+        "refinelevel": 12,
+		"equipname": "Helm of Faith (Rebellion)",
+		"effectlist": [
+			{
+				"EffectNumber": "10*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>6?5:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"D_TAIL FIREDANCE HAMMER_OF_GOD\")?(15*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+        "combolist": [
+            {
+                "itemid_every": [
+                    810002
+                ],
+                "itemid_any": [],
+                "equipname": "Adulter Fides Rifle",
+                "effectlist": [
+                    {
+                        "EffectNumber": "SKIDS(\"HAMMER_OF_GOD\")?10:0",
+                        "EffectType": {
+                            "id": "CDTime"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "SKIDS(\"HAMMER_OF_GOD\")?(5*DOWN(WEAR/3)):0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+			{
+                "itemid_every": [
+                    800003
+                ],
+                "itemid_any": [],
+                "equipname": "Adulter Fides Revolver",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "RangedDamagePercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "SKIDS(\"FIREDANCE\")?(5*DOWN(WEAR/3)):0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+			{
+                "itemid_every": [
+                    840002
+                ],
+                "itemid_any": [],
+                "equipname": "Adulter Fides Launcher",
+                "effectlist": [
+                    {
+                        "EffectNumber": "SKIDS(\"D_TAIL\")?2:0",
+                        "EffectType": {
+                            "id": "CDTime"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "SKIDS(\"D_TAIL\")?(5*DOWN(WEAR/3)):0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    810008
+                ],
+                "itemid_any": [],
+                "equipname": "Vivatus Fides Rifle",
+                "effectlist": [
+                    {
+                        "EffectNumber": "SKIDS(\"HAMMER_OF_GOD\")?10:0",
+                        "EffectType": {
+                            "id": "CDTime"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "(SKIDS(\"HAMMER_OF_GOD\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"ONLY_ONE_BULLET\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+			{
+                "itemid_every": [
+                    800012
+                ],
+                "itemid_any": [],
+                "equipname": "Vivatus Fides Revolver",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "RangedDamagePercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "(SKIDS(\"FIREDANCE\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"MAGAZINE_FOR_ONE\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+			{
+                "itemid_every": [
+                    840007
+                ],
+                "itemid_any": [],
+                "equipname": "Vivatus Fides Launcher",
+                "effectlist": [
+                    {
+                        "EffectNumber": "SKIDS(\"D_TAIL\")?2:0",
+                        "EffectType": {
+                            "id": "CDTime"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "(SKIDS(\"D_TAIL\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"SPIRAL_SHOOTING\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+		"idx": 3
+	},
+    {
+		"id": "helm",
+        "itemid": 400238,
+		"label": "Upper",
+        "refinelevel": 12,
+		"equipname": "Helm of Faith II (Rebellion)",
+		"effectlist": [
+			{
+				"EffectNumber": "10*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>6?5:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"R_TRIP S_STORM\")?(15*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+        "combolist": [
+            {
+                "itemid_every": [
+                    820002
+                ],
+                "itemid_any": [],
+                "equipname": "Adulter Fides Shotgun",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "RangedDamagePercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "SKIDS(\"S_STORM\")?(5*DOWN(WEAR/3)):0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+			{
+                "itemid_every": [
+                    830003
+                ],
+                "itemid_any": [],
+                "equipname": "Adulter Fides Gatling Gun",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "RangedDamagePercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "SKIDS(\"R_TRIP\")?(5*DOWN(WEAR/3)):0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    820006
+                ],
+                "itemid_any": [],
+                "equipname": "Vivatus Fides Shotgun",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "RangedDamagePercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "(SKIDS(\"S_STORM\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"WILD_FIRE\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+			{
+                "itemid_every": [
+                    830011
+                ],
+                "itemid_any": [],
+                "equipname": "Vivatus Fides Gatling Gun",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "RangedDamagePercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "(SKIDS(\"R_TRIP\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"THE_VIGILANTE_AT_NIGHT\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+		"idx": 3
+	},
+    {
+        "id": "weaponr",
+		"itemid": 810008,
+        "label": "MainHand",
+        "equipname": "Vivatus Fides Rifle",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": "(WEAG(3)?7:0)",
+                "EffectType": {
+                    "id": "AtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+                "EffectType": {
+                    "id": "ElementalAtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"HAMMER_OF_GOD\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(18*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"HAMMER_OF_GOD\")?(WEAR>8?8:0):0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "PATK"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "CON"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Rifle",
+                "label": "Rifle",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": true,
+                "isTwohand": true
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "280",
+            "MATK": 0,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 150,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    },
+    {
+        "id": "weaponr",
+		"itemid": 800012,
+        "label": "MainHand",
+        "equipname": "Vivatus Fides Revolver",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": "(WEAG(3)?7:0)",
+                "EffectType": {
+                    "id": "AtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+                "EffectType": {
+                    "id": "ElementalAtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"FIREDANCE\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(18*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "PATK"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "CON"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Pistol",
+                "label": "Pistol",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": true,
+                "isTwohand": true
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "210",
+            "MATK": 0,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 120,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    },
+    {
+        "id": "weaponr",
+		"itemid": 840007,
+        "label": "MainHand",
+        "equipname": "Vivatus Fides Launcher",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": "(WEAG(3)?7:0)",
+                "EffectType": {
+                    "id": "AtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+                "EffectType": {
+                    "id": "ElementalAtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"D_TAIL\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(18*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"D_TAIL\")?(WEAR>8?2:0):0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "PATK"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "CON"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Launcher",
+                "label": "Launcher",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": true,
+                "isTwohand": true
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "350",
+            "MATK": 0,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 300,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    },
+    {
+        "id": "weaponr",
+		"itemid": 820006,
+        "label": "MainHand",
+        "equipname": "Vivatus Fides Shotgun",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": "(WEAG(3)?7:0)",
+                "EffectType": {
+                    "id": "AtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+                "EffectType": {
+                    "id": "ElementalAtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"S_STORM\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(18*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"S_STORM\")?(WEAR>8?1:0):0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "PATK"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "CON"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Shotgun",
+                "label": "Shotgun",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": true,
+                "isTwohand": true
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "320",
+            "MATK": 0,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 200,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    },
+    {
+        "id": "weaponr",
+		"itemid": 830011,
+        "label": "MainHand",
+        "equipname": "Vivatus Fides Gatling Gun",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": "(WEAG(3)?7:0)",
+                "EffectType": {
+                    "id": "AtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+                "EffectType": {
+                    "id": "ElementalAtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"R_TRIP\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(18*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "WEAR>8?15:0",
+                "EffectType": {
+                    "id": "SizeAtkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "PATK"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "CON"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Gatling",
+                "label": "Gatling",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": true,
+                "isTwohand": true
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "250",
+            "MATK": 0,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 150,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    },
+    {
+        "id": "weaponr",
+		"itemid": 810002,
+        "label": "MainHand",
+        "equipname": "Adulter Fides Rifle",
+        "refinelevel": 12,
+        "grade": {
+            "id": 0,
+            "label": "No Grade"
+        },
+        "effectlist": [
+			{
+                "EffectNumber": "(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"HAMMER_OF_GOD\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(18*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"HAMMER_OF_GOD\")?(WEAR>8?8:0):0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Rifle",
+                "label": "Rifle",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": true,
+                "isTwohand": true
+            },
+            "level": {
+                "id": 4,
+                "label": "Lv. 4 Weapon",
+                "upgradeatk": 7,
+                "saferefine": 4,
+                "overatk": 14
+            },
+            "grade": {
+                "id": 0,
+                "label": "No Grade"
+            },
+            "ATK": "280",
+            "MATK": 0,
+            "refinelevel": 12,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 150,
+            "refineatk": 84,
+            "refinematk": 84,
+            "refineatk2": 112
+        }
+    },
+    {
+        "id": "weaponr",
+		"itemid": 800003,
+        "label": "MainHand",
+        "equipname": "Adulter Fides Revolver",
+        "refinelevel": 12,
+        "grade": {
+            "id": 0,
+            "label": "No Grade"
+        },
+        "effectlist": [
+			{
+                "EffectNumber": "(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"FIREDANCE\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(18*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Pistol",
+                "label": "Pistol",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": true,
+                "isTwohand": true
+            },
+            "level": {
+                "id": 4,
+                "label": "Lv. 4 Weapon",
+                "upgradeatk": 7,
+                "saferefine": 4,
+                "overatk": 14
+            },
+            "grade": {
+                "id": 0,
+                "label": "No Grade"
+            },
+            "ATK": "210",
+            "MATK": 0,
+            "refinelevel": 12,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 120,
+            "refineatk": 84,
+            "refinematk": 84,
+            "refineatk2": 112
+        }
+    },
+    {
+        "id": "weaponr",
+		"itemid": 840002,
+        "label": "MainHand",
+        "equipname": "Adulter Fides Launcher",
+        "refinelevel": 12,
+        "grade": {
+            "id": 0,
+            "label": "No Grade"
+        },
+        "effectlist": [
+			{
+                "EffectNumber": "(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"D_TAIL\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(18*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"D_TAIL\")?(WEAR>8?2:0):0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Launcher",
+                "label": "Launcher",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": true,
+                "isTwohand": true
+            },
+            "level": {
+                "id": 4,
+                "label": "Lv. 4 Weapon",
+                "upgradeatk": 7,
+                "saferefine": 4,
+                "overatk": 14
+            },
+            "grade": {
+                "id": 0,
+                "label": "No Grade"
+            },
+            "ATK": "350",
+            "MATK": 0,
+            "refinelevel": 12,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 300,
+            "refineatk": 84,
+            "refinematk": 84,
+            "refineatk2": 112
+        }
+    },
+    {
+        "id": "weaponr",
+		"itemid": 820002,
+        "label": "MainHand",
+        "equipname": "Adulter Fides Shotgun",
+        "refinelevel": 12,
+        "grade": {
+            "id": 0,
+            "label": "No Grade"
+        },
+        "effectlist": [
+			{
+                "EffectNumber": "(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"S_STORM\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(18*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"S_STORM\")?(WEAR>8?1:0):0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Shotgun",
+                "label": "Shotgun",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": true,
+                "isTwohand": true
+            },
+            "level": {
+                "id": 4,
+                "label": "Lv. 4 Weapon",
+                "upgradeatk": 7,
+                "saferefine": 4,
+                "overatk": 14
+            },
+            "grade": {
+                "id": 0,
+                "label": "No Grade"
+            },
+            "ATK": "320",
+            "MATK": 0,
+            "refinelevel": 12,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 200,
+            "refineatk": 84,
+            "refinematk": 84,
+            "refineatk2": 112
+        }
+    },
+    {
+        "id": "weaponr",
+		"itemid": 830003,
+        "label": "MainHand",
+        "equipname": "Adulter Fides Gatling Gun",
+        "refinelevel": 12,
+        "grade": {
+            "id": 0,
+            "label": "No Grade"
+        },
+        "effectlist": [
+			{
+                "EffectNumber": "(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"R_TRIP\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(18*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "WEAR>8?15:0",
+                "EffectType": {
+                    "id": "SizeAtkPercent"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Gatling",
+                "label": "Gatling",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": true,
+                "isTwohand": true
+            },
+            "level": {
+                "id": 4,
+                "label": "Lv. 4 Weapon",
+                "upgradeatk": 7,
+                "saferefine": 4,
+                "overatk": 14
+            },
+            "grade": {
+                "id": 0,
+                "label": "No Grade"
+            },
+            "ATK": "250",
+            "MATK": 0,
+            "refinelevel": 12,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 150,
+            "refineatk": 84,
+            "refinematk": 84,
+            "refineatk2": 112
+        }
+    }
 ]

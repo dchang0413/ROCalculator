@@ -897,5 +897,233 @@
             "refineatk": 0,
             "refineatk2": 0
         }
-    }
+    },
+    {
+		"id": "helm",
+        "itemid": 400178,
+		"label": "Upper",
+        "refinelevel": 12,
+		"equipname": "Helm of Faith (Warlock)",
+		"effectlist": [
+			{
+				"EffectNumber": "10*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>6?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SOULEXPANSION\")?(15*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==8?(7*DOWN(HATR/4)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+        "combolist": [
+            {
+                "itemid_every": [
+                    640020
+                ],
+                "itemid_any": [],
+                "equipname": "Adulter Fides Rod",
+                "effectlist": [
+                    {
+                        "EffectNumber": "AEI==8?10:0",
+                        "EffectType": {
+                            "id": "ElementalMagicPercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "SKIDS(\"SOULEXPANSION\")?(5*DOWN(WEAR/3)):0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    640022
+                ],
+                "itemid_any": [],
+                "equipname": "Vivatus Fides Rod",
+                "effectlist": [
+                    {
+                        "EffectNumber": "AEI==8?10:0",
+                        "EffectType": {
+                            "id": "ElementalMagicPercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "(SKIDS(\"SOULEXPANSION\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"SOUL_VC_STRIKE\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+		"idx": 3
+	},
+    {
+		"id": "helm",
+        "itemid": 400179,
+		"label": "Upper",
+        "refinelevel": 12,
+		"equipname": "Helm of Faith II (Warlock)",
+		"effectlist": [
+			{
+				"EffectNumber": "10*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>6?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"COMET\")?(15*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==0||AEI==7)?(7*DOWN(HATR/4)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+        "combolist": [
+            {
+                "itemid_every": [
+                    640019
+                ],
+                "itemid_any": [],
+                "equipname": "Adulter Fides Two-handed Staff",
+                "effectlist": [
+                    {
+                        "EffectNumber": "(AEI==0||AEI==7)?10:0",
+                        "EffectType": {
+                            "id": "ElementalMagicPercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "SKIDS(\"COMET\")?(5*DOWN(WEAR/3)):0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    640021
+                ],
+                "itemid_any": [],
+                "equipname": "Vivatus Fides Two-handed Staff",
+                "effectlist": [
+                    {
+                        "EffectNumber": "(AEI==0||AEI==7)?10:0",
+                        "EffectType": {
+                            "id": "ElementalMagicPercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "(SKIDS(\"COMET\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"MYSTERY_ILLUSION\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+		"idx": 3
+	}
 ]

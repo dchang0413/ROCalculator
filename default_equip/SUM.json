@@ -53,5 +53,593 @@
 			"id": 0
 		},
 		"idx": 3
-	}
+	},
+	{
+		"id": "helm",
+        "itemid": 400243,
+		"label": "Upper",
+        "refinelevel": 12,
+		"equipname": "Helm of Faith (Summoner)",
+		"effectlist": [
+			{
+				"EffectNumber": "10*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>6?5:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"PICKYPECK LUNATICCARROTBEAT\")?(15*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+        "combolist": [
+            {
+                "itemid_every": [
+                    550028
+                ],
+                "itemid_any": [],
+                "equipname": "Adulter Fides Foxtail Model",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "RangedDamagePercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "SKIDS(\"PICKYPECK LUNATICCARROTBEAT\")?(5*DOWN(WEAR/3)):0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    550066
+                ],
+                "itemid_any": [],
+                "equipname": "Vivatus Fides Foxtail Model",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "RangedDamagePercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "(SKIDS(\"PICKYPECK LUNATICCARROTBEAT\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"CHUL_HO_SONIC_CLAW\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+		"idx": 3
+	},
+    {
+		"id": "helm",
+        "itemid": 400244,
+		"label": "Upper",
+        "refinelevel": 12,
+		"equipname": "Helm of Faith II (Summoner)",
+		"effectlist": [
+			{
+				"EffectNumber": "10*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>6?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SV_STEMSPEAR CN_METEOR\")?(15*DOWN(HATR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+            {
+				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+        "combolist": [
+            {
+                "itemid_every": [
+                    550027
+                ],
+                "itemid_any": [],
+                "equipname": "Adulter Fides Foxtail Wand",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "ElementalMagicPercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "SKIDS(\"SV_STEMSPEAR CN_METEOR\")?(5*DOWN(WEAR/3)):0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    550065
+                ],
+                "itemid_any": [],
+                "equipname": "Vivatus Fides Foxtail Wand",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "ElementalMagicPercent"
+                        },
+                        "Enable": true
+                    },
+                    {
+                        "EffectNumber": "(SKIDS(\"SV_STEMSPEAR CN_METEOR\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"HYUN_ROKS_BREEZE\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+		"idx": 3
+	},
+	{
+        "id": "weaponr",
+		"itemid": 550066,
+        "label": "MainHand",
+        "equipname": "Vivatus Fides Foxtail Model",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": "(WEAG(3)?7:0)",
+                "EffectType": {
+                    "id": "AtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+                "EffectType": {
+                    "id": "ElementalAtkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "WEAR>11?15:0",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"PICKYPECK\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(12*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "WEAR>8?15:0",
+                "EffectType": {
+                    "id": "SizeAtkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "PATK"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "POW"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "OneHandedRods",
+                "label": "1HRod",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "320",
+            "MATK": 0,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 180,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    },
+	{
+        "id": "weaponr",
+		"itemid": 550065,
+        "label": "MainHand",
+        "equipname": "Vivatus Fides Foxtail Wand",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": "(WEAG(3)?7:0)",
+                "EffectType": {
+                    "id": "MatkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+                "EffectType": {
+                    "id": "ElementalMatkPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "AEI==0?(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"CN_METEOR\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(12*(DOWN(WEAR/3)))",
+                "EffectType": {
+                    "id": "Matk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"CN_METEOR\")?(WEAR>8?2:0):0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "SMATK"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+                "EffectType": {
+                    "id": "SPL"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "OneHandedRods",
+                "label": "1HRod",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "200",
+            "MATK": 350,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 150,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    },
+	{
+        "id": "weaponr",
+		"itemid": 550028,
+        "label": "MainHand",
+        "equipname": "Adulter Fides Foxtail Model",
+        "refinelevel": 12,
+        "grade": {
+            "id": 0,
+            "label": "No Grade"
+        },
+        "effectlist": [
+			{
+                "EffectNumber": "WEAR>11?15:0",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"PICKYPECK\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "12*DOWN(WEAR/3)",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "WEAR>8?15:0",
+                "EffectType": {
+                    "id": "SizeAtkPercent"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "OneHandedRods",
+                "label": "1HRod",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 4,
+                "label": "Lv. 4 Weapon",
+                "upgradeatk": 7,
+                "saferefine": 4,
+                "overatk": 14
+            },
+            "grade": {
+                "id": 0,
+                "label": "No Grade"
+            },
+            "ATK": "320",
+            "MATK": 0,
+            "refinelevel": 12,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 180,
+            "refineatk": 84,
+            "refinematk": 84,
+            "refineatk2": 112
+        }
+    },
+	{
+        "id": "weaponr",
+		"itemid": 550027,
+        "label": "MainHand",
+        "equipname": "Adulter Fides Foxtail Wand",
+        "refinelevel": 12,
+        "grade": {
+            "id": 0,
+            "label": "No Grade"
+        },
+        "effectlist": [
+			{
+                "EffectNumber": "AEI==0?(WEAR>11?15:0)",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"CN_METEOR\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "12*DOWN(WEAR/3)",
+                "EffectType": {
+                    "id": "Matk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "SKIDS(\"CN_METEOR\")?(WEAR>8?2:0):0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "OneHandedRods",
+                "label": "1HRod",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 4,
+                "label": "Lv. 4 Weapon",
+                "upgradeatk": 7,
+                "saferefine": 4,
+                "overatk": 14
+            },
+            "grade": {
+                "id": 0,
+                "label": "No Grade"
+            },
+            "ATK": "200",
+            "MATK": 350,
+            "refinelevel": 12,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 150,
+            "refineatk": 84,
+            "refinematk": 84,
+            "refineatk2": 112
+        }
+    }
 ]
