@@ -1084,5 +1084,109 @@
 		],
 		"combolist": [],
 		"idx": 3
-	}
+	},
+	{
+        "id": "weaponr",
+		"itemid": 550023,
+        "label": "MainHand",
+        "equipname": "Thanatos Staff-AD",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": "10*DOWN(WEAR/2)",
+                "EffectType": {
+                    "id": "Matk"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "WEAR>8?10:0",
+                "EffectType": {
+                    "id": "VariableCastPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "AEI==3?(WEAR>6?15:0):0",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(SKIDS(\"VARETYR_SPEAR\")?((10*DOWN(WEAR/3))+(WEAR>6?15:0)):0)+(SKIDS(\"LIGHTNING_LAND\")?(WEAG(3)?20:(WEAG(1)?10:0)):0)",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "WEAG(2)?5:(WEAG(1)?2:0)",
+                "EffectType": {
+                    "id": "MatkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAR>10?15:0)",
+                "EffectType": {
+                    "id": "SizeMatkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(SKIDS(\"VARETYR_SPEAR\")?(WEAR>8?2.5:0):0)+(SKIDS(\"PSYCHIC_WAVE\")?(WEAR>10?1:0):0)",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "WEAG(2)?1:0",
+                "EffectType": {
+                    "id": "SMATK"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "OneHandedRods",
+                "label": "1HRod",
+                "sizefix": {
+                    "small": 100,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "100",
+            "MATK": 180,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 140,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    }
 ]

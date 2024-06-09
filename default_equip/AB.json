@@ -1148,5 +1148,137 @@
 			"id": 0
 		},
 		"idx": 3
-	}
+	},
+    {
+        "id": "weaponr",
+		"itemid": 590020,
+        "label": "MainHand",
+        "equipname": "Thanatos Hammer-AD",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": "10*DOWN(WEAR/2)",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "10*DOWN(WEAR/2)",
+                "EffectType": {
+                    "id": "Matk"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "WEAR>6?10:0",
+                "EffectType": {
+                    "id": "AspdPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "AEI==6?(WEAR>6?15:0):0",
+                "EffectType": {
+                    "id": "ElementalMagicPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(SKIDS(\"DUPLELIGHT\")?((18*DOWN(WEAR/3))+(WEAR>8?30:0)):0)+(SKIDS(\"PETITIO\")?(WEAG(3)?20:(WEAG(1)?10:0)):0)",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAR>8?5:0)+(WEAG(1)?3:0)",
+                "EffectType": {
+                    "id": "AtkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "WEAR>8?5:0",
+                "EffectType": {
+                    "id": "MatkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "WEAG(2)?15:0",
+                "EffectType": {
+                    "id": "RangedDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAR>10?15:0)",
+                "EffectType": {
+                    "id": "SizeMatkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAR>10?15:0)",
+                "EffectType": {
+                    "id": "SizeAtkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAR>10?15:0)",
+                "EffectType": {
+                    "id": "MeleeDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "WEAG(2)?1:0",
+                "EffectType": {
+                    "id": "PATK"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "Maces",
+                "label": "Mace",
+                "sizefix": {
+                    "small": 75,
+                    "middle": 100,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": false
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "200",
+            "MATK": 190,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 100,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    }
 ]

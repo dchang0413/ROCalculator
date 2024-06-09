@@ -1284,5 +1284,109 @@
 			"id": 0
 		},
 		"idx": 3
-	}
+	},
+	{
+        "id": "weaponr",
+		"itemid": 620009,
+        "label": "MainHand",
+        "equipname": "Thanatos Axe-AD",
+        "refinelevel": 14,
+        "grade": {
+            "id": 4,
+            "label": "A"
+        },
+        "effectlist": [
+            {
+                "EffectNumber": "10*DOWN(WEAR/2)",
+                "EffectType": {
+                    "id": "Atk"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "WEAR>6?10:0",
+                "EffectType": {
+                    "id": "GCDPercent"
+                },
+                "Enable": true
+            },
+			{
+                "EffectNumber": "SKIDS(\"AXETORNADO\")?(WEAR>6?1:0):0",
+                "EffectType": {
+                    "id": "CDTime"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(SKIDS(\"AXETORNADO\")?((7*DOWN(WEAR/3))+(WEAR>8?15:0)):0)+(SKIDS(\"AXEBOOMERANG\")?(WEAR>8?45:0):0)+(SKIDS(\"AXE_STOMP\")?(WEAG(3)?20:(WEAG(1)?10:0)):0)",
+                "EffectType": {
+                    "id": "SkillDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "WEAG(2)?5:(WEAG(1)?2:0)",
+                "EffectType": {
+                    "id": "AtkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAR>10?15:0)",
+                "EffectType": {
+                    "id": "SizeAtkPercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "(WEAR>10?15:0)",
+                "EffectType": {
+                    "id": "MeleeDamagePercent"
+                },
+                "Enable": true
+            },
+            {
+                "EffectNumber": "WEAG(2)?1:0",
+                "EffectType": {
+                    "id": "PATK"
+                },
+                "Enable": true
+            }
+        ],
+        "idx": 0,
+        "weapon": {
+            "type": {
+                "id": "TwoHandedAxe",
+                "label": "2HAxes",
+                "sizefix": {
+                    "small": 50,
+                    "middle": 75,
+                    "large": 100
+                },
+                "baseaspd": "",
+                "isRangedattack": false,
+                "isTwohand": true
+            },
+            "level": {
+                "id": 5,
+                "label": "Lv. 5 Weapon",
+                "upgradeatk": 8,
+                "saferefine": 4,
+                "overatk": 0
+            },
+            "grade": {
+                "id": 4,
+                "label": "A"
+            },
+            "ATK": "320",
+            "MATK": 0,
+            "refinelevel": 14,
+            "ArrowATK": 0,
+            "BulletATK": 0,
+            "Weight": 600,
+            "refinematk": 0,
+            "refineatk": 0,
+            "refineatk2": 0
+        }
+    }
 ]
