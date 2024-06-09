@@ -8964,8 +8964,13 @@
                     //this.computeattribute.atkc4_min = this.computeattribute.atkc4_min + Number(this.computeattribute['SpecialATK2']);
                     //this.computeattribute.atkc4_max = this.computeattribute.atkc4_max + Number(this.computeattribute['SpecialATK2']);
 
-                    this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc4_min, Number(this.skilloption.ElementalPercent / 100));
-                    this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc4_max, Number(this.skilloption.ElementalPercent / 100));
+                    if (this.skilloption.ElementalPercent > 0) {
+                        this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc4_min, Number(this.skilloption.ElementalPercent / 100));
+                        this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc4_max, Number(this.skilloption.ElementalPercent / 100));
+                    } else {
+                        this.computeattribute.atkc5_min = 0;
+                        this.computeattribute.atkc5_max = 0;
+                    }
                     this.setRecord('Element Advantage',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'x',Number(this.skilloption.ElementalPercent / 100),'p');
 
                     this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, Number(1) + Number(this.attribute['ELEDDI'] / 100));
@@ -8973,13 +8978,6 @@
                     this.setRecord('Element Resist',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'x',Number(1) + Number(this.attribute['ELEDDI'] / 100),'p');
 
                     var para7 = Number(this.attribute['StatusATK']);
-                    if( isNA ) { //普攻
-                        if( this.subweapon.type.id != 2 ){  //普攻非雙持狀態
-                            para7 += Number(this.attribute['StatusATK']);
-                        }
-                    }else{  //技能
-                        para7 += Number(this.attribute['StatusATK']);
-                    }
                     var para7ele = 100;
                     if (this.enemyattribute.elemental == 8) {
                         para7ele = this.getElementalPercent(
@@ -8993,12 +8991,19 @@
                             this.enemyattribute.elemental,
                             this.enemyattribute.elementallevel);
                     }
-                    
                     if (para7ele != 100){
                         this.setRecord('divider','');
-                        this.setRecord('Status ATK',[para7],'','');
+                        this.setRecord('Base Status ATK',[para7],'','');
                         para7 = this.MulOper(Number(para7), Number(para7ele / 100));
                         this.setRecord('Element Advantage',[para7],'x',Number(para7ele / 100),'p');
+                        para7 *= 2;
+                        this.setRecord('Default 2×',[para7],'x',2,'p');
+                        this.setRecord('divider','');
+                    } else {
+                        this.setRecord('divider','');
+                        this.setRecord('Base Status ATK',[para7],'','');
+                        para7 *= 2;
+                        this.setRecord('Default 2×',[para7],'x',2,'p');
                         this.setRecord('divider','');
                     }
                     
@@ -9077,7 +9082,7 @@
 
                     this.computeattribute.atkc6_min = this.computeattribute.atkc5_min;
                     this.computeattribute.atkc6_max = this.computeattribute.atkc5_max;
-                    //��̪��߿
+                    //暴擊增傷
                     var para_crid = isNA ? 
                         Number(1) + Number(this.attribute['CRIDP']) / 100 : para_crid = Number(1) + Number(this.attribute['CRIDP']) * 0.5 / 100;
                     //}
