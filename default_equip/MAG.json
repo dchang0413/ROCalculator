@@ -2103,5 +2103,130 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400482,
+		"label": "Upper",
+		"equipname": "Poenetentia Glory Crown",
+		"refinelevel": 13,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(HATR/3))+(HATR>12?20:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?15:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>12?0.5:0",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					500019
+				],
+				"itemid_any": [],
+				"equipname": "Poenitentia Gladius",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"RAYOFGENESIS\")?1:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"RAYOFGENESIS\")?(10*DOWN(WEAR/2)):0)+(SKIDS(\"CROSS_RAIN\")?(8*DOWN(WEAR/2)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					550020
+				],
+				"itemid_any": [],
+				"equipname": "Poenitentia Crystallum",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"ADORAMUS\")?1:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"ADORAMUS\")?(10*DOWN(WEAR/2)):0)+(SKIDS(\"FRAMEN\")?(8*DOWN(WEAR/2)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [],
+				"itemid_any": [570013, 580013],
+				"equipname": "Poenitentia Chorda or Poenitentia Flagellum",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"REVERBERATION METALIC_FURY\")?(10*DOWN(WEAR/2)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
