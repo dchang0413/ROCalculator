@@ -2535,7 +2535,7 @@
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['CostumeStoneDialog']" v-on:close="ClosePanel('CostumeStoneDialog')"
             custom-class="Dialogue-container" width="80%" top="50px" center>
-            <span slot="title">Costume Stone List</span>
+            <span slot="title">Costume Stone List <b>{{fetchCostumeStoneMapping(ItemDesiredPosition)}}</b></span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
                     <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
@@ -2553,7 +2553,7 @@
                         <el-col class="textcenter" style="text-align: left;" :span="18">
                             <el-checkbox-group v-model="StoreDB_CostumeStoneFilterGroup" v-on:change="onFilterCostumeStonePart"
                                 fill="#909399" text-color="white">
-                                <el-checkbox-button v-for="item in FilterCardList()" :disabled="true" :label="item.label" :key="item.id">
+                                <el-checkbox-button v-for="item in FilterCostumeStoneList()" :disabled="true" :label="item.label" :key="item.id">
                                     {{item.label}}
                                 </el-checkbox-button>
                             </el-checkbox-group>
@@ -2699,7 +2699,7 @@
                             </el-col>
                         </el-row>
                         <el-col class="textcenter" :span="2">
-                            <el-button v-on:click="onFilterPëtClear">
+                            <el-button v-on:click="onFilterPetClear">
                                 All
                             </el-button>
                         </el-col>
@@ -2762,7 +2762,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onLoadDataSave(item.uuid, 'stone')" icon="el-icon-check"
+                                        <el-button v-on:click="onLoadDataSave(item.uuid, 'pet')" icon="el-icon-check"
                                             type="success" type="primary" size="small">
                                             Load
                                         </el-button>
@@ -7276,11 +7276,11 @@
                     { id: 'shoescard', label: 'Shoes Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'acc1card', label: 'Acc Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'acc2card', label: 'Acc Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
-                    { id: 'costumeupper', label: 'Costume Upper Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'costumemiddle', label: 'Costume Middle Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'costumelower', label: 'Costume Lower Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'costumegarment', label: 'Costume Garment Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'costumedual', label: 'Costume Garment(Dual) Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costumeupper', label: 'Upper Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costumemiddle', label: 'Middle Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costumelower', label: 'Lower Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costumegarment', label: 'Garment Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costumedual', label: 'Garment(Dual) Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'pets', label: 'Pet', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'shadow', label: 'S.Weapon', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
                     { id: 'shadowshld', label: 'S.Shield', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
@@ -8030,9 +8030,11 @@
                 },
                 ClosePanel(id) {
                     this.UIPanel[id] = false;
-                    if(id === "CardDialog" || id === "EnchantDialog"){
+                    if(id === "CardDialog" || id === "EnchantDialog" || id === "CostumeStoneDialog" || id === "PetDialog"){
                         this.ItemDesiredPosition = -1;
-                        this.StoreDB_EquipFilterGroup = [];
+                        this.StoreDB_CardFilterGroup = [];
+                        this.StoreDB_CostumeStoneFilterGroup = [];
+                        this.StoreDB_PetFilterGroup = [];
                         this.PageIndex = 1;
                         this.updateItemsPerPage(this.PageOptions[1]);
                     }
@@ -8223,6 +8225,18 @@
                 },
                 FilterCardList(){
                     const equips = this.equipspartlist.slice(10, 27);
+                    const labelSet = new Set();
+                    const output = [];
+                    for (const equip of equips) {
+                        if (!labelSet.has(equip.label)) {
+                            output.push(equip);
+                            labelSet.add(equip.label);
+                        }
+                    }
+                    return output;
+                },
+                FilterCostumeStoneList(){
+                    const equips = this.equipspartlist.slice(27, 32);
                     const labelSet = new Set();
                     const output = [];
                     for (const equip of equips) {
@@ -11720,6 +11734,16 @@
                         this.$set(this.StoreDB_CardFilterList[i], 'preview', false);
                     }
                 },
+                onFilterCostumeStone(label) {
+                    this.StoreDB_CostumeStoneFilterList = this.StoreDB_CostumeStone.filter(x => x.equip.label === label).sort(
+                        (a, b) => a.equip.label > b.equip.label ? 1 :
+                        a.equip.label === b.equip.label ?
+                            ((a.date > b.date) ? -1 : 1) : -1
+                    );
+                    for(let i = 0; i < this.StoreDB_CostumeStoneFilterList.length; ++i){
+                        this.$set(this.StoreDB_CostumeStoneFilterList[i], 'preview', false);
+                    }
+                },
                 onFilterCostumeStonePart() {
                     this.StoreDB_CostumeStoneSearchString = '';
                     if( this.StoreDB_CostumeStoneFilterGroup.length>1 ){
@@ -11968,6 +11992,9 @@
                     this.ItemDesiredPosition = index;
                 },
                 costumeStoneSwitch(index){
+                    const filter = this.fetchCostumeStoneMapping(index);
+                    this.StoreDB_CostumeStoneFilterGroup = [filter];
+                    this.onFilterCostumeStone(filter);
                     this.OpenPanel('CostumeStoneDialog');
                     this.ItemDesiredPosition = index;
                 },
@@ -11977,7 +12004,7 @@
                         "Middle Stone": [28],
                         "Lower Stone": [29],
                         "Garment Stone": [30],
-                        "Dual Stone": [31]
+                        "Garment(Dual) Stone": [31]
                     }
                     return Object.keys(stoneLabelToEquip).find(x => stoneLabelToEquip[x].includes(index));
                 },
@@ -12382,6 +12409,22 @@
                         try {
                             this.StoreDB_Card = JSON.parse(localStorage.getItem('StoreDB_Card'));
                             Enumerable.From(this.StoreDB_Card).OrderBy(x => x.equip.id);
+                        } catch (e) {
+                            console.log("catch e:" + e);
+                        }
+                    }
+                    if (localStorage.getItem('StoreDB_CostumeStone')) {
+                        try {
+                            this.StoreDB_CostumeStone = JSON.parse(localStorage.getItem('StoreDB_CostumeStone'));
+                            Enumerable.From(this.StoreDB_CostumeStone).OrderBy(x => x.equip.id);
+                        } catch (e) {
+                            console.log("catch e:" + e);
+                        }
+                    }
+                    if (localStorage.getItem('StoreDB_Pet')) {
+                        try {
+                            this.StoreDB_Pet = JSON.parse(localStorage.getItem('StoreDB_Pet'));
+                            Enumerable.From(this.StoreDB_Pet).OrderBy(x => x.equip.id);
                         } catch (e) {
                             console.log("catch e:" + e);
                         }
