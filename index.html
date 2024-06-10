@@ -11556,6 +11556,8 @@
                             }
                         }
                         console.log("Load Equip " + idx + ": " + useDB[_dbidx].equip.equipname);
+                        if (!('effectlist' in useDB[_dbidx].equip)) useDB[_dbidx].equip.effectlist = [];
+                        if (!('combolist' in useDB[_dbidx].equip)) useDB[_dbidx].equip.combolist = [];
                         useDB[_dbidx].equip.effectlist.forEach(x=>x.Enable=x.Enable==null?true:x.Enable);
                         useDB[_dbidx].equip.combolist.forEach(x=>x.effectlist.forEach(y=>y.Enable=y.Enable==null?true:y.Enable));
                         this.$set(this.equipspartlist,

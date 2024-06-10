@@ -1,577 +1,588 @@
 [
-    {
-        "id": "helm2",
-        "itemid": 420198,
-        "label": "Lower",
-        "equipname": "Sanctus",
-        "refinelevel": 0,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "CCL=='SU'?15:0",
-                "EffectType": {
-                    "id": "SizeAtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 15,
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('RAMPAGEBLASTER')?0.2:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    {
-        "id": "weaponr",
-        "itemid": 560012,
-        "label": "MainHand",
-        "equipname": "Poenitentia Caestus",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"TIGERCANNON\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"SECOND_FAITH\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>6?10:0)",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"TIGERCANNON\")&&WEAR>10)?1:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(2)?1:0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?1:0)",
-                "EffectType": {
-                    "id": "POW"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Knuckles",
-                "label": "Knuckle",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 75
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "230",
-            "MATK": 0,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 150,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
 	{
-        "id": "weaponr",
-        "itemid": 560013,
-        "label": "MainHand",
-        "equipname": "Poenitentia Ungula",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"RAMPAGEBLASTER\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"EXPOSION_BLASTER\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"RAMPAGEBLASTER\")&&WEAR>10)?1:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(2)?1:0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?1:0)",
-                "EffectType": {
-                    "id": "POW"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Knuckles",
-                "label": "Knuckle",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 75
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "230",
-            "MATK": 0,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 150,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
+		"id": "helm2",
+		"itemid": 420198,
+		"label": "Lower",
+		"equipname": "Sanctus",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "CCL=='SU'?15:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('RAMPAGEBLASTER')?0.2:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
 	{
-        "id": "weaponr",
-        "itemid": 560020,
-        "label": "MainHand",
-        "equipname": "Vivatus Fides Knuckle",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "(WEAG(3)?7:0)",
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
+		"id": "weaponr",
+		"itemid": 560012,
+		"label": "MainHand",
+		"equipname": "Poenitentia Caestus",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
-                "EffectType": {
-                    "id": "ElementalAtkPercent"
-                },
-                "Enable": true
-            },
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "MeleeDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"TIGERCANNON\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"TIGERCANNON\")&&WEAR>8)?0.5:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "POW"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Knuckles",
-                "label": "Knuckle",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 75
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "210",
-            "MATK": 0,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 100,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
+				"EffectNumber": "(SKIDS(\"TIGERCANNON\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"SECOND_FAITH\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?10:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"TIGERCANNON\")&&WEAR>10)?1:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?1:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?1:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Knuckles",
+				"label": "Knuckle",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "230",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 150,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
 	{
-        "id": "weaponr",
-        "itemid": 560021,
-        "label": "MainHand",
-        "equipname": "Vivatus Fides Claw",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "(WEAG(3)?7:0)",
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
+		"id": "weaponr",
+		"itemid": 560013,
+		"label": "MainHand",
+		"equipname": "Poenitentia Ungula",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
-                "EffectType": {
-                    "id": "ElementalAtkPercent"
-                },
-                "Enable": true
-            },
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"RAMPAGEBLASTER\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"RAMPAGEBLASTER\")&&WEAR>8)?1:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "POW"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Knuckles",
-                "label": "Knuckle",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 75
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "210",
-            "MATK": 0,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 90,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
+				"EffectNumber": "(SKIDS(\"RAMPAGEBLASTER\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"EXPOSION_BLASTER\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"RAMPAGEBLASTER\")&&WEAR>10)?1:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?1:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?1:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Knuckles",
+				"label": "Knuckle",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "230",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 150,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
 	{
-        "id": "weaponr",
-        "itemid": 560018,
-        "label": "MainHand",
-        "equipname": "Adulter Fides Knuckle",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
+		"id": "weaponr",
+		"itemid": 560020,
+		"label": "MainHand",
+		"equipname": "Vivatus Fides Knuckle",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "MeleeDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"TIGERCANNON\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"TIGERCANNON\")&&WEAR>8)?0.5:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Knuckles",
-                "label": "Knuckle",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 75
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "210",
-            "MATK": 0,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 100,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
+				"EffectNumber": "(WEAG(3)?7:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"TIGERCANNON\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(12*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"TIGERCANNON\")&&WEAR>8)?0.5:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Knuckles",
+				"label": "Knuckle",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "210",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 100,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
 	{
-        "id": "weaponr",
-        "itemid": 560019,
-        "label": "MainHand",
-        "equipname": "Adulter Fides Claw",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
+		"id": "weaponr",
+		"itemid": 560021,
+		"label": "MainHand",
+		"equipname": "Vivatus Fides Claw",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"RAMPAGEBLASTER\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"RAMPAGEBLASTER\")&&WEAR>8)?1:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Knuckles",
-                "label": "Knuckle",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 75
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "210",
-            "MATK": 0,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 90,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
-    {
+				"EffectNumber": "(WEAG(3)?7:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"RAMPAGEBLASTER\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(12*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"RAMPAGEBLASTER\")&&WEAR>8)?1:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Knuckles",
+				"label": "Knuckle",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "210",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 90,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 560018,
+		"label": "MainHand",
+		"equipname": "Adulter Fides Knuckle",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"TIGERCANNON\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(12*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"TIGERCANNON\")&&WEAR>8)?0.5:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Knuckles",
+				"label": "Knuckle",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "210",
+			"MATK": 0,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 100,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 560019,
+		"label": "MainHand",
+		"equipname": "Adulter Fides Claw",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"RAMPAGEBLASTER\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(12*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"RAMPAGEBLASTER\")&&WEAR>8)?1:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Knuckles",
+				"label": "Knuckle",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "210",
+			"MATK": 0,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 90,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	{
 		"id": "helm",
-        "itemid": 18979,
+		"itemid": 18979,
 		"label": "Upper",
 		"equipname": "Old Blazing Soul",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
 		"effectlist": [
 			{
 				"EffectNumber": 1,
@@ -609,17 +620,18 @@
 				"Enable": true
 			}
 		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 19481,
+		"label": "Upper",
+		"equipname": "Circlet of Time(Sura)",
 		"refinelevel": 12,
 		"grade": {
 			"id": 0
 		},
-		"idx": 3
-	},
-    {
-		"id": "helm",
-        "itemid": 19481,
-		"label": "Upper",
-		"equipname": "Circlet of Time(Sura)",
 		"effectlist": [
 			{
 				"EffectNumber": "15*DOWN(HATR/2)",
@@ -635,7 +647,7 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>10?5:0",
 				"EffectType": {
 					"id": "AtkPercent"
@@ -657,57 +669,56 @@
 				"Enable": true
 			}
 		],
-		"refinelevel": 12,
-		"grade": {
-			"id": 0
-		},
+		"combolist": [],
 		"idx": 3
 	},
-    {
-        "id": "weaponr",
-        "itemid": 560009,
-        "label": "MainHand",
-        "equipname": "Awakened Ray Knuckle",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
+	{
+		"id": "weaponr",
+		"itemid": 560009,
+		"label": "MainHand",
+		"equipname": "Awakened Ray Knuckle",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAR>10?10:0)",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"TIGERCANNON\")?((4*DOWN(WEAR/3))+(WEAR>6?15:0)):0)+(SKIDS(\"GATEOFHELL\")?((WEAR>6?20:0)+(WEAR>10?15:0)):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "15*DOWN(WEAR/3)",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"TIGERCANNON\")&&WEAR>8)?1:0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            }
-        ],
-        "combolist": [
+				"EffectNumber": "(WEAR>10?10:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
 			{
-				"itemid_every": [22238],
-                "itemid_any": [],
-				"equipname" : "Great Hero's Boots",
+				"EffectNumber": "(SKIDS(\"TIGERCANNON\")?((4*DOWN(WEAR/3))+(WEAR>6?15:0)):0)+(SKIDS(\"GATEOFHELL\")?((WEAR>6?20:0)+(WEAR>10?15:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "15*DOWN(WEAR/3)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"TIGERCANNON\")&&WEAR>8)?1:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					22238
+				],
+				"itemid_any": [],
+				"equipname": "Great Hero's Boots",
 				"effectlist": [
 					{
 						"EffectNumber": 10,
@@ -726,47 +737,51 @@
 				]
 			}
 		],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Knuckles",
-                "label": "Knuckle",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 75
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "205",
-            "MATK": 0,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 80,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
-    {
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Knuckles",
+				"label": "Knuckle",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "205",
+			"MATK": 0,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 80,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	{
 		"id": "helm",
-        "itemid": 400307,
+		"itemid": 400307,
 		"label": "Upper",
 		"equipname": "Ally of the Demons",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
 		"effectlist": [
 			{
 				"EffectNumber": "3*HATR",
@@ -796,7 +811,7 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": 9999,
 				"EffectType": {
 					"id": "WeaponPerfection"
@@ -804,17 +819,18 @@
 				"Enable": true
 			}
 		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490130,
+		"label": "Accessory",
+		"equipname": "Sky Blow Ring",
 		"refinelevel": 12,
 		"grade": {
 			"id": 0
 		},
-		"idx": 3
-	},
-    {
-		"id": "acc1",
-        "itemid": 490130,
-		"label": "Accessory",
-		"equipname": "Sky Blow Ring",
 		"effectlist": [
 			{
 				"EffectNumber": "CCL=='SU'?27:7",
@@ -844,14 +860,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "CCL=='SU'?20:0",
 				"EffectType": {
 					"id": "HPPercent"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "CCL=='SU'?20:0",
 				"EffectType": {
 					"id": "SPPercent"
@@ -859,10 +875,7 @@
 				"Enable": true
 			}
 		],
-		"refinelevel": 12,
-		"grade": {
-			"id": 0
-		},
+		"combolist": [],
 		"idx": 3
 	},
 	{
@@ -886,7 +899,10 @@
 		],
 		"combolist": [
 			{
-				"itemid_every": [24480, 24481],
+				"itemid_every": [
+					24480,
+					24481
+				],
 				"itemid_any": [],
 				"equipname": "Skyblow Shadow Set",
 				"effectlist": [
@@ -900,7 +916,9 @@
 				]
 			},
 			{
-				"itemid_every": [24306],
+				"itemid_every": [
+					24306
+				],
 				"itemid_any": [],
 				"equipname": "Sura Shadow Shield",
 				"effectlist": [
@@ -960,116 +978,121 @@
 		"combolist": [],
 		"idx": 3
 	},
-    {
-        "id": "weaponr",
+	{
+		"id": "weaponr",
 		"itemid": 560017,
-        "label": "MainHand",
-        "equipname": "Thanatos Knuckle-AD",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "10*DOWN(WEAR/2)",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
+		"label": "MainHand",
+		"equipname": "Thanatos Knuckle-AD",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "SKIDS(\"TIGERCANNON\")?(WEAR>6?1:0):0",
-                "EffectType": {
-                    "id": "CDTime"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>6?5:0",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"TIGERCANNON\")?((5*DOWN(WEAR/3))+(WEAR>8?15:0)):0)+(SKIDS(\"FALLENEMPIRE\")?(WEAR>8?25:0):0)+(SKIDS(\"THIRD_FLAME_BOMB\")?(WEAG(3)?20:(WEAG(1)?10:0)):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAG(2)?5:(WEAG(1)?2:0)",
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>10?15:0)",
-                "EffectType": {
-                    "id": "SizeAtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>10?15:0)",
-                "EffectType": {
-                    "id": "MeleeDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAG(2)?1:0",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Knuckles",
-                "label": "Knuckle",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 75
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "200",
-            "MATK": 0,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 120,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
-    {
+				"EffectNumber": "10*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"TIGERCANNON\")?(WEAR>6?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?5:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"TIGERCANNON\")?((5*DOWN(WEAR/3))+(WEAR>8?15:0)):0)+(SKIDS(\"FALLENEMPIRE\")?(WEAR>8?25:0):0)+(SKIDS(\"THIRD_FLAME_BOMB\")?(WEAG(3)?20:(WEAG(1)?10:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?5:(WEAG(1)?2:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?15:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?15:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?1:0",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Knuckles",
+				"label": "Knuckle",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "200",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 120,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
 		"id": "helm",
-        "itemid": 400180,
+		"itemid": 400180,
 		"label": "Upper",
-        "refinelevel": 12,
 		"equipname": "Helm of Faith (Sura)",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
 		"effectlist": [
 			{
 				"EffectNumber": "10*DOWN(HATR/2)",
@@ -1085,14 +1108,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
 				"EffectType": {
 					"id": "FixedCast"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>10?5:0",
 				"EffectType": {
 					"id": "AtkPercent"
@@ -1113,14 +1136,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
 				"EffectType": {
 					"id": "POW"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
 				"EffectType": {
 					"id": "PATK"
@@ -1128,62 +1151,66 @@
 				"Enable": true
 			}
 		],
-        "combolist": [
-            {
-                "itemid_every": [
-                    560018
-                ],
-                "itemid_any": [],
-                "equipname": "Adulter Fides Knuckle",
-                "effectlist": [
-                    {
-                        "EffectNumber": 10,
-                        "EffectType": {
-                            "id": "MeleeDamagePercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "SKIDS(\"TIGERCANNON\")?(5*DOWN(WEAR/3)):0",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            },
-            {
-                "itemid_every": [
-                    560020
-                ],
-                "itemid_any": [],
-                "equipname": "Vivatus Fides Knuckle",
-                "effectlist": [
-                    {
-                        "EffectNumber": 10,
-                        "EffectType": {
-                            "id": "MeleeDamagePercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "(SKIDS(\"TIGERCANNON\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"THIRD_FLAME_BOMB\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            }
-        ],
+		"combolist": [
+			{
+				"itemid_every": [
+					560018
+				],
+				"itemid_any": [],
+				"equipname": "Adulter Fides Knuckle",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"TIGERCANNON\")?(5*DOWN(WEAR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					560020
+				],
+				"itemid_any": [],
+				"equipname": "Vivatus Fides Knuckle",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"TIGERCANNON\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"THIRD_FLAME_BOMB\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	},
-    {
+	{
 		"id": "helm",
-        "itemid": 400181,
+		"itemid": 400181,
 		"label": "Upper",
-        "refinelevel": 12,
 		"equipname": "Helm of Faith II (Sura)",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
 		"effectlist": [
 			{
 				"EffectNumber": "10*DOWN(HATR/2)",
@@ -1199,14 +1226,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
 				"EffectType": {
 					"id": "FixedCast"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>10?5:0",
 				"EffectType": {
 					"id": "AtkPercent"
@@ -1227,14 +1254,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
 				"EffectType": {
 					"id": "POW"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
 				"EffectType": {
 					"id": "PATK"
@@ -1242,54 +1269,54 @@
 				"Enable": true
 			}
 		],
-        "combolist": [
-            {
-                "itemid_every": [
-                    560019
-                ],
-                "itemid_any": [],
-                "equipname": "Adulter Fides Claw",
-                "effectlist": [
-                    {
-                        "EffectNumber": 10,
-                        "EffectType": {
-                            "id": "RangedDamagePercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "SKIDS(\"RAMPAGEBLASTER\")?(5*DOWN(WEAR/3)):0",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            },
-            {
-                "itemid_every": [
-                    560021
-                ],
-                "itemid_any": [],
-                "equipname": "Vivatus Fides Claw",
-                "effectlist": [
-                    {
-                        "EffectNumber": 10,
-                        "EffectType": {
-                            "id": "RangedDamagePercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "(SKIDS(\"RAMPAGEBLASTER\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"EXPOSION_BLASTER\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            }
-        ],
+		"combolist": [
+			{
+				"itemid_every": [
+					560019
+				],
+				"itemid_any": [],
+				"equipname": "Adulter Fides Claw",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"RAMPAGEBLASTER\")?(5*DOWN(WEAR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					560021
+				],
+				"itemid_any": [],
+				"equipname": "Vivatus Fides Claw",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"RAMPAGEBLASTER\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"EXPOSION_BLASTER\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	}
 ]

@@ -1,632 +1,652 @@
 [
-    {
-        "id": "acc1",
-        "itemid": 490029,
-        "label": "Accessory",
-        "equipname": "Geffenia Ice Magic Tool",
-        "effectlist": [
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('COMET')?50:(CLL=='WL'&&SKIDS('JACKFROST')?50:0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CLL=='WL'?30:0",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "refinelevel": 0,
-        "idx": 3
-    },
-    {
-        "id": "armor",
-        "itemid": 450226,
-        "label": "Armor",
-        "equipname": "Four of a Kind",
-        "effectlist": [
-            {
-                "EffectNumber": "CLL=='WL'?30:0",
-                "EffectType": {
-                    "id": "INT"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CLL=='WL'?150:0",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CLL=='WL'?70:0",
-                "EffectType": {
-                    "id": "RaceMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "AEI<5?(ARMORR>11?15:0):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "SPPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "refinelevel": 12,
-        "idx": 3
-    },
-    {
-        "id": "weaponr",
-        "itemid": 640014,
-        "label": "MainHand",
-        "equipname": "Poenitentia Termes",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"CRIMSONROCK FROSTMISTY\")?(3*DOWN(WEAR/2)+(WEAR>8?25:0)):0)+(SKIDS(\"CRIMSON_ARROW FROZEN_SLASH\")?(10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0)))):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>6?10:0",
-                "EffectType": {
-                    "id": "VariableCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(AEI==1||AEI==2)?(WEAR>10?10:0):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?2:0)",
-                "EffectType": {
-                    "id": "SPL"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(2)?1:0)",
-                "EffectType": {
-                    "id": "SMATK"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedRods",
-                "label": "2HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "170",
-            "MATK": 300,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 200,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
-    {
-        "id": "weaponr",
-        "itemid": 640015,
-        "label": "MainHand",
-        "equipname": "Poenitentia Virga",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"CHAINLIGHTNING EARTHSTRAIN\")?(3*DOWN(WEAR/2)+(WEAR>8?25:0)):0)+(SKIDS(\"STORM_CANNON ROCK_DOWN\")?(10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0)))):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>6?10:0",
-                "EffectType": {
-                    "id": "VariableCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(AEI==3||AEI==4)?(WEAR>10?10:0):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?2:0)",
-                "EffectType": {
-                    "id": "SPL"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(2)?1:0)",
-                "EffectType": {
-                    "id": "SMATK"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedRods",
-                "label": "2HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "170",
-            "MATK": 300,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 200,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
-    {
-        "id": "weaponr",
-        "itemid": 640022,
-        "label": "MainHand",
-        "equipname": "Vivatus Fides Rod",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "18*DOWN(WEAR/3)",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?7:0)",
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"SOULEXPANSION\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>8?15:0",
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "AEI==8?(WEAR>11?15:0):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(1)&&WEAR>10)?15:0",
-                "EffectType": {
-                    "id": "ElementalMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?DOWN(WEAR/3):0)",
-                "EffectType": {
-                    "id": "SPL"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?DOWN(WEAR/3):0)",
-                "EffectType": {
-                    "id": "SMATK"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedRods",
-                "label": "2HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "200",
-            "MATK": 340,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 190,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
-    {
-        "id": "weaponr",
-        "itemid": 640021,
-        "label": "MainHand",
-        "equipname": "Vivatus Fides Two-handed Staff",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "18*DOWN(WEAR/3)",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?7:0)",
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"COMET\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>8?15:0",
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "AEI==0?(WEAR>11?15:0):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(1)&&WEAR>10)?15:0",
-                "EffectType": {
-                    "id": "ElementalMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?DOWN(WEAR/3):0)",
-                "EffectType": {
-                    "id": "SPL"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?DOWN(WEAR/3):0)",
-                "EffectType": {
-                    "id": "SMATK"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedRods",
-                "label": "2HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "200",
-            "MATK": 340,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 200,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
-    {
-        "id": "weaponr",
-        "itemid": 640020,
-        "label": "MainHand",
-        "equipname": "Adulter Fides Rod",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "18*DOWN(WEAR/3)",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"SOULEXPANSION\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>8?15:0",
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "AEI==8?(WEAR>11?15:0):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedRods",
-                "label": "2HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "200",
-            "MATK": 340,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 190,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
-    {
-        "id": "weaponr",
-        "itemid": 640019,
-        "label": "MainHand",
-        "equipname": "Adulter Fides Two-handed Staff",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "18*DOWN(WEAR/3)",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"COMET\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>8?15:0",
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "AEI==0?(WEAR>11?15:0):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedRods",
-                "label": "2HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "200",
-            "MATK": 340,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 200,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
-    {
+	{
+		"id": "acc1",
+		"itemid": 490029,
+		"label": "Accessory",
+		"equipname": "Geffenia Ice Magic Tool",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('COMET')?50:(CLL=='WL'&&SKIDS('JACKFROST')?50:0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CLL=='WL'?30:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "armor",
+		"itemid": 450226,
+		"label": "Armor",
+		"equipname": "Four of a Kind",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "CLL=='WL'?30:0",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CLL=='WL'?150:0",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CLL=='WL'?70:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI<5?(ARMORR>11?15:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 640014,
+		"label": "MainHand",
+		"equipname": "Poenitentia Termes",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"CRIMSONROCK FROSTMISTY\")?(3*DOWN(WEAR/2)+(WEAR>8?25:0)):0)+(SKIDS(\"CRIMSON_ARROW FROZEN_SLASH\")?(10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0)))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==1||AEI==2)?(WEAR>10?10:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?2:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?1:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedRods",
+				"label": "2HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "170",
+			"MATK": 300,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 200,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 640015,
+		"label": "MainHand",
+		"equipname": "Poenitentia Virga",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"CHAINLIGHTNING EARTHSTRAIN\")?(3*DOWN(WEAR/2)+(WEAR>8?25:0)):0)+(SKIDS(\"STORM_CANNON ROCK_DOWN\")?(10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0)))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==3||AEI==4)?(WEAR>10?10:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?2:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?1:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedRods",
+				"label": "2HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "170",
+			"MATK": 300,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 200,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 640022,
+		"label": "MainHand",
+		"equipname": "Vivatus Fides Rod",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "18*DOWN(WEAR/3)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?7:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SOULEXPANSION\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>8?15:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==8?(WEAR>11?15:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(1)&&WEAR>10)?15:0",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?DOWN(WEAR/3):0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?DOWN(WEAR/3):0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedRods",
+				"label": "2HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "200",
+			"MATK": 340,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 190,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 640021,
+		"label": "MainHand",
+		"equipname": "Vivatus Fides Two-handed Staff",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "18*DOWN(WEAR/3)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?7:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"COMET\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>8?15:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==0?(WEAR>11?15:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(1)&&WEAR>10)?15:0",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?DOWN(WEAR/3):0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?DOWN(WEAR/3):0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedRods",
+				"label": "2HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "200",
+			"MATK": 340,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 200,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 640020,
+		"label": "MainHand",
+		"equipname": "Adulter Fides Rod",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "18*DOWN(WEAR/3)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SOULEXPANSION\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>8?15:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==8?(WEAR>11?15:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedRods",
+				"label": "2HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "200",
+			"MATK": 340,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 190,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 640019,
+		"label": "MainHand",
+		"equipname": "Adulter Fides Two-handed Staff",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "18*DOWN(WEAR/3)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"COMET\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>8?15:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==0?(WEAR>11?15:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedRods",
+				"label": "2HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "200",
+			"MATK": 340,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 200,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	{
 		"id": "helm",
-        "itemid": 18978,
+		"itemid": 18978,
 		"label": "Upper",
 		"equipname": "Old Magic Stone Hat",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
 		"effectlist": [
 			{
 				"EffectNumber": 1,
@@ -649,7 +669,7 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "SKIDS(\"CRIMSONROCK\")?(1+(0.1*HATR)):0",
 				"EffectType": {
 					"id": "CDTime"
@@ -678,86 +698,88 @@
 				"Enable": true
 			}
 		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 2027,
+		"label": "MainHand",
+		"equipname": "Sunflower Boy",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedRods",
+				"label": "2HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "150",
+			"MATK": 320,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 150,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	{
+		"id": "helm",
+		"itemid": 19482,
+		"label": "Upper",
+		"equipname": "Circlet of Time(Warlock)",
 		"refinelevel": 12,
 		"grade": {
 			"id": 0
 		},
-		"idx": 3
-	},
-    {
-        "id": "weaponr",
-        "itemid": 2027,
-        "label": "MainHand",
-        "equipname": "Sunflower Boy",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 5,
-                "EffectType": {
-                    "id": "INT"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "DOWN(WEAR/2)",
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedRods",
-                "label": "2HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "150",
-            "MATK": 320,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 150,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
-    {
-		"id": "helm",
-        "itemid": 19482,
-		"label": "Upper",
-		"equipname": "Circlet of Time(Warlock)",
 		"effectlist": [
 			{
 				"EffectNumber": "15*DOWN(HATR/2)",
@@ -773,7 +795,7 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>10?5:0",
 				"EffectType": {
 					"id": "MatkPercent"
@@ -795,115 +817,117 @@
 				"Enable": true
 			}
 		],
-		"refinelevel": 12,
-		"grade": {
-			"id": 0
-		},
+		"combolist": [],
 		"idx": 3
 	},
-    {
-        "id": "weaponr",
+	{
+		"id": "weaponr",
 		"itemid": 640017,
-        "label": "MainHand",
-        "equipname": "Thanatos Two-handed Staff-AD",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "10*DOWN(WEAR/2)",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
+		"label": "MainHand",
+		"equipname": "Thanatos Two-handed Staff-AD",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "WEAR>6?10:0",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(AEI==1||AEI==4)?(WEAR>6?15:0):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"CRIMSONROCK\")?((10*DOWN(WEAR/3))+(WEAR>8?15:0)):0)+(SKIDS(\"EARTHSTRAIN\")?(WEAR>8?40:0):0)+(SKIDS(\"FLORAL_FLARE_ROAD STRANTUM_TREMOR\")?(WEAG(3)?20:(WEAG(1)?10:0)):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAG(2)?5:(WEAG(1)?2:0)",
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>10?15:0)",
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAG(2)?1:0",
-                "EffectType": {
-                    "id": "SMATK"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "TwoHandedRods",
-                "label": "2HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "150",
-            "MATK": 300,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 140,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
-    {
+				"EffectNumber": "10*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?10:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==1||AEI==4)?(WEAR>6?15:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"CRIMSONROCK\")?((10*DOWN(WEAR/3))+(WEAR>8?15:0)):0)+(SKIDS(\"EARTHSTRAIN\")?(WEAR>8?40:0):0)+(SKIDS(\"FLORAL_FLARE_ROAD STRANTUM_TREMOR\")?(WEAG(3)?20:(WEAG(1)?10:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?5:(WEAG(1)?2:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?15:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?1:0",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedRods",
+				"label": "2HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "150",
+			"MATK": 300,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 140,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
 		"id": "helm",
-        "itemid": 400178,
+		"itemid": 400178,
 		"label": "Upper",
-        "refinelevel": 12,
 		"equipname": "Helm of Faith (Warlock)",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
 		"effectlist": [
 			{
 				"EffectNumber": "10*DOWN(HATR/2)",
@@ -919,14 +943,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
 				"EffectType": {
 					"id": "FixedCast"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>10?5:0",
 				"EffectType": {
 					"id": "MatkPercent"
@@ -947,14 +971,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
 				"EffectType": {
 					"id": "SPL"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
 				"EffectType": {
 					"id": "SMATK"
@@ -962,62 +986,66 @@
 				"Enable": true
 			}
 		],
-        "combolist": [
-            {
-                "itemid_every": [
-                    640020
-                ],
-                "itemid_any": [],
-                "equipname": "Adulter Fides Rod",
-                "effectlist": [
-                    {
-                        "EffectNumber": "AEI==8?10:0",
-                        "EffectType": {
-                            "id": "ElementalMagicPercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "SKIDS(\"SOULEXPANSION\")?(5*DOWN(WEAR/3)):0",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            },
-            {
-                "itemid_every": [
-                    640022
-                ],
-                "itemid_any": [],
-                "equipname": "Vivatus Fides Rod",
-                "effectlist": [
-                    {
-                        "EffectNumber": "AEI==8?10:0",
-                        "EffectType": {
-                            "id": "ElementalMagicPercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "(SKIDS(\"SOULEXPANSION\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"SOUL_VC_STRIKE\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            }
-        ],
+		"combolist": [
+			{
+				"itemid_every": [
+					640020
+				],
+				"itemid_any": [],
+				"equipname": "Adulter Fides Rod",
+				"effectlist": [
+					{
+						"EffectNumber": "AEI==8?10:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SOULEXPANSION\")?(5*DOWN(WEAR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					640022
+				],
+				"itemid_any": [],
+				"equipname": "Vivatus Fides Rod",
+				"effectlist": [
+					{
+						"EffectNumber": "AEI==8?10:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"SOULEXPANSION\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"SOUL_VC_STRIKE\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	},
-    {
+	{
 		"id": "helm",
-        "itemid": 400179,
+		"itemid": 400179,
 		"label": "Upper",
-        "refinelevel": 12,
 		"equipname": "Helm of Faith II (Warlock)",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
 		"effectlist": [
 			{
 				"EffectNumber": "10*DOWN(HATR/2)",
@@ -1033,14 +1061,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
 				"EffectType": {
 					"id": "FixedCast"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>10?5:0",
 				"EffectType": {
 					"id": "MatkPercent"
@@ -1061,14 +1089,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
 				"EffectType": {
 					"id": "SPL"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
 				"EffectType": {
 					"id": "SMATK"
@@ -1076,54 +1104,54 @@
 				"Enable": true
 			}
 		],
-        "combolist": [
-            {
-                "itemid_every": [
-                    640019
-                ],
-                "itemid_any": [],
-                "equipname": "Adulter Fides Two-handed Staff",
-                "effectlist": [
-                    {
-                        "EffectNumber": "(AEI==0||AEI==7)?10:0",
-                        "EffectType": {
-                            "id": "ElementalMagicPercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "SKIDS(\"COMET\")?(5*DOWN(WEAR/3)):0",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            },
-            {
-                "itemid_every": [
-                    640021
-                ],
-                "itemid_any": [],
-                "equipname": "Vivatus Fides Two-handed Staff",
-                "effectlist": [
-                    {
-                        "EffectNumber": "(AEI==0||AEI==7)?10:0",
-                        "EffectType": {
-                            "id": "ElementalMagicPercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "(SKIDS(\"COMET\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"MYSTERY_ILLUSION\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            }
-        ],
+		"combolist": [
+			{
+				"itemid_every": [
+					640019
+				],
+				"itemid_any": [],
+				"equipname": "Adulter Fides Two-handed Staff",
+				"effectlist": [
+					{
+						"EffectNumber": "(AEI==0||AEI==7)?10:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"COMET\")?(5*DOWN(WEAR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					640021
+				],
+				"itemid_any": [],
+				"equipname": "Vivatus Fides Two-handed Staff",
+				"effectlist": [
+					{
+						"EffectNumber": "(AEI==0||AEI==7)?10:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"COMET\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"MYSTERY_ILLUSION\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	}
 ]

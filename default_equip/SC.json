@@ -1,9 +1,13 @@
 [
 	{
 		"id": "helm2",
-        "itemid": 420323,
+		"itemid": 420323,
 		"label": "Lower",
 		"equipname": "Charm of Anywhere",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0
+		},
 		"effectlist": [
 			{
 				"EffectNumber": 3,
@@ -34,15 +38,12 @@
 				"Enable": true
 			}
 		],
-		"refinelevel": 0,
-		"grade": {
-			"id": 0
-		},
+		"combolist": [],
 		"idx": 3
 	},
 	{
 		"id": "shoes",
-        "itemid": 470057,
+		"itemid": 470057,
 		"label": "Shoes",
 		"equipname": "Chaser Shoes",
 		"refinelevel": 12,
@@ -101,11 +102,12 @@
 				"Enable": true
 			}
 		],
+		"combolist": [],
 		"idx": 3
 	},
 	{
 		"id": "acc2",
-        "itemid": 490410,
+		"itemid": 490410,
 		"label": "Accessory",
 		"equipname": "Into The Abyss",
 		"refinelevel": 0,
@@ -135,11 +137,12 @@
 				"Enable": true
 			}
 		],
+		"combolist": [],
 		"idx": 3
 	},
 	{
 		"id": "weaponr",
-        "itemid": 700069,
+		"itemid": 700069,
 		"label": "MainHand",
 		"equipname": "Triangle Disaster",
 		"refinelevel": 0,
@@ -170,6 +173,7 @@
 				"Enable": true
 			}
 		],
+		"combolist": [],
 		"idx": 0,
 		"weapon": {
 			"type": {
@@ -208,7 +212,7 @@
 	},
 	{
 		"id": "robe",
-        "itemid": 480081,
+		"itemid": 480081,
 		"label": "Garment",
 		"equipname": "Glotoneria",
 		"refinelevel": 9,
@@ -252,11 +256,12 @@
 				"Enable": true
 			}
 		],
+		"combolist": [],
 		"idx": 3
 	},
 	{
 		"id": "armor",
-        "itemid": 450214,
+		"itemid": 450214,
 		"label": "Armor",
 		"equipname": "Dark Triad",
 		"refinelevel": 7,
@@ -300,101 +305,103 @@
 				"Enable": true
 			}
 		],
+		"combolist": [],
 		"idx": 3
 	},
 	{
-        "id": "weaponr",
-        "itemid": 510028,
-        "label": "MainHand",
-        "equipname": "Poenitentia Dilacero",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"FATALMENACE\")?(3*DOWN(WEAR/2)+(WEAR>8?30:0)):0)+(SKIDS(\"DEFT_STAB\")?(10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0)))):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>6?10:0)",
-                "EffectType": {
-                    "id": "AspdPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>10?12:0)",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(2)?1:0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?1:0)",
-                "EffectType": {
-                    "id": "POW"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Daggers",
-                "label": "Dagger",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 75,
-                    "large": 50
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "190",
-            "MATK": 0,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 90,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
+		"id": "weaponr",
+		"itemid": 510028,
+		"label": "MainHand",
+		"equipname": "Poenitentia Dilacero",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"FATALMENACE\")?(3*DOWN(WEAR/2)+(WEAR>8?30:0)):0)+(SKIDS(\"DEFT_STAB\")?(10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0)))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?10:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?12:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?1:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?1:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Daggers",
+				"label": "Dagger",
+				"sizefix": {
+					"small": 100,
+					"middle": 75,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "190",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 90,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
 	{
 		"id": "weaponr",
-        "itemid": 700022,
+		"itemid": 700022,
 		"label": "MainHand",
 		"equipname": "Poenitentia Tenon",
 		"refinelevel": 14,
@@ -404,48 +411,49 @@
 		},
 		"effectlist": [
 			{
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"TRIANGLESHOT\")?(3*DOWN(WEAR/2)+(WEAR>8?30:0)):0)+(SKIDS(\"FRENZY_SHOT\")?(10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0)))):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>6?15:0)",
-                "EffectType": {
-                    "id": "CriDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>10?15:0)",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(2)?1:0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?1:0)",
-                "EffectType": {
-                    "id": "CON"
-                },
-                "Enable": true
-            }
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"TRIANGLESHOT\")?(3*DOWN(WEAR/2)+(WEAR>8?30:0)):0)+(SKIDS(\"FRENZY_SHOT\")?(10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0)))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?15:0)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?1:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?1:0)",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			}
 		],
+		"combolist": [],
 		"idx": 0,
 		"weapon": {
 			"type": {
@@ -483,370 +491,378 @@
 		}
 	},
 	{
-        "id": "weaponr",
-        "itemid": 510033,
-        "label": "MainHand",
-        "equipname": "Vivatus Fides Dagger",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "(WEAG(3)?7:0)",
-                "EffectType": {
-                    "id": "MeleeDamagePercent"
-                },
-                "Enable": true
-            },
+		"id": "weaponr",
+		"itemid": 510033,
+		"label": "MainHand",
+		"equipname": "Vivatus Fides Dagger",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
-                "EffectType": {
-                    "id": "ElementalAtkPercent"
-                },
-                "Enable": true
-            },
+				"EffectNumber": "(WEAG(3)?7:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "LevelAtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"FATALMENACE\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>8?15:0)",
-                "EffectType": {
-                    "id": "SizeAtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "POW"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Daggers",
-                "label": "Dagger",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 75,
-                    "large": 50
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "210",
-            "MATK": 0,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 120,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
+				"EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"FATALMENACE\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(12*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?15:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Daggers",
+				"label": "Dagger",
+				"sizefix": {
+					"small": 100,
+					"middle": 75,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "210",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 120,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
 	{
-        "id": "weaponr",
-        "itemid": 700033,
-        "label": "MainHand",
-        "equipname": "Vivatus Fides Cross Bow",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "(WEAG(3)?7:0)",
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
+		"id": "weaponr",
+		"itemid": 700033,
+		"label": "MainHand",
+		"equipname": "Vivatus Fides Cross Bow",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
-                "EffectType": {
-                    "id": "ElementalAtkPercent"
-                },
-                "Enable": true
-            },
+				"EffectNumber": "(WEAG(3)?7:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"TRIANGLESHOT\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(18*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>8?10:0)",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "POW"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Bows",
-                "label": "Bow",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 75
-                },
-                "baseaspd": "",
-                "isRangedattack": true,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "240",
-            "MATK": 0,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 150,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
+				"EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"TRIANGLESHOT\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(18*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?10:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Bows",
+				"label": "Bow",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "240",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 150,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
 	{
-        "id": "weaponr",
-        "itemid": 510032,
-        "label": "MainHand",
-        "equipname": "Adulter Fides Dagger",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
+		"id": "weaponr",
+		"itemid": 510032,
+		"label": "MainHand",
+		"equipname": "Adulter Fides Dagger",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "MeleeDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"FATALMENACE\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>8?15:0)",
-                "EffectType": {
-                    "id": "SizeAtkPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Daggers",
-                "label": "Dagger",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 75,
-                    "large": 50
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "210",
-            "MATK": 0,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 120,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"FATALMENACE\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(12*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?15:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Daggers",
+				"label": "Dagger",
+				"sizefix": {
+					"small": 100,
+					"middle": 75,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "210",
+			"MATK": 0,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 120,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
 	{
-        "id": "weaponr",
-        "itemid": 700030,
-        "label": "MainHand",
-        "equipname": "Adulter Fides Crossbow",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
+		"id": "weaponr",
+		"itemid": 700030,
+		"label": "MainHand",
+		"equipname": "Adulter Fides Crossbow",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"TRIANGLESHOT\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(18*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>8?10:0)",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Bows",
-                "label": "Bow",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 75
-                },
-                "baseaspd": "",
-                "isRangedattack": true,
-                "isTwohand": true
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "240",
-            "MATK": 0,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 150,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
-    {
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"TRIANGLESHOT\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(18*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?10:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Bows",
+				"label": "Bow",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "240",
+			"MATK": 0,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 150,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	{
 		"id": "helm",
-        "itemid": 18975,
+		"itemid": 18975,
 		"label": "Upper",
 		"equipname": "Old Shadow Handicraft",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
 		"effectlist": [
 			{
 				"EffectNumber": 1,
@@ -862,7 +878,7 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "4*HATR",
 				"EffectType": {
 					"id": "Matk"
@@ -891,17 +907,18 @@
 				"Enable": true
 			}
 		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 19479,
+		"label": "Upper",
+		"equipname": "Circlet of Time(Shadow Chaser)",
 		"refinelevel": 12,
 		"grade": {
 			"id": 0
 		},
-		"idx": 3
-	},
-    {
-		"id": "helm",
-        "itemid": 19479,
-		"label": "Upper",
-		"equipname": "Circlet of Time(Shadow Chaser)",
 		"effectlist": [
 			{
 				"EffectNumber": "15*DOWN(HATR/2)",
@@ -917,7 +934,7 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>10?5:0",
 				"EffectType": {
 					"id": "GCDPercent"
@@ -939,108 +956,110 @@
 				"Enable": true
 			}
 		],
-		"refinelevel": 12,
-		"grade": {
-			"id": 0
-		},
+		"combolist": [],
 		"idx": 3
 	},
-    {
-        "id": "weaponr",
+	{
+		"id": "weaponr",
 		"itemid": 510030,
-        "label": "MainHand",
-        "equipname": "Thanatos Dagger-AD",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "10*DOWN(WEAR/2)",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
+		"label": "MainHand",
+		"equipname": "Thanatos Dagger-AD",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(AEI==0||AEI==1)?((4*DOWN(WEAR/3))+(WEAR>6?10:0)+(WEAR>10?15:0)):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
+				"EffectNumber": "10*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
 			{
-                "EffectNumber": "(WEAR>6?5:0)+(WEAG(2)?5:(WEAG(1)?2:0))",
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"FROM_THE_ABYSS\")?(WEAG(3)?20:(WEAG(1)?10:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>10?15:0)",
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAG(2)?1:0",
-                "EffectType": {
-                    "id": "SMATK"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Daggers",
-                "label": "Dagger",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 75,
-                    "large": 50
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "150",
-            "MATK": 160,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 140,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
-    {
+				"EffectNumber": "(AEI==0||AEI==1)?((4*DOWN(WEAR/3))+(WEAR>6?10:0)+(WEAR>10?15:0)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?5:0)+(WEAG(2)?5:(WEAG(1)?2:0))",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"FROM_THE_ABYSS\")?(WEAG(3)?20:(WEAG(1)?10:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?15:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?1:0",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Daggers",
+				"label": "Dagger",
+				"sizefix": {
+					"small": 100,
+					"middle": 75,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "150",
+			"MATK": 160,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 140,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
 		"id": "helm",
-        "itemid": 400191,
+		"itemid": 400191,
 		"label": "Upper",
-        "refinelevel": 12,
 		"equipname": "Helm of Faith (Shadow Chaser)",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
 		"effectlist": [
 			{
 				"EffectNumber": "10*DOWN(HATR/2)",
@@ -1056,14 +1075,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
 				"EffectType": {
 					"id": "FixedCast"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>10?5:0",
 				"EffectType": {
 					"id": "AtkPercent"
@@ -1084,14 +1103,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
 				"EffectType": {
 					"id": "POW"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
 				"EffectType": {
 					"id": "PATK"
@@ -1099,62 +1118,66 @@
 				"Enable": true
 			}
 		],
-        "combolist": [
-            {
-                "itemid_every": [
-                    510032
-                ],
-                "itemid_any": [],
-                "equipname": "Adulter Fides Dagger",
-                "effectlist": [
-                    {
-                        "EffectNumber": 10,
-                        "EffectType": {
-                            "id": "MeleeDamagePercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "SKIDS(\"FATALMENACE\")?(5*DOWN(WEAR/3)):0",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            },
-            {
-                "itemid_every": [
-                    510033
-                ],
-                "itemid_any": [],
-                "equipname": "Vivatus Fides Dagger",
-                "effectlist": [
-                    {
-                        "EffectNumber": 10,
-                        "EffectType": {
-                            "id": "MeleeDamagePercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "(SKIDS(\"FATALMENACE\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"ABYSS_DAGGER\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            }
-        ],
+		"combolist": [
+			{
+				"itemid_every": [
+					510032
+				],
+				"itemid_any": [],
+				"equipname": "Adulter Fides Dagger",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"FATALMENACE\")?(5*DOWN(WEAR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					510033
+				],
+				"itemid_any": [],
+				"equipname": "Vivatus Fides Dagger",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"FATALMENACE\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"ABYSS_DAGGER\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	},
-    {
+	{
 		"id": "helm",
-        "itemid": 400192,
+		"itemid": 400192,
 		"label": "Upper",
-        "refinelevel": 12,
 		"equipname": "Helm of Faith II (Shadow Chaser)",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
 		"effectlist": [
 			{
 				"EffectNumber": "10*DOWN(HATR/2)",
@@ -1170,14 +1193,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
 				"EffectType": {
 					"id": "FixedCast"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>10?5:0",
 				"EffectType": {
 					"id": "AtkPercent"
@@ -1198,14 +1221,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
 				"EffectType": {
 					"id": "POW"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
 				"EffectType": {
 					"id": "PATK"
@@ -1213,54 +1236,54 @@
 				"Enable": true
 			}
 		],
-        "combolist": [
-            {
-                "itemid_every": [
-                    700030
-                ],
-                "itemid_any": [],
-                "equipname": "Adulter Fides Crossbow",
-                "effectlist": [
-                    {
-                        "EffectNumber": 10,
-                        "EffectType": {
-                            "id": "RangedDamagePercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "SKIDS(\"TRIANGLESHOT\")?(5*DOWN(WEAR/3)):0",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            },
-            {
-                "itemid_every": [
-                    700033
-                ],
-                "itemid_any": [],
-                "equipname": "Vivatus Fides Crossbow",
-                "effectlist": [
-                    {
-                        "EffectNumber": 10,
-                        "EffectType": {
-                            "id": "RangedDamagePercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "(SKIDS(\"TRIANGLESHOT\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"FRENZY_SHOT\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            }
-        ],
+		"combolist": [
+			{
+				"itemid_every": [
+					700030
+				],
+				"itemid_any": [],
+				"equipname": "Adulter Fides Crossbow",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"TRIANGLESHOT\")?(5*DOWN(WEAR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					700033
+				],
+				"itemid_any": [],
+				"equipname": "Vivatus Fides Crossbow",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"TRIANGLESHOT\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"FRENZY_SHOT\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	}
 ]
