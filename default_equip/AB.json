@@ -1,580 +1,614 @@
 [
-    {
-        "id": "armor",
-        "itemid": 450291,
-        "label": "Armor",
-        "equipname": "Amazing Grace",
-        "effectlist": [
-            {
-                "EffectNumber": "CCL=='AB'?30:0",
-                "EffectType": {
-                    "id": "INT"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='AB'?150:0",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='AB'?70:0",
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "ARMORR>9?(AEI==6?15:0):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('ADORAMUS JUDEX')?(ARMORR>6?100:(ARMORR>4?50:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "AspdPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "refinelevel": 10,
-        "idx": 3
-    },
-    {
-        "id": "acc1",
-        "itemid": 490118,
-        "label": "Accessory",
-        "equipname": "Ring of Adoramus",
-        "refinelevel": 0,
-        "effectlist": [
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "[6,3,0].includes(AEI)?10:0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('ADORAMUS JUDEX')?DOWN(BLV/3):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='AB'?30:0",
-                "EffectType": {
-                    "id": "VariableCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "CCL=='AB'?15:0",
-                "EffectType": {
-                    "id": "AspdPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    {
-        "id": "acc1",
-        "itemid": 28564,
-        "label": "Accessory",
-        "equipname": "Valkryie Drop",
-        "refinelevel": 0,
-        "effectlist": [
-            {
-                "EffectNumber": "CCL=='AB'?15:0",
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "10",
-                "EffectType": {
-                    "id": "VariableCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(MANUS)?(3*DOWN(BLV/2)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
+	{
+		"id": "armor",
+		"itemid": 450291,
+		"label": "Armor",
+		"equipname": "Amazing Grace",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "CCL=='AB'?30:0",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='AB'?150:0",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='AB'?70:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>9?(AEI==6?15:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('ADORAMUS JUDEX')?(ARMORR>6?100:(ARMORR>4?50:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490118,
+		"label": "Accessory",
+		"equipname": "Ring of Adoramus",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[6,3,0].includes(AEI)?10:0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('ADORAMUS JUDEX')?DOWN(BLV/3):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='AB'?30:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='AB'?15:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 28564,
+		"label": "Accessory",
+		"equipname": "Valkryie Drop",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "CCL=='AB'?15:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(MANUS)?(3*DOWN(BLV/2)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
 				"EffectNumber": "5",
 				"EffectType": {
 					"id": "GCDPercent"
 				},
 				"Enable": true
 			}
-        ],
-        "idx": 3
-    },
-    {
-        "id": "helm",
-        "itemid": 19469,
-        "label": "Upper",
-        "equipname": "Sacred Crown",
-        "refinelevel": 10,
-        "effectlist": [
-            {
-                "EffectNumber": "HATR*2",
-                "EffectType": {
-                    "id": "RaceMatkPercent"
-                },
-                "Enable": false
-            },
-            {
-                "EffectNumber": "CCL=='AB'?25:0",
-                "EffectType": {
-                    "id": "LevelMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "[0,4,8,9].includes(EEI)?40:0",
-                "EffectType": {
-                    "id": "ElementalMatkPercent"
-                },
-                "Enable": false
-            },
-            {
-                "EffectNumber": "HATR>8?100:(HATR>6?50:20)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('ADORAMUS JUDEX')?50:0",
-                "EffectType": {
-                    "id": "SPSkillVariableCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "HATR>8?20:(HATR>6?15:10)",
-                "EffectType": {
-                    "id": "AspdPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 3
-    },
-    {
-        "id": "shoes",
-        "itemid": 22120,
-        "label": "Shoes",
-        "equipname": "Shoes of Punishment",
-        "refinelevel": 7,
-        "effectlist": [
-            {
-                "EffectNumber": "SHOER>6?10:(SHOER>4?5:2)",
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "AEI==6?(SHOER>6?10:(SHOER>4?5:2)):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SHOER>6?20:(SHOER>4?10:3)",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SHOER>6?20:(SHOER>4?10:3)",
-                "EffectType": {
-                    "id": "SPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('JUDEX')?30:0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            }
-        ],
-        "combolist": [
-            {
-                "itemid_every": [1631],
-                "itemid_any": [],
-				"equipname" : "Holy Stick",
-                "effectlist": [
-                    {
-                        "EffectNumber": "SKIDS('ADORAMUS JUDEX')?50:0",
-                        "EffectType": {
-                            "id": "SPSkillVariableCastPercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "SKIDS('ADORAMUS')?(WEAR>8?150:130):0",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "[7,9].includes(EEI)?(WEAR>8?50:(WEAR>6?30:0)):0",
-                        "EffectType": {
-                            "id": "ElementalMatkPercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            }
-        ],
-        "idx": 3
-    },
-    {
-        "id": "weaponr",
-        "itemid": 590012,
-        "label": "MainHand",
-        "equipname": "Awakened Saint Hall",
-        "refinelevel": 0,
-        "effectlist": [
-            {
-                "EffectNumber": 3,
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>8?15:0",
-                "EffectType": {
-                    "id": "RaceMatkPercent"
-                },
-                "Enable": false
-            },
-            {
-                "EffectNumber": "AEI==6?(FLOOR(WEAR/2)+(WEAR>6?10:0)):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS('ADORAMUS')?(5*FLOOR(WEAR/3)+(WEAR>10?15:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>6?10:0",
-                "EffectType": {
-                    "id": "VariableCastPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "combolist": [
-            {
-                "itemid_every": [22238],
-                "itemid_any": [],
-				"equipname" : "Great Hero's Boots",
-                "effectlist": [
-                    {
-                        "EffectNumber": 7,
-                        "EffectType": {
-                            "id": "MatkPercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": 10,
-                        "EffectType": {
-                            "id": "INT"
-                        },
-                        "Enable": true
-                    }
-                ]
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "ATK": "170",
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "MATK": 200,
-            "Weight": 100,
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "overatk": 14,
-                "saferefine": 4,
-                "upgradeatk": 7
-            },
-            "refineatk": 84,
-            "refineatk2": 112,
-            "refinelevel": 12,
-            "refinematk": 84,
-            "type": {
-                "id": "OneHandedRods",
-                "label": "1HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            }
-        }
-    },
-    {
-        "id": "weaponr",
-        "itemid": 550020,
-        "label": "MainHand",
-        "equipname": "Poenitentia Crystallum",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 10,
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"ADORAMUS\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"FRAMEN\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>6?10:0)",
-                "EffectType": {
-                    "id": "VariableCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>10?15:0)",
-                "EffectType": {
-                    "id": "RaceMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(2)?1:0)",
-                "EffectType": {
-                    "id": "SMATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?1:0)",
-                "EffectType": {
-                    "id": "SPL"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "OneHandedRods",
-                "label": "1HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "150",
-            "MATK": 250,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 100,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
+		],
+		"combolist": [],
+		"idx": 3
+	},
 	{
-        "id": "weaponr",
-        "itemid": 540015,
-        "label": "MainHand",
-        "equipname": "Poenitentia Liber",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": 5,
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 5,
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"DUPLELIGHT\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"PETITIO\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>6?10:0)",
-                "EffectType": {
-                    "id": "AspdPercent"
-                },
-                "Enable": true
-            },
-            {
+		"id": "helm",
+		"itemid": 19469,
+		"label": "Upper",
+		"equipname": "Sacred Crown",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "HATR*2",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": false
+			},
+			{
+				"EffectNumber": "CCL=='AB'?25:0",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[0,4,8,9].includes(EEI)?40:0",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": false
+			},
+			{
+				"EffectNumber": "HATR>8?100:(HATR>6?50:20)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('ADORAMUS JUDEX')?50:0",
+				"EffectType": {
+					"id": "SPSkillVariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?20:(HATR>6?15:10)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shoes",
+		"itemid": 22120,
+		"label": "Shoes",
+		"equipname": "Shoes of Punishment",
+		"refinelevel": 7,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SHOER>6?10:(SHOER>4?5:2)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==6?(SHOER>6?10:(SHOER>4?5:2)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>6?20:(SHOER>4?10:3)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>6?20:(SHOER>4?10:3)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('JUDEX')?30:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					1631
+				],
+				"itemid_any": [],
+				"equipname": "Holy Stick",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS('ADORAMUS JUDEX')?50:0",
+						"EffectType": {
+							"id": "SPSkillVariableCastPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('ADORAMUS')?(WEAR>8?150:130):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "[7,9].includes(EEI)?(WEAR>8?50:(WEAR>6?30:0)):0",
+						"EffectType": {
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 590012,
+		"label": "MainHand",
+		"equipname": "Awakened Saint Hall",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>8?15:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": false
+			},
+			{
+				"EffectNumber": "AEI==6?(FLOOR(WEAR/2)+(WEAR>6?10:0)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('ADORAMUS')?(5*FLOOR(WEAR/3)+(WEAR>10?15:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					22238
+				],
+				"itemid_any": [],
+				"equipname": "Great Hero's Boots",
+				"effectlist": [
+					{
+						"EffectNumber": 7,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"ATK": "170",
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"MATK": 200,
+			"Weight": 100,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"overatk": 14,
+				"saferefine": 4,
+				"upgradeatk": 7
+			},
+			"refineatk": 84,
+			"refineatk2": 112,
+			"refinelevel": 12,
+			"refinematk": 84,
+			"type": {
+				"id": "OneHandedRods",
+				"label": "1HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			}
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 550020,
+		"label": "MainHand",
+		"equipname": "Poenitentia Crystallum",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"ADORAMUS\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"FRAMEN\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?10:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?15:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?1:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?1:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedRods",
+				"label": "1HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "150",
+			"MATK": 250,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 100,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 540015,
+		"label": "MainHand",
+		"equipname": "Poenitentia Liber",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"DUPLELIGHT\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"PETITIO\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?10:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
 				"EffectNumber": "AEI==6?(WEAR>10?15:0):0",
 				"EffectType": {
 					"id": "ElementalMagicPercent"
 				},
 				"Enable": true
 			},
-            {
-                "EffectNumber": "(WEAG(2)?1:0)",
-                "EffectType": {
-                    "id": "SMATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?1:0)",
-                "EffectType": {
-                    "id": "SPL"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Books",
-                "label": "Book",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 50
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "230",
-            "MATK": 215,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 100,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
-	{
-        "id": "weaponr",
-        "itemid": 550029,
-        "label": "MainHand",
-        "equipname": "Vivatus Fides Wand",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "(WEAG(3)?7:0)",
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
 			{
-                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
-                "EffectType": {
-                    "id": "ElementalMatkPercent"
-                },
-                "Enable": true
-            },
+				"EffectNumber": "(WEAG(2)?1:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?1:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Books",
+				"label": "Book",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "230",
+			"MATK": 215,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 100,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 550029,
+		"label": "MainHand",
+		"equipname": "Vivatus Fides Wand",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(WEAG(3)?7:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
 			{
 				"EffectNumber": "AEI==6?(WEAR>11?15:0):0",
 				"EffectType": {
@@ -582,214 +616,216 @@
 				},
 				"Enable": true
 			},
-            {
-                "EffectNumber": "SKIDS(\"ADORAMUS\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>8?15:0)",
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "SMATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "SPL"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "OneHandedRods",
-                "label": "1HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "160",
-            "MATK": 210,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 150,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
-	{
-        "id": "weaponr",
-        "itemid": 540026,
-        "label": "MainHand",
-        "equipname": "Vivatus Fides Bible",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "(WEAG(3)?7:0)",
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(3)?7:0)",
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
 			{
-                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
-                "EffectType": {
-                    "id": "ElementalAtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
-                "EffectType": {
-                    "id": "ElementalMatkPercent"
-                },
-                "Enable": true
-            },
+				"EffectNumber": "SKIDS(\"ADORAMUS\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "LevelAtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"DUPLELIGHT\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>8?10:0)",
-                "EffectType": {
-                    "id": "AspdPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
-                "EffectType": {
-                    "id": "POW"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Books",
-                "label": "Book",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 50
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "210",
-            "MATK": 210,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 180,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
+				"EffectNumber": "(12*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?15:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedRods",
+				"label": "1HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "160",
+			"MATK": 210,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 150,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
 	{
-        "id": "weaponr",
-        "itemid": 550024,
-        "label": "MainHand",
-        "equipname": "Adulter Fides Wand",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
+		"id": "weaponr",
+		"itemid": 540026,
+		"label": "MainHand",
+		"equipname": "Vivatus Fides Bible",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(WEAG(3)?7:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?7:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(1)?(WEAR>10?15:0):0)",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"DUPLELIGHT\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(12*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(12*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?10:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?(DOWN(WEAR/3)):0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Books",
+				"label": "Book",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "210",
+			"MATK": 210,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 180,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 550024,
+		"label": "MainHand",
+		"equipname": "Adulter Fides Wand",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
 			{
 				"EffectNumber": "AEI==6?(WEAR>11?15:0):0",
 				"EffectType": {
@@ -797,207 +833,214 @@
 				},
 				"Enable": true
 			},
-            {
-                "EffectNumber": "SKIDS(\"ADORAMUS\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>8?15:0)",
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "OneHandedRods",
-                "label": "1HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "160",
-            "MATK": 210,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 150,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
+			{
+				"EffectNumber": "SKIDS(\"ADORAMUS\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(12*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?15:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedRods",
+				"label": "1HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "160",
+			"MATK": 210,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 150,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
 	{
-        "id": "weaponr",
-        "itemid": 540021,
-        "label": "MainHand",
-        "equipname": "Adulter Fides Bible",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
+		"id": "weaponr",
+		"itemid": 540021,
+		"label": "MainHand",
+		"equipname": "Adulter Fides Bible",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "(WEAR>11?15:0)",
-                "EffectType": {
-                    "id": "LevelAtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"DUPLELIGHT\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(12*(DOWN(WEAR/3)))",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>8?10:0)",
-                "EffectType": {
-                    "id": "AspdPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Books",
-                "label": "Book",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 50
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "210",
-            "MATK": 210,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 180,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
-    {
-        "id": "weaponr",
-        "itemid": 1631,
-        "label": "MainHand",
-        "equipname": "Holy Stick",
-        "refinelevel": 12,
-        "grade": {
-            "id": 0,
-            "label": "No Grade"
-        },
-        "effectlist": [
+				"EffectNumber": "(WEAR>11?15:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
 			{
-                "EffectNumber": "SKIDS('MAGNUS TURNUNDEAD HOLYLIGHT')?25:0",
-                "EffectType": {
-                    "id": "VariableCastPercent"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "OneHandedRods",
-                "label": "1HRod",
-                "sizefix": {
-                    "small": 100,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 4,
-                "label": "Lv. 4 Weapon",
-                "upgradeatk": 7,
-                "saferefine": 4,
-                "overatk": 14
-            },
-            "grade": {
-                "id": 0,
-                "label": "No Grade"
-            },
-            "ATK": "50",
-            "MATK": 140,
-            "refinelevel": 12,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 180,
-            "refineatk": 84,
-            "refinematk": 84,
-            "refineatk2": 112
-        }
-    },
-    {
+				"EffectNumber": "SKIDS(\"DUPLELIGHT\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(12*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(12*(DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?10:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Books",
+				"label": "Book",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "210",
+			"MATK": 210,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 180,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 1631,
+		"label": "MainHand",
+		"equipname": "Holy Stick",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS('MAGNUS TURNUNDEAD HOLYLIGHT')?25:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedRods",
+				"label": "1HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "50",
+			"MATK": 140,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 180,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	{
 		"id": "helm",
-        "itemid": 18972,
+		"itemid": 18972,
 		"label": "Upper",
 		"equipname": "Old Mitra",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
 		"effectlist": [
 			{
 				"EffectNumber": 1,
@@ -1013,7 +1056,7 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "2*HATR",
 				"EffectType": {
 					"id": "Matk"
@@ -1042,70 +1085,75 @@
 				"Enable": true
 			}
 		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shoes",
+		"itemid": 470106,
+		"label": "Shoes",
+		"equipname": "Shoes of Judex",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "3+(SHOER>9?7:0)+(SHOER>10?10:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "3+(SHOER>9?7:0)+(SHOER>10?10:0)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "50+(SHOER>9?10:0)+(SHOER>10?10:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 25,
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"JUDEX\")?(BLV):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 19480,
+		"label": "Upper",
+		"equipname": "Circlet of Time(Archbishop)",
 		"refinelevel": 12,
 		"grade": {
 			"id": 0
 		},
-		"idx": 3
-	},
-    {
-        "id": "shoes",
-        "itemid": 470106,
-        "label": "Shoes",
-        "equipname": "Shoes of Judex",
-        "refinelevel": 12,
-        "effectlist": [
-            {
-                "EffectNumber": "3+(SHOER>9?7:0)+(SHOER>10?10:0)",
-                "EffectType": {
-                    "id": "HPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "3+(SHOER>9?7:0)+(SHOER>10?10:0)",
-                "EffectType": {
-                    "id": "SPPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "50+(SHOER>9?10:0)+(SHOER>10?10:0)",
-                "EffectType": {
-                    "id": "GCDPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 50,
-                "EffectType": {
-                    "id": "VariableCastPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": 25,
-                "EffectType": {
-                    "id": "ElementalMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "SKIDS(\"JUDEX\")?(BLV):0",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            }
-        ],
-        "combolist": [],
-        "idx": 3
-    },
-    {
-		"id": "helm",
-        "itemid": 19480,
-		"label": "Upper",
-		"equipname": "Circlet of Time(Archbishop)",
 		"effectlist": [
 			{
 				"EffectNumber": "15*DOWN(HATR/2)",
@@ -1121,7 +1169,7 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>10?5:0",
 				"EffectType": {
 					"id": "MatkPercent"
@@ -1143,150 +1191,152 @@
 				"Enable": true
 			}
 		],
-		"refinelevel": 12,
-		"grade": {
-			"id": 0
-		},
+		"combolist": [],
 		"idx": 3
 	},
-    {
-        "id": "weaponr",
+	{
+		"id": "weaponr",
 		"itemid": 590020,
-        "label": "MainHand",
-        "equipname": "Thanatos Hammer-AD",
-        "refinelevel": 14,
-        "grade": {
-            "id": 4,
-            "label": "A"
-        },
-        "effectlist": [
-            {
-                "EffectNumber": "10*DOWN(WEAR/2)",
-                "EffectType": {
-                    "id": "Atk"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "10*DOWN(WEAR/2)",
-                "EffectType": {
-                    "id": "Matk"
-                },
-                "Enable": true
-            },
+		"label": "MainHand",
+		"equipname": "Thanatos Hammer-AD",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
 			{
-                "EffectNumber": "WEAR>6?10:0",
-                "EffectType": {
-                    "id": "AspdPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "AEI==6?(WEAR>6?15:0):0",
-                "EffectType": {
-                    "id": "ElementalMagicPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(SKIDS(\"DUPLELIGHT\")?((18*DOWN(WEAR/3))+(WEAR>8?30:0)):0)+(SKIDS(\"PETITIO\")?(WEAG(3)?20:(WEAG(1)?10:0)):0)",
-                "EffectType": {
-                    "id": "SkillDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>8?5:0)+(WEAG(1)?3:0)",
-                "EffectType": {
-                    "id": "AtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAR>8?5:0",
-                "EffectType": {
-                    "id": "MatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAG(2)?15:0",
-                "EffectType": {
-                    "id": "RangedDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>10?15:0)",
-                "EffectType": {
-                    "id": "SizeMatkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>10?15:0)",
-                "EffectType": {
-                    "id": "SizeAtkPercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "(WEAR>10?15:0)",
-                "EffectType": {
-                    "id": "MeleeDamagePercent"
-                },
-                "Enable": true
-            },
-            {
-                "EffectNumber": "WEAG(2)?1:0",
-                "EffectType": {
-                    "id": "PATK"
-                },
-                "Enable": true
-            }
-        ],
-        "idx": 0,
-        "weapon": {
-            "type": {
-                "id": "Maces",
-                "label": "Mace",
-                "sizefix": {
-                    "small": 75,
-                    "middle": 100,
-                    "large": 100
-                },
-                "baseaspd": "",
-                "isRangedattack": false,
-                "isTwohand": false
-            },
-            "level": {
-                "id": 5,
-                "label": "Lv. 5 Weapon",
-                "upgradeatk": 8,
-                "saferefine": 4,
-                "overatk": 0
-            },
-            "grade": {
-                "id": 4,
-                "label": "A"
-            },
-            "ATK": "200",
-            "MATK": 190,
-            "refinelevel": 14,
-            "ArrowATK": 0,
-            "BulletATK": 0,
-            "Weight": 100,
-            "refinematk": 0,
-            "refineatk": 0,
-            "refineatk2": 0
-        }
-    },
-    {
+				"EffectNumber": "10*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?10:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==6?(WEAR>6?15:0):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"DUPLELIGHT\")?((18*DOWN(WEAR/3))+(WEAR>8?30:0)):0)+(SKIDS(\"PETITIO\")?(WEAG(3)?20:(WEAG(1)?10:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?5:0)+(WEAG(1)?3:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>8?5:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?15:0",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?15:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?15:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?15:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?1:0",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Maces",
+				"label": "Mace",
+				"sizefix": {
+					"small": 75,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "200",
+			"MATK": 190,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 100,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
 		"id": "helm",
-        "itemid": 400189,
+		"itemid": 400189,
 		"label": "Upper",
-        "refinelevel": 12,
 		"equipname": "Helm of Faith (Archbishop)",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
 		"effectlist": [
 			{
 				"EffectNumber": "10*DOWN(HATR/2)",
@@ -1302,14 +1352,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
 				"EffectType": {
 					"id": "FixedCast"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>10?5:0",
 				"EffectType": {
 					"id": "MatkPercent"
@@ -1330,14 +1380,14 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
 				"EffectType": {
 					"id": "SPL"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
 				"EffectType": {
 					"id": "SMATK"
@@ -1345,62 +1395,66 @@
 				"Enable": true
 			}
 		],
-        "combolist": [
-            {
-                "itemid_every": [
-                    550024
-                ],
-                "itemid_any": [],
-                "equipname": "Adulter Fides Wand",
-                "effectlist": [
-                    {
-                        "EffectNumber": "(AEI==0||AEI==6)?10:0",
-                        "EffectType": {
-                            "id": "ElementalMagicPercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "SKIDS(\"ADORAMUS\")?(5*DOWN(WEAR/3)):0",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            },
-            {
-                "itemid_every": [
-                    550029
-                ],
-                "itemid_any": [],
-                "equipname": "Vivatus Fides Wand",
-                "effectlist": [
-                    {
-                        "EffectNumber": "(AEI==0||AEI==6)?10:0",
-                        "EffectType": {
-                            "id": "ElementalMagicPercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "(SKIDS(\"ADORAMUS\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"ARBITRIUM\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            }
-        ],
+		"combolist": [
+			{
+				"itemid_every": [
+					550024
+				],
+				"itemid_any": [],
+				"equipname": "Adulter Fides Wand",
+				"effectlist": [
+					{
+						"EffectNumber": "(AEI==0||AEI==6)?10:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"ADORAMUS\")?(5*DOWN(WEAR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					550029
+				],
+				"itemid_any": [],
+				"equipname": "Vivatus Fides Wand",
+				"effectlist": [
+					{
+						"EffectNumber": "(AEI==0||AEI==6)?10:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"ADORAMUS\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"ARBITRIUM\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	},
-    {
+	{
 		"id": "helm",
-        "itemid": 400190,
+		"itemid": 400190,
 		"label": "Upper",
-        "refinelevel": 12,
 		"equipname": "Helm of Faith II (Archbishop)",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
 		"effectlist": [
 			{
 				"EffectNumber": "10*DOWN(HATR/2)",
@@ -1409,21 +1463,21 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>6?15:0",
 				"EffectType": {
 					"id": "Cri"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(HATR>8?0.2:0)+(HATR>10?0.3:0)",
 				"EffectType": {
 					"id": "FixedCast"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "HATR>10?5:0",
 				"EffectType": {
 					"id": "AtkPercent"
@@ -1444,21 +1498,21 @@
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "7*DOWN(HATR/4)",
 				"EffectType": {
 					"id": "RangedDamagePercent"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?2:0)+(BLV>229?3:0)",
 				"EffectType": {
 					"id": "POW"
 				},
 				"Enable": true
 			},
-            {
+			{
 				"EffectNumber": "(BLV>209?1:0)+(BLV>229?2:0)",
 				"EffectType": {
 					"id": "PATK"
@@ -1466,54 +1520,54 @@
 				"Enable": true
 			}
 		],
-        "combolist": [
-            {
-                "itemid_every": [
-                    540021
-                ],
-                "itemid_any": [],
-                "equipname": "Adulter Fides Bible",
-                "effectlist": [
-                    {
-                        "EffectNumber": 10,
-                        "EffectType": {
-                            "id": "MeleeDamagePercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "SKIDS(\"DUPLELIGHT\")?(5*DOWN(WEAR/3)):0",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            },
-            {
-                "itemid_every": [
-                    540026
-                ],
-                "itemid_any": [],
-                "equipname": "Vivatus Fides Bible",
-                "effectlist": [
-                    {
-                        "EffectNumber": 10,
-                        "EffectType": {
-                            "id": "MeleeDamagePercent"
-                        },
-                        "Enable": true
-                    },
-                    {
-                        "EffectNumber": "(SKIDS(\"DUPLELIGHT\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"PETITIO\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
-                        "EffectType": {
-                            "id": "SkillDamagePercent"
-                        },
-                        "Enable": true
-                    }
-                ]
-            }
-        ],
+		"combolist": [
+			{
+				"itemid_every": [
+					540021
+				],
+				"itemid_any": [],
+				"equipname": "Adulter Fides Bible",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"DUPLELIGHT\")?(5*DOWN(WEAR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					540026
+				],
+				"itemid_any": [],
+				"equipname": "Vivatus Fides Bible",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"DUPLELIGHT\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"PETITIO\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	}
 ]
