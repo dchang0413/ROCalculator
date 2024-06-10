@@ -237,7 +237,7 @@
 					{
 						"EffectNumber": 10,
 						"EffectType": {
-							"id": "AtkPercent"
+							"id": "LevelAtkPercent"
 						},
 						"Enable": true
 					},
@@ -2346,6 +2346,38 @@
                 ]
             }
         ],
+		"idx": 3
+	},
+	{
+		"id": "helm",
+        "itemid": 5899,
+		"label": "Upper",
+        "refinelevel": 12,
+		"equipname": "Black Ribbon",
+		"effectlist": [
+			{
+				"EffectNumber": "2*DOWN(BST/5)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"WINDCUTTER\")?1.8:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"WINDCUTTER SONICWAVE\")?(HATR>8?50:0):0)+(SKIDS(\"IGNITIONBREAK\")?(HATR>8?30:0):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+        "combolist": [],
 		"idx": 3
 	}
 ]
