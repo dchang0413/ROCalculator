@@ -10237,7 +10237,12 @@
                         this.skilloption.WeaponMasteryATK+=50;
                     }
                     if (this.skill.cannon) {
-                        this.computeattribute['SpecialATK2'] += this.weapon.BulletATK;
+                        var eleAdvantage = this.getElementalPercent(this.skilloption.AttackElementalIdx,
+                            this.enemyattribute.elemental,
+                            this.enemyattribute.elementallevel);
+                            console.log(eleAdvantage);
+                        var BulletATK = this.MulOper(this.weapon.BulletATK, eleAdvantage / 100);
+                        this.computeattribute['SpecialATK2'] += BulletATK;
                     }
                     // 鶚梟之眼
                     if (this.IsSupportActive('AC_OWL')){
