@@ -9393,10 +9393,14 @@
                         this.computeattribute.atkc2_min = Number(this.computeattribute.atkc1_min);
                         this.computeattribute.atkc2_max = Number(this.computeattribute.atkc1_max);
                     }
-                    this.computeattribute.atkc2_min += Number(this.weapon.BulletATK);
-                    this.computeattribute.atkc2_max += Number(this.weapon.BulletATK);
+                    if (this.skilloption.cannon){
+                        if (!isNA){
+                            this.computeattribute.atkc2_min += Number(this.weapon.BulletATK);
+                            this.computeattribute.atkc2_max += Number(this.weapon.BulletATK);
+                            this.setRecord('Ammo ATK',[this.computeattribute.atkc2_min,this.computeattribute.atkc2_max],'+',Number(this.weapon.BulletATK));
+                        }
+                    }
 
-                    this.setRecord('Ammo ATK',[this.computeattribute.atkc2_min,this.computeattribute.atkc2_max],'+',Number(this.weapon.BulletATK));
 
                     var para5 = 0; //屬性
                     if (this.IsSupportActive('SM_MAGNUM')) { para5 = 1; }
@@ -9480,13 +9484,9 @@
                     //this.computeattribute.atkc4_min = this.computeattribute.atkc4_min + Number(this.computeattribute['SpecialATK2']);
                     //this.computeattribute.atkc4_max = this.computeattribute.atkc4_max + Number(this.computeattribute['SpecialATK2']);
 
-                    if (this.skilloption.ElementalPercent > 0) {
-                        this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc4_min, Number(this.skilloption.ElementalPercent / 100));
-                        this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc4_max, Number(this.skilloption.ElementalPercent / 100));
-                    } else {
-                        this.computeattribute.atkc5_min = 0;
-                        this.computeattribute.atkc5_max = 0;
-                    }
+                    this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc4_min, Number(this.skilloption.ElementalPercent / 100));
+                    this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc4_max, Number(this.skilloption.ElementalPercent / 100));
+                        
                     this.setRecord('Element Advantage',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'x',Number(this.skilloption.ElementalPercent / 100),'p');
 
                     this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, Number(1) + Number(this.attribute['ELEDDI'] / 100));
@@ -9553,10 +9553,11 @@
                             masteryATK -= 9;
                         }
                     }
-                    this.computeattribute.atkc5_min += masteryATK + Number(this.computeattribute['SpecialATK2']);
-                    this.computeattribute.atkc5_max += masteryATK + Number(this.computeattribute['SpecialATK2']);
+                    if (!isNA) masteryATK += Number(this.computeattribute['SpecialATK2']);
+                    this.computeattribute.atkc5_min += masteryATK;
+                    this.computeattribute.atkc5_max += masteryATK;
                     this.setRecord('Mastery/Cannon ATK',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'+',
-                        masteryATK + Number(this.computeattribute['SpecialATK2']));
+                        masteryATK);
 
                     //Number(this.GetSupportSkill('ASC_KATAR').arg1 / 100);
                     if (this.IsSupportActive('TK_POWER_OLD')){
@@ -10747,7 +10748,11 @@
                         this.skilloption.WeaponMasteryATK+=50;
                     }
                     if (this.skill.cannon) {
-                        this.computeattribute['SpecialATK2'] += this.weapon.BulletATK;
+                        var eleAdvantage = this.getElementalPercent(this.skilloption.AttackElementalIdx,
+                            this.enemyattribute.elemental,
+                            this.enemyattribute.elementallevel);
+                        var BulletATK = this.MulOper(this.weapon.BulletATK, eleAdvantage / 100);
+                        this.computeattribute['SpecialATK2'] += BulletATK;
                     }
                     // 鶚梟之眼
                     if (this.IsSupportActive('AC_OWL')){
@@ -12817,14 +12822,14 @@
 
                         { skill: { id: 'NC_AXETORNADO', name: 'Axe Tornado', level: 5, formula: '(200+180*SLV+VIT)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -6, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'NC_AXEBOOMERANG', name: 'Axe Boomerang', level: 5, formula: '(250+50*SLV+WGT)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: "5-(SLV-1)*0.5", GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Weapon Weight Scaling', Version: 0, } },
-                        { skill: { id: 'NC_ARMSCANNON_i', name: 'Arm Cannon -iRO', level: 5, formula: '(400+300*SLV)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: true, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: "(6-SLV)/10", VCT: "(10+SLV*2)/10", CD: "(3*SLV)/100", GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
+                        { skill: { id: 'NC_ARMSCANNON_i', name: 'Arm Cannon -iRO', level: 5, formula: '(400+300*SLV)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: true, transWeaponDEF: true, laterranged: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: "(6-SLV)/10", VCT: "(10+SLV*2)/10", CD: "(3*SLV)/100", GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'NC_VULCANARM_i', name: 'Vulcan Arm -iRO', level: 3, formula: '(140*SLV+DEX)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0.2, CD: 0.1, GCD: 0.1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'NC_BOOSTKNUCKLE_i', name: 'Knuckle Boost -iRO', level: 5, formula: '(100+SLV*200+DEX)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0.2, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
 
                         { skill: { id: 'NC_AXETORNADO(ex)_1', name: 'Axe Tornado(Axe Stomp)', level: 5, formula: '(230+250*SLV+VIT)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -6, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 1, } },
 
                         { skill: { id: 'NC_AXETORNADO(ex)_2', name: 'Axe Tornado(Axe Stomp)', level: 5, formula: '(230+250*SLV+VIT*2)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -6, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
-                        { skill: { id: 'NC_ARMSCANNON_2', name: 'Arm Cannon', level: 5, formula: '(400+350*SLV)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: true, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: "(6-SLV)/10", VCT: "(10+SLV*2)/10", CD: "(3*SLV)/100", GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
+                        { skill: { id: 'NC_ARMSCANNON_2', name: 'Arm Cannon', level: 5, formula: '(400+350*SLV)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: true, transWeaponDEF: true, laterranged: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: "(6-SLV)/10", VCT: "(10+SLV*2)/10", CD: "(3*SLV)/100", GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
                         { skill: { id: 'NC_VULCANARM_2', name: 'Vulcan Arm', level: 3, formula: '(230*SLV+DEX)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0.2, CD: 0.1, GCD: 0.1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
                         { skill: { id: 'NC_BOOSTKNUCKLE_2', name: 'Knuckle Boost', level: 5, formula: '(300+SLV*200+DEX)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0.2, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
 
