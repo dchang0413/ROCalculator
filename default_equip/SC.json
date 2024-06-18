@@ -1288,7 +1288,7 @@
 	},
 	{
 		"id": "robe",
-		"itemid": -1,
+		"itemid": 480175,
 		"label": "Garment",
 		"equipname": "Reforming Magic Cloak",
 		"refinelevel": 13,
@@ -1311,9 +1311,16 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "10+(2*DOWN(GARMR/3))",
+				"EffectNumber": "2*DOWN(GARMR/3)",
 				"EffectType": {
 					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
 				},
 				"Enable": true
 			},
