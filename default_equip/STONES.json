@@ -66,6 +66,73 @@
 		"flags": [],
 		"idx": 3
 	},
+	{
+		"id": "stonegarment",
+		"itemid": 25801,
+		"label": "Garment Stone",
+		"equipname": "Sorcerer Stone II (Garment)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"DIAMONDDUST\")?15:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+            {
+                "itemid_every": [
+                    25804
+                ],
+                "itemid_any": [],
+                "equipname": "Professor Stone II (Upper)",
+                "effectlist": [
+                    {
+                        "EffectNumber": "SKIDS(\"DIAMONDDUST\")?10:0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    25803
+                ],
+                "itemid_any": [],
+                "equipname": "Professor Stone II (Middle)",
+                "effectlist": [
+                    {
+                        "EffectNumber": "SKIDS(\"EARTHGRAVE\")?20:0",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    25802
+                ],
+                "itemid_any": [],
+                "equipname": "Professor Stone II (Lower)",
+                "effectlist": [
+                    {
+                        "EffectNumber": "SKIDS(\"VARETYR_SPEAR\")?1:0",
+                        "EffectType": {
+                            "id": "CDTime"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+		"flags": [],
+		"idx": 3
+	},
     {
 		"id": "stoneupper",
 		"itemid": 25417,
@@ -121,6 +188,60 @@
 		"idx": 3
 	},
 	{
+		"id": "stoneupper",
+		"itemid": 25804,
+		"label": "Upper Stone",
+		"equipname": "Professor Stone II (Upper)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"EARTHSPIKE HEAVENDRIVE\")?20:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+    {
+		"id": "stonemiddle",
+		"itemid": 25803,
+		"label": "Middle Stone",
+		"equipname": "Professor Stone II (Middle)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"FIREBOLT COLDBOLT LIGHTNINGBOLT\")?20:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+    {
+		"id": "stonelower",
+		"itemid": 25802,
+		"label": "Lower Stone",
+		"equipname": "Professor Stone II (Lower)",
+		"effectlist": [
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
 		"id": "stonedual",
 		"itemid": 1000520,
 		"label": "Garment(Dual) Stone",
@@ -135,6 +256,159 @@
 			}
 		],
 		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "stonelower",
+		"itemid": 1000674,
+		"label": "Lower Stone",
+		"equipname": "Sorcerer Stone (Lower)",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					25420
+				],
+				"itemid_any": [],
+				"equipname": "Sorcerer Stone (Garment)",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"POISON_BUSTER\")?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					25801
+				],
+				"itemid_any": [],
+				"equipname": "Sorcerer Stone II (Garment)",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"DIAMONDDUST\")?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "stonemiddle",
+		"itemid": 1000673,
+		"label": "Middle Stone",
+		"equipname": "Sorcerer Stone (Middle)",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					25420
+				],
+				"itemid_any": [],
+				"equipname": "Sorcerer Stone (Garment)",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					25801
+				],
+				"itemid_any": [],
+				"equipname": "Sorcerer Stone II (Garment)",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"VARETYR_SPEAR\")?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "stoneupper",
+		"itemid": 1000672,
+		"label": "Upper Stone",
+		"equipname": "Sorcerer Stone (Upper)",
+		"effectlist": [
+			{
+				"EffectNumber": 0.5,
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					25420
+				],
+				"itemid_any": [],
+				"equipname": "Sorcerer Stone (Garment)",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"CLOUD_KILL\")?2:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					25801
+				],
+				"itemid_any": [],
+				"equipname": "Sorcerer Stone II (Garment)",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"EARTHGRAVE\")?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"flags": [],
 		"idx": 3
 	}
