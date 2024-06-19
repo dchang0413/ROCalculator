@@ -2322,5 +2322,263 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 600024,
+		"label": "MainHand",
+		"equipname": "Dragonic Slayer-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5+(BLV>209?5:0)+(5*DOWN(WEAR/2))+(WEAG(1)?3:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV>209?5:0)+(5*DOWN(WEAR/2))+(WEAR>10?5:0)+(WEAG(1)?3:0)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"DRAGONBREATH\")?(7*DOWN(WEAR/3)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?15:0)+(WEAG(2)?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?10:0)+(WEAR>10?7:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "SPPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedSword",
+				"label": "2HSword",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "200",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 200,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 600023,
+		"label": "MainHand",
+		"equipname": "Oriental Sword-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5+(WEAG(1)?3:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SONICWAVE STORMBLAST\")?((WEAR>6?20:0)+(WEAR>8?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5*DOWN(WEAR/3)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?25:0",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?10:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?15:0)+(WEAG(2)?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?15:0)+(WEAG(2)?15:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?1:0)+(WEAG(3)?3:(WEAG(2)?1:0)))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?2:0)+(WEAG(3)?3:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedSword",
+				"label": "2HSword",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "240",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 200,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
 	}
 ]
