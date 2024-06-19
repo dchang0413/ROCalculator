@@ -1636,6 +1636,7 @@
                         </el-col>
                         <el-col :span="6"><!--default_equip-->
                             <el-select v-model="status.select_default" v-on:change="updateSelectDefault" placeholder="" v-bind="select_default">
+                                <el-option v-if="showExport" value="GEN" label="General"></el-option>
                                 <el-option v-for="item in default_equip" :key="item.id" :label="item.label" :value="item.id"></el-option>
                             </el-select>
                         </el-col>
@@ -7094,7 +7095,7 @@
                     { label: 'FCT', id: 'FixedCast', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\-', suffixsymbol: 's', category: 'CastTime' },
                     { label: 'FCT%', id: 'FixedCastPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\-', suffixsymbol: '\%', category: 'CastTime' },
                     { label: 'ASPD', id: 'ASPD', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category: 'ASPD' },
-                    { label: 'ASPD%', id: 'AspdPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\-', suffixsymbol: '\%', category: 'ASPD' },
+                    { label: 'ASPD%', id: 'AspdPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%', category: 'ASPD' },
                     { label: 'Crit%', id: 'Cri', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%', category: 'Crit' },
 
                     { label: 'HP %', id: 'HPPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%', category: 'HP' },
@@ -7475,7 +7476,6 @@
                     MemoryofThanatosCard: false,
                 },
                 default_equip: [
-                    {id: 'GEN', label: 'General'},
                     {id: 'PHY', label: 'Physical'},
                     {id: 'MAG', label: 'Magical'},
                     {id: 'RK', label: 'RuneKnight'},
@@ -12809,6 +12809,7 @@
 
                     this.UpdateLogList.push(
                         { id: '2024-06-19', content: 'Added: Hero LT shoes, Hero LT Weapons and more cards' },
+                        { id: '2024-06-18', content: 'Added: Orc Ancestor Armor, Moonlight Bell, Overdrive Rampage, Beast Territory Boots, Reforming Magic Cloak<br>Fixed Turtle General Card ATK% -> Class%' },
                         { id: '2024-06-10', content: 'Added: Black Ribbon, Poenitentia Crowns, Gold Scaraba Card, Rekenber Guard Card<br>Fixed Peuz Combo ATK% -> Class%' },
                         { id: '2024-06-08', content: 'Added Enchant functionality' },
                         { id: '2024-06-04', content: 'Combo/Card Functionalitiy Reworked<br><br>Some of the old saves may have their cards mispositioned due to the update but luckily it shouldn\'t be that hard to fix as we\'re implemting better ways to fill out the builds' },
@@ -13110,6 +13111,12 @@
                         }
                         this.SaveEquipDB();
                     })
+                    if (['PHY','MAG'].includes(this.select_default) && !this.showExport){
+                        var tmpSel = this.select_default;
+                        this.select_default = 'GEN';
+                        this.loadDefaultEquip();
+                        this.select_default = tmpSel;
+                    }
                 },
                 loadAllDefaultEquip(){
                     for (const entry of this.default_equip){
