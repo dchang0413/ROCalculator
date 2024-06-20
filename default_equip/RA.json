@@ -2008,5 +2008,253 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "acc1",
+		"itemid": 490400,
+		"label": "Accessory",
+		"equipname": "Record of Archer",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					18984
+				],
+				"itemid_any": [],
+				"equipname": "Old Camouflage Bunny Hood",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SHARPSHOOTING\")?30:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [],
+				"itemid_any": [
+					18976,
+					18981
+				],
+				"equipname": "Old Maestro Song's Hat or Old Dying Swan",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SEVERE_RAINSTORM\")?30:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SEVERE_RAINSTORM\")?1.5:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490430,
+		"label": "Accessory",
+		"equipname": "Record of Archer vol.2",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 6,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SHARPSHOOTING SEVERE_RAINSTORM\")?30:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					18984
+				],
+				"itemid_any": [],
+				"equipname": "Old Camouflage Bunny Hood",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"SHARPSHOOTING\")?(2*HATR):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "HATR",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [],
+				"itemid_any": [
+					18976,
+					18981
+				],
+				"equipname": "Old Maestro Song's Hat or Old Dying Swan",
+				"effectlist": [
+					{
+						"EffectNumber": "2*HATR",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "HATR",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490400
+				],
+				"itemid_any": [],
+				"equipname": "Record of Archer",
+				"effectlist": [
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "CCL=='RA'?(SKIDS(\"SHARPSHOOTING\")?100:0):0",
+						"EffectType": {
+							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(CCL=='RA'?(SKIDS(\"UNLIMIT\")?90:0):0)+(['MI','WA'].includes(CCL)?(SKIDS(\"SEVERE_RAINSTORM\")?2:0):0)",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490400,
+					18984
+				],
+				"itemid_any": [],
+				"equipname": "Record of Archer + Old Camouflage Bunny Hood",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(HATR/3)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SHARPSHOOTING\")?(10*DOWN(HATR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490400
+				],
+				"itemid_any": [
+					18976,
+					18981
+				],
+				"equipname": "Record of Archer + Old Maestro Song's Hat or Old Dying Swan",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(HATR/3)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SEVERE_RAINSTORM\")?(10*DOWN(HATR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

@@ -1658,5 +1658,319 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490239,
+		"label": "Accessory",
+		"equipname": "Record of Merchant",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					18973
+				],
+				"itemid_any": [],
+				"equipname": "Old Driver Band (Red)",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"AXEBOOMERANG\")?0.5:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					18974
+				],
+				"itemid_any": [],
+				"equipname": "Old Driver Band (Yellow)",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"ARMSCANNON\")?50:0",
+						"EffectType": {
+							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					18977
+				],
+				"itemid_any": [],
+				"equipname": "Old Midas Whisper",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SPORE_EXPLOSION\")?2:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SPORE_EXPLOSION\")?40:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490411,
+		"label": "Accessory",
+		"equipname": "Record of Merchant vol.2",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 6,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"ARMSCANNON AXEBOOMERANG SPORE_EXPLOSION\")?30:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					18973
+				],
+				"itemid_any": [],
+				"equipname": "Old Driver Band (Red)",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"AXEBOOMERANG\")?2:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "2*HATR",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					18974
+				],
+				"itemid_any": [],
+				"equipname": "Old Driver Band (Yellow)",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"ARMSCANNON\")?0.3:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "HATR",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "HATR",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					18977
+				],
+				"itemid_any": [],
+				"equipname": "Old Midas Whisper",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"SPORE_EXPLOSION\")?0.5:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SPORE_EXPLOSION\")?(3*HATR):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490239
+				],
+				"itemid_any": [],
+				"equipname": "Record of Merchant",
+				"effectlist": [
+					{
+						"EffectNumber": "(CCL=='ME'?(SKIDS(\"ARMSCANNON\")?50:0):0)+(CCL=='GE'?(SKIDS(\"SPORE_EXPLOSION\")?100:0):0)",
+						"EffectType": {
+							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490239,
+					18973
+				],
+				"itemid_any": [],
+				"equipname": "Record of Merchant + Old Driver Band (Red)",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(HATR/3)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"AXEBOOMERANG\")?(30*DOWN(HATR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490239,
+					18974
+				],
+				"itemid_any": [],
+				"equipname": "Record of Merchant + Old Driver Band (Yellow)",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(HATR/3)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"ARMSCANNON\")?(10*DOWN(HATR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490239,
+					18977
+				],
+				"itemid_any": [],
+				"equipname": "Record of Merchant + Old Midas Whisper",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(HATR/3)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SPORE_EXPLOSION\")?(30*DOWN(HATR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

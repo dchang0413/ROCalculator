@@ -7747,6 +7747,7 @@
                         this.updateItemsPerPage(this.PageOptions[1]);
                     }
                     if(id === "EquipDBDialog"){
+                        this.StoreDB_SearchString = '';
                         this.StoreDB_EquipFilterGroup = [];
                         this.PageIndex = 1;
                         this.updateItemsPerPage(this.PageOptions[1]);
@@ -7784,10 +7785,20 @@
                 },
                 SearchForItemIds(combo) {
                     const itemIdSet = new Set(this.equipspartlist.filter(item => item.itemid > 0).map(item => item.itemid));
-                    if(combo !== undefined && combo.itemid_every !== undefined && combo.itemid_every.length > 0 && combo.itemid_every.every(id => itemIdSet.has(id))) {
+                    if(combo !== undefined && combo.itemid_every !== undefined &&
+                       combo.itemid_every.length > 0 && combo.itemid_every.every(id => itemIdSet.has(id)) &&
+                       (combo.itemid_any === undefined || combo.itemid_any.length === 0)) {
                         return true;
                     }
-                    if(combo !== undefined && combo.itemid_any !== undefined && combo.itemid_any.length > 0 && combo.itemid_any.some(id => itemIdSet.has(id))) {
+                    if(combo !== undefined && combo.itemid_any !== undefined &&
+                       combo.itemid_any.length > 0 && combo.itemid_any.some(id => itemIdSet.has(id)) &&
+                       (combo.itemid_every === undefined && combo.itemid_every.length === 0)) {
+                        return true;
+                    }
+                    if(combo !== undefined && combo.itemid_every !== undefined &&
+                       combo.itemid_every.length > 0 && combo.itemid_every.every(id => itemIdSet.has(id)) &&
+                       combo.itemid_any !== undefined && combo.itemid_any.length > 0 &&
+                       combo.itemid_any.some(id => itemIdSet.has(id))) {
                         return true;
                     }
                     return false;
@@ -12808,7 +12819,7 @@
                     );
 
                     this.UpdateLogList.push(
-                        { id: '2024-06-20', content: 'Added: Mad Bunny-LT<br>Fixed Orc Lords Armor Bonus' },
+                        { id: '2024-06-20', content: 'Added: Mad Bunny-LT, Record Series accessories<br>Fixed Orc Lords Armor Bonus' },
                         { id: '2024-06-19', content: 'Added: Hero LT shoes, Hero LT Weapons and more cards<br>Fixed Poenetentia Glory Crown +13 Bonus' },
                         { id: '2024-06-18', content: 'Added: Orc Ancestor Armor, Moonlight Bell, Overdrive Rampage, Beast Territory Boots, Reforming Magic Cloak<br>Fixed Turtle General Card ATK% -> Class%' },
                         { id: '2024-06-10', content: 'Added: Black Ribbon, Poenitentia Crowns, Gold Scaraba Card, Rekenber Guard Card<br>Fixed Peuz Combo ATK% -> Class%' },
