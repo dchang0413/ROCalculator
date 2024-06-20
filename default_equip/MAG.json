@@ -2123,7 +2123,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(5*DOWN(HATR/3))+(HATR>12?20:0)",
+				"EffectNumber": "5*DOWN(HATR/3)",
 				"EffectType": {
 					"id": "MatkPercent"
 				},
@@ -2133,6 +2133,13 @@
 				"EffectNumber": "5*DOWN(HATR/4)",
 				"EffectType": {
 					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>12?20:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
 				},
 				"Enable": true
 			},

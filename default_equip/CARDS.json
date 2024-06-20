@@ -31,6 +31,31 @@
 	},
 	{
 		"id": "shieldcard",
+		"itemid": 4636,
+		"label": "Shield Card",
+		"equipname": "Bijou Card",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shieldcard",
 		"itemid": 4128,
 		"label": "Shield Card",
 		"equipname": "Golden Thief Bug Card",
@@ -851,7 +876,7 @@
 				"equipname": "Mutating White Knight Card",
 				"effectlist": [
 					{
-						"EffectNumber": 5,
+						"EffectNumber": "(ESIZE==1||ESIZE==2)?5:0",
 						"EffectType": {
 							"id": "SizeMatkPercent"
 						},
@@ -877,7 +902,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 20,
+				"EffectNumber": "(ESIZE==1||ESIZE==2)?20:0",
 				"EffectType": {
 					"id": "SizeMatkPercent"
 				},
@@ -895,9 +920,174 @@
 		"equipname": "Blue Pitaya Card",
 		"effectlist": [
 			{
-				"EffectNumber": "((WTI=='OneHandedRods'|WTI=='TwoHandedRods')&&AEI==2)?(10+(WEAR>8?10:0)+(WEAR>13?10:0)):0",
+				"EffectNumber": "((WTI=='OneHandedRods'|WTI=='TwoHandedRods')&&AEI==2)?(10+(WEAR>9?10:0)+(WEAR>13?10:0)):0",
 				"EffectType": {
-					"id": "ElementalMatkPercent"
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc1card",
+		"itemid": 300125,
+		"label": "Acc Card",
+		"equipname": "Green Pitaya Card",
+		"effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "LUK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"PICKYPECK CN_METEOR\")?10:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [300087, 300114],
+				"itemid_any": [],
+				"equipname": "Magic-poisoned Plaga Card + Broken Gardener Beta Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"PICKYPECK\")?(20+(5*DOWN(WEAR/2))):0)+(SKIDS(\"CN_METEOR\")?(20+(5*DOWN(SHOER/2))):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 300123,
+		"label": "Garment Card",
+		"equipname": "Purple Pitaya Card",
+		"effectlist": [
+			{
+				"EffectNumber": "AEI==0?(3*GARMR):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 300122,
+		"label": "Garment Card",
+		"equipname": "Yellow Pitaya Card",
+		"effectlist": [
+			{
+				"EffectNumber": "AEI==6?(3*GARMR):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300106,
+		"label": "Weapon Card",
+		"equipname": "Red Pitaya Card",
+		"effectlist": [
+			{
+				"EffectNumber": "((WTI=='OneHandedRods'|WTI=='TwoHandedRods')&&AEI==1)?(10+(WEAR>9?10:0)+(WEAR>13?10:0)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300114,
+		"label": "Weapon Card",
+		"equipname": "Magic-poisoned Plaga Card",
+		"effectlist": [
+			{
+				"EffectNumber": "((WTI=='OneHandedRods'|WTI=='TwoHandedRods')&&AEI==0)?(10+(WEAR>9?10:0)+(WEAR>13?10:0)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300087,
+		"label": "Shoes Card",
+		"equipname": "Broken Gardener Beta Card",
+		"effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "LUK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SV_STEMSPEAR SCAROFTAROU\")?10:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			}
@@ -1103,6 +1293,56 @@
 				"EffectNumber": 50,
 				"EffectType": {
 					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 4601,
+		"label": "Armor Card",
+		"equipname": "Amdarais Card",
+		"effectlist": [
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 4602,
+		"label": "Armor Card",
+		"equipname": "Amdarais H Card",
+		"effectlist": [
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "MatkPercent"
 				},
 				"Enable": true
 			}
@@ -1823,7 +2063,7 @@
 				"equipname": "White Knight Card",
 				"effectlist": [
 					{
-						"EffectNumber": 15,
+						"EffectNumber": "(ESIZE==1||ESIZE==2)?15:0",
 						"EffectType": {
 							"id": "SizeAtkPercent"
 						},
@@ -1849,7 +2089,25 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 20,
+				"EffectNumber": "(ESIZE==1||ESIZE==2)?20:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 27361,
+		"label": "Weapon Card",
+		"equipname": "Polluted Wander Man Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(ESIZE==1||ESIZE==2)?30:0",
 				"EffectType": {
 					"id": "SizeAtkPercent"
 				},
