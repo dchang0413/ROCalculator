@@ -2460,7 +2460,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterCardPreview(index)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -2905,7 +2905,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterEnchantPreview(index)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -7533,7 +7533,6 @@
                     { label: 'ASPD', flag: 'ASPD' },
                     { label: 'HP', flag: 'HP' },
                     { label: 'SP', flag: 'SP' },
-                    { label: 'Special', flag: 'Special' },
                 ],
                 effectdialogue: {
                     EffectType: '',
@@ -12028,6 +12027,12 @@
                 onFilterEquipPreview(index){
                     this.$set( this.StoreDB_EquipFilterList[index], 'preview', !this.StoreDB_EquipFilterList[index].preview);
                 },
+                onFilterCardPreview(index){
+                    this.$set( this.StoreDB_CardFilterList[index], 'preview', !this.StoreDB_CardFilterList[index].preview);
+                },
+                onFilterEnchantPreview(index){
+                    this.$set( this.StoreDB_EnchantFilterList[index], 'preview', !this.StoreDB_EnchantFilterList[index].preview);
+                },
                 SaveEquipDB() {
                     const parsed = JSON.stringify(this.StoreDB_Equip);
                     localStorage.setItem('StoreDB_Equip', parsed);
@@ -13458,7 +13463,7 @@
                     );
 
                     this.UpdateLogList.push(
-                        { id: '2024-06-21', content: 'Added: Lots of new cards, Sura Shadow Shield, EDDA Biolab memory enchants' },
+                        { id: '2024-06-21', content: 'Added: Lots of new cards, Sura Shadow Shield, EDDA Biolab memory enchants, Almighty Shadows, Lord Bearer Shadows' },
                         { id: '2024-06-20', content: 'Added: Mad Bunny-LT, Record Series accessories<br>Fixed Orc Lords Armor Bonus' },
                         { id: '2024-06-19', content: 'Added: Hero LT shoes, Hero LT Weapons and more cards<br>Fixed Poenetentia Glory Crown +13 Bonus' },
                         { id: '2024-06-18', content: 'Added: Orc Ancestor Armor, Moonlight Bell, Overdrive Rampage, Beast Territory Boots, Reforming Magic Cloak<br>Fixed Turtle General Card ATK% -> Class%' },
@@ -13861,9 +13866,13 @@
                                     var effectObj = this.effecttypelist.find((eff)=>eff.id == ele.EffectType.id);
                                     if (effectObj) flags.push( effectObj.category );
                                 });
-                                obj.combolist.forEach((ele)=>{
-                                    var effectObj = this.effecttypelist.find((eff)=>eff.id == ele.EffectType.id);
-                                    if (effectObj) flags.push( effectObj.category );
+                                obj.combolist.forEach((combo)=>{
+                                    combo.effectlist.forEach((ele)=>{
+                                        var effectObj = this.effecttypelist.find((eff)=>eff.id == ele.EffectType.id);
+                                        if (effectObj) flags.push( effectObj.category );
+                                    })
+                                    //var effectObj = this.effecttypelist.find((eff)=>eff.id == ele.effectlist.EffectType.id);
+                                    //if (effectObj) flags.push( effectObj.category );
                                 });
                                 if (flags.length) obj.flags = flags.join(',');
                             }
