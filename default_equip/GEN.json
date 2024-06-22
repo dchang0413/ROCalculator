@@ -3712,5 +3712,105 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "shadow",
+		"itemid": 24763,
+		"label": "S.Weapon",
+		"equipname": "Mega Blitz Shadow Weapon",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5+(SHWEAR>6?5:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHWEAR>6?1:0",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(SHWEAR/2))+(SHWEAR>8?2:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHWEAR>9?2:0",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHWEAR>9?2:0",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowshld",
+		"itemid": 24767,
+		"label": "S.Shield",
+		"equipname": "Mega Blitz Shadow Shield",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5+(2*DOWN(SHSHIER/3))+(SHSHIER>6?3:0)",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHSHIER>6?1:0",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHSHIER>8?8:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHSHIER>8?5:0)+(SHSHIER>9?3:0)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(SHSHIER/3))+(SHSHIER>9?3:0)",
+				"EffectType": {
+					"id": "CRT"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
