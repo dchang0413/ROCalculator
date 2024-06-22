@@ -18,6 +18,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.min.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/core.min.js" integrity="sha512-XV6Atywd9O/oxwyzpbw3HX6KuHroyHe7bWfHAWR6K+FQCu8g98hmj3u7r+7wK42OZlugD/QhB/VfogqTCTWq1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/md5.min.js" integrity="sha512-ENWhXy+lET8kWcArT6ijA6HpVEALRmvzYBayGL6oFWl96exmq8Fjgxe2K6TAblHLP75Sa/a1YjHpIZRt+9hGOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-63581889-2"></script>
@@ -12053,6 +12055,22 @@
                     const parsed = JSON.stringify(this.StoreDB_Pet);
                     localStorage.setItem('StoreDB_Pet', parsed);
                 },
+                SaveFileHash(filename, hash){
+                    const data = localStorage.getItem('StoreDB_FileHash');
+                    if(data !== undefined && data !== null) {
+                        const parsedData = JSON.parse(data);
+                        const map = new Map(parsedData);
+                        map.set(filename, hash);
+                        const parsed = JSON.stringify([...map]);
+                        localStorage.setItem('StoreDB_FileHash', parsed);
+                    }
+                    else {
+                        const map = new Map();
+                        map.set(filename, hash);
+                        const parsed = JSON.stringify([...map]);
+                        localStorage.setItem('StoreDB_FileHash', parsed);
+                    }
+                },
                 onSaveStatus() {
                     // https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/
                     // let copy = $.extend(true, {}, obj); //‰ΩøÁî® jquery.extend
@@ -13685,29 +13703,133 @@
                 updateSelectDefault(ele){
                     this.select_default = ele;
                 },
+                processPet(json){
+                    for (const [key, value] of Object.entries(json)) {
+                        if (this.StoreDB_PetLoadedNames.has(value.equipname)) continue;
+                        this.StoreDB_Pet.push({
+                            uuid: this._uuid(),
+                            category: 'PETS',
+                            equip: {
+                                id: value.id,
+                                itemid: value.itemid ? value.itemid : 0,
+                                label: value.label,
+                                equipname: value.equipname,
+                                effectlist: Object.values(value.effectlist),
+                                combolist: value.combolist ? Object.values(value.combolist) : [],
+                                flags: value.flags ? value.flags : [],
+                            },
+                            date: Date.now(),
+                        });
+                        this.StoreDB_PetLoadedNames.add(value.equipname);
+                    }
+                    const hash = this.generateMD5(JSON.stringify(json));
+                    this.SaveFileHash('PETS', hash);
+                    this.SavePetDB();
+                },
+                processStone(json){
+                    for (const [key, value] of Object.entries(json)) {
+                        if (this.StoreDB_CostumeStoneLoadedNames.has(value.equipname)) continue;
+                        this.StoreDB_CostumeStone.push({
+                            uuid: this._uuid(),
+                            category: 'STONES',
+                            equip: {
+                                id: value.id,
+                                itemid: value.itemid ? value.itemid : 0,
+                                label: value.label,
+                                equipname: value.equipname,
+                                effectlist: Object.values(value.effectlist),
+                                combolist: value.combolist ? Object.values(value.combolist) : [],
+                                flags: value.flags ? value.flags : [],
+                            },
+                            date: Date.now(),
+                        });
+                        this.StoreDB_CostumeStoneLoadedNames.add(value.equipname);
+                    }
+                    const hash = this.generateMD5(JSON.stringify(json));
+                    this.SaveFileHash('STONES', hash);
+                    this.SaveCostumeStoneDB();
+                },
+                processCard(json){
+                    for (const [key, value] of Object.entries(json)) {
+                        if (this.StoreDB_CardLoadedNames.has(value.equipname)) continue;
+                        this.StoreDB_Card.push({
+                            uuid: this._uuid(),
+                            category: 'CARDS',
+                            equip: {
+                                id: value.id,
+                                itemid: value.itemid ? value.itemid : 0,
+                                label: value.label,
+                                equipname: value.equipname,
+                                effectlist: Object.values(value.effectlist),
+                                combolist: value.combolist ? Object.values(value.combolist) : [],
+                                flags: value.flags ? value.flags : [],
+                            },
+                            date: Date.now(),
+                        });
+                        this.StoreDB_CardLoadedNames.add(value.equipname);
+                    }
+                    const hash = this.generateMD5(JSON.stringify(json));
+                    this.SaveFileHash('CARDS', hash);
+                    this.SaveCardDB();
+                },
+                processEnchant(json){
+                    for (const [key, value] of Object.entries(json)) {
+                        if (this.StoreDB_EnchantLoadedNames.has(value.equipname)) continue;
+                        this.StoreDB_Enchant.push({
+                            uuid: this._uuid(),
+                            category: 'ENCHANTS',
+                            equip: {
+                                id: value.id,
+                                itemid: value.itemid ? value.itemid : 0,
+                                label: value.label,
+                                equipname: value.equipname,
+                                effectlist: Object.values(value.effectlist),
+                                combolist: value.combolist ? Object.values(value.combolist) : [],
+                                flags: value.flags ? value.flags : [],
+                            },
+                            date: Date.now(),
+                        });
+                        this.StoreDB_EnchantLoadedNames.add(value.equipname);
+                    }
+                    const hash = this.generateMD5(JSON.stringify(json));
+                    this.SaveFileHash('ENCHANTS', hash);
+                    this.SaveEnchantDB();
+                },
+                processEquip(json, filename){
+                    for (const [key, value] of Object.entries(json)) {
+                        if (this.StoreDB_EquipLoadedNames.has(value.equipname)) continue;
+                        this.StoreDB_Equip.push({
+                            uuid: this._uuid(),
+                            category: filename,
+                            equip: {
+                                id: value.id,
+                                itemid: value.itemid ? value.itemid : 0,
+                                label: value.label,
+                                equipname: value.equipname,
+                                refinelevel: value.refinelevel ? value.refinelevel : 0,
+                                grade: value.grade ? value.grade : this.weapongradelist[0],
+                                effectlist: Object.values(value.effectlist),
+                                combolist: value.combolist ? Object.values(value.combolist) : [],
+                            },
+                            date: Date.now(),
+                            weapon: value.idx < 2 ? ((value.idx == 0) ?
+                            value.weapon :
+                            value.subweapon) :
+                            null,
+                            subweapon: value.subweapon
+                        });
+                        this.StoreDB_EquipLoadedNames.add(value.equipname);
+                    }
+                    const hash = this.generateMD5(JSON.stringify(json));
+                    this.SaveFileHash(filename, hash);
+                    this.SaveEquipDB();
+                },
                 loadPets(){
                     let href = window.location.href+'default_equip/PETS.json';
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
-                        for (const [key, value] of Object.entries(json)) {
-                            if (this.StoreDB_PetLoadedNames.has(value.equipname)) continue;
-                            this.StoreDB_Pet.push({
-                                uuid: this._uuid(),
-                                equip: {
-                                    id: value.id,
-                                    itemid: value.itemid ? value.itemid : 0,
-                                    label: value.label,
-                                    equipname: value.equipname,
-                                    effectlist: Object.values(value.effectlist),
-                                    combolist: value.combolist ? Object.values(value.combolist) : [],
-                                    flags: value.flags ? value.flags : [],
-                                },
-                                date: Date.now(),
-                            });
-                            this.StoreDB_PetLoadedNames.add(value.equipname);
-                        }
-                        this.SavePetDB();
+                        this.processPet(json);
                     })
                     .finally(() => {
                         this.onFilterPetSearch();
@@ -13718,24 +13840,7 @@
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
-                        for (const [key, value] of Object.entries(json)) {
-                            if (this.StoreDB_CostumeStoneLoadedNames.has(value.equipname)) continue;
-                            this.StoreDB_CostumeStone.push({
-                                uuid: this._uuid(),
-                                equip: {
-                                    id: value.id,
-                                    itemid: value.itemid ? value.itemid : 0,
-                                    label: value.label,
-                                    equipname: value.equipname,
-                                    effectlist: Object.values(value.effectlist),
-                                    combolist: value.combolist ? Object.values(value.combolist) : [],
-                                    flags: value.flags ? value.flags : [],
-                                },
-                                date: Date.now(),
-                            });
-                            this.StoreDB_CostumeStoneLoadedNames.add(value.equipname);
-                        }
-                        this.SaveCostumeStoneDB();
+                        this.processStone(json);
                     })
                     .finally(() => {
                         this.onFilterCostumeStoneSearch();
@@ -13746,24 +13851,7 @@
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
-                        for (const [key, value] of Object.entries(json)) {
-                            if (this.StoreDB_CardLoadedNames.has(value.equipname)) continue;
-                            this.StoreDB_Card.push({
-                                uuid: this._uuid(),
-                                equip: {
-                                    id: value.id,
-                                    itemid: value.itemid ? value.itemid : 0,
-                                    label: value.label,
-                                    equipname: value.equipname,
-                                    effectlist: Object.values(value.effectlist),
-                                    combolist: value.combolist ? Object.values(value.combolist) : [],
-                                    flags: value.flags ? value.flags : [],
-                                },
-                                date: Date.now(),
-                            });
-                            this.StoreDB_CardLoadedNames.add(value.equipname);
-                        }
-                        this.SaveCardDB();
+                        this.processCard(json);
                     })
                     .finally(() => {
                         this.onFilterCardSearch();
@@ -13774,56 +13862,18 @@
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
-                        for (const [key, value] of Object.entries(json)) {
-                            if (this.StoreDB_EnchantLoadedNames.has(value.equipname)) continue;
-                            this.StoreDB_Enchant.push({
-                                uuid: this._uuid(),
-                                equip: {
-                                    id: value.id,
-                                    itemid: value.itemid ? value.itemid : 0,
-                                    label: value.label,
-                                    equipname: value.equipname,
-                                    effectlist: Object.values(value.effectlist),
-                                    combolist: value.combolist ? Object.values(value.combolist) : [],
-                                    flags: value.flags ? value.flags : [],
-                                },
-                                date: Date.now(),
-                            });
-                            this.StoreDB_EnchantLoadedNames.add(value.equipname);
-                        }
-                        this.SaveEnchantDB();
+                        this.processEnchant(json);
                     })
                 },
                 loadDefaultEquip(){
-                    let href = window.location.href+'default_equip/'+this.select_default+'.json';
+                    let selected_file = this.select_default;
+                    let href = window.location.href+'default_equip/'+selected_file+'.json';
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
-                        for (const [key, value] of Object.entries(json)) {
-                            if (this.StoreDB_EquipLoadedNames.has(value.equipname)) continue;
-                            this.StoreDB_Equip.push({
-                                uuid: this._uuid(),
-                                equip: {
-                                    id: value.id,
-                                    itemid: value.itemid ? value.itemid : 0,
-                                    label: value.label,
-                                    equipname: value.equipname,
-                                    refinelevel: value.refinelevel ? value.refinelevel : 0,
-                                    grade: value.grade ? value.grade : this.weapongradelist[0],
-                                    effectlist: Object.values(value.effectlist),
-                                    combolist: value.combolist ? Object.values(value.combolist) : [],
-                                },
-                                date: Date.now(),
-                                weapon: value.idx < 2 ? ((value.idx == 0) ?
-                                value.weapon :
-                                value.subweapon) :
-                                null,
-                                subweapon: value.subweapon
-                            });
-                            this.StoreDB_EquipLoadedNames.add(value.equipname);
-                        }
-                        this.SaveEquipDB();
-                    })
+                        this.processEquip(json, selected_file);
+                    });
+
                     if (['PHY','MAG'].includes(this.select_default) && !this.showExport){
                         var tmpSel = this.select_default;
                         this.select_default = 'GEN';
@@ -13937,6 +13987,71 @@
                 currencystring(val)
                 {
                     return val.toFixed(0).replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
+                },
+                generateMD5(input) {
+                    return CryptoJS.MD5(input).toString();
+                },
+                clearCategoryFromStoreDB(filename) {
+                    if(filename === 'CARDS') {
+                        this.StoreDB_Card = [];
+                        this.SaveCardDB();
+                    }
+                    else if(filename === 'ENCHANTS') {
+                        this.StoreDB_Enchant = [];
+                        this.SaveEnchantDB();
+                    }
+                    else if(filename === 'PETS') {
+                        this.StoreDB_Pet = [];
+                        this.SavePetDB();
+                    }
+                    else if(filename === 'STONES') {
+                        this.StoreDB_CostumeStone = [];
+                        this.SaveCostumeStoneDB();
+                    }
+                    else {
+                        const filteredStoreDB_Equip = this.StoreDB_Equip.filter((item) => item.category !== filename);
+                        this.StoreDB_Equip = filteredStoreDB_Equip;
+                        this.SaveEquipDB();
+                    }
+                },
+                validateFileChecksumAndLoad(filename, currentHash) {
+                    let href = window.location.href+'default_equip/'+filename+'.json';
+                    fetch(href, {cache: "no-cache"})
+                    .then(res => res.json())
+                    .then(json => {
+                        const hash = this.generateMD5(JSON.stringify(json));
+                        if(currentHash !== hash){
+                            console.log("ALERT! Change detected in: " + filename);
+                            this.select_default = filename;
+                            this.clearCategoryFromStoreDB(filename);
+                            if(filename === 'CARDS') {
+                                this.processCard(json);
+                            }
+                            else if(filename === 'ENCHANTS') {
+                                this.processEnchant(json);
+                            }
+                            else if(filename === 'PETS') {
+                                this.processPet(json);
+                            }
+                            else if(filename === 'STONES') {
+                                this.processStone(json);
+                            }
+                            else {
+                                this.processEquip(json, filename);
+                            }
+                            this.select_default = ''
+                        }
+                    });
+                },
+                checkUpdatesInJSON() {
+                    const StoreDB_FileHash = localStorage.getItem('StoreDB_FileHash');
+                    if(StoreDB_FileHash !== undefined && StoreDB_FileHash !== null) {
+                        const data = JSON.parse(StoreDB_FileHash);
+                        const map = new Map(data);
+                        for(const [filename, filehash] of map) {
+                            this.validateFileChecksumAndLoad(filename, filehash);
+                        }
+                    }
                 }
 
             },
@@ -14017,6 +14132,7 @@
                 this.onChangeClass();
                 this.onChangeSupportClass();
                 this.OpenPanel('General');
+                this.checkUpdatesInJSON();
                 window.onbeforeunload = e => {   //?óú?ñâ ?áç?ñ∞?ï¥?êÜ
                     return ''
                 };
