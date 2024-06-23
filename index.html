@@ -1030,6 +1030,17 @@
                                         </el-input>
                                     </el-col>
                                 </el-row>
+                                <el-row :class="PreviewETL[GetETLIndex('AllTrait')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
+                                    <el-col class="textcenter" :span="12">
+                                        All Trait
+                                    </el-col>
+                                    <el-col class="textcenter" :span="12">
+                                        <el-input v-if="PreviewETL[0]"
+                                            v-model="PreviewETL[GetETLIndex('AllTrait')].totalvalue"
+                                            v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
+                                        </el-input>
+                                    </el-col>
+                                </el-row>
                                 <el-row :class="PreviewETL[GetETLIndex('HPPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
                                     <el-col class="textcenter" :span="12">
                                         HP %
@@ -7470,6 +7481,7 @@
                     { label: 'SPL', id: 'SPL', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
                     { label: 'CON', id: 'CON', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
                     { label: 'CRT', id: 'CRT', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
+                    { label: 'All Trait', id: 'AllTrait', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
                     { label: 'P.ATK', id: 'PATK', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
                     { label: 'S.MATK', id: 'SMATK', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
                     { label: 'C.RATE', id: 'CRIDR', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
@@ -11471,7 +11483,8 @@
                         this.attribute['MDEF'] -= _lv * 20;
                     }
 
-                    var _AllStatus =            Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AllStatus').totalvalue)));
+                    const _AllStatus =          Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AllStatus').totalvalue)));
+                    const _AllTrait =           Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AllTrait').totalvalue)));
                     this.status_add.STR +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'STR').totalvalue))) + _AllStatus +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='STR').totalvalue);
                     this.status_add.AGI +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AGI').totalvalue))) + _AllStatus +
@@ -11484,17 +11497,17 @@
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='DEX').totalvalue);
                     this.status_add.LUK +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LUK').totalvalue))) + _AllStatus +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='LUK').totalvalue);
-                    this.status_add.POW +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'POW').totalvalue))) + 
+                    this.status_add.POW +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'POW').totalvalue))) + _AllTrait +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='POW').totalvalue);
-                    this.status_add.STA +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'STA').totalvalue))) + 
+                    this.status_add.STA +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'STA').totalvalue))) + _AllTrait +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='STA').totalvalue);
-                    this.status_add.WIS +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'WIS').totalvalue))) + 
+                    this.status_add.WIS +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'WIS').totalvalue))) + _AllTrait +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='WIS').totalvalue);
-                    this.status_add.SPL +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPL').totalvalue))) + 
+                    this.status_add.SPL +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPL').totalvalue))) + _AllTrait +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='SPL').totalvalue);
-                    this.status_add.CON +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CON').totalvalue))) + 
+                    this.status_add.CON +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CON').totalvalue))) + _AllTrait +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='CON').totalvalue);
-                    this.status_add.CRT +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRT').totalvalue))) + 
+                    this.status_add.CRT +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRT').totalvalue))) + _AllTrait +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='CRT').totalvalue);
 
                     this.attribute['HP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'HP').totalvalue))) + 
