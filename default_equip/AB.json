@@ -161,14 +161,14 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": "HATR*2",
+				"EffectNumber": "ERI==2?(HATR*2):0",
 				"EffectType": {
 					"id": "RaceMatkPercent"
 				},
 				"Enable": false
 			},
 			{
-				"EffectNumber": "CCL=='AB'?25:0",
+				"EffectNumber": "CCL=='AB'&&isBoss?25:0",
 				"EffectType": {
 					"id": "LevelMatkPercent"
 				},
@@ -731,7 +731,7 @@
 			{
 				"EffectNumber": "(WEAR>11?15:0)",
 				"EffectType": {
-					"id": "LevelAtkPercent"
+					"id": "MeleeDamagePercent"
 				},
 				"Enable": true
 			},
@@ -906,7 +906,7 @@
 			{
 				"EffectNumber": "(WEAR>11?15:0)",
 				"EffectType": {
-					"id": "LevelAtkPercent"
+					"id": "MeleeDamagePercent"
 				},
 				"Enable": true
 			},

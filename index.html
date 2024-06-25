@@ -3697,6 +3697,26 @@
                                     <div v-show="UIPanel['EnemyPanel']">
                                         <el-row class="statusbox bg-purple-light" :gutter="4" type="flex"
                                             align="middle">
+                                            <el-col class="textcenter" :span="6">Level</el-col>
+                                            <el-col :span="6">
+                                                <el-input v-model="enemyattribute.level"
+                                                    v-on:input="onChangeEnemyStatus" placeholder="Lv">
+                                                </el-input>
+                                            </el-col>
+                                            <el-col :span="6" class="textcenter">Size</el-col>
+                                            <el-col :span="6">
+                                                <div class="grid-content bg-purple">
+                                                    <el-select value-key="id" v-model="enemyattribute.size"
+                                                        placeholder="Size">
+                                                        <el-option v-for="item in sizetypelist" :key="item.id"
+                                                            :label="item.label" :value="item.id">
+                                                        </el-option>
+                                                    </el-select>
+                                                </div>
+                                            </el-col>
+                                        </el-row>
+                                        <el-row class="statusbox bg-purple-light" :gutter="4" type="flex"
+                                            align="middle">
                                             <el-col :span="6" class="textcenter"><span>Element</span>
                                             </el-col>
                                             <el-col :span="6">
@@ -3724,19 +3744,38 @@
                                         </el-row>
                                         <el-row class="statusbox bg-purple-light" :gutter="4" type="flex"
                                             align="middle">
-                                            <el-col class="textcenter" :span="6">Level</el-col>
-                                            <el-col :span="6">
-                                                <el-input v-model="enemyattribute.level"
-                                                    v-on:input="onChangeEnemyStatus" placeholder="Lv">
-                                                </el-input>
-                                            </el-col>
-                                            <el-col :span="6" class="textcenter">Size</el-col>
+                                            <el-col :span="6" class="textcenter">Race</el-col>
                                             <el-col :span="6">
                                                 <div class="grid-content bg-purple">
-                                                    <el-select value-key="id" v-model="enemyattribute.size"
-                                                        placeholder="Size">
-                                                        <el-option v-for="item in sizetypelist" :key="item.id"
+                                                    <el-select value-key="id" v-model="enemyattribute.race"
+                                                        placeholder="Race">
+                                                        <el-option v-for="item in racetypelist" :key="item.id"
                                                             :label="item.label" :value="item.id">
+                                                        </el-option>
+                                                    </el-select>
+                                                </div>
+                                            </el-col>
+                                            <el-col :span="6" class="textcenter">Class</el-col>
+                                            <el-col :span="6">
+                                                <div class="grid-content bg-purple">
+                                                    <el-select value-key="id" v-model="enemyattribute.classid"
+                                                        placeholder="Class">
+                                                        <el-option v-for="item in classtypelist" :key="item.id"
+                                                            :label="item.label" :value="item.id">
+                                                        </el-option>
+                                                    </el-select>
+                                                </div>
+                                            </el-col>
+                                        </el-row>
+                                        <el-row class="statusbox bg-purple-light" :gutter="4" type="flex"
+                                            align="middle">
+                                            <el-col :span="12" class="textcenter">Green Aura Level</el-col>
+                                            <el-col :span="12">
+                                                <div class="grid-content bg-purple">
+                                                    <el-select value-key="id" v-model="enemyattribute.auraLevel"
+                                                        placeholder="Green Aura Level">
+                                                        <el-option v-for="item in greenauralist" :key="item.id"
+                                                            :label="item.id" :value="item.id">
                                                         </el-option>
                                                     </el-select>
                                                 </div>
@@ -6500,15 +6539,6 @@
                                             <span>{{computeattribute.matkmulti_avg | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="status.ASPD!=0" class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
-                                        <el-col class="" :span="10" style="text-align: right;">
-                                            <span>Skill DPS</span>
-                                        </el-col>
-                                        <el-col class="textcenter" :span="10">
-                                            <span>{{computeattribute.matkmulti_DPS | currency }}</span>
-                                        </el-col>
-                                    </el-row>
                                 </div>
                                 <div v-show="UIPanel['DragonBreathPanel']">
                                     <el-row class="titlebox" type="flex" align="middle" style="height:40px;">
@@ -7759,6 +7789,23 @@
                 },
                 HP_JOB_A: 0, HP_JOB_B: 0,
                 attribute_init: {},
+                classtypelist: [
+                    { id: 0, label: 'Normal' },
+                    { id: 1, label: 'Boss' },
+                ],
+                racetypelist: [
+                    { id: 0, label: 'Angel' },
+                    { id: 1, label: 'Brute' },
+                    { id: 2, label: 'Demi-Human' },
+                    { id: 3, label: 'Demon' },
+                    { id: 4, label: 'Dragon' },
+                    { id: 5, label: 'Fish' },
+                    { id: 6, label: 'Formless' },
+                    { id: 7, label: 'Insect' },
+                    { id: 8, label: 'Plant' },
+                    { id: 9, label: 'Undead' }
+                ],
+                greenauralist : [{id: 0}, {id: 1}, {id: 2}, {id: 3}],
                 sizetypelist: [
                     { id: 0, label: 'Small' },
                     { id: 1, label: 'Medium' },
@@ -7871,6 +7918,7 @@
                     RES: 0, MRES: 0,
                     sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0,
                     rangedResist: 0, raceResist: 0, criResist: 0,
+                    auraLevel: 0, race: 0, classid: 0,
                     doram: false,
                 },
                 enemylist: [],
@@ -8255,7 +8303,7 @@
                     }
                     if(combo !== undefined && combo.itemid_any !== undefined &&
                        combo.itemid_any.length > 0 && combo.itemid_any.some(id => itemIdSet.has(id)) &&
-                       (combo.itemid_every === undefined && combo.itemid_every.length === 0)) {
+                       (combo.itemid_every === undefined || combo.itemid_every.length === 0)) {
                         return true;
                     }
                     if(combo !== undefined && combo.itemid_every !== undefined &&
@@ -9807,6 +9855,13 @@
                     }
 
 
+                    if ( this.enemyattribute.auraLevel > 0) {
+                        this.computeattribute.atkc9_min = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.atkc9_min );
+                        this.computeattribute.atkc9_max = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.atkc9_max );
+
+                        this.setRecord('Green Aura',[this.computeattribute.atkc9_min,this.computeattribute.atkc9_max],'x',Math.pow(0.1,this.enemyattribute.auraLevel),'p');
+                    }
+
                     if( !isNA ){
                         var _paradiv = eval(this.SkillFormulaReplace(this.skill.hitnumber));
                         if (_paradiv == 0) _paradiv = 1;
@@ -10052,6 +10107,13 @@
                         this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk4_max, Number(1) + Number(100 / 100));
                     }
 
+                    if ( this.enemyattribute.auraLevel > 0) {
+                        this.computeattribute.matk4_min = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.matk4_min );
+                        this.computeattribute.matk4_max = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.matk4_max );
+
+                        this.setRecord('Green Aura',[this.computeattribute.matk4_min,this.computeattribute.matk4_max],'x',Math.pow(0.1,this.enemyattribute.auraLevel),'p');
+                    }
+
                     var _paradiv = eval(this.SkillFormulaReplace(this.skill.hitnumber));
                     if (_paradiv == 0) _paradiv = 1;
                     if (_paradiv < 0) {
@@ -10123,6 +10185,10 @@
                     if (this.IsSupportActive('PR_LEXAETERNA')) {
                         this.computeattribute.DragonBreathDMG = this.MulOper(this.computeattribute.DragonBreathDMG, Number(1) + Number(100 / 100));
                     }
+                    
+                    if (this.enemyattribute.auraLevel > 0) {
+                        this.computeattribute.DragonBreathDMG = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.DragonBreathDMG );
+                    }
 
                     this.computeattribute.DragonBreathDMG_DPS = Math.floor(this.computeattribute.DragonBreathDMG * this.computeattribute.HitperSec * 100) / 100;
 
@@ -10193,6 +10259,7 @@
                                 this.computeattribute.SkillDamageCRI_min,
                                 this.computeattribute.SkillDamageCRI_max,
                             );
+
                             this.OpenPanel('ATKPanel');
                             break;
                         case 1:
@@ -10224,6 +10291,7 @@
                                 this.computeattribute.matkmulti_min,
                                 this.computeattribute.matkmulti_max
                             );
+                        
                             this.OpenPanel('MATKPanel');
                             break;
                         case 2:
@@ -11767,7 +11835,7 @@
                                 if( this.equipspartlist[29].equipname == '' ) { idx = 29; }
                             }
                         }
-                        console.log("Load Equip " + idx + ": " + useDB[_dbidx].equip.equipname);
+                        console.log("Load Equip " + idx + ": " + useDB[_dbidx].equip.equipname + " | Item Id: " + useDB[_dbidx].equip.itemid);
                         if (!('effectlist' in useDB[_dbidx].equip)) useDB[_dbidx].equip.effectlist = [];
                         if (!('combolist' in useDB[_dbidx].equip)) useDB[_dbidx].equip.combolist = [];
                         useDB[_dbidx].equip.effectlist.forEach(x=>x.Enable=x.Enable==null?true:x.Enable);
@@ -13346,41 +13414,29 @@
                     );
 
                     this.enemylist.push(
-                        { id: 0, name: 'Custom', level: 1, hp: 0, LUK: 0, VIT:0, elemental: 0, elementallevel: 1, size: 0, StatusDEF: 0, WeaponDEF: 0, StatusMDEF: 0, WeaponMDEF: 0, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 21077, name: 'Dummy', level: 100, hp: 2000000000, LUK: 1, VIT: 1, elemental: 0, elementallevel: 1, size: 1, StatusDEF: 50, WeaponDEF: 0, StatusMDEF: 25, WeaponMDEF: 0, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },                        { id: 2408, name: 'Training Dummy (Lv. 10)', level: 10, hp: 0, LUK: 0, VIT:0, elemental: 0, elementallevel: 1, size: 1, StatusDEF: 5, WeaponDEF: 0, StatusMDEF: 2, WeaponMDEF: 0, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 2410, name: 'Training Dummy (Lv. 100) ', level: 100, hp: 0, LUK: 0, VIT:0, elemental: 0, elementallevel: 1, size: 1, StatusDEF: 50, WeaponDEF: 90, StatusMDEF: 25, WeaponMDEF: 90, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        //{ id: 2411, name: 'ףӱ(150)', level: 150, hp: 0, LUK: 0, VIT:0, elemental: 0, elementallevel: 1, size: 1, StatusDEF: 75, WeaponDEF: 120, StatusMDEF: 37, WeaponMDEF: 120, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        //{ id: 21064, name: 'Training Dummy (Small)', level: 100, hp: 2000000000, LUK: 0, VIT:0, elemental: 0, elementallevel: 1, size: 0, StatusDEF: 50, WeaponDEF: 0, StatusMDEF: 25, WeaponMDEF: 0, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        //{ id: 21065, name: 'Training Dummy (Medium)', level: 100, hp: 2000000000, LUK: 0, VIT:0, elemental: 0, elementallevel: 1, size: 1, StatusDEF: 50, WeaponDEF: 0, StatusMDEF: 25, WeaponMDEF: 0, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        //{ id: 21066, name: 'Training Dummy (Large)', level: 100, hp: 2000000000, LUK: 0, VIT:0, elemental: 0, elementallevel: 1, size: 2, StatusDEF: 50, WeaponDEF: 0, StatusMDEF: 25, WeaponMDEF: 0, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        //{ id: 3800, name: 'Ominous Permeter', level: 157, hp: 508335, LUK: 60, VIT:0, elemental: 0, elementallevel: 2, size: 0, StatusDEF: 146, WeaponDEF: 288, StatusMDEF: 61, WeaponMDEF: 100, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        //{ id: 3802, name: 'Ominous Solider', level: 161, hp: 592310, LUK: 50, VIT:0, elemental: 4, elementallevel: 2, size: 0, StatusDEF: 165, WeaponDEF: 406, StatusMDEF: 50, WeaponMDEF: 116, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        //{ id: 3803, name: 'Ominous Heater', level: 162, hp: 527390, LUK: 89, VIT:0, elemental: 1, elementallevel: 2, size: 0, StatusDEF: 165, WeaponDEF: 400, StatusMDEF: 50, WeaponMDEF: 100, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        //{ id: 3801, name: 'Ominous Freezer', level: 159, hp: 549071, LUK: 60, VIT:0, elemental: 2, elementallevel: 2, size: 0, StatusDEF: 139, WeaponDEF: 146, StatusMDEF: 64, WeaponMDEF: 80, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        //{ id: 3799, name: 'Ominous Assulter', level: 160, hp: 592508, LUK: 30, VIT:0, elemental: 3, elementallevel: 2, size: 0, StatusDEF: 110, WeaponDEF: 339, StatusMDEF: 51, WeaponMDEF: 82, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        //{ id: 3213, name: 'Seyren Windsor', level: 179, hp: 2448000, LUK: 60, VIT:0, elemental: 1, elementallevel: 4, size: 1, StatusDEF: 189, WeaponDEF: 400, StatusMDEF: 57, WeaponMDEF: 200, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        //{ id: 3208, name: 'Eremes Guille', level: 179, hp: 2380000, LUK: 80, VIT:0, elemental: 5, elementallevel: 4, size: 1, StatusDEF: 119, WeaponDEF: 160, StatusMDEF: 62, WeaponMDEF: 100, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        //{ id: 3230, name: 'Gertie Wie', level: 178, hp: 2040000, LUK: 50, VIT:0, elemental: 5, elementallevel: 4, size: 1, StatusDEF: 119, WeaponDEF: 160, StatusMDEF: 57, WeaponMDEF: 100, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 2996, name: 'Celine Kimi', level: 150, hp: 66666666, LUK: 166, VIT: 44, elemental: 8, elementallevel: 1, size: 2, StatusDEF: 102, WeaponDEF: 479, StatusMDEF: 151, WeaponMDEF: 444, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 2476, name: 'Amdarais', level: 150, hp: 4290000, LUK: 20, VIT: 90, elemental: 9, elementallevel: 4, size: 2, StatusDEF: 120, WeaponDEF: 30, StatusMDEF: 79, WeaponMDEF: 40, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 3150, name: 'Amdarais H', level: 180, hp: 42900000, LUK: 20, VIT: 90, elemental: 9, elementallevel: 4, size: 2, StatusDEF: 135, WeaponDEF: 30, StatusMDEF: 87, WeaponMDEF: 40, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 3473, name: 'Stefan.J.E.Wolf', level: 160, hp: 20000000, LUK: 43, VIT: 16, elemental: 9, elementallevel: 1, size: 2, StatusDEF: 88, WeaponDEF: 146, StatusMDEF: 54, WeaponMDEF: 30, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20346, name: 'Miguel', level: 115, hp: 8600000, LUK: 85, VIT: 28, elemental: 3, elementallevel: 4, size: 1, StatusDEF: 71, WeaponDEF: 216, StatusMDEF: 45, WeaponMDEF: 95, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20388, name: 'King Schmidt', level: 110, hp: 9200000, LUK: 154, VIT: 77, elemental: 0, elementallevel: 4, size: 1, StatusDEF: 93, WeaponDEF: 340, StatusMDEF: 77, WeaponMDEF: 82, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20387, name: 'King Schmidt(Hard)', level: 175, hp: 45000000, LUK: 154, VIT: 90, elemental: 0, elementallevel: 4, size: 1, StatusDEF: 132, WeaponDEF: 680, StatusMDEF: 143, WeaponMDEF: 90, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20573, name: 'Amdarais (Challenge Lv10)', level: 192, hp: 2000000000, LUK: 168, VIT:175, elemental: 7, elementallevel: 3, size: 2, StatusDEF: 183, WeaponDEF: 446, StatusMDEF: 100, WeaponMDEF: 82, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20572, name: 'Phantom Himmelmez', level: 195, hp: 2000000000, LUK: 66, VIT: 208, elemental: 6, elementallevel: 3, size: 1, StatusDEF: 201, WeaponDEF: 514, StatusMDEF: 130, WeaponMDEF: 92, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20536, name: 'Unknown Swordsman ', level: 180, hp: 75500000, LUK: 105, VIT: 165, elemental: 1, elementallevel: 2, size: 1, StatusDEF: 172, WeaponDEF: 585, StatusMDEF: 80, WeaponMDEF: 235, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20601, name: 'Jewel Ungoliant', level: 197, hp: 37847096, LUK: 64, VIT: 123, elemental: 0, elementallevel: 4, size: 2, StatusDEF: 160, WeaponDEF: 345, StatusMDEF: 121, WeaponMDEF: 90, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20618, name: 'Bone Detardeurus', level: 209, hp: 88466828, LUK: 55, VIT: 173, elemental: 9, elementallevel: 4, size: 2, StatusDEF: 191, WeaponDEF: 451, StatusMDEF: 124, WeaponMDEF: 81, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20621, name: 'Senior Red Pepper', level: 185, hp: 1008398847, LUK: 57, VIT: 67, elemental: 7, elementallevel: 3, size: 1, StatusDEF: 126, WeaponDEF: 386, StatusMDEF: 88, WeaponMDEF: 113, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20892, name: 'Fallen Sakray', level: 240, hp: 1835856994, LUK: 69, VIT: 371, elemental: 0, elementallevel: 4, size: 1, StatusDEF: 305, WeaponDEF: 862, StatusMDEF: 120, WeaponMDEF: 92, RES: 445, MRES: 288, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20893, name: 'Princess Tiara', level: 240, hp: 1311066424, LUK: 75, VIT: 358, elemental: 9, elementallevel: 4, size: 1, StatusDEF: 299, WeaponDEF: 836, StatusMDEF: 143, WeaponMDEF: 99, RES: 430, MRES: 400, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20924, name: 'Amitera', level: 227, hp: 5814712, LUK: 140, VIT: 124, elemental: 4, elementallevel: 3, size: 1, StatusDEF: 175, WeaponDEF: 345, StatusMDEF: 87, WeaponMDEF: 101, RES: 141, MRES: 137, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20925, name: 'Litus', level: 228, hp: 6140768, LUK: 150, VIT: 127, elemental: 3, elementallevel: 3, size: 1, StatusDEF: 177, WeaponDEF: 421, StatusMDEF: 88, WeaponMDEF: 125, RES: 145, MRES: 144, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },                    
-                        { id: 20926, name: 'Fillia', level: 229, hp: 5766824, LUK: 161, VIT: 127, elemental: 1, elementallevel: 3, size: 1, StatusDEF: 178, WeaponDEF: 486, StatusMDEF: 89, WeaponMDEF: 130, RES: 145, MRES: 145, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 20927, name: 'Vanilaqus', level: 230, hp: 6092880, LUK: 128, VIT: 145, elemental: 2, elementallevel: 3, size: 0, StatusDEF: 187, WeaponDEF: 431, StatusMDEF: 90, WeaponMDEF: 114, RES: 167, MRES: 151, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
-                        { id: 21361, name: 'Twisted God(Hard)', level: 224, hp: 1200000000, LUK: 199, VIT: 146, elemental: 6, elementallevel: 2, size: 1, StatusDEF: 185, WeaponDEF: 314, StatusMDEF: 92, WeaponMDEF: 520, RES: 249, MRES: 499, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false },
+                        { id: 0, name: 'Custom', level: 1, hp: 0, LUK: 0, VIT:0, elemental: 0, elementallevel: 1, size: 0, StatusDEF: 0, WeaponDEF: 0, StatusMDEF: 0, WeaponMDEF: 0, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 6, classid: 0 },
+                        { id: 21077, name: 'Dummy', level: 100, hp: 2000000000, LUK: 1, VIT: 1, elemental: 0, elementallevel: 1, size: 1, StatusDEF: 50, WeaponDEF: 0, StatusMDEF: 25, WeaponMDEF: 0, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 6, classid: 1  },
+                        { id: 2408, name: 'Training Dummy (Lv. 10)', level: 10, hp: 0, LUK: 0, VIT:0, elemental: 0, elementallevel: 1, size: 1, StatusDEF: 5, WeaponDEF: 0, StatusMDEF: 2, WeaponMDEF: 0, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 6, classid: 1 },
+                        { id: 2996, name: 'Celine Kimi', level: 150, hp: 66666666, LUK: 166, VIT: 44, elemental: 8, elementallevel: 1, size: 2, StatusDEF: 102, WeaponDEF: 479, StatusMDEF: 151, WeaponMDEF: 444, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 9, classid: 1 },
+                        { id: 2476, name: 'Amdarais', level: 150, hp: 4290000, LUK: 20, VIT: 90, elemental: 9, elementallevel: 4, size: 2, StatusDEF: 120, WeaponDEF: 30, StatusMDEF: 79, WeaponMDEF: 40, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 9, classid: 1 },
+                        { id: 3150, name: 'Amdarais H', level: 180, hp: 42900000, LUK: 20, VIT: 90, elemental: 9, elementallevel: 4, size: 2, StatusDEF: 135, WeaponDEF: 30, StatusMDEF: 87, WeaponMDEF: 40, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 9, classid: 1 },
+                        { id: 3473, name: 'Stefan.J.E.Wolf', level: 160, hp: 20000000, LUK: 43, VIT: 16, elemental: 9, elementallevel: 1, size: 2, StatusDEF: 88, WeaponDEF: 146, StatusMDEF: 54, WeaponMDEF: 30, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 9, classid: 1 },
+                        { id: 20346, name: 'Miguel', level: 115, hp: 8600000, LUK: 85, VIT: 28, elemental: 3, elementallevel: 4, size: 1, StatusDEF: 71, WeaponDEF: 216, StatusMDEF: 45, WeaponMDEF: 95, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 2, classid: 1 },
+                        { id: 20386, name: 'King Schmidt', level: 110, hp: 9200000, LUK: 154, VIT: 77, elemental: 0, elementallevel: 4, size: 1, StatusDEF: 93, WeaponDEF: 340, StatusMDEF: 77, WeaponMDEF: 82, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 2, classid: 1 },
+                        { id: 20387, name: 'King Schmidt(Hard)', level: 175, hp: 45000000, LUK: 154, VIT: 90, elemental: 0, elementallevel: 4, size: 1, StatusDEF: 132, WeaponDEF: 680, StatusMDEF: 143, WeaponMDEF: 90, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 2, classid: 1 },
+                        { id: 20573, name: 'Amdarais (Challenge Lv10)', level: 192, hp: 2000000000, LUK: 168, VIT:175, elemental: 7, elementallevel: 3, size: 2, StatusDEF: 183, WeaponDEF: 446, StatusMDEF: 100, WeaponMDEF: 82, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 3, classid: 1 },
+                        { id: 20572, name: 'Phantom Himmelmez', level: 195, hp: 2000000000, LUK: 66, VIT: 208, elemental: 6, elementallevel: 3, size: 1, StatusDEF: 201, WeaponDEF: 514, StatusMDEF: 130, WeaponMDEF: 92, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 0, classid: 1 },
+                        { id: 20536, name: 'Unknown Swordsman ', level: 180, hp: 75500000, LUK: 105, VIT: 165, elemental: 1, elementallevel: 2, size: 1, StatusDEF: 172, WeaponDEF: 585, StatusMDEF: 80, WeaponMDEF: 235, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 2, classid: 1 },
+                        { id: 20601, name: 'Jewel Ungoliant', level: 197, hp: 37847096, LUK: 64, VIT: 123, elemental: 0, elementallevel: 4, size: 2, StatusDEF: 160, WeaponDEF: 345, StatusMDEF: 121, WeaponMDEF: 90, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 1, race: 7, classid: 1 },
+                        { id: 20618, name: 'Bone Detardeurus', level: 209, hp: 88466828, LUK: 55, VIT: 173, elemental: 9, elementallevel: 4, size: 2, StatusDEF: 191, WeaponDEF: 451, StatusMDEF: 124, WeaponMDEF: 81, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 1, race: 9, classid: 1 },
+                        { id: 20621, name: 'Senior Red Pepper', level: 185, hp: 1008398847, LUK: 57, VIT: 67, elemental: 7, elementallevel: 3, size: 1, StatusDEF: 126, WeaponDEF: 386, StatusMDEF: 88, WeaponMDEF: 113, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 6, classid: 1 },
+                        { id: 20892, name: 'Fallen Sakray', level: 240, hp: 1835856994, LUK: 69, VIT: 371, elemental: 0, elementallevel: 4, size: 1, StatusDEF: 305, WeaponDEF: 862, StatusMDEF: 120, WeaponMDEF: 92, RES: 445, MRES: 288, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 1, race: 2, classid: 1 },
+                        { id: 20893, name: 'Princess Tiara', level: 240, hp: 1311066424, LUK: 75, VIT: 358, elemental: 9, elementallevel: 4, size: 1, StatusDEF: 299, WeaponDEF: 836, StatusMDEF: 143, WeaponMDEF: 99, RES: 430, MRES: 400, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 1, race: 9, classid: 1 },
+                        { id: 20924, name: 'Amitera', level: 227, hp: 5814712, LUK: 140, VIT: 124, elemental: 4, elementallevel: 3, size: 1, StatusDEF: 175, WeaponDEF: 345, StatusMDEF: 87, WeaponMDEF: 101, RES: 141, MRES: 137, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 1, classid: 1 },
+                        { id: 20925, name: 'Litus', level: 228, hp: 6140768, LUK: 150, VIT: 127, elemental: 3, elementallevel: 3, size: 1, StatusDEF: 177, WeaponDEF: 421, StatusMDEF: 88, WeaponMDEF: 125, RES: 145, MRES: 144, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 2, classid: 1 },                    
+                        { id: 20926, name: 'Fillia', level: 229, hp: 5766824, LUK: 161, VIT: 127, elemental: 1, elementallevel: 3, size: 1, StatusDEF: 178, WeaponDEF: 486, StatusMDEF: 89, WeaponMDEF: 130, RES: 145, MRES: 145, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 1, classid: 1 },
+                        { id: 20927, name: 'Vanilaqus', level: 230, hp: 6092880, LUK: 128, VIT: 145, elemental: 2, elementallevel: 3, size: 0, StatusDEF: 187, WeaponDEF: 431, StatusMDEF: 90, WeaponMDEF: 114, RES: 167, MRES: 151, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 6, classid: 1 },
+                        { id: 21361, name: 'Twisted God(Hard)', level: 224, hp: 1200000000, LUK: 199, VIT: 146, elemental: 6, elementallevel: 2, size: 1, StatusDEF: 185, WeaponDEF: 314, StatusMDEF: 92, WeaponMDEF: 520, RES: 249, MRES: 499, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 2, race: 1, classid: 1 },
                     );
                     this.consumablelist.push(
                         { id:12202, name:'10 STR Food', active:false, group:'StatusG', STR:10},
@@ -13522,7 +13578,10 @@
                         { str1: 'ELV', str2: 'this.enemyattribute.level', description: 'enemy lvl' },
                         { str1: 'ESIZE', str2: 'this.enemyattribute.size', description: 'enemy size' },
                         { str1: 'EVit', str2: 'this.enemyattribute.VIT', description: 'enemy VIT' },
-                        { str1: 'EEI', str2: 'this.enemyattribute.elemental', description: 'enemy element' },
+                        { str1: 'EEI', str2: 'this.enemyattribute.elemental', description: 'enemy element id' },
+                        { str1: 'ERI', str2: 'this.enemyattribute.race', description: 'enemy race id' },
+                        { str1: 'isBoss', str2: 'this.enemyattribute.classid==1', description: 'if enemy is boss' },
+                        { str1: 'ECI', str2: 'this.enemyattribute.classid', description: 'enemy class id' },
                         { str1: 'MUL', str2: 'this.MulOper', description: 'MUL(A,B) = A*B, if B>1 then floor result, if B<1 then ceil result' },
                         { str1: 'DOWN', str2: 'Math.floor', description: 'DOWN(A) floor...' },
                         { str1: 'UP', str2: 'Math.ceil', description: 'UP(A) ceil...' },

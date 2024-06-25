@@ -798,7 +798,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "CCL=='SU'?25:0",
+				"EffectNumber": "CCL=='SU'&&isBoss?25:0",
 				"EffectType": {
 					"id": "LevelAtkPercent"
 				},
@@ -1533,9 +1533,9 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "4*DOWN(SHOER/3)",
+				"EffectNumber": "[0,3,4].includes(ERI)?4*DOWN(SHOER/3)",
 				"EffectType": {
-					"id": "LevelAtkPercent"
+					"id": "RaceAtkPercent"
 				},
 				"Enable": true
 			},
@@ -1582,7 +1582,7 @@
 				"equipname": "Battle Aura Manteau",
 				"effectlist": [
 					{
-						"EffectNumber": 12,
+						"EffectNumber": "isBoss?12:0",
 						"EffectType": {
 							"id": "LevelAtkPercent"
 						},
@@ -1617,7 +1617,7 @@
 						"Enable": true
 					},
 					{
-						"EffectNumber": 30,
+						"EffectNumber": "isBoss?30:0",
 						"EffectType": {
 							"id": "LevelAtkPercent"
 						},
