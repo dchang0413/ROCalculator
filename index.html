@@ -1231,10 +1231,20 @@
 
                                 <el-row v-if="ComboSelectId!==false" :gutter="6" type="flex" align="middle">
                                     <el-col class="textcenter" :span="8">
-                                        Combo IDs
+                                        Combo IDs - Every
                                     </el-col>
                                     <el-col class="textcenter" :span="16">
-                                        <el-input v-model="PreviewComboIDs" v-on:keyup.native="updateComboIDs" placeholder="Value">
+                                        <el-input v-model="PreviewComboIDEvery" v-on:keyup.native="updateComboIDs" placeholder="Value">
+                                        </el-input>
+                                    </el-col>
+                                </el-row>
+
+                                <el-row v-if="ComboSelectId!==false" :gutter="6" type="flex" align="middle">
+                                    <el-col class="textcenter" :span="8">
+                                        Combo IDs - Any
+                                    </el-col>
+                                    <el-col class="textcenter" :span="16">
+                                        <el-input v-model="PreviewComboIDAny" v-on:keyup.native="updateComboIDs" placeholder="Value">
                                         </el-input>
                                     </el-col>
                                 </el-row>
@@ -7241,7 +7251,8 @@
                 PreviewETL: [],
                 PreviewEN: '',  // 預覽裝備名字
                 PreviewSelName: '',
-                PreviewComboIDs: [],
+                PreviewComboIDEvery: [],
+                PreviewComboIDAny: [],
                 PreviewCombo: [],
                 showExport: window.location.href.includes('localhost'),
 
@@ -8419,7 +8430,8 @@
                 CloseEffectDialogue() {
                     this.EquipSelectId = '';
                     this.ComboSelectId = false;
-                    this.PreviewComboIDs = [];
+                    this.PreviewComboIDEvery = [];
+                    this.PreviewComboIDAny = [];
                 },
                 OpenEditEquipDialogue(eqindex) {
                     this.UIPanel['EditEquipDialog'] = true;
@@ -8442,7 +8454,8 @@
                 OpenEditEquipComboDialogue(comboindex){
                     this.PreviewETL = _.cloneDeep(this.PreviewETL_init);
                     if (comboindex == -1){
-                        this.PreviewComboIDs = [];
+                        this.PreviewComboIDEvery = [];
+                        this.PreviewComboIDAny = [];
                         this.ComboSelectId = false;
                         this.PreviewEN = this.equipspartlist[this.EquipSelectId].equipname;
                         this.equipspartlist[this.EquipSelectId].effectlist.forEach(element => {
@@ -8455,7 +8468,8 @@
                         });
                     } else {
                         this.ComboSelectId = comboindex;
-                        this.PreviewComboIDs = this.equipspartlist[this.EquipSelectId].combolist[comboindex].itemids;
+                        this.PreviewComboIDEvery = this.equipspartlist[this.EquipSelectId].combolist[comboindex].itemid_every;
+                        this.PreviewComboIDAny = this.equipspartlist[this.EquipSelectId].combolist[comboindex].itemid_any;
                         this.PreviewEN = this.equipspartlist[this.EquipSelectId].combolist[comboindex].equipname;
                         this.equipspartlist[this.EquipSelectId].combolist[comboindex].effectlist.forEach(element => {
                             for (let preview of this.PreviewETL) {
@@ -8468,20 +8482,27 @@
                     }
                 },
                 AppendEquipCombo(){
-                    if (!this.EquipSelectId) return;
+                    if (isNaN(this.EquipSelectId)) return;
                     if (!this.equipspartlist[this.EquipSelectId].combolist) this.equipspartlist[this.EquipSelectId].combolist=[{itemids:[],equipname:"NewCombo",effectlist:[]}];
                     else this.equipspartlist[this.EquipSelectId].combolist.push({itemids:[],equipname:"NewCombo",effectlist:[]});
                 },
                 updateComboIDs(){
-                    if (!this.EquipSelectId) return;
+                    if (isNaN(this.EquipSelectId)) return;
                     if (isNaN(this.ComboSelectId)) return;
-                    let val = this.PreviewComboIDs.split(',');
-                    this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].itemids = val.map(Number);
+                    if (this.PreviewComboIDEvery != ''){
+                        let val_every = this.PreviewComboIDEvery.split(',');
+                        this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].itemid_every = val_every.map(Number);
+                    }
+                    if (this.PreviewComboIDAny != ''){
+                        let val_any = this.PreviewComboIDAny.split(',');
+                        this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].itemid_any = val_any.map(Number);
+                    }
                 },
                 CloseEditEquipDialogue() {
                     this.EquipSelectId = '';
                     this.ComboSelectId = false;
-                    this.PreviewComboIDs = [];
+                    this.PreviewComboIDEvery = [];
+                    this.PreviewComboIDAny = [];
                 },
                 GetETLIndex(id) {
                     return this.PreviewETL.findIndex(i => i.id === id)
@@ -13494,6 +13515,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-06-24', content: 'Added: Jasper Ring, Full Force' },
                         { id: '2024-06-21', content: 'Added: Lots of new cards, Sura Shadow Shield, EDDA Biolab memory enchants, Almighty Shadows, Lord Bearer Shadows' },
                         { id: '2024-06-20', content: 'Added: Mad Bunny-LT, Record Series accessories<br>Fixed Orc Lords Armor Bonus' },
                         { id: '2024-06-19', content: 'Added: Hero LT shoes, Hero LT Weapons and more cards<br>Fixed Poenetentia Glory Crown +13 Bonus' },
