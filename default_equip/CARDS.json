@@ -1362,7 +1362,7 @@
 		"equipname": "Silent Maya Card",
 		"effectlist": [
 			{
-				"EffectNumber": 50,
+				"EffectNumber": "(ERI==1||ERI==8)?50:0",
 				"EffectType": {
 					"id": "RaceMatkPercent"
 				},
@@ -1430,14 +1430,64 @@
 		"equipname": "Nightmare Amon Ra Card",
 		"effectlist": [
 			{
-				"EffectNumber": 50,
+				"EffectNumber": "(ERI==3||ERI==9)?50:0",
 				"EffectType": {
 					"id": "RaceMatkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 50,
+				"EffectNumber": "(EEI==7||EEI==9)?50:0",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300080,
+		"label": "Armor Card",
+		"equipname": "Great Red Pepper Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(ERI==5||ERI==6)?50:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EEI==2||EEI==6)?50:0",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300079,
+		"label": "Armor Card",
+		"equipname": "Red Pepper Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(ERI==5||ERI==6)?30:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EEI==2||EEI==6)?30:0",
 				"EffectType": {
 					"id": "ElementalMatkPercent"
 				},
@@ -1455,14 +1505,14 @@
 		"equipname": "Sealed Grave Amon Ra Card",
 		"effectlist": [
 			{
-				"EffectNumber": "ARMORR>14?25:12",
+				"EffectNumber": "(ERI==3||ERI==9)?(ARMORR>14?25:12):0",
 				"EffectType": {
 					"id": "RaceMatkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "ARMORR>14?25:12",
+				"EffectNumber": "(EEI==7||EEI==9)?(ARMORR>14?25:12):0",
 				"EffectType": {
 					"id": "ElementalMatkPercent"
 				},
@@ -1908,7 +1958,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 50,
+				"EffectNumber": "(ERI==0||ERI==2)?50:0",
 				"EffectType": {
 					"id": "RaceMatkPercent"
 				},
@@ -1940,7 +1990,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SHOER>14?33:25",
+				"EffectNumber": "(ERI==0||ERI==2)?(SHOER>14?33:25):0",
 				"EffectType": {
 					"id": "RaceMatkPercent"
 				},
@@ -3705,7 +3755,7 @@
 		"equipname": "Gloom Under Night Card",
 		"effectlist": [
 			{
-				"EffectNumber": 40,
+				"EffectNumber": "(ERI==0||ERI==3)?40:0",
 				"EffectType": {
 					"id": "RaceAtkPercent"
 				},
@@ -3730,7 +3780,7 @@
 		"equipname": "Sealed Gloom Card",
 		"effectlist": [
 			{
-				"EffectNumber": "ARMORR>14?30:20",
+				"EffectNumber": "(ERI==0||ERI==3)?(ARMORR>14?30:20):0",
 				"EffectType": {
 					"id": "RaceAtkPercent"
 				},
@@ -3877,7 +3927,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 30,
+				"EffectNumber": "(ERI==0||ERI==2)?30:0",
 				"EffectType": {
 					"id": "RaceAtkPercent"
 				},
@@ -4456,7 +4506,7 @@
 		"equipname": "Abysmal Knight Card",
 		"effectlist": [
 			{
-				"EffectNumber": 25,
+				"EffectNumber": "isBoss?25:0",
 				"EffectType": {
 					"id": "LevelAtkPercent"
 				},
@@ -4481,7 +4531,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": 30,
+				"EffectNumber": "(ERI==3||ERI==9)?30:0",
 				"EffectType": {
 					"id": "RaceAtkPercent"
 				},
@@ -4499,7 +4549,7 @@
 		"equipname": "Giant Caput Card",
 		"effectlist": [
 			{
-				"EffectNumber": "BLV>199?20:5",
+				"EffectNumber": "ERI==6?(BLV>199?20:5):0",
 				"EffectType": {
 					"id": "RaceAtkPercent"
 				},
@@ -4517,7 +4567,7 @@
 		"equipname": "Dolorian Card",
 		"effectlist": [
 			{
-				"EffectNumber": "BLV>199?20:5",
+				"EffectNumber": "ERI==3?(BLV>199?20:5):0",
 				"EffectType": {
 					"id": "RaceAtkPercent"
 				},
@@ -4897,7 +4947,7 @@
 		"equipname": "Twisted God Card",
 		"effectlist": [
 			{
-				"EffectNumber": 75,
+				"EffectNumber": "ERI==3?75:0",
 				"EffectType": {
 					"id": "RaceMatkPercent"
 				},
@@ -4915,7 +4965,7 @@
 		"equipname": "Schulang Card",
 		"effectlist": [
 			{
-				"EffectNumber": 75,
+				"EffectNumber": "ERI==0?75:0",
 				"EffectType": {
 					"id": "RaceMatkPercent"
 				},
