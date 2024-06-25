@@ -11835,7 +11835,7 @@
                                 if( this.equipspartlist[29].equipname == '' ) { idx = 29; }
                             }
                         }
-                        console.log("Load Equip " + idx + ": " + useDB[_dbidx].equip.equipname);
+                        console.log("Load Equip " + idx + ": " + useDB[_dbidx].equip.equipname + " | Item Id: " + useDB[_dbidx].equip.itemid);
                         if (!('effectlist' in useDB[_dbidx].equip)) useDB[_dbidx].equip.effectlist = [];
                         if (!('combolist' in useDB[_dbidx].equip)) useDB[_dbidx].equip.combolist = [];
                         useDB[_dbidx].equip.effectlist.forEach(x=>x.Enable=x.Enable==null?true:x.Enable);

@@ -1,8 +1,72 @@
 [
 	{
+		"id": "weaponr",
+		"label": "MainHand",
+		"equipname": "Gelerdria",
+		"effectlist": [
+			{
+				"EffectNumber": 800,
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": -50,
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			}
+		],
+		"itemid": 1449,
+		"combolist": [],
+		"availableEnchants": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedSpears",
+				"label": "1HSpear",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "145",
+			"MATK": 0,
+			"refinelevel": 10,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 70,
+			"refinematk": 70,
+			"refineatk": 70,
+			"refineatk2": 84
+		}
+	},
+	{
 		"id": "acc1",
+		"itemid": 490113,
 		"label": "Accessory",
 		"equipname": "Jasper Ring",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0
+		},
 		"effectlist": [
 			{
 				"EffectNumber": 7,
@@ -33,13 +97,7 @@
 				"Enable": true
 			}
 		],
-		"itemid": 490113,
 		"combolist": [],
-		"refinelevel": 0,
-		"grade": {
-			"id": 0
-		},
-		"availableEnchants": [],
 		"idx": 3
 	},
 	{
@@ -171,21 +229,21 @@
 				"equipname": "Gelerdria",
 				"effectlist": [
 					{
-						"EffectNumber": "WEAR>8?50:(WEAR>6?30:0)",
+						"EffectNumber": "[5,7].includes(ERI)?(WEAR>8?50:(WEAR>6?30:0)):0",
 						"EffectType": {
 							"id": "RaceAtkPercent"
 						},
 						"Enable": true
 					},
 					{
-						"EffectNumber": "WEAR>8?50:(WEAR>6?30:0)",
+						"EffectNumber": "isBoss?(WEAR>8?50:(WEAR>6?30:0)):0",
 						"EffectType": {
-							"id": "SizeAtkPercent"
+							"id": "LevelAtkPercent"
 						},
 						"Enable": true
 					},
 					{
-						"EffectNumber": "WEAR>8?50:(WEAR>6?30:0)",
+						"EffectNumber": "[2,3].includes(EEI)?(WEAR>8?50:(WEAR>6?30:0)):0",
 						"EffectType": {
 							"id": "ElementalAtkPercent"
 						},
