@@ -5959,15 +5959,6 @@
                                             <span>{{ computeattribute.atkmulti_DPS | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="status.ASPD!=0 && enemyattribute.auraLevel>0" class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
-                                        <el-col class="" :span="10" style="text-align: right;">
-                                            <span>Green Aura DPS</span>
-                                        </el-col>
-                                        <el-col class="textcenter" :span="10">
-                                            <span>{{ computeattribute.auramulti_DPS | currency }}</span>
-                                        </el-col>
-                                    </el-row>
                                 </div>
                                 <div v-show="UIPanel['MATKPanel']">
                                     <el-row class="titlebox" type="flex" align="middle"
@@ -6108,24 +6099,6 @@
                                             <span>{{computeattribute.matkmulti_avg | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="status.ASPD!=0 && enemyattribute.auraLevel>0" class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
-                                        <el-col class="" :span="10" style="text-align: right;">
-                                            <span>Skill DPS</span>
-                                        </el-col>
-                                        <el-col class="textcenter" :span="10">
-                                            <span>{{computeattribute.matkmulti_DPS | currency }}</span>
-                                        </el-col>
-                                    </el-row>
-                                    <el-row v-if="status.ASPD!=0 && enemyattribute.auraLevel>0" class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
-                                        <el-col class="" :span="10" style="text-align: right;">
-                                            <span>Green Aura DPS</span>
-                                        </el-col>
-                                        <el-col class="textcenter" :span="10">
-                                            <span>{{computeattribute.mauramulti_DPS | currency }}</span>
-                                        </el-col>
-                                    </el-row>
                                 </div>
                                 <div v-show="UIPanel['DragonBreathPanel']">
                                     <el-row class="titlebox" type="flex" align="middle" style="height:40px;">
@@ -6151,15 +6124,6 @@
                                         </el-col>
                                         <el-col class="textcenter" :span="10">
                                             <span>{{computeattribute.DragonBreathDMG_DPS | currency }}</span>
-                                        </el-col>
-                                    </el-row>
-                                    <el-row v-if="status.ASPD!=0 && enemyattribute.auraLevel>0" class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
-                                        <el-col class="bg-purple" :span="10" style="text-align: right;">
-                                            <span>Green Aura DPS</span>
-                                        </el-col>
-                                        <el-col class="textcenter" :span="10">
-                                            <span>{{computeattribute.DragonBreathAura_DPS | currency }}</span>
                                         </el-col>
                                     </el-row>
                                 </div>
@@ -7678,7 +7642,6 @@
                     SkillDamageCRI_max: 0,
                     SkillDamageCRI_avg: 0,
                     atkmulti_DPS: 0,
-                    auramulti_DPS: 0,
                     /*
                     x ( 二刀連擊 1 + 100% )
                     x ( 潛擊 1 + 30%(BOSS型怪為15%) )
@@ -7719,7 +7682,6 @@
                     matkmulti_min_DPS: 0,
                     matkmulti_max_DPS: 0,
                     matkmulti_DPS: 0,
-                    mauramulti_DPS: 0,
 
                     /*
                     魔法最終傷害公式=
@@ -7739,7 +7701,6 @@
 
                     DragonBreathDMG: 0,
                     DragonBreathDMG_DPS: 0,
-                    DragonBreathAura_DPS: 0,
                     /*
                         (DOWN(HP/50)+DOWN(SP/4))*SLV*BLV/150*1.2
                         ｛〔（HP現值 / 50）+（MaxSP / 4）〕× 技能等級 × BaseLv /150 ×（0.95 + 龍騎術等級 × 0.05）
@@ -9385,6 +9346,13 @@
                     }
 
 
+                    if ( this.enemyattribute.auraLevel > 0) {
+                        this.computeattribute.atkc9_min = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.atkc9_min );
+                        this.computeattribute.atkc9_max = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.atkc9_max );
+
+                        this.setRecord('Green Aura',[this.computeattribute.atkc9_min,this.computeattribute.atkc9_max],'x',Math.pow(0.1,this.enemyattribute.auraLevel),'p');
+                    }
+
                     if( !isNA ){
                         var _paradiv = eval(this.SkillFormulaReplace(this.skill.hitnumber));
                         if (_paradiv == 0) _paradiv = 1;
@@ -9624,10 +9592,17 @@
                     this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk4_max, Number(1) + Number(this.computeattribute['SpecialINSIGNIAENEMYMATK'] / 100));
 
 
-                    // ����
+                    // 天使之怒
                     if (this.IsSupportActive('PR_LEXAETERNA')) {
                         this.computeattribute.matk4_min = this.MulOper(this.computeattribute.matk4_min, Number(1) + Number(100 / 100));
                         this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk4_max, Number(1) + Number(100 / 100));
+                    }
+
+                    if ( this.enemyattribute.auraLevel > 0) {
+                        this.computeattribute.matk4_min = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.matk4_min );
+                        this.computeattribute.matk4_max = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.matk4_max );
+
+                        this.setRecord('Green Aura',[this.computeattribute.matk4_min,this.computeattribute.matk4_max],'x',Math.pow(0.1,this.enemyattribute.auraLevel),'p');
                     }
 
                     var _paradiv = eval(this.SkillFormulaReplace(this.skill.hitnumber));
@@ -9701,10 +9676,13 @@
                     if (this.IsSupportActive('PR_LEXAETERNA')) {
                         this.computeattribute.DragonBreathDMG = this.MulOper(this.computeattribute.DragonBreathDMG, Number(1) + Number(100 / 100));
                     }
+                    
+                    if (this.enemyattribute.auraLevel > 0) {
+                        this.computeattribute.DragonBreathDMG = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.DragonBreathDMG );
+                    }
 
                     this.computeattribute.DragonBreathDMG_DPS = Math.floor(this.computeattribute.DragonBreathDMG * this.computeattribute.HitperSec * 100) / 100;
 
-                    if (this.enemyattribute.auraLevel > 0) this.computeattribute.DragonBreathAura_DPS = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.DragonBreathDMG_DPS );
                 },
                 onChangeEnemyStatus() {
 
@@ -9773,8 +9751,6 @@
                                 this.computeattribute.SkillDamageCRI_max,
                             );
 
-                            if (this.enemyattribute.auraLevel > 0) this.computeattribute.auramulti_DPS = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.atkmulti_DPS );
-
                             this.OpenPanel('ATKPanel');
                             break;
                         case 1:
@@ -9806,10 +9782,7 @@
                                 this.computeattribute.matkmulti_min,
                                 this.computeattribute.matkmulti_max
                             );
-
-                            
-                            if (this.enemyattribute.auraLevel > 0) this.computeattribute.mauramulti_DPS = Math.floor( Math.pow(0.1,this.enemyattribute.auraLevel) * this.computeattribute.matkmulti_DPS );
-                            
+                        
                             this.OpenPanel('MATKPanel');
                             break;
                         case 2:
