@@ -206,6 +206,22 @@
                                 target="_blank"><span style="color:steelblue"> WarpPortal Forum Post </span></a><br>
                             </div>
                         </el-row>
+                        <el-row v-if="UpdatedFiles.length>0">
+                            <div class="aboutbox" style="padding: 5px 55px; text-align:left">
+                                <el-row class="statusbox" type="flex" align="middle" justify="space-around" style="height:30px; color:rgb(199, 38, 52);">
+                                    <el-col class="textcenter">
+                                        The following files has been updated
+                                    </el-col>
+                                </el-row>
+                                <el-row type="flex" align="middle">
+                                    <div style="padding: 0px 0px 20px 50px;">
+                                        <el-col class="textcenter" style="text-align: left; color:steelblue;" v-for="(ele, index) in UpdatedFiles">
+                                            - {{ ele }}
+                                        </el-col>
+                                    </div>
+                                </el-row>
+                            </div>
+                        </el-row>
                     </el-scrollbar>
                 </el-col>
                 <el-col span="12">
@@ -7238,6 +7254,7 @@
                 StoreDB_CardLoadedNames: new Set(),
                 StoreDB_CostumeStoneLoadedNames: new Set(),
                 StoreDB_PetLoadedNames: new Set(),
+                UpdatedFiles: [],
                 DataOptions: new Set(["equip", "enchant", "card", "stone", "pet"]),
                 EquipSelectId: '',
                 ComboSelectId: false,
@@ -14049,6 +14066,10 @@
                         this.SaveEquipDB();
                     }
                 },
+                getLabelById(arr, id) {
+                    const found = arr.find(item => item.id === id);
+                    return found ? found.label : null;
+                },
                 validateFileChecksumAndLoad(filename, currentHash) {
                     let href = window.location.href+'default_equip/'+filename+'.json';
                     fetch(href, {cache: "no-cache"})
@@ -14056,7 +14077,11 @@
                     .then(json => {
                         const hash = this.generateMD5(JSON.stringify(json));
                         if(currentHash !== hash){
-                            console.log("ALERT! Change detected in: " + filename);
+                            const label = this.getLabelById(this.default_equip, filename);
+                            if(label !== null){
+                                this.UpdatedFiles.push(label);
+                            }
+
                             this.select_default = filename;
                             this.clearCategoryFromStoreDB(filename);
                             if(filename === 'CARDS') {
@@ -14136,6 +14161,7 @@
             },
             mounted() {
                 this.LoadDB();
+                this.checkUpdatesInJSON();
                 this.attribute_init = Object.assign({}, this.attribute);
                 this.status_add_init = Object.assign({}, this.status_add);
                 this.status_job_init = Object.assign({}, this.status_job);
@@ -14167,7 +14193,6 @@
                 this.onChangeClass();
                 this.onChangeSupportClass();
                 this.OpenPanel('General');
-                this.checkUpdatesInJSON();
                 window.onbeforeunload = e => {   //關閉 重新整理
                     return ''
                 };
@@ -14202,6 +14227,13 @@
             if (this.subweapon.ShieldWeight == '') this.subweapon.ShieldWeight = 0;
             if (this.subweapon.refinelevel == '') this.subweapon.refinelevel = 0;
             this.onOption();
+        }, {
+            deep: true
+        });
+        evue.$watch('UpdatedFiles', function (newB, oldB) {
+            if(this.UpdatedFiles.length > 0 && this.UIPanel['UpdateLogDialog'] === false) {
+                this.TogglePanel('UpdateLogDialog');
+            }
         }, {
             deep: true
         });
