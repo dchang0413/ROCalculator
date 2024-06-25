@@ -18,6 +18,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/js-base64@3.6.0/base64.min.js"></script>
     <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/core.min.js" integrity="sha512-XV6Atywd9O/oxwyzpbw3HX6KuHroyHe7bWfHAWR6K+FQCu8g98hmj3u7r+7wK42OZlugD/QhB/VfogqTCTWq1w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/md5.min.js" integrity="sha512-ENWhXy+lET8kWcArT6ijA6HpVEALRmvzYBayGL6oFWl96exmq8Fjgxe2K6TAblHLP75Sa/a1YjHpIZRt+9hGOQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-63581889-2"></script>
@@ -202,6 +204,22 @@
                                 
                                 <a href="https://forums.warpportal.com/index.php?/topic/257128-damage-calculator-project/"
                                 target="_blank"><span style="color:steelblue"> WarpPortal Forum Post </span></a><br>
+                            </div>
+                        </el-row>
+                        <el-row v-if="UpdatedFiles.length>0">
+                            <div class="aboutbox" style="padding: 5px 55px; text-align:left">
+                                <el-row class="statusbox" type="flex" align="middle" justify="space-around" style="height:30px; color:rgb(199, 38, 52);">
+                                    <el-col class="textcenter">
+                                        The following files has been updated
+                                    </el-col>
+                                </el-row>
+                                <el-row type="flex" align="middle">
+                                    <div style="padding: 0px 0px 20px 50px;">
+                                        <el-col class="textcenter" style="text-align: left; color:steelblue;" v-for="(ele, index) in UpdatedFiles">
+                                            - {{ ele }}
+                                        </el-col>
+                                    </div>
+                                </el-row>
                             </div>
                         </el-row>
                     </el-scrollbar>
@@ -1028,6 +1046,17 @@
                                         </el-input>
                                     </el-col>
                                 </el-row>
+                                <el-row :class="PreviewETL[GetETLIndex('AllTrait')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
+                                    <el-col class="textcenter" :span="12">
+                                        All Trait
+                                    </el-col>
+                                    <el-col class="textcenter" :span="12">
+                                        <el-input v-if="PreviewETL[0]"
+                                            v-model="PreviewETL[GetETLIndex('AllTrait')].totalvalue"
+                                            v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
+                                        </el-input>
+                                    </el-col>
+                                </el-row>
                                 <el-row :class="PreviewETL[GetETLIndex('HPPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
                                     <el-col class="textcenter" :span="12">
                                         HP %
@@ -1616,7 +1645,7 @@
                         <el-col class="textcenter" style="text-align: left;" :span="18">
                             <el-checkbox-group v-model="StoreDB_EquipFilterGroup" v-on:change="onFilterEquipPart"
                                 fill="#909399" text-color="white">
-                                <el-checkbox-button v-for="item in FilterEquipList(0, 40)" :label="item.label" :key="item.id">
+                                <el-checkbox-button v-for="item in FilterEquipList()" :label="item.label" :key="item.id">
                                     {{item.label}}
                                 </el-checkbox-button>
                             </el-checkbox-group>
@@ -2411,7 +2440,7 @@
                         <el-col class="textcenter" style="text-align: left;" :span="18">
                             <el-checkbox-group v-model="StoreDB_CardFilterGroup" v-on:change="onFilterCardPart"
                                 fill="#909399" text-color="white">
-                                <el-checkbox-button v-for="item in FilterEquipList(14, 31)" :disabled="true" :label="item.label" :key="item.id">
+                                <el-checkbox-button v-for="item in FilterCardList()" :disabled="true" :label="item.label" :key="item.id">
                                     {{item.label}}
                                 </el-checkbox-button>
                             </el-checkbox-group>
@@ -2538,6 +2567,304 @@
                                 :total-rows="StoreDB_CardCount"
                                 :per-page="ItemsPerPage"
                                 aria-controls="CardListCont">
+                            </b-pagination>
+                        </el-col>
+                    </el-row>
+                </div>
+            </el-row>
+        </el-dialog>
+        <el-dialog :visible.sync="UIPanel['CostumeStoneDialog']" v-on:close="ClosePanel('CostumeStoneDialog')"
+            custom-class="Dialogue-container" width="80%" top="50px" center>
+            <span slot="title">Costume Stone List <b>{{fetchCostumeStoneMapping(ItemDesiredPosition)}}</b></span>
+            <el-row :gutter="6">
+                <div class="statusbox titlebox" style="padding: 5px 5px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
+                        <el-row class="statusbox bg-purple-light" :span="4" :gutter="4" type="flex" align="middle">
+                            <el-col class="textcenter" >
+                                    <el-input v-model="StoreDB_CostumeStoneSearchString" @input="onFilterCostumeStoneSearch" placeholder="Search" clearable>
+                                    </el-input>
+                            </el-col>
+                        </el-row>
+                        <el-col class="textcenter" :span="2">
+                            <el-button v-on:click="onFilterCostumeStoneClear">
+                                All
+                            </el-button>
+                        </el-col>
+                        <el-col class="textcenter" style="text-align: left;" :span="18">
+                            <el-checkbox-group v-model="StoreDB_CostumeStoneFilterGroup" v-on:change="onFilterCostumeStonePart"
+                                fill="#909399" text-color="white">
+                                <el-checkbox-button v-for="item in FilterCostumeStoneList()" :disabled="true" :label="item.label" :key="item.id">
+                                    {{item.label}}
+                                </el-checkbox-button>
+                            </el-checkbox-group>
+                        </el-col>
+                    </el-row>
+                </div>
+                <div class="statusbox titlebox" style="padding: 5px 5px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                        <el-col class="textcenter" :span="4" style="text-align: right;">
+                            <span class=""><b>Location</b></span>
+                        </el-col>
+                        <el-col class="textcenter">
+                            <span class=""><b>Stone Name</b></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <el-button v-on:click="onRemoveAllDataSave('stone')" icon="el-icon-delete"
+                                type="danger" size="mini">
+                            </el-button>
+                        </el-col>
+                        <el-col :span="3" v-if="showExport">
+                            <el-button v-on:click="exportSavedData('stone')" icon="el-icon-check" type="primary" size="small">
+                                Export Stone List
+                            </el-button>
+                        </el-col>
+                        <el-col :span="5">
+                            <span></span>
+                        </el-col>
+                        <el-col :span="6">
+                            <span></span>
+                        </el-col>
+                        <el-col :span="5">
+                            <span></span>
+                        </el-col>
+                        <el-col :span="5">
+                            <el-button v-on:click="loadCostumeStones" icon="el-icon-check"
+                                type="success" type="primary" size="small">
+                                Load Costume Stones
+                            </el-button>
+                        </el-col>
+                    </el-row>
+                </div>
+                <el-scrollbar id="StoneListCont" wrap-class="EquipList-container" :native="false" :noresize="false">
+                    <div v-for="(item, index) in StoreDB_CostumeStoneFilterList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)" v-bind:key="item.uuid">
+                        <div style="padding: 5px 5px;">
+                            <el-row class="effectline" :class="index%2==0?'bg-purple-light':'bg-purple'">
+                                <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-col class="textcenter" :span="4" style="text-align: right;">
+                                        <span class="EffectType">{{ item.equip.label }}</span>
+                                    </el-col>
+                                    <el-col class="textcenter">
+                                        <span class="">{{ item.equip.equipname }}</span>
+                                    </el-col>
+                                    <el-col :span="4">
+                                        <el-button v-on:click="onRemoveEquipSave(item.uuid)" icon="el-icon-delete"
+                                            type="danger" size="mini">
+                                        </el-button>
+                                    </el-col>
+                                    <el-col :span="6">
+                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
+                                            size="small">
+                                        </el-button>
+                                    </el-col>
+                                    <el-col :span="6">
+                                        <el-button v-on:click="onLoadDataSave(item.uuid, 'stone')" icon="el-icon-check"
+                                            type="success" type="primary" size="small">
+                                            Load
+                                        </el-button>
+                                    </el-col>
+                                    <el-col :span="5">
+                                    </el-col>
+                                </el-row>
+                                <el-collapse-transition>
+                                <div v-show="item.preview" style="padding: 1px 100px 10px 100px;">
+                                    <div v-for="(effect, index) in item.equip.effectlist" v-bind:key="item.uuid">
+                                        <el-row class="previeweffectbox3 effectline" :gutter="1" type="flex" align="middle" justify="center">
+                                            <el-col class="textcenter" style="text-align: right;" :span="4">
+                                                <span class="EffectType">{{ effecttypelist[GetETLIndex(effect.EffectType.id)].label }}</span>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="1">
+                                                <span class="">{{ effecttypelist[GetETLIndex(effect.EffectType.id)].opersymbol }}</span>
+                                            </el-col>
+                                            <el-col class="textcenter">
+                                                <span class="textnowrap">{{ effect.EffectNumber!=9999?effect.EffectNumber:'' }}</span>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="1">
+                                                <span lass="">{{ effecttypelist[GetETLIndex(effect.EffectType.id)].suffixsymbol }}</span>
+                                            </el-col>
+                                        </el-row>
+                                    </div>
+                                </div>
+                                </el-collapse-transition>
+                            </el-row>
+                        </div>
+                    </div>
+                </el-scrollbar>
+                <div class="statusbox titlebox" style="padding: 5px 5px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                        <el-col class="textcenter" :span="4" style="text-align: right;">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col class="textcenter">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="6">
+                            <el-select v-model="ItemsPerPage" v-on:change="updateItemsPerPage" placeholder="" v-bind="ItemsPerPage">
+                                <el-option v-for="option in PageOptions" :key="option" :label="option" :value="option">
+                                </el-option>
+                            </el-select>
+                        </el-col>
+                        <el-col :span="14">
+                            <b-pagination
+                                class="m-0"
+                                align="right"
+                                v-model="PageIndex"
+                                :total-rows="StoreDB_CostumeStoneCount"
+                                :per-page="ItemsPerPage"
+                                aria-controls="StoneListCont">
+                            </b-pagination>
+                        </el-col>
+                    </el-row>
+                </div>
+            </el-row>
+        </el-dialog>
+        <el-dialog :visible.sync="UIPanel['PetDialog']" v-on:close="ClosePanel('PetDialog')"
+            custom-class="Dialogue-container" width="80%" top="50px" center>
+            <span slot="title">Pet List</span>
+            <el-row :gutter="6">
+                <div class="statusbox titlebox" style="padding: 5px 5px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
+                        <el-row class="statusbox bg-purple-light" :span="4" :gutter="4" type="flex" align="middle">
+                            <el-col class="textcenter" >
+                                    <el-input v-model="StoreDB_PetSearchString" @input="onFilterPetSearch" placeholder="Search" clearable>
+                                    </el-input>
+                            </el-col>
+                        </el-row>
+                        <el-col class="textcenter" :span="2">
+                            <el-button v-on:click="onFilterPetClear">
+                                All
+                            </el-button>
+                        </el-col>
+                    </el-row>
+                </div>
+                <div class="statusbox titlebox" style="padding: 5px 5px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                        <el-col class="textcenter" :span="4" style="text-align: right;">
+                            <span class=""><b>Location</b></span>
+                        </el-col>
+                        <el-col class="textcenter">
+                            <span class=""><b>Pet Name</b></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <el-button v-on:click="onRemoveAllDataSave('pet')" icon="el-icon-delete"
+                                type="danger" size="mini">
+                            </el-button>
+                        </el-col>
+                        <el-col :span="3" v-if="showExport">
+                            <el-button v-on:click="exportSavedData('pet')" icon="el-icon-check" type="primary" size="small">
+                                Export Pet List
+                            </el-button>
+                        </el-col>
+                        <el-col :span="5">
+                            <span></span>
+                        </el-col>
+                        <el-col :span="6">
+                            <span></span>
+                        </el-col>
+                        <el-col :span="5">
+                            <span></span>
+                        </el-col>
+                        <el-col :span="5">
+                            <el-button v-on:click="loadPets" icon="el-icon-check"
+                                type="success" type="primary" size="small">
+                                Load Pets
+                            </el-button>
+                        </el-col>
+                    </el-row>
+                </div>
+                <el-scrollbar id="PetListCont" wrap-class="EquipList-container" :native="false" :noresize="false">
+                    <div v-for="(item, index) in StoreDB_PetFilterList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)" v-bind:key="item.uuid">
+                        <div style="padding: 5px 5px;">
+                            <el-row class="effectline" :class="index%2==0?'bg-purple-light':'bg-purple'">
+                                <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-col class="textcenter" :span="4" style="text-align: right;">
+                                        <span class="EffectType">{{ item.equip.label }}</span>
+                                    </el-col>
+                                    <el-col class="textcenter">
+                                        <span class="">{{ item.equip.equipname }}</span>
+                                    </el-col>
+                                    <el-col :span="4">
+                                        <el-button v-on:click="onRemoveEquipSave(item.uuid)" icon="el-icon-delete"
+                                            type="danger" size="mini">
+                                        </el-button>
+                                    </el-col>
+                                    <el-col :span="6">
+                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
+                                            size="small">
+                                        </el-button>
+                                    </el-col>
+                                    <el-col :span="6">
+                                        <el-button v-on:click="onLoadDataSave(item.uuid, 'pet')" icon="el-icon-check"
+                                            type="success" type="primary" size="small">
+                                            Load
+                                        </el-button>
+                                    </el-col>
+                                    <el-col :span="5">
+                                    </el-col>
+                                </el-row>
+                                <el-collapse-transition>
+                                <div v-show="item.preview" style="padding: 1px 100px 10px 100px;">
+                                    <div v-for="(effect, index) in item.equip.effectlist" v-bind:key="item.uuid">
+                                        <el-row class="previeweffectbox3 effectline" :gutter="1" type="flex" align="middle" justify="center">
+                                            <el-col class="textcenter" style="text-align: right;" :span="4">
+                                                <span class="EffectType">{{ effecttypelist[GetETLIndex(effect.EffectType.id)].label }}</span>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="1">
+                                                <span class="">{{ effecttypelist[GetETLIndex(effect.EffectType.id)].opersymbol }}</span>
+                                            </el-col>
+                                            <el-col class="textcenter">
+                                                <span class="textnowrap">{{ effect.EffectNumber!=9999?effect.EffectNumber:'' }}</span>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="1">
+                                                <span lass="">{{ effecttypelist[GetETLIndex(effect.EffectType.id)].suffixsymbol }}</span>
+                                            </el-col>
+                                        </el-row>
+                                    </div>
+                                </div>
+                                </el-collapse-transition>
+                            </el-row>
+                        </div>
+                    </div>
+                </el-scrollbar>
+                <div class="statusbox titlebox" style="padding: 5px 5px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                        <el-col class="textcenter" :span="4" style="text-align: right;">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col class="textcenter">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="6">
+                            <el-select v-model="ItemsPerPage" v-on:change="updateItemsPerPage" placeholder="" v-bind="ItemsPerPage">
+                                <el-option v-for="option in PageOptions" :key="option" :label="option" :value="option">
+                                </el-option>
+                            </el-select>
+                        </el-col>
+                        <el-col :span="14">
+                            <b-pagination
+                                class="m-0"
+                                align="right"
+                                v-model="PageIndex"
+                                :total-rows="StoreDB_PetCount"
+                                :per-page="ItemsPerPage"
+                                aria-controls="PetListCont">
                             </b-pagination>
                         </el-col>
                     </el-row>
@@ -4313,23 +4640,23 @@
                                     <el-row v-if="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <el-button class="enchantSwitch" @click="cardSwitch(14)"><img src='/img/card.png'></el-button>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(10)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
                                             <div>
-                                                <el-input v-model="equipspartlist[14].equipname"
+                                                <el-input v-model="equipspartlist[10].equipname"
                                                     placeholder="Card Name">
                                                 </el-input>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="onClearEquipPart(14)" size="mini">
+                                            <el-button v-on:click="onClearEquipPart(10)" size="mini">
                                                 Clear
                                             </el-button>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="OpenEditEquipDialogue(14)" type="success"
+                                            <el-button v-on:click="OpenEditEquipDialogue(10)" type="success"
                                                 plain>
                                                 Edit
                                             </el-button>
@@ -4338,23 +4665,23 @@
                                     <el-row v-if="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <el-button class="enchantSwitch" @click="cardSwitch(15)"><img src='/img/card.png'></el-button>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(11)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
                                             <div>
-                                                <el-input v-model="equipspartlist[15].equipname"
+                                                <el-input v-model="equipspartlist[11].equipname"
                                                     placeholder="Card Name">
                                                 </el-input>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="onClearEquipPart(15)" size="mini">
+                                            <el-button v-on:click="onClearEquipPart(11)" size="mini">
                                                 Clear
                                             </el-button>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="OpenEditEquipDialogue(15)" type="success"
+                                            <el-button v-on:click="OpenEditEquipDialogue(11)" type="success"
                                                 plain>
                                                 Edit
                                             </el-button>
@@ -4363,23 +4690,23 @@
                                     <el-row v-if="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <el-button class="enchantSwitch" @click="cardSwitch(16)"><img src='/img/card.png'></el-button>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(12)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
                                             <div>
-                                                <el-input v-model="equipspartlist[16].equipname"
+                                                <el-input v-model="equipspartlist[12].equipname"
                                                     placeholder="Card Name">
                                                 </el-input>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="onClearEquipPart(16)" size="mini">
+                                            <el-button v-on:click="onClearEquipPart(12)" size="mini">
                                                 Clear
                                             </el-button>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="OpenEditEquipDialogue(16)" type="success"
+                                            <el-button v-on:click="OpenEditEquipDialogue(12)" type="success"
                                                 plain>
                                                 Edit
                                             </el-button>
@@ -4388,34 +4715,34 @@
                                     <el-row v-if="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <el-button class="enchantSwitch" @click="cardSwitch(17)"><img src='/img/card.png'></el-button>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(13)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
                                             <div>
-                                                <el-input v-model="equipspartlist[17].equipname"
+                                                <el-input v-model="equipspartlist[13].equipname"
                                                     placeholder="Card Name">
                                                 </el-input>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="onClearEquipPart(17)" size="mini">
+                                            <el-button v-on:click="onClearEquipPart(13)" size="mini">
                                                 Clear
                                             </el-button>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="OpenEditEquipDialogue(17)" type="success"
+                                            <el-button v-on:click="OpenEditEquipDialogue(13)" type="success"
                                                 plain>
                                                 Edit
                                             </el-button>
                                         </el-col>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'">
-                                        <div v-for="(enchant, idx) in equipspartlist.slice(40, 44)">
+                                        <div v-for="(enchant, idx) in equipspartlist.slice(43, 47)">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                                 <el-col class="textcenter" :span="4">
                                                     <div>
-                                                        <el-button class="enchantSwitch" @click="enchantSwitch(idx+40)"><img src='/img/enchant.png'></el-button>
+                                                        <el-button class="enchantSwitch" @click="enchantSwitch(idx+43)"><img src='/img/enchant.png'></el-button>
                                                     </div>
                                                 </el-col>
                                                 <el-col class="textcenter">
@@ -4426,12 +4753,12 @@
                                                     </div>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="5">
-                                                    <el-button v-on:click="onClearEquipPart(idx+40)" size="mini">
+                                                    <el-button v-on:click="onClearEquipPart(idx+43)" size="mini">
                                                         Clear
                                                     </el-button>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="5">
-                                                    <el-button v-on:click="OpenEditEquipDialogue(idx+40)" type="success"
+                                                    <el-button v-on:click="OpenEditEquipDialogue(idx+43)" type="success"
                                                         plain>
                                                         Edit
                                                     </el-button>
@@ -4490,7 +4817,7 @@
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'">
-                                        <el-row v-for="(card, cardidx) in equipspartlist.slice(14, 18)">
+                                        <el-row v-for="(card, cardidx) in equipspartlist.slice(10, 14)">
                                             <div v-if="card.effectlist.length" class="textcenter bg-purple-light5">Card Effect: {{ cardidx + 1 }} - {{ card.equipname }}</div>
                                             <div class="Item bg-purple-light2" v-for="(item, index) in card.effectlist"
                                                 v-bind:key="item.effecttypelist" >
@@ -4509,14 +4836,14 @@
                                                         <span lass="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox v-model="item.Enable" @change="EnableEffect(cardidx+14, index)"></el-checkbox>
+                                                            <el-checkbox v-model="item.Enable" @change="EnableEffect(cardidx+10, index)"></el-checkbox>
                                                         </el-col>
                                                 </el-row>
                                             </div>
                                         </el-row>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'">
-                                        <div v-for="(card, cardidx) in equipspartlist.slice(14, 18)">
+                                        <div v-for="(card, cardidx) in equipspartlist.slice(10, 14)">
                                             <div v-if="card.combolist.length" class="textcenter bg-green-light2">Card Combo Effect: {{ cardidx + 1 }} - {{ card.equipname }}</div>
                                             <el-row v-for="(combo, idx) in card.combolist" class="bg-green-light1">
                                                 <div class="divider-green"></div>
@@ -4537,16 +4864,16 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(cardidx+18, index)"></el-checkbox>
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(cardidx+14, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
                                             </el-row>
                                         </div>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponrPanel']==true" v-if="getEnchantWithEffects(40, 44).length">
+                                    <el-row v-show="UIPanel['weaponrPanel']==true" v-if="getEnchantWithEffects(43, 47).length">
                                         <div class="textcenter bg-red-light2">Enchant Effect</div>
-                                        <div v-for="(enchant, idx) in getEnchantWithEffects(40, 44)" class="bg-red-light1">
+                                        <div v-for="(enchant, idx) in getEnchantWithEffects(43, 47)" class="bg-red-light1">
                                             <div class="divider-red"></div>
                                             <div class="textcenter margin-4"><em>{{ enchant.equipname }}</em></div>
                                             <div v-for="(item, index) in enchant.effectlist" v-bind:key="item.effecttypelist">
@@ -4565,7 +4892,7 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(idx+40, index)"></el-checkbox>
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(idx+43, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
@@ -4704,23 +5031,23 @@
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <el-button class="enchantSwitch" @click="cardSwitch(1+17)"><img src='/img/card.png'></el-button>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(1+13)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
                                             <div>
-                                                <el-input v-model="equipspartlist[1+17].equipname"
+                                                <el-input v-model="equipspartlist[1+13].equipname"
                                                     placeholder="Card Name">
                                                 </el-input>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="onClearEquipPart(1+17)" size="mini">
+                                            <el-button v-on:click="onClearEquipPart(1+13)" size="mini">
                                                 Clear
                                             </el-button>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="OpenEditEquipDialogue(1+17)" type="success"
+                                            <el-button v-on:click="OpenEditEquipDialogue(1+13)" type="success"
                                                 plain>
                                                 Edit
                                             </el-button>
@@ -4729,23 +5056,23 @@
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <el-button class="enchantSwitch" @click="cardSwitch(2+17)"><img src='/img/card.png'></el-button>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(2+13)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
                                             <div>
-                                                <el-input v-model="equipspartlist[2+17].equipname"
+                                                <el-input v-model="equipspartlist[2+13].equipname"
                                                     placeholder="Card Name">
                                                 </el-input>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="onClearEquipPart(2+17)" size="mini">
+                                            <el-button v-on:click="onClearEquipPart(2+13)" size="mini">
                                                 Clear
                                             </el-button>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="OpenEditEquipDialogue(2+17)" type="success"
+                                            <el-button v-on:click="OpenEditEquipDialogue(2+13)" type="success"
                                                 plain>
                                                 Edit
                                             </el-button>
@@ -4754,23 +5081,23 @@
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <el-button class="enchantSwitch" @click="cardSwitch(3+17)"><img src='/img/card.png'></el-button>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(3+13)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
                                             <div>
-                                                <el-input v-model="equipspartlist[3+17].equipname"
+                                                <el-input v-model="equipspartlist[3+13].equipname"
                                                     placeholder="Card Name">
                                                 </el-input>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="onClearEquipPart(3+17)" size="mini">
+                                            <el-button v-on:click="onClearEquipPart(3+13)" size="mini">
                                                 Clear
                                             </el-button>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="OpenEditEquipDialogue(3+17)" type="success"
+                                            <el-button v-on:click="OpenEditEquipDialogue(3+13)" type="success"
                                                 plain>
                                                 Edit
                                             </el-button>
@@ -4779,23 +5106,23 @@
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <el-button class="enchantSwitch" @click="cardSwitch(4+17)"><img src='/img/card.png'></el-button>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(4+13)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
                                             <div>
-                                                <el-input v-model="equipspartlist[4+17].equipname"
+                                                <el-input v-model="equipspartlist[4+13].equipname"
                                                     placeholder="Card Name">
                                                 </el-input>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="onClearEquipPart(4+17)" size="mini">
+                                            <el-button v-on:click="onClearEquipPart(4+13)" size="mini">
                                                 Clear
                                             </el-button>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="OpenEditEquipDialogue(4+17)" type="success"
+                                            <el-button v-on:click="OpenEditEquipDialogue(4+13)" type="success"
                                                 plain>
                                                 Edit
                                             </el-button>
@@ -4804,34 +5131,34 @@
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
-                                                <el-button class="enchantSwitch" @click="cardSwitch(5+17)"><img src='/img/card.png'></el-button>
+                                                <el-button class="enchantSwitch" @click="cardSwitch(5+13)"><img src='/img/card.png'></el-button>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter">
                                             <div>
-                                                <el-input v-model="equipspartlist[5+17].equipname"
+                                                <el-input v-model="equipspartlist[5+13].equipname"
                                                     placeholder="Card Name">
                                                 </el-input>
                                             </div>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="onClearEquipPart(5+17)" size="mini">
+                                            <el-button v-on:click="onClearEquipPart(5+13)" size="mini">
                                                 Clear
                                             </el-button>
                                         </el-col>
                                         <el-col class="textcenter" :span="5">
-                                            <el-button v-on:click="OpenEditEquipDialogue(5+17)" type="success"
+                                            <el-button v-on:click="OpenEditEquipDialogue(5+13)" type="success"
                                                 plain>
                                                 Edit
                                             </el-button>
                                         </el-col>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
-                                        <div v-for="(enchant, idx) in equipspartlist.slice(44, 48)">
+                                        <div v-for="(enchant, idx) in equipspartlist.slice(47, 51)">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                                 <el-col class="textcenter" :span="4">
                                                     <div>
-                                                        <el-button class="enchantSwitch" @click="enchantSwitch(idx+44)"><img src='/img/enchant.png'></el-button>
+                                                        <el-button class="enchantSwitch" @click="enchantSwitch(idx+47)"><img src='/img/enchant.png'></el-button>
                                                     </div>
                                                 </el-col>
                                                 <el-col class="textcenter">
@@ -4842,12 +5169,12 @@
                                                     </div>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="5">
-                                                    <el-button v-on:click="onClearEquipPart(idx+44)" size="mini">
+                                                    <el-button v-on:click="onClearEquipPart(idx+47)" size="mini">
                                                         Clear
                                                     </el-button>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="5">
-                                                    <el-button v-on:click="OpenEditEquipDialogue(idx+44)" type="success"
+                                                    <el-button v-on:click="OpenEditEquipDialogue(idx+47)" type="success"
                                                         plain>
                                                         Edit
                                                     </el-button>
@@ -4856,11 +5183,11 @@
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1">
-                                        <div v-for="(enchant, idx) in equipspartlist.slice(48, 51)">
+                                        <div v-for="(enchant, idx) in equipspartlist.slice(51, 54)">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                                 <el-col class="textcenter" :span="4">
                                                     <div>
-                                                        <el-button class="enchantSwitch" @click="enchantSwitch(idx+48)"><img src='/img/enchant.png'></el-button>
+                                                        <el-button class="enchantSwitch" @click="enchantSwitch(idx+51)"><img src='/img/enchant.png'></el-button>
                                                     </div>
                                                 </el-col>
                                                 <el-col class="textcenter">
@@ -4871,12 +5198,12 @@
                                                     </div>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="5">
-                                                    <el-button v-on:click="onClearEquipPart(idx+48)" size="mini">
+                                                    <el-button v-on:click="onClearEquipPart(idx+51)" size="mini">
                                                         Clear
                                                     </el-button>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="5">
-                                                    <el-button v-on:click="OpenEditEquipDialogue(idx+48)" type="success"
+                                                    <el-button v-on:click="OpenEditEquipDialogue(idx+51)" type="success"
                                                         plain>
                                                         Edit
                                                     </el-button>
@@ -4935,7 +5262,7 @@
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
-                                        <div v-for="(card, cardidx) in equipspartlist.slice(18,22)">
+                                        <div v-for="(card, cardidx) in equipspartlist.slice(14,18)">
                                             <div v-if="card.effectlist.length" class="textcenter bg-purple-light5">Card Effect: {{ cardidx + 1 }} - {{ card.equipname }}</div>
                                             <el-row v-for="(item, index) in card.effectlist"
                                                 v-bind:key="item.effecttypelist" class="bg-purple-light2">
@@ -4954,14 +5281,14 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(cardidx+18, index)"></el-checkbox>
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(cardidx+14, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </el-row>
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
-                                        <div v-for="(card, cardidx) in equipspartlist.slice(18,22)">
+                                        <div v-for="(card, cardidx) in equipspartlist.slice(14,18)">
                                             <div v-if="card.combolist.length" class="textcenter bg-green-light2">Card Combo Effect: {{ cardidx + 1 }} - {{ card.equipname }}</div>
                                             <el-row v-for="(combo, idx) in card.combolist" class="bg-green-light1">
                                                 <div class="divider-green"></div>
@@ -4982,7 +5309,7 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(cardidx+18, index)"></el-checkbox>
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(cardidx+14, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
@@ -4990,8 +5317,8 @@
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1">
-                                        <div v-if="equipspartlist[5+17].effectlist.length" class="textcenter bg-purple-light5">Card Effect</div>
-                                        <div v-for="(item, index) in equipspartlist[5+17].effectlist"
+                                        <div v-if="equipspartlist[5+13].effectlist.length" class="textcenter bg-purple-light5">Card Effect</div>
+                                        <div v-for="(item, index) in equipspartlist[5+13].effectlist"
                                             v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                 justify="end" style="height:40px;">
@@ -5008,14 +5335,14 @@
                                                     <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter"  :span="5">
-                                                    <el-checkbox v-model="item.Enable" @change="EnableEffect(5+17, index)"></el-checkbox>
+                                                    <el-checkbox v-model="item.Enable" @change="EnableEffect(5+13, index)"></el-checkbox>
                                                 </el-col>
                                             </el-row>
                                         </div>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1">
-                                        <div v-if="equipspartlist[5+17].combolist.length" class="textcenter bg-green-light2">Card Combo Effect</div>
-                                        <div v-for="(combo, idx) in equipspartlist[5+17].combolist" class="bg-green-light1">
+                                        <div v-if="equipspartlist[5+13].combolist.length" class="textcenter bg-green-light2">Card Combo Effect</div>
+                                        <div v-for="(combo, idx) in equipspartlist[5+13].combolist" class="bg-green-light1">
                                             <div class="divider-green"></div>
                                             <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
                                             <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
@@ -5034,15 +5361,15 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(5+17, index)"></el-checkbox>
+                                                        <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(5+13, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
                                         </div>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true" v-if="getEnchantWithEffects(44, 51).length">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true" v-if="getEnchantWithEffects(47, 54).length">
                                         <div class="textcenter bg-red-light2">Enchant Effect</div>
-                                        <div v-for="(enchant, idx) in getEnchantWithEffects(44, 51)" class="bg-red-light1">
+                                        <div v-for="(enchant, idx) in getEnchantWithEffects(47, 54)" class="bg-red-light1">
                                             <div class="divider-red"></div>
                                             <div class="textcenter margin-4"><em>{{ enchant.equipname }}</em></div>
                                             <div v-for="(item, index) in enchant.effectlist" v-bind:key="item.effecttypelist">
@@ -5061,7 +5388,7 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(idx+44, index)"></el-checkbox>
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(idx+47, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
@@ -5132,34 +5459,34 @@
                                         <el-row v-if="eqindex != 2" v-show="UIPanel[item.id+'Panel']" class="effectline" :gutter="4" type="flex" align="middle">
                                             <el-col class="textcenter" :span="4">
                                                 <div>
-                                                    <el-button class="enchantSwitch" @click="cardSwitch(eqindex+23)"><img src='/img/card.png'></el-button>
+                                                    <el-button class="enchantSwitch" @click="cardSwitch(eqindex+19)"><img src='/img/card.png'></el-button>
                                                 </div>
                                             </el-col>
                                             <el-col class="textcenter">
                                                 <div>
-                                                    <el-input v-model="equipspartlist[eqindex+23].equipname"
+                                                    <el-input v-model="equipspartlist[eqindex+19].equipname"
                                                         placeholder="Card Name">
                                                     </el-input>
                                                 </div>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="onClearEquipPart(eqindex+23)" size="mini">
+                                                <el-button v-on:click="onClearEquipPart(eqindex+19)" size="mini">
                                                     Clear
                                                 </el-button>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+23)" type="success"
+                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+19)" type="success"
                                                     plain>
                                                     Edit
                                                 </el-button>
                                             </el-col>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-for="(enchant, idx) in equipspartlist.slice(eqindex*3+51, eqindex*3+54)">
+                                            <div v-for="(enchant, idx) in equipspartlist.slice(eqindex*3+54, eqindex*3+57)">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                                     <el-col class="textcenter" :span="4">
                                                         <div>
-                                                            <el-button class="enchantSwitch" @click="enchantSwitch(eqindex*3+idx+51)"><img src='/img/enchant.png'></el-button>
+                                                            <el-button class="enchantSwitch" @click="enchantSwitch(eqindex*3+idx+54)"><img src='/img/enchant.png'></el-button>
                                                         </div>
                                                     </el-col>
                                                     <el-col class="textcenter">
@@ -5170,12 +5497,12 @@
                                                         </div>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="5">
-                                                        <el-button v-on:click="onClearEquipPart(eqindex*3+idx+51)" size="mini">
+                                                        <el-button v-on:click="onClearEquipPart(eqindex*3+idx+54)" size="mini">
                                                             Clear
                                                         </el-button>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="5">
-                                                        <el-button v-on:click="OpenEditEquipDialogue(eqindex*3+idx+51)" type="success"
+                                                        <el-button v-on:click="OpenEditEquipDialogue(eqindex*3+idx+54)" type="success"
                                                             plain>
                                                             Edit
                                                         </el-button>
@@ -5234,8 +5561,8 @@
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-if="equipspartlist[eqindex+23].effectlist.length" class="textcenter bg-purple-light5">Card Effect</div>
-                                            <div v-for="(item, index) in equipspartlist[eqindex+23].effectlist"
+                                            <div v-if="equipspartlist[eqindex+19].effectlist.length" class="textcenter bg-purple-light5">Card Effect</div>
+                                            <div v-for="(item, index) in equipspartlist[eqindex+19].effectlist"
                                                 v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
@@ -5252,14 +5579,14 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+23, index)"></el-checkbox>
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+19, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-if="equipspartlist[eqindex+23].combolist.length" class="textcenter bg-green-light2">Card Combo Effect</div>
-                                            <div v-for="(combo, idx) in equipspartlist[eqindex+23].combolist" class="bg-green-light1">
+                                            <div v-if="equipspartlist[eqindex+19].combolist.length" class="textcenter bg-green-light2">Card Combo Effect</div>
+                                            <div v-for="(combo, idx) in equipspartlist[eqindex+19].combolist" class="bg-green-light1">
                                                 <div class="divider-green"></div>
                                                 <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
                                                 <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
@@ -5284,9 +5611,9 @@
                                                 </div>
                                             </div>
                                         </el-row>
-                                        <el-row v-show="UIPanel[item.id+'Panel']" v-if="getEnchantWithEffects(eqindex*3+51, eqindex*3+54).length">
+                                        <el-row v-show="UIPanel[item.id+'Panel']" v-if="getEnchantWithEffects(eqindex*3+54, eqindex*3+57).length">
                                             <div class="textcenter bg-red-light2">Enchant Effect</div>
-                                            <div v-for="(enchant, idx) in getEnchantWithEffects(eqindex*3+51, eqindex*3+54)" class="bg-red-light1">
+                                            <div v-for="(enchant, idx) in getEnchantWithEffects(eqindex*3+54, eqindex*3+57)" class="bg-red-light1">
                                                 <div class="divider-red"></div>
                                                 <div class="textcenter margin-4"><em>{{ enchant.equipname }}</em></div>
                                                 <div v-for="(item, index) in enchant.effectlist" v-bind:key="item.effecttypelist">
@@ -5305,7 +5632,7 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex*3+idx+index+51, index)"></el-checkbox>
+                                                            <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex*3+idx+index+54, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
@@ -5313,9 +5640,8 @@
                                         </el-row>
                                     </div>
                                 </div>
-
                                 <!-- Shadow stuff-->
-                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(10,11)">
+                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(37,43)">
                                     <div class="bg-purple-light" style="padding: 0px 4px;">
                                         <el-col v-if="UIPanel[item.id+'Panel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
                                             <el-button type="info" v-on:click="TogglePanel(item.id+'Panel')" size="mini"><i
@@ -5333,18 +5659,18 @@
                                             </el-col>
                                             <el-col class="textcenter">
                                                 <div>
-                                                    <el-input v-model="equipspartlist[eqindex+10].equipname"
+                                                    <el-input v-model="equipspartlist[eqindex+37].equipname"
                                                         placeholder="Equip Name">
                                                     </el-input>
                                                 </div>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="onClearEquipPart(eqindex+10)" size="mini">
+                                                <el-button v-on:click="onClearEquipPart(eqindex+37)" size="mini">
                                                     Clear
                                                 </el-button>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+10)" type="success"
+                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+37)" type="success"
                                                     plain>
                                                     Edit
                                                 </el-button>
@@ -5356,14 +5682,14 @@
                                             </el-col>
                                             <el-col :span="6">
                                                 <div>
-                                                    <el-input v-model.number="equipspartlist[eqindex+10].refinelevel"
+                                                    <el-input v-model.number="equipspartlist[eqindex+37].refinelevel"
                                                         v-on:input="CombineEquipsAttribute" placeholder="Refine">
                                                     </el-input>
                                                 </div>
                                             </el-col>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-for="(item, index) in equipspartlist[eqindex+10].effectlist"
+                                            <div v-for="(item, index) in equipspartlist[eqindex+37].effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
@@ -5380,14 +5706,14 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+2, index)"></el-checkbox>
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+37, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-if="equipspartlist[eqindex+10].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
-                                            <div v-for="(combo, idx) in equipspartlist[eqindex+10].combolist" class="bg-purple-light3">
+                                            <div v-if="equipspartlist[eqindex+37].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
+                                            <div v-for="(combo, idx) in equipspartlist[eqindex+37].combolist" class="bg-purple-light3">
                                                 <div class="divider-purple"></div>
                                                 <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
                                                 <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
@@ -5406,7 +5732,7 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(eqindex+idx+37, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
@@ -5414,7 +5740,8 @@
                                         </el-row>
                                     </div>
                                 </div>
-                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(35,40)">
+                                <!-- Costume and stones -->
+                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(30,31)">
                                     <div class="bg-purple-light" style="padding: 0px 4px;">
                                         <el-col v-if="UIPanel[item.id+'Panel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
                                             <el-button type="info" v-on:click="TogglePanel(item.id+'Panel')" size="mini"><i
@@ -5432,37 +5759,52 @@
                                             </el-col>
                                             <el-col class="textcenter">
                                                 <div>
-                                                    <el-input v-model="equipspartlist[eqindex+35].equipname"
-                                                        placeholder="Equip Name">
+                                                    <el-input v-model="equipspartlist[eqindex+30].equipname"
+                                                        placeholder="Costume Name">
                                                     </el-input>
                                                 </div>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="onClearEquipPart(eqindex+35)" size="mini">
+                                                <el-button v-on:click="onClearEquipPart(eqindex+30)" size="mini">
                                                     Clear
                                                 </el-button>
                                             </el-col>
                                             <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+35)" type="success"
+                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+30)" type="success"
                                                     plain>
                                                     Edit
                                                 </el-button>
                                             </el-col>
                                         </el-row>
-                                        <el-row v-show="UIPanel[item.id+'Panel']" class="effectline" :gutter="4" type="flex" align="middle">
-                                            <el-col :span="6" style="text-align: right;">
-                                                <span>Refine</span>
-                                            </el-col>
-                                            <el-col :span="6">
-                                                <div>
-                                                    <el-input v-model.number="equipspartlist[eqindex+35].refinelevel"
-                                                        v-on:input="CombineEquipsAttribute" placeholder="Refine">
-                                                    </el-input>
-                                                </div>
-                                            </el-col>
-                                        </el-row>
+                                        <div v-show="UIPanel[item.id+'Panel']" v-for="(stone,stidx) in equipspartlist.slice(31,36)">
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                                <el-col class="textcenter" :span="4">
+                                                    <div>
+                                                        <el-button class="enchantSwitch" @click="costumeStoneSwitch(stidx+31)"><img src='/img/stone.png'></el-button>
+                                                    </div>
+                                                </el-col>
+                                                <el-col class="textcenter">
+                                                    <div>
+                                                        <el-input v-model="equipspartlist[stidx+31].equipname"
+                                                            :placeholder="equipspartlist[stidx+31].label + ' Name'">
+                                                        </el-input>
+                                                    </div>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="5">
+                                                    <el-button v-on:click="onClearEquipPart(stidx+31)" size="mini">
+                                                        Clear
+                                                    </el-button>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="5">
+                                                    <el-button v-on:click="OpenEditEquipDialogue(stidx+31)" type="success"
+                                                        plain>
+                                                        Edit
+                                                    </el-button>
+                                                </el-col>
+                                            </el-row>
+                                        </div>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-for="(item, index) in equipspartlist[eqindex+35].effectlist"
+                                            <div v-for="(item, index) in equipspartlist[eqindex+30].effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
@@ -5479,14 +5821,14 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+35, index)"></el-checkbox>
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+30, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-if="equipspartlist[eqindex+35].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
-                                            <div v-for="(combo, idx) in equipspartlist[eqindex+35].combolist" class="bg-purple-light3">
+                                            <div v-if="equipspartlist[eqindex+30].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
+                                            <div v-for="(combo, idx) in equipspartlist[eqindex+30].combolist" class="bg-purple-light3">
                                                 <div class="divider-purple"></div>
                                                 <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
                                                 <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
@@ -5505,17 +5847,69 @@
                                                             <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter"  :span="5">
-                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(eqindex+idx+30, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
                                                 </div>
                                             </div>
                                         </el-row>
+                                        <div v-show="UIPanel[item.id+'Panel']" v-for="(stone,stidx) in equipspartlist.slice(31,36)">
+                                            <el-row v-show="UIPanel[item.id+'Panel']">
+                                                <div v-if="equipspartlist[stidx+31].effectlist.length" class="textcenter bg-purple-light5">Stone Effect - {{ equipspartlist[stidx+31].equipname }}</div>
+                                                <div v-for="(item, index) in equipspartlist[stidx+31].effectlist"
+                                                    v-bind:key="item.effecttypelist" class="bg-purple-light2">
+                                                    <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                        justify="end" style="height:40px;">
+                                                        <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                            <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="8">
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter"  :span="5">
+                                                            <el-checkbox v-model="item.Enable" @change="EnableEffect(stidx+31, index)"></el-checkbox>
+                                                        </el-col>
+                                                    </el-row>
+                                                </div>
+                                            </el-row>
+                                            <el-row v-show="UIPanel[item.id+'Panel']">
+                                                <div v-if="equipspartlist[stidx+31].combolist.length" class="textcenter bg-red-light2">Stone Combo Effect - {{ equipspartlist[stidx+31].equipname }}</div>
+                                                <div v-for="(combo, idx) in equipspartlist[stidx+31].combolist" class="bg-red-light1">
+                                                    <div class="divider-red"></div>
+                                                    <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                                    <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
+                                                        <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                            justify="end" style="height:40px;">
+                                                            <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                                <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                            </el-col>
+                                                            <el-col class="textcenter" :span="2">
+                                                                <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                            </el-col>
+                                                            <el-col class="textcenter" :span="8">
+                                                                <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            </el-col>
+                                                            <el-col class="textcenter" :span="2">
+                                                                <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                            </el-col>
+                                                            <el-col class="textcenter"  :span="5">
+                                                                <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(stidx+idx+31, index)"></el-checkbox>
+                                                            </el-col>
+                                                        </el-row>
+                                                    </div>
+                                                </div>
+                                            </el-row>
+                                        </div>
                                     </div>
                                 </div>
-
-                                <!-- continue the rest-->
-                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(11,14)">
+                                <!-- Eggs -->
+                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(36,37)">
                                     <div class="bg-purple-light" style="padding: 0px 4px;">
                                         <el-col v-if="UIPanel[item.id+'Panel']" class="textcenter" :span="3" style="padding-right: 9px; padding-top: 9px;">
                                             <el-button type="info" v-on:click="TogglePanel(item.id+'Panel')" size="mini"><i
@@ -5526,32 +5920,41 @@
                                                     class="el-icon-arrow-down"></i></el-button>
                                         </el-col>
                                         <el-row class="effectline" :gutter="4" type="flex" align="middle">
-                                            <el-col class="textcenter" :span="4">
+                                            <el-col class="textcenter" :span="12">
                                                 <div>
                                                     <span>{{item.label}}</span>
                                                 </div>
                                             </el-col>
-                                            <el-col class="textcenter">
-                                                <div>
-                                                    <el-input v-model="equipspartlist[eqindex+11].equipname"
-                                                        placeholder="Equip Name">
-                                                    </el-input>
-                                                </div>
-                                            </el-col>
-                                            <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="onClearEquipPart(eqindex+11)" size="mini">
-                                                    Clear
-                                                </el-button>
-                                            </el-col>
-                                            <el-col class="textcenter" :span="5">
-                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+11)" type="success"
-                                                    plain>
-                                                    Edit
-                                                </el-button>
-                                            </el-col>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
-                                            <div v-for="(item, index) in equipspartlist[eqindex+11].effectlist"
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                                <el-col class="textcenter" :span="4">
+                                                    <div>
+                                                        <el-button class="enchantSwitch" @click="petSwitch(eqindex+36)"><img src='/img/egg.png'></el-button>
+                                                    </div>
+                                                </el-col>
+                                                <el-col class="textcenter">
+                                                    <div>
+                                                        <el-input v-model="item.equipname"
+                                                            placeholder="Pet Name">
+                                                        </el-input>
+                                                    </div>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="5">
+                                                    <el-button v-on:click="onClearEquipPart(eqindex+36)" size="mini">
+                                                        Clear
+                                                    </el-button>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="5">
+                                                    <el-button v-on:click="OpenEditEquipDialogue(eqindex+36)" type="success"
+                                                        plain>
+                                                        Edit
+                                                    </el-button>
+                                                </el-col>
+                                            </el-row>
+                                        </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']">
+                                            <div v-for="(item, index) in equipspartlist[eqindex+36].effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
                                                     justify="end" style="height:40px;">
@@ -5568,14 +5971,40 @@
                                                         <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter"  :span="5">
-                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+2, index)"></el-checkbox>
+                                                        <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex+36, index)"></el-checkbox>
                                                     </el-col>
                                                 </el-row>
                                             </div>
                                         </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']">
+                                            <div v-if="equipspartlist[eqindex+36].combolist.length" class="textcenter bg-purple-light4">Combo Effect</div>
+                                            <div v-for="(combo, idx) in equipspartlist[eqindex+36].combolist" class="bg-purple-light3">
+                                                <div class="divider-purple"></div>
+                                                <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
+                                                    <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                        justify="end" style="height:40px;">
+                                                        <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                            <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="8">
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter"  :span="5">
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(eqindex+idx+36, index)"></el-checkbox>
+                                                        </el-col>
+                                                    </el-row>
+                                                </div>
+                                            </div>
+                                        </el-row>
                                     </div>
                                 </div>
-
                             </div>
                         </el-row>
                         <!--武器-->
@@ -6808,14 +7237,25 @@
                 StoreDB_CardFilterGroup: [],
                 StoreDB_CardFilterList: [],
                 StoreDB_CardSearchString: '',
+                StoreDB_CostumeStoneFilterGroup: [],
+                StoreDB_CostumeStoneFilterList: [],
+                StoreDB_CostumeStoneSearchString: '',
+                StoreDB_PetFilterGroup: [],
+                StoreDB_PetFilterList: [],
+                StoreDB_PetSearchString: '',
                 StoreDB_SearchString: '',
                 StoreDB_Equip: [],
                 StoreDB_Enchant: [],
                 StoreDB_Card: [],
+                StoreDB_CostumeStone: [],
+                StoreDB_Pet: [],
                 StoreDB_EquipLoadedNames: new Set(),
                 StoreDB_EnchantLoadedNames: new Set(),
                 StoreDB_CardLoadedNames: new Set(),
-                DataOptions: new Set(["equip", "enchant", "card"]),
+                StoreDB_CostumeStoneLoadedNames: new Set(),
+                StoreDB_PetLoadedNames: new Set(),
+                UpdatedFiles: [],
+                DataOptions: new Set(["equip", "enchant", "card", "stone", "pet"]),
                 EquipSelectId: '',
                 ComboSelectId: false,
                 EquipSelectLabel: '',
@@ -6986,10 +7426,6 @@
                     { id: 'shoes', label: 'Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0}, availableEnchants:[] },
                     { id: 'acc1', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0}, availableEnchants:[] },
                     { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: {id:0}, availableEnchants:[] },
-                    { id: 'shadow', label: 'S.Weapon', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
-                    { id: 'costume', label: 'Costume', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'cardset', label: 'CardSets', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'other', label: 'Custom', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'weaponcard', label: 'Weapon Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'weaponcard', label: 'Weapon Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'weaponcard', label: 'Weapon Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
@@ -7007,10 +7443,17 @@
                     { id: 'shoescard', label: 'Shoes Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'acc1card', label: 'Acc Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'acc2card', label: 'Acc Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
-                    { id: 'shadowenchant', label: 'Shadow Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'costumeenchant', label: 'Costume Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'cardset2', label: 'CardSets2', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'other2', label: 'Custom2', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costumeupper', label: 'C.Upper', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costumemiddle', label: 'C.Middle', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costumelower', label: 'C.Lower', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'costumegarment', label: 'Costume', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'stoneupper', label: 'Upper Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'stonemiddle', label: 'Middle Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'stonelower', label: 'Lower Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'stonegarment', label: 'Garment Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'stonedual', label: 'Garment(Dual) Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'pets', label: 'Pet', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadow', label: 'S.Weapon', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
                     { id: 'shadowshld', label: 'S.Shield', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
                     { id: 'shadowarmor', label: 'S.Armor', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
                     { id: 'shadowshoe', label: 'S.Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
@@ -7066,6 +7509,7 @@
                     { label: 'SPL', id: 'SPL', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
                     { label: 'CON', id: 'CON', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
                     { label: 'CRT', id: 'CRT', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
+                    { label: 'All Trait', id: 'AllTrait', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
                     { label: 'P.ATK', id: 'PATK', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
                     { label: 'S.MATK', id: 'SMATK', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
                     { label: 'C.RATE', id: 'CRIDR', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category:'Stat' },
@@ -7702,6 +8146,8 @@
                     EquipTextDialog: false,
                     QuickCalcDialog: false,
                     CardDialog: false,
+                    CostumeStoneDialog: false,
+                    PetDialog: false,
                     EnchantDialog: false,
                     ElementTableDialog: false,
                     WeaponSizeTableDialog: false,
@@ -7724,11 +8170,15 @@
                     shoesPanel: true,
                     acc1Panel: true,
                     acc2Panel: true,
-                    shadowPanel: true,
-                    costumePanel: true,
-                    cardsetPanel: true,
-                    otherPanel: true,
 
+                    costumeupperPanel: true,
+                    costumemiddlePanel: true,
+                    costumelowerPanel: true,
+                    costumegarmentPanel: true,
+                    costumedualPanel: true,
+                    petsPanel: true,
+
+                    shadowPanel: true,
                     shadowshldPanel: true,
                     shadowarmorPanel: true,
                     shadowshoePanel: true,
@@ -7751,9 +8201,11 @@
                 },
                 ClosePanel(id) {
                     this.UIPanel[id] = false;
-                    if(id === "CardDialog" || id === "EnchantDialog"){
+                    if(id === "CardDialog" || id === "EnchantDialog" || id === "CostumeStoneDialog" || id === "PetDialog"){
                         this.ItemDesiredPosition = -1;
-                        this.StoreDB_EquipFilterGroup = [];
+                        this.StoreDB_CardFilterGroup = [];
+                        this.StoreDB_CostumeStoneFilterGroup = [];
+                        this.StoreDB_PetFilterGroup = [];
                         this.PageIndex = 1;
                         this.updateItemsPerPage(this.PageOptions[1]);
                     }
@@ -7941,8 +8393,32 @@
                         this.CombineEquipsAttribute();
                     }
                 },
-                FilterEquipList(start, end){
-                    const equips = this.equipspartlist.slice(start, end);
+                FilterEquipList(){
+                    const equips = [...this.equipspartlist.slice(0, 10), ...this.equipspartlist.slice(37, 43)];
+                    const labelSet = new Set();
+                    const output = [];
+                    for (const equip of equips) {
+                        if (!labelSet.has(equip.label)) {
+                            output.push(equip);
+                            labelSet.add(equip.label);
+                        }
+                    }
+                    return output;
+                },
+                FilterCardList(){
+                    const equips = this.equipspartlist.slice(10, 27);
+                    const labelSet = new Set();
+                    const output = [];
+                    for (const equip of equips) {
+                        if (!labelSet.has(equip.label)) {
+                            output.push(equip);
+                            labelSet.add(equip.label);
+                        }
+                    }
+                    return output;
+                },
+                FilterCostumeStoneList(){
+                    const equips = this.equipspartlist.slice(31, 36);
                     const labelSet = new Set();
                     const output = [];
                     for (const equip of equips) {
@@ -8083,16 +8559,16 @@
                 },
                 onGearUpdate(){
                     if(this.weapon.type.id == 'Empty'){
-                        this.clearItemFromEquipment([14, 15, 16, 17, 40, 41, 42, 43]);
+                        this.clearItemFromEquipment([10, 11, 12, 13, 39, 40, 41, 42]);
                     }
                     if(this.subweapon.type.id == 0){
-                        this.clearItemFromEquipment([18, 19, 20, 21, 22, 43, 44, 45, 46, 47, 48, 49, 50]);
+                        this.clearItemFromEquipment([14, 15, 16, 17, 18, 43, 44, 45, 46, 47, 48, 49]);
                     }
                     if(this.subweapon.type.id == 1){
-                        this.clearItemFromEquipment([18, 19, 20, 21, 44, 45, 46, 47]);
+                        this.clearItemFromEquipment([14, 15, 16, 17, 43, 44, 45, 46]);
                     }
                     if(this.subweapon.type.id > 1){
-                        this.clearItemFromEquipment([22, 48, 49, 50]);
+                        this.clearItemFromEquipment([18, 47, 48, 49]);
                     }
                     this.CombineEquipsAttribute();
                 },
@@ -9570,7 +10046,7 @@
                     this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk4_max, Number(1) + Number(this.computeattribute['SpecialINSIGNIAENEMYMATK'] / 100));
 
 
-                    // ����
+                    // 天怒
                     if (this.IsSupportActive('PR_LEXAETERNA')) {
                         this.computeattribute.matk4_min = this.MulOper(this.computeattribute.matk4_min, Number(1) + Number(100 / 100));
                         this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk4_max, Number(1) + Number(100 / 100));
@@ -10613,7 +11089,7 @@
                             this.attribute['ElementalMagicPercent'] += 10;
                         }
                     }
-                    // 召喚元素:泰雷莫圖斯 地
+                    /// 召喚元素:泰雷莫圖斯 地
                     if (this.IsSupportActive('EM_SUMMON_ELEMENTAL_TERREMOTUS')){
                         if (this.skilloption.AttackElementalIdx == 4){
                             this.attribute['ElementalMagicPercent'] += 10;
@@ -10924,7 +11400,7 @@
                         this.status_add.DEX += 5;
                         this.status_add.LUK += 5;
                     }
-                    //日星月光輝
+                    ///日星月光輝
                     if (this.IsSupportActive('SJ_LIGHTOFSUN')){
                         if (this.skill.id.includes('SJ_SOLARBURST'))
                         {
@@ -11045,7 +11521,8 @@
                         this.attribute['MDEF'] -= _lv * 20;
                     }
 
-                    var _AllStatus =            Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AllStatus').totalvalue)));
+                    const _AllStatus =          Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AllStatus').totalvalue)));
+                    const _AllTrait =           Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AllTrait').totalvalue)));
                     this.status_add.STR +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'STR').totalvalue))) + _AllStatus +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='STR').totalvalue);
                     this.status_add.AGI +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'AGI').totalvalue))) + _AllStatus +
@@ -11058,17 +11535,17 @@
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='DEX').totalvalue);
                     this.status_add.LUK +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'LUK').totalvalue))) + _AllStatus +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='LUK').totalvalue);
-                    this.status_add.POW +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'POW').totalvalue))) + 
+                    this.status_add.POW +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'POW').totalvalue))) + _AllTrait +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='POW').totalvalue);
-                    this.status_add.STA +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'STA').totalvalue))) + 
+                    this.status_add.STA +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'STA').totalvalue))) + _AllTrait +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='STA').totalvalue);
-                    this.status_add.WIS +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'WIS').totalvalue))) + 
+                    this.status_add.WIS +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'WIS').totalvalue))) + _AllTrait +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='WIS').totalvalue);
-                    this.status_add.SPL +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPL').totalvalue))) + 
+                    this.status_add.SPL +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SPL').totalvalue))) + _AllTrait +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='SPL').totalvalue);
-                    this.status_add.CON +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CON').totalvalue))) + 
+                    this.status_add.CON +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CON').totalvalue))) + _AllTrait +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='CON').totalvalue);
-                    this.status_add.CRT +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRT').totalvalue))) + 
+                    this.status_add.CRT +=      Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'CRT').totalvalue))) + _AllTrait +
                                                 Number(this.consumableeffecttypelist.find(x=>x.id=='CRT').totalvalue);
 
                     this.attribute['HP'] +=     Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'HP').totalvalue))) + 
@@ -11251,7 +11728,7 @@
                 onLoadDataSave(uuid, kind) {
                     if(!this.DataOptions.has(kind)) return;
 
-                    var useDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : this.StoreDB_Card;
+                    var useDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : kind === "stone" ? this.StoreDB_CostumeStone : kind === "pet" ? this.StoreDB_Pet : this.StoreDB_Card;
                     var _dbidx = useDB.findIndex(x => x.uuid == uuid);
                     var idx = this.equipspartlist.findIndex(x => x.id == useDB[_dbidx].equip.id);
                     if (idx > -1) {
@@ -11348,6 +11825,28 @@
                             }
                         }
                         this.onFilterCardPart();
+                    } else if (kind === 'stone'){
+                        this.StoreDB_CostumeStoneLoadedNames = new Set();
+                        for (const [key, value] of Object.entries(this.StoreDB_CostumeStone)) {
+                            try{
+                                this.StoreDB_CostumeStone.splice(value.uuid, 1);
+                                this.SaveCostumeStoneDB();
+                            } catch(e){
+                                console.log('error deleting costume stones', e);
+                            }
+                        }
+                        this.onFilterCostumeStonePart();
+                    } else if (kind === 'pet'){
+                        this.StoreDB_PetLoadedNames = new Set();
+                        for (const [key, value] of Object.entries(this.StoreDB_Pet)) {
+                            try{
+                                this.StoreDB_Pet.splice(value.uuid, 1);
+                                this.SavePetDB();
+                            } catch(e){
+                                console.log('error deleting pets', e);
+                            }
+                        }
+                        this.onFilterPetPart();
                     } else {
                         this.StoreDB_EquipLoadedNames = new Set();
                         for (const [key, value] of Object.entries(this.StoreDB_Equip)) {
@@ -11397,6 +11896,26 @@
                         );
                     });
                 },
+                onFilterCostumeStoneSearch() {
+                    let filter = 'stone';
+                    if(this.ItemDesiredPosition > -1) {
+                        filter = this.fetchCostumeStoneMapping(this.ItemDesiredPosition).toLowerCase();
+                    }
+
+                    this.StoreDB_CostumeStoneFilterList = this.StoreDB_CostumeStone.filter(post => {
+                        return this.StoreDB_CostumeStoneSearchString.toLowerCase().split(' ').every(v =>
+                            post.equip.equipname.toLowerCase().includes(v) &&
+                            post.equip.label.toLowerCase().includes(filter)
+                        );
+                    });
+                },
+                onFilterPetSearch() {
+                    this.StoreDB_PetFilterList = this.StoreDB_Pet.filter(post => {
+                        return this.StoreDB_PetSearchString.toLowerCase().split(' ').every(v =>
+                            post.equip.equipname.toLowerCase().includes(v)
+                        );
+                    });
+                },
                 onFilterEnchantSearch(){
                     this.StoreDB_EquipEnchantFlags = [];
                     this.StoreDB_EnchantFilterList = this.StoreDB_Enchant.filter(post => {
@@ -11411,6 +11930,62 @@
                     );
                     for(let i = 0; i < this.StoreDB_CardFilterList.length; ++i){
                         this.$set(this.StoreDB_CardFilterList[i], 'preview', false);
+                    }
+                },
+                onFilterCostumeStone(label) {
+                    this.StoreDB_CostumeStoneFilterList = this.StoreDB_CostumeStone.filter(x => x.equip.label === label).sort(
+                        (a, b) => a.equip.label > b.equip.label ? 1 :
+                        a.equip.label === b.equip.label ?
+                            ((a.date > b.date) ? -1 : 1) : -1
+                    );
+                    for(let i = 0; i < this.StoreDB_CostumeStoneFilterList.length; ++i){
+                        this.$set(this.StoreDB_CostumeStoneFilterList[i], 'preview', false);
+                    }
+                },
+                onFilterCostumeStonePart() {
+                    this.StoreDB_CostumeStoneSearchString = '';
+                    if( this.StoreDB_CostumeStoneFilterGroup.length>1 ){
+                        this.StoreDB_CostumeStoneFilterGroup.splice(0,1);
+                    }
+                    var _tempgroup = this.StoreDB_CostumeStoneFilterGroup;
+                    this.StoreDB_CostumeStoneFilterList = _tempgroup.length > 0 ?
+                    this.StoreDB_CostumeStone.filter(
+                        function (saverow) {
+                            return _tempgroup.indexOf(saverow.equip.label) > -1;
+                        }
+                    ).sort((a, b) => a.equip.label > b.equip.label ? 1 :
+                        a.equip.label === b.equip.label ?
+                            ((a.date > b.date) ? -1 : 1) : -1
+                    )
+                    :
+                    this.StoreDB_CostumeStone
+                    ;
+                    for( var i=0; i<this.StoreDB_CostumeStoneFilterList.length; ++i)
+                    {
+                        this.$set( this.StoreDB_CostumeStoneFilterList[i], 'preview', false);
+                    }
+                },
+                onFilterPetPart() {
+                    this.StoreDB_PetSearchString = '';
+                    if( this.StoreDB_PetFilterGroup.length>1 ){
+                        this.StoreDB_PetFilterGroup.splice(0,1);
+                    }
+                    var _tempgroup = this.StoreDB_PetFilterGroup;
+                    this.StoreDB_PetFilterList = _tempgroup.length > 0 ?
+                    this.StoreDB_Pet.filter(
+                        function (saverow) {
+                            return _tempgroup.indexOf(saverow.equip.label) > -1;
+                        }
+                    ).sort((a, b) => a.equip.label > b.equip.label ? 1 :
+                        a.equip.label === b.equip.label ?
+                            ((a.date > b.date) ? -1 : 1) : -1
+                    )
+                    :
+                    this.StoreDB_Pet
+                    ;
+                    for( var i=0; i<this.StoreDB_PetFilterList.length; ++i)
+                    {
+                        this.$set( this.StoreDB_PetFilterList[i], 'preview', false);
                     }
                 },
                 onFilterCardPart() {
@@ -11494,6 +12069,14 @@
                     this.StoreDB_CardSearchString = '';
                     this.onFilterCardSearch();
                 },
+                onFilterCostumeStoneClear() {
+                    this.StoreDB_CostumeStoneSearchString = '';
+                    this.onFilterCostumeStoneSearch();
+                },
+                onFilterPetClear() {
+                    this.StoreDB_PetSearchString = '';
+                    this.onFilterPetSearch();
+                },
                 onFilterEquipPreview(index){
                     this.$set( this.StoreDB_EquipFilterList[index], 'preview', !this.StoreDB_EquipFilterList[index].preview);
                 },
@@ -11514,6 +12097,30 @@
                 SaveCardDB(){
                     const parsed = JSON.stringify(this.StoreDB_Card);
                     localStorage.setItem('StoreDB_Card', parsed);
+                },
+                SaveCostumeStoneDB(){
+                    const parsed = JSON.stringify(this.StoreDB_CostumeStone);
+                    localStorage.setItem('StoreDB_CostumeStone', parsed);
+                },
+                SavePetDB(){
+                    const parsed = JSON.stringify(this.StoreDB_Pet);
+                    localStorage.setItem('StoreDB_Pet', parsed);
+                },
+                SaveFileHash(filename, hash){
+                    const data = localStorage.getItem('StoreDB_FileHash');
+                    if(data !== undefined && data !== null) {
+                        const parsedData = JSON.parse(data);
+                        const map = new Map(parsedData);
+                        map.set(filename, hash);
+                        const parsed = JSON.stringify([...map]);
+                        localStorage.setItem('StoreDB_FileHash', parsed);
+                    }
+                    else {
+                        const map = new Map();
+                        map.set(filename, hash);
+                        const parsed = JSON.stringify([...map]);
+                        localStorage.setItem('StoreDB_FileHash', parsed);
+                    }
                 },
                 onSaveStatus() {
                     // https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/
@@ -11590,15 +12197,36 @@
                 },
                 fetchCardMapping(index){
                     let cardLabelToEquip = {
-                        "Headgear Card": [23, 24],
-                        "Shield Card": [22],
-                        "Weapon Card": [14, 15, 16, 17, 18, 19, 20, 21],
-                        "Armor Card": [26],
-                        "Garment Card": [27],
-                        "Shoes Card": [28],
-                        "Acc Card": [29, 30]
+                        "Headgear Card": [19, 20],
+                        "Shield Card": [18],
+                        "Weapon Card": [10, 11, 12, 13, 14, 15, 16, 17],
+                        "Armor Card": [22],
+                        "Garment Card": [23],
+                        "Shoes Card": [24],
+                        "Acc Card": [25, 26]
                     }
                     return Object.keys(cardLabelToEquip).find(x => cardLabelToEquip[x].includes(index));
+                },
+                petSwitch(index){
+                    this.OpenPanel('PetDialog');
+                    this.ItemDesiredPosition = index;
+                },
+                costumeStoneSwitch(index){
+                    const filter = this.fetchCostumeStoneMapping(index);
+                    this.StoreDB_CostumeStoneFilterGroup = [filter];
+                    this.onFilterCostumeStone(filter);
+                    this.OpenPanel('CostumeStoneDialog');
+                    this.ItemDesiredPosition = index;
+                },
+                fetchCostumeStoneMapping(index){
+                    let stoneLabelToEquip = {
+                        "Upper Stone": [31],
+                        "Middle Stone": [32],
+                        "Lower Stone": [33],
+                        "Garment Stone": [34],
+                        "Garment(Dual) Stone": [35]
+                    }
+                    return Object.keys(stoneLabelToEquip).find(x => stoneLabelToEquip[x].includes(index));
                 },
                 enchantSwitch(index){
                     const enchantsLabel = ["Weapon Enchant", "Shield Enchant",
@@ -11611,24 +12239,24 @@
                 },
                 fetchEnchantMapping(index){
                     let enchantLabelToEquip = {
-                        "Weapon Enchant": [40, 41, 42, 43, 44, 45, 46, 47],
-                        "Shield Enchant": [48, 49, 50],
-                        "Helm Enchant": [51, 52, 53, 54, 55, 56, 57, 58, 59],
-                        "Armor Enchant": [60, 61, 62],
-                        "Garment Enchant": [63, 64, 65],
-                        "Shoes Enchant": [66, 67, 68],
-                        "Accessory Enchant": [69, 70, 71, 72, 73, 74]
+                        "Weapon Enchant": [43, 44, 45, 46, 47, 48, 49, 50],
+                        "Shield Enchant": [51, 52, 53],
+                        "Helm Enchant": [54, 55, 56, 57, 58, 59, 60, 61, 62],
+                        "Armor Enchant": [63, 64, 65],
+                        "Garment Enchant": [66, 67, 68],
+                        "Shoes Enchant": [69, 70, 71],
+                        "Accessory Enchant": [72, 73, 74, 75, 76, 77]
                     };
                     return Object.keys(enchantLabelToEquip).find(x => enchantLabelToEquip[x].includes(index));
                 },
                 fetchEnchantBaseIndex(index){
                     let enchantLabelToEquip = {
-                        0 : [40, 41, 42, 43],
-                        1 : [48, 49, 50, 44, 45, 46, 47],
-                        2 : [51, 52, 53],
-                        5 : [60, 61, 62],
-                        6 : [63, 64, 65],
-                        7 : [66, 67, 68],
+                        0 : [43, 44, 45, 46],
+                        1 : [51, 52, 53, 47, 48, 49, 50],
+                        2 : [54, 55, 56],
+                        5 : [63, 64, 65],
+                        6 : [66, 67, 68],
+                        7 : [69, 70, 71],
                     };
                     return Object.keys(enchantLabelToEquip).find(x => enchantLabelToEquip[x].includes(index));
                 },
@@ -11667,8 +12295,8 @@
                     // https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/
                     // let copy = $.extend(true, {}, obj); //使用 jquery.extend
                     // JSON.parse(JSON.stringify(this.))
-                    if (this.skill.formula == '') { this.option.SkillFormulaError = "����?��"; return; }
-                    if (this.skill.name == '') { this.option.SkillFormulaError = "����٣?��"; return; }
+                    if (this.skill.formula == '') { this.option.SkillFormulaError = "嚙踝蕭嚙踝蕭?嚙踝蕭"; return; }
+                    if (this.skill.name == '') { this.option.SkillFormulaError = "嚙踝蕭嚙踝蕭晻?嚙踝蕭"; return; }
                     if (this.skill.level < 1) this.skill.level = 1;
                     if (this.skill.hitnumber == '') this.skill.hitnumber = 0;
                     this.skill.elemental = this.skilloption.AttackElementalIdx;
@@ -11849,27 +12477,69 @@
                 onLoadAllSetSaveIdx(_dbidx) {
                     this.onLoadAllSetSave(this.StoreDB_AllSet[_dbidx].AllSet);
                 },
+                getWeaponIndexes(arr) {
+                    const indexes = [];
+                    arr.forEach((item, idx) => {
+                        if(item.id === 'weaponcard'){
+                            indexes.push(idx);
+                        }
+                    });
+                    return indexes;
+                },
                 onLoadAllSetSave(AllsetObject) {
                     this.skill.name = AllsetObject.SkillName;
-                    for (eqi = 0; eqi < this.equipspartlist.length; ++eqi) {
-                        //AllsetObject.Equip[eqi].effectlist.forEach(x=>x.Enable=x.Enable==null?true:x.Enable);
-                        if (typeof(AllsetObject.Equip[eqi]) == 'undefined') continue;
-                        if (eqi > AllsetObject.Equip.length) break;
-                        var cardnull = (AllsetObject.Equip[eqi]==null)?true:false;
-                        var combonull = AllsetObject.Equip[eqi].combolist !== undefined ? false:true;
+                    this.equipspartlist.forEach((item, idx) => {
+                        const eqi = AllsetObject.Equip.findIndex((x) => x.id === item.id && item.id !== 'weaponcard');
+                        if (eqi >= 0){
+                            const cardnull = (AllsetObject.Equip[eqi]==null)?true:false;
+                            const combonull = AllsetObject.Equip[eqi].combolist !== undefined ? false:true;
+                            this.$set(this.equipspartlist,
+                                idx,
+                                {
+                                    id: this.equipspartlist[idx].id,
+                                    itemid: AllsetObject.Equip[eqi].itemid ? AllsetObject.Equip[eqi].itemid : 0,
+                                    label: this.equipspartlist[idx].label,
+                                    equipname: cardnull? '':AllsetObject.Equip[eqi].equipname,
+                                    refinelevel: AllsetObject.Equip[eqi].refinelevel ? AllsetObject.Equip[eqi].refinelevel : 0,
+                                    grade: AllsetObject.Equip[eqi].grade ? AllsetObject.Equip[eqi].grade : this.weapongradelist[0],
+                                    effectlist: _.cloneDeep(cardnull?[]:AllsetObject.Equip[eqi].effectlist),
+                                    combolist: _.cloneDeep(combonull?[]:AllsetObject.Equip[eqi].combolist),
+                                }
+                            );
+                        }
+                        else{
+                            this.$set(this.equipspartlist,
+                                idx,
+                                {
+                                    id: this.equipspartlist[idx].id,
+                                    itemid: 0,
+                                    label: this.equipspartlist[idx].label,
+                                    equipname: '',
+                                    refinelevel: 0,
+                                    grade: this.weapongradelist[0],
+                                    effectlist: [],
+                                    combolist: [],
+                                }
+                            );
+                        }
+                    });
+                    const weaponcards = AllsetObject.Equip.filter((x) => x.id === 'weaponcard');
+                    const weaponIndexes = this.getWeaponIndexes(this.equipspartlist);
+                    weaponcards.forEach((card, idx) => {
                         this.$set(this.equipspartlist,
-                            eqi,
+                            weaponIndexes[idx],
                             {
-                                id: this.equipspartlist[eqi].id,
-                                itemid: AllsetObject.Equip[eqi].itemid ? AllsetObject.Equip[eqi].itemid : 0,
-                                label: this.equipspartlist[eqi].label,
-                                equipname: cardnull? '':AllsetObject.Equip[eqi].equipname,
-                                refinelevel: AllsetObject.Equip[eqi].refinelevel ? AllsetObject.Equip[eqi].refinelevel : 0,
-                                grade: AllsetObject.Equip[eqi].grade ? AllsetObject.Equip[eqi].grade : this.weapongradelist[0],
-                                effectlist: _.cloneDeep(cardnull?[]:AllsetObject.Equip[eqi].effectlist),
-                                combolist: _.cloneDeep(combonull?[]:AllsetObject.Equip[eqi].combolist),
-                            })
-                    }
+                                id: card.id,
+                                itemid: card.itemid ? card.itemid : 0,
+                                label: card.label,
+                                equipname: card.equipname ? card.equipname : '',
+                                refinelevel: card.refinelevel ? card.refinelevel : 0,
+                                grade: card.grade ? card.grade : this.weapongradelist[0],
+                                effectlist: _.cloneDeep(card.effectlist ? card.effectlist : []),
+                                combolist: _.cloneDeep(card.combolist ? card.combolist : []),
+                            }
+                        );
+                    });
                     this.weapon = _.cloneDeep(AllsetObject.Weapon);
                     if (this.weapon == null) this.weapon = _.cloneDeep(this.weapon_init);
                     this.subweapon = _.cloneDeep(AllsetObject.SubWeapon);
@@ -11937,7 +12607,7 @@
                     return window.btoa(unescape(encodeURIComponent(str)));
                 },
                 // http://levy.work/2017-03-24-black-magic-js-atob-with-utf8/
-                // 使用utf-8字符?��解析base64字符�?
+                // // 使用utf-8字符?��解析base64字符�?
                 atou(str) {
                     return decodeURIComponent(escape(atob(str.replace(/-/g, "+").replace(/_/g, "/").replace(/%/g, '%25'))));
                 },
@@ -12001,6 +12671,22 @@
                         try {
                             this.StoreDB_Card = JSON.parse(localStorage.getItem('StoreDB_Card'));
                             Enumerable.From(this.StoreDB_Card).OrderBy(x => x.equip.id);
+                        } catch (e) {
+                            console.log("catch e:" + e);
+                        }
+                    }
+                    if (localStorage.getItem('StoreDB_CostumeStone')) {
+                        try {
+                            this.StoreDB_CostumeStone = JSON.parse(localStorage.getItem('StoreDB_CostumeStone'));
+                            Enumerable.From(this.StoreDB_CostumeStone).OrderBy(x => x.equip.id);
+                        } catch (e) {
+                            console.log("catch e:" + e);
+                        }
+                    }
+                    if (localStorage.getItem('StoreDB_Pet')) {
+                        try {
+                            this.StoreDB_Pet = JSON.parse(localStorage.getItem('StoreDB_Pet'));
+                            Enumerable.From(this.StoreDB_Pet).OrderBy(x => x.equip.id);
                         } catch (e) {
                             console.log("catch e:" + e);
                         }
@@ -12751,7 +13437,7 @@
                         //{ id:12274, name:'仙丹', active:false, group:'HPSP', HPPercent:5},
                         { id:12436, name:'Vitata500', active:false, group:'HPSP', SPPercent:5},
                         { id:14600, name:'Mental Potion', active:false, group:'HPSP', SPPercent:10},
-                        //{ id:14602, name:'塔奧群卡卷軸', active:false, group:'HPSP', HPPercent:100},
+                         //{ id:14602, name:'塔奧群卡卷軸', active:false, group:'HPSP', HPPercent:100},
 
                         { id:11592, name:'Trans Candy Red', active:false, group:'TransScroll', HPPercent:20},
                         { id:11593, name:'Trans Candy Blue', active:false, group:'TransScroll', SPPercent:20},
@@ -12820,12 +13506,12 @@
                         { str1: 'ARMORR', str2: 'this.equipspartlist[5].refinelevel', description: 'armor refine' },
                         { str1: 'GARMR', str2: 'this.equipspartlist[6].refinelevel', description: 'garment refine' },
                         { str1: 'SHOER', str2: 'this.equipspartlist[7].refinelevel', description: 'shoe refine' },
-                        { str1: 'SHWEAR', str2: 'this.equipspartlist[10].refinelevel', description: 'shadow weapon refine' },
-                        { str1: 'SHSHIER', str2: 'this.equipspartlist[35].refinelevel', description: 'shadow shield refine' },
-                        { str1: 'SHARMORR', str2: 'this.equipspartlist[36].refinelevel', description: 'shadow armor refine' },
-                        { str1: 'SHSHOER', str2: 'this.equipspartlist[37].refinelevel', description: 'shadow shoes refine' },
-                        { str1: 'SHACCRR', str2: 'this.equipspartlist[38].refinelevel', description: 'shadow accessory right refine' },
-                        { str1: 'SHACCLR', str2: 'this.equipspartlist[39].refinelevel', description: 'shadow accessory left refine' },
+                        { str1: 'SHWEAR', str2: 'this.equipspartlist[37].refinelevel', description: 'shadow weapon refine' },
+                        { str1: 'SHSHIER', str2: 'this.equipspartlist[38].refinelevel', description: 'shadow shield refine' },
+                        { str1: 'SHARMORR', str2: 'this.equipspartlist[39].refinelevel', description: 'shadow armor refine' },
+                        { str1: 'SHSHOER', str2: 'this.equipspartlist[40].refinelevel', description: 'shadow shoes refine' },
+                        { str1: 'SHACCRR', str2: 'this.equipspartlist[41].refinelevel', description: 'shadow accessory right refine' },
+                        { str1: 'SHACCLR', str2: 'this.equipspartlist[42].refinelevel', description: 'shadow accessory left refine' },
                         { str1: 'WEAG', str2: 'this.checkWeapGradeReq', description: 'Weapon grade WEAG(\'A\') or WEAG(4) will return true if grade is A or higher' },
                         { str1: 'SWEAG', str2: 'this.checkSubWeapGradeReq', description: 'Subweapon grade SWEAG(\'A\') or SWEAG(4) will return true if grade is A or higher' },
                         { str1: 'HATG', str2: 'this.checkHatGradeReq', description: 'Hat grade HATG(\'A\') or HATG(4) will return true if grade is A or higher' },
@@ -13069,29 +13755,155 @@
                 updateSelectDefault(ele){
                     this.select_default = ele;
                 },
+                processPet(json){
+                    for (const [key, value] of Object.entries(json)) {
+                        if (this.StoreDB_PetLoadedNames.has(value.equipname)) continue;
+                        this.StoreDB_Pet.push({
+                            uuid: this._uuid(),
+                            category: 'PETS',
+                            equip: {
+                                id: value.id,
+                                itemid: value.itemid ? value.itemid : 0,
+                                label: value.label,
+                                equipname: value.equipname,
+                                effectlist: Object.values(value.effectlist),
+                                combolist: value.combolist ? Object.values(value.combolist) : [],
+                                flags: value.flags ? value.flags : [],
+                            },
+                            date: Date.now(),
+                        });
+                        this.StoreDB_PetLoadedNames.add(value.equipname);
+                    }
+                    const hash = this.generateMD5(JSON.stringify(json));
+                    this.SaveFileHash('PETS', hash);
+                    this.SavePetDB();
+                },
+                processStone(json){
+                    for (const [key, value] of Object.entries(json)) {
+                        if (this.StoreDB_CostumeStoneLoadedNames.has(value.equipname)) continue;
+                        this.StoreDB_CostumeStone.push({
+                            uuid: this._uuid(),
+                            category: 'STONES',
+                            equip: {
+                                id: value.id,
+                                itemid: value.itemid ? value.itemid : 0,
+                                label: value.label,
+                                equipname: value.equipname,
+                                effectlist: Object.values(value.effectlist),
+                                combolist: value.combolist ? Object.values(value.combolist) : [],
+                                flags: value.flags ? value.flags : [],
+                            },
+                            date: Date.now(),
+                        });
+                        this.StoreDB_CostumeStoneLoadedNames.add(value.equipname);
+                    }
+                    const hash = this.generateMD5(JSON.stringify(json));
+                    this.SaveFileHash('STONES', hash);
+                    this.SaveCostumeStoneDB();
+                },
+                processCard(json){
+                    for (const [key, value] of Object.entries(json)) {
+                        if (this.StoreDB_CardLoadedNames.has(value.equipname)) continue;
+                        this.StoreDB_Card.push({
+                            uuid: this._uuid(),
+                            category: 'CARDS',
+                            equip: {
+                                id: value.id,
+                                itemid: value.itemid ? value.itemid : 0,
+                                label: value.label,
+                                equipname: value.equipname,
+                                effectlist: Object.values(value.effectlist),
+                                combolist: value.combolist ? Object.values(value.combolist) : [],
+                                flags: value.flags ? value.flags : [],
+                            },
+                            date: Date.now(),
+                        });
+                        this.StoreDB_CardLoadedNames.add(value.equipname);
+                    }
+                    const hash = this.generateMD5(JSON.stringify(json));
+                    this.SaveFileHash('CARDS', hash);
+                    this.SaveCardDB();
+                },
+                processEnchant(json){
+                    for (const [key, value] of Object.entries(json)) {
+                        if (this.StoreDB_EnchantLoadedNames.has(value.equipname)) continue;
+                        this.StoreDB_Enchant.push({
+                            uuid: this._uuid(),
+                            category: 'ENCHANTS',
+                            equip: {
+                                id: value.id,
+                                itemid: value.itemid ? value.itemid : 0,
+                                label: value.label,
+                                equipname: value.equipname,
+                                effectlist: Object.values(value.effectlist),
+                                combolist: value.combolist ? Object.values(value.combolist) : [],
+                                flags: value.flags ? value.flags : [],
+                            },
+                            date: Date.now(),
+                        });
+                        this.StoreDB_EnchantLoadedNames.add(value.equipname);
+                    }
+                    const hash = this.generateMD5(JSON.stringify(json));
+                    this.SaveFileHash('ENCHANTS', hash);
+                    this.SaveEnchantDB();
+                },
+                processEquip(json, filename){
+                    for (const [key, value] of Object.entries(json)) {
+                        if (this.StoreDB_EquipLoadedNames.has(value.equipname)) continue;
+                        this.StoreDB_Equip.push({
+                            uuid: this._uuid(),
+                            category: filename,
+                            equip: {
+                                id: value.id,
+                                itemid: value.itemid ? value.itemid : 0,
+                                label: value.label,
+                                equipname: value.equipname,
+                                refinelevel: value.refinelevel ? value.refinelevel : 0,
+                                grade: value.grade ? value.grade : this.weapongradelist[0],
+                                effectlist: Object.values(value.effectlist),
+                                combolist: value.combolist ? Object.values(value.combolist) : [],
+                            },
+                            date: Date.now(),
+                            weapon: value.idx < 2 ? ((value.idx == 0) ?
+                            value.weapon :
+                            value.subweapon) :
+                            null,
+                            subweapon: value.subweapon
+                        });
+                        this.StoreDB_EquipLoadedNames.add(value.equipname);
+                    }
+                    const hash = this.generateMD5(JSON.stringify(json));
+                    this.SaveFileHash(filename, hash);
+                    this.SaveEquipDB();
+                },
+                loadPets(){
+                    let href = window.location.href+'default_equip/PETS.json';
+                    fetch(href, {cache: "no-cache"})
+                    .then(res => res.json())
+                    .then(json => {
+                        this.processPet(json);
+                    })
+                    .finally(() => {
+                        this.onFilterPetSearch();
+                    })
+                },
+                loadCostumeStones(){
+                    let href = window.location.href+'default_equip/STONES.json';
+                    fetch(href, {cache: "no-cache"})
+                    .then(res => res.json())
+                    .then(json => {
+                        this.processStone(json);
+                    })
+                    .finally(() => {
+                        this.onFilterCostumeStoneSearch();
+                    })
+                },
                 loadCards(){
                     let href = window.location.href+'default_equip/CARDS.json';
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
-                        for (const [key, value] of Object.entries(json)) {
-                            if (this.StoreDB_CardLoadedNames.has(value.equipname)) continue;
-                            this.StoreDB_Card.push({
-                                uuid: this._uuid(),
-                                equip: {
-                                    id: value.id,
-                                    itemid: value.itemid ? value.itemid : 0,
-                                    label: value.label,
-                                    equipname: value.equipname,
-                                    effectlist: Object.values(value.effectlist),
-                                    combolist: value.combolist ? Object.values(value.combolist) : [],
-                                    flags: value.flags ? value.flags : [],
-                                },
-                                date: Date.now(),
-                            });
-                            this.StoreDB_CardLoadedNames.add(value.equipname);
-                        }
-                        this.SaveCardDB();
+                        this.processCard(json);
                     })
                     .finally(() => {
                         this.onFilterCardSearch();
@@ -13102,56 +13914,18 @@
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
-                        for (const [key, value] of Object.entries(json)) {
-                            if (this.StoreDB_EnchantLoadedNames.has(value.equipname)) continue;
-                            this.StoreDB_Enchant.push({
-                                uuid: this._uuid(),
-                                equip: {
-                                    id: value.id,
-                                    itemid: value.itemid ? value.itemid : 0,
-                                    label: value.label,
-                                    equipname: value.equipname,
-                                    effectlist: Object.values(value.effectlist),
-                                    combolist: value.combolist ? Object.values(value.combolist) : [],
-                                    flags: value.flags ? value.flags : [],
-                                },
-                                date: Date.now(),
-                            });
-                            this.StoreDB_EnchantLoadedNames.add(value.equipname);
-                        }
-                        this.SaveEnchantDB();
+                        this.processEnchant(json);
                     })
                 },
                 loadDefaultEquip(){
-                    let href = window.location.href+'default_equip/'+this.select_default+'.json';
+                    let selected_file = this.select_default;
+                    let href = window.location.href+'default_equip/'+selected_file+'.json';
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
-                        for (const [key, value] of Object.entries(json)) {
-                            if (this.StoreDB_EquipLoadedNames.has(value.equipname)) continue;
-                            this.StoreDB_Equip.push({
-                                uuid: this._uuid(),
-                                equip: {
-                                    id: value.id,
-                                    itemid: value.itemid ? value.itemid : 0,
-                                    label: value.label,
-                                    equipname: value.equipname,
-                                    refinelevel: value.refinelevel ? value.refinelevel : 0,
-                                    grade: value.grade ? value.grade : this.weapongradelist[0],
-                                    effectlist: Object.values(value.effectlist),
-                                    combolist: value.combolist ? Object.values(value.combolist) : [],
-                                },
-                                date: Date.now(),
-                                weapon: value.idx < 2 ? ((value.idx == 0) ?
-                                value.weapon :
-                                value.subweapon) :
-                                null,
-                                subweapon: value.subweapon
-                            });
-                            this.StoreDB_EquipLoadedNames.add(value.equipname);
-                        }
-                        this.SaveEquipDB();
-                    })
+                        this.processEquip(json, selected_file);
+                    });
+
                     if (['PHY','MAG'].includes(this.select_default) && !this.showExport){
                         var tmpSel = this.select_default;
                         this.select_default = 'GEN';
@@ -13174,7 +13948,7 @@
 
                     if(!this.DataOptions.has(kind)) return;
 
-                    let exportDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : this.StoreDB_Card;
+                    let exportDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : kind === "stone" ? this.StoreDB_CostumeStone : kind === "pet" ? this.StoreDB_Pet : this.StoreDB_Card;
                     for (const [key, value] of Object.entries(exportDB)) {
                         try{
                             var obj = value.equip;
@@ -13265,6 +14039,79 @@
                 currencystring(val)
                 {
                     return val.toFixed(0).replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
+                },
+                generateMD5(input) {
+                    return CryptoJS.MD5(input).toString();
+                },
+                clearCategoryFromStoreDB(filename) {
+                    if(filename === 'CARDS') {
+                        this.StoreDB_Card = [];
+                        this.SaveCardDB();
+                    }
+                    else if(filename === 'ENCHANTS') {
+                        this.StoreDB_Enchant = [];
+                        this.SaveEnchantDB();
+                    }
+                    else if(filename === 'PETS') {
+                        this.StoreDB_Pet = [];
+                        this.SavePetDB();
+                    }
+                    else if(filename === 'STONES') {
+                        this.StoreDB_CostumeStone = [];
+                        this.SaveCostumeStoneDB();
+                    }
+                    else {
+                        const filteredStoreDB_Equip = this.StoreDB_Equip.filter((item) => item.category !== filename);
+                        this.StoreDB_Equip = filteredStoreDB_Equip;
+                        this.SaveEquipDB();
+                    }
+                },
+                getLabelById(arr, id) {
+                    const found = arr.find(item => item.id === id);
+                    return found ? found.label : null;
+                },
+                validateFileChecksumAndLoad(filename, currentHash) {
+                    let href = window.location.href+'default_equip/'+filename+'.json';
+                    fetch(href, {cache: "no-cache"})
+                    .then(res => res.json())
+                    .then(json => {
+                        const hash = this.generateMD5(JSON.stringify(json));
+                        if(currentHash !== hash){
+                            const label = this.getLabelById(this.default_equip, filename);
+                            if(label !== null){
+                                this.UpdatedFiles.push(label);
+                            }
+
+                            this.select_default = filename;
+                            this.clearCategoryFromStoreDB(filename);
+                            if(filename === 'CARDS') {
+                                this.processCard(json);
+                            }
+                            else if(filename === 'ENCHANTS') {
+                                this.processEnchant(json);
+                            }
+                            else if(filename === 'PETS') {
+                                this.processPet(json);
+                            }
+                            else if(filename === 'STONES') {
+                                this.processStone(json);
+                            }
+                            else {
+                                this.processEquip(json, filename);
+                            }
+                            this.select_default = ''
+                        }
+                    });
+                },
+                checkUpdatesInJSON() {
+                    const StoreDB_FileHash = localStorage.getItem('StoreDB_FileHash');
+                    if(StoreDB_FileHash !== undefined && StoreDB_FileHash !== null) {
+                        const data = JSON.parse(StoreDB_FileHash);
+                        const map = new Map(data);
+                        for(const [filename, filehash] of map) {
+                            this.validateFileChecksumAndLoad(filename, filehash);
+                        }
+                    }
                 }
 
             },
@@ -13287,6 +14134,12 @@
                 StoreDB_CardCount() {
                     return this.StoreDB_CardFilterList.length;
                 },
+                StoreDB_CostumeStoneCount() {
+                    return this.StoreDB_CostumeStoneFilterList.length;
+                },
+                StoreDB_PetCount() {
+                    return this.StoreDB_PetFilterList.length;
+                },
                 /*
                 StoreDB_EquipFiltered() {
                     var _tempgroup = this.StoreDB_EquipFilterGroup;
@@ -13308,6 +14161,7 @@
             },
             mounted() {
                 this.LoadDB();
+                this.checkUpdatesInJSON();
                 this.attribute_init = Object.assign({}, this.attribute);
                 this.status_add_init = Object.assign({}, this.status_add);
                 this.status_job_init = Object.assign({}, this.status_job);
@@ -13373,6 +14227,13 @@
             if (this.subweapon.ShieldWeight == '') this.subweapon.ShieldWeight = 0;
             if (this.subweapon.refinelevel == '') this.subweapon.refinelevel = 0;
             this.onOption();
+        }, {
+            deep: true
+        });
+        evue.$watch('UpdatedFiles', function (newB, oldB) {
+            if(this.UpdatedFiles.length > 0 && this.UIPanel['UpdateLogDialog'] === false) {
+                this.TogglePanel('UpdateLogDialog');
+            }
         }, {
             deep: true
         });
