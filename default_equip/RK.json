@@ -1,7 +1,130 @@
 [
 	{
+		"id": "acc1",
+		"label": "Accessory",
+		"equipname": "Jasper Ring",
+		"effectlist": [
+			{
+				"EffectNumber": "CCL=='RK'?25:10",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"IGNITIONBREAK SONICWAVE\")?DOWN(BLV/3):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'?15:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"itemid": 490113,
+		"combolist": [],
+		"refinelevel": 0,
+		"grade": {
+			"id": 0
+		},
+		"availableEnchants": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 21053,
+		"label": "MainHand",
+		"equipname": "Full Force",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "4*WEAR*WEAR",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4142
+				],
+				"itemid_any": [],
+				"equipname": "Doppelganger Card",
+				"effectlist": [
+					{
+						"EffectNumber": "WEAR*(BLV<100?4:10)",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAR*(BLV<100?2:5)",
+						"EffectType": {
+							"id": "AspdPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedSword",
+				"label": "2HSword",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 2,
+				"saferefine": 7,
+				"overatk": 3
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "300",
+			"MATK": 0,
+			"refinelevel": 16,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 220,
+			"refinematk": 32,
+			"refineatk": 32,
+			"refineatk2": 27
+		}
+	},
+	{
 		"id": "acc2",
-		"itemid": 0,
+		"itemid": 28506,
 		"label": "Accessory",
 		"equipname": "Storm Stone",
 		"refinelevel": 0,
