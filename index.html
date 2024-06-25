@@ -8303,7 +8303,7 @@
                     }
                     if(combo !== undefined && combo.itemid_any !== undefined &&
                        combo.itemid_any.length > 0 && combo.itemid_any.some(id => itemIdSet.has(id)) &&
-                       (combo.itemid_every === undefined && combo.itemid_every.length === 0)) {
+                       (combo.itemid_every === undefined || combo.itemid_every.length === 0)) {
                         return true;
                     }
                     if(combo !== undefined && combo.itemid_every !== undefined &&
