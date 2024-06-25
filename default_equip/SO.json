@@ -883,6 +883,35 @@
 		"idx": 3
 	},
 	{
+		"id": "helm2",
+		"itemid": 420182,
+		"label": "Lower",
+		"equipname": "Book of Sorcery",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "CCL=='SO'?15:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
 		"id": "helm",
 		"itemid": 18980,
 		"label": "Upper",
@@ -1416,6 +1445,508 @@
 					},
 					{
 						"EffectNumber": "(SKIDS(\"PSYCHIC_WAVE\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"LIGHTNING_LAND TERRA_DRIVE\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 550046,
+		"label": "MainHand",
+		"equipname": "Chilling Cane-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5+(WEAG(1)?3:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"DIAMONDDUST\")?(12*DOWN(WEAR/3)):0)+(SKIDS(\"VARETYR_SPEAR\")?((WEAR>6?15:0)+(WEAR>8?30:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?15:0",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?15:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"VARETYR_SPEAR\")?(WEAR>11?2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==2||AEI==3)?((WEAR>10?15:0)+(WEAG(2)?15:0)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?1:0)+(WEAG(3)?3:(WEAG(2)?1:0)))",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?2:0)+(WEAG(3)?3:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedRods",
+				"label": "1HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "40",
+			"MATK": 195,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 75,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 550045,
+		"label": "MainHand",
+		"equipname": "Shadow Staff-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5+(WEAG(1)?3:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"EARTHGRAVE\")?(12*DOWN(WEAR/3)):0)+(SKIDS(\"PSYCHIC_WAVE POISON_BUSTER\")?((WEAR>8?35:0)+(WEAR>10?15:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>8?15:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?(WEAR>10?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==0||AEI==4||AEI==5)?((WEAR>6?15:0)+(WEAG(2)?15:0)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?1:0)+(WEAG(3)?3:(WEAG(2)?1:0)))",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?2:0)+(WEAG(3)?3:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedRods",
+				"label": "1HRod",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "40",
+			"MATK": 195,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 75,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "acc1",
+		"itemid": 490288,
+		"label": "Accessory",
+		"equipname": "Record of Mage",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					18978
+				],
+				"itemid_any": [],
+				"equipname": "Old Magic Stone Hat",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"COMET\")?30:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "AEI==0?15:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 0.3,
+						"EffectType": {
+							"id": "FixedCast"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					18980
+				],
+				"itemid_any": [],
+				"equipname": "Old Wind Whisper",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?30:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490418,
+		"label": "Accessory",
+		"equipname": "Record of Mage vol.2",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 6,
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"COMET PSYCHIC_WAVE\")?30:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					18978
+				],
+				"itemid_any": [],
+				"equipname": "Old Magic Stone Hat",
+				"effectlist": [
+					{
+						"EffectNumber": "(AEI==0||AEI==1)?(2*HATR):0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					18980
+				],
+				"itemid_any": [],
+				"equipname": "Old Wind Whisper",
+				"effectlist": [
+					{
+						"EffectNumber": "(AEI==0||AEI==3)?(2*HATR):0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490288
+				],
+				"itemid_any": [],
+				"equipname": "Record of Mage",
+				"effectlist": [
+					{
+						"EffectNumber": 50,
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "CCL=='WL'?0.7:0",
+						"EffectType": {
+							"id": "FixedCast"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(CCL=='WL'?(SKIDS(\"CRIMSONROCK\")?(BLV>169?1:4):0):0)+(CCL=='SO'?(SKIDS(\"VARETYR_SPEAR\")?(BLV>169?1:4):0):0)",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(CCL=='WL'?(SKIDS(\"CRIMSONROCK\")?(BLV>169?30:0):0):0)+(CCL=='SO'?(SKIDS(\"VARETYR_SPEAR\")?(BLV>169?30:0):0):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "CCL=='SO'?30:0",
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490288,
+					18978
+				],
+				"itemid_any": [],
+				"equipname": "Record of Mage + Old Magic Stone Hat",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(HATR/3)",
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"COMET\")?(10*DOWN(HATR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490288,
+					18980
+				],
+				"itemid_any": [],
+				"equipname": "Record of Mage + Old Wind Whisper",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(HATR/3)",
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?(10*DOWN(HATR/3)):0",
 						"EffectType": {
 							"id": "SkillDamagePercent"
 						},

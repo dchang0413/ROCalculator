@@ -1736,5 +1736,525 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 700045,
+		"label": "MainHand",
+		"equipname": "Royal Bow-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5+(WEAG(1)?3:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"ARROWSTORM\")?((WEAR>6?20:0)+(WEAR>8?30:0)+(WEAR>10?20:0)):0)+(SKIDS(\"SHARPSHOOTING\")?(WEAR>10?35:0):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(WEAR/3))+(WEAG(2)?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"ARROWSTORM\")?(WEAR>6?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>8?10:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?15:0",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?1:0)+(WEAG(3)?3:(WEAG(2)?1:0)))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?2:0)+(WEAG(3)?3:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Bows",
+				"label": "Bow",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "205",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 120,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 700046,
+		"label": "MainHand",
+		"equipname": "Scarlet Dragon Leather Bow-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5+(WEAG(1)?3:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"AIMEDBOLT\")?((WEAR>6?20:0)+(WEAR>8?30:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(WEAR/3))+(WEAG(2)?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"AIMEDBOLT\")?(WEAR>10?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?10:0)+(WEAR>10?8:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?1:0)+(WEAG(3)?3:(WEAG(2)?1:0)))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?2:0)+(WEAG(3)?3:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Bows",
+				"label": "Bow",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "200",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 90,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "acc1",
+		"itemid": 490400,
+		"label": "Accessory",
+		"equipname": "Record of Archer",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					18984
+				],
+				"itemid_any": [],
+				"equipname": "Old Camouflage Bunny Hood",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SHARPSHOOTING\")?30:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [],
+				"itemid_any": [
+					18976,
+					18981
+				],
+				"equipname": "Old Maestro Song's Hat or Old Dying Swan",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SEVERE_RAINSTORM\")?30:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SEVERE_RAINSTORM\")?1.5:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490430,
+		"label": "Accessory",
+		"equipname": "Record of Archer vol.2",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 6,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SHARPSHOOTING SEVERE_RAINSTORM\")?30:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					18984
+				],
+				"itemid_any": [],
+				"equipname": "Old Camouflage Bunny Hood",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"SHARPSHOOTING\")?(2*HATR):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "HATR",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [],
+				"itemid_any": [
+					18976,
+					18981
+				],
+				"equipname": "Old Maestro Song's Hat or Old Dying Swan",
+				"effectlist": [
+					{
+						"EffectNumber": "2*HATR",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "HATR",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490400
+				],
+				"itemid_any": [],
+				"equipname": "Record of Archer",
+				"effectlist": [
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "CCL=='RA'?(SKIDS(\"SHARPSHOOTING\")?100:0):0",
+						"EffectType": {
+							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(CCL=='RA'?(SKIDS(\"UNLIMIT\")?90:0):0)+(['MI','WA'].includes(CCL)?(SKIDS(\"SEVERE_RAINSTORM\")?2:0):0)",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490400,
+					18984
+				],
+				"itemid_any": [],
+				"equipname": "Record of Archer + Old Camouflage Bunny Hood",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(HATR/3)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SHARPSHOOTING\")?(10*DOWN(HATR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490400
+				],
+				"itemid_any": [
+					18976,
+					18981
+				],
+				"equipname": "Record of Archer + Old Maestro Song's Hat or Old Dying Swan",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(HATR/3)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SEVERE_RAINSTORM\")?(10*DOWN(HATR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

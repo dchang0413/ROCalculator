@@ -867,7 +867,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SKIDS('CROSSIMPACT)?100:0",
+				"EffectNumber": "SKIDS(\"CROSSIMPACT\")?100:0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -1909,6 +1909,213 @@
 					},
 					{
 						"EffectNumber": "(SKIDS(\"ROLLINGCUTTER\")?(5*DOWN(WEAR/3)):0)+(SKIDS(\"IMPACT_CRATER\")?((7*DOWN(WEAR/3))+(WEAG(2)?15:0)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490229,
+		"label": "Accessory",
+		"equipname": "Record of Thief",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 75,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					18982
+				],
+				"itemid_any": [],
+				"equipname": "Old Bone Circlet",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490394,
+		"label": "Accessory",
+		"equipname": "Record of Thief vol.2",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 6,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"TRIANGLESHOT METEORASSAULT\")?30:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					18982
+				],
+				"itemid_any": [],
+				"equipname": "Old Bone Circlet",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"METEORASSAULT\")?(6*HATR):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					18975
+				],
+				"itemid_any": [],
+				"equipname": "Old Shadow Handicraft",
+				"effectlist": [
+					{
+						"EffectNumber": "2*HATR",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "HATR",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490229
+				],
+				"itemid_any": [],
+				"equipname": "Record of Thief",
+				"effectlist": [
+					{
+						"EffectNumber": "CCL=='GX'?35:0",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "CCL=='GX'?(SKIDS(\"METEORASSAULT\")?0.35:0):0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(CCL=='GX'?(SKIDS(\"METEORASSAULT\")?100:0):0)+(CCL=='SC'?(SKIDS(\"TRIANGLESHOT\")?100:0):0)",
+						"EffectType": {
+							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490229,
+					18982
+				],
+				"itemid_any": [],
+				"equipname": "Record of Thief + Old Bone Circlet",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(HATR/3)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"METEORASSAULT\")?(30*DOWN(HATR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					490229,
+					18975
+				],
+				"itemid_any": [],
+				"equipname": "Record of Thief + Old Shadow Handicraft",
+				"effectlist": [
+					{
+						"EffectNumber": "3*DOWN(HATR/3)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"TRIANGLESHOT\")?(10*DOWN(HATR/3)):0",
 						"EffectType": {
 							"id": "SkillDamagePercent"
 						},

@@ -168,11 +168,11 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SHOER>9?30:0",
+				"EffectNumber": "SHOER>9&&(AEI==6||AEI==1)?30:0",
 				"EffectType": {
 					"id": "ElementalMagicPercent"
 				},
-				"Enable": false
+				"Enable": true
 			},
 			{
 				"EffectNumber": "(SHOER>8?0.3:0)+((SHOEG(4)&&SHOER>12)?0.7:0)",
@@ -2123,7 +2123,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(5*DOWN(HATR/3))+(HATR>12?20:0)",
+				"EffectNumber": "5*DOWN(HATR/3)",
 				"EffectType": {
 					"id": "MatkPercent"
 				},
@@ -2133,6 +2133,13 @@
 				"EffectNumber": "5*DOWN(HATR/4)",
 				"EffectType": {
 					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>12?20:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
 				},
 				"Enable": true
 			},

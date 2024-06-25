@@ -1218,10 +1218,20 @@
 
                                 <el-row v-if="ComboSelectId!==false" :gutter="6" type="flex" align="middle">
                                     <el-col class="textcenter" :span="8">
-                                        Combo IDs
+                                        Combo IDs - Every
                                     </el-col>
                                     <el-col class="textcenter" :span="16">
-                                        <el-input v-model="PreviewComboIDs" v-on:keyup.native="updateComboIDs" placeholder="Value">
+                                        <el-input v-model="PreviewComboIDEvery" v-on:keyup.native="updateComboIDs" placeholder="Value">
+                                        </el-input>
+                                    </el-col>
+                                </el-row>
+
+                                <el-row v-if="ComboSelectId!==false" :gutter="6" type="flex" align="middle">
+                                    <el-col class="textcenter" :span="8">
+                                        Combo IDs - Any
+                                    </el-col>
+                                    <el-col class="textcenter" :span="16">
+                                        <el-input v-model="PreviewComboIDAny" v-on:keyup.native="updateComboIDs" placeholder="Value">
                                         </el-input>
                                     </el-col>
                                 </el-row>
@@ -1636,6 +1646,7 @@
                         </el-col>
                         <el-col :span="6"><!--default_equip-->
                             <el-select v-model="status.select_default" v-on:change="updateSelectDefault" placeholder="" v-bind="select_default">
+                                <el-option v-if="showExport" value="GEN" label="General"></el-option>
                                 <el-option v-for="item in default_equip" :key="item.id" :label="item.label" :value="item.id"></el-option>
                             </el-select>
                         </el-col>
@@ -2459,7 +2470,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterCardPreview(index)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -2606,7 +2617,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterEnchantPreview(index)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -6847,7 +6858,8 @@
                 PreviewETL: [],
                 PreviewEN: '',  // 預覽裝備名字
                 PreviewSelName: '',
-                PreviewComboIDs: [],
+                PreviewComboIDEvery: [],
+                PreviewComboIDAny: [],
                 PreviewCombo: [],
                 showExport: window.location.href.includes('localhost'),
 
@@ -7124,7 +7136,7 @@
                     { label: 'FCT', id: 'FixedCast', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\-', suffixsymbol: 's', category: 'CastTime' },
                     { label: 'FCT%', id: 'FixedCastPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\-', suffixsymbol: '\%', category: 'CastTime' },
                     { label: 'ASPD', id: 'ASPD', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category: 'ASPD' },
-                    { label: 'ASPD%', id: 'AspdPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\-', suffixsymbol: '\%', category: 'ASPD' },
+                    { label: 'ASPD%', id: 'AspdPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%', category: 'ASPD' },
                     { label: 'Crit%', id: 'Cri', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%', category: 'Crit' },
 
                     { label: 'HP %', id: 'HPPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%', category: 'HP' },
@@ -7523,7 +7535,6 @@
                     MemoryofThanatosCard: false,
                 },
                 default_equip: [
-                    {id: 'GEN', label: 'General'},
                     {id: 'PHY', label: 'Physical'},
                     {id: 'MAG', label: 'Magical'},
                     {id: 'RK', label: 'RuneKnight'},
@@ -7795,6 +7806,7 @@
                         this.updateItemsPerPage(this.PageOptions[1]);
                     }
                     if(id === "EquipDBDialog"){
+                        this.StoreDB_SearchString = '';
                         this.StoreDB_EquipFilterGroup = [];
                         this.PageIndex = 1;
                         this.updateItemsPerPage(this.PageOptions[1]);
@@ -7832,10 +7844,20 @@
                 },
                 SearchForItemIds(combo) {
                     const itemIdSet = new Set(this.equipspartlist.filter(item => item.itemid > 0).map(item => item.itemid));
-                    if(combo !== undefined && combo.itemid_every !== undefined && combo.itemid_every.length > 0 && combo.itemid_every.every(id => itemIdSet.has(id))) {
+                    if(combo !== undefined && combo.itemid_every !== undefined &&
+                       combo.itemid_every.length > 0 && combo.itemid_every.every(id => itemIdSet.has(id)) &&
+                       (combo.itemid_any === undefined || combo.itemid_any.length === 0)) {
                         return true;
                     }
-                    if(combo !== undefined && combo.itemid_any !== undefined && combo.itemid_any.length > 0 && combo.itemid_any.some(id => itemIdSet.has(id))) {
+                    if(combo !== undefined && combo.itemid_any !== undefined &&
+                       combo.itemid_any.length > 0 && combo.itemid_any.some(id => itemIdSet.has(id)) &&
+                       (combo.itemid_every === undefined && combo.itemid_every.length === 0)) {
+                        return true;
+                    }
+                    if(combo !== undefined && combo.itemid_every !== undefined &&
+                       combo.itemid_every.length > 0 && combo.itemid_every.every(id => itemIdSet.has(id)) &&
+                       combo.itemid_any !== undefined && combo.itemid_any.length > 0 &&
+                       combo.itemid_any.some(id => itemIdSet.has(id))) {
                         return true;
                     }
                     return false;
@@ -7997,7 +8019,8 @@
                 CloseEffectDialogue() {
                     this.EquipSelectId = '';
                     this.ComboSelectId = false;
-                    this.PreviewComboIDs = [];
+                    this.PreviewComboIDEvery = [];
+                    this.PreviewComboIDAny = [];
                 },
                 OpenEditEquipDialogue(eqindex) {
                     this.UIPanel['EditEquipDialog'] = true;
@@ -8020,7 +8043,8 @@
                 OpenEditEquipComboDialogue(comboindex){
                     this.PreviewETL = _.cloneDeep(this.PreviewETL_init);
                     if (comboindex == -1){
-                        this.PreviewComboIDs = [];
+                        this.PreviewComboIDEvery = [];
+                        this.PreviewComboIDAny = [];
                         this.ComboSelectId = false;
                         this.PreviewEN = this.equipspartlist[this.EquipSelectId].equipname;
                         this.equipspartlist[this.EquipSelectId].effectlist.forEach(element => {
@@ -8033,7 +8057,8 @@
                         });
                     } else {
                         this.ComboSelectId = comboindex;
-                        this.PreviewComboIDs = this.equipspartlist[this.EquipSelectId].combolist[comboindex].itemids;
+                        this.PreviewComboIDEvery = this.equipspartlist[this.EquipSelectId].combolist[comboindex].itemid_every;
+                        this.PreviewComboIDAny = this.equipspartlist[this.EquipSelectId].combolist[comboindex].itemid_any;
                         this.PreviewEN = this.equipspartlist[this.EquipSelectId].combolist[comboindex].equipname;
                         this.equipspartlist[this.EquipSelectId].combolist[comboindex].effectlist.forEach(element => {
                             for (let preview of this.PreviewETL) {
@@ -8046,20 +8071,27 @@
                     }
                 },
                 AppendEquipCombo(){
-                    if (!this.EquipSelectId) return;
+                    if (isNaN(this.EquipSelectId)) return;
                     if (!this.equipspartlist[this.EquipSelectId].combolist) this.equipspartlist[this.EquipSelectId].combolist=[{itemids:[],equipname:"NewCombo",effectlist:[]}];
                     else this.equipspartlist[this.EquipSelectId].combolist.push({itemids:[],equipname:"NewCombo",effectlist:[]});
                 },
                 updateComboIDs(){
-                    if (!this.EquipSelectId) return;
+                    if (isNaN(this.EquipSelectId)) return;
                     if (isNaN(this.ComboSelectId)) return;
-                    let val = this.PreviewComboIDs.split(',');
-                    this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].itemids = val.map(Number);
+                    if (this.PreviewComboIDEvery != ''){
+                        let val_every = this.PreviewComboIDEvery.split(',');
+                        this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].itemid_every = val_every.map(Number);
+                    }
+                    if (this.PreviewComboIDAny != ''){
+                        let val_any = this.PreviewComboIDAny.split(',');
+                        this.equipspartlist[this.EquipSelectId].combolist[this.ComboSelectId].itemid_any = val_any.map(Number);
+                    }
                 },
                 CloseEditEquipDialogue() {
                     this.EquipSelectId = '';
                     this.ComboSelectId = false;
-                    this.PreviewComboIDs = [];
+                    this.PreviewComboIDEvery = [];
+                    this.PreviewComboIDAny = [];
                 },
                 GetETLIndex(id) {
                     return this.PreviewETL.findIndex(i => i.id === id)
@@ -8926,10 +8958,14 @@
                         this.computeattribute.atkc2_min = Number(this.computeattribute.atkc1_min);
                         this.computeattribute.atkc2_max = Number(this.computeattribute.atkc1_max);
                     }
-                    this.computeattribute.atkc2_min += Number(this.weapon.BulletATK);
-                    this.computeattribute.atkc2_max += Number(this.weapon.BulletATK);
+                    if (this.skilloption.cannon){
+                        if (!isNA){
+                            this.computeattribute.atkc2_min += Number(this.weapon.BulletATK);
+                            this.computeattribute.atkc2_max += Number(this.weapon.BulletATK);
+                            this.setRecord('Ammo ATK',[this.computeattribute.atkc2_min,this.computeattribute.atkc2_max],'+',Number(this.weapon.BulletATK));
+                        }
+                    }
 
-                    this.setRecord('Ammo ATK',[this.computeattribute.atkc2_min,this.computeattribute.atkc2_max],'+',Number(this.weapon.BulletATK));
 
                     var para5 = 0; //屬性
                     if (this.IsSupportActive('SM_MAGNUM')) { para5 = 1; }
@@ -9013,13 +9049,9 @@
                     //this.computeattribute.atkc4_min = this.computeattribute.atkc4_min + Number(this.computeattribute['SpecialATK2']);
                     //this.computeattribute.atkc4_max = this.computeattribute.atkc4_max + Number(this.computeattribute['SpecialATK2']);
 
-                    if (this.skilloption.ElementalPercent > 0) {
-                        this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc4_min, Number(this.skilloption.ElementalPercent / 100));
-                        this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc4_max, Number(this.skilloption.ElementalPercent / 100));
-                    } else {
-                        this.computeattribute.atkc5_min = 0;
-                        this.computeattribute.atkc5_max = 0;
-                    }
+                    this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc4_min, Number(this.skilloption.ElementalPercent / 100));
+                    this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc4_max, Number(this.skilloption.ElementalPercent / 100));
+                        
                     this.setRecord('Element Advantage',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'x',Number(this.skilloption.ElementalPercent / 100),'p');
 
                     this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, Number(1) + Number(this.attribute['ELEDDI'] / 100));
@@ -9086,10 +9118,11 @@
                             masteryATK -= 9;
                         }
                     }
-                    this.computeattribute.atkc5_min += masteryATK + Number(this.computeattribute['SpecialATK2']);
-                    this.computeattribute.atkc5_max += masteryATK + Number(this.computeattribute['SpecialATK2']);
+                    if (!isNA) masteryATK += Number(this.computeattribute['SpecialATK2']);
+                    this.computeattribute.atkc5_min += masteryATK;
+                    this.computeattribute.atkc5_max += masteryATK;
                     this.setRecord('Mastery/Cannon ATK',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'+',
-                        masteryATK + Number(this.computeattribute['SpecialATK2']));
+                        masteryATK);
 
                     //Number(this.GetSupportSkill('ASC_KATAR').arg1 / 100);
                     if (this.IsSupportActive('TK_POWER_OLD')){
@@ -10300,7 +10333,11 @@
                         this.skilloption.WeaponMasteryATK+=50;
                     }
                     if (this.skill.cannon) {
-                        this.computeattribute['SpecialATK2'] += this.weapon.BulletATK;
+                        var eleAdvantage = this.getElementalPercent(this.skilloption.AttackElementalIdx,
+                            this.enemyattribute.elemental,
+                            this.enemyattribute.elementallevel);
+                        var BulletATK = this.MulOper(this.weapon.BulletATK, eleAdvantage / 100);
+                        this.computeattribute['SpecialATK2'] += BulletATK;
                     }
                     // 鶚梟之眼
                     if (this.IsSupportActive('AC_OWL')){
@@ -11528,6 +11565,12 @@
                 onFilterEquipPreview(index){
                     this.$set( this.StoreDB_EquipFilterList[index], 'preview', !this.StoreDB_EquipFilterList[index].preview);
                 },
+                onFilterCardPreview(index){
+                    this.$set( this.StoreDB_CardFilterList[index], 'preview', !this.StoreDB_CardFilterList[index].preview);
+                },
+                onFilterEnchantPreview(index){
+                    this.$set( this.StoreDB_EnchantFilterList[index], 'preview', !this.StoreDB_EnchantFilterList[index].preview);
+                },
                 SaveEquipDB() {
                     const parsed = JSON.stringify(this.StoreDB_Equip);
                     localStorage.setItem('StoreDB_Equip', parsed);
@@ -12177,14 +12220,14 @@
 
                         { skill: { id: 'NC_AXETORNADO', name: 'Axe Tornado', level: 5, formula: '(200+180*SLV+VIT)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -6, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'NC_AXEBOOMERANG', name: 'Axe Boomerang', level: 5, formula: '(250+50*SLV+WGT)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: "5-(SLV-1)*0.5", GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Weapon Weight Scaling', Version: 0, } },
-                        { skill: { id: 'NC_ARMSCANNON_i', name: 'Arm Cannon -iRO', level: 5, formula: '(400+300*SLV)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: true, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: "(6-SLV)/10", VCT: "(10+SLV*2)/10", CD: "(3*SLV)/100", GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
+                        { skill: { id: 'NC_ARMSCANNON_i', name: 'Arm Cannon -iRO', level: 5, formula: '(400+300*SLV)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: true, transWeaponDEF: true, laterranged: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: "(6-SLV)/10", VCT: "(10+SLV*2)/10", CD: "(3*SLV)/100", GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'NC_VULCANARM_i', name: 'Vulcan Arm -iRO', level: 3, formula: '(140*SLV+DEX)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0.2, CD: 0.1, GCD: 0.1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'NC_BOOSTKNUCKLE_i', name: 'Knuckle Boost -iRO', level: 5, formula: '(100+SLV*200+DEX)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0.2, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
 
                         { skill: { id: 'NC_AXETORNADO(ex)_1', name: 'Axe Tornado(Axe Stomp)', level: 5, formula: '(230+250*SLV+VIT)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -6, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 1, } },
 
                         { skill: { id: 'NC_AXETORNADO(ex)_2', name: 'Axe Tornado(Axe Stomp)', level: 5, formula: '(230+250*SLV+VIT*2)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -6, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
-                        { skill: { id: 'NC_ARMSCANNON_2', name: 'Arm Cannon', level: 5, formula: '(400+350*SLV)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: true, transWeaponDEF: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: "(6-SLV)/10", VCT: "(10+SLV*2)/10", CD: "(3*SLV)/100", GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
+                        { skill: { id: 'NC_ARMSCANNON_2', name: 'Arm Cannon', level: 5, formula: '(400+350*SLV)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: true, transWeaponDEF: true, laterranged: true, laterformula: false, hitnumber: 1, elemental: 0, FCT: "(6-SLV)/10", VCT: "(10+SLV*2)/10", CD: "(3*SLV)/100", GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
                         { skill: { id: 'NC_VULCANARM_2', name: 'Vulcan Arm', level: 3, formula: '(230*SLV+DEX)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0.2, CD: 0.1, GCD: 0.1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
                         { skill: { id: 'NC_BOOSTKNUCKLE_2', name: 'Knuckle Boost', level: 5, formula: '(300+SLV*200+DEX)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0.2, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
 
@@ -12686,6 +12729,7 @@
 
                     this.enemylist.push(
                         { id: 0, name: 'Custom', level: 1, hp: 0, LUK: 0, VIT:0, elemental: 0, elementallevel: 1, size: 0, StatusDEF: 0, WeaponDEF: 0, StatusMDEF: 0, WeaponMDEF: 0, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 6, classid: 0 },
+                        { id: 21077, name: 'Dummy', level: 100, hp: 2000000000, LUK: 1, VIT: 1, elemental: 0, elementallevel: 1, size: 1, StatusDEF: 50, WeaponDEF: 0, StatusMDEF: 25, WeaponMDEF: 0, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 6, classid: 1  },
                         { id: 2408, name: 'Training Dummy (Lv. 10)', level: 10, hp: 0, LUK: 0, VIT:0, elemental: 0, elementallevel: 1, size: 1, StatusDEF: 5, WeaponDEF: 0, StatusMDEF: 2, WeaponMDEF: 0, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 6, classid: 1 },
                         { id: 2996, name: 'Celine Kimi', level: 150, hp: 66666666, LUK: 166, VIT: 44, elemental: 8, elementallevel: 1, size: 2, StatusDEF: 102, WeaponDEF: 479, StatusMDEF: 151, WeaponMDEF: 444, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 9, classid: 1 },
                         { id: 2476, name: 'Amdarais', level: 150, hp: 4290000, LUK: 20, VIT: 90, elemental: 9, elementallevel: 4, size: 2, StatusDEF: 120, WeaponDEF: 30, StatusMDEF: 79, WeaponMDEF: 40, RES: 0, MRES: 0, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 9, classid: 1 },
@@ -12706,7 +12750,7 @@
                         { id: 20925, name: 'Litus', level: 228, hp: 6140768, LUK: 150, VIT: 127, elemental: 3, elementallevel: 3, size: 1, StatusDEF: 177, WeaponDEF: 421, StatusMDEF: 88, WeaponMDEF: 125, RES: 145, MRES: 144, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 2, classid: 1 },                    
                         { id: 20926, name: 'Fillia', level: 229, hp: 5766824, LUK: 161, VIT: 127, elemental: 1, elementallevel: 3, size: 1, StatusDEF: 178, WeaponDEF: 486, StatusMDEF: 89, WeaponMDEF: 130, RES: 145, MRES: 145, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 1, classid: 1 },
                         { id: 20927, name: 'Vanilaqus', level: 230, hp: 6092880, LUK: 128, VIT: 145, elemental: 2, elementallevel: 3, size: 0, StatusDEF: 187, WeaponDEF: 431, StatusMDEF: 90, WeaponMDEF: 114, RES: 167, MRES: 151, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 6, classid: 1 },
-                        { id: 21361, name: 'Twisted God(Hard)', level: 224, hp: 1200000000, LUK: 199, VIT: 146, elemental: 6, elementallevel: 2, size: 1, StatusDEF: 185, WeaponDEF: 314, StatusMDEF: 520, WeaponMDEF: 92, RES: 249, MRES: 499, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 2, race: 1, classid: 1 },
+                        { id: 21361, name: 'Twisted God(Hard)', level: 224, hp: 1200000000, LUK: 199, VIT: 146, elemental: 6, elementallevel: 2, size: 1, StatusDEF: 185, WeaponDEF: 314, StatusMDEF: 92, WeaponMDEF: 520, RES: 249, MRES: 499, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 2, race: 1, classid: 1 },
                     );
                     this.consumablelist.push(
                         { id:12202, name:'10 STR Food', active:false, group:'StatusG', STR:10},
@@ -12860,6 +12904,11 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-06-24', content: 'Added: Jasper Ring, Full Force' },
+                        { id: '2024-06-21', content: 'Added: Lots of new cards, Sura Shadow Shield, EDDA Biolab memory enchants, Almighty Shadows, Lord Bearer Shadows' },
+                        { id: '2024-06-20', content: 'Added: Mad Bunny-LT, Record Series accessories<br>Fixed Orc Lords Armor Bonus' },
+                        { id: '2024-06-19', content: 'Added: Hero LT shoes, Hero LT Weapons and more cards<br>Fixed Poenetentia Glory Crown +13 Bonus' },
+                        { id: '2024-06-18', content: 'Added: Orc Ancestor Armor, Moonlight Bell, Overdrive Rampage, Beast Territory Boots, Reforming Magic Cloak<br>Fixed Turtle General Card ATK% -> Class%' },
                         { id: '2024-06-10', content: 'Added: Black Ribbon, Poenitentia Crowns, Gold Scaraba Card, Rekenber Guard Card<br>Fixed Peuz Combo ATK% -> Class%' },
                         { id: '2024-06-08', content: 'Added Enchant functionality' },
                         { id: '2024-06-04', content: 'Combo/Card Functionalitiy Reworked<br><br>Some of the old saves may have their cards mispositioned due to the update but luckily it shouldn\'t be that hard to fix as we\'re implemting better ways to fill out the builds' },
@@ -13161,6 +13210,12 @@
                         }
                         this.SaveEquipDB();
                     })
+                    if (['PHY','MAG'].includes(this.select_default) && !this.showExport){
+                        var tmpSel = this.select_default;
+                        this.select_default = 'GEN';
+                        this.loadDefaultEquip();
+                        this.select_default = tmpSel;
+                    }
                 },
                 loadAllDefaultEquip(){
                     for (const entry of this.default_equip){
@@ -13197,9 +13252,13 @@
                                     var effectObj = this.effecttypelist.find((eff)=>eff.id == ele.EffectType.id);
                                     if (effectObj) flags.push( effectObj.category );
                                 });
-                                obj.combolist.forEach((ele)=>{
-                                    var effectObj = this.effecttypelist.find((eff)=>eff.id == ele.EffectType.id);
-                                    if (effectObj) flags.push( effectObj.category );
+                                obj.combolist.forEach((combo)=>{
+                                    combo.effectlist.forEach((ele)=>{
+                                        var effectObj = this.effecttypelist.find((eff)=>eff.id == ele.EffectType.id);
+                                        if (effectObj) flags.push( effectObj.category );
+                                    })
+                                    //var effectObj = this.effecttypelist.find((eff)=>eff.id == ele.effectlist.EffectType.id);
+                                    //if (effectObj) flags.push( effectObj.category );
                                 });
                                 if (flags.length) obj.flags = flags.join(',');
                             }
