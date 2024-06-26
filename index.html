@@ -8237,10 +8237,13 @@
             },
             methods: {
                 ShrinkEquipPanels(){
-                    for (const [key, value] of Object.entries(this.equipspartlist.slice(0,14))){
+                    for (const [key, value] of Object.entries(this.equipspartlist.slice(0,10))){
                         this.UIPanel[value.id+'Panel'] = false;
                     }
-                    for (const [key, value] of Object.entries(this.equipspartlist.slice(35,40))){
+                    for (const [key, value] of Object.entries(this.equipspartlist.slice(30,31))){
+                        this.UIPanel[value.id+'Panel'] = false;
+                    }
+                    for (const [key, value] of Object.entries(this.equipspartlist.slice(36,43))){
                         this.UIPanel[value.id+'Panel'] = false;
                     }
                 },
