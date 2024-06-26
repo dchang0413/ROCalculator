@@ -8247,22 +8247,38 @@
                 TogglePanel(id) {
                     this.UIPanel[id] = !this.UIPanel[id];
                 },
+                cleanPanel(id) {
+                    this.PageIndex = 1;
+                    this.updateItemsPerPage(this.PageOptions[1]);
+
+                    switch(id){
+                        case "CardDialog":
+                            this.ItemDesiredPosition = -1;
+                            this.StoreDB_CardSearchString = '';
+                            this.StoreDB_CardFilterGroup = [];
+                            return;
+                        case "EnchantDialog":
+                            this.ItemDesiredPosition = -1;
+                            this.StoreDB_EnchantSearchString = '';
+                            this.StoreDB_EnchantFlags = [];
+                        case "CostumeStoneDialog":
+                            this.ItemDesiredPosition = -1;
+                            this.StoreDB_CostumeStoneSearchString = '';
+                            this.StoreDB_CostumeStoneFilterGroup = [];
+                        case "PetDialog":
+                            this.ItemDesiredPosition = -1;
+                            this.StoreDB_PetSearchString = '';
+                            this.StoreDB_PetFilterGroup = [];
+                        case "EquipDBDialog":
+                            this.StoreDB_SearchString = '';
+                            this.StoreDB_EquipFilterGroup = [];
+                        default:
+                            return;
+                    };
+                },
                 ClosePanel(id) {
                     this.UIPanel[id] = false;
-                    if(id === "CardDialog" || id === "EnchantDialog" || id === "CostumeStoneDialog" || id === "PetDialog"){
-                        this.ItemDesiredPosition = -1;
-                        this.StoreDB_CardFilterGroup = [];
-                        this.StoreDB_CostumeStoneFilterGroup = [];
-                        this.StoreDB_PetFilterGroup = [];
-                        this.PageIndex = 1;
-                        this.updateItemsPerPage(this.PageOptions[1]);
-                    }
-                    if(id === "EquipDBDialog"){
-                        this.StoreDB_SearchString = '';
-                        this.StoreDB_EquipFilterGroup = [];
-                        this.PageIndex = 1;
-                        this.updateItemsPerPage(this.PageOptions[1]);
-                    }
+                    this.cleanPanel(id);
                 },
                 OpenPanel(id) {
                     this.UIPanel[id] = true;
