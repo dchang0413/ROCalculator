@@ -14138,9 +14138,7 @@
                         const hash = this.generateMD5(JSON.stringify(json));
                         if(currentHash !== hash){
                             const label = this.getLabelById(this.default_equip, filename);
-                            if(label !== null){
-                                this.UpdatedFiles.push(label);
-                            }
+                            this.UpdatedFiles.push(label !== null ? label : filename);
 
                             this.select_default = filename;
                             this.clearCategoryFromStoreDB(filename);
