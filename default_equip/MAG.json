@@ -2588,5 +2588,276 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400401,
+		"label": "Upper",
+		"equipname": "Full Faith Crown",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "20*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>6?10:0)+(HATR>13?30:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?10:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?15:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>11?15:0",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>12?0.5:0",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>13?15:0",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4556
+				],
+				"itemid_any": [],
+				"equipname": "Fenrir Card",
+				"effectlist": [
+					{
+						"EffectNumber": 0.2,
+						"EffectType": {
+							"id": "FixedCast"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"COMET\")?(7*DOWN(HATR/2)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"COMET\")&&CCL=='WL'?20:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": 480291,
+		"label": "Garment",
+		"equipname": "Hero's Grace",
+		"refinelevel": 13,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3000,
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 200,
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV>199?1:0)+(BLV>199?(DOWN(BLV/10)):0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10*DOWN(GARMR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(GARMR/3)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>6?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>8?10:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>10?10:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>12?15:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					22171
+				],
+				"itemid_any": [],
+				"equipname": "Ancient Hero Boot",
+				"effectlist": [
+					{
+						"EffectNumber": 0.2,
+						"EffectType": {
+							"id": "FixedCast"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					22238
+				],
+				"itemid_any": [],
+				"equipname": "Great Hero's Boots",
+				"effectlist": [
+					{
+						"EffectNumber": 0.2,
+						"EffectType": {
+							"id": "FixedCast"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 60,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": "SHOER>12?0.2:0",
+						"EffectType": {
+							"id": "FixedCast"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>12?150:0",
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>12?18:0",
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>12?8:0",
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

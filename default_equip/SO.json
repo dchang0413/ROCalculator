@@ -1956,5 +1956,55 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": -1,
+		"label": "Accessory",
+		"equipname": "Elemental Jewel",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"VARETYR_SPEAR\")?1:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"VARETYR_SPEAR\")?(DOWN(MIN(249,BLV)/3)):0)+(SKIDS(\"CONFLAGRATION DIAMOND_STORM LIGHTNING_LAND TERRA_DRIVE VENOM_SWAMP\")?(DOWN(BLV/10)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
