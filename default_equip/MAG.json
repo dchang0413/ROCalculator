@@ -858,7 +858,7 @@
 		"id": "armor",
 		"itemid": 450128,
 		"label": "Armor",
-		"equipname": "Automatic Armor Type B (2x MATK, 1x Power Force)",
+		"equipname": "Automatic Armor Type B",
 		"refinelevel": 12,
 		"grade": {
 			"id": 0,
@@ -866,16 +866,9 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": "125+FLOOR(ARMORR/2)*10+150",
+				"EffectNumber": "125+(10*DOWN(ARMORR/2))",
 				"EffectType": {
 					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?30:(ARMORR>6?20:13))",
-				"EffectType": {
-					"id": "MatkPercent"
 				},
 				"Enable": true
 			},
@@ -887,7 +880,40 @@
 				"Enable": true
 			}
 		],
-		"combolist": [],
+		"combolist": [
+			{
+				"itemid_every": [
+					480020
+				],
+				"itemid_any": [],
+				"equipname": "Automatic Engine Wing Type A",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AspdPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					480021
+				],
+				"itemid_any": [],
+				"equipname": "Automatic Engine Wing Type B",
+				"effectlist": [
+					{
+						"EffectNumber": 50,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	},
 	{
@@ -1153,264 +1179,6 @@
 				"EffectNumber": "SKIDS('VARETYR_SPEAR')?1:0",
 				"EffectType": {
 					"id": "CDTime"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"idx": 3
-	},
-	{
-		"id": "armor",
-		"itemid": 450128,
-		"label": "Armor",
-		"equipname": "Automatic Armor Type B (2x MATK, 1x SS)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "125+FLOOR(ARMORR/2)*10+150",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?20:(ARMORR>6?14:10))",
-				"EffectType": {
-					"id": "MatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR>6?15:0",
-				"EffectType": {
-					"id": "VariableCastPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?25:(ARMORR>6?18:15))",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"idx": 3
-	},
-	{
-		"id": "armor",
-		"itemid": 450128,
-		"label": "Armor",
-		"equipname": "Automatic Armor Type B (1x MATK, 2x SS)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "125+FLOOR(ARMORR/2)*10+75",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?10:(ARMORR>6?7:5))",
-				"EffectType": {
-					"id": "MatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR>6?15:0",
-				"EffectType": {
-					"id": "VariableCastPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?50:(ARMORR>6?36:30))",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"idx": 3
-	},
-	{
-		"id": "armor",
-		"itemid": 450128,
-		"label": "Armor",
-		"equipname": "Automatic Armor Type B (2x MATK, 1x Skill Mod)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "125+FLOOR(ARMORR/2)*10+150",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?20:(ARMORR>6?14:10))",
-				"EffectType": {
-					"id": "MatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR>6?15:0",
-				"EffectType": {
-					"id": "VariableCastPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?25:(ARMORR>6?18:15))",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"idx": 3
-	},
-	{
-		"id": "armor",
-		"itemid": 450128,
-		"label": "Armor",
-		"equipname": "Automatic Armor Type B (1x MATK, 2x Skill Mod)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "125+FLOOR(ARMORR/2)*10+75",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?10:(ARMORR>6?7:5))",
-				"EffectType": {
-					"id": "MatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR>6?15:0",
-				"EffectType": {
-					"id": "VariableCastPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?50:(ARMORR>6?36:30))",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"idx": 3
-	},
-	{
-		"id": "armor",
-		"itemid": 450128,
-		"label": "Armor",
-		"equipname": "Automatic Armor Type B (2x SS, 1x Skill Mod)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "125+FLOOR(ARMORR/2)*10",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR>6?15:0",
-				"EffectType": {
-					"id": "VariableCastPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?50:(ARMORR>6?36:30))",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?25:(ARMORR>6?18:15))",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"idx": 3
-	},
-	{
-		"id": "armor",
-		"itemid": 450128,
-		"label": "Armor",
-		"equipname": "Automatic Armor Type B (1x SS, 2x Skill Mod)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "125+FLOOR(ARMORR/2)*10",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR>6?15:0",
-				"EffectType": {
-					"id": "VariableCastPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?25:(ARMORR>6?18:15))",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(ARMORR>10?50:(ARMORR>6?36:30))",
-				"EffectType": {
-					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			}

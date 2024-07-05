@@ -722,7 +722,7 @@
 		"id": "armor",
 		"itemid": 450127,
 		"label": "Armor",
-		"equipname": "Automatic Armor Type A (2x ATK, 1x Breeze Shooting)",
+		"equipname": "Automatic Armor Type A",
 		"refinelevel": 12,
 		"grade": {
 			"id": 0,
@@ -730,278 +730,54 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": "125+10*FLOOR(ARMORR/2)+150",
+				"EffectNumber": "125+(10*DOWN(ARMORR/2))",
 				"EffectType": {
 					"id": "Atk"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": 10,
+				"EffectNumber": "ARMORR>6 ?15:0",
 				"EffectType": {
-					"id": "AtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 15 :5",
-				"EffectType": {
-					"id": "CriDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 10 : (ARMORR > 6 ? 4 : 0)",
-				"EffectType": {
-					"id": "MeleeDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 25 : (ARMORR > 6 ? 18 : 15)",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": false
-			}
-		],
-		"combolist": [],
-		"idx": 3
-	},
-	{
-		"id": "armor",
-		"itemid": 450127,
-		"label": "Armor",
-		"equipname": "Automatic Armor Type A (2x ATK, 1x Angle Shot)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "125+10*FLOOR(ARMORR/2)+150",
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 10,
-				"EffectType": {
-					"id": "AtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 10 : (ARMORR > 6 ? 4 : 0)",
-				"EffectType": {
-					"id": "MeleeDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 15 :5",
-				"EffectType": {
-					"id": "RangedDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 25 : (ARMORR > 6 ? 18 : 15)",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": false
-			}
-		],
-		"combolist": [],
-		"idx": 3
-	},
-	{
-		"id": "armor",
-		"itemid": 450127,
-		"label": "Armor",
-		"equipname": "Automatic Armor Type A (2x ATK, 1x Attacker Force)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "125+10*FLOOR(ARMORR/2)+150+20",
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 10,
-				"EffectType": {
-					"id": "AtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 5 : (ARMORR > 6 ? 4 : 3)",
-				"EffectType": {
-					"id": "SizeAtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "10+ARMORR > 10 ? 10 : (ARMORR > 6 ? 4 : 0)",
-				"EffectType": {
-					"id": "MeleeDamagePercent"
+					"id": "AspdPercent"
 				},
 				"Enable": true
 			}
 		],
-		"combolist": [],
-		"idx": 3
-	},
-	{
-		"id": "armor",
-		"itemid": 450127,
-		"label": "Armor",
-		"equipname": "Automatic Armor Type A (2x ATK, 1x Critical Force)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
+		"combolist": [
 			{
-				"EffectNumber": "125+10*FLOOR(ARMORR/2)+150",
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
+				"itemid_every": [
+					480020
+				],
+				"itemid_any": [],
+				"equipname": "Automatic Engine Wing Type A",
+				"effectlist": [
+					{
+						"EffectNumber": 50,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					}
+				]
 			},
 			{
-				"EffectNumber": 10,
-				"EffectType": {
-					"id": "AtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 5 : (ARMORR > 6 ? 4 : 3)",
-				"EffectType": {
-					"id": "SizeAtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 10,
-				"EffectType": {
-					"id": "CriDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 10 : (ARMORR > 6 ? 4 : 0)",
-				"EffectType": {
-					"id": "MeleeDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 5,
-				"EffectType": {
-					"id": "Cri"
-				},
-				"Enable": true
+				"itemid_every": [
+					480021
+				],
+				"itemid_any": [],
+				"equipname": "Automatic Engine Wing Type B",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
 			}
 		],
-		"combolist": [],
-		"idx": 3
-	},
-	{
-		"id": "armor",
-		"itemid": 450127,
-		"label": "Armor",
-		"equipname": "Automatic Armor Type A (2x ATK, 1x Power Force)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "125+10*FLOOR(ARMORR/2)+150",
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "10+ARMORR > 10 ? 10 : (ARMORR > 6 ? 6 : 3)",
-				"EffectType": {
-					"id": "AtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 10 : (ARMORR > 6 ? 4 : 0)",
-				"EffectType": {
-					"id": "MeleeDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 10 : (ARMORR > 6 ? 6 : 3)",
-				"EffectType": {
-					"id": "MatkPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"idx": 3
-	},
-	{
-		"id": "armor",
-		"itemid": 450127,
-		"label": "Armor",
-		"equipname": "Automatic Armor Type A (2x ATK, 1x Skill Mod)",
-		"refinelevel": 12,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "125+10*FLOOR(ARMORR/2)+150",
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 10,
-				"EffectType": {
-					"id": "AtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 10 : (ARMORR > 6 ? 4 : 0)",
-				"EffectType": {
-					"id": "MeleeDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR > 10 ? 25 : (ARMORR > 6 ? 18 : 15)",
-				"EffectType": {
-					"id": "SkillDamagePercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
 		"idx": 3
 	},
 	{
