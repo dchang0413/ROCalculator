@@ -5000,7 +5000,7 @@
                                         <el-col :span="5" style="text-align: right;">
                                         </el-col>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1" class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id=='Shield'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col :span="6" style="text-align: right;">
                                             <span>Shield Refine: </span>
                                         </el-col>
@@ -5020,7 +5020,7 @@
                                             </div>
                                         </el-col>
                                     </el-row>
-                                    <div v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
+                                    <div v-show="UIPanel['weaponlPanel']==true && subweapon.type.id!=='Empty' && subweapon.type.id!=='Shield'">
                                         <el-row class="" :gutter="4" type="flex" align="middle" justify="space-around">
                                             <el-col :span="4" style="text-align: right;">
                                                 <span>Weapon Lvl</span>
@@ -5067,7 +5067,7 @@
                                             </el-col>
                                         </el-row>
                                     </div>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id!=='Empty' && subweapon.type.id!=='Shield'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
                                                 <el-button class="enchantSwitch" @click="cardSwitch(1+13)"><img src='/img/card.png'></el-button>
@@ -5092,7 +5092,7 @@
                                             </el-button>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id!=='Empty' && subweapon.type.id!=='Shield'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
                                                 <el-button class="enchantSwitch" @click="cardSwitch(2+13)"><img src='/img/card.png'></el-button>
@@ -5117,7 +5117,7 @@
                                             </el-button>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id!=='Empty' && subweapon.type.id!=='Shield'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
                                                 <el-button class="enchantSwitch" @click="cardSwitch(3+13)"><img src='/img/card.png'></el-button>
@@ -5142,7 +5142,7 @@
                                             </el-button>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2" class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id!=='Empty' && subweapon.type.id!=='Shield'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
                                                 <el-button class="enchantSwitch" @click="cardSwitch(4+13)"><img src='/img/card.png'></el-button>
@@ -5167,7 +5167,7 @@
                                             </el-button>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1" class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id=='Shield'" class="effectline" :gutter="4" type="flex" align="middle">
                                         <el-col class="textcenter" :span="4">
                                             <div>
                                                 <el-button class="enchantSwitch" @click="cardSwitch(5+13)"><img src='/img/card.png'></el-button>
@@ -5192,7 +5192,7 @@
                                             </el-button>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id!=='Empty' && subweapon.type.id!=='Shield'">
                                         <div v-for="(enchant, idx) in equipspartlist.slice(47, 51)">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                                 <el-col class="textcenter" :span="4">
@@ -5221,7 +5221,7 @@
                                             </el-row>
                                         </div>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id=='Shield'">
                                         <div v-for="(enchant, idx) in equipspartlist.slice(51, 54)">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                                 <el-col class="textcenter" :span="4">
@@ -5300,7 +5300,7 @@
                                             </div>
                                         </div>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id!=='Empty' && subweapon.type.id!=='Shield'">
                                         <div v-for="(card, cardidx) in equipspartlist.slice(14,18)">
                                             <div v-if="card.effectlist.length" class="textcenter bg-purple-light5">Card Effect: {{ cardidx + 1 }} - {{ card.equipname }}</div>
                                             <el-row v-for="(item, index) in card.effectlist"
@@ -5326,7 +5326,7 @@
                                             </el-row>
                                         </div>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id>=2">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id!=='Empty' && subweapon.type.id!=='Shield'">
                                         <div v-for="(card, cardidx) in equipspartlist.slice(14,18)">
                                             <div v-if="card.combolist.length" class="textcenter bg-green-light2">Card Combo Effect: {{ cardidx + 1 }} - {{ card.equipname }}</div>
                                             <el-row v-for="(combo, idx) in card.combolist" class="bg-green-light1">
@@ -5355,7 +5355,7 @@
                                             </el-row>
                                         </div>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id=='Shield'">
                                         <div v-if="equipspartlist[5+13].effectlist.length" class="textcenter bg-purple-light5">Card Effect</div>
                                         <div v-for="(item, index) in equipspartlist[5+13].effectlist"
                                             v-bind:key="item.effecttypelist" class="bg-purple-light2">
@@ -5379,7 +5379,7 @@
                                             </el-row>
                                         </div>
                                     </el-row>
-                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id==1">
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id=='Shield'">
                                         <div v-if="equipspartlist[5+13].combolist.length" class="textcenter bg-green-light2">Card Combo Effect</div>
                                         <div v-for="(combo, idx) in equipspartlist[5+13].combolist" class="bg-green-light1">
                                             <div class="divider-green"></div>
@@ -7694,11 +7694,11 @@
                 },
                 lefthandweapon: false,
                 subhandtype: [
-                    { id: 0, label: 'Bare Hand', weaponTag: '', },
-                    { id: 1, label: 'Shield', weaponTag: 'Shield', },
-                    { id: 2, label: 'Dagger', weaponTag: 'DaggersL', },
-                    { id: 3, label: '1H Sword', weaponTag: 'OneHandedSwordsL', },
-                    { id: 4, label: '1H Axe', weaponTag: 'OneHandedAxeL', },
+                    { id: 'Empty', label: 'Bare Hand', weaponTag: '', },
+                    { id: 'Shield', label: 'Shield', weaponTag: 'Shield', },
+                    { id: 'Daggers', label: 'Dagger', weaponTag: 'DaggersL', },
+                    { id: 'OneHandedSwords', label: '1H Sword', weaponTag: 'OneHandedSwordsL', },
+                    { id: 'OneHandedAxe', label: '1H Axe', weaponTag: 'OneHandedAxeL', },
                 ],
                 weaponlevellist: [
                     { id: 1, label: 'Lv. 1 Weapon', upgradeatk: 2, saferefine: 7, overatk: 3 },
@@ -8334,7 +8334,7 @@
                     return false;
                 },
                 CombineEquipsAndCombos() {
-                    this.equipspartlist.forEach((element, i)=>{ element.baseIndex = this.fetchEnchantBaseIndex(i)});
+                    this.equipspartlist.forEach((element, i)=>{element.baseIndex = this.fetchEnchantBaseIndex(i)});
                     this.EquipAndComboEffectList = [...this.equipspartlist, ...this.EquipComboEffectList];
                 },
                 CombineEquipsAttribute() {
@@ -8371,8 +8371,8 @@
                             result = Enumerable.From(this.EquipAndComboEffectList)
                                 .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
                                 .Select(function (x) {
-                                    var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()))
-                                    return xx[0].Enable ? ('baseIndex' in x && typeof xx[0].EffectNumber == 'string' ? xx[0].EffectNumber.replace('GEARR','this.equipspartlist['+x.baseIndex+'].refinelevel') : xx[0].EffectNumber) : 0;
+                                    var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()));
+                                    return xx[0].Enable ? ('baseIndex' in x && typeof xx[0].EffectNumber == 'string' ? xx[0].EffectNumber.replaceAll('GEARR','this.equipspartlist['+x.baseIndex+'].refinelevel') : xx[0].EffectNumber) : 0;
                                 })
                                 .ToArray()
                                 .join(")+(");
@@ -8628,13 +8628,13 @@
                     if(this.weapon.type.id == 'Empty'){
                         this.clearItemFromEquipment([10, 11, 12, 13, 39, 40, 41, 42]);
                     }
-                    if(this.subweapon.type.id == 0){
+                    if(this.subweapon.type.id == 'Empty'){
                         this.clearItemFromEquipment([14, 15, 16, 17, 18, 43, 44, 45, 46, 47, 48, 49]);
                     }
-                    if(this.subweapon.type.id == 1){
+                    if(this.subweapon.type.id == 'Shield'){
                         this.clearItemFromEquipment([14, 15, 16, 17, 43, 44, 45, 46]);
                     }
-                    if(this.subweapon.type.id > 1){
+                    if(this.subweapon.type.id != 'Empty' && this.subweapon.type.id != 'Shield'){
                         this.clearItemFromEquipment([18, 47, 48, 49]);
                     }
                     this.CombineEquipsAttribute();
@@ -11812,6 +11812,15 @@
                         })
                     this.CombineEquipsAttribute();
                 },
+                isValidSubHandType(subweapon) {
+                    if(subweapon.type !== undefined && subweapon.type.id !== undefined){
+                        const idx = this.subhandtype.findIndex((x) => x.id === subweapon.type.id);
+                        if(idx >= 0){
+                            return true;
+                        }
+                    }
+                    return false;
+                },
                 onLoadDataSave(uuid, kind) {
                     if(!this.DataOptions.has(kind)) return;
 
@@ -11823,6 +11832,12 @@
                             idx = this.ItemDesiredPosition;
                         }
                         else {
+                            if (idx == 0)
+                            {
+                                idx = 0;
+                                if( this.equipspartlist[1].equipname == '' && !this.weapon.type.isTwohand && this.isValidSubHandType(useDB[_dbidx].weapon) ) { idx = 1; }
+                                if( this.equipspartlist[0].equipname == '' ) { idx = 0; }
+                            }
                             if (idx == 8 || idx == 9)
                             {
                                 idx = 8;
@@ -12341,9 +12356,12 @@
                         0 : [43, 44, 45, 46],
                         1 : [51, 52, 53, 47, 48, 49, 50],
                         2 : [54, 55, 56],
+                        3 : [57, 58, 59],
+                        4 : [60, 61, 62],
                         5 : [63, 64, 65],
                         6 : [66, 67, 68],
                         7 : [69, 70, 71],
+                        8 : [72, 73, 74, 75, 76, 77],
                     };
                     return Object.keys(enchantLabelToEquip).find(x => enchantLabelToEquip[x].includes(index));
                 },
@@ -13610,6 +13628,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-07-07', content: 'Fixed: Beast Territory Boots not working correctly. Now you can gear two weapons from the list (Dagger, 1HSword, 1HAxe)' },
                         { id: '2024-07-04', content: 'Added: Mysteltainn Card, Ogretooth Card and Executioner Card' },
                         { id: '2024-07-02', content: 'Added: OCP 61 newer items' },
                         { id: '2024-07-01', content: 'Added: Crown of Beelzebub, Boitata Hat, Vesper Headgear, Moan of Corruption, Nebula gear and their enchants' },
