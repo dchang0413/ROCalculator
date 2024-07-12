@@ -4611,7 +4611,7 @@
                                                 </el-col>
                                                 <el-col :span="8">
                                                     <el-select value-key="id" v-model="weapon.grade"
-                                                        v-on:change="onSelectedWeaponLevel" placeholder="Grade">
+                                                        v-on:change="onSelectedWeaponGrade(0, weapon.grade.id)" placeholder="Grade">
                                                         <el-option v-for="item in weapongradelist" :key="item.id"
                                                             :label="item.label" :value="item">
                                                         </el-option>
@@ -4991,7 +4991,7 @@
                                         </el-col>
                                         <el-col :span="8">
                                             <el-select value-key="id" v-model="equipspartlist[1].grade"
-                                                v-on:change="CombineEquipsAttribute" placeholder="No Grade">
+                                                v-on:change="onSelectedWeaponGrade(1, equipspartlist[1].grade.id)" placeholder="No Grade">
                                                 <el-option v-for="item in weapongradelist" :key="item.id"
                                                     :label="item.label" :value="item">
                                                 </el-option>
@@ -8878,6 +8878,12 @@
                 },
                 onSelectedWeaponType(item) {
                     this.ChangeWeapon();
+                },
+                onSelectedWeaponGrade(index, grade) {
+                    const valGrade = typeof(grade) == 'number' ? grade : this.getGradeVal(grade);
+                    const idx = this.weapongradelist.findIndex(x => x.id === valGrade);
+                    this.equipspartlist[index].grade = this.weapongradelist[idx];
+                    this.ComputRefineATK();
                 },
                 ChangeWeapon() {
                     if (this.weapon.type.isTwohand) { this.subweapon.type = this.subhandtype[0]; }
@@ -13632,6 +13638,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-07-12', content: 'Fixed: Grade change in weapons is now working' },
                         { id: '2024-07-09', content: 'Added: Shiba Says Collab Cards, VIP Stat buff under Consumable' },
                         { id: '2024-07-08', content: 'Added: Skill - Lord of Vermilion, Rapid Smithing' },
                         { id: '2024-07-07', content: 'Fixed: Beast Territory Boots not working correctly. Now you can gear two weapons from the list (Dagger, 1HSword, 1HAxe)' },
