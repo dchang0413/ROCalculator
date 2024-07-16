@@ -2652,7 +2652,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterCostumeStonePreview(index)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -2797,7 +2797,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterPetPreview(index)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -7467,7 +7467,7 @@
                     { id: 'shieldcard', label: 'Shield Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'helmcard', label: 'Headgear Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'helm1card', label: 'Headgear Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
-                    { id: 'helm2card', label: 'Lower Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
+                    { id: 'helm2card', label: 'Headgear Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'armorcard', label: 'Armor Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'robecard', label: 'Garment Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'shoescard', label: 'Shoes Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
@@ -11833,47 +11833,39 @@
                     var useDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : kind === "stone" ? this.StoreDB_CostumeStone : kind === "pet" ? this.StoreDB_Pet : this.StoreDB_Card;
                     var _dbidx = useDB.findIndex(x => x.uuid == uuid);
                     var idx = this.equipspartlist.findIndex(x => x.id == useDB[_dbidx].equip.id);
-                    if (idx > -1) {
-                        if(this.ItemDesiredPosition > -1){
+                    if(this.ItemDesiredPosition > -1){
                             idx = this.ItemDesiredPosition;
+                    }
+                    if (idx > -1) {
+                        if (idx == 0)
+                        {
+                            idx = 0;
+                            if( this.equipspartlist[1].equipname == '' && !this.weapon.type.isTwohand && this.isValidSubHandType(useDB[_dbidx].weapon) ) { idx = 1; }
+                            if( this.equipspartlist[0].equipname == '' ) { idx = 0; }
                         }
-                        else {
-                            if (idx == 0)
-                            {
-                                idx = 0;
-                                if( this.equipspartlist[1].equipname == '' && !this.weapon.type.isTwohand && this.isValidSubHandType(useDB[_dbidx].weapon) ) { idx = 1; }
-                                if( this.equipspartlist[0].equipname == '' ) { idx = 0; }
-                            }
-                            if (idx == 8 || idx == 9)
-                            {
-                                idx = 8;
-                                if( this.equipspartlist[9].equipname == '' ) { idx = 9; }
-                                if( this.equipspartlist[8].equipname == '' ) { idx = 8; }
-                            }
-                            if (idx == 14 || idx == 15 || idx == 16 || idx == 17 || idx == 18 || idx == 19 || idx == 20 || idx == 21)
-                            {
-                                idx = 14;
-                                if( this.equipspartlist[21].equipname == '' ) { idx = 21; }
-                                if( this.equipspartlist[20].equipname == '' ) { idx = 20; }
-                                if( this.equipspartlist[19].equipname == '' ) { idx = 19; }
-                                if( this.equipspartlist[18].equipname == '' ) { idx = 18; }
-                                if( this.equipspartlist[17].equipname == '' ) { idx = 17; }
-                                if( this.equipspartlist[16].equipname == '' ) { idx = 16; }
-                                if( this.equipspartlist[15].equipname == '' ) { idx = 15; }
-                                if( this.equipspartlist[14].equipname == '' ) { idx = 14; }
-                            }
-                            if (idx == 23 || idx == 24)
-                            {
-                                idx = 23;
-                                if( this.equipspartlist[24].equipname == '' ) { idx = 24; }
-                                if( this.equipspartlist[23].equipname == '' ) { idx = 23; }
-                            }
-                            if (idx == 29 || idx == 30)
-                            {
-                                idx = 29;
-                                if( this.equipspartlist[30].equipname == '' ) { idx = 30; }
-                                if( this.equipspartlist[29].equipname == '' ) { idx = 29; }
-                            }
+                        if (idx == 8 || idx == 9)
+                        {
+                            idx = 8;
+                            if( this.equipspartlist[9].equipname == '' ) { idx = 9; }
+                            if( this.equipspartlist[8].equipname == '' ) { idx = 8; }
+                        }
+                        if (idx == 10 || idx == 11 || idx == 12 || idx == 13 || idx == 14 || idx == 15 || idx == 16 || idx == 17)
+                        {
+                            idx = 10;
+                            if( this.equipspartlist[17].equipname == '' ) { idx = 17; }
+                            if( this.equipspartlist[16].equipname == '' ) { idx = 16; }
+                            if( this.equipspartlist[15].equipname == '' ) { idx = 15; }
+                            if( this.equipspartlist[14].equipname == '' ) { idx = 14; }
+                            if( this.equipspartlist[13].equipname == '' ) { idx = 13; }
+                            if( this.equipspartlist[12].equipname == '' ) { idx = 12; }
+                            if( this.equipspartlist[11].equipname == '' ) { idx = 11; }
+                            if( this.equipspartlist[10].equipname == '' ) { idx = 10; }
+                        }
+                        if (idx == 25 || idx == 26)
+                        {
+                            idx = 25;
+                            if( this.equipspartlist[26].equipname == '' ) { idx = 26; }
+                            if( this.equipspartlist[25].equipname == '' ) { idx = 25; }
                         }
                         console.log("Load Equip " + idx + ": " + useDB[_dbidx].equip.equipname + " | Item Id: " + useDB[_dbidx].equip.itemid);
                         if (!('effectlist' in useDB[_dbidx].equip)) useDB[_dbidx].equip.effectlist = [];
@@ -12000,7 +11992,10 @@
                     this.StoreDB_CardFilterList = this.StoreDB_Card.filter(post => {
                         return this.StoreDB_CardSearchString.toLowerCase().split(' ').every(v =>
                             post.equip.equipname.toLowerCase().includes(v) &&
-                            post.equip.label.toLowerCase().includes(filter)
+                            (
+                                post.equip.label.toLowerCase().includes(filter) || 
+                                post.equip.id.toLowerCase().includes('specialcard')
+                            )
                         );
                     });
                 },
@@ -12187,6 +12182,12 @@
                 },
                 onFilterEquipPreview(index){
                     this.$set( this.StoreDB_EquipFilterList[index], 'preview', !this.StoreDB_EquipFilterList[index].preview);
+                },
+                onFilterCostumeStonePreview(index){
+                    this.$set( this.StoreDB_CostumeStoneFilterList[index], 'preview', !this.StoreDB_CostumeStoneFilterList[index].preview);
+                },
+                onFilterPetPreview(index){
+                    this.$set( this.StoreDB_PetFilterList[index], 'preview', !this.StoreDB_PetFilterList[index].preview);
                 },
                 onFilterCardPreview(index){
                     this.$set( this.StoreDB_CardFilterList[index], 'preview', !this.StoreDB_CardFilterList[index].preview);
@@ -13638,6 +13639,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-07-16', content: 'Fixed: Minor bugs<br><br>Added: Infinite Shadows, Shield of Phoenix, Ring of Phoenix, Legacy of the wise one, Darklord Essences' },
                         { id: '2024-07-12', content: 'Fixed: Grade change in weapons is now working' },
                         { id: '2024-07-09', content: 'Added: Shiba Says Collab Cards, VIP Stat buff under Consumable' },
                         { id: '2024-07-08', content: 'Added: Skill - Lord of Vermilion, Rapid Smithing' },
