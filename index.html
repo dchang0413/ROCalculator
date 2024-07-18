@@ -8626,16 +8626,16 @@
                 },
                 onGearUpdate(){
                     if(this.weapon.type.id == 'Empty'){
-                        this.clearItemFromEquipment([10, 11, 12, 13, 39, 40, 41, 42]);
+                        this.clearItemFromEquipment([10, 11, 12, 13, 43, 44, 45, 46]);
                     }
                     if(this.subweapon.type.id == 'Empty'){
-                        this.clearItemFromEquipment([14, 15, 16, 17, 18, 43, 44, 45, 46, 47, 48, 49]);
+                        this.clearItemFromEquipment([14, 15, 16, 17, 18, 47, 48, 49, 50, 51, 52, 53]);
                     }
                     if(this.subweapon.type.id == 'Shield'){
-                        this.clearItemFromEquipment([14, 15, 16, 17, 43, 44, 45, 46]);
+                        this.clearItemFromEquipment([14, 15, 16, 17, 47, 48, 49, 50]);
                     }
                     if(this.subweapon.type.id != 'Empty' && this.subweapon.type.id != 'Shield'){
-                        this.clearItemFromEquipment([18, 47, 48, 49]);
+                        this.clearItemFromEquipment([18, 51, 52, 53]);
                     }
                     this.CombineEquipsAttribute();
                 },
@@ -11885,9 +11885,12 @@
                                 grade: useDB[_dbidx].equip.grade ? useDB[_dbidx].equip.grade : this.weapongradelist[0],
                                 effectlist: _.cloneDeep(useDB[_dbidx].equip.effectlist),
                                 combolist: _.cloneDeep(useDB[_dbidx].equip.combolist),
-                            })
+                            }
+                        );
                         this.onGearUpdate();
                         this.CombineEquipsAttribute();
+                        console.log('GEAR: ' + useDB[_dbidx].equip.equipname + '\nIDX: ' + idx);
+                        console.log(this.equipspartlist);
                     }
                     if (idx == 0 && useDB[_dbidx].weapon != null) {
                         this.weapon = _.cloneDeep(useDB[_dbidx].weapon);
@@ -13639,6 +13642,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-07-18', content: 'Fixed: Minor bugs<br><br>Added: Major Auto Spell Shadows, Exotic Temporal LT Gear' },
                         { id: '2024-07-16', content: 'Fixed: Minor bugs<br><br>Added: Infinite Shadows, Shield of Phoenix, Ring of Phoenix, Legacy of the wise one, Darklord Essences' },
                         { id: '2024-07-12', content: 'Fixed: Grade change in weapons is now working' },
                         { id: '2024-07-09', content: 'Added: Shiba Says Collab Cards, VIP Stat buff under Consumable' },
