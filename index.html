@@ -9748,7 +9748,11 @@
 
                     //技能倍率
                     var para_na = Number(this.computeattribute['SpecialATK6']);
-                    var skillPercent = Number(this.option.SkillPercent);
+                    var skillPercent = Number(this.option.SkillPercent);                        
+                    let equipSkillModifier = Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100);
+                    if (this.skill.id.includes('PA_SHIELDCHAIN')){
+                        skillPercent *= equipSkillModifier;
+                    }
 
                     var para8 = Math.floor(Number(skillPercent)) + Number(this.computeattribute['SpecialATK5']);
                     para_na = Number(1) + Number(para_na / 100);
@@ -9829,10 +9833,10 @@
                             this.setRecord('Additional Range Mod%',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'x',para_ranged,'p');
                         }
                         // 技能增傷裝
-                        this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100));
-                        this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100));
-                        this.setRecord('Skill Mod%',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'x',
-                            Number(1) + Number(eval(this.SkillFormulaReplace(this.option.EquipSkillAddDamage)) / 100),'p');
+                        this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, equipSkillModifier);
+                        this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, equipSkillModifier);
+                        
+                        this.setRecord('Skill Mod%',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'x', equipSkillModifier,'p');
 
                     };
 
@@ -12986,6 +12990,7 @@
                         { skill: { id: 'WH_GALESTORM_3', name: 'Gale Storm', level: 10, formula: '(950*SLV+CON*5)*BLV/100', class: 'RA', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 0, FCT: 0, VCT: 0, CD: 1.5, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 3,} },
 
                         { skill: { id: 'PA_SHIELDCHAIN', name: 'Rapid Smithing', level: 5, formula: '(300+200*SLV+SRL*4+SHW)*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: false, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 0, FCT: 0.2, VCT: 0.8, CD: 0, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
+                        { skill: { id: 'PA_SHIELDCHAIN(ex)', name: 'Rapid Smithing(Shield Shooting)', level: 5, formula: '(400+250*SLV+SRL*4+SHW)*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: false, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -5, elemental: 0, FCT: 0.2, VCT: 0.8, CD: 0, GCD: 1, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
 
                         { skill: { id: 'LG_CANNONSPEAR_i', name: 'Cannon Spear -iRO', level: 5, formula: '(80+STR)*SLV*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: true, halfcri:false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'LG_BANISHINGPOINT_i', name: 'Vanishing Point -iRO', level: 10, formula: '(SLV*80+10*50)*BLV/100', class: 'RG', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Assume Lv10 Bash', Version: 0, } },
@@ -13641,6 +13646,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-07-23', content: 'Updated: Rapid Smithig Formula' },
                         { id: '2024-07-20', content: 'Fixed: Dreaming Red Sheep Location' },
                         { id: '2024-07-18', content: 'Fixed: Minor bugs<br><br>Added: Major Auto Spell Shadows<br><br>Bugfix: Loud Park, Memento Mori, Space Shoes, Kiel Hyre Darkness Item Scripts' },
                         { id: '2024-07-16', content: 'Fixed: Minor bugs<br><br>Added: Infinite Shadows, Shield of Phoenix, Ring of Phoenix, Legacy of the wise one, Darklord Essences' },
