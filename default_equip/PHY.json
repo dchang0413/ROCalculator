@@ -2309,14 +2309,14 @@
 						"Enable": true
 					},
 					{
-						"EffectNumber": "(SHARMORR+SHSHIER)>17?3:0",
+						"EffectNumber": "(SHSHOER+SHSHIER)>17?3:0",
 						"EffectType": {
 							"id": "POW"
 						},
 						"Enable": true
 					},
 					{
-						"EffectNumber": "(SHARMORR+SHSHIER)>17?3:0",
+						"EffectNumber": "(SHSHOER+SHSHIER)>17?3:0",
 						"EffectType": {
 							"id": "PATK"
 						},
@@ -4072,6 +4072,476 @@
 			}
 		],
 		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "helm1",
+		"itemid": -1,
+		"label": "Middle",
+		"equipname": "Smiling Eyes",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "isBoss?10:0",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "40+(BLU>119?150:0)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "20+(BLU>119?30:0)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10+(BLU>119?20:0)",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": -2,
+		"label": "Garment",
+		"equipname": "Royal Prontera Cape",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "20+(GARMR>6?15:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(20*DOWN(GARMR/2))+(GARMG(1)?100:0)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(GARMR/2)",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(GARMR/2)",
+				"EffectType": {
+					"id": "CRT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(GARMR/3))+(GARMR>11?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(GARMR/3)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>6?10:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>8?20:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>9?20:0",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>10?15:0",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>11?10:0",
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"IGNITIONBREAK CANNONSPEAR\")?((GARMR>12?50:0)+(GARMG(4)&&GARMR>13?70:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMG(2)?15:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMG(3)?20:0",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4147
+				],
+				"itemid_any": [],
+				"equipname": "Baphomet Card",
+				"effectlist": [
+					{
+						"EffectNumber": "isBoss?40:0",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "GARMR>13?250:0",
+						"EffectType": {
+							"id": "STR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "GARMR>13?250:0",
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "GARMR>13?250:0",
+						"EffectType": {
+							"id": "LUK"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27335
+				],
+				"itemid_any": [],
+				"equipname": "Chaotic Baphomet Junior Card",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 24874,
+		"label": "S.Armor",
+		"equipname": "Full Rate Shadow Armor",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "FLOOR(SHARMORR/2)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHARMORR>9?2:0)",
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24875
+				],
+				"itemid_any": [],
+				"equipname": "Full Rate Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "CRIDR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?5:0",
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?10:0",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24761
+				],
+				"itemid_any": [],
+				"equipname": "Creative Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHWEAR)>17?3:0",
+						"EffectType": {
+							"id": "CRT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHWEAR)>17?3:0",
+						"EffectType": {
+							"id": "CRIDR"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 24875,
+		"label": "S.Shoes",
+		"equipname": "Full Rate Shadow Shoes",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "FLOOR(SHSHOER/2)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHSHOER>9?2:0)",
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24762
+				],
+				"itemid_any": [],
+				"equipname": "Creative Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHSHOER+SHSHIER)>17?3:0",
+						"EffectType": {
+							"id": "CRT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHSHOER+SHSHIER)>17?3:0",
+						"EffectType": {
+							"id": "CRIDR"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowshld",
+		"itemid": 24762,
+		"label": "S.Shield",
+		"equipname": "Creative Shadow Shield",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "FLOOR(SHSHIER/2)",
+				"EffectType": {
+					"id": "CRT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHSHIER>6?2:0)+(SHSHIER>8?2:0)",
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadow",
+		"itemid": 24761,
+		"label": "S.Weapon",
+		"equipname": "Creative Shadow Weapon",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "FLOOR(SHWEAR/2)",
+				"EffectType": {
+					"id": "CRT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHWEAR>6?2:0)+(SHWEAR>8?2:0)",
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24762
+				],
+				"itemid_any": [],
+				"equipname": "Creative Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "CRIDR"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	}
 ]
