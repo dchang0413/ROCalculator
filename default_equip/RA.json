@@ -2406,5 +2406,119 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "armor",
+		"itemid": 450360,
+		"label": "Armor",
+		"equipname": "Alpha Beast Armor",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "15+(CCL=='RA'?50:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HAWK_RUSH\")?((CCL=='RA'?300:0)+(ARMORR>9?60:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RA'?150:0",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RA'?30:0",
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>7?3:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORG(1)?10:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>10?3:0)+(ARMORG(2)?6:0)+(ARMORG(4)?(2*DOWN(ARMORR/3)):0)",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORG(4)?(3*DOWN(ARMORR/3)):0",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400506,
+		"label": "Upper",
+		"equipname": "Altair Hat",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "3+HATR",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 40,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HAWK_RUSH\")?FLOOR(BLV/10):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": false
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
