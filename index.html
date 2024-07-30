@@ -4935,6 +4935,30 @@
                                                     </el-col>
                                                 </el-row>
                                             </div>
+                                            <div v-if="enchant.combolist.length" class="textcenter bg-pink-light2"><em>{{ enchant.equipname }} Combo Effect</em></div>
+                                            <div v-for="(combo, idx) in enchant.combolist" class="bg-pink-light1">
+                                                <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
+                                                    <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                        justify="end" style="height:40px;">
+                                                        <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                            <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="8">
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter"  :span="5">
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
+                                                        </el-col>
+                                                    </el-row>
+                                                </div>
+                                            </div>
                                         </div>
                                     </el-row>
                                 </div>
@@ -5431,6 +5455,30 @@
                                                     </el-col>
                                                 </el-row>
                                             </div>
+                                            <div v-if="enchant.combolist.length" class="textcenter bg-pink-light2"><em>{{ enchant.equipname }} Combo Effect</em></div>
+                                            <div v-for="(combo, idx) in enchant.combolist" class="bg-pink-light1">
+                                                <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                                <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
+                                                    <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                        justify="end" style="height:40px;">
+                                                        <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                            <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="8">
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter"  :span="5">
+                                                            <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
+                                                        </el-col>
+                                                    </el-row>
+                                                </div>
+                                            </div>
                                         </div>
                                     </el-row>
                                 </div>
@@ -5674,6 +5722,30 @@
                                                             <el-checkbox v-model="item.Enable" @change="EnableEffect(eqindex*3+idx+index+54, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
+                                                </div>
+                                                <div v-if="enchant.combolist.length" class="textcenter bg-pink-light2"><em>{{ enchant.equipname }} Combo Effect</em></div>
+                                                <div v-for="(combo, idx) in enchant.combolist" class="bg-pink-light1">
+                                                    <div class="textcenter margin-4"><em>{{ combo.equipname }}</em></div>
+                                                    <div v-for="(item, index) in combo.effectlist" v-bind:key="item.effecttypelist">
+                                                        <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                            justify="end" style="height:40px;">
+                                                            <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                                <span class="EffectType">{{ effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
+                                                            </el-col>
+                                                            <el-col class="textcenter" :span="2">
+                                                                <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol }}</span>
+                                                            </el-col>
+                                                            <el-col class="textcenter" :span="8">
+                                                                <span class="textnowrap">{{ item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            </el-col>
+                                                            <el-col class="textcenter" :span="2">
+                                                                <span class="">{{ effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol }}</span>
+                                                            </el-col>
+                                                            <el-col class="textcenter"  :span="5">
+                                                                <el-checkbox :disabled="!SearchForItemIds(combo)" v-model="item.Enable" @change="EnableEffect(0, index)"></el-checkbox>
+                                                            </el-col>
+                                                        </el-row>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </el-row>
@@ -10045,7 +10117,6 @@
                     if (this.enemyattribute.MRES > 0){
                         var parabypassMRES = Number(1) - Number(this.attribute['BYPASSMRES']) / 100;
                         var remainingMRES = Math.floor(Number(this.enemyattribute.MRES) * parabypassMRES);
-                        console.log('rem mres: ',remainingMRES);
                         paraMRES = ((2000 + remainingMRES) / (2000 + 5 * remainingMRES));
                     }
 
@@ -10967,7 +11038,10 @@
                     }
                     // 雙手杖使用熟練度
                     if (this.IsSupportActive('AG_TWOHANDSTAFF')){
-                        this.attribute['SMATK'] += this.GetSupportSkill('AG_TWOHANDSTAFF').lv * 2;
+                        // Check if the user is using a twohand staff
+                        if (this.weapon.type.id == 'TwoHandedRods'){
+                            this.attribute['SMATK'] += this.GetSupportSkill('AG_TWOHANDSTAFF').lv * 2;
+                        }
                     }
                     // 魔力巔峰
                     if (this.IsSupportActive('AG_CLIMAX(Lv1)')){
@@ -13490,7 +13564,7 @@
                         { id: 20925, name: 'Litus', level: 228, hp: 6140768, LUK: 150, VIT: 127, elemental: 3, elementallevel: 3, size: 1, StatusDEF: 177, WeaponDEF: 421, StatusMDEF: 88, WeaponMDEF: 125, RES: 145, MRES: 144, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 2, classid: 1 },                    
                         { id: 20926, name: 'Fillia', level: 229, hp: 5766824, LUK: 161, VIT: 127, elemental: 1, elementallevel: 3, size: 1, StatusDEF: 178, WeaponDEF: 486, StatusMDEF: 89, WeaponMDEF: 130, RES: 145, MRES: 145, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 1, classid: 1 },
                         { id: 20927, name: 'Vanilaqus', level: 230, hp: 6092880, LUK: 128, VIT: 145, elemental: 2, elementallevel: 3, size: 0, StatusDEF: 187, WeaponDEF: 431, StatusMDEF: 90, WeaponMDEF: 114, RES: 167, MRES: 151, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 0, race: 6, classid: 1 },
-                        { id: 21361, name: 'Twisted God(Hard)', level: 224, hp: 1200000000, LUK: 199, VIT: 146, elemental: 6, elementallevel: 2, size: 1, StatusDEF: 185, WeaponDEF: 314, StatusMDEF: 92, WeaponMDEF: 520, RES: 249, MRES: 499, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 2, race: 1, classid: 1 },
+                        { id: 21361, name: 'Twisted God(Hard)', level: 224, hp: 1200000000, LUK: 199, VIT: 146, elemental: 6, elementallevel: 2, size: 1, StatusDEF: 185, WeaponDEF: 314, StatusMDEF: 92, WeaponMDEF: 520, RES: 249, MRES: 499, sizeResist: 0, levelResist: 0, elementalResist: 0, moneletResist: 0, rangedResist: 0, raceResist: 0, criResist: 0, doram: false, auraLevel: 2, race: 0, classid: 1 },
                     );
                     this.consumablelist.push(
                         { id:999999999, name:'VIP Stat Buff', active:false, group:'StatusG', STR:7,AGI:7,VIT:7,INT:7,DEX:7,LUK:7},
