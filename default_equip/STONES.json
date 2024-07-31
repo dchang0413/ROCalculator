@@ -5245,5 +5245,56 @@
 		"combolist": [],
 		"flags": [],
 		"idx": 3
+	},
+	{
+		"id": "stoneupper",
+		"itemid": 1000669,
+		"label": "Upper Stone",
+		"equipname": "Geneticist Stone(Upper)",
+		"effectlist": [
+			{
+				"EffectNumber": "CCL=='GE'?10:0",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					25449
+				],
+				"itemid_any": [],
+				"equipname": "Genetic Stone(Garment)",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"ACIDDEMONSTRATION\")?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					1000300
+				],
+				"itemid_any": [],
+				"equipname": "Geneticist Stone II(Garment)",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"SPORE_EXPLOSION\")?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
 	}
 ]
