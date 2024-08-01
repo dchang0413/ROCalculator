@@ -11358,7 +11358,7 @@
                             this.attribute['ElementalMagicPercent'] += 15;
                         }
                         if (this.enemyattribute.elemental == 9||this.enemyattribute.elemental == 7){
-                            this.attritube['ElementalAtkPercent'] += 25;
+                            this.attribute['ElementalAtkPercent'] += 25;
                         }
                     }
                     //聖典
@@ -11442,15 +11442,15 @@
                     }
                     // ݬ符咒研究ϼ
                     if (this.IsSupportActive('SOA_TALISMAN_MASTERY')){
-                        this.attritube['SMATK'] += this.GetSupportSkill('SOA_TALISMAN_MASTERY').lv;
+                        this.attribute['SMATK'] += this.GetSupportSkill('SOA_TALISMAN_MASTERY').lv;
                     }
                     // 武士符
                     if (this.IsSupportActive('SOA_TALISMAN_OF_WARRIOR')){
-                        this.attritube['PATK'] += this.GetSupportSkill('SOA_TALISMAN_OF_WARRIOR').lv * 2;
+                        this.attribute['PATK'] += this.GetSupportSkill('SOA_TALISMAN_OF_WARRIOR').lv * 2;
                     }
                     // 法師符
                     if (this.IsSupportActive('SOA_TALISMAN_OF_MAGICIAN')){
-                        this.attritube['SMATK'] += this.GetSupportSkill('SOA_TALISMAN_OF_MAGICIAN').lv * 2;
+                        this.attribute['SMATK'] += this.GetSupportSkill('SOA_TALISMAN_OF_MAGICIAN').lv * 2;
                     }
                     // 五行符
                     if (this.IsSupportActive('SOA_TALISMAN_OF_FIVE_ELEMENTS')){
@@ -11461,20 +11461,20 @@
                             this.enemyattribute.elemental == 3 ||
                             this.enemyattribute.elemental == 4 ) 
                         {
-                            this.attritube['ElementalAtkPercent'] += _value;
-                            this.attritube['ElementalMatkPercent'] += _value;
+                            this.attribute['ElementalAtkPercent'] += _value;
+                            this.attribute['ElementalMatkPercent'] += _value;
                         }
                     }
                     // 天地神靈
                     if (this.IsSupportActive('SOA_SOUL_OF_HEAVEN_AND_EARTH')){
-                        this.attritube['RNGDP'] += this.GetSupportSkill('SOA_TALISMAN_MASTERY').lv * 2 + 5;
-                        this.attritube['MELDP'] += this.GetSupportSkill('SOA_TALISMAN_MASTERY').lv * 2 + 5;
-                        this.attritube['ElementalMagicPercent'] += this.GetSupportSkill('SOA_TALISMAN_MASTERY').lv * 2 + 5;
+                        this.attribute['RNGDP'] += this.GetSupportSkill('SOA_TALISMAN_MASTERY').lv * 2 + 5;
+                        this.attribute['MELDP'] += this.GetSupportSkill('SOA_TALISMAN_MASTERY').lv * 2 + 5;
+                        this.attribute['ElementalMagicPercent'] += this.GetSupportSkill('SOA_TALISMAN_MASTERY').lv * 2 + 5;
                     }
 
                     // 四方五行狀態
                     if (this.IsSupportActive('CIRCLE_OF_DIRECTIONS_AND_ELEMENTALS')){
-                        this.attritube['SMATK'] += this.GetSupportSkill('CIRCLE_OF_DIRECTIONS_AND_ELEMENTALS').lv * 5;
+                        this.attribute['SMATK'] += this.GetSupportSkill('CIRCLE_OF_DIRECTIONS_AND_ELEMENTALS').lv * 5;
                     }
 
                     // 念
@@ -11537,7 +11537,7 @@
                     } 
                     //P.F.I
                     if (this.IsSupportActive('NW_P_F_I')){
-                        this.attritube['PATK'] += this.GetSupportSkill('NW_P_F_I').lv + 2;
+                        this.attribute['PATK'] += this.GetSupportSkill('NW_P_F_I').lv + 2;
                     }
                     //榴彈精通
                     if (this.IsSupportActive('NW_GRENADE_MASTERY')){
@@ -11545,14 +11545,14 @@
                     }
                     //王牌出手
                     if (this.IsSupportActive('NW_HIDDEN_CARD')){
-                        this.attritube['PATK'] += this.GetSupportSkill('NW_HIDDEN_CARD').lv * 3;
-                        this.attritube['RNGDP'] += this.GetSupportSkill('NW_HIDDEN_CARD').lv * 10;
+                        this.attribute['PATK'] += this.GetSupportSkill('NW_HIDDEN_CARD').lv * 3;
+                        this.attribute['RNGDP'] += this.GetSupportSkill('NW_HIDDEN_CARD').lv * 10;
                     }
                     //專注瞄準
                     if (this.IsSupportActive('NW_INTENSIVE_AIM')){
-                        this.attritube['ATK'] += 150;
-                        this.attritube['HIT'] += 250;
-                        this.attritube['CRI'] += 30;
+                        this.attribute['ATK'] += 150;
+                        this.attribute['HIT'] += 250;
+                        this.attribute['CRI'] += 30;
                     }
                     //日月星宇宙英姿
                     if (this.IsSupportActive('SJ_SUNSTANCE')){
@@ -11628,14 +11628,14 @@
                     //靈物互動
                     if (this.IsSupportActive('SH_MYSTICAL_CREATURE_MASTERY')){
                         var _value = this.GetSupportSkill('SH_MYSTICAL_CREATURE_MASTERY').lv % 2==1 ? 1 : 2;
-                        this.attritube['PATK'] += _value;
-                        this.attritube['SMATK'] += _value;
+                        this.attribute['PATK'] += _value;
+                        this.attribute['SMATK'] += _value;
                     }
                     //靈物祝福
                     if (this.IsSupportActive('SH_BLESSING_OF_MYSTICAL_CREATURES')){
                             var _value = this.GetSupportSkill('SH_BLESSING_OF_MYSTICAL_CREATURES').lv * 10;
-                            this.attritube['PATK'] += _value;
-                            this.attritube['SMATK'] += _value;
+                            this.attribute['PATK'] += _value;
+                            this.attribute['SMATK'] += _value;
                     }
                     //神龜海洋慶典
                     if (this.IsSupportActive('SH_MARINE_FESTIVAL_OF_KI_SUL')){
@@ -11660,8 +11660,8 @@
                     //急速交流
                     if (this.IsSupportActive('SH_TEMPORARY_COMMUNION')){
                         var _value = this.GetSupportSkill('SH_TEMPORARY_COMMUNION').lv * 3;
-                        this.attritube['PATK'] += _value;
-                        this.attritube['SMATK'] += _value;
+                        this.attribute['PATK'] += _value;
+                        this.attribute['SMATK'] += _value;
                     }
                     //突破極限
                     if (this.IsSupportActive('NV_BREAKTHROUGH')){
@@ -11677,11 +11677,11 @@
                     }
                     //自學策略
                     if (this.IsSupportActive('HN_SELFSTUDY_TATICS')){
-                        this.attritube['PATK'] += this.GetSupportSkill('HN_SELFSTUDY_TATICS').lv; 
+                        this.attribute['PATK'] += this.GetSupportSkill('HN_SELFSTUDY_TATICS').lv; 
                     }
                     //自學魔法
                     if (this.IsSupportActive('HN_SELFSTUDY_SOCERY')){
-                        this.attritube['SMATK'] += this.GetSupportSkill('HN_SELFSTUDY_SOCERY').lv; 
+                        this.attribute['SMATK'] += this.GetSupportSkill('HN_SELFSTUDY_SOCERY').lv; 
                     }
 
                     // 奧汀神力
