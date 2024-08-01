@@ -6062,7 +6062,7 @@
 		"equipname": "Automatic Modification Orb (Holy Judex)",
 		"effectlist": [
 			{
-				"EffectNumber": "SKIDS(\"Judex\")?(15+(GEARR>6?3:0)+(GEARR>10?7:0)):0",
+				"EffectNumber": "SKIDS(\"JUDEX\")?(15+(GEARR>6?3:0)+(GEARR>10?7:0)):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -7339,6 +7339,1921 @@
 			}
 		],
 		"flags": "Stat",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311342,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Atk)",
+		"effectlist": [
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GEARR>8?10:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GEARR>10?5:0",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(GEARR/3))+(is2H?10:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(GEARR/3))+(is2H?10:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "Melee",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311343,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Matk)",
+		"effectlist": [
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GEARR>8?10:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GEARR>10?5:0",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(GEARR/3))+(is2H?10:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "Magic",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311344,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Cri)",
+		"effectlist": [
+			{
+				"EffectNumber": 4,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GEARR>10?5:0",
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(GEARR/3))+(GEARR>8?10:0)+(is2H?10:0)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "Crit",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311345,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Variable Casting)",
+		"effectlist": [
+			{
+				"EffectNumber": "7+(GEARR>8?8:0)+(is2H?5:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "CastTime",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311346,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Attack Speed)",
+		"effectlist": [
+			{
+				"EffectNumber": "7+(GEARR>8?8:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "is2H?1:0",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "ASPD",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311347,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Global Cooldown)",
+		"effectlist": [
+			{
+				"EffectNumber": "7+(GEARR>8?8:0)+(is2H?5:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "Delay",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311348,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Physical - Race)",
+		"effectlist": [
+			{
+				"EffectNumber": "10+(GEARR>8?10:0)+(is2H?15:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "Melee",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311349,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Magical - Race)",
+		"effectlist": [
+			{
+				"EffectNumber": "10+(GEARR>8?10:0)+(is2H?15:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "Magic",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311350,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Physical - Size)",
+		"effectlist": [
+			{
+				"EffectNumber": "10+(GEARR>8?10:0)+(is2H?15:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "Melee",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311351,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Magical - Size)",
+		"effectlist": [
+			{
+				"EffectNumber": "10+(GEARR>8?10:0)+(is2H?15:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "Magic",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311352,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Physical - Property)",
+		"effectlist": [
+			{
+				"EffectNumber": "10+(GEARR>8?10:0)+(is2H?15:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "Melee",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311353,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Magical - Property)",
+		"effectlist": [
+			{
+				"EffectNumber": "10+(GEARR>8?10:0)+(is2H?15:0)",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "Magic",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311192,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Dragon Breath)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"DRAGONBREATH\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311193,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Wind Cutter)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"WINDCUTTER\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311194,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Ignition Break)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"IGNITIONBREAK\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"IGNITIONBREAK\")?(GEARR>8?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311195,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Hundred Spears)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"HUNDREDSPEAR\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HUNDREDSPEAR\")?(GEARR>8?1.5:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311196,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Sonic Wave)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"SONICWAVE\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SONICWAVE\")?(GEARR>8?1.5:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311197,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Overbrand)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"OVERBRAND\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311198,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Hesperus Lit)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"HESPERUSLIT\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311199,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Vanishing Point)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"BANISHINGPOINT\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311200,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Cannon Spear)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"CANNONSPEAR\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"CANNONSPEAR\")?(GEARR>8?0.5:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311201,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Genesis Ray)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"RAYOFGENESIS\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"RAYOFGENESIS\")?(GEARR>8?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311202,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Shield Press)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"SHIELDPRESS\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SHIELDPRESS\")?(GEARR>8?0.25:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311203,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Earth Drive)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"EARTHDRIVE\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"EARTHDRIVE\")?(GEARR>8?1.2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311204,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Knuckle Boost)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"BOOSTKNUCKLE\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311205,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Arm Cannon)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"ARMSCANNON\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311206,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Axe Tornado)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"AXETORNADO\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"AXETORNADO\")?(GEARR>8?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311207,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Power Swing)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"POWERSWING\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311208,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Vulcan Arm)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"VULCANARM\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311209,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Axe Boomerang)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"AXEBOOMERANG\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311210,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Cart Tornado)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"CART_TORNADO\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311211,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Cart Cannon)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"CARTCANNON\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311212,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Spore Explosion)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"SPORE_EXPLOSION\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SPORE_EXPLOSION\")?(GEARR>8?2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311213,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Crazy Vines)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"CRAZYWEED\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"CRAZYWEED\")?(GEARR>8?2.5:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311214,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Cross Ripper Slasher)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"CROSSRIPPERSLASHER\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311215,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Rolling Cutter)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"ROLLINGCUTTER\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311216,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Counter Slash)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"COUNTERSLASH\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311217,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Cross Impact)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"COUNTERSLASH\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311218,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Fatal Menace)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"FATALMENACE\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311219,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Triangle Shot)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"TRIANGLESHOT\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311220,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Feint Bomb)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"FEINTBOMB\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311221,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Shadow Spell)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?(GEARR>10?40:0):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311222,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Elemental Spell)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"CRIMSONROCK EARTHSTRAIN JACKFROST CHAINLIGHTNING\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311223,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Soul Expansion)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"SOULEXPANSION\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"TELEKINESIS_INTENSE\")?(GEARR>8?30:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311224,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Comet)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"COMET\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311225,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Psychic Wave)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?(GEARR>8?1.5:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311226,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Diamond Dust)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"DIAMONDDUST\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311227,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Varetyr Spear)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"VARETYR_SPEAR\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"VARETYR_SPEAR\")?(GEARR>8?2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311228,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Earth Grave)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"EARTHGRAVE\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"EARTHGRAVE\")?(GEARR>8?2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311229,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Poison Burst)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"POISON_BUSTER\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"POISON_BUSTER\")?(GEARR>8?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311230,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Adoramus)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"ADORAMUS\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311231,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Judex)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"JUDEX\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311232,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Duple Light)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"DUPLELIGHT\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311233,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Tiger Cannon)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"TIGERCANNON\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"TIGERCANNON\")?(GEARR>8?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311234,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Tiger Cannon)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"RAMPAGEBLASTER\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"RAMPAGEBLASTER\")?(GEARR>8?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311235,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Sky Blow)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"SKYBLOW\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311236,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Lightning Ride)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"RIDEINLIGHTNING\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311237,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Knuckle Arrow)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"KNUCKLEARROW\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311238,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Aimed Bolt)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"AIMEDBOLT\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"AIMEDBOLT\")?(GEARR>8?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311239,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Arrow Storm)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"ARROWSTORM\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"ARROWSTORM\")?(GEARR>8?1.2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311240,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Warg Strike)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"WUGSTRIKE\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311241,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Severe Rainstorm)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"SEVERE_RAINSTORM\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SEVERE_RAINSTORM\")?(GEARR>8?2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311242,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Metallic Sound)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"METALICSOUND\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"METALICSOUND\")?(GEARR>8?2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311243,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Reverberation)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"REVERBERATION\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311244,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Prominence Burst)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"PROMINENCEKICK SOLARBURST\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311245,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Moon Kick)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"NEWMOONKICK FULLMOONKICK\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311246,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Flash Falling)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"FALLINGSTAR FLASHKICK\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311247,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Espa)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"SPA\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311248,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Eswhoo)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"SWHOO\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311249,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Curse Explosion)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"CURSEEXPLOSION\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311250,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Fire Dance)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"FIREDANCE\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311251,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Hammer of God)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"HAMMER_OF_GOD\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HAMMER_OF_GOD\")?(GEARR>8?8:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311252,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Dragon Tail)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"D_TAIL\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"D_TAIL\")?(GEARR>8?2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311253,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Storm Buster)",
+		"effectlist": [
+			{
+				"EffectNumber": "(SKIDS(\"BANISHING_BUSTER S_STORM\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0)+(SKIDS(\"BANISHING_BUSTER\")?(GEARR>8?20:0):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"S_STORM\")?(GEARR>8?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311254,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Round Trip)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"R_TRIP\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311255,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Cross Slash)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"JYUMONJIKIRI\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"JYUMONJIKIRI\")?(GEARR>8?2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311256,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Exploding Flake Wind)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"BAKUENRYU HYOUSYOURAKU KAMAITACHI\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311257,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Flame Ice Wind)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"KOUENKA HYOUSENSOU HUUJIN\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311258,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Splash Explosion)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"BAKURETSU HAPPOKUNAI\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311259,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Swirling Petal)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"HUUMARANKA\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HUUMARANKA\")?(GEARR>8?2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311260,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Silvervine Stem Spear)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"SV_STEMSPEAR\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311261,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Catnip Meteor)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"CN_METEOR\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"CN_METEOR\")?(GEARR>8?1.5:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311262,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Lunatic Carrot Beat)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"LUNATICCARROTBEAT\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311263,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Picky Peck)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"PICKYPECK\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311264,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Spirit of Savage)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"SVG_SPIRIT\")?(20+(10*DOWN(GEARR/3))+(GEARR>8?20:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311265,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Holy Cross)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"HOLYCROSS\")?(20+(20*DOWN(GEARR/3))+(GEARR>8?30:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311266,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Back Stab)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"BACKSTAP\")?(20+(20*DOWN(GEARR/3))+(GEARR>8?30:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311267,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Shield Boomerang)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"SHIELDBOOMERANG\")?(20+(20*DOWN(GEARR/3))+(GEARR>8?30:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311268,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Lord of Vermilion)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"VERMILION\")?(20+(20*DOWN(GEARR/3))+(GEARR>8?30:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311269,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Jupitel Thunder)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"JUPITEL\")?(20+(20*DOWN(GEARR/3))+(GEARR>8?30:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311270,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Meteor Storm)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"METEOR\")?(20+(20*DOWN(GEARR/3))+(GEARR>8?30:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
+		"idx": 3
+	},
+	{
+		"id": "weapon11",
+		"itemid": 311271,
+		"label": "Weapon Enchant",
+		"equipname": "Glacier Flower Spell (Storm Gust)",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"STORMGUST\")?(20+(20*DOWN(GEARR/3))+(GEARR>8?30:0)+(GEARR>10?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": "",
 		"idx": 3
 	}
 ]

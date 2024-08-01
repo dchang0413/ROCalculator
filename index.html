@@ -10045,6 +10045,10 @@
                     }
                     return _L;
                 },
+                checkWeap2H(id) {
+                    const idx = this.weapontypelist.findIndex((x) => x.id === id && x.isTwohand === true );
+                    return idx >= 0 ? true : false;
+                },
                 skillInUse(skillstring) { return skillstring.includes(this.skill.id.split(/^.*?_(.*?)([_(].*)?$/s)[1]); },
                 checkWeapGradeReq(grade)    { return this.checkGradeReq(0,grade); },
                 checkSubWeapGradeReq(grade) { return this.checkGradeReq(1,grade); },
@@ -13685,6 +13689,7 @@
                         { str1: 'WLV', str2: 'this.weapon.level.id', description: 'weapon level' },
                         { str1: 'WGT', str2: 'this.weapon.Weight', description: 'weapon weight' },
                         { str1: 'WTI', str2: 'this.weapon.type.id', description: 'weapon type' },
+                        { str1: 'is2H', str2: 'this.checkWeap2H(this.weapon.type.id)', description: 'is weapon 2H type' },
                         { str1: 'SRL', str2: 'this.subweapon.refinelevel', description: 'shield refine' },
                         { str1: 'SHW', str2: 'this.subweapon.ShieldWeight', description: 'shield weight' },
                         { str1: 'HATR', str2: 'this.equipspartlist[2].refinelevel', description: 'hat refine' },
@@ -13720,6 +13725,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-08-01', content: 'Added: Glacier and Dim Glacier weapons, 3rd class and below Glacier enchants' },
                         { id: '2024-07-29', content: 'Added: Megingjard, Altair Hat, Alpha Beast Armor, Gray Spell Enchants, Void Mimic Card & their combos, Critical Stones' },
                         { id: '2024-07-25', content: 'Added: Smiling Eyes, Royal Prontera Cape, Guardian Shield, Black Eagle Ring, Full Rate Shadows, Creative Shadows' },
                         { id: '2024-07-23', content: 'Updated: Rapid Smithing Formula' },
