@@ -11275,8 +11275,9 @@
                     }
                     // 加速
                     if (this.IsSupportActive('AL_INCAGI')){
-                        this.status_add.AGI += 12;
-                        this.attribute['SKILLASPDP'] += 10;
+                        var _lv = this.GetSupportSkill('AL_INCAGI').lv;
+                        this.status_add.AGI += 2+_lv;
+                        this.attribute['SKILLASPDP'] += _lv;
                     }
                     if (this.IsSupportActive('AB_CANTO')){
                         var jc = Math.floor(this.GetSupportSkill('AB_CANTO').arg1 / 10);
@@ -11285,10 +11286,11 @@
                     }
                     // 天賜
                     if (this.IsSupportActive('AL_BLESSING')){
-                        this.status_add.STR += 10;
-                        this.status_add.INT += 10;
-                        this.status_add.DEX += 10;
-                        this.attribute['HIT'] += 20;
+                        var _lv = this.GetSupportSkill('AL_BLESSING').lv;
+                        this.status_add.STR += _lv;
+                        this.status_add.INT += _lv;
+                        this.status_add.DEX += _lv;
+                        this.attribute['HIT'] += 2*_lv;
                     }
                     if (this.IsSupportActive('AL_ANGELUS')){
                         var _lv = this.GetSupportSkill('AL_ANGELUS').lv;
@@ -13358,8 +13360,8 @@
                         { skill: { id: 'ABC_DAGGER_AND_BOW_M', name: 'Dagger & Bow Mastery', maxlv: 10, lv: 10, class: 'SC', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'ABC_MAGIC_SWORD_M', name: 'Magic Sword Mastery', maxlv: 10, lv: 10, class: 'SC', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
-                        { skill: { id: 'AL_INCAGI', name: 'Increase AGI', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AB_CANTO', Note: '', } },
-                        { skill: { id: 'AL_BLESSING', name: 'Blessing', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AB_CLEMENTIA', Note: '', } },
+                        { skill: { id: 'AL_INCAGI', name: 'Increase AGI', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AB_CANTO', Note: '', } },
+                        { skill: { id: 'AL_BLESSING', name: 'Blessing', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AB_CLEMENTIA', Note: '', } },
                         { skill: { id: 'AL_ANGELUS', name: 'Angelus', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'AB_CANTO', name: 'Cantocandidus', maxlv: 3, lv: 3, class: 'AB', changelv: false, argnum: 1, arg1: 70, arg1desc: 'Caster JLv', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AL_INCAGI', Note: '', } },
                         { skill: { id: 'AB_CLEMENTIA', name: 'Clementia', maxlv: 3, lv: 3, class: 'AB', changelv: false, argnum: 1, arg1: 70, arg1desc: 'Caster Jlv', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AL_BLESSING', Note: '', } },
