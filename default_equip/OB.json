@@ -743,5 +743,148 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 650024,
+		"label": "MainHand",
+		"equipname": "Humma Shuriken Clearness-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "WEAG(1)?3:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "15*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HUUMARANKA\")?((WEAR>6?30:0)+(WEAR>8?15:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HUUMARANKA\")?(WEAR>8?2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(WEAR/3))+(WEAG(2)?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10&&[1,6,7,9].includes(EEI)?25:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10&&[3,4,9].includes(ERI)?25:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?1:0)+(WEAG(3)?3:(WEAG(2)?1:0)))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?2:0)+(WEAG(3)?3:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shuriken",
+				"label": "Fuuma",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "290",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 230,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
 	}
 ]

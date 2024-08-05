@@ -1186,7 +1186,7 @@
 		"id": "helm1",
 		"itemid": 410071,
 		"label": "Middle",
-		"equipname": "Demon's Familiar (Set)",
+		"equipname": "Demon's Familiar",
 		"refinelevel": 0,
 		"grade": {
 			"id": 0,
@@ -1199,23 +1199,58 @@
 					"id": "AllStatus"
 				},
 				"Enable": true
-			},
-			{
-				"EffectNumber": 200,
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 200,
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
 			}
 		],
-		"combolist": [],
+		"combolist": [
+			{
+				"itemid_every": [],
+				"itemid_any": [
+					600008,
+					610006,
+					630003,
+					640005,
+					650003,
+					700007,
+					700008,
+					700009,
+					810000,
+					820000,
+					830001,
+					840000,
+					500007,
+					500008,
+					510008,
+					510009,
+					520002,
+					530002,
+					540004,
+					540005,
+					550008,
+					550009,
+					570005,
+					580005,
+					590006,
+					560004
+				],
+				"equipname": "Episode 17.2 weapons",
+				"effectlist": [
+					{
+						"EffectNumber": 200,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 200,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	},
 	{
@@ -4577,6 +4612,142 @@
 			"ArrowATK": 0,
 			"BulletATK": 0,
 			"Weight": 120,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 700049,
+		"label": "MainHand",
+		"equipname": "Narcis Bow-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5+(WEAG(1)?3:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SEVERE_RAINSTORM\")?((WEAR>6?25:0)+(WEAR>8?30:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(WEAR/3))+(WEAG(2)?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SEVERE_RAINSTORM\")?(WEAR>6?2:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>8?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?15:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?1:0)+(WEAG(3)?3:(WEAG(2)?1:0)))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?2:0)+(WEAG(3)?3:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Bows",
+				"label": "Bow",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "210",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 100,
 			"refinematk": 0,
 			"refineatk": 0,
 			"refineatk2": 0

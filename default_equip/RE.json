@@ -1867,5 +1867,664 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 800013,
+		"label": "MainHand",
+		"equipname": "Crimson Rose-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(WEAR>8?7:0)+(WEAG(1)?3:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "15*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"FIREDANCE\")?((WEAR>6?25:0)+(WEAR>8?35:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?10:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?15:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(WEAR/3))+(WEAG(2)?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?1:0)+(WEAG(3)?3:(WEAG(2)?1:0)))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?2:0)+(WEAG(3)?3:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Pistol",
+				"label": "Pistol",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "200",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 100,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 810009,
+		"label": "MainHand",
+		"equipname": "Master Soul Rifle-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "WEAG(1)?3:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "15*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"SOULSTRIKE NAPALMVULCAN\")?(20*DOWN(WEAR/3)):0)+(SKIDS(\"SOULEXPANSION\")?((WEAR>6?40:0)+(WEAR>10?30:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>6&&AEI==8)?25:0)+(WEAG(2)&&AEI==8?15:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?15:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(WEAR/3))+(WEAG(2)?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?1:0)+(WEAG(3)?3:(WEAG(2)?1:0)))",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?2:0)+(WEAG(3)?3:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Rifle",
+				"label": "Rifle",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "200",
+			"MATK": 250,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 100,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 820007,
+		"label": "MainHand",
+		"equipname": "Demon Slayer Shot-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "WEAG(1)?3:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "15*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"BANISHING_BUSTER S_STORM\")?((WEAR>6?30:0)+(WEAR>8?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"S_STORM\")?(WEAR>8?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10&&isBoss?15:0",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10&&[3,9].includes(ERI)?15:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?15:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(WEAR/3))+(WEAR>6?10:0)+(WEAG(2)?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?1:0)+(WEAG(3)?3:(WEAG(2)?1:0)))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?2:0)+(WEAG(3)?3:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shotgun",
+				"label": "Shotgun",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "295",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 230,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 830012,
+		"label": "MainHand",
+		"equipname": "The Black-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "WEAG(1)?3:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(15*DOWN(WEAR/2))+(WEAR>6?50:0)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"R_TRIP\")?((WEAR>6?25:0)+(WEAR>8?25:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?15:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(WEAR/3))+(WEAR>8?15:0)+(WEAG(2)?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?1:0)+(WEAG(3)?3:(WEAG(2)?1:0)))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?2:0)+(WEAG(3)?3:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Gatling",
+				"label": "Gatling",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "225",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 300,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 840008,
+		"label": "MainHand",
+		"equipname": "Golden Lord Launcher-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "WEAG(1)?3:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "15*DOWN(WEAR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"D_TAIL\")?((WEAR>6?20:0)+(WEAR>8?35:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"D_TAIL\")?(WEAR>6?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?15:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?15:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(WEAR/3))+(WEAR>8?15:0)+(WEAG(2)?15:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?1:0)+(WEAG(3)?3:(WEAG(2)?1:0)))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BLV>209?2:0)+(WEAG(3)?3:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470094
+				],
+				"itemid_any": [],
+				"equipname": "Hero Boots-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Launcher",
+				"label": "Launcher",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "350",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 240,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
 	}
 ]
