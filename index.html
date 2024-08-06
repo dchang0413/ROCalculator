@@ -9455,7 +9455,8 @@
                     this.computeattribute.AspdDelay = Math.floor((200 - this.status.ASPD) / 50 * 100) / 100;
                     var _MaxDelay = Math.max(this.computeattribute.DelayTime, this.computeattribute.AspdDelay);
                     this.computeattribute.HitperSec = Math.floor(1 / _MaxDelay * 100) / 100;
-                    if (this.computeattribute.HitperSec > 7.14) this.computeattribute.HitperSec = 7.14;
+                    // 7.14 if correctly configured to 193 aspd, currently iRO is on 5.4
+                    if (this.computeattribute.HitperSec > 5.4) this.computeattribute.HitperSec = 5.4;
                 },
                 resetRecord(){
                     this.computeRecord = [];
