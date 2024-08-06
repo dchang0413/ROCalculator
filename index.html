@@ -9455,7 +9455,8 @@
                     this.computeattribute.AspdDelay = Math.floor((200 - this.status.ASPD) / 50 * 100) / 100;
                     var _MaxDelay = Math.max(this.computeattribute.DelayTime, this.computeattribute.AspdDelay);
                     this.computeattribute.HitperSec = Math.floor(1 / _MaxDelay * 100) / 100;
-                    if (this.computeattribute.HitperSec > 7.14) this.computeattribute.HitperSec = 7.14;
+                    // 7.14 if correctly configured to 193 aspd, currently iRO is on 5.4
+                    if (this.computeattribute.HitperSec > 5.4) this.computeattribute.HitperSec = 5.4;
                 },
                 resetRecord(){
                     this.computeRecord = [];
@@ -13727,7 +13728,7 @@
                     );
 
                     this.UpdateLogList.push(
-                        { id: '2024-08-06', content: 'Added: OCP62 items' },
+                        { id: '2024-08-06', content: 'Adjusted Action per sec limit to iRO environment<br>Added: OCP62 items' },
                         { id: '2024-08-01', content: 'Added: Glacier and Dim Glacier weapons, 3rd class and below Glacier enchants' },
                         { id: '2024-07-29', content: 'Added: Megingjard, Altair Hat, Alpha Beast Armor, Gray Spell Enchants, Void Mimic Card & their combos, Critical Stones' },
                         { id: '2024-07-25', content: 'Added: Smiling Eyes, Royal Prontera Cape, Guardian Shield, Black Eagle Ring, Full Rate Shadows, Creative Shadows' },
