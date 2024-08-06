@@ -2327,5 +2327,75 @@
 			"refinematk": 0,
 			"refineatk": 0
 		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 530028,
+		"label": "MainHand",
+		"equipname": "Rhongomyniad",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(2*WEAR)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"RAYOFGENESIS\")?(DOWN(MIN(250,BLV)/2)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?150:0)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedSpears",
+				"label": "1HSpear",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "110",
+			"MATK": 180,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 180,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
 	}
 ]

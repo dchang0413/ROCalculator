@@ -2274,5 +2274,62 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "armor",
+		"itemid": 450247,
+		"label": "Armor",
+		"equipname": "Brilliant",
+		"refinelevel": 13,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='SU'?70:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"RIDEINLIGHTNING\")&&CCL=='SU'?(2*MIN(250,BLV)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>8?(2*DOWN(MIN(250,BLV)/2)):(ARMORR>6?(DOWN(MIN(250,BLV)/2)):0)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>11?10:0",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>12?30:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]

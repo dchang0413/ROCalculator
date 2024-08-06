@@ -1,6 +1,63 @@
 [
 	{
 		"id": "acc1",
+		"itemid": 490098,
+		"label": "Accessory",
+		"equipname": "Ring of Pazuzu",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"CRIMSONROCK CHAINLIGHTNING\")?(DOWN(BLV/3)):0)+(SKIDS(\"VERMILION\")?(6*BLV):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"CHAINLIGHTNING\")&&CCL=='WL'?0.5:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='WL'?15:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='WL'&&[0,1,3].includes(AEI)?15:0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='WL'?30:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
 		"itemid": 490029,
 		"label": "Accessory",
 		"equipname": "Geffenia Ice Magic Tool",

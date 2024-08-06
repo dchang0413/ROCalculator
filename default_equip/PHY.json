@@ -5051,5 +5051,132 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "helm",
+		"itemid": 400006,
+		"label": "Upper",
+		"equipname": "Orc Successor Helm",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "1+(HATR>9?10:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(HATR/4))+(HATR>10?20:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>9?20:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4143
+				],
+				"itemid_any": [],
+				"equipname": "Orc Hero Card",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4135
+				],
+				"itemid_any": [],
+				"equipname": "Orc Lord Card",
+				"effectlist": [
+					{
+						"EffectNumber": 50,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4255
+				],
+				"itemid_any": [],
+				"equipname": "Orc Lady Card",
+				"effectlist": [
+					{
+						"EffectNumber": "[1,2].includes(ERI)?10:0",
+						"EffectType": {
+							"id": "RaceAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4256
+				],
+				"itemid_any": [],
+				"equipname": "Orc Archer Card",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "AspdPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4066,
+					4135,
+					4143,
+					4255,
+					4256
+				],
+				"itemid_any": [],
+				"equipname": "Orc Hero|Lord|Lady|Warrior|Archer Cards",
+				"effectlist": [
+					{
+						"EffectNumber": 9999,
+						"EffectType": {
+							"id": "WeaponOccult"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
