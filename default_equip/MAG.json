@@ -2826,5 +2826,311 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 13414,
+		"label": "MainHand",
+		"equipname": "Elemental Sword",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 4,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "EEI==0?10:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedSwords",
+				"label": "1HSword",
+				"sizefix": {
+					"small": 75,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 3 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "105",
+			"MATK": 95,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 120,
+			"refinematk": 70,
+			"refineatk": 70,
+			"refineatk2": 112
+		}
+	},
+	{
+		"id": "shoes",
+		"itemid": 470033,
+		"label": "Shoes",
+		"equipname": "Elemental Boots",
+		"refinelevel": 13,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"FIREBOLT LIGHTNINGBOLT COLDBOLT EARTHSPIKE\")?(15+(2*SHOER)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>6?20:0",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>8?10:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>8?70:0",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>10&&[1,2,3,4].includes(AEI)?10:0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					13414
+				],
+				"itemid_any": [],
+				"equipname": "Elemental Sword",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "ASPD"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 70,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAR>9?10:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490570,
+		"label": "Accessory",
+		"equipname": "Elemental Ring",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 30,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470033
+				],
+				"itemid_any": [],
+				"equipname": "Elemental Boots",
+				"effectlist": [
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "[1,2,3,4].includes(AEI)?20:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					13414
+				],
+				"itemid_any": [],
+				"equipname": "Elemental Sword",
+				"effectlist": [
+					{
+						"EffectNumber": 60,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "ASPD"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					13414,
+					470033
+				],
+				"itemid_any": [],
+				"equipname": "Elemental Sword + Elemental Boots",
+				"effectlist": [
+					{
+						"EffectNumber": 120,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR+SHOER)>25?7:0",
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR+SHOER)>25?10:0",
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR+SHOER)>25?10:0",
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
