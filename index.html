@@ -3558,11 +3558,11 @@
                                                 <el-row class="statusbox textcenter" type="flex" align="middle"
                                                     style="height:40px;">
                                                     <el-col class="textcenter" :span="12">
-                                                        Talent Stats {{computeattribute.RaisingTStatsPoint}}/{{TStatusPoint[this.status.Level-200]}}Pt.
+                                                        Talent Stats {{computeattribute.RaisingTStatsPoint}}/{{getTStatusPoint(this.status.Level)}}Pt.
                                                     </el-col>
                                                     <el-col v-if="computeattribute.RaisingTStatsPoint>TStatusPoint[this.status.Level-200]"
                                                         class="textcenter" :span="12">
-                                                        Short of {{computeattribute['RaisingTStatsPoint']-TStatusPoint[this.status.Level-200]}}Pt.
+                                                        Short of {{computeattribute['RaisingTStatsPoint']-getTStatusPoint(this.status.Level)}}Pt.
                                                     </el-col>
                                                 </el-row>
                                             </div>
@@ -7401,7 +7401,6 @@
                 englishthanksList: [],
                 UpdateLogList: [],
                 CurrentUpdateVersion: '',
-                TStatusPoint: [7,10,13,16,19,26,29,32,35,38,45,48,51,54,57,64,67,70,73,76,83,86,89,92,95,102,105,108,111,114,121,124,127,130,133,140,143,146,149,152,159,162,165,168,171,178,181,184,187,190,197],
                 classlist: [
                     { id: 'RK', label: 'RuneKnight/DragonKnight', TranscendentClass: true, JobMaxPoint:[6,6,7,10,9,5], TJobMaxPoint:[6,8,7,8,8,6,8,5,3,5,6,6],
                         basehp: [8100, 8133, 8242, 8352, 8464, 8576, 8690, 8804, 8920, 9036, 9154, 9273, 9393, 9514, 9636, 9759, 9883, 10008, 10134, 10261, 10389, 10518, 10648, 10779, 10912, 11045, 11180, 11315, 11452, 11589, 11728, 11868, 12009, 12151, 12294, 12438, 12583, 12729, 12876, 13024, 13173, 13323, 13474, 13626, 13780, 13934, 14090, 14246, 14404, 14562, 14722, 14883, 15042, 15100, 15260, 15321, 15481, 15541, 15600, 15760, 15820, 15980, 16141, 16303, 16466, 16630, 16795, 16961, 17128, 17296, 17465, 17635, 17806, 17978, 18151, 18325, 18500, 18759, 19059, 19269, 19558, 19851, 20228, 20491, 20676, 20862, 21070, 26777,27102,27428,27753,28078,28403,28730,29055,29380,29706,30031,30356,30682,31007,31332], 
@@ -8309,6 +8308,9 @@
                 },
             },
             methods: {
+                getTStatusPoint(level){
+                    return (level-199)*3 + Math.floor((level-195)/5)*4;
+                },
                 ShrinkEquipPanels(){
                     for (const [key, value] of Object.entries(this.equipspartlist.slice(0,10))){
                         this.UIPanel[value.id+'Panel'] = false;
