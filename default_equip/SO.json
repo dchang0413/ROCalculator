@@ -11,6 +11,13 @@
 		},
 		"effectlist": [
 			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
 				"EffectNumber": "SWEAR>10?160:SWEAR>8?10:0",
 				"EffectType": {
 					"id": "INT"
@@ -25,7 +32,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "4*DOWN(SWEAR/3)",
+				"EffectNumber": "[2,4].includes(AEI)?(4*DOWN(SWEAR/3)):0",
 				"EffectType": {
 					"id": "ElementalMagicPercent"
 				},
@@ -60,6 +67,86 @@
 			"ATK": 0,
 			"MATK": 0,
 			"refinelevel": 11,
+			"ShieldWeight": 50,
+			"refinematk": 22,
+			"refineatk": 22
+		}
+	},
+	{
+		"id": "weaponl",
+		"itemid": 460083,
+		"label": "OffHand",
+		"equipname": "Forbidden Grimoire II",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAR>8?2:0",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAR>8?0.5:0",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAR>10?150:0",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[0,3].includes(AEI)?(4*DOWN(SWEAR/3)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": false
+			},
+			{
+				"EffectNumber": "100*SWEAR",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shield",
+				"label": "Shield"
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 2,
+				"saferefine": 7,
+				"overatk": 3
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": 0,
+			"MATK": 0,
+			"refinelevel": 12,
 			"ShieldWeight": 50,
 			"refinematk": 22,
 			"refineatk": 22

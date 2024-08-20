@@ -2485,5 +2485,55 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "robe",
+		"itemid": 480465,
+		"label": "Garment",
+		"equipname": "Melody Wing",
+		"refinelevel": 13,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "['MI','WA'].includes(CCL)?10:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"SEVERE_RAINSTORM\")?(['MI','WA'].includes(CCL)?(2*DOWN(BLV/10)):0):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(['MI','WA'].includes(CCL)&&GARMR>8)?12:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(['MI','WA'].includes(CCL)&&GARMR>10&&isBoss)?15:0",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 9999,
+				"EffectType": {
+					"id": "WeaponPerfection"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]

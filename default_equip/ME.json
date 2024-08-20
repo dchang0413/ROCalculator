@@ -2164,5 +2164,346 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "shadow",
+		"itemid": 24290,
+		"label": "S.Weapon",
+		"equipname": "Mechanic Shadow Weapon",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"VULCANARM\")?(20+(5*SHWEAR)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowshld",
+		"itemid": 24465,
+		"label": "S.Shield",
+		"equipname": "Tornado Shadow Shield",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "3+(SHSHIER>6?3:0)+(SHSHIER>8?4:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24466,
+					24464
+				],
+				"itemid_any": [],
+				"equipname": "Tornado Shadow Armor and Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": "DOWN((SHSHIER+SHARMORR+SHSHOER)/2)",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24290
+				],
+				"itemid_any": [],
+				"equipname": "Mechanic Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": "40+(SHSHIER+SHWEAR)",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 24464,
+		"label": "S.Armor",
+		"equipname": "Tornado Shadow Armor",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"AXETORNADO\")?(5+(2*DOWN(SHARMORR/2))):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 24466,
+		"label": "S.Shoes",
+		"equipname": "Tornado Shadow Shoes",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 24824,
+		"label": "S.Armor",
+		"equipname": "M. Meister Shadow Armor",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [
+					24793
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24793,
+					24825
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow Shield + M. Meister Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 1,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 1,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHSHIER+SHARMORR+SHSHOER)>26?50:0",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHSHIER+SHARMORR+SHSHOER)>26?50:0",
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24792,
+					24793,
+					24825,
+					24826,
+					24827
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow (Weapon/Shield) + M. Meister Shadow (Shoes/Earring/Pendant)",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "BypassRESPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "BypassMRESPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 24825,
+		"label": "S.Shoes",
+		"equipname": "M. Meister Shadow Shoes",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [
+					24793
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 24826,
+		"label": "S.Earring",
+		"equipname": "M. Meister Shadow Earring",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [
+					24792
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24792,
+					24827
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow Weapon + M. Meister Shadow Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": 1,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 1,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHWEAR+SHACCRR+SHACCLR)>26?50:0",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHWEAR+SHACCRR+SHACCLR)>26?50:0",
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 24827,
+		"label": "S.Pendant",
+		"equipname": "M. Meister Shadow Pendant",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [
+					24792
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
