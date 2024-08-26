@@ -1383,11 +1383,23 @@
 
                                         <el-row :class="PreviewETL[GetETLIndex('BypassDEFPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
                                             <el-col class="textcenter" :span="12">
-                                                Ignore DEF%
+                                                Bypass DEF%
                                             </el-col>
                                             <el-col class="textcenter" :span="12">
                                                 <el-input v-if="PreviewETL[0]"
                                                     v-model="PreviewETL[GetETLIndex('BypassDEFPercent')].totalvalue"
+                                                    v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
+                                                </el-input>
+                                            </el-col>
+                                        </el-row>
+
+                                        <el-row :class="PreviewETL[GetETLIndex('BypassRESPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
+                                            <el-col class="textcenter" :span="12">
+                                                Bypass RES%
+                                            </el-col>
+                                            <el-col class="textcenter" :span="12">
+                                                <el-input v-if="PreviewETL[0]"
+                                                    v-model="PreviewETL[GetETLIndex('BypassRESPercent')].totalvalue"
                                                     v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
                                                 </el-input>
                                             </el-col>
@@ -1606,11 +1618,23 @@
 
                                         <el-row :class="PreviewETL[GetETLIndex('BypassMDEFPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
                                             <el-col class="textcenter" :span="12">
-                                                Ignore MDEF%
+                                                Bypass MDEF%
                                             </el-col>
                                             <el-col class="textcenter" :span="12">
                                                 <el-input v-if="PreviewETL[0]"
                                                     v-model="PreviewETL[GetETLIndex('BypassMDEFPercent')].totalvalue"
+                                                    v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
+                                                </el-input>
+                                            </el-col>
+                                        </el-row>
+
+                                        <el-row :class="PreviewETL[GetETLIndex('BypassMRESPercent')].totalvalue!=0?'previeweffectbox2':''" :gutter="6" type="flex" align="middle">
+                                            <el-col class="textcenter" :span="12">
+                                                Bypass MRES%
+                                            </el-col>
+                                            <el-col class="textcenter" :span="12">
+                                                <el-input v-if="PreviewETL[0]"
+                                                    v-model="PreviewETL[GetETLIndex('BypassMRESPercent')].totalvalue"
                                                     v-on:keyup.enter.native="OnEditEquipEffect()" placeholder="Value">
                                                 </el-input>
                                             </el-col>
