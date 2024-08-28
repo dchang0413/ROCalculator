@@ -9521,9 +9521,8 @@
                     }
                     this.computeattribute.AspdDelay = Math.floor((200 - this.status.ASPD) / 50 * 100) / 100;
                     var _MaxDelay = Math.max(this.computeattribute.DelayTime, this.computeattribute.AspdDelay);
-                    this.computeattribute.HitperSec = Math.floor(1 / _MaxDelay * 100) / 100;
-                    // 7.14 if correctly configured to 193 aspd, currently iRO is on 5.4
-                    if (this.computeattribute.HitperSec > 5.4) this.computeattribute.HitperSec = 5.4;
+                    // 7.14 if correctly configured to 193 aspd
+                    this.computeattribute.HitperSec = Math.min(7.14,Math.floor(1 / _MaxDelay * 100) / 100);
                 },
                 resetRecord(){
                     this.computeRecord = [];
@@ -13895,6 +13894,8 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-08-27', content: 'Updated: Action per sec for DPS calculation' },
+                        { id: '2024-08-25', content: 'Updated: RES/MRES Field for Equip' },
                         { id: '2024-08-20', content: 'Updated: Support Lv250+ Talent Stat, added 260/55 update skill presets <br>Added: August Kachua, shadows and some LT items' },
                         { id: '2024-08-12', content: 'Added: Spell Caster shadow gears and Hot Molar Card' },
                         { id: '2024-08-06', content: 'Adjusted Action per sec limit to iRO environment<br>Added: OCP62 items' },
