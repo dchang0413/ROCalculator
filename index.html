@@ -12868,6 +12868,8 @@
                     this.$refs.fileInputImport.value = "";
                 },
                 initTemplate(templateid){
+                    console.log(getURL());
+                    console.log(this.getURL());
                     let href = this.getURL()+'template/'+templateid+'.json';
                     const self = this;
                     fetch(href, {cache: "no-cache"})
@@ -14281,7 +14283,7 @@
                     this.SaveEquipDB();
                 },
                 loadPets(){
-                    let href = this.geturl()+'default_equip/PETS.json';
+                    let href = this.getURL()+'default_equip/PETS.json';
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
@@ -14292,7 +14294,7 @@
                     })
                 },
                 loadCostumeStones(){
-                    let href = this.geturl()+'default_equip/STONES.json';
+                    let href = this.getURL()+'default_equip/STONES.json';
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
@@ -14303,7 +14305,7 @@
                     })
                 },
                 loadCards(){
-                    let href = this.geturl()+'default_equip/CARDS.json';
+                    let href = this.getURL()+'default_equip/CARDS.json';
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
@@ -14314,7 +14316,7 @@
                     })
                 },
                 loadEnchants(){
-                    let href = this.geturl()+'default_equip/ENCHANTS.json';
+                    let href = this.getURL()+'default_equip/ENCHANTS.json';
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
@@ -14323,7 +14325,7 @@
                 },
                 loadDefaultEquip(){
                     let selected_file = this.select_default;
-                    let href = this.geturl()+'default_equip/'+selected_file+'.json';
+                    let href = this.getURL()+'default_equip/'+selected_file+'.json';
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
@@ -14475,7 +14477,7 @@
                     return found ? found.label : null;
                 },
                 validateFileChecksumAndLoad(filename, currentHash) {
-                    let href = this.geturl()+'default_equip/'+filename+'.json';
+                    let href = this.getURL()+'default_equip/'+filename+'.json';
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
