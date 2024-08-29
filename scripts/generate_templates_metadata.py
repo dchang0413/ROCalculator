@@ -41,16 +41,20 @@ def list_all_files_in_folder(folder):
         for file in files:
             if "metadata" in file:
                 continue
-            output.append(os.path.join(root, file))
+            output.append({
+                "file": os.path.join(root, file),
+                "name": file
+            })
     return output
 
 
 def read_metadata_from_files(files):
     output = []
-    for file in files:
-        with open(file, "r+") as f:
-            data = json.load(f)
+    for f in files:
+        with open(f["file"], "r+") as read:
+            data = json.load(read)
             output.append({
+                "filename": f["name"],
                 "name": data["Name"],
                 "class": get_class_label_by_name(data["Status"]["classid"]),
                 "skill": data["SkillName"],
