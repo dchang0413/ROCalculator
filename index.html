@@ -1646,6 +1646,128 @@
                 </el-col>
             </el-row>
         </el-dialog>
+        <el-dialog :visible.sync="UIPanel['BuildPresetDialog']" v-on:close="ClosePanel('BuildPresetDialog')"
+            custom-class="Dialogue-container" width="80%" top="50px" center>
+            <span slot="title">Build Presets</span>
+            <el-row :gutter="6">
+                <div class="statusbox titlebox" style="padding: 5px 5px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
+                        <el-row class="statusbox bg-purple-light" :span="4" :gutter="4" type="flex" align="middle">
+                            <el-col class="textcenter" >
+                                    <el-input v-model="BuildSearchString" @input="onFilterBuildSearch" placeholder="Search" clearable>
+                                    </el-input>
+                            </el-col>
+                        </el-row>
+                        <el-col class="textcenter" :span="2">
+                            <el-button v-on:click="onFilterBuildClear">
+                                All
+                            </el-button>
+                        </el-col>
+                        <el-col class="textcenter" style="text-align: left;" :span="18">
+                            <el-checkbox-group v-model="AvailableClassesMetadataGroup" v-on:change="onFilterBuildPart"
+                                fill="#909399" text-color="white">
+                                <el-checkbox-button v-for="(item, index) in FilterClassList()" :label="item" :key="index">
+                                    {{item}}
+                                </el-checkbox-button>
+                            </el-checkbox-group>
+                        </el-col>
+                    </el-row>
+                </div>
+                <div class="statusbox titlebox" style="padding: 5px 5px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                        <el-col class="textcenter" :span="4" style="text-align: center;">
+                            <span class=""><b>Name</b></span>
+                        </el-col>
+                        <el-col class="textcenter" :span="6">
+                            <span class=""><b>Class</b></span>
+                        </el-col>
+                        <el-col class="textcenter" :span="4">
+                            <span class=""><b>Level</b></span>
+                        </el-col>
+                        <el-col class="textcenter" :span="6">
+                            <span class=""><b>Skill Name</b></span>
+                        </el-col>
+                        <el-col class="textcenter" :span="6">
+                            <span class=""><b>Enemy</b></span>
+                        </el-col>
+                        <el-col class="textcenter" :span="8">
+                            <span class=""><b>Damage</b></span>
+                        </el-col>
+                        <el-col :span="6">
+                        </el-col>
+                    </el-row>
+                </div>
+                <el-scrollbar id="BuildListCont" wrap-class="EquipList-container" :native="false" :noresize="false">
+                    <div v-for="(item, index) in AvailableClassesMetadataList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)" v-bind:key="item.filename">
+                        <div style="padding: 5px 5px;">
+                            <el-row class="effectline" :class="index%2==0?'bg-purple-light':'bg-purple'">
+                                <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-col class="textcenter" :span="4" style="text-align: center;">
+                                        <span class="EffectType">{{ item.name }}</span>
+                                    </el-col>
+                                    <el-col class="textcenter" :span="6">
+                                        <span class="">{{ item.class }}</span>
+                                    </el-col>
+                                    <el-col class="textcenter" :span="4">
+                                        <span class="">{{ item.level }}</span>
+                                    </el-col>
+                                    <el-col class="textcenter" :span="6">
+                                        <span class="">{{ item.skill }}</span>
+                                    </el-col>
+                                    <el-col class="textcenter" :span="6">
+                                        <span class="">{{ item.enemy }}</span>
+                                    </el-col>
+                                    <el-col class="textcenter" :span="8">
+                                        <span class="">{{ item.damage }}</span>
+                                    </el-col>
+                                    <el-col :span="6">
+                                        <el-button v-on:click="loadBuild(item.filename)" icon="el-icon-check"
+                                            type="success" type="primary" size="small">
+                                            Load Build
+                                        </el-button>
+                                    </el-col>
+                                </el-row>
+                            </el-row>
+                        </div>
+                    </div>
+                </el-scrollbar>
+                <div class="statusbox titlebox" style="padding: 5px 5px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                        <el-col class="textcenter" :span="4" style="text-align: right;">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col class="textcenter">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="6">
+                            <el-select v-model="ItemsPerPage" v-on:change="updateItemsPerPage" placeholder="" v-bind="ItemsPerPage">
+                                <el-option v-for="option in PageOptions" :key="option" :label="option" :value="option">
+                                </el-option>
+                            </el-select>
+                        </el-col>
+                        <el-col :span="14">
+                            <b-pagination
+                                class="m-0"
+                                align="right"
+                                v-model="PageIndex"
+                                :total-rows="BuildCount"
+                                :per-page="ItemsPerPage"
+                                aria-controls="BuildListCont">
+                            </b-pagination>
+                        </el-col>
+                    </el-row>
+                </div>
+            </el-row>
+        </el-dialog>
         <el-dialog :visible.sync="UIPanel['EquipDBDialog']" v-on:close="ClosePanel('EquipDBDialog')"
             custom-class="Dialogue-container" width="80%" top="50px" center>
             <span slot="title">Equip List</span>
@@ -3183,6 +3305,11 @@
         <div class="ROCalTitle">
             <el-row type="flex" align="middle" justify="end" :gutter="1">
                 <el-col :span="1">
+                </el-col>
+                <el-col :span="2">
+                    <el-button v-on:click="onOpenBuildPreset" size="mini">
+                        Build Presets
+                    </el-button>
                 </el-col>
                 <el-col :span="2">
                     <el-button v-on:click="onOpenAllSet" size="mini">
@@ -7402,6 +7529,10 @@
 
                 StoreDB_Consumable: [],
 
+                BuildSearchString: '',
+                BuildMetadata: [],
+                AvailableClassesMetadataGroup: [],
+                AvailableClassesMetadataList: [],
                 ImportedAllSetData: {},
                 StoreDB_AllSet: [],
                 TempAllSet: {},
@@ -8324,6 +8455,7 @@
                     EquipDBDialog: false,
                     EquipEffectDialog: false,
                     EditEquipDialog: false,
+                    BuildPresetDialog: false,
                     AllSetDBDialog: false,
                     AllSetDBSaveDialog: false,
                     ConsumableDBDialog: false,
@@ -8599,6 +8731,17 @@
                         this.equipspartlist[eqindex].effectlist.splice(index, 1)
                         this.CombineEquipsAttribute();
                     }
+                },
+                FilterClassList(){
+                    const labelSet = new Set();
+                    const output = [];
+                    for (const clss of this.BuildMetadata) {
+                        if (!labelSet.has(clss.class)) {
+                            output.push(clss.class);
+                            labelSet.add(clss.class);
+                        }
+                    }
+                    return output;
                 },
                 FilterEquipList(){
                     const equips = [...this.equipspartlist.slice(0, 10), ...this.equipspartlist.slice(37, 43)];
@@ -12129,6 +12272,14 @@
                     }
                     this.OpenPanel('EquipDBDialog');
                 },
+                onFilterBuildSearch() {
+                    this.AvailableClassesMetadataGroup = [];
+                    this.AvailableClassesMetadataList = this.BuildMetadata.filter(post => {
+                        return this.BuildSearchString.toLowerCase().split(' ').every(v => post.class.toLowerCase().includes(v) ||
+                                                                                          post.skill.toLowerCase().includes(v) ||
+                                                                                          post.enemy.toLowerCase().includes(v))
+                    });
+                },
                 onFilterEquipSearch() {
                     this.StoreDB_EquipFilterGroup = [];
                     this.StoreDB_EquipFilterList = this.StoreDB_Equip.filter(post => {
@@ -12288,6 +12439,28 @@
                         this.$set( this.StoreDB_EnchantFilterList[i], 'preview', false);
                     }
                 },
+                onFilterBuildPart() {
+                    if(this.AvailableClassesMetadataGroup.length > 1){
+                        this.AvailableClassesMetadataGroup.splice(0,1);
+                    }
+                    const _temp = this.AvailableClassesMetadataGroup;
+                    this.AvailableClassesMetadataList = _temp.length > 0 ?
+                        this.BuildMetadata.filter((x) => _temp.indexOf(x.class) > -1)
+                        .sort((a, b) => {
+                            if (b.level !== a.level) {
+                                return b.level - a.level;
+                            }
+                            return a.class.localeCompare(b.class);
+                        })
+                        :
+                        this.BuildMetadata
+                        .sort((a, b) => {
+                            if (b.level !== a.level) {
+                                return b.level - a.level;
+                            }
+                            return a.class.localeCompare(b.class);
+                        });
+                },
                 onFilterEquipPart() {
                     this.StoreDB_SearchString = '';
                     if( this.StoreDB_EquipFilterGroup.length>1 ){
@@ -12310,6 +12483,11 @@
                     {
                         this.$set( this.StoreDB_EquipFilterList[i], 'preview', false);
                     }
+                },
+                onFilterBuildClear() {
+                    this.BuildSearchString = '';
+                    this.AvailableClassesMetadataGroup = [];
+                    this.onFilterBuildPart();
                 },
                 onFilterEquipClear() {
                     this.StoreDB_SearchString = '';
@@ -12697,9 +12875,11 @@
                     }
                     this.OpenPanel('AllSetDBSaveDialog');
                 },
+                onOpenBuildPreset() {
+                    this.OpenPanel('BuildPresetDialog');
+                },
                 onOpenAllSet() {
                     this.OpenPanel('AllSetDBDialog');
-
                 },
                 onSaveAllSet() {
                     this.StoreDB_AllSet.unshift({
@@ -14326,6 +14506,16 @@
                         this.processEnchant(json);
                     })
                 },
+                loadBuild(filename){
+                    let href = this.getURL()+'template/'+filename;
+                    fetch(href, {cache: "no-cache"})
+                    .then(res => res.json())
+                    .then(json => {
+                        self.ImportedAllSetData = json;
+                        self.dialogImport = true;
+                        this.onLoadAllSetSave(self.ImportedAllSetData);
+                    });
+                },
                 loadDefaultEquip(){
                     let selected_file = this.select_default;
                     let href = this.getURL()+'default_equip/'+selected_file+'.json';
@@ -14348,6 +14538,41 @@
                         this.loadDefaultEquip();
                     }
                     this.select_default = '';
+                },
+                loadBuildMetadata(){
+                    const filename = 'metadata.json'
+                    let href = this.getURL()+'template/'+filename;
+                    fetch(href, {cache: "no-cache", method: "HEAD"})
+                    .then((res) => {
+                        if(res.ok){
+                            fetch(href, {cache: "no-cache"})
+                            .then(res => res.json())
+                            .then(json => {
+                                this.BuildMetadata = json;
+                                this.BuildMetadata.sort((a, b) => {
+                                    if (b.level !== a.level) {
+                                        return b.level - a.level;
+                                    }
+                                    return a.class.localeCompare(b.class);
+                                });
+                            })
+                            .finally(() => {
+                                this.populateClassesMetadata();
+                                this.onFilterBuildSearch();
+                                console.log('Build file loaded correctly.');
+                            });
+                        }
+                        else {
+                            this.BuildMetadata = [];
+                            console.log('Build file couldnt be loaded.');
+                        }
+                    });
+                },
+                populateClassesMetadata(){
+                    const seen = {};
+                    this.AvailableClassesMetadataGroup = this.BuildMetadata.filter((item) => {
+                        return seen.hasOwnProperty(item.class) ? false : (seen[item.class] = true);
+                    }).map((item) => item.class);
                 },
                 exportSavedData(kind){
                     var data = [];
@@ -14547,6 +14772,9 @@
                 StoreDB_PetCount() {
                     return this.StoreDB_PetFilterList.length;
                 },
+                BuildCount() {
+                    return this.AvailableClassesMetadataList.length;
+                },
                 /*
                 StoreDB_EquipFiltered() {
                     var _tempgroup = this.StoreDB_EquipFilterGroup;
@@ -14568,6 +14796,7 @@
             },
             mounted() {
                 this.LoadDB();
+                this.loadBuildMetadata();
                 this.checkUpdatesInJSON();
                 this.attribute_init = Object.assign({}, this.attribute);
                 this.status_add_init = Object.assign({}, this.status_add);

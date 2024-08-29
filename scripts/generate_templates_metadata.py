@@ -56,6 +56,7 @@ def read_metadata_from_files(files):
                 output.append({
                     "filename": f["relative_path"],
                     "name": data["Name"],
+                    "level": data["Status"]["Level"],
                     "class": get_class_label_by_name(data["Status"]["classid"]),
                     "skill": data["SkillName"],
                     "enemy": data["EnemyName"],
