@@ -8547,6 +8547,9 @@
                         case "EquipDBDialog":
                             this.StoreDB_SearchString = '';
                             this.StoreDB_EquipFilterGroup = [];
+                        case "BuildPresetDialog":
+                            this.BuildSearchString = '';
+                            this.AvailableClassesMetadataGroup = [];
                         default:
                             return;
                     };
@@ -10787,6 +10790,7 @@
                         }
                         else{
                             item.skill.active = false;
+                            item.skill.select = false;
                         }
                     });
                 },
@@ -14512,6 +14516,7 @@
                     fetch(href, {cache: "no-cache"})
                     .then(res => res.json())
                     .then(json => {
+                        this.SupportSkill_JobMaped = [];
                         self.ImportedAllSetData = json;
                         self.dialogImport = true;
                         this.onLoadAllSetSave(self.ImportedAllSetData);
