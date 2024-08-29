@@ -12711,6 +12711,35 @@
                     const enchants = this.equipspartlist.slice(start, end).filter(x => x.effectlist.length > 0);
                     return enchants;
                 },
+                getSkillDamageAvg(){
+                    if(this.skill.DamageTypeIdx === 0){
+                        if(this.skill.critical){
+                            if(this.computeattribute.SkillDamageCRI_min !== this.computeattribute.SkillDamageCRI_max){
+                                return this.computeattribute.SkillDamageCRI_avg;
+                            }
+                            else {
+                                return this.computeattribute.SkillDamageCRI_max;
+                            }
+                        }
+                        else if(this.skill.hitnumber > 1 || this.skill.hitnumber < 0 || this.skill.id=='WL_CHAINLIGHTNING'){
+                            return this.computeattribute.SkillDamage_avg;
+                        }
+                        else {
+                            return this.computeattribute.atkc9_avg;
+                        }
+                    }
+                    else if(this.skill.DamageTypeIdx === 1){
+                        if(this.skill.hitnumber > 1 || this.skill.hitnumber < 0){
+                            return this.computeattribute.matkmulti_avg;
+                        }
+                        else {
+                            return this.computeattribute.matk4_avg;
+                        }
+                    }
+                    else {
+                        return this.computeattribute.DragonBreathDMG;
+                    }
+                },
                 SetElementTableCellClass(_value){
                     if(_value > 100)
                     {
@@ -12842,6 +12871,7 @@
                     this.$set(this.TempAllSet, 'Damage', 0);
                     this.$set(this.TempAllSet, 'DamageDPS', 0);
                     this.$set(this.TempAllSet, 'NormalAttackDPS', 0);
+                    this.$set(this.TempAllSet, 'SkillDamageAvg', this.$options.filters.currency(this.getSkillDamageAvg()));
 
                     var _hitnumbervalue = eval(this.SkillFormulaReplace(this.skill.hitnumber));
                     switch (this.skill.DamageTypeIdx) {

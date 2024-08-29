@@ -60,7 +60,7 @@ def read_metadata_from_files(files):
                     "class": get_class_label_by_name(data["Status"]["classid"]),
                     "skill": data["SkillName"],
                     "enemy": data["EnemyName"],
-                    "damage": data["Damage"],
+                    "damage": data["SkillDamageAvg"] if "SkillDamageAvg" in data else data["Damage"],
                 })
         except Exception:
             continue
