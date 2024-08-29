@@ -10262,7 +10262,7 @@
                     const idx = this.weapontypelist.findIndex((x) => x.id === id && x.isTwohand === true );
                     return idx >= 0 ? true : false;
                 },
-                skillInUse(skillstring) { return skillstring.includes(this.skill.id.split(/^.*?_(.*?)([_(].*)?$/s)[1]); },
+                skillInUse(skillstring) { return skillstring.includes(this.skill.id.split(/^(?:[A-Z]{2,3}_)?([A-Z_]+?)(?:_\([a-zA-Z0-9]+\))?(?:\([a-zA-Z0-9]+\))?(?:_\d+)?$/s)[1]); },
                 checkWeapGradeReq(grade)    { return this.checkGradeReq(0,grade); },
                 checkSubWeapGradeReq(grade) { return this.checkGradeReq(1,grade); },
                 checkHatGradeReq(grade)     { return this.checkGradeReq(2,grade); },
