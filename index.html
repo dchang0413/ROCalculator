@@ -12868,8 +12868,6 @@
                     this.$refs.fileInputImport.value = "";
                 },
                 initTemplate(templateid){
-                    console.log(getURL());
-                    console.log(this.getURL());
                     let href = this.getURL()+'template/'+templateid+'.json';
                     const self = this;
                     fetch(href, {cache: "no-cache"})
