@@ -12844,11 +12844,11 @@
                     this.ClosePanel('AllSetDBDialog');
                 },
                 onSaveFileAllSetSave(_dbidx) {
-                    const data = this.utoa(JSON.stringify(this.StoreDB_AllSet[_dbidx].AllSet))
+                    const data = JSON.stringify(this.StoreDB_AllSet[_dbidx].AllSet)
                     const blob = new Blob([data], {type: 'text/plain'})
                     const e = document.createEvent('MouseEvents'),
                     a = document.createElement('a');
-                    a.download = this.StoreDB_AllSet[_dbidx].AllSet.Name + ".roc";
+                    a.download = this.StoreDB_AllSet[_dbidx].AllSet.Name + ".json";
                     a.href = window.URL.createObjectURL(blob);
                     a.dataset.downloadurl = ['text/json', a.download, a.href].join(':');
                     e.initEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
@@ -12859,12 +12859,24 @@
                     const file = e.target.files[0];
                     let reader = new FileReader();
                     reader.onload = e => {
-                        self.ImportedAllSetData = JSON.parse(this.atou(reader.result));
+                        res = JSON.parse(reader.result);
+                        self.ImportedAllSetData = res ? res : JSON.parse(this.atou(reader.result));
                         self.dialogImport = true;
                         this.onLoadAllSetSave(self.ImportedAllSetData);
                     };
                     reader.readAsText(file);
                     this.$refs.fileInputImport.value = "";
+                },
+                initTemplate(templateid){
+                    let href = window.location.href.split('?')[0]+'template/'+templateid+'.json';
+                    const self = this;
+                    fetch(href, {cache: "no-cache"})
+                    .then(res => res.json())
+                    .then(json => {
+                        self.ImportedAllSetData = json;
+                        self.dialogImport = true;
+                        this.onLoadAllSetSave(self.ImportedAllSetData);
+                    });
                 },
                 // https://ithelp.ithome.com.tw/articles/10229587
                 // 使用utf-8字符集进行base64编码
@@ -14132,6 +14144,11 @@
                     );
 
                     console.log("LOAD DB");
+
+                    const urlParams = new URLSearchParams(window.location.search);
+
+                    if (urlParams.get('template')) this.initTemplate(urlParams.get('template'));
+
                 },
                 updateItemsPerPage(ele){
                     this.ItemsPerPage = ele;
