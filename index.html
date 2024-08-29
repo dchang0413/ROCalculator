@@ -12844,7 +12844,7 @@
                     this.ClosePanel('AllSetDBDialog');
                 },
                 onSaveFileAllSetSave(_dbidx) {
-                    const data = JSON.stringify(this.StoreDB_AllSet[_dbidx].AllSet)
+                    const data = JSON.stringify(this.StoreDB_AllSet[_dbidx].AllSet,null,"\t")
                     const blob = new Blob([data], {type: 'text/plain'})
                     const e = document.createEvent('MouseEvents'),
                     a = document.createElement('a');
