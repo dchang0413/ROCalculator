@@ -4,26 +4,26 @@ import json
 
 def get_class_label_by_name(name):
     classlist = [
-        {"id": 'RK', "label": 'RuneKnight / DragonKnight'},
-        {"id": 'GX', "label": 'GuillotineCross / ShadowCross'},
-        {"id": 'AB', "label": 'ArchBishop / Cardinal'},
-        {"id": 'RA', "label": 'Ranger / WindHawk'},
-        {"id": 'WL', "label": 'Warlock / ArchMage'},
+        {"id": 'RK', "label": 'Rune Knight / Dragon Knight'},
+        {"id": 'GX', "label": 'Guillotine Cross / Shadow Cross'},
+        {"id": 'AB', "label": 'Arch Bishop / Cardinal'},
+        {"id": 'RA', "label": 'Ranger / Wind Hawk'},
+        {"id": 'WL', "label": 'Warlock / Arch Mage'},
         {"id": 'ME', "label": 'Mechanic / Meister'},
-        {"id": 'RG', "label": 'RoyalGuard / ImperialGuard'},
-        {"id": 'SC', "label": 'ShadowChaser / AbyssChaser'},
+        {"id": 'RG', "label": 'Royal Guard / Imperial Guard'},
+        {"id": 'SC', "label": 'Shadow Chaser / Abyss Chaser'},
         {"id": 'SU', "label": 'Sura / Inquisitor'},
         {"id": 'MI', "label": 'Maestro / Troubadour'},
         {"id": 'WA', "label": 'Wanderer / Trouvere'},
-        {"id": 'SO', "label": 'Sorcerer / ElementalMaster'},
+        {"id": 'SO', "label": 'Sorcerer / Elemental Master'},
         {"id": 'GE', "label": 'Geneticist / Biolo'},
         {"id": 'KO', "label": 'Kagerou'},
         {"id": 'OB', "label": 'Oboro'},
         {"id": 'RE', "label": 'Rebel'},
-        {"id": 'SE', "label": 'StarEmperor'},
-        {"id": 'SL', "label": 'SoulReaper'},
+        {"id": 'SE', "label": 'Star Emperor'},
+        {"id": 'SL', "label": 'Soul Reaper'},
         {"id": 'SUM', "label": 'Summoner'},
-        {"id": 'SN', "label": 'SuperNovice'}
+        {"id": 'SN', "label": 'Super Novice'}
     ]
 
     if not name:
@@ -37,30 +37,32 @@ def get_class_label_by_name(name):
 
 def list_all_files_in_folder(folder):
     output = []
-    for root, dirs, files in os.walk(folder):
-        for file in files:
-            if "metadata" in file:
+    for root, _, files in os.walk(folder):
+        for filename in files:
+            if "metadata.json" in filename:
                 continue
-            output.append({
-                "file": os.path.join(root, file),
-                "name": file
-            })
+            file_path = os.path.join(root, filename)
+            relative_path = os.path.relpath(file_path, folder)
+            output.append({"path": file_path, "relative_path": relative_path})
     return output
 
 
 def read_metadata_from_files(files):
     output = []
     for f in files:
-        with open(f["file"], "r+") as read:
-            data = json.load(read)
-            output.append({
-                "filename": f["name"],
-                "name": data["Name"],
-                "class": get_class_label_by_name(data["Status"]["classid"]),
-                "skill": data["SkillName"],
-                "enemy": data["EnemyName"],
-                "damage": data["Damage"],
-            })
+        try:
+            with open(f["path"], "r+", encoding="utf-8") as read:
+                data = json.load(read)
+                output.append({
+                    "filename": f["relative_path"],
+                    "name": data["Name"],
+                    "class": get_class_label_by_name(data["Status"]["classid"]),
+                    "skill": data["SkillName"],
+                    "enemy": data["EnemyName"],
+                    "damage": data["Damage"],
+                })
+        except Exception:
+            continue
     return output
 
 
