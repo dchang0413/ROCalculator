@@ -11,6 +11,14 @@ jobs:
     - name: Get latest code
       uses: actions/checkout@v3
 
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Run Template Metadata Generator
+      run: python scripts/generate_templates_metadata.py
+
     - name: Push files into FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
