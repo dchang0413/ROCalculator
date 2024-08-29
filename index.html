@@ -12859,8 +12859,13 @@
                     const file = e.target.files[0];
                     let reader = new FileReader();
                     reader.onload = e => {
-                        res = JSON.parse(reader.result);
-                        self.ImportedAllSetData = res ? res : JSON.parse(this.atou(reader.result));
+                        let res;
+                        try {
+                            res = JSON.parse(reader.result);
+                        } catch (e) {
+                            res = JSON.parse(this.atou(reader.result));
+                        }
+                        self.ImportedAllSetData = res;
                         self.dialogImport = true;
                         this.onLoadAllSetSave(self.ImportedAllSetData);
                     };
