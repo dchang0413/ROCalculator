@@ -17,13 +17,13 @@ def get_class_label_by_name(name):
         {"id": 'WA', "label": 'Wanderer / Trouvere'},
         {"id": 'SO', "label": 'Sorcerer / Elemental Master'},
         {"id": 'GE', "label": 'Geneticist / Biolo'},
-        {"id": 'KO', "label": 'Kagerou'},
-        {"id": 'OB', "label": 'Oboro'},
-        {"id": 'RE', "label": 'Rebel'},
-        {"id": 'SE', "label": 'Star Emperor'},
-        {"id": 'SL', "label": 'Soul Reaper'},
-        {"id": 'SUM', "label": 'Summoner'},
-        {"id": 'SN', "label": 'Super Novice'}
+        {"id": 'KO', "label": 'Kagerou / Shinkiro'},
+        {"id": 'OB', "label": 'Oboro / Shiranui'},
+        {"id": 'RE', "label": 'Rebel / Night Watch'},
+        {"id": 'SE', "label": 'Star Emperor / Sky Emperor'},
+        {"id": 'SL', "label": 'Soul Reaper / Soul Ascetic'},
+        {"id": 'SUM', "label": 'Summoner / Spirit Handler'},
+        {"id": 'SN', "label": 'Super Novice / Hyper Novice'}
     ]
 
     if not name:
@@ -61,6 +61,7 @@ def read_metadata_from_files(files):
                     "skill": data["SkillName"],
                     "enemy": data["EnemyName"],
                     "damage": data["SkillDamageAvg"] if "SkillDamageAvg" in data else data["Damage"],
+                    "lastupdate": data["lastedited"]
                 })
         except Exception:
             continue

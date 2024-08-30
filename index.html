@@ -1693,6 +1693,9 @@
                         <el-col class="textcenter" :span="8">
                             <span class=""><b>Damage</b></span>
                         </el-col>
+                        <el-col class="textcenter" :span="4">
+                            <span class=""><b>Last Update(UTC)</b></span>
+                        </el-col>
                         <el-col :span="6">
                         </el-col>
                     </el-row>
@@ -1720,7 +1723,10 @@
                                     <el-col class="textcenter" :span="8">
                                         <span class="">{{ item.damage }}</span>
                                     </el-col>
-                                    <el-col :span="6">
+                                    <el-col class="textcenter" :span="4">
+                                        <span class="">{{ item.lastupdate | getDateFromIso8601 }}</span>
+                                    </el-col>
+                                    <el-col class="textcenter" :span="6">
                                         <el-button v-on:click="loadBuild(item.filename)" icon="el-icon-check"
                                             type="success" type="primary" size="small">
                                             Load Build
@@ -14792,6 +14798,9 @@
                 },
                 currency2(val) {
                     return val.toFixed(2)
+                },
+                getDateFromIso8601(val) {
+                    return val.split('T')[0];
                 },
             },
             computed: {
