@@ -886,5 +886,160 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400511,
+		"label": "Upper",
+		"equipname": "Queen Scaraba Crown",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "CRT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "20*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "4*DOWN(HATR/2)",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>6?10:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?10:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?15:0",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?15:0",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>11?15:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>12?0.5:0",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4509
+				],
+				"itemid_any": [],
+				"equipname": "Gold Queen Scaraba Card",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "10*HATR",
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4507
+				],
+				"itemid_any": [],
+				"equipname": "Queen Scaraba Card",
+				"effectlist": [
+					{
+						"EffectNumber": "isBoss?35:0",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27209
+				],
+				"itemid_any": [],
+				"equipname": "Sealed Queen Scaraba Card",
+				"effectlist": [
+					{
+						"EffectNumber": "isBoss?30:0",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
