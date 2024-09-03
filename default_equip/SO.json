@@ -2093,5 +2093,82 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 540057,
+		"label": "MainHand",
+		"equipname": "Book of Thoth",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"COLDBOLT FIREBOLT LIGHTNINGBOLT EARTHSPIKE\")?(25*WEAR):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"COLDBOLT FIREBOLT LIGHTNINGBOLT\")?-10:0",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?2:0",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?20:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Books",
+				"label": "Book",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "120",
+			"MATK": 200,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 80,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
 	}
 ]
