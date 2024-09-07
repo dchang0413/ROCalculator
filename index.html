@@ -9911,7 +9911,7 @@
                             masteryATK -= 9;
                         }
                     }
-                    if (!isNA) masteryATK += Number(this.computeattribute['SpecialATK2']);
+                    masteryATK += Number(this.computeattribute['SpecialATK2']);
                     this.computeattribute.atkc5_min += masteryATK;
                     this.computeattribute.atkc5_max += masteryATK;
                     this.setRecord('Mastery/Cannon ATK',[this.computeattribute.atkc5_min,this.computeattribute.atkc5_max],'+',
@@ -11160,6 +11160,9 @@
                         this.attribute['CRI'] += 10;
                         this.computeattribute['SpecialATK5'] += 10 * 2;
                         this.computeattribute['SpecialATK6'] += 10 * 2;
+                    }
+                    if (this.IsSupportActive('RA_CAMOUFLAGE')){
+                        this.computeattribute['SpecialATK2'] += Math.floor(this.GetSupportSkill('RA_CAMOUFLAGE').arg1) * 30;
                     }
                     // 菁英狙擊
                     if (this.IsSupportActive('RA_UNLIMIT')){
@@ -13813,7 +13816,7 @@
                         { skill: { id: 'AC_CONCENTRATION', name: 'Improve Concentration', maxlv: 10, lv: 10, class: 'RA,MI,WA,SN', changelv: false, argnum: 2, arg1: 0, arg1desc: 'Equip AGI', arg2: 0, arg2desc: 'Equip DEX', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'RA_RESEARCHTRAP', name: 'Trap Research', maxlv: 10, lv: 10, class: 'RA', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SN_SIGHT', name: 'Falcon Eyes', maxlv: 10, lv: 10, class: 'RA', changelv: false, argnum: 0, arg1: 20, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
-                        //{ skill: { id: 'HT_BEASTBANE', name: '��ڪ߯�', maxlv: 10, lv: 10, class: 'RA', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'RA_CAMOUFLAGE', name: 'Camouflage', maxlv: 5, lv: 5, class: 'RA', changelv: false, argnum: 1, arg1: 10, arg1desc: 'Stack', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'RA_UNLIMIT', name: 'No Limits', maxlv: 5, lv: 5, class: 'RA', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: 'WH_CALAMITYGALE', } },
                         { skill: { id: 'WH_CALAMITYGALE', name: 'Calamity Gale', maxlv: 1, lv: 1, class: 'RA', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: 'RA_UNLIMIT', Note: '', } },
 
@@ -14136,6 +14139,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-09-07', content: 'Added Buff: Ranger - Camouflage' },
                         { id: '2024-09-03', content: 'Added: OCP 63' },
                         { id: '2024-08-29', content: 'Added: Functionality to load builds we have stored in the server. Click in "Build Presets" at the Top Left part of the website to check it out.' },
                         { id: '2024-08-27', content: 'Updated: Action per sec for DPS calculation' },
