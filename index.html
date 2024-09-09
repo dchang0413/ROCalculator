@@ -1681,22 +1681,24 @@
                         <el-col class="textcenter" :span="6">
                             <span class=""><b>Class</b></span>
                         </el-col>
-                        <el-col class="textcenter" :span="4">
+                        <el-col class="textcenter" :span="2">
                             <span class=""><b>Level</b></span>
                         </el-col>
-                        <el-col class="textcenter" :span="6">
+                        <el-col class="textcenter" :span="4">
                             <span class=""><b>Skill Name</b></span>
                         </el-col>
-                        <el-col class="textcenter" :span="6">
+                        <el-col class="textcenter" :span="5">
                             <span class=""><b>Enemy</b></span>
                         </el-col>
                         <el-col class="textcenter" :span="8">
                             <span class=""><b>Damage</b></span>
                         </el-col>
-                        <el-col class="textcenter" :span="4">
+                        <el-col class="textcenter" :span="6">
                             <span class=""><b>Last Update(UTC)</b></span>
                         </el-col>
-                        <el-col :span="6">
+                        <el-col :span="4">
+                        </el-col>
+                        <el-col :span="2">
                         </el-col>
                     </el-row>
                 </div>
@@ -1711,25 +1713,29 @@
                                     <el-col class="textcenter" :span="6">
                                         <span class="">{{ item.class }}</span>
                                     </el-col>
-                                    <el-col class="textcenter" :span="4">
+                                    <el-col class="textcenter" :span="2">
                                         <span class="">{{ item.level }}</span>
                                     </el-col>
-                                    <el-col class="textcenter" :span="6">
+                                    <el-col class="textcenter" :span="4">
                                         <span class="">{{ item.skill }}</span>
                                     </el-col>
-                                    <el-col class="textcenter" :span="6">
+                                    <el-col class="textcenter" :span="5">
                                         <span class="">{{ item.enemy }}</span>
                                     </el-col>
                                     <el-col class="textcenter" :span="8">
                                         <span class="">{{ item.damage }}</span>
                                     </el-col>
-                                    <el-col class="textcenter" :span="4">
+                                    <el-col class="textcenter" :span="6">
                                         <span class="">{{ item.lastupdate | getDateFromIso8601 }}</span>
                                     </el-col>
-                                    <el-col class="textcenter" :span="6">
+                                    <el-col class="textcenter" :span="4">
                                         <el-button v-on:click="loadBuild(item.filename)" icon="el-icon-check"
                                             type="success" type="primary" size="small">
                                             Load Build
+                                        </el-button>
+                                    </el-col>
+                                    <el-col class="textcenter" :span="2">
+                                        <el-button v-on:click="getBuildURL(item.filename)" icon="el-icon-link" type="primary">
                                         </el-button>
                                     </el-col>
                                 </el-row>
@@ -1776,7 +1782,7 @@
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['EquipDBDialog']" v-on:close="ClosePanel('EquipDBDialog')"
             custom-class="Dialogue-container" width="80%" top="50px" center>
-            <span slot="title">Equip List</span>
+            <span slot="title">Saved/Preset Equip</span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
                     <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
@@ -1820,7 +1826,7 @@
                             </el-button>
                         </el-col>
                         <el-col :span="5">
-                            <span class=""><b>Load Equip List:</b></span>
+                            <span class=""><b>Load Equip Presets:</b></span>
                         </el-col>
                         <el-col :span="6"><!--default_equip-->
                             <el-select v-model="status.select_default" v-on:change="updateSelectDefault" placeholder="" v-bind="select_default">
@@ -1837,7 +1843,7 @@
                         <el-col :span="5">
                             <el-button v-on:click="loadAllDefaultEquip" icon="el-icon-check"
                                 type="success" type="primary" size="small">
-                                Load All Sets
+                                Load All Presets
                             </el-button>
                         </el-col>
                     </el-row>
@@ -14564,6 +14570,10 @@
                         self.dialogImport = true;
                         this.onLoadAllSetSave(self.ImportedAllSetData);
                     });
+                },
+                getBuildURL(filename){
+                    let templatepath = filename.replace('.json','').replace('\\','/');
+                    navigator.clipboard.writeText(this.getURL()+'?template='+templatepath);
                 },
                 loadDefaultEquip(){
                     let selected_file = this.select_default;
