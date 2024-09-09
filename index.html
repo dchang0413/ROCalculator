@@ -446,7 +446,7 @@
                                     <span>Apply Crit Damage</span>
                                 </el-col>
                                 <el-col class="textcenter" :span="12">
-                                    <el-switch v-model="skill.critical" active-color="#13ce66"
+                                    <el-switch v-model="skill.critical || skill.isUnion" active-color="#13ce66"
                                         v-on:change="ComputeATKAttribute(false)" inactive-color="#8a9799">
                                     </el-switch>
                                 </el-col>
@@ -4330,7 +4330,7 @@
                                         </el-col>
                                     </el-row>
                                 </div>
-                                <div v-show="skill.critical">
+                                <div v-show="skill.critical || skill.isUnion">
                                     <el-row class="optionbox" :gutter="4" type="flex" align="middle" justify="end">
                                         <el-col class="textcenter" :span="12">
                                             <span>Apply Crit Damage</span>
@@ -6599,7 +6599,7 @@
                                             <span>{{this.computeattribute.SkillDamage_avg | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="skill.critical" class="statusbox" type="flex" align="middle"
+                                    <el-row v-if="skill.critical || skill.isUnion" class="statusbox" type="flex" align="middle"
                                         justify="space-around" style="height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Skill Damage (Crit)({{attribute['CRI']}} %)</span>
@@ -6613,7 +6613,7 @@
                                             <span>{{computeattribute.SkillDamageCRI_max | currency }}</span>
                                         </el-col>
                                     </el-row>
-                                    <el-row v-if="skill.critical" class="statusbox" type="flex" align="middle"
+                                    <el-row v-if="skill.critical || skill.isUnion" class="statusbox" type="flex" align="middle"
                                         justify="space-around" style="height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Skill Damage (Crit/Avg)</span>
@@ -8210,6 +8210,7 @@
                     formula: 0,
                     ranged: false,
                     critical: false,
+                    isUnion: false,
                     cannon: false,
                     transWeaponDEF: false,
                     laterformula: false,
@@ -9975,7 +9976,7 @@
                         }
                     }
                     else{
-                        if( this.skill.critical && isCRI ){
+                        if( (this.skill.critical || this.skill.isUnion) && isCRI ){
                             this.computeattribute.atkc6_min = this.MulOper(this.computeattribute.atkc6_min, para_crid);
                             this.computeattribute.atkc6_max = this.MulOper(this.computeattribute.atkc6_max, para_crid);
                             this.setRecord('Crit Mod%',[this.computeattribute.atkc6_min,this.computeattribute.atkc6_max],'x',para_crid,'p');
@@ -10148,7 +10149,7 @@
                         }
                     }else{
                         // 技能暴擊 *1.4
-                        if (this.skill.critical && isCRI) {
+                        if ((this.skill.critical || this.skill.isUnion) && isCRI) {
                             this.computeattribute.atkc9_min = this.MulOper(this.computeattribute.atkc9_min, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
                             this.computeattribute.atkc9_max = this.MulOper(this.computeattribute.atkc9_max, Number(1) + Number((this.option.BaseCriticalValue+this.attribute['CRIDR']) / 100));
                             this.setRecord('C.RATE',[this.computeattribute.atkc9_min,this.computeattribute.atkc9_max],'x',
@@ -11643,9 +11644,7 @@
                         this.attribute['SMATK'] += 50;
                     }
                     //融合
-                    if (this.IsSupportActive('SG_FUSION')){
-                        this.skill.critical = true;
-                    }
+                    this.skill.isUnion = this.IsSupportActive('SG_FUSION');
                     //靈魂
                     if (this.IsSupportActive('SP_SOULCOLLECT')){
                         this.attribute['MATK'] += this.GetSupportSkill('SP_SOULCOLLECT').lv * 3;
@@ -12728,7 +12727,7 @@
                 },
                 getSkillDamageAvg(){
                     if(this.skill.DamageTypeIdx === 0){
-                        if(this.skill.critical){
+                        if(this.skill.critical || this.skill.isUnion){
                             if(this.computeattribute.SkillDamageCRI_min !== this.computeattribute.SkillDamageCRI_max){
                                 return this.computeattribute.SkillDamageCRI_avg;
                             }
@@ -12831,6 +12830,7 @@
                 LoadSkill() {
                     if (this.skill.ranged == null) this.skill.ranged = false;
                     if (this.skill.critical == null) this.skill.critical = false;
+                    if (this.skill.isUnion == null) this.skill.isUnion = false;
                     if (this.skill.cannon == null) this.skill.cannon = false;
                     if (this.skill.transWeaponDEF == null) this.skill.transWeaponDEF = false;
                     if (this.skill.laterformula == null) this.skill.laterformula = false;
@@ -12893,7 +12893,7 @@
                         case 0:
                             if(this.attribute['ASPD']!=0){
                                 this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.atkmulti_DPS));
-                            } else if(this.skill.critical){
+                            } else if(this.skill.critical || this.skill.isUnion){
                                 if( this.computeattribute.SkillDamageCRI_min != this.computeattribute.SkillDamageCRI_max ){
                                     this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.SkillDamageCRI_min) + " ~ " + this.currencystring(this.computeattribute.SkillDamageCRI_max));
                                 }else{
@@ -13133,6 +13133,7 @@
                 CheckParam() {
                     if (this.skill.ranged == null) this.skill.ranged = false;
                     if (this.skill.critical == null) this.skill.critical = false;
+                    if (this.skill.isUnion == null) this.skill.isUnion = false;
                     if (this.skill.cannon == null) this.skill.cannon = false;
                     if (this.skill.transWeaponDEF == null) this.skill.transWeaponDEF = false;
                     if (this.skill.laterformula == null) this.skill.laterformula = false;
@@ -14145,6 +14146,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-09-09', content: 'Added: Build Template Link<br>Fixed: Union still applying critical damage after toggled off' },
                         { id: '2024-09-08', content: 'Fixed: Some skills bonuses werent being loaded properly' },
                         { id: '2024-09-07', content: 'Added Buff: Ranger - Camouflage' },
                         { id: '2024-09-03', content: 'Added: OCP 63' },
