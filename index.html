@@ -10274,7 +10274,7 @@
                     const idx = this.weapontypelist.findIndex((x) => x.id === id && x.isTwohand === true );
                     return idx >= 0 ? true : false;
                 },
-                skillInUse(skillstring) { return skillstring.includes(this.skill.id.split(/^(?:[A-Z]{2,3}_)?([A-Z_]+?)(?:_\([a-zA-Z0-9]+\))?(?:\([a-zA-Z0-9]+\))?(?:_\d+)?$/s)[1]); },
+                skillInUse(skillstring) { return skillstring.includes(this.skill.id.split(/^(?:[A-Z]{2,3}_)?([A-Z_]+?)(?:\([a-zA-Z0-9]+\))?(?:_[a-z])?(?:_\d+)?$/s)[1]); },
                 checkWeapGradeReq(grade)    { return this.checkGradeReq(0,grade); },
                 checkSubWeapGradeReq(grade) { return this.checkGradeReq(1,grade); },
                 checkHatGradeReq(grade)     { return this.checkGradeReq(2,grade); },
@@ -14145,6 +14145,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-09-08', content: 'Fixed: Some skills bonuses werent being loaded properly' },
                         { id: '2024-09-07', content: 'Added Buff: Ranger - Camouflage' },
                         { id: '2024-09-03', content: 'Added: OCP 63' },
                         { id: '2024-08-29', content: 'Added: Functionality to load builds we have stored in the server. Click in "Build Presets" at the Top Left part of the website to check it out.' },
