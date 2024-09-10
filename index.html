@@ -12785,8 +12785,8 @@
                     // https://kanboo.github.io/2018/01/27/JS-ShallowCopy-DeepCopy/
                     // let copy = $.extend(true, {}, obj); //使用 jquery.extend
                     // JSON.parse(JSON.stringify(this.))
-                    if (this.skill.formula == '') { this.option.SkillFormulaError = "嚙踝蕭嚙踝蕭?嚙踝蕭"; return; }
-                    if (this.skill.name == '') { this.option.SkillFormulaError = "嚙踝蕭嚙踝蕭晻?嚙踝蕭"; return; }
+                    if (this.skill.formula == '') { this.option.SkillFormulaError = "公式為空"; return; }
+                    if (this.skill.name == '') { this.option.SkillFormulaError = "技能名為空"; return; }
                     if (this.skill.level < 1) this.skill.level = 1;
                     if (this.skill.hitnumber == '') this.skill.hitnumber = 0;
                     this.skill.elemental = this.skilloption.AttackElementalIdx;
