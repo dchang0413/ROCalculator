@@ -2121,5 +2121,73 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "shadow",
+		"itemid": 24292,
+		"label": "S.Weapon",
+		"equipname": "Arch Bishop Shadow Weapon",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"DUPLELIGHT\")?(20+(5*SHWEAR)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowshld",
+		"itemid": 24305,
+		"label": "S.Shield",
+		"equipname": "Arch Bishop Shadow Shield",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"ADORAMUS\")?(20+(5*SHSHIER)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24292
+				],
+				"itemid_any": [],
+				"equipname": "Arch Bishop Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"DUPLELIGHT\")?20:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"ADORAMUS\")?1:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
