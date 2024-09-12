@@ -2085,5 +2085,41 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "helm2",
+		"itemid": 420187,
+		"label": "Lower",
+		"equipname": "Sacred Lapel",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='AB'?15:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='AB'&&SKIDS(\"ORATIO\")?1.5:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
