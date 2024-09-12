@@ -1690,10 +1690,13 @@
                         <el-col class="textcenter" :span="5">
                             <span class=""><b>Enemy</b></span>
                         </el-col>
-                        <el-col class="textcenter" :span="8">
+                        <el-col class="textcenter" :span="6">
                             <span class=""><b>Damage</b></span>
                         </el-col>
                         <el-col class="textcenter" :span="6">
+                            <span class=""><b>DPS</b></span>
+                        </el-col>
+                        <el-col class="textcenter" :span="5">
                             <span class=""><b>Last Update(UTC)</b></span>
                         </el-col>
                         <el-col :span="4">
@@ -1722,10 +1725,13 @@
                                     <el-col class="textcenter" :span="5">
                                         <span class="">{{ item.enemy }}</span>
                                     </el-col>
-                                    <el-col class="textcenter" :span="8">
+                                    <el-col class="textcenter" :span="6">
                                         <span class="">{{ item.damage }}</span>
                                     </el-col>
                                     <el-col class="textcenter" :span="6">
+                                        <span class="">{{ item.dps }}</span>
+                                    </el-col>
+                                    <el-col class="textcenter" :span="5">
                                         <span class="">{{ item.lastupdate | getDateFromIso8601 }}</span>
                                     </el-col>
                                     <el-col class="textcenter" :span="4">
@@ -6773,6 +6779,15 @@
                                         </el-col>
                                         <el-col class="textcenter" :span="10">
                                             <span>{{computeattribute.matkmulti_avg | currency }}</span>
+                                        </el-col>
+                                    </el-row>
+                                    <el-row v-if="status.ASPD!=0" class="statusbox" type="flex" align="middle" justify="space-around"
+                                        style="height:40px;">
+                                        <el-col class="" :span="10" style="text-align: right;">
+                                            <span>Skill DPS</span>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="10">
+                                            <span>{{ computeattribute.matkmulti_DPS | currency }}</span>
                                         </el-col>
                                     </el-row>
                                 </div>
@@ -12892,8 +12907,9 @@
                     switch (this.skill.DamageTypeIdx) {
                         case 0:
                             if(this.attribute['ASPD']!=0){
-                                this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.atkmulti_DPS));
-                            } else if(this.skill.critical || this.skill.isUnion){
+                                this.$set(this.TempAllSet, 'DamageDPS', this.currencystring(this.computeattribute.atkmulti_DPS));
+                            }
+                            if(this.skill.critical || this.skill.isUnion){
                                 if( this.computeattribute.SkillDamageCRI_min != this.computeattribute.SkillDamageCRI_max ){
                                     this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.SkillDamageCRI_min) + " ~ " + this.currencystring(this.computeattribute.SkillDamageCRI_max));
                                 }else{
@@ -12907,8 +12923,9 @@
                         break;
                         case 1:
                             if(this.attribute['ASPD']!=0){
-                                this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.matkmulti_DPS));
-                            }else if(_hitnumbervalue>1||_hitnumbervalue<0){
+                                this.$set(this.TempAllSet, 'DamageDPS', this.currencystring(this.computeattribute.matkmulti_DPS));
+                            }
+                            if(_hitnumbervalue>1||_hitnumbervalue<0){
                                 this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.matkmulti_min) + " ~ " + this.currencystring(this.computeattribute.matkmulti_max));
                             }else{
                                 this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.matk4_min) + " ~ " + this.currencystring(this.computeattribute.matk4_max));
@@ -12916,10 +12933,9 @@
                         break;
                         case 2:
                             if(this.attribute['ASPD']!=0){
-                                this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.DragonBreathDMG_DPS));
-                            }else{
-                                this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.DragonBreathDMG));
+                                this.$set(this.TempAllSet, 'DamageDPS', this.currencystring(this.computeattribute.DragonBreathDMG_DPS));
                             }
+                            this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.DragonBreathDMG));
                         break;
                     }
                     this.OpenPanel('AllSetDBSaveDialog');

@@ -61,6 +61,7 @@ def read_metadata_from_files(files):
                     "skill": data["SkillName"],
                     "enemy": data["EnemyName"],
                     "damage": data["SkillDamageAvg"] if "SkillDamageAvg" in data else data["Damage"],
+                    "dps": data["DamageDPS"] if "DamageDPS" in data else 0,
                     "lastupdate": data["lastedited"]
                 })
         except Exception:
