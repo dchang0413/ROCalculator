@@ -1948,10 +1948,13 @@
         <el-dialog :visible.sync="UIPanel['EquipTextDialog']" v-on:close="ClosePanel('EquipTextDialog')"
             custom-class="Dialogue-container" width="40%" top="50px" :show-close=false center>
             <el-row class="titlebox" type="flex" align="middle" justify="end" style="height:50px; padding: 0px 0px;">
-                <el-col :span="12">
-                    <el-button v-on:click="CopyEquipText('Equip')">Copy Equip Text</el-button>
+                <el-col :span="8">
+                    <el-button v-on:click="CopyEquipText('Basic')">Copy Basic Equip Text</el-button>
                 </el-col>
-                <el-col :span="12">
+                <el-col :span="8">
+                    <el-button v-on:click="CopyEquipText('Equip')">Copy Full Equip Text</el-button>
+                </el-col>
+                <el-col :span="8">
                     <el-button v-on:click="CopyEquipText('Combine')">Copy Equip Effect</el-button>
                 </el-col>
             </el-row>
@@ -9029,13 +9032,16 @@
                     this.CombineEquipsAttribute();
                 },
                 OpenTextDialog(type) {
-                    this.EquipText = this.GetEquipString();
+                    this.EquipText = this.GetBasicEquipString();
                     this.OpenPanel('EquipTextDialog');
                 },
                 // https://vuejsexamples.com/a-simple-vue2-binding-to-clipboard-js/
                 // https://vue-clipboard2.inndy.tw/
                 CopyEquipText(type) {
                     switch (type) {
+                        case 'Basic':
+                            this.EquipText = this.GetBasicEquipString();
+                            break;
                         case 'Equip':
                             this.EquipText = this.GetEquipString();
                             break;
@@ -9052,13 +9058,72 @@
                             console.log(e)
                         });
                 },
-                GetEquipString() {
+                GetEquipEffect(index) {
+                    var _EffectTypeInfo;
+                    var _BuildString = '\n';
+                    for (var j = 0; j < this.equipspartlist[index].effectlist.length; ++j) {
+                        _EffectTypeInfo = Enumerable.From(this.effecttypelist)
+                            .Where("$.id == '" + this.equipspartlist[index].effectlist[j].EffectType.id + "'")
+                            .Single();
+                        
+                        var _EffectName = _EffectTypeInfo.label.substr(0).replace('%', '').trim();
+
+                        if (['Drake Effect', 'MoT Effect'].includes(_EffectName)){
+                            _BuildString += '\t\t'
+                            + _EffectName;
+                        } else {
+                            _BuildString += '\t\t'
+                            + _EffectName
+                            + _EffectTypeInfo.opersymbol
+                            + eval(this.SkillFormulaReplace(this.equipspartlist[index].effectlist[j].EffectNumber))
+                            + _EffectTypeInfo.suffixsymbol;
+                        }
+                        
+                    }
+                    return _BuildString;
+                },
+                GetBasicEquipString() {
                     var _BuildString = "";
-                    for (var i = 0; i < 14; ++i) {
+                    for (var i = 0; i < 10; ++i) {
                         if (this.equipspartlist[i].equipname.trim() == '') continue;
                         else _BuildString += this.equipspartlist[i].label + ": " + this.equipspartlist[i].equipname;
-                        _BuildString += "  Card: ";
-                        _BuildString += (this.equipspartlist[i+14].equipname.trim() == '')?'None':this.equipspartlist[i+14].equipname;
+                        _BuildString += '\n'
+                        if(i == 0) {
+                            for(var j = 10; j < 14; j++){
+                                _BuildString += `\tCard - ${j-9}: `
+                                _BuildString += (this.equipspartlist[i+j].equipname.trim() == '') ? 'None' : this.equipspartlist[i+j].equipname;
+                                _BuildString += '\n'
+                            }
+                        }
+                        if(i == 1) {
+                            if (this.subweapon.ATK > 0 || this.subweapon.MATK > 0) {
+                                for(var j = 13; j < 17; j++){
+                                    _BuildString += `\tCard - ${j-12}: `
+                                    _BuildString += (this.equipspartlist[i+j].equipname.trim() == '') ? 'None' : this.equipspartlist[i+j].equipname;
+                                    _BuildString += '\n'
+                                }
+                            }
+                            if (this.subweapon.ShieldWeight > 0) {
+                                for(var j = 17; j < 18; j++){
+                                    _BuildString += `\tCard: `
+                                    _BuildString += (this.equipspartlist[i+j].equipname.trim() == '') ? 'None' : this.equipspartlist[i+j].equipname;
+                                    _BuildString += '\n'
+                                }
+                            }
+                        }
+                        if(i >= 2) {
+                            _BuildString += `\tCard: `
+                            _BuildString += (this.equipspartlist[i+17].equipname.trim() == '') ? 'None' : this.equipspartlist[i+17].equipname;
+                            _BuildString += '\n'
+                        }
+                    }
+                    return _BuildString;
+                },
+                GetEquipString() {
+                    var _BuildString = "";
+                    for (var i = 0; i < 10; ++i) {
+                        if (this.equipspartlist[i].equipname.trim() == '') continue;
+                        else _BuildString += this.equipspartlist[i].label + ": " + this.equipspartlist[i].equipname;
                         _BuildString += '\n'
                         if (i == 0) {
                             if (this.weapon.ATK != 0) {
@@ -9073,20 +9138,22 @@
                             _BuildString += '\n'
                             if (this.weapon.ArrowATK != 0) _BuildString += "\tArrowATK: " + this.weapon.ArrowATK + '\n';
                             if (this.weapon.BulletATK != 0) _BuildString += "\tAmmoATK: " + this.weapon.BulletATK + '\n';
-                            if (this.weapon.Weight != 0) _BuildString += "\tWeight: " + this.weapon.Weight + '\n';
+                            if (this.weapon.Weight != 0) _BuildString += "\tWeight: " + this.weapon.Weight + '\n';      
                         }
                         if (i == 1) {
-                            if (this.subweapon.ATK != 0) {
-                                _BuildString += "ATK: " + this.subweapon.ATK;
+                            if (this.subweapon.ATK > 0) {
+                                _BuildString += "\tATK: " + this.subweapon.ATK;
                                 if (this.weapon.refineatk != 0) _BuildString += "\tRefine ATK: " + this.subweapon.refineatk;
                                 _BuildString += '\n'
                             }
-                            if (this.subweapon.MATK != 0) {
+                            if (this.subweapon.MATK > 0) {
                                 _BuildString += "MATK: " + this.subweapon.MATK;
                                 if (this.weapon.refinematk != 0) _BuildString += "\tRefine MATK: " + this.subweapon.refinematk;
                                 _BuildString += '\n'
                             }
-                            if (this.subweapon.ShieldWeight != 0) _BuildString += " \tShield Weight: " + this.subweapon.ShieldWeight + '\n';
+                            if (this.subweapon.ShieldWeight > 0) {
+                                _BuildString += " \tShield Weight: " + this.subweapon.ShieldWeight + '\n';
+                            }
                         }
                         var _EffectTypeInfo;
                         for (var j = 0; j < this.equipspartlist[i].effectlist.length; ++j) {
@@ -9109,27 +9176,37 @@
                             }
                             
                         }
-                        if (this.equipspartlist[i+14].equipname.trim() == '') continue;
-                        _BuildString += '\n'
-                        for (var j = 0; j < this.equipspartlist[i+14].effectlist.length; ++j) {
-                            _EffectTypeInfo = Enumerable.From(this.effecttypelist)
-                                .Where("$.id == '" + this.equipspartlist[i+14].effectlist[j].EffectType.id + "'")
-                                .Single();
-
-
-                            var _EffectName = _EffectTypeInfo.label.substr(0).replace('%', '').trim();
-
-                            if (['Drake Effect', 'MoT Effect'].includes(_EffectName)){
-                                _BuildString += '\t'
-                                + _EffectName
-                                + '\n';
-                            } else {
-                                _BuildString += '\t'
-                                + _EffectName
-                                + _EffectTypeInfo.opersymbol
-                                + eval(this.SkillFormulaReplace(this.equipspartlist[i+14].effectlist[j].EffectNumber))
-                                + _EffectTypeInfo.suffixsymbol + '\n';
+                        if(i == 0) {
+                            for(var j = 10; j < 14; j++){
+                                _BuildString += `\tCard - ${j-9}: `
+                                _BuildString += (this.equipspartlist[i+j].equipname.trim() == '') ? 'None' : this.equipspartlist[i+j].equipname;
+                                _BuildString += this.GetEquipEffect(i+j);
+                                _BuildString += '\n'
                             }
+                        }
+                        if(i == 1) {
+                            if (this.subweapon.ATK > 0 || this.subweapon.MATK > 0) {
+                                for(var j = 13; j < 17; j++){
+                                    _BuildString += `\tCard - ${j-12}: `
+                                    _BuildString += (this.equipspartlist[i+j].equipname.trim() == '') ? 'None' : this.equipspartlist[i+j].equipname;
+                                    _BuildString += this.GetEquipEffect(i+j);
+                                    _BuildString += '\n'
+                                }
+                            }
+                            if (this.subweapon.ShieldWeight > 0) {
+                                for(var j = 17; j < 18; j++){
+                                    _BuildString += `\tCard: `
+                                    _BuildString += (this.equipspartlist[i+j].equipname.trim() == '') ? 'None' : this.equipspartlist[i+j].equipname;
+                                    _BuildString += this.GetEquipEffect(i+j);
+                                    _BuildString += '\n'
+                                }
+                            }
+                        }
+                        if(i >= 2) {
+                            _BuildString += `\tCard: `
+                            _BuildString += (this.equipspartlist[i+17].equipname.trim() == '') ? 'None' : this.equipspartlist[i+17].equipname;
+                            _BuildString += this.GetEquipEffect(i+17);
+                            _BuildString += '\n'
                         }
                     }
                     return _BuildString;
