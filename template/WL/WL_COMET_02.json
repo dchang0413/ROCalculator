@@ -1,49 +1,70 @@
 {
-	"Name": "Budget High End",
+	"Name": "High End",
 	"Equip": [
 		{
 			"id": "weaponr",
-			"itemid": 550021,
+			"itemid": 640021,
 			"label": "MainHand",
-			"equipname": "Deus Ex Machina",
-			"refinelevel": 0,
+			"equipname": "Vivatus Fides Two-handed Staff",
+			"refinelevel": 14,
 			"grade": {
-				"id": 0,
-				"label": "No Grade"
+				"id": 4,
+				"label": "A"
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "6*WEAR",
+					"EffectNumber": "18*DOWN(WEAR/3)",
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(WEAG(3)?7:0)",
 					"EffectType": {
 						"id": "MatkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "WEAR",
+					"EffectNumber": "SKIDS(\"COMET\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
 					"EffectType": {
-						"id": "GCDPercent"
+						"id": "SkillDamagePercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "WEAR>9?70:0",
+					"EffectNumber": "WEAR>8?15:0",
 					"EffectType": {
-						"id": "FixedCastPercent"
+						"id": "SizeMatkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "2*WEAR",
+					"EffectNumber": "AEI==0?(WEAR>11?15:0):0",
 					"EffectType": {
-						"id": "HPPercent"
+						"id": "ElementalMagicPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "2*WEAR",
+					"EffectNumber": "(WEAG(1)&&WEAR>10)?15:0",
 					"EffectType": {
-						"id": "SPPercent"
+						"id": "ElementalMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(WEAG(4)?DOWN(WEAR/3):0)",
+					"EffectType": {
+						"id": "SPL"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(WEAG(4)?DOWN(WEAR/3):0)",
+					"EffectType": {
+						"id": "SMATK"
 					},
 					"Enable": true
 				}
@@ -52,141 +73,15 @@
 		},
 		{
 			"id": "weaponl",
-			"itemid": 460084,
+			"itemid": 0,
 			"label": "OffHand",
-			"equipname": "Alice Body Pillow",
-			"refinelevel": 14,
+			"equipname": "",
+			"effectlist": [],
+			"combolist": [],
+			"refinelevel": 0,
 			"grade": {
-				"id": 3,
-				"label": "B"
-			},
-			"effectlist": [
-				{
-					"EffectNumber": 10,
-					"EffectType": {
-						"id": "HPPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": 10,
-					"EffectType": {
-						"id": "SPPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "DOWN(SWEAR/2)",
-					"EffectType": {
-						"id": "PATK"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "DOWN(SWEAR/2)",
-					"EffectType": {
-						"id": "SMATK"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "5*DOWN(SWEAR/3)",
-					"EffectType": {
-						"id": "AtkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "5*DOWN(SWEAR/3)",
-					"EffectType": {
-						"id": "MatkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "SWEAR>10?70:0",
-					"EffectType": {
-						"id": "INT"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "SWEAR>10?70:0",
-					"EffectType": {
-						"id": "STR"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "SWEAR>11?50:0",
-					"EffectType": {
-						"id": "FixedCastPercent"
-					},
-					"Enable": true
-				}
-			],
-			"combolist": [
-				{
-					"itemid_every": [
-						4253
-					],
-					"itemid_any": [],
-					"equipname": "Alice Card",
-					"effectlist": [
-						{
-							"EffectNumber": "SWEAR>9?10:0",
-							"EffectType": {
-								"id": "PATK"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "SWEAR>9?10:0",
-							"EffectType": {
-								"id": "SMATK"
-							},
-							"Enable": true
-						}
-					]
-				},
-				{
-					"itemid_every": [
-						1275
-					],
-					"itemid_any": [],
-					"equipname": "Alice Egg",
-					"effectlist": [
-						{
-							"EffectNumber": 30,
-							"EffectType": {
-								"id": "Atk"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 30,
-							"EffectType": {
-								"id": "Matk"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 2,
-							"EffectType": {
-								"id": "ASPD"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 10,
-							"EffectType": {
-								"id": "VariableCastPercent"
-							},
-							"Enable": true
-						}
-					]
-				}
-			]
+				"id": 0
+			}
 		},
 		{
 			"id": "helm",
@@ -909,31 +804,15 @@
 		},
 		{
 			"id": "weaponcard",
-			"itemid": 27384,
+			"itemid": 0,
 			"label": "Weapon Card",
-			"equipname": "Mutating White Knight Card",
+			"equipname": "",
+			"effectlist": [],
+			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
-			"effectlist": [
-				{
-					"EffectNumber": 15,
-					"EffectType": {
-						"id": "Matk"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(ESIZE==1||ESIZE==2)?20:0",
-					"EffectType": {
-						"id": "SizeMatkPercent"
-					},
-					"Enable": true
-				}
-			],
-			"combolist": []
+				"id": 0
+			}
 		},
 		{
 			"id": "weaponcard",
@@ -982,15 +861,10 @@
 		},
 		{
 			"id": "shieldcard",
-			"itemid": 4253,
 			"label": "Shield Card",
-			"equipname": "Alice Card",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
+			"equipname": "",
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": []
 		},
 		{
@@ -1873,43 +1747,28 @@
 		},
 		{
 			"id": "shield1",
-			"itemid": 0,
 			"label": "Shield Enchant",
 			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": [],
 			"baseIndex": "1"
 		},
 		{
 			"id": "shield2",
-			"itemid": 0,
 			"label": "Shield Enchant",
 			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": [],
 			"baseIndex": "1"
 		},
 		{
 			"id": "shield3",
-			"itemid": 0,
 			"label": "Shield Enchant",
 			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": [],
 			"baseIndex": "1"
 		},
@@ -2250,8 +2109,8 @@
 	],
 	"Weapon": {
 		"type": {
-			"id": "OneHandedRods",
-			"label": "1HRod",
+			"id": "TwoHandedRods",
+			"label": "2HRod",
 			"sizefix": {
 				"small": 100,
 				"middle": 100,
@@ -2259,33 +2118,34 @@
 			},
 			"baseaspd": "",
 			"isRangedattack": false,
-			"isTwohand": false
+			"isTwohand": true
 		},
 		"level": {
-			"id": 4,
-			"label": "Lv. 4 Weapon",
-			"upgradeatk": 7,
+			"id": 5,
+			"label": "Lv. 5 Weapon",
+			"upgradeatk": 8,
 			"saferefine": 4,
-			"overatk": 14
+			"overatk": 0
 		},
 		"grade": {
-			"id": 0,
-			"label": "No Grade"
+			"id": 4,
+			"label": "A"
 		},
-		"ATK": "280",
-		"MATK": 180,
+		"ATK": "200",
+		"MATK": 340,
 		"refinelevel": 14,
 		"ArrowATK": 0,
 		"BulletATK": 0,
-		"Weight": 0,
-		"refinematk": 98,
-		"refineatk": 98,
-		"refineatk2": 140
+		"Weight": 200,
+		"refinematk": 224,
+		"refineatk": 224,
+		"refineatk2": 0
 	},
 	"SubWeapon": {
 		"type": {
-			"id": "Shield",
-			"label": "Shield"
+			"id": "Empty",
+			"label": "Bare Hand",
+			"weaponTag": ""
 		},
 		"level": {
 			"id": 1,
@@ -2295,15 +2155,15 @@
 			"overatk": 3
 		},
 		"grade": {
-			"id": 3,
-			"label": "B"
+			"id": 0,
+			"label": "No Grade"
 		},
 		"ATK": 0,
 		"MATK": 0,
-		"refinelevel": 14,
-		"ShieldWeight": 30,
-		"refinematk": 28,
-		"refineatk": 28
+		"refinelevel": 0,
+		"ShieldWeight": 0,
+		"refinematk": 0,
+		"refineatk": 0
 	},
 	"Status": {
 		"Level": 250,
@@ -2323,11 +2183,11 @@
 		"SPL": "100",
 		"CON": "97",
 		"CRT": 0,
-		"ASPD": 184,
+		"ASPD": 182,
 		"HP": 0,
 		"SP": 0,
-		"MHP": 130195,
-		"MSP": 34229
+		"MHP": 97859,
+		"MSP": 22764
 	},
 	"JobStatus": {
 		"STR": 1,
@@ -2390,7 +2250,7 @@
 		"MagnumPoison2Value": 0,
 		"SkillPercent": 15000,
 		"SkillFormulaError": "",
-		"EquipSkillAddDamage": 194,
+		"EquipSkillAddDamage": 264,
 		"BaseCriticalValue": 40,
 		"IgnoreDEF": false,
 		"IgnoreMDEF": false,
@@ -2442,9 +2302,9 @@
 		"MagicAddicted",
 		"AG_TWOHANDSTAFF"
 	],
-	"Damage": "574,045,720 ~ 603,254,910",
-	"DamageDPS": "1,836,588,983",
+	"Damage": "717,810,900 ~ 717,810,900",
+	"DamageDPS": 0,
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "588,650,315",
-	"lastedited": "2024-09-21T15:24:01.535Z"
+	"SkillDamageAvg": "717,810,900",
+	"lastedited": "2024-09-21T15:24:07.714Z"
 }
