@@ -2500,5 +2500,229 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 28765,
+		"label": "MainHand",
+		"equipname": "Judgment Slasher",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [
+					28766
+				],
+				"itemid_any": [],
+				"equipname": "Repentance Slasher",
+				"effectlist": [
+					{
+						"EffectNumber": "8*DOWN((WEAR+SWEAR)/2)",
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"METEORASSAULT BREAKER\")?((40*DOWN((WEAR+SWEAR)/2))+((WEAR+SWEAR)>19?20:0)):0)+(SKIDS(\"CROSSIMPACT COUNTERSLASH\")?((WEAR+SWEAR)>15?20:0):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR+SWEAR)>17?12:0",
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Daggers",
+				"label": "Dagger",
+				"sizefix": {
+					"small": 100,
+					"middle": 75,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "195",
+			"MATK": 0,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 110,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 28766,
+		"label": "MainHand",
+		"equipname": "Repentance Slasher",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Daggers",
+				"label": "Dagger",
+				"sizefix": {
+					"small": 100,
+					"middle": 75,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "100",
+			"MATK": 0,
+			"refinelevel": 12,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 70,
+			"refineatk": 84,
+			"refinematk": 84,
+			"refineatk2": 112
+		}
+	},
+	{
+		"id": "shoes",
+		"itemid": 470272,
+		"label": "Shoes",
+		"equipname": "Zodiac Boots(Thief)",
+		"refinelevel": 11,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "50+(10*DOWN(SHOER/2))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(SHOER/2)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"BREAKER SEVERE_RAINSTORM\")?(15*DOWN(SHOER/4)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>8?0.5:0",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>10?10:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					29596
+				],
+				"itemid_any": [],
+				"equipname": "Eremes's Memory",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"BREAKER\")?0.1:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "15*DOWN(WEAR/4)",
+						"EffectType": {
+							"id": "Cri"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					29603
+				],
+				"itemid_any": [],
+				"equipname": "Gertie's Memory",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "15*DOWN(WEAR/4)",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
