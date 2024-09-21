@@ -1947,7 +1947,7 @@
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['EquipTextDialog']" v-on:close="ClosePanel('EquipTextDialog')"
             custom-class="Dialogue-container" width="40%" top="50px" :show-close=false center>
-            <el-row class="titlebox" type="flex" align="middle" justify="end" style="height:50px; padding: 0px 0px;">
+            <el-row class="titlebox" type="flex" align="middle" justify="space-between" style="height:50px; padding: 0 0; width: 100%;">
                 <el-col :span="8">
                     <el-button v-on:click="CopyEquipText('Basic')">Copy Basic Equip Text</el-button>
                 </el-col>
@@ -9084,6 +9084,7 @@
                 },
                 GetBasicEquipString() {
                     var _BuildString = "";
+                    // main gear
                     for (var i = 0; i < 10; ++i) {
                         if (this.equipspartlist[i].equipname.trim() == '') continue;
                         else _BuildString += this.equipspartlist[i].label + ": " + this.equipspartlist[i].equipname;
@@ -9111,16 +9112,29 @@
                                 }
                             }
                         }
-                        if(i >= 2) {
+                        if(i >= 2 && i !== 4) {
                             _BuildString += `\tCard: `
                             _BuildString += (this.equipspartlist[i+17].equipname.trim() == '') ? 'None' : this.equipspartlist[i+17].equipname;
                             _BuildString += '\n'
                         }
                     }
+                    // shadow gear
+                    for(var i = 37; i < 43; ++i) {
+                        if (this.equipspartlist[i].equipname.trim() == '') continue;
+                        else _BuildString += this.equipspartlist[i].label + ": " + this.equipspartlist[i].equipname;
+                        _BuildString += '\n'
+                    }
+                    // costume stones
+                    for(var i = 31; i < 36; ++i) {
+                        if (this.equipspartlist[i].equipname.trim() == '') continue;
+                        else _BuildString += this.equipspartlist[i].label + ": " + this.equipspartlist[i].equipname;
+                        _BuildString += '\n'
+                    }
                     return _BuildString;
                 },
                 GetEquipString() {
                     var _BuildString = "";
+                    // main gear
                     for (var i = 0; i < 10; ++i) {
                         if (this.equipspartlist[i].equipname.trim() == '') continue;
                         else _BuildString += this.equipspartlist[i].label + ": " + this.equipspartlist[i].equipname;
@@ -9202,11 +9216,65 @@
                                 }
                             }
                         }
-                        if(i >= 2) {
+                        if(i >= 2 && i !== 4) {
                             _BuildString += `\tCard: `
                             _BuildString += (this.equipspartlist[i+17].equipname.trim() == '') ? 'None' : this.equipspartlist[i+17].equipname;
                             _BuildString += this.GetEquipEffect(i+17);
                             _BuildString += '\n'
+                        }
+                    }
+                    // shadow gear
+                    for(var i = 37; i < 43; ++i) {
+                        if (this.equipspartlist[i].equipname.trim() == '') continue;
+                        else _BuildString += this.equipspartlist[i].label + ": " + this.equipspartlist[i].equipname;
+                        _BuildString += '\n'
+                        var _EffectTypeInfo;
+                        for (var j = 0; j < this.equipspartlist[i].effectlist.length; ++j) {
+                            _EffectTypeInfo = Enumerable.From(this.effecttypelist)
+                                .Where("$.id == '" + this.equipspartlist[i].effectlist[j].EffectType.id + "'")
+                                .Single();
+                            
+                            var _EffectName = _EffectTypeInfo.label.substr(0).replace('%', '').trim();
+
+                            if (['Drake Effect', 'MoT Effect'].includes(_EffectName)){
+                                _BuildString += '\t'
+                                + _EffectName
+                                + '\n';
+                            } else {
+                                _BuildString += '\t'
+                                + _EffectName
+                                + _EffectTypeInfo.opersymbol
+                                + eval(this.SkillFormulaReplace(this.equipspartlist[i].effectlist[j].EffectNumber))
+                                + _EffectTypeInfo.suffixsymbol + '\n';
+                            }
+                            
+                        }
+                    }
+                    // costume stones
+                    for(var i = 31; i < 36; ++i) {
+                        if (this.equipspartlist[i].equipname.trim() == '') continue;
+                        else _BuildString += this.equipspartlist[i].label + ": " + this.equipspartlist[i].equipname;
+                        _BuildString += '\n'
+                        var _EffectTypeInfo;
+                        for (var j = 0; j < this.equipspartlist[i].effectlist.length; ++j) {
+                            _EffectTypeInfo = Enumerable.From(this.effecttypelist)
+                                .Where("$.id == '" + this.equipspartlist[i].effectlist[j].EffectType.id + "'")
+                                .Single();
+                            
+                            var _EffectName = _EffectTypeInfo.label.substr(0).replace('%', '').trim();
+
+                            if (['Drake Effect', 'MoT Effect'].includes(_EffectName)){
+                                _BuildString += '\t'
+                                + _EffectName
+                                + '\n';
+                            } else {
+                                _BuildString += '\t'
+                                + _EffectName
+                                + _EffectTypeInfo.opersymbol
+                                + eval(this.SkillFormulaReplace(this.equipspartlist[i].effectlist[j].EffectNumber))
+                                + _EffectTypeInfo.suffixsymbol + '\n';
+                            }
+                            
                         }
                     }
                     return _BuildString;
