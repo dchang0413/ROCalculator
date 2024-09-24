@@ -919,6 +919,135 @@
 		}
 	},
 	{
+		"id": "weaponl",
+		"itemid": -8,
+		"label": "OffHand",
+		"equipname": "Feather Shield-LT",
+		"refinelevel": 0,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "10*DOWN(SWEAR/2)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10*DOWN(SWEAR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "3+(SWEAR>6?3:0)+(SWEAR>11?4:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "3+(SWEAR>6?3:0)+(SWEAR>11?4:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAR>8?10:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAR>8?10:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAR>11?2:0",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAG(1)?2:0",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAG(1)?2:0",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAG(2)?5:0",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAG(2)?5:0",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAG(3)?(4*DOWN(SWEAR/3)):0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAG(3)?(4*DOWN(SWEAR/3)):0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shield",
+				"label": "Shield"
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 2,
+				"saferefine": 7,
+				"overatk": 3
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": 0,
+			"MATK": 0,
+			"refinelevel": 12,
+			"ShieldWeight": 40,
+			"refineatk": 24,
+			"refinematk": 24
+		}
+	},
+	{
 		"id": "helm",
 		"itemid": 400213,
 		"label": "Upper",
@@ -6004,6 +6133,55 @@
 				]
 			}
 		],
+		"idx": 3
+	},
+	{
+		"id": "helm1",
+		"itemid": -2,
+		"label": "Middle",
+		"equipname": "Exiled Ninja’s Eyes",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5+(['OB','KO'].includes(CCL)?((BIN>119?10:0)+(BST>119?10:0)):0)",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "20+(BST>119?30:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "20+(BIN>119?30:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5+(BST>119?15:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5+(BIN>119?15:0)",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
 		"idx": 3
 	}
 ]

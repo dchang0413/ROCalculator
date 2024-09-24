@@ -2520,5 +2520,61 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": -1,
+		"label": "Garment",
+		"equipname": "Bear Aimed Bag",
+		"refinelevel": 13,
+		"grade": {
+			"id": 0
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"ARROWSTORM AIMEDBOLT\")?((DOWN(BLV/10))+(GARMR>11?20:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>8?12:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>10&&isBoss?15:0",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 9999,
+				"EffectType": {
+					"id": "WeaponPerfection"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
