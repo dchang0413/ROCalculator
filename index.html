@@ -13054,9 +13054,7 @@
                     var _hitnumbervalue = eval(this.SkillFormulaReplace(this.skill.hitnumber));
                     switch (this.skill.DamageTypeIdx) {
                         case 0:
-                            if(this.attribute['ASPD']!=0){
-                                this.$set(this.TempAllSet, 'DamageDPS', this.currencystring(this.computeattribute.atkmulti_DPS));
-                            }
+                            this.$set(this.TempAllSet, 'DamageDPS', this.currencystring(this.computeattribute.atkmulti_DPS));
                             if(this.skill.critical || this.skill.isUnion){
                                 if( this.computeattribute.SkillDamageCRI_min != this.computeattribute.SkillDamageCRI_max ){
                                     this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.SkillDamageCRI_min) + " ~ " + this.currencystring(this.computeattribute.SkillDamageCRI_max));
@@ -13070,9 +13068,7 @@
                             }
                         break;
                         case 1:
-                            if(this.attribute['ASPD']!=0){
-                                this.$set(this.TempAllSet, 'DamageDPS', this.currencystring(this.computeattribute.matkmulti_DPS));
-                            }
+                            this.$set(this.TempAllSet, 'DamageDPS', this.currencystring(this.computeattribute.matkmulti_DPS));
                             if(_hitnumbervalue>1||_hitnumbervalue<0){
                                 this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.matkmulti_min) + " ~ " + this.currencystring(this.computeattribute.matkmulti_max));
                             }else{
@@ -13080,9 +13076,7 @@
                             }
                         break;
                         case 2:
-                            if(this.attribute['ASPD']!=0){
-                                this.$set(this.TempAllSet, 'DamageDPS', this.currencystring(this.computeattribute.DragonBreathDMG_DPS));
-                            }
+                            this.$set(this.TempAllSet, 'DamageDPS', this.currencystring(this.computeattribute.DragonBreathDMG_DPS));
                             this.$set(this.TempAllSet, 'Damage', this.currencystring(this.computeattribute.DragonBreathDMG));
                         break;
                     }
