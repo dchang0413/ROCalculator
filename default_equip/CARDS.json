@@ -5882,5 +5882,73 @@
 		"combolist": [],
 		"flags": [],
 		"idx": 3
+	},
+	{
+		"id": "acc1card",
+		"itemid": 300101,
+		"label": "Acc Card",
+		"equipname": "Broken Cleaner Card",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"DRAGONBREATH\")?10:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300094,
+					300089
+				],
+				"itemid_any": [],
+				"equipname": "Greater Papila Ruba + Verporta",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"DRAGONBREATH\")?FLOOR(MAX(SHOER/2,WEAR/2))*5:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 4593,
+		"label": "Garment Card",
+		"equipname": "Menblatt Card",
+		"effectlist": [
+			{
+				"EffectNumber": "FLOOR(BDE/10)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
 	}
 ]
