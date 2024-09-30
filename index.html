@@ -12326,7 +12326,7 @@
 
                     var useDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : kind === "stone" ? this.StoreDB_CostumeStone : kind === "pet" ? this.StoreDB_Pet : this.StoreDB_Card;
                     var _dbidx = useDB.findIndex(x => x.uuid == uuid);
-                    var idx = this.equipspartlist.findIndex(x => x.id == useDB[_dbidx].equip.id);
+                    var idx = this.equipspartlist.findIndex(x => x.label == useDB[_dbidx].equip.label);
                     if(this.ItemDesiredPosition > -1){
                             idx = this.ItemDesiredPosition;
                     }
@@ -12339,9 +12339,20 @@
                         }
                         if (idx == 8 || idx == 9)
                         {
-                            idx = 8;
-                            if( this.equipspartlist[9].equipname == '' ) { idx = 9; }
-                            if( this.equipspartlist[8].equipname == '' ) { idx = 8; }
+                            if (useDB[_dbidx].equip.id == 'acc')
+                            {
+                                idx = 8;
+                                if( this.equipspartlist[9].equipname == '' ) { idx = 9; }
+                                if( this.equipspartlist[8].equipname == '' ) { idx = 8; }
+                            }
+                            if(useDB[_dbidx].equip.id == 'acc1')
+                            {
+                                idx = 8;
+                            }
+                            if(useDB[_dbidx].equip.id == 'acc2')
+                            {
+                                idx = 9;
+                            }
                         }
                         if (idx == 10 || idx == 11 || idx == 12 || idx == 13 || idx == 14 || idx == 15 || idx == 16 || idx == 17)
                         {
@@ -12357,9 +12368,20 @@
                         }
                         if (idx == 25 || idx == 26)
                         {
-                            idx = 25;
-                            if( this.equipspartlist[26].equipname == '' ) { idx = 26; }
-                            if( this.equipspartlist[25].equipname == '' ) { idx = 25; }
+                            if (useDB[_dbidx].equip.id == 'acccard')
+                            {
+                                idx = 25;
+                                if( this.equipspartlist[26].equipname == '' ) { idx = 26; }
+                                if( this.equipspartlist[25].equipname == '' ) { idx = 25; }
+                            }
+                            if(useDB[_dbidx].equip.id == 'acc1card')
+                            {
+                                idx = 25;
+                            }
+                            if(useDB[_dbidx].equip.id == 'acc2card')
+                            {
+                                idx = 26;
+                            }
                         }
                         console.log("Load Equip " + idx + ": " + useDB[_dbidx].equip.equipname + " | Item Id: " + useDB[_dbidx].equip.itemid);
                         if (!('effectlist' in useDB[_dbidx].equip)) useDB[_dbidx].equip.effectlist = [];
