@@ -1863,7 +1863,7 @@
                                         <span class="EffectType">{{ item.equip.label }}</span>
                                     </el-col>
                                     <el-col class="textcenter">
-                                        <span class="">{{ item.equip.equipname }}</span>
+                                        <span class="">{{ item.equip.equipname }}<a v-if="item.equip.itemid" target="_blank" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">🔗</a></span>
                                     </el-col>
                                     <el-col :span="4">
                                         <el-button v-on:click="onRemoveEquipSave(item.uuid)" icon="el-icon-delete"
