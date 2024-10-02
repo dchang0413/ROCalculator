@@ -1857,7 +1857,7 @@
                 <el-scrollbar id="EquipListCont" wrap-class="EquipList-container" :native="false" :noresize="false">
                     <div v-for="(item, index) in StoreDB_EquipFilterList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)" v-bind:key="item.uuid">
                         <div style="padding: 5px 5px;">
-                            <el-row class="effectline" :class="item.equip.unchecked?'bg-orange-light' : (index%2==0?'bg-purple-light':'bg-purple')">
+                            <el-row class="effectline" :class="item.equip.noniRO?'bg-green-light': (item.equip.unchecked?'bg-orange-light' : (index%2==0?'bg-purple-light':'bg-purple'))">
                                 <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                     <el-col class="textcenter" :span="4" style="text-align: right;">
                                         <span class="EffectType">{{ item.equip.label }}</span>
@@ -1876,6 +1876,10 @@
                                         </el-button>
                                         <el-tooltip class="item" effect="dark" content="This item is not verified and may have faulty description/script. We do not have the means to test it" placement="right">
                                             <span v-if="item.equip.unchecked" style="cursor: pointer">❓</span>
+                                        </el-tooltip>
+
+                                        <el-tooltip class="item" effect="dark" content="non-iRO item" placement="right">
+                                            <span v-if="item.equip.noniRO" style="cursor: pointer">⭐</span>
                                         </el-tooltip>
                                     </el-col>
                                     <el-col :span="6">
@@ -14711,6 +14715,7 @@
                                 effectlist: Object.values(value.effectlist),
                                 combolist: value.combolist ? Object.values(value.combolist) : [],
                                 unchecked: value.unchecked,
+                                noniRO: filename == 'OTHER',
                             },
                             date: Date.now(),
                             weapon: value.idx < 2 ? ((value.idx == 0) ?
