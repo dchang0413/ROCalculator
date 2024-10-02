@@ -421,6 +421,22 @@
 						"Enable": true
 					}
 				]
+			},
+			{
+				"itemid_every": [
+					20946
+				],
+				"itemid_any": [],
+				"equipname": "Dragon Scale Hood",
+				"effectlist": [
+					{
+						"EffectNumber": "((DOWN(ARMORR/2))+(6*DOWN((ARMORR+GARMR)/6)))",
+						"EffectType": {
+							"id": "ElementalAtkPercent"
+						},
+						"Enable": true
+					}
+				]
 			}
 		],
 		"idx": 3
@@ -555,6 +571,29 @@
 						"EffectNumber": 15,
 						"EffectType": {
 							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					20946
+				],
+				"itemid_any": [],
+				"equipname": "Dragon Scale Hood",
+				"effectlist": [
+					{
+						"EffectNumber": 12,
+						"EffectType": {
+							"id": "RaceAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "((2*DOWN(ARMORR/2))+(7*DOWN((ARMORR+GARMR)/6)))",
+						"EffectType": {
+							"id": "ElementalAtkPercent"
 						},
 						"Enable": true
 					}
@@ -5826,6 +5865,263 @@
 				]
 			}
 		],
+		"idx": 3
+	},
+	{
+		"id": "shoes",
+		"itemid": 470120,
+		"label": "Shoes",
+		"equipname": "Scrap Remodel Shoes",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "2*DOWN(SHOER/2)",
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(SHOER/3)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>6?7:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>8?0.5:0",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>10?7:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					32259
+				],
+				"itemid_any": [],
+				"equipname": "Cannon Converter",
+				"effectlist": [
+					{
+						"EffectNumber": 8,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"ARMSCANNON CARTCANNON\")?20:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					28429
+				],
+				"itemid_any": [],
+				"equipname": "Arquien's Necklace",
+				"effectlist": [
+					{
+						"EffectNumber": 8,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 8,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4332
+				],
+				"itemid_any": [],
+				"equipname": "Waste Stove Card",
+				"effectlist": [
+					{
+						"EffectNumber": "50+(['ME','GE'].includes(CCL)?80:0)",
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "4*DOWN(ARMORR/3)",
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "4*DOWN(ARMORR/3)",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4342
+				],
+				"itemid_any": [],
+				"equipname": "RSX-0806 Card",
+				"effectlist": [
+					{
+						"EffectNumber": "100+(['ME','GE'].includes(CCL)?120:0)",
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "4*DOWN(ARMORR/2)",
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "4*DOWN(ARMORR/2)",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadow",
+		"itemid": 24734,
+		"label": "S.Weapon",
+		"equipname": "Durable Shadow Weapon",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(2+(SHWEAR>9?7:0))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(2+(SHWEAR>9?7:0))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(SHWEAR/2)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHWEAR>8?1:0",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowshld",
+		"itemid": 24735,
+		"label": "S.Shield",
+		"equipname": "Durable Shadow Shield",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(2+(SHSHIER>9?7:0))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(2+(SHSHIER>9?7:0))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(SHSHIER/2)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHSHIER>8?1:0",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
 		"idx": 3
 	}
 ]

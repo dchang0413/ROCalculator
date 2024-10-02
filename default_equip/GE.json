@@ -2584,5 +2584,86 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 460030,
+		"label": "Upper",
+		"equipname": "Fake Alloy Pot",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(DOWN(HATR/2))+(HATR>8?5:0)+(HATR>10?5:0)",
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(HATR/2))+(HATR>8?5:0)+(HATR>10?10:0)",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(2*DOWN(HATR/2))+(HATR>8?3:0)+(HATR>10?5:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"ACIDDEMONSTRATION HELLS_PLANT\")?(CCL=='GE'?30:0):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					470120
+				],
+				"itemid_any": [],
+				"equipname": "Scrap Remodel Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": "CCL=='GE'?(3*DOWN((SHOER+SWEAR)/4)):0",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "CCL=='GE'?(5*DOWN((SHOER+SWEAR)/6)):0",
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "CCL=='GE'?(5*DOWN((SHOER+SWEAR)/6)):0",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "CCL=='GE'?((SHOER+SWEAR)>22?-15:0):0",
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
