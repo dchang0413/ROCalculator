@@ -589,7 +589,7 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "12*(BLV/10)",
+					"EffectNumber": "12*DOWN(BLV/10)",
 					"EffectType": {
 						"id": "Atk"
 					},
@@ -624,7 +624,7 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "ARMORR>10?30:0",
+					"EffectNumber": "ARMORR>10&&(ESIZE==1||ESIZE==2)?30:0",
 					"EffectType": {
 						"id": "SizeAtkPercent"
 					},
@@ -685,6 +685,29 @@
 							"EffectNumber": 15,
 							"EffectType": {
 								"id": "PATK"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						20946
+					],
+					"itemid_any": [],
+					"equipname": "Dragon Scale Hood",
+					"effectlist": [
+						{
+							"EffectNumber": 12,
+							"EffectType": {
+								"id": "RaceAtkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "((2*DOWN(ARMORR/2))+(7*DOWN((ARMORR+GARMR)/6)))",
+							"EffectType": {
+								"id": "ElementalAtkPercent"
 							},
 							"Enable": true
 						}
@@ -2751,7 +2774,7 @@
 		"IgnoreMDEF": false,
 		"MemoryofThanatosCard": false
 	},
-	"EnemyName": "Amdarais (Challenge Lv10)",
+	"EnemyName": "Dummy",
 	"Enemy": {
 		"id": 20573,
 		"name": "Dummy",
@@ -2804,5 +2827,5 @@
 	"DamageDPS": "5,614,626,672",
 	"NormalAttackDPS": 0,
 	"SkillDamageAvg": "5,490,777,560",
-	"lastedited": "2024-10-01T19:18:50.770Z"
+	"lastedited": "2024-10-03T04:30:50.419Z"
 }

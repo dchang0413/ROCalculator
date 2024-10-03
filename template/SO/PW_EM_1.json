@@ -337,7 +337,7 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "12*(BLV/10)",
+					"EffectNumber": "12*DOWN(BLV/10)",
 					"EffectType": {
 						"id": "Matk"
 					},
@@ -351,7 +351,7 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "ARMORR>10?30:0",
+					"EffectNumber": "ARMORR>10&&(ESIZE==1||ESIZE==2)?30:0",
 					"EffectType": {
 						"id": "SizeMatkPercent"
 					},
@@ -1063,6 +1063,10 @@
 			"itemid": 0,
 			"label": "Headgear Card",
 			"equipname": "Plagarion Card",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 15,
@@ -1079,11 +1083,7 @@
 					"Enable": true
 				}
 			],
-			"combolist": [],
-			"refinelevel": 0,
-			"grade": {
-				"id": 0
-			}
+			"combolist": []
 		},
 		{
 			"id": "helm2card",
@@ -2448,5 +2448,5 @@
 	"DamageDPS": "9,403,370,622",
 	"NormalAttackDPS": 0,
 	"SkillDamageAvg": "2,633,997,373",
-	"lastedited": "2024-10-03T02:29:20.250Z"
+	"lastedited": "2024-10-03T04:32:00.585Z"
 }

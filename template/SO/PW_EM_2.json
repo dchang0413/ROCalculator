@@ -337,7 +337,7 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "12*(BLV/10)",
+					"EffectNumber": "12*DOWN(BLV/10)",
 					"EffectType": {
 						"id": "Matk"
 					},
@@ -351,7 +351,7 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "ARMORR>10?30:0",
+					"EffectNumber": "ARMORR>10&&(ESIZE==1||ESIZE==2)?30:0",
 					"EffectType": {
 						"id": "SizeMatkPercent"
 					},
@@ -2478,5 +2478,5 @@
 	"DamageDPS": "13,482,738,921",
 	"NormalAttackDPS": 0,
 	"SkillDamageAvg": "3,776,677,569",
-	"lastedited": "2024-10-03T02:39:47.134Z"
+	"lastedited": "2024-10-03T04:33:05.093Z"
 }
