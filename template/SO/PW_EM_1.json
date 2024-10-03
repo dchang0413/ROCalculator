@@ -1,5 +1,5 @@
 {
-	"Name": "PW EM",
+	"Name": "Neutral PW",
 	"Equip": [
 		{
 			"id": "weaponr",
@@ -230,91 +230,51 @@
 		},
 		{
 			"id": "helm1",
-			"itemid": 410254,
+			"itemid": 410362,
 			"label": "Middle",
-			"equipname": "Ancient Morocc Noble Jewelry",
+			"equipname": "Exiled Ninja's Eyes",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "40+5*DOWN(BST/8)+3*DOWN(BAG/8)+2*DOWN(BVI/8)+2*DOWN(BDE/8)",
+					"EffectNumber": "5+(['OB','KO'].includes(CCL)?((BIN>119?10:0)+(BST>119?10:0)):0)",
 					"EffectType": {
-						"id": "Atk"
+						"id": "AllTrait"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "40+5*DOWN(BIN/8)+3*DOWN(BLU/8)+2*DOWN(BVI/8)+2*DOWN(BDE/8)",
+					"EffectNumber": "20+(BST>119?30:0)",
 					"EffectType": {
-						"id": "Matk"
+						"id": "AtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "20+(BIN>119?30:0)",
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "5+(BST>119?15:0)",
+					"EffectType": {
+						"id": "LevelAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "5+(BIN>119?15:0)",
+					"EffectType": {
+						"id": "LevelMatkPercent"
 					},
 					"Enable": true
 				}
 			],
-			"combolist": [
-				{
-					"itemid_every": [
-						4112
-					],
-					"itemid_any": [],
-					"equipname": "Marduk Card",
-					"effectlist": [
-						{
-							"EffectNumber": 12,
-							"EffectType": {
-								"id": "ElementalAtkPercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 12,
-							"EffectType": {
-								"id": "ElementalMatkPercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 8,
-							"EffectType": {
-								"id": "GCDPercent"
-							},
-							"Enable": true
-						}
-					]
-				},
-				{
-					"itemid_every": [
-						4148
-					],
-					"itemid_any": [],
-					"equipname": "Pharaoh Card",
-					"effectlist": [
-						{
-							"EffectNumber": 25,
-							"EffectType": {
-								"id": "ElementalAtkPercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 25,
-							"EffectType": {
-								"id": "ElementalMatkPercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 15,
-							"EffectType": {
-								"id": "GCDPercent"
-							},
-							"Enable": true
-						}
-					]
-				}
-			]
+			"combolist": []
 		},
 		{
 			"id": "helm2",
@@ -346,66 +306,148 @@
 		},
 		{
 			"id": "armor",
-			"itemid": 450242,
+			"itemid": 450357,
 			"label": "Armor",
-			"equipname": "Elemental Possesion",
-			"refinelevel": 10,
+			"equipname": "Violent Dragon Shadow Armor-LT",
+			"refinelevel": 14,
 			"grade": {
-				"id": 0,
-				"label": "No Grade"
+				"id": 4,
+				"label": "A"
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "ARMORR>6?30:(ARMORR>4?15:0)",
+					"EffectNumber": 12,
 					"EffectType": {
-						"id": "INT"
+						"id": "AllStatus"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "CCL=='SO'?180:0",
+					"EffectNumber": "2*DOWN(ARMORR/3)",
+					"EffectType": {
+						"id": "SPL"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "2*DOWN(ARMORR/3)",
+					"EffectType": {
+						"id": "CON"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "12*(BLV/10)",
 					"EffectType": {
 						"id": "Matk"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "CCL=='SO'?70:0",
+					"EffectNumber": "(4*DOWN(ARMORR/2))+(ARMORG(1)?12:0)",
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "ARMORR>10?30:0",
+					"EffectType": {
+						"id": "SizeMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(ARMORR>8?25:0)+(ARMORG(2)?12:0)",
+					"EffectType": {
+						"id": "ElementalMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "ARMORG(3)?0.3:0",
+					"EffectType": {
+						"id": "FixedCast"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "ARMORG(4)?15:0",
 					"EffectType": {
 						"id": "RaceMatkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(ARMORR>9&&AEI<6)?15:0",
+					"EffectNumber": "ARMORR>12?15:0",
 					"EffectType": {
-						"id": "ElementalMagicPercent"
+						"id": "GCDPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "CCL=='SO'?12:0",
-					"EffectType": {
-						"id": "AspdPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": 10,
+					"EffectNumber": 15,
 					"EffectType": {
 						"id": "HPPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": 10,
+					"EffectNumber": 15,
 					"EffectType": {
 						"id": "SPPercent"
 					},
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [
+				{
+					"itemid_every": [
+						4456
+					],
+					"itemid_any": [],
+					"equipname": "Nidhoggur Shadow Card",
+					"effectlist": [
+						{
+							"EffectNumber": 15,
+							"EffectType": {
+								"id": "SMATK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 30,
+							"EffectType": {
+								"id": "SizeMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						2554
+					],
+					"itemid_any": [],
+					"equipname": "Nidhoggur's Shadow Garb",
+					"effectlist": [
+						{
+							"EffectNumber": 12,
+							"EffectType": {
+								"id": "RaceMatkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "((2*DOWN(ARMORR/2))+(7*DOWN((ARMORR+GARMR)/6)))",
+							"EffectType": {
+								"id": "ElementalMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
 		},
 		{
 			"id": "robe",
@@ -1018,16 +1060,30 @@
 		},
 		{
 			"id": "helm1card",
-			"itemid": 4148,
+			"itemid": 0,
 			"label": "Headgear Card",
-			"equipname": "Pharaoh Card",
+			"equipname": "Plagarion Card",
+			"effectlist": [
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "AEI==0?7:0",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
-			"effectlist": [],
-			"combolist": []
+				"id": 0
+			}
 		},
 		{
 			"id": "helm2card",
@@ -1044,9 +1100,9 @@
 		},
 		{
 			"id": "armorcard",
-			"itemid": 4601,
+			"itemid": 4456,
 			"label": "Armor Card",
-			"equipname": "Amdarais Card",
+			"equipname": "Nidhoggur Shadow Card",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -1054,16 +1110,16 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 15,
+					"EffectNumber": 5,
 					"EffectType": {
-						"id": "LevelAtkPercent"
+						"id": "INT"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": 15,
+					"EffectNumber": "CCL=='WL'?50:0",
 					"EffectType": {
-						"id": "MatkPercent"
+						"id": "FixedCastPercent"
 					},
 					"Enable": true
 				}
@@ -2272,8 +2328,8 @@
 		"ASPD": 186,
 		"HP": 0,
 		"SP": 0,
-		"MHP": 107388,
-		"MSP": 30557
+		"MHP": 117969,
+		"MSP": 31298
 	},
 	"JobStatus": {
 		"STR": 4,
@@ -2334,7 +2390,7 @@
 	},
 	"Option": {
 		"MagnumPoison2Value": 0,
-		"SkillPercent": 11110,
+		"SkillPercent": 10915,
 		"SkillFormulaError": "",
 		"EquipSkillAddDamage": 205,
 		"BaseCriticalValue": 40,
@@ -2388,9 +2444,9 @@
 		"EM_MAGIC_BOOK_M",
 		"EM_SPELL_ENCHANTING"
 	],
-	"Damage": "1,647,827,412 ~ 1,875,734,840",
-	"DamageDPS": "6,289,558,620",
+	"Damage": "2,463,403,922 ~ 2,804,590,824",
+	"DamageDPS": "9,403,370,622",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "1,761,781,126",
-	"lastedited": "2024-09-12T01:13:50.437Z"
+	"SkillDamageAvg": "2,633,997,373",
+	"lastedited": "2024-10-03T02:29:20.250Z"
 }
