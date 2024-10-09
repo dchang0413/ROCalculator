@@ -2170,5 +2170,63 @@
 			"refinematk": 84,
 			"refineatk2": 112
 		}
+	},
+	{
+		"id": "robe",
+		"itemid": 480317,
+		"label": "Garment",
+		"equipname": "Magic Compressor",
+		"unchecked": true,
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5+(GARMR>6?5:0)+(GARMR>8?10:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "30+(GARMR>6?5:0)+(GARMR>8?10:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='SO'?25:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='SO'?25:0",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"FIREBOLT COLDBOLT LIGHTNINGBOLT EARTHSPIKE\")?(CCL=='SO'?100:0):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
