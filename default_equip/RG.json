@@ -2545,5 +2545,62 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "shoes",
+		"itemid": 22207,
+		"label": "Shoes",
+		"equipname": "Imperial Boots",
+		"refinelevel": 7,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "CCL=='RG'?20:0",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RG'?100:0",
+				"EffectType": {
+					"id": "BypassDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "3+(SHOER>4?7:0)+(SHOER>6?10:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "3+(SHOER>4?7:0)+(SHOER>6?10:0)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>4?5:0)+(SHOER>6?5:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"BANISHINGPOINT\")&&CCL=='RG'?50:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
