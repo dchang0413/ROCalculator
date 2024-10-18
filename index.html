@@ -11266,6 +11266,28 @@
                         this.attribute['MELDDI'] += this.attribute['MELDDI'] > 0 ? 150 : 50;
                         this.attribute['RNGDDI'] += this.attribute['RNGDDI'] > 0 ? 150 : 50;
                     }
+                    if (this.IsSupportActive('MT_SUMMON_ABR_DUAL_CANNON')){
+                        if (this.skill.id == 'NC_BOOSTKNUCKLE_i' || this.skill.id == 'NC_BOOSTKNUCKLE_2'){
+                            this.skill.hitnumber = 2;
+                        }
+                        if (this.skill.id == 'NC_VULCANARM_i' || this.skill.id == 'NC_VULCANARM_2'){
+                            this.skill.hitnumber = 2;
+                        }
+                        if (this.skill.id == 'NC_ARMSCANNON_i' || this.skill.id == 'NC_ARMSCANNON_2'){
+                            this.skill.hitnumber = 2;
+                        }
+                    }
+                    if (!this.IsSupportActive('MT_SUMMON_ABR_DUAL_CANNON')){
+                        if (this.skill.id == 'NC_BOOSTKNUCKLE_i' || this.skill.id == 'NC_BOOSTKNUCKLE_2'){
+                            this.skill.hitnumber = 1;
+                        }
+                        if (this.skill.id == 'NC_VULCANARM_i' || this.skill.id == 'NC_VULCANARM_2'){
+                            this.skill.hitnumber = 1;
+                        }
+                        if (this.skill.id == 'NC_ARMSCANNON_i' || this.skill.id == 'NC_ARMSCANNON_2'){
+                            this.skill.hitnumber = 1;
+                        }
+                    }
                     // 爪痕
                     if (this.IsSupportActive('GC_DARKCROW')) {
                         this.attribute['MELDDI'] += this.attribute['MELDDI'] > 0 ? 175 : 75;
@@ -14082,6 +14104,7 @@
                         { skill: { id: 'NC_MADOLICENCE', name: 'Madogear License', maxlv: 5, lv: 5, class: 'ME', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'MT_RUSH', name: 'Rush', maxlv: 1, lv: 1, class: 'ME', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'MT_QUAKE', name: 'Quake', maxlv: 1, lv: 1, class: 'ME', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
+                        { skill: { id: 'MT_SUMMON_ABR_DUAL_CANNON', name: 'ABR: Dual Cannon', maxlv: 4, lv: 4, class: 'ME', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
                         { skill: { id: 'BA_MUSICALLESSON', name: 'Music/Dance Lesson', maxlv: 10, lv: 0, class: 'MI,WA', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'WM_LESSON', name: 'Voice Lesson', maxlv: 10, lv: 10, class: 'MI,WA', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
@@ -14373,6 +14396,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-10-18', content: 'Added: ABR: Dual Cannon support skill for Meister' },
                         { id: '2024-10-16', content: 'Added: Create Hell Tree & Create Wooden Warrior support skills for Biolo' },
                         { id: '2024-10-09', content: 'Added: OCP 64 items' },
                         { id: '2024-10-03', content: 'Fixed: Violent Dragon LT, Abyss Lake LT Script<br>Confirmed: Violent Dragon LT<br>Added: Indicator for non-iRO items, link to divinepride on items' },
