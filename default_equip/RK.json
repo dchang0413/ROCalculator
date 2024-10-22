@@ -3162,5 +3162,232 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 24800,
+		"label": "S.Armor",
+		"equipname": "M. Dragon Knight Shadow Armor",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [
+					24793
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24793,
+					24801
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow Shield + M. Dragon Knight Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 1,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 1,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHSHIER+SHARMORR+SHSHOER)>26?50:0",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHSHIER+SHARMORR+SHSHOER)>26?50:0",
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24792,
+					24793,
+					24801,
+					24802,
+					24803
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow (Weapon/Shield) + M. Dragon Knight Shadow (Shoes/Earring/Pendant)",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "BypassRESPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "BypassMRESPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 24801,
+		"label": "S.Shoes",
+		"equipname": "M. Dragon Knight Shadow Shoes",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [
+					24793
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 24802,
+		"label": "S.Earring",
+		"equipname": "M. Dragon Knight Shadow Earring",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [
+					24792
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24792,
+					24803
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow Weapon + M. Dragon Knight Shadow Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": 1,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 1,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHWEAR+SHACCRR+SHACCLR)>26?50:0",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHWEAR+SHACCRR+SHACCLR)>26?50:0",
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 24803,
+		"label": "S.Pendant",
+		"equipname": "M. Dragon Knight Shadow Pendant",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [
+					24792
+				],
+				"itemid_any": [],
+				"equipname": "Master Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

@@ -3383,5 +3383,77 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "shadowshld",
+		"itemid": 24737,
+		"label": "S.Shield",
+		"equipname": "Clever Shield Shadow",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+		{
+			"EffectNumber": "2+(SHSHIER>9?7:0)",
+			"EffectType": {
+				"id": "ElementalMagicPercent"
+			},
+			"Enable": true
+		},
+		{
+			"EffectNumber": "DOWN(SHSHIER/2)",
+			"EffectType": {
+				"id": "MatkPercent"
+			},
+			"Enable": true
+		},
+		{
+			"EffectNumber": "SHSHIER>8?5:0",
+			"EffectType": {
+				"id": "VariableCastPercent"
+			},
+			"Enable": true
+		}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadow",
+		"itemid": 24736,
+		"label": "S.Weapon",
+		"equipname": "Clever Weapon Shadow",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "2+(SHWEAR>9?7:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(SHWEAR/2)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHWEAR>8?5:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
