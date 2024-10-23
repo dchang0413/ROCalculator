@@ -11311,6 +11311,10 @@
                     if (this.IsSupportActive('ABC_MAGIC_SWORD_M')){
                         this.attribute['SizeMatkPercent'] += 15;
                     }
+                    // Abyss Slayer
+                    if (this.IsSupportActive('ABC_ABYSS_SLAYER')){
+                        this.attribute['PATK'] += 10 + this.GetSupportSkill('ABC_ABYSS_SLAYER').lv * 2;
+                        this.attribute['SMATK'] += 10 + this.GetSupportSkill('ABC_ABYSS_SLAYER').lv * 2;}
 
                     // 大聲吶喊
                     if (this.IsSupportActive('MC_LOUD')){
@@ -14028,6 +14032,7 @@
                         { skill: { id: 'SC_AUTOSHADOWSPELL', name: 'Auto Shadow Spell', maxlv: 1, lv: 1, class: 'SC', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'ABC_DAGGER_AND_BOW_M', name: 'Dagger & Bow Mastery', maxlv: 10, lv: 10, class: 'SC', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
                         { skill: { id: 'ABC_MAGIC_SWORD_M', name: 'Magic Sword Mastery', maxlv: 10, lv: 10, class: 'SC', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
+                        { skill: { id: 'ABC_ABYSS_SLAYER', name: 'Abyss Slayer', maxlv: 10, lv: 10, class: 'SC', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, trans:'4th', conflict: '', Note: '', } },
 
                         { skill: { id: 'AL_INCAGI', name: 'Increase AGI', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AB_CANTO', Note: '', } },
                         { skill: { id: 'AL_BLESSING', name: 'Blessing', maxlv: 10, lv: 10, class: 'AB,SU,SN', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: 'AB_CLEMENTIA', Note: '', } },
@@ -14396,6 +14401,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-10-23', content: 'Added: Abyss Slayer Skill' },
                         { id: '2024-10-22', content: 'Added: October Kachua items' },
                         { id: '2024-10-18', content: 'Added: ABR: Dual Cannon support skill for Meister' },
                         { id: '2024-10-16', content: 'Added: Create Hell Tree & Create Wooden Warrior support skills for Biolo' },
