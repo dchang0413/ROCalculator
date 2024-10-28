@@ -2176,7 +2176,6 @@
 		"itemid": 480317,
 		"label": "Garment",
 		"equipname": "Magic Compressor",
-		"unchecked": true,
 		"refinelevel": 10,
 		"grade": {
 			"id": 0,
@@ -2227,6 +2226,160 @@
 			}
 		],
 		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400377,
+		"label": "Upper",
+		"equipname": "Crown of Good and Evil (Elemental Master)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[1,2,4,5].includes(AEI)?(7*DOWN(HATR/4)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?0.3:0)+(HATR>11&&HATG(4)?0.2:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(1)?5:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					540059
+				],
+				"itemid_any": [],
+				"equipname": "Doom Bible",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"VENOM_SWAMP\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)+(SKIDS(\"CONFLAGRATION\")?(5*DOWN(WEAR/3)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312021,
+					540059
+					
+				],
+				"itemid_any": [],
+				"equipname": "Doom Bible + Evil Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"VENOM_SWAMP\")?15:0)+(SKIDS(\"CONFLAGRATION\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					540060
+				],
+				"itemid_any": [],
+				"equipname": "Blessed Bible",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"DIAMOND_STORM\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)+(SKIDS(\"TERRA_DRIVE\")?(5*DOWN(WEAR/3)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312014,
+					540060
+					
+				],
+				"itemid_any": [],
+				"equipname": "Blessed Bible + Good Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"DIAMOND_STORM\")?15:0)+(SKIDS(\"TERRA_DRIVE\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	}
 ]

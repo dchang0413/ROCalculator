@@ -2189,5 +2189,201 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400378,
+		"label": "Upper",
+		"equipname": "Crown of Good and Evil (Cardinal)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==6?(7*DOWN(HATR/4)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?5:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?5:0",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?0.3:0)+(HATR>11&&HATG(4)?0.2:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(1)?5:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					540053
+				],
+				"itemid_any": [],
+				"equipname": "Sealed Bible",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"PETITIO\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312021,
+					540053
+					
+				],
+				"itemid_any": [],
+				"equipname": "Sealed Bible + Evil Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"PETITIO\")?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					550088
+				],
+				"itemid_any": [],
+				"equipname": "Saint Bringer",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"FRAMEN\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)+(SKIDS(\"ARBITRIUM\")?(5*DOWN(WEAR/3)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312014,
+					550088
+					
+				],
+				"itemid_any": [],
+				"equipname": "Saint Bringer + Good Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"FRAMEN\")?15:0)+(SKIDS(\"ARBITRIUM\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

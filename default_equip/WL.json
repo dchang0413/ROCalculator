@@ -1726,5 +1726,159 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400376,
+		"label": "Upper",
+		"equipname": "Crown of Good and Evil (Arch Mage)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[2,7,8].includes(AEI)?(7*DOWN(HATR/4)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?0.3:0)+(HATR>11&&HATG(4)?0.2:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(1)?5:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					640036
+				],
+				"itemid_any": [],
+				"equipname": "Devil Wing Staff",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"SOUL_VC_STRIKE\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)+(SKIDS(\"MYSTERY_ILLUSION\")?(5*DOWN(WEAR/3)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312021,
+					640036
+					
+				],
+				"itemid_any": [],
+				"equipname": "Devil Wing Staff + Evil Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"SOUL_VC_STRIKE\")?15:0)+(SKIDS(\"MYSTERY_ILLUSION\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					640037
+				],
+				"itemid_any": [],
+				"equipname": "Destiny Staff",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"FROZEN_SLASH\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)+(SKIDS(\"RAIN_OF_CRYSTAL\")?(5*DOWN(WEAR/3)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312014,
+					640037
+					
+				],
+				"itemid_any": [],
+				"equipname": "Destiny Staff + Good Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"FROZEN_SLASH\")?15:0)+(SKIDS(\"RAIN_OF_CRYSTAL\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

@@ -2803,5 +2803,173 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400384,
+		"label": "Upper",
+		"equipname": "Crown of Good and Evil (Windhawk)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?5:0",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?5:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?0.3:0)+(HATR>11&&HATG(4)?0.2:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(1)?5:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					510091
+				],
+				"itemid_any": [],
+				"equipname": "Underworld Knife",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"FLAMETRAP SOLIDTRAP\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)+(SKIDS(\"SWIFTTRAP DEEPBLINDTRAP\")?(5*DOWN(WEAR/3)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312021,
+					510091
+					
+				],
+				"itemid_any": [],
+				"equipname": "Underworld Knife + Evil Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"FLAMETRAP SOLIDTRAP\")?15:0)+(SKIDS(\"SWIFTTRAP DEEPBLINDTRAP\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					700065
+				],
+				"itemid_any": [],
+				"equipname": "Angel Wing Bow",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"CRESCIVE_BOLT\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)+(SKIDS(\"GALESTORM\")?(5*DOWN(WEAR/3)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312014,
+					700065
+					
+				],
+				"itemid_any": [],
+				"equipname": "Angel Wing Bow + Good Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"CRESCIVE_BOLT\")?15:0)+(SKIDS(\"GALESTORM\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
