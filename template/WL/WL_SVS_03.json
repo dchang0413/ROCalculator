@@ -1,0 +1,2453 @@
+{
+	"Name": "High End SVS",
+	"Equip": [
+		{
+			"id": "weaponr",
+			"itemid": 640036,
+			"label": "MainHand",
+			"equipname": "Devil Wing Staff",
+			"refinelevel": 14,
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": 5,
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 2,
+					"EffectType": {
+						"id": "SPL"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "[7,8].includes(AEI)?((WEAR>4?5:0)+(WEAG(1)?10:0)):0",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SKIDS(\"SOUL_VC_STRIKE\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0)+(SKIDS(\"MYSTERY_ILLUSION\")?(WEAR>10?15:0):0)",
+					"EffectType": {
+						"id": "SkillDamagePercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "WEAR>9?10:0",
+					"EffectType": {
+						"id": "VariableCastPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "WEAG(2)?10:0",
+					"EffectType": {
+						"id": "SizeMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "WEAG(3)?10:0",
+					"EffectType": {
+						"id": "RaceMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "WEAG(4)?10:0",
+					"EffectType": {
+						"id": "ElementalMatkPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "weaponl",
+			"itemid": 0,
+			"label": "OffHand",
+			"equipname": "",
+			"effectlist": [],
+			"combolist": [],
+			"refinelevel": 0,
+			"grade": {
+				"id": 0
+			}
+		},
+		{
+			"id": "helm",
+			"itemid": 400697,
+			"label": "Upper",
+			"equipname": "Full Faith Crown",
+			"refinelevel": 14,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "20*DOWN(HATR/2)",
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "7*DOWN(HATR/3)",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(HATR>6?10:0)+(HATR>13?30:0)",
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "HATR>8?10:0",
+					"EffectType": {
+						"id": "GCDPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "HATR>10?15:0",
+					"EffectType": {
+						"id": "RaceMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "HATR>11?15:0",
+					"EffectType": {
+						"id": "ElementalMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "HATR>12?0.5:0",
+					"EffectType": {
+						"id": "FixedCast"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "HATR>13?15:0",
+					"EffectType": {
+						"id": "SPL"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						4556
+					],
+					"itemid_any": [],
+					"equipname": "Fenrir Card",
+					"effectlist": [
+						{
+							"EffectNumber": 0.2,
+							"EffectType": {
+								"id": "FixedCast"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 20,
+							"EffectType": {
+								"id": "SMATK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "SKIDS(\"COMET\")?(7*DOWN(HATR/2)):0",
+							"EffectType": {
+								"id": "SkillDamagePercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "SKIDS(\"COMET\")&&CCL=='WL'?20:0",
+							"EffectType": {
+								"id": "CDTime"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "helm1",
+			"itemid": 410362,
+			"label": "Middle",
+			"equipname": "Exiled Ninja's Eyes",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "5+(['OB','KO'].includes(CCL)?((BIN>119?10:0)+(BST>119?10:0)):0)",
+					"EffectType": {
+						"id": "AllTrait"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "20+(BST>119?30:0)",
+					"EffectType": {
+						"id": "AtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "20+(BIN>119?30:0)",
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "5+(BST>119?15:0)",
+					"EffectType": {
+						"id": "LevelAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "5+(BIN>119?15:0)",
+					"EffectType": {
+						"id": "LevelMatkPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "helm2",
+			"itemid": 420388,
+			"label": "Lower",
+			"equipname": "Grey Wolf Cub in Mouth",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "DOWN(BLV/10)",
+					"EffectType": {
+						"id": "SizeAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "DOWN(BLV/10)",
+					"EffectType": {
+						"id": "SizeMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 10,
+					"EffectType": {
+						"id": "HPPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 5,
+					"EffectType": {
+						"id": "AllTrait"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						450177
+					],
+					"itemid_any": [],
+					"equipname": "Gray Wolf Suit",
+					"effectlist": [
+						{
+							"EffectNumber": 25,
+							"EffectType": {
+								"id": "PATK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "75*DOWN(ARMORR/3)",
+							"EffectType": {
+								"id": "Atk"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						450178
+					],
+					"itemid_any": [],
+					"equipname": "Gray Wolf Robe",
+					"effectlist": [
+						{
+							"EffectNumber": 25,
+							"EffectType": {
+								"id": "SMATK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "75*DOWN(ARMORR/3)",
+							"EffectType": {
+								"id": "Matk"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "armor",
+			"itemid": 450357,
+			"label": "Armor",
+			"equipname": "Violent Dragon Shadow Armor-LT",
+			"refinelevel": 14,
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": 12,
+					"EffectType": {
+						"id": "AllStatus"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "2*DOWN(ARMORR/3)",
+					"EffectType": {
+						"id": "SPL"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "2*DOWN(ARMORR/3)",
+					"EffectType": {
+						"id": "CON"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "12*DOWN(BLV/10)",
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(4*DOWN(ARMORR/2))+(ARMORG(1)?12:0)",
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "ARMORR>10&&(ESIZE==1||ESIZE==2)?30:0",
+					"EffectType": {
+						"id": "SizeMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(ARMORR>8?25:0)+(ARMORG(2)?12:0)",
+					"EffectType": {
+						"id": "ElementalMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "ARMORG(3)?0.3:0",
+					"EffectType": {
+						"id": "FixedCast"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "ARMORG(4)?15:0",
+					"EffectType": {
+						"id": "RaceMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "ARMORR>12?15:0",
+					"EffectType": {
+						"id": "GCDPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "HPPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "SPPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						4456
+					],
+					"itemid_any": [],
+					"equipname": "Nidhoggur Shadow Card",
+					"effectlist": [
+						{
+							"EffectNumber": 15,
+							"EffectType": {
+								"id": "SMATK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 30,
+							"EffectType": {
+								"id": "LevelMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						2554
+					],
+					"itemid_any": [],
+					"equipname": "Nidhoggur's Shadow Garb",
+					"effectlist": [
+						{
+							"EffectNumber": 12,
+							"EffectType": {
+								"id": "RaceMatkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "((2*DOWN(ARMORR/2))+(7*DOWN((ARMORR+GARMR)/6)))",
+							"EffectType": {
+								"id": "ElementalMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "robe",
+			"itemid": 480270,
+			"label": "Garment",
+			"equipname": "Spirit Cloak of Naght Sieger",
+			"refinelevel": 13,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "10*DOWN(GARMR/2)",
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "[2,4].includes(ERI)?(8*DOWN(GARMR/4)):0",
+					"EffectType": {
+						"id": "RaceMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "GARMR>6?10:0",
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "GARMR>8?8:0",
+					"EffectType": {
+						"id": "GCDPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "[1,2,8].includes(AEI)?((GARMR>10?10:0)+(GARMR>12?15:0)):0",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "GARMR>11&&EEI==0?12:0",
+					"EffectType": {
+						"id": "ElementalMatkPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						4457
+					],
+					"itemid_any": [],
+					"equipname": "Naght Seiger Card",
+					"effectlist": [
+						{
+							"EffectNumber": 10,
+							"EffectType": {
+								"id": "SMATK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "[1,2,8].includes(AEI)?20:0",
+							"EffectType": {
+								"id": "ElementalMagicPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 40,
+							"EffectType": {
+								"id": "LevelMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "shoes",
+			"itemid": 470266,
+			"label": "Shoes",
+			"equipname": "Mythical Moonlight Paw",
+			"refinelevel": 14,
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "2*DOWN(SHOER/2)",
+					"EffectType": {
+						"id": "INT"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "DOWN(SHOER/3)",
+					"EffectType": {
+						"id": "SPL"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "DOWN(SHOER/3)",
+					"EffectType": {
+						"id": "CON"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "DOWN(SHOER/3)+(SHOEG(3)?15:0)",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "10*DOWN(SHOER/2)",
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "SHOER>7?20:10",
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHOER>10?15:0)+(SHOEG(2)?15:0)",
+					"EffectType": {
+						"id": "SizeMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "SHOER>9&&(AEI==6||AEI==1)?30:0",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHOER>8?0.3:0)+((SHOEG(4)&&SHOER>12)?0.7:0)",
+					"EffectType": {
+						"id": "FixedCast"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						4131
+					],
+					"itemid_any": [],
+					"equipname": "Moonlight Flower Card",
+					"effectlist": [
+						{
+							"EffectNumber": "SHOER>12?250:0",
+							"EffectType": {
+								"id": "INT"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "SHOER>12?250:0",
+							"EffectType": {
+								"id": "DEX"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "SHOER>12?250:0",
+							"EffectType": {
+								"id": "LUK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "isBoss?40:0",
+							"EffectType": {
+								"id": "LevelMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						4290
+					],
+					"itemid_any": [],
+					"equipname": "Cat O' Nine Tails Card",
+					"effectlist": [
+						{
+							"EffectNumber": "SHOER>12?150:0",
+							"EffectType": {
+								"id": "INT"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "SHOER>12?150:0",
+							"EffectType": {
+								"id": "DEX"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "SHOER>12?150:0",
+							"EffectType": {
+								"id": "LUK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "isBoss?15:0",
+							"EffectType": {
+								"id": "LevelMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "acc1",
+			"itemid": 0,
+			"label": "Accessory",
+			"equipname": "Soul Expansion Ring",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0
+			},
+			"effectlist": [
+				{
+					"EffectNumber": 7,
+					"EffectType": {
+						"id": "INT"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 10,
+					"EffectType": {
+						"id": "SizeMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 10,
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 30,
+					"EffectType": {
+						"id": "GCDPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "AspdPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "acc2",
+			"itemid": 490545,
+			"label": "Accessory",
+			"equipname": "Overdrive Rampage",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": 10,
+					"EffectType": {
+						"id": "HPPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 10,
+					"EffectType": {
+						"id": "SPPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "AspdPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "SizeAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "SizeMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "DOWN(MIN(250,BLV)/5)",
+					"EffectType": {
+						"id": "LevelAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "DOWN(MIN(250,BLV)/5)",
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "weaponcard",
+			"itemid": 27384,
+			"label": "Weapon Card",
+			"equipname": "Mutating White Knight Card",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(ESIZE==1||ESIZE==2)?20:0",
+					"EffectType": {
+						"id": "SizeMatkPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "weaponcard",
+			"itemid": 27384,
+			"label": "Weapon Card",
+			"equipname": "Mutating White Knight Card",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(ESIZE==1||ESIZE==2)?20:0",
+					"EffectType": {
+						"id": "SizeMatkPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "weaponcard",
+			"itemid": 0,
+			"label": "Weapon Card",
+			"equipname": "",
+			"effectlist": [],
+			"combolist": [],
+			"refinelevel": 0,
+			"grade": {
+				"id": 0
+			}
+		},
+		{
+			"id": "weaponcard",
+			"itemid": 0,
+			"label": "Weapon Card",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": []
+		},
+		{
+			"id": "weaponcard",
+			"label": "Weapon Card",
+			"equipname": "",
+			"effectlist": [],
+			"itemid": 0,
+			"combolist": []
+		},
+		{
+			"id": "weaponcard",
+			"label": "Weapon Card",
+			"equipname": "",
+			"effectlist": [],
+			"itemid": 0,
+			"combolist": []
+		},
+		{
+			"id": "weaponcard",
+			"label": "Weapon Card",
+			"equipname": "",
+			"effectlist": [],
+			"itemid": 0,
+			"combolist": []
+		},
+		{
+			"id": "weaponcard",
+			"label": "Weapon Card",
+			"equipname": "",
+			"effectlist": [],
+			"itemid": 0,
+			"combolist": []
+		},
+		{
+			"id": "shieldcard",
+			"label": "Shield Card",
+			"equipname": "",
+			"effectlist": [],
+			"itemid": 0,
+			"combolist": []
+		},
+		{
+			"id": "helmcard",
+			"itemid": 4556,
+			"label": "Headgear Card",
+			"equipname": "Fenrir Card",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "50+(5*HATR)",
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 70,
+					"EffectType": {
+						"id": "FixedCastPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "helm1card",
+			"itemid": 4403,
+			"label": "Headgear Card",
+			"equipname": "Kiel-D-01 Card",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": 30,
+					"EffectType": {
+						"id": "GCDPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "helm2card",
+			"itemid": 0,
+			"label": "Headgear Card",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": []
+		},
+		{
+			"id": "armorcard",
+			"itemid": 4457,
+			"label": "Armor Card",
+			"equipname": "Naght Seiger Card",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "AEI==8?30:0",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "robecard",
+			"itemid": 300552,
+			"label": "Garment Card",
+			"equipname": "Tai-Zi and Niflheim Card",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "BIN>124?30:0",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "DOWN(BIN/20)",
+					"EffectType": {
+						"id": "GCDPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "shoescard",
+			"itemid": 4131,
+			"label": "Shoes Card",
+			"equipname": "Moonlight Flower Card",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": []
+		},
+		{
+			"id": "acc1card",
+			"itemid": 4577,
+			"label": "Acc Card",
+			"equipname": "Elvira Card",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "(AEI==3||AEI==8)?20:0",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "acc2card",
+			"itemid": 4577,
+			"label": "Acc Card",
+			"equipname": "Elvira Card",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "(AEI==3||AEI==8)?20:0",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "costumeupper",
+			"itemid": 0,
+			"label": "C.Upper",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": []
+		},
+		{
+			"id": "costumemiddle",
+			"itemid": 0,
+			"label": "C.Middle",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": []
+		},
+		{
+			"id": "costumelower",
+			"itemid": 0,
+			"label": "C.Lower",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": []
+		},
+		{
+			"id": "costumegarment",
+			"itemid": 0,
+			"label": "Costume",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": []
+		},
+		{
+			"id": "stoneupper",
+			"itemid": 1000857,
+			"label": "Upper Stone",
+			"equipname": "Arch Bishop Stone (Upper)",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "CCL=='AB'?9:0",
+					"EffectType": {
+						"id": "GCDPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						25709
+					],
+					"itemid_any": [],
+					"equipname": "Arch Bishop Stone (Garment)",
+					"effectlist": [
+						{
+							"EffectNumber": 15,
+							"EffectType": {
+								"id": "ElementalMagicPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						1000019
+					],
+					"itemid_any": [],
+					"equipname": "Arch Bishop Stone II (Garment)",
+					"effectlist": [
+						{
+							"EffectNumber": 15,
+							"EffectType": {
+								"id": "SizeMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "stonemiddle",
+			"itemid": 1000614,
+			"label": "Middle Stone",
+			"equipname": "Warlock Stone (Middle)",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "CCL=='WL'?0.5:0",
+					"EffectType": {
+						"id": "FixedCast"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						25456
+					],
+					"itemid_any": [],
+					"equipname": "Warlock Stone (Garment)",
+					"effectlist": [
+						{
+							"EffectNumber": "SKIDS(\"CRIMSONROCK\")?15:0",
+							"EffectType": {
+								"id": "SkillDamagePercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						1000213
+					],
+					"itemid_any": [],
+					"equipname": "Warlock Stone II (Garment)",
+					"effectlist": [
+						{
+							"EffectNumber": "SKIDS(\"JACKFROST\")?15:0",
+							"EffectType": {
+								"id": "SkillDamagePercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "stonelower",
+			"itemid": 1000859,
+			"label": "Lower Stone",
+			"equipname": "Arch Bishop Stone (Lower)",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "CCL=='AB'?0.5:0",
+					"EffectType": {
+						"id": "FixedCast"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						25709
+					],
+					"itemid_any": [],
+					"equipname": "Arch Bishop Stone (Garment)",
+					"effectlist": [
+						{
+							"EffectNumber": 15,
+							"EffectType": {
+								"id": "RaceMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						1000019
+					],
+					"itemid_any": [],
+					"equipname": "Arch Bishop Stone II (Garment)",
+					"effectlist": [
+						{
+							"EffectNumber": 15,
+							"EffectType": {
+								"id": "ElementalMagicPercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "stonegarment",
+			"itemid": 25709,
+			"label": "Garment Stone",
+			"equipname": "Arch Bishop Stone (Garment)",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "SKIDS(\"ADORAMUS\")?15:0",
+					"EffectType": {
+						"id": "SkillDamagePercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						25706
+					],
+					"itemid_any": [],
+					"equipname": "High Priest Stone (Upper)",
+					"effectlist": [
+						{
+							"EffectNumber": "SKIDS(\"ADORAMUS\")?15:0",
+							"EffectType": {
+								"id": "SkillDamagePercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						25707
+					],
+					"itemid_any": [],
+					"equipname": "High Priest Stone (Middle)",
+					"effectlist": [
+						{
+							"EffectNumber": "SKIDS(\"ADORAMUS\")?1:0",
+							"EffectType": {
+								"id": "CDTime"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						25708
+					],
+					"itemid_any": [],
+					"equipname": "High Priest Stone (Lower)",
+					"effectlist": [
+						{
+							"EffectNumber": 0.5,
+							"EffectType": {
+								"id": "FixedCast"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "stonedual",
+			"itemid": 1000527,
+			"label": "Garment(Dual) Stone",
+			"equipname": "Magic Power Stone (Dual)",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": 4,
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						1000528
+					],
+					"itemid_any": [],
+					"equipname": "Magic Power Stone (Upper)",
+					"effectlist": [
+						{
+							"EffectNumber": 2,
+							"EffectType": {
+								"id": "ElementalMagicPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						1000529
+					],
+					"itemid_any": [],
+					"equipname": "Magic Power Stone (Middle)",
+					"effectlist": [
+						{
+							"EffectNumber": 2,
+							"EffectType": {
+								"id": "ElementalMagicPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						1000530
+					],
+					"itemid_any": [],
+					"equipname": "Magic Power Stone (Lower)",
+					"effectlist": [
+						{
+							"EffectNumber": 2,
+							"EffectType": {
+								"id": "ElementalMagicPercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "pets",
+			"itemid": 0,
+			"label": "Pet",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": []
+		},
+		{
+			"id": "shadow",
+			"itemid": 24753,
+			"label": "S.Weapon",
+			"equipname": "Magical Spell Shadow Weapon",
+			"refinelevel": 10,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "FLOOR(SHWEAR/2)",
+					"EffectType": {
+						"id": "SPL"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHWEAR>6?3:0)+(SHWEAR>8?3:0)",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						24754
+					],
+					"itemid_any": [],
+					"equipname": "Magical Spell Shadow Shield",
+					"effectlist": [
+						{
+							"EffectNumber": 3,
+							"EffectType": {
+								"id": "SMATK"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "shadowshld",
+			"itemid": 24754,
+			"label": "S.Shield",
+			"equipname": "Magical Spell Shadow Shield",
+			"refinelevel": 10,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "FLOOR(SHSHIER/2)",
+					"EffectType": {
+						"id": "SPL"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHSHIER>6?3:0)+(SHSHIER>8?3:0)",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "shadowarmor",
+			"itemid": 24883,
+			"label": "S.Armor",
+			"equipname": "Full Spell Shadow Armor",
+			"refinelevel": 10,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": 3,
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "FLOOR(SHARMORR/2)",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHARMORR>9?2:0)",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						24884
+					],
+					"itemid_any": [],
+					"equipname": "Full Spell Shadow Shoes",
+					"effectlist": [
+						{
+							"EffectNumber": 2,
+							"EffectType": {
+								"id": "MatkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 2,
+							"EffectType": {
+								"id": "SMATK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHARMORR+SHSHOER)>17?5:0",
+							"EffectType": {
+								"id": "ElementalMagicPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHARMORR+SHSHOER)>17?10:0",
+							"EffectType": {
+								"id": "SizeMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						24753
+					],
+					"itemid_any": [],
+					"equipname": "Magical Spell Shadow Weapon",
+					"effectlist": [
+						{
+							"EffectNumber": 3,
+							"EffectType": {
+								"id": "MatkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHARMORR+SHWEAR)>17?3:0",
+							"EffectType": {
+								"id": "SPL"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHARMORR+SHWEAR)>17?3:0",
+							"EffectType": {
+								"id": "SMATK"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "shadowshoe",
+			"itemid": 24884,
+			"label": "S.Shoes",
+			"equipname": "Full Spell Shadow Shoes",
+			"refinelevel": 10,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": 3,
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "FLOOR(SHSHOER/2)",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHSHOER>9?2:0)",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						24754
+					],
+					"itemid_any": [],
+					"equipname": "Magical Spell Shadow Shield",
+					"effectlist": [
+						{
+							"EffectNumber": 3,
+							"EffectType": {
+								"id": "MatkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHARMORR+SHSHIER)>17?3:0",
+							"EffectType": {
+								"id": "SPL"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHARMORR+SHSHIER)>17?3:0",
+							"EffectType": {
+								"id": "SMATK"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "shadowearring",
+			"itemid": 24665,
+			"label": "S.Earring",
+			"equipname": "Full Tempest Shadow Earring",
+			"refinelevel": 10,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "5+DOWN(SHACCRR/2)",
+					"EffectType": {
+						"id": "BypassMDEFPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "SHACCRR>9?3:0",
+					"EffectType": {
+						"id": "RaceMatkPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [
+				{
+					"itemid_every": [
+						24668
+					],
+					"itemid_any": [],
+					"equipname": "Full Tempest Shadow Pendant",
+					"effectlist": [
+						{
+							"EffectNumber": "(SHACCRR+SHACCLR)>17?100:0",
+							"EffectType": {
+								"id": "BypassMDEFPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 2,
+							"EffectType": {
+								"id": "MatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
+		},
+		{
+			"id": "shadowpendant",
+			"itemid": 24668,
+			"label": "S.Pendant",
+			"equipname": "Full Tempest Shadow Pendant",
+			"refinelevel": 10,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": "5+DOWN(SHACCRR/2)",
+					"EffectType": {
+						"id": "BypassMDEFPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "SHACCRR>9?3:0",
+					"EffectType": {
+						"id": "RaceMatkPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "weapon11",
+			"itemid": 0,
+			"label": "Weapon Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "0"
+		},
+		{
+			"id": "weapon12",
+			"itemid": 0,
+			"label": "Weapon Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "0"
+		},
+		{
+			"id": "weapon13",
+			"itemid": 0,
+			"label": "Weapon Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "0"
+		},
+		{
+			"id": "weapon14",
+			"itemid": 0,
+			"label": "Weapon Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "0"
+		},
+		{
+			"id": "weapon21",
+			"label": "Weapon Enchant",
+			"equipname": "",
+			"effectlist": [],
+			"itemid": 0,
+			"combolist": [],
+			"baseIndex": "1"
+		},
+		{
+			"id": "weapon22",
+			"label": "Weapon Enchant",
+			"equipname": "",
+			"effectlist": [],
+			"itemid": 0,
+			"combolist": [],
+			"baseIndex": "1"
+		},
+		{
+			"id": "weapon23",
+			"label": "Weapon Enchant",
+			"equipname": "",
+			"effectlist": [],
+			"itemid": 0,
+			"combolist": [],
+			"baseIndex": "1"
+		},
+		{
+			"id": "weapon24",
+			"label": "Weapon Enchant",
+			"equipname": "",
+			"effectlist": [],
+			"itemid": 0,
+			"combolist": [],
+			"baseIndex": "1"
+		},
+		{
+			"id": "shield1",
+			"label": "Shield Enchant",
+			"equipname": "",
+			"effectlist": [],
+			"itemid": 0,
+			"combolist": [],
+			"baseIndex": "1"
+		},
+		{
+			"id": "shield2",
+			"label": "Shield Enchant",
+			"equipname": "",
+			"effectlist": [],
+			"itemid": 0,
+			"combolist": [],
+			"baseIndex": "1"
+		},
+		{
+			"id": "shield3",
+			"label": "Shield Enchant",
+			"equipname": "",
+			"effectlist": [],
+			"itemid": 0,
+			"combolist": [],
+			"baseIndex": "1"
+		},
+		{
+			"id": "helmUpper1",
+			"itemid": 0,
+			"label": "Helm Enchant",
+			"equipname": "",
+			"effectlist": [],
+			"combolist": [],
+			"refinelevel": 0,
+			"grade": {
+				"id": 0
+			},
+			"baseIndex": "2"
+		},
+		{
+			"id": "helmUpper2",
+			"itemid": 0,
+			"label": "Helm Enchant",
+			"equipname": "",
+			"effectlist": [],
+			"combolist": [],
+			"refinelevel": 0,
+			"grade": {
+				"id": 0
+			},
+			"baseIndex": "2"
+		},
+		{
+			"id": "helmUpper3",
+			"itemid": 0,
+			"label": "Helm Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "2"
+		},
+		{
+			"id": "helmMiddle1",
+			"itemid": 0,
+			"label": "Helm Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "3"
+		},
+		{
+			"id": "helmMiddle2",
+			"itemid": 0,
+			"label": "Helm Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "3"
+		},
+		{
+			"id": "helmMiddle3",
+			"itemid": 0,
+			"label": "Helm Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "3"
+		},
+		{
+			"id": "helmLower1",
+			"itemid": 0,
+			"label": "Helm Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "4"
+		},
+		{
+			"id": "helmLower2",
+			"itemid": 0,
+			"label": "Helm Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "4"
+		},
+		{
+			"id": "helmLower3",
+			"itemid": 0,
+			"label": "Helm Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "4"
+		},
+		{
+			"id": "armor1",
+			"itemid": 0,
+			"label": "Armor Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "5"
+		},
+		{
+			"id": "armor2",
+			"itemid": 0,
+			"label": "Armor Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "5"
+		},
+		{
+			"id": "armor3",
+			"itemid": 0,
+			"label": "Armor Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "5"
+		},
+		{
+			"id": "garment1",
+			"itemid": 0,
+			"label": "Garment Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "6"
+		},
+		{
+			"id": "garment2",
+			"itemid": 0,
+			"label": "Garment Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "6"
+		},
+		{
+			"id": "garment3",
+			"itemid": 0,
+			"label": "Garment Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "6"
+		},
+		{
+			"id": "shoes1",
+			"itemid": 0,
+			"label": "Shoes Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "7"
+		},
+		{
+			"id": "shoes2",
+			"itemid": 0,
+			"label": "Shoes Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "7"
+		},
+		{
+			"id": "shoes3",
+			"itemid": 0,
+			"label": "Shoes Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "7"
+		},
+		{
+			"id": "acc11",
+			"itemid": 0,
+			"label": "Accessory Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "8"
+		},
+		{
+			"id": "acc12",
+			"itemid": 0,
+			"label": "Accessory Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "8"
+		},
+		{
+			"id": "acc13",
+			"itemid": 0,
+			"label": "Accessory Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "8"
+		},
+		{
+			"id": "acc21",
+			"itemid": 0,
+			"label": "Accessory Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "8"
+		},
+		{
+			"id": "acc22",
+			"itemid": 0,
+			"label": "Accessory Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "8"
+		},
+		{
+			"id": "acc23",
+			"itemid": 0,
+			"label": "Accessory Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
+			"combolist": [],
+			"baseIndex": "8"
+		}
+	],
+	"Weapon": {
+		"type": {
+			"id": "TwoHandedRods",
+			"label": "2HRod",
+			"sizefix": {
+				"small": 100,
+				"middle": 100,
+				"large": 100
+			},
+			"baseaspd": "",
+			"isRangedattack": false,
+			"isTwohand": true
+		},
+		"level": {
+			"id": 5,
+			"label": "Lv. 5 Weapon",
+			"upgradeatk": 8,
+			"saferefine": 4,
+			"overatk": 0
+		},
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"ATK": "95",
+		"MATK": 290,
+		"refinelevel": 14,
+		"ArrowATK": 0,
+		"BulletATK": 0,
+		"Weight": 140,
+		"refinematk": 224,
+		"refineatk": 224,
+		"refineatk2": 0
+	},
+	"SubWeapon": {
+		"type": {
+			"id": "Empty",
+			"label": "Bare Hand",
+			"weaponTag": ""
+		},
+		"level": {
+			"id": 1,
+			"label": "Lv. 1 Weapon",
+			"upgradeatk": 2,
+			"saferefine": 7,
+			"overatk": 3
+		},
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"ATK": 0,
+		"MATK": 0,
+		"refinelevel": 0,
+		"ShieldWeight": 0,
+		"refinematk": 0,
+		"refineatk": 0
+	},
+	"Status": {
+		"Level": 250,
+		"JOBLevel": 70,
+		"Transcendent": true,
+		"classid": "WL",
+		"UseJobMaxPoint": true,
+		"STR": "22",
+		"AGI": "111",
+		"VIT": "50",
+		"INT": "130",
+		"DEX": "130",
+		"LUK": "54",
+		"POW": 0,
+		"STA": 0,
+		"WIS": 0,
+		"SPL": "100",
+		"CON": "97",
+		"CRT": 0,
+		"ASPD": 185,
+		"HP": 0,
+		"SP": 0,
+		"MHP": 89734,
+		"MSP": 24420,
+		"select_default": "WL"
+	},
+	"JobStatus": {
+		"STR": 1,
+		"AGI": 7,
+		"VIT": 8,
+		"INT": 15,
+		"DEX": 8,
+		"LUK": 4,
+		"POW": 0,
+		"STA": 7,
+		"WIS": 6,
+		"SPL": 11,
+		"CON": 8,
+		"CRT": 1
+	},
+	"SkillName": "Soul Vulcan Strike",
+	"Skill": {
+		"id": "AG_SOUL_VC_STRIKE_1",
+		"name": "Soul Vulcan Strike",
+		"level": 5,
+		"formula": "(SLV*180+SPL*3)*BLV/100",
+		"class": "WL",
+		"DamageTypeIdx": 1,
+		"ranged": false,
+		"critical": false,
+		"cannon": false,
+		"transWeaponDEF": false,
+		"laterformula": false,
+		"hitnumber": "SLV+2",
+		"elemental": 8,
+		"FCT": 1,
+		"VCT": 1,
+		"CD": 0,
+		"GCD": 0,
+		"SpecialATK1": 0,
+		"SpecialATK2": 0,
+		"SpecialATK3": 0,
+		"SpecialATK4": 0,
+		"SpecialATK5": 0,
+		"SpecialATK6": 0,
+		"SpecialATK7": 0,
+		"SpecialMATK1": 0,
+		"Note": "",
+		"Version": 1,
+		"isUnion": false,
+		"laterranged": false,
+		"halfcri": false,
+		"SpecialATK8": 0,
+		"SpecialMATK2": 0,
+		"SpecialMATK3": 0
+	},
+	"SkillOption": {
+		"AttackElementalIdx": 8,
+		"ElementalPercent": 70,
+		"WeaponMasteryATKInput": 0,
+		"WeaponMasteryATK": 0,
+		"CarWeight": 10500
+	},
+	"Option": {
+		"MagnumPoison2Value": 0,
+		"SkillPercent": 3495,
+		"SkillFormulaError": "",
+		"EquipSkillAddDamage": 30,
+		"BaseCriticalValue": 40,
+		"IgnoreDEF": false,
+		"IgnoreMDEF": false,
+		"MemoryofThanatosCard": false
+	},
+	"EnemyName": "Amdarais (Challenge Lv10)",
+	"Enemy": {
+		"id": 20573,
+		"name": "Amdarais (Challenge Lv10)",
+		"level": 192,
+		"hp": 2000000000,
+		"LUK": 168,
+		"VIT": 175,
+		"elemental": 7,
+		"elementallevel": 3,
+		"size": 2,
+		"StatusDEF": 183,
+		"WeaponDEF": 446,
+		"StatusMDEF": 100,
+		"WeaponMDEF": 82,
+		"RES": 0,
+		"MRES": 0,
+		"sizeResist": 0,
+		"levelResist": 0,
+		"elementalResist": 0,
+		"moneletResist": 0,
+		"rangedResist": 0,
+		"raceResist": 0,
+		"criResist": 0,
+		"doram": false,
+		"auraLevel": 0,
+		"race": 3,
+		"classid": 1,
+		"RESPercent": "0.00",
+		"WeaponDEFPercent": "47.45",
+		"MRESPercent": "0.00",
+		"WeaponMDEFPercent": "40.55"
+	},
+	"Consumable": [],
+	"SupportSkill": [
+		"AL_BLESSING",
+		"WL_RECOGNIZEDSPELL",
+		"HW_MAGICPOWER",
+		"MagicAddicted",
+		"WL_TELEKINESIS_INTENSE",
+		"AG_TWOHANDSTAFF"
+	],
+	"Damage": "2,093,794,500 ~ 2,093,794,500",
+	"DamageDPS": "6,972,335,685",
+	"NormalAttackDPS": 0,
+	"SkillDamageAvg": "299,113,500",
+	"lastedited": "2024-10-29T03:17:05.375Z"
+}
