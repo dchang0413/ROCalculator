@@ -2526,5 +2526,54 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "helm",
+		"itemid": 400601,
+		"label": "Upper",
+		"equipname": "Steamroller",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "3+HATR",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 40,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"ONLY_ONE_BULLET SPIRAL_SHOOTING WILD_FIRE\")?(DOWN(BLV/10)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>9?20:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>9?25:0",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]

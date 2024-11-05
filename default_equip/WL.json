@@ -2090,5 +2090,62 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "armor",
+		"itemid": 450401,
+		"label": "Armor",
+		"equipname": "Speculation",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"ROCK_DOWN STORM_CANNON FROZEN_SLASH CRIMSON_ARROW\")?(DOWN(BLV/10)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*ARMORR",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>6?10:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"CRIMSON_ARROW\")?(ARMORR>8?100:0):0",
+				"EffectType": {
+					"id": "FixedCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>11?100:0",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>11?10:0",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
