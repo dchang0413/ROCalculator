@@ -2829,5 +2829,511 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400378,
+		"label": "Upper",
+		"equipname": "Crown of Good and Evil (Imperial Guard)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==6?(7*DOWN(HATR/4)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?5:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?5:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?0.3:0)+(HATR>11&&HATG(4)?0.2:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(1)?5:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					500072
+				],
+				"itemid_any": [],
+				"equipname": "Devil Guardian Sword",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"CROSS_RAIN\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "AEI==6?(5*DOWN(WEAR/3)):0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312021,
+					500072
+					
+				],
+				"itemid_any": [],
+				"equipname": "Devil Guardian Sword + Evil Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"CROSS_RAIN\")?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "AEI==6?20:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					530045
+				],
+				"itemid_any": [],
+				"equipname": "Holy Light Spear",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"OVERSLASH\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "5*DOWN(WEAR/3)",
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312014,
+					530045
+					
+				],
+				"itemid_any": [],
+				"equipname": "Holy Light Spear + Good Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"OVERSLASH\")?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc",
+		"itemid": 490083,
+		"label": "Accessory",
+		"equipname": "Themis Balance",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"RAYOFGENESIS\")?(DOWN(BLV/5)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RG'&&SKIDS(\"RAYOFGENESIS\")?50:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RG'&&isBoss?15:0",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RG'?30:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 15892,
+		"label": "Upper",
+		"equipname": "Themis Helm",
+		"refinelevel": 9,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RG'?20:0",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RG'&&[0,4,8,9].includes(AEI)?20:0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"RAYOFGENESIS GRANDCROSS\")?(20+(HATR>6?30:0)+(HATR>8?50:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 500072,
+		"label": "MainHand",
+		"equipname": "Devil Guardian Sword",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"CROSS_RAIN\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "AEI==6?((WEAR>4?5:0)+(WEAR>10?15:0)+(WEAG(1)?10:0)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>9?10:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?10:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(3)?10:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(4)?10:0",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedSwords",
+				"label": "1HSword",
+				"sizefix": {
+					"small": 75,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "100",
+			"MATK": 220,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 180,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 530045,
+		"label": "MainHand",
+		"equipname": "Holy Light Spear",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?5:0)+(WEAR>10?15:0)+(WEAG(1)?10:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"OVERSLASH\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>9?10:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?10:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(3)?10:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(4)?10:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedSpears",
+				"label": "1HSpear",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "210",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 200,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
 	}
 ]

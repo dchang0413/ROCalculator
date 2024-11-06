@@ -3300,7 +3300,6 @@
 		"itemid": 480270,
 		"label": "Garment",
 		"equipname": "Spirit Cloak of Naght Sieger",
-		"unchecked": true,
 		"refinelevel": 13,
 		"grade": {
 			"id": 0,
@@ -3455,5 +3454,247 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": 480428,
+		"label": "Garment",
+		"equipname": "Ultio Magic Cloak-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "15*DOWN(GARMR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>6?15:0)+(GARMG(1)?8:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[0,6].includes(AEI)?((10*DOWN(GARMR/3))+(GARMG(3)?20:0)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>10?12:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>11?15:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>12&&isBoss?10:0",
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"CROSS_RAIN FRAMEN\")?((GARMR>8?20:0)+(GARMG(2)?12:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMG(4)?15:0",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [],
+				"itemid_any": [
+					16089,
+					590044
+				],
+				"equipname": "Ultio-OS or Ultio-OSAD",
+				"effectlist": [
+					{
+						"EffectNumber": "[0,6].includes(AEI)?10:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"ADORAMUS\")?0.5:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"ADORAMUS\")?(20*DOWN(WEAR/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "weaponl",
+		"itemid": -1,
+		"label": "OffHand",
+		"equipname": "Ancient Prontera Book",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "2*DOWN(SWEAR/2)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "30*DOWN(SWEAR/3)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAR>9?20:0",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAR>11?30:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAR>13?70:0",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAR>13?70:0",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAG(1)?15:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAG(1)?15:0",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"RAYOFGENESIS\")&&SWEAG(3)?100:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4372
+				],
+				"itemid_any": [],
+				"equipname": "White Lady Card",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shield",
+				"label": "Shield"
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 2,
+				"saferefine": 7,
+				"overatk": 3
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": 0,
+			"MATK": 0,
+			"refinelevel": 14,
+			"ShieldWeight": 20,
+			"refinematk": 0,
+			"refineatk": 0
+		}
 	}
 ]
