@@ -3696,5 +3696,34 @@
 			"refinematk": 0,
 			"refineatk": 0
 		}
+	},
+	{
+		"id": "armor",
+		"itemid": 450178,
+		"label": "Armor",
+		"equipname": "Gray Wolf Robe",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "130+(15*DOWN(ARMORR/2))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>6?15:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
