@@ -2960,5 +2960,502 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 800011,
+		"label": "MainHand",
+		"equipname": "Poenitentia Flamen",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"ONLY_ONE_BULLET MAGAZINE_FOR_ONE\")?(10+(WEAG(1)?5:0)+(WEAG(2)?3:0)+(WEAG(3)?5:0)):0)+(SKIDS(\"FIREDANCE\")?((3*DOWN(WEAR/2))+(WEAR>8?25:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>6?10:0",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?15:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?1:0",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(3)?1:0",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Pistol",
+				"label": "Pistol",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "220",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 120,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "helm",
+		"itemid": 400392,
+		"label": "Upper",
+		"equipname": "Crown of Good and Evil (Night Watch - Revolver)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "5*DOWN(HATR/3)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "7*DOWN(HATR/4)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?5:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?5:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?0.3:0)+(HATR>11&&HATG(4)?0.2:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(1)?5:0",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					800026
+				],
+				"itemid_any": [],
+				"equipname": "Devil's Bullet",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"ONLY_ONE_BULLET\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "5*DOWN(WEAR/3)",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312021,
+					800026
+					
+				],
+				"itemid_any": [],
+				"equipname": "Devil's Bullet + Evil Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"ONLY_ONE_BULLET\")?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					800027
+				],
+				"itemid_any": [],
+				"equipname": "Devil Hunter",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"MAGAZINE_FOR_ONE\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "10*DOWN(WEAR/3)",
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312014,
+					800027
+					
+				],
+				"itemid_any": [],
+				"equipname": "Devil Hunter + Good Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"MAGAZINE_FOR_ONE\")?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 800026,
+		"label": "MainHand",
+		"equipname": "Devil's Bullet",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?5:0)+(WEAR>10?15:0)+(WEAG(1)?10:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"ONLY_ONE_BULLET\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>9?10:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?10:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(3)?10:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(4)?10:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Pistol",
+				"label": "Pistol",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "250",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 200,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 800027,
+		"label": "MainHand",
+		"equipname": "Devil Hunter",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?5:0)+(WEAG(1)?10:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"MAGAZINE_FOR_ONE\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>9?10:0",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?20:0",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?10:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(3)?10:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(4)?10:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Pistol",
+				"label": "Pistol",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "250",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 170,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
 	}
 ]
