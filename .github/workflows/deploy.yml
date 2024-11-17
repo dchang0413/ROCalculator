@@ -19,6 +19,9 @@ jobs:
     - name: Run Template Metadata Generator
       run: python scripts/generate_templates_metadata.py
 
+    - name: Run Equipment File Generator
+      run: python scripts/generate_equipment_json.py
+
     - name: Push files into FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
