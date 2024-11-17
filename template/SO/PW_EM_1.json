@@ -3,9 +3,9 @@
 	"Equip": [
 		{
 			"id": "weaponr",
-			"itemid": 540024,
+			"itemid": 540041,
 			"label": "MainHand",
-			"equipname": "Vivatus Fides Magic Book",
+			"equipname": "Solid Manual",
 			"refinelevel": 14,
 			"grade": {
 				"id": 4,
@@ -13,56 +13,28 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "12*DOWN(WEAR/3)",
-					"EffectType": {
-						"id": "Matk"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(WEAG(3)?7:0)",
-					"EffectType": {
-						"id": "MatkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?(10+(WEAR>6?20:0)+(WEAR>10?25:0)+(WEAG(2)?15:0)):0",
+					"EffectNumber": "(SKIDS(\"CONFLAGRATION LIGHTNING_LAND\")?((6*DOWN(WEAR/2))+(WEAG(2)?10:0)):0)+(SKIDS(\"PSYCHIC_WAVE\")?(15*DOWN(WEAR/3)):0)",
 					"EffectType": {
 						"id": "SkillDamagePercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(SKIDS(\"PSYCHIC_WAVE\")&&WEAR>8)?1:0",
-					"EffectType": {
-						"id": "CDTime"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "AEI==0?(WEAR>11?15:0):0",
+					"EffectNumber": "4*DOWN(WEAR/4)",
 					"EffectType": {
 						"id": "ElementalMagicPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(WEAG(1)&&WEAR>10)?15:0",
-					"EffectType": {
-						"id": "ElementalMatkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(WEAG(4)?DOWN(WEAR/3):0)",
+					"EffectNumber": "WEAG(1)?2:0",
 					"EffectType": {
 						"id": "SPL"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(WEAG(4)?DOWN(WEAR/3):0)",
+					"EffectNumber": "WEAG(3)?2:0",
 					"EffectType": {
 						"id": "SMATK"
 					},
@@ -73,52 +45,111 @@
 		},
 		{
 			"id": "weaponl",
-			"itemid": 28984,
+			"itemid": 460092,
 			"label": "OffHand",
-			"equipname": "Forbidden Grimoire",
-			"refinelevel": 0,
+			"equipname": "Ancient Prontera Book",
+			"refinelevel": 14,
 			"grade": {
-				"id": 0,
-				"label": "No Grade"
+				"id": 1,
+				"label": "D"
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 10,
+					"EffectNumber": "2*DOWN(SWEAR/2)",
 					"EffectType": {
-						"id": "AspdPercent"
+						"id": "SMATK"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SWEAR>10?160:SWEAR>8?10:0",
+					"EffectNumber": "30*DOWN(SWEAR/3)",
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "SWEAR>9?20:0",
+					"EffectType": {
+						"id": "ElementalMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "SWEAR>11?30:0",
+					"EffectType": {
+						"id": "VariableCastPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "SWEAR>13?70:0",
 					"EffectType": {
 						"id": "INT"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SWEAR>8?10:0",
+					"EffectNumber": "SWEAR>13?70:0",
 					"EffectType": {
-						"id": "DEX"
+						"id": "SPL"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "[2,4].includes(AEI)?(4*DOWN(SWEAR/3)):0",
+					"EffectNumber": "SWEAG(1)?15:0",
 					"EffectType": {
-						"id": "ElementalMagicPercent"
+						"id": "HPPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "100*SWEAR",
+					"EffectNumber": "SWEAG(1)?15:0",
 					"EffectType": {
-						"id": "HP"
+						"id": "SPPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "SKIDS(\"RAYOFGENESIS\")&&SWEAG(3)?100:0",
+					"EffectType": {
+						"id": "SkillDamagePercent"
 					},
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [
+				{
+					"itemid_every": [
+						4372
+					],
+					"itemid_any": [],
+					"equipname": "White Lady Card",
+					"effectlist": [
+						{
+							"EffectNumber": 30,
+							"EffectType": {
+								"id": "INT"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 30,
+							"EffectType": {
+								"id": "SPL"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 20,
+							"EffectType": {
+								"id": "ElementalMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
 		},
 		{
 			"id": "helm",
@@ -278,9 +309,9 @@
 		},
 		{
 			"id": "helm2",
-			"itemid": 420160,
+			"itemid": 420388,
 			"label": "Lower",
-			"equipname": "Tyrant of Earth",
+			"equipname": "Grey Wolf Cub in Mouth",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -300,9 +331,70 @@
 						"id": "SizeMatkPercent"
 					},
 					"Enable": true
+				},
+				{
+					"EffectNumber": 10,
+					"EffectType": {
+						"id": "HPPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 5,
+					"EffectType": {
+						"id": "AllTrait"
+					},
+					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [
+				{
+					"itemid_every": [
+						450177
+					],
+					"itemid_any": [],
+					"equipname": "Gray Wolf Suit",
+					"effectlist": [
+						{
+							"EffectNumber": 25,
+							"EffectType": {
+								"id": "PATK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "75*DOWN(ARMORR/3)",
+							"EffectType": {
+								"id": "Atk"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						450178
+					],
+					"itemid_any": [],
+					"equipname": "Gray Wolf Robe",
+					"effectlist": [
+						{
+							"EffectNumber": 25,
+							"EffectType": {
+								"id": "SMATK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "75*DOWN(ARMORR/3)",
+							"EffectType": {
+								"id": "Matk"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
 		},
 		{
 			"id": "armor",
@@ -1060,29 +1152,15 @@
 		},
 		{
 			"id": "helm1card",
-			"itemid": 0,
+			"itemid": 4372,
 			"label": "Headgear Card",
-			"equipname": "Plagarion Card",
+			"equipname": "White Lady Card",
 			"refinelevel": 0,
 			"grade": {
-				"id": 0
+				"id": 0,
+				"label": "No Grade"
 			},
-			"effectlist": [
-				{
-					"EffectNumber": 15,
-					"EffectType": {
-						"id": "Matk"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "AEI==0?7:0",
-					"EffectType": {
-						"id": "ElementalMagicPercent"
-					},
-					"Enable": true
-				}
-			],
+			"effectlist": [],
 			"combolist": []
 		},
 		{
@@ -1785,27 +1863,59 @@
 		},
 		{
 			"id": "weapon11",
-			"itemid": 0,
+			"itemid": 311017,
 			"label": "Weapon Enchant",
-			"equipname": "",
+			"equipname": "Clockwork (Matk)",
 			"refinelevel": 0,
 			"grade": {
-				"id": 0
+				"id": 0,
+				"label": "No Grade"
 			},
-			"effectlist": [],
+			"effectlist": [
+				{
+					"EffectNumber": "10+(WEAG(1)?2:0)+(WEAG(2)?2:0)+(WEAG(3)?2:0)+(WEAG(4)?2:0)",
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				}
+			],
 			"combolist": [],
 			"baseIndex": "0"
 		},
 		{
 			"id": "weapon12",
-			"itemid": 0,
+			"itemid": 311042,
 			"label": "Weapon Enchant",
-			"equipname": "",
+			"equipname": "Psychic wave Tuning Device",
 			"refinelevel": 0,
 			"grade": {
-				"id": 0
+				"id": 0,
+				"label": "No Grade"
 			},
-			"effectlist": [],
+			"effectlist": [
+				{
+					"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?(5+(WEAG(1)?7:0)+(WEAG(3)?8:0)+(WEAG(4)?10:0)):0",
+					"EffectType": {
+						"id": "SkillDamagePercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?1.5:0",
+					"EffectType": {
+						"id": "CDTime"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "WEAG(2)?10:0",
+					"EffectType": {
+						"id": "SizeMatkPercent"
+					},
+					"Enable": true
+				}
+			],
 			"combolist": [],
 			"baseIndex": "0"
 		},
@@ -2257,7 +2367,7 @@
 			"sizefix": {
 				"small": 100,
 				"middle": 100,
-				"large": 75
+				"large": 50
 			},
 			"baseaspd": "",
 			"isRangedattack": false,
@@ -2274,12 +2384,12 @@
 			"id": 4,
 			"label": "A"
 		},
-		"ATK": "170",
-		"MATK": 200,
+		"ATK": "180",
+		"MATK": 240,
 		"refinelevel": 14,
 		"ArrowATK": 0,
 		"BulletATK": 0,
-		"Weight": 120,
+		"Weight": 90,
 		"refinematk": 224,
 		"refineatk": 224,
 		"refineatk2": 0
@@ -2297,15 +2407,15 @@
 			"overatk": 3
 		},
 		"grade": {
-			"id": 0,
-			"label": "No Grade"
+			"id": 4,
+			"label": "A"
 		},
 		"ATK": 0,
 		"MATK": 0,
-		"refinelevel": 11,
-		"ShieldWeight": 50,
-		"refinematk": 22,
-		"refineatk": 22
+		"refinelevel": 14,
+		"ShieldWeight": 20,
+		"refinematk": 28,
+		"refineatk": 28
 	},
 	"Status": {
 		"Level": 250,
@@ -2325,11 +2435,11 @@
 		"SPL": "100",
 		"CON": "97",
 		"CRT": 0,
-		"ASPD": 186,
+		"ASPD": 185,
 		"HP": 0,
 		"SP": 0,
-		"MHP": 117969,
-		"MSP": 31298
+		"MHP": 140951,
+		"MSP": 32231
 	},
 	"JobStatus": {
 		"STR": 4,
@@ -2390,9 +2500,9 @@
 	},
 	"Option": {
 		"MagnumPoison2Value": 0,
-		"SkillPercent": 10915,
+		"SkillPercent": 10015,
 		"SkillFormulaError": "",
-		"EquipSkillAddDamage": 205,
+		"EquipSkillAddDamage": 225,
 		"BaseCriticalValue": 40,
 		"IgnoreDEF": false,
 		"IgnoreMDEF": false,
@@ -2444,9 +2554,9 @@
 		"EM_MAGIC_BOOK_M",
 		"EM_SPELL_ENCHANTING"
 	],
-	"Damage": "2,627,679,789 ~ 2,991,729,783",
-	"DamageDPS": "10,030,646,086",
+	"Damage": "3,988,960,248 ~ 4,508,873,481",
+	"DamageDPS": "14,148,893,157",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "2,809,704,786",
-	"lastedited": "2024-10-03T04:40:46.435Z"
+	"SkillDamageAvg": "4,248,916,865",
+	"lastedited": "2024-11-17T23:03:06.720Z"
 }
