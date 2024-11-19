@@ -3725,5 +3725,102 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": 480242,
+		"label": "Garment",
+		"equipname": "Wind God Cloak",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "10*DOWN(GARMR/2)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[3,8].includes(AEI)?(3*DOWN(GARMR/4)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>6?10:0",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>8?10:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>10?12:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>12&&isBoss?10:0",
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4568
+				],
+				"itemid_any": [],
+				"equipname": "Celia Alde Card",
+				"effectlist": [
+					{
+						"EffectNumber": "AEI==3?(10+(3*DOWN(GARMR/2))):0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4366
+				],
+				"itemid_any": [],
+				"equipname": "Kathryne Keyron Card",
+				"effectlist": [
+					{
+						"EffectNumber": "AEI==8?(10+(3*DOWN(GARMR/2))):0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "GARMR>11?15:0",
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
