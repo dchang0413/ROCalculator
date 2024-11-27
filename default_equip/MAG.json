@@ -3822,5 +3822,287 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "armor",
+		"itemid": 450272,
+		"label": "Armor",
+		"equipname": "Celine's Dress-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "150+(15*DOWN(ARMORR/2))+(ARMORG(1)?(2*DOWN(ARMORR/2)):0)+(ARMORG(2)?(3*DOWN(ARMORR/2)):0)+(ARMORG(3)?(3*DOWN(ARMORR/2)):0)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>6?10:0)+(ARMORG(2)?(DOWN(ARMORR/2)):0)+(ARMORG(3)?(DOWN(ARMORR/2)):0)+(ARMORG(4)?(2*DOWN(ARMORR/2)):0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>8?15:0",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>12&&isBoss?10:0)+(ARMORG(1)&&isBoss?(DOWN(ARMORR/4)):0)+(ARMORG(2)&&isBoss?(DOWN(ARMORR/4)):0)+(ARMORG(3)&&isBoss?(DOWN(ARMORR/4)):0)+(ARMORG(4)&&isBoss?(DOWN(ARMORR/4)):0)",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORG(4)?(DOWN(ARMORR/2)):0",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					31023
+				],
+				"itemid_any": [],
+				"equipname": "Celine Kimi Card",
+				"effectlist": [
+					{
+						"EffectNumber": 50,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					2980
+				],
+				"itemid_any": [],
+				"equipname": "Evil Spirit Glove",
+				"effectlist": [
+					{
+						"EffectNumber": 100,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					18849
+				],
+				"itemid_any": [],
+				"equipname": "Celine's Ribbon",
+				"effectlist": [
+					{
+						"EffectNumber": "DOWN(HATR/2)",
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "HATR>11&&isBoss?10:0",
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					28513
+				],
+				"itemid_any": [],
+				"equipname": "Celine's Brooch",
+				"effectlist": [
+					{
+						"EffectNumber": "8*ARMORR",
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "[1,2,3,4,5].includes(AEI)&&ARMORR>8?10:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "ARMORR>10?10:0",
+						"EffectType": {
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc",
+		"itemid": 2980,
+		"label": "Accessory",
+		"equipname": "Evil Spirit Glove",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 500,
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 200,
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					28513
+				],
+				"itemid_any": [],
+				"equipname": "Celine's Brooch",
+				"effectlist": [
+					{
+						"EffectNumber": 50,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 50,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "ASPD"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc",
+		"itemid": 28513,
+		"label": "Accessory",
+		"equipname": "Celine's Brooch",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 500,
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 250,
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					18849
+				],
+				"itemid_any": [],
+				"equipname": "Celine's Ribbon",
+				"effectlist": [
+					{
+						"EffectNumber": 50,
+						"EffectType": {
+							"id": "FixedCastPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "isBoss?(10+(HATR>6?20:0)+(HATR>8?20:0)):0",
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "HATR",
+						"EffectType": {
+							"id": "AllStatus"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
