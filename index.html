@@ -12076,6 +12076,7 @@
                     }
                     //大地力量
                     if (this.IsSupportActive('SU_POWEROFLAND')){
+                        this.status_add.INT += 20;
                         this.attribute['MATKP'] += 20;
                     }
                     //喵喵/喵喵不休
@@ -14207,8 +14208,8 @@
                         { skill: { id: 'SOA_SOUL_OF_HEAVEN_AND_EARTH', name: 'Soul of Heaven and Earth', maxlv: 10, lv: 10, class: 'SL', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'CIRCLE_OF_DIRECTIONS_AND_ELEMENTALS', name: 'Circle of Dirs&Eles', maxlv: 5, lv: 5, class: 'SL', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
 
-                        { skill: { id: 'SU_POWEROFLIFE', name: 'Spirit of Life', maxlv: 1, lv: 1, class: 'SUM', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
-                        { skill: { id: 'SU_POWEROFLAND', name: 'Spirit of Land', maxlv: 1, lv: 1, class: 'SUM', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'SU_POWEROFLIFE', name: 'Power of Life', maxlv: 1, lv: 1, class: 'SUM', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
+                        { skill: { id: 'SU_POWEROFLAND', name: 'Power of Land', maxlv: 1, lv: 1, class: 'SUM', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SU_BUNCHOFSHRIMP', name: 'Bunch of Shrimp', maxlv: 5, lv: 5, class: 'SUM', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SU_ARCLOUSEDASH', name: 'Arclouse Dash', maxlv: 5, lv: 5, class: 'SUM', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SU_CHATTERING', name: 'Chattering', maxlv: 5, lv: 5, class: 'SUM', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
@@ -14406,8 +14407,8 @@
                     );
 
                     this.UpdateLogList.push(
-                        { id: '2024-12-03', content: 'Added: OCP 66' },
-                        { id: '2024-11-27', content: 'Fixed Ring of Despair-LT Script' },
+                        { id: '2024-12-03', content: 'Added: OCP 66<br>Fixed: Power of Land, Power of Life' },
+                        { id: '2024-11-27', content: 'Fixed: Ring of Despair-LT Script' },
                         { id: '2024-11-27', content: 'Added: Celine Dress-LT' },
                         { id: '2024-11-19', content: 'Added: Kachua Mileage Coupon Exchange items' },
                         { id: '2024-11-19', content: 'Added: November Kachua items' },
