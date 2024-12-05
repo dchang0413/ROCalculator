@@ -227,7 +227,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SKIDS('CANNONSPEAR BANISHINGPOINT')?(GARMR>10?(2*DOWN(MIN(240,BLV)/2)):0):0",
+				"EffectNumber": "(GARMR>10?(SKIDS('CANNONSPEAR')?1:(SKIDS('BANISHINGPOINT')?2:0)):0)*DOWN(MIN(240,BLV)/2)",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
