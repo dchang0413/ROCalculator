@@ -2092,7 +2092,7 @@
 		"id": "RK_DRAGONBREATH_i",
 		"name": "Dragon Breath",
 		"level": 10,
-		"formula": "(DOWN(CHP/50)+DOWN(Msp/4))*SLV*BLV/100*DOWN(90+5*10)/100",
+		"formula": "BLV>=200?((DOWN(CHP/50)+DOWN(Msp/4))*SLV*BLV/100*DOWN((90+5*10+POW/5)*(1+PATK/100))/100):((DOWN(CHP/50)+DOWN(Msp/4))*SLV*BLV/100*DOWN(90+5*10)/100)",
 		"class": "RK",
 		"DamageTypeIdx": 2,
 		"ranged": true,
@@ -2132,9 +2132,9 @@
 	},
 	"Option": {
 		"MagnumPoison2Value": 0,
-		"SkillPercent": 74851000,
+		"SkillPercent": 177503800,
 		"SkillFormulaError": "",
-		"EquipSkillAddDamage": 770,
+		"EquipSkillAddDamage": 870,
 		"BaseCriticalValue": 40,
 		"IgnoreDEF": false,
 		"IgnoreMDEF": false,
@@ -2178,11 +2178,12 @@
 		657
 	],
 	"SupportSkill": [
-		"CR_SPEARQUICKEN"
+		"CR_SPEARQUICKEN",
+		"DK_DRAGONIC_AURA"
 	],
-	"Damage": "59,437,462",
-	"DamageDPS": "424,383,479",
+	"Damage": "157,229,490",
+	"DamageDPS": "1,122,618,559",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "59,437,462",
-	"lastedited": "2024-09-25T02:28:44.990Z"
+	"SkillDamageAvg": "157,229,490",
+	"lastedited": "2024-12-13T16:34:49.886Z"
 }
