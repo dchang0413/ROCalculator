@@ -1,11 +1,11 @@
 {
-	"Name": "CC_Biolo_1",
+	"Name": "High End",
 	"Equip": [
 		{
 			"id": "weaponr",
-			"itemid": 500009,
+			"itemid": 520003,
 			"label": "MainHand",
-			"equipname": "Dragon Slayer's Longsword",
+			"equipname": "Scythe of Ice Flame",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -13,51 +13,37 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 10,
+					"EffectNumber": 3,
 					"EffectType": {
 						"id": "STR"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": 10,
+					"EffectNumber": 5,
 					"EffectType": {
 						"id": "INT"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "WEAR>10?10:0",
-					"EffectType": {
-						"id": "AllStatus"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "WEAR>11?200:0",
-					"EffectType": {
-						"id": "Atk"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "WEAR*(BLV<100?3:10)",
+					"EffectNumber": "2*WEAR",
 					"EffectType": {
 						"id": "LevelAtkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "WEAR>11?200:0",
+					"EffectNumber": "2*WEAR",
 					"EffectType": {
-						"id": "Matk"
+						"id": "HPPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "AEI==6?(WEAR*(BLV<100?2:5)):0",
+					"EffectNumber": 9999,
 					"EffectType": {
-						"id": "ElementalMagicPercent"
+						"id": "WeaponPerfection"
 					},
 					"Enable": true
 				}
@@ -672,33 +658,40 @@
 		},
 		{
 			"id": "armor",
-			"itemid": 450208,
+			"itemid": 450209,
 			"label": "Armor",
-			"equipname": "Paracelsus Coat",
-			"refinelevel": 0,
+			"equipname": "Imp Powered Suit",
+			"refinelevel": 7,
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "CCL=='GE'?70:0",
+					"EffectNumber": "CCL=='ME'?BLV:0",
 					"EffectType": {
-						"id": "RaceAtkPercent"
+						"id": "Atk"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SKIDS('CARTCANNON')?(2*BLV):(SKIDS('CART_TORNADO')?BLV:0)",
+					"EffectNumber": "CCL=='ME'?70:0",
+					"EffectType": {
+						"id": "RangedDamagePercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "SKIDS('ARMSCANNON')?(ARMORR>6?100:(ARMORR>4?50:0)):0",
 					"EffectType": {
 						"id": "SkillDamagePercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "CCL=='GE'?(50*BLV):0",
+					"EffectNumber": "CCL=='ME'?30:0",
 					"EffectType": {
-						"id": "HP"
+						"id": "GCDPercent"
 					},
 					"Enable": true
 				},
@@ -1111,33 +1104,39 @@
 		},
 		{
 			"id": "acc1",
-			"itemid": 490428,
+			"itemid": 490336,
 			"label": "Accessory",
-			"equipname": "Chemical Resistance Glove",
+			"equipname": "Dimension Linkage Stone",
 			"refinelevel": 0,
 			"grade": {
-				"id": 0,
-				"label": "No Grade"
+				"id": 0
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 3,
+					"EffectNumber": 20,
 					"EffectType": {
-						"id": "POW"
+						"id": "STR"
 					},
 					"Enable": true
 				},
 				{
 					"EffectNumber": 10,
 					"EffectType": {
-						"id": "LevelAtkPercent"
+						"id": "RangedDamagePercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SKIDS('CARTCANNON')?(DOWN(MIN(BLV,250)/2)):(SKIDS('ACIDIFIED_ZONE_GROUND')?(DOWN(BLV/10)):0)",
+					"EffectNumber": "SKIDS(\"ARMSCANNON\")?(DOWN(BLV/3)):0",
 					"EffectType": {
 						"id": "SkillDamagePercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "HPPercent"
 					},
 					"Enable": true
 				}
@@ -2631,12 +2630,12 @@
 	],
 	"Weapon": {
 		"type": {
-			"id": "OneHandedSwords",
-			"label": "1HSword",
+			"id": "OneHandedAxe",
+			"label": "1HAxe",
 			"sizefix": {
-				"small": 75,
-				"middle": 100,
-				"large": 75
+				"small": 50,
+				"middle": 75,
+				"large": 100
 			},
 			"baseaspd": "",
 			"isRangedattack": false,
@@ -2653,14 +2652,14 @@
 			"id": 0,
 			"label": "No Grade"
 		},
-		"ATK": "200",
-		"MATK": 150,
+		"ATK": "360",
+		"MATK": 290,
 		"refinelevel": 14,
 		"ArrowATK": 0,
-		"BulletATK": 0,
-		"Weight": 175,
-		"refinematk": 98,
+		"BulletATK": 120,
+		"Weight": 400,
 		"refineatk": 98,
+		"refinematk": 98,
 		"refineatk2": 140
 	},
 	"SubWeapon": {
@@ -2690,7 +2689,7 @@
 		"Level": 250,
 		"JOBLevel": 70,
 		"Transcendent": true,
-		"classid": "GE",
+		"classid": "ME",
 		"UseJobMaxPoint": true,
 		"STR": "120",
 		"AGI": "80",
@@ -2704,33 +2703,34 @@
 		"SPL": 0,
 		"CON": "97",
 		"CRT": 0,
-		"ASPD": 191,
+		"ASPD": 193,
 		"HP": 0,
 		"SP": 0,
-		"MHP": 149525,
-		"MSP": 14856
+		"MHP": 160838,
+		"MSP": 13819,
+		"select_default": "ME"
 	},
 	"JobStatus": {
-		"STR": 5,
+		"STR": 10,
 		"AGI": 6,
-		"VIT": 8,
-		"INT": 12,
-		"DEX": 8,
-		"LUK": 4,
-		"POW": 6,
-		"STA": 3,
+		"VIT": 10,
+		"INT": 6,
+		"DEX": 5,
+		"LUK": 6,
+		"POW": 7,
+		"STA": 9,
 		"WIS": 4,
-		"SPL": 4,
+		"SPL": 0,
 		"CON": 6,
-		"CRT": 10
+		"CRT": 7
 	},
-	"SkillName": "Cart Cannon",
+	"SkillName": "Arm Cannon",
 	"Skill": {
-		"id": "GN_CARTCANNON",
-		"name": "Cart Cannon",
+		"id": "NC_ARMSCANNON_2",
+		"name": "Arm Cannon",
 		"level": 5,
-		"formula": "(SLV*350+2*INT/(6-5))*BLV/100",
-		"class": "GE",
+		"formula": "(400+350*SLV)*BLV/100",
+		"class": "ME",
 		"DamageTypeIdx": 0,
 		"ranged": true,
 		"critical": false,
@@ -2740,9 +2740,9 @@
 		"laterformula": false,
 		"hitnumber": 2,
 		"elemental": 0,
-		"FCT": 0,
-		"VCT": 3,
-		"CD": 0,
+		"FCT": "(6-SLV)/10",
+		"VCT": "(10+SLV*2)/10",
+		"CD": "(3*SLV)/100",
 		"GCD": 0.5,
 		"SpecialATK1": 0,
 		"SpecialATK2": 0,
@@ -2752,8 +2752,8 @@
 		"SpecialATK6": 0,
 		"SpecialATK7": 0,
 		"SpecialMATK1": 0,
-		"Note": "Assume Lv5 cart remodel",
-		"Version": 0,
+		"Note": "",
+		"Version": 2,
 		"isUnion": false,
 		"halfcri": false,
 		"SpecialATK8": 0,
@@ -2764,14 +2764,14 @@
 		"AttackElementalIdx": 0,
 		"ElementalPercent": 100,
 		"WeaponMasteryATKInput": 0,
-		"WeaponMasteryATK": 50,
+		"WeaponMasteryATK": 99,
 		"CarWeight": 10500
 	},
 	"Option": {
 		"MagnumPoison2Value": 0,
-		"SkillPercent": 5635,
+		"SkillPercent": 5375,
 		"SkillFormulaError": "",
-		"EquipSkillAddDamage": 625,
+		"EquipSkillAddDamage": 333,
 		"BaseCriticalValue": 40,
 		"IgnoreDEF": false,
 		"IgnoreMDEF": false,
@@ -2818,16 +2818,20 @@
 	],
 	"SupportSkill": [
 		"LG_SHIELDSPELL",
-		"MH_PYROCLASTIC",
-		200,
-		"GN_CARTBOOST",
-		"BO_WOODENWARRIOR",
-		"BO_HELLTREE",
-		"MC_LOUD"
+		"MC_LOUD",
+		"BS_MAXIMIZE",
+		"BS_WEAPONPERFECT",
+		"BS_OVERTHRUST25",
+		"BS_ADRENALINE",
+		"BS_HILTBINDING",
+		"BS_WEAPONRESEARCH",
+		"NC_MADOLICENCE",
+		"MT_RUSH",
+		"MT_SUMMON_ABR_DUAL_CANNON"
 	],
-	"Damage": "546,403,674 ~ 594,686,788",
-	"DamageDPS": "3,215,508,789",
+	"Damage": "215,206,498 ~ 225,360,054",
+	"DamageDPS": "1,467,086,618",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "570,545,231",
-	"lastedited": "2024-12-13T16:31:22.989Z"
+	"SkillDamageAvg": "220,283,276",
+	"lastedited": "2024-12-13T16:29:04.750Z"
 }
