@@ -41,7 +41,6 @@
 
 <body>
     <div id="App" v-cloak>
-
         <el-dialog :visible.sync="UIPanel['AboutDialog']" v-on:close="ClosePanel('AboutDialog')"
             custom-class="Dialogue-container" width="45%" top="50px" center>
             <span slot="title">About</span>
@@ -3373,6 +3372,11 @@
                 <el-col :span="1">
                     <el-button v-on:click="TogglePanel('AboutDialog')" size="small">
                         About
+                    </el-button>
+                </el-col>
+                <el-col :span="1">
+                    <el-button v-on:click="window.open('https://github.com/dchang0413/ROCalculator?tab=readme-ov-file#ro-calculator')" size="small">
+                        Guide
                     </el-button>
                 </el-col>
                 <el-col :span="1">
