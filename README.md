@@ -71,6 +71,8 @@
 ### Equip
 ![Equip](/img/readme_equip.png)
 1. Equip Configuration
+    - Example of what field is what
+    - ![Equip](/img/readme_equip_example.png)
 2. Access to Card, Enchant Presets
     - ![Equip](/img/readme_equip_cardenchant.png)
 3. Edit Equip / Card / Enchant Effect
