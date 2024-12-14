@@ -30,7 +30,7 @@
 4. Base Stats
 5. Equip / Buff Bonus Stats
 6. Job Bonus Stats
-    - Apply Max Job Bonus, when toggled Job Bonus Stats will be automatically assigned
+    - Apply Max Job Level Bonus, when toggled Job Bonus Stats will be automatically assigned as if Job Lvl is 70/50 (70 for 3rd job, 50 for 4th job)
 7. ASPD
     - Calculated with current class, weapon, stat and buffs 
 
