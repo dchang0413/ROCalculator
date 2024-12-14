@@ -502,7 +502,7 @@
                             </el-row>
                             <el-row class="optionbox" :gutter="4" type="flex" align="middle" justify="end">
                                 <el-col class="textcenter" :span="12">
-                                    <span>Additional Range Mod(minimizing error)</span>
+                                    <span>Late Range Mod(minimizing error)</span>
                                 </el-col>
                                 <el-col class="textcenter" :span="12">
                                     <el-switch v-model="skill.laterranged" active-color="#13ce66" v-on:change="onOption"
@@ -512,7 +512,7 @@
                             </el-row>
                             <el-row class="optionbox" :gutter="4" type="flex" align="middle" justify="end">
                                 <el-col class="textcenter" :span="12">
-                                    <span>Additional Skill Mod(minimizing error)</span>
+                                    <span>Late Skill Mod(minimizing error)</span>
                                 </el-col>
                                 <el-col class="textcenter" :span="12">
                                     <el-switch v-model="skill.laterformula" active-color="#13ce66"
@@ -604,9 +604,9 @@
                                                         <el-col v-if="item.skill.transWeaponDEF" class="skilltag"
                                                             :span="5">Treats Hard DEF as Soft</el-col>
                                                         <el-col v-if="item.skill.laterranged" class="skilltag"
-                                                            :span="5">Additional Range Mod(minimizing error)</el-col>
+                                                            :span="5">Late Range Mod(minimizing error)</el-col>
                                                         <el-col v-if="item.skill.laterformula" class="skilltag"
-                                                            :span="5">Additional Skill Mod(minimizing error)</el-col>
+                                                            :span="5">Late Skill Mod(minimizing error)</el-col>
                                                     </el-row>
                                                     <el-row class="skillline" align="middle">
                                                         <el-col class="statussavebox" :span="4">FCT {{ item.skill.FCT }}s
@@ -669,9 +669,9 @@
                                                         <el-col v-if="item.skill.transWeaponDEF"
                                                             class="skilltag skillline" :span="5">Treats Hard DEF as Soft</el-col>
                                                         <el-col v-if="item.skill.laterranged" class="skilltag skillline"
-                                                            :span="5">Additional Range Mod(minimizing error)</el-col>
+                                                            :span="5">Late Range Mod(minimizing error)</el-col>
                                                         <el-col v-if="item.skill.laterformula"
-                                                            class="skilltag skillline" :span="5">Additional Skill Mod(minimizing error)</el-col>
+                                                            class="skilltag skillline" :span="5">Late Skill Mod(minimizing error)</el-col>
                                                     </el-row>
                                                     <el-row class="skillline" align="middle">
                                                         <el-col :span="4">FCT {{ item.skill.FCT }}s</el-col>
@@ -4386,14 +4386,14 @@
                                 <div v-show="skill.laterranged">
                                     <el-row class="optionbox" :gutter="4" type="flex" align="middle" justify="end">
                                         <el-col class="textcenter" :span="12">
-                                            <span>Additional Range Mod(minimizing error)</span>
+                                            <span>Late Range Mod(minimizing error)</span>
                                         </el-col>
                                     </el-row>
                                 </div>
                                 <div v-show="skill.laterformula">
                                     <el-row class="optionbox" :gutter="4" type="flex" align="middle" justify="end">
                                         <el-col class="textcenter" :span="12">
-                                            <span>Additional Skill Mod(minimizing error)</span>
+                                            <span>Late Skill Mod(minimizing error)</span>
                                         </el-col>
                                     </el-row>
                                 </div>
@@ -10352,7 +10352,7 @@
                         if (this.skill.ranged && this.skill.laterranged) {
                             this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, para_ranged);
                             this.computeattribute.atkc8_max = this.MulOper(this.computeattribute.atkc8_max, para_ranged);
-                            this.setRecord('Additional Range Mod%',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'x',para_ranged,'p');
+                            this.setRecord('Late Range Mod%',[this.computeattribute.atkc8_min,this.computeattribute.atkc8_max],'x',para_ranged,'p');
                         }
                         // 技能增傷裝
                         this.computeattribute.atkc8_min = this.MulOper(this.computeattribute.atkc8_min, equipSkillModifier);
