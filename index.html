@@ -12531,6 +12531,7 @@
                         // Check if the user is using a twohand staff
                         if (this.weapon.type.id == 'TwoHandedRods') {
                             this.attribute['SMATK'] += this.GetSupportSkill('AG_TWOHANDSTAFF').lv * 2;
+                            this.attribute['MATKP'] += this.GetSupportSkill('AG_TWOHANDSTAFF').lv;
                         }
                     }
                     // 魔力巔峰
@@ -15405,7 +15406,7 @@
                     );
 
                     this.UpdateLogList.push(
-                        { id: '2024-12-14', content: 'Added: User Guide' },
+                        { id: '2024-12-14', content: 'Added: User Guide<br>Bug Fix: 2H Staff Mastery now gives MATK%' },
                         { id: '2024-12-11', content: 'Added: v2 Shadow Cross skills' },
                         { id: '2024-12-07', content: 'Added: Current iRO Doram skills' },
                         { id: '2024-12-04', content: 'Fixed: Fallen Protect Manteau Script' },
