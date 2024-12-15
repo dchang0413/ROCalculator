@@ -8166,6 +8166,15 @@
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
                                                 style="height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
+                                                    <span>Bonus Magic Damage%:</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="10">
+                                                    <span>{{attribute['MAGDDI']}} %</span>
+                                                </el-col>
+                                            </el-row>
+                                            <el-row class="statusbox" type="flex" align="middle" justify="space-around"
+                                                style="height:40px;">
+                                                <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Bypass MDEF%:</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="10">
@@ -9098,7 +9107,7 @@
                     ATK: 0, MATK: 0, ATKP: 0, MATKP: 0, DEF: 0, MDEF: 0, HP: 0, HPP: 0, SP: 0, SPP: 0,
                     PATK: 0, SMATK: 0, CRIDR: 0, RES: 0, MRES: 0,
                     ASPD: 0, ASPDP: 0, SKILLASPDP: 0, CRI: 0, HIT: 0, CRIDP: 0, RNGDP: 0, MELDP: 0,
-                    ELEDDI: 0, RNGDDI: 0, MELDDI: 0,  //damage dealt increased    ELEDDI = Element RNGDDI = Range MELDDI=melee
+                    ELEDDI: 0, RNGDDI: 0, MELDDI: 0, MAGDDI: 0,  //damage dealt increased    ELEDDI = Element RNGDDI = Range MELDDI  =melee MAGDDI = magic
                     SK1VCTP: 0, SK2VCTP: 0, EQVCTP: 0, VCTS: 0, FCT: 0, FCTP: 0, CD: 0, GCD: 0,
                     BYPASSDEF: 0, BYPASSMDEF: 0,
                     BYPASSRES: 0, BYPASSMRES: 0,
@@ -11588,9 +11597,9 @@
                     this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['ELEDDI'] / 100));
                     this.setRecord('Element Resist', [this.computeattribute.matk1_min, this.computeattribute.finalmatk_max], 'x', Number(1) + Number(this.attribute['ELEDDI'] / 100), 'p');
 
-                    this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.attribute['MELDDI'] / 100));
-                    this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['MELDDI'] / 100));
-                    this.setRecord('Sightless Mind', [this.computeattribute.matk1_min, this.computeattribute.matk1_max], 'x', Number(1) + Number(this.attribute['MELDDI'] / 100), 'p');
+                    this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.attribute['MAGDDI'] / 100));
+                    this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['MAGDDI'] / 100));
+                    this.setRecord('Sightless Mind', [this.computeattribute.matk1_min, this.computeattribute.matk1_max], 'x', Number(1) + Number(this.attribute['MAGDDI'] / 100), 'p');
 
 
                     if (this.skill.laterformula == false) {
@@ -12294,6 +12303,7 @@
 
                     // 潛擊
                     if (this.IsSupportActive('RG_RAID')) {
+                        this.attribute['MAGDDI'] += this.attribute['MAGDDI'] > 0 ? 115 : 15;
                         this.attribute['MELDDI'] += this.attribute['MELDDI'] > 0 ? 115 : 15;
                         this.attribute['RNGDDI'] += this.attribute['RNGDDI'] > 0 ? 115 : 15;
                     }
