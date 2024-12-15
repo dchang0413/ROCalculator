@@ -10885,7 +10885,7 @@
                     if (diff == 0 && method == '+') return;
                     if (difftype == 'p') {
                         if (diff == 1) return;
-                        diff = Math.floor(diff * 100) + '%';
+                        diff = Math.floor(diff * 100 + 0.001) + '%';
                     }
                     if (method == 'x') method = '×';
                     if (method == '/') method = '÷';
