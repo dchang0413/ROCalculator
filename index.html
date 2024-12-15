@@ -47,7 +47,7 @@
     <div id="App" v-cloak>
         <el-dialog :visible.sync="UIPanel['GuideDialog']" v-on:close="ClosePanel('GuideDialog')"
             custom-class="Dialogue-container" width="70%" top="50px" center>
-            <span slot="title">Guide</span>
+            <span slot="title">User Guide</span>
             <el-row class="statusbox titlebox" style="padding: 5px; height: 40px;" :gutter="4" type="flex" align="middle" justify="end">
                 <el-button v-on:click="window.open('https://github.com/dchang0413/ROCalculator?tab=readme-ov-file#ro-calculator')" size="small">
                     Github Readme
@@ -363,30 +363,24 @@
         <el-dialog :visible.sync="UIPanel['AboutDialog']" v-on:close="ClosePanel('AboutDialog')"
             custom-class="Dialogue-container" width="45%" top="50px" center>
             <span slot="title">About</span>
-            <el-row :gutter="6">
-                <el-scrollbar wrap-class="ThanksList-container" :native="false" :noresize="false">
+            <el-row :gutter="9">
+                <el-scrollbar wrap-class="AboutList-container" :native="false" :noresize="false">
                     <el-row class="titlebox" type="flex" align="middle" style="height:20px; padding: 0px 5px;">
                         <el-col class="textcenter">Preface</el-col>
                     </el-row>
                     <el-row>
                         <div class="aboutbox" style="padding: 5px 40px; text-align:left">
                             <el-row :gutter="4" align="left">
-                                <b>這個計算機在使用上需要對裝備有一定的了解</b><br>
-                                <b>You will need proper understanding of equipment to fully utilize this
-                                    calculator</b><br><br>
+                                <b>You will need proper understanding of the different types of multiplier, skill characteristics and attributes of equipments to utilize this calculator</b><br><br>
                             </el-row>
                             <el-row :gutter="4" align="left">
-                                如果對於某件裝不知道怎樣填歡迎發問<br>
                                 Feel free to ask if you don't know how to plug in values <br>
-                                I'm probably not that interested in helping but do ask -Cate<br>
+                                Most relevant Cash Shop related equipments are already entered in Preset but there may be error (either from WarpPortal or ourside)
                                 <br>
-                                建議在輸入要換的裝前 可以先看現有裝打蛋測試傷害是否符合<br>
-                                才開始換成預計要換的裝<br>
-                                Recommended to test your current damage before swapping gears<br>
                             </el-row>
                         </div>
                     </el-row>
-                    <el-row style="height:120">
+                    <el-row style="height:150">
                         <el-row class="titlebox" type="flex" align="middle" style="height:20px; padding: 0px 5px;">
                             <el-col class="textcenter">About</el-col>
                         </el-row>
@@ -441,7 +435,7 @@
         <el-dialog :visible.sync="UIPanel['DonateDialog']" v-on:close="ClosePanel('DonateDialog')"
             custom-class="Dialogue-container" width="45%" top="50px" center>
             <el-row :gutter="6">
-                <el-scrollbar wrap-class="ThanksList-container" :native="false" :noresize="false">
+                <el-scrollbar wrap-class="DonateList-container" :native="false" :noresize="false">
                     <el-row class="titlebox" type="flex" align="middle" style="height:20px; padding: 0px 5px;">
                         <el-col class="textcenter">Toss A Coin To Your Witcher</el-col>
                     </el-row>
@@ -475,11 +469,6 @@
                             <el-row :gutter="4" type="flex" align="left" justify="center">
                                 <b>You can email Landgris or contact Cate to get your name to be added to
                                     Credits</b><br><br>
-                            </el-row>
-                            <el-row :gutter="4" type="flex" align="left" justify="center">
-                                I'm not quite sure how to work with OPay either<br>
-                                Maybe we should convince Landgris to open other donation links<br>
-                                -Cate
                             </el-row>
                             <el-row :gutter="12" type="flex" align="left" justify="center">
                                 <el-button v-on:click="OpenUrl('https://pse.is/T52DP')" size="big" type="warning">
@@ -3891,9 +3880,9 @@
                         About
                     </el-button>
                 </el-col>
-                <el-col :span="1">
-                    <el-button v-on:click="TogglePanel('GuideDialog')" size="small">
-                        Guide
+                <el-col :span="1.5">
+                    <el-button v-on:click="TogglePanel('GuideDialog')" size="small" type="primary">
+                        User Guide
                     </el-button>
                 </el-col>
                 <el-col :span="1">
@@ -15416,6 +15405,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-12-14', content: 'Added: User Guide' },
                         { id: '2024-12-11', content: 'Added: v2 Shadow Cross skills' },
                         { id: '2024-12-07', content: 'Added: Current iRO Doram skills' },
                         { id: '2024-12-04', content: 'Fixed: Fallen Protect Manteau Script' },
