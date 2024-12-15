@@ -7691,86 +7691,51 @@
                                     </el-row>
                                     <el-collapse-transition>
                                         <div v-show="UIPanel['MATKCompute']">
-                                            <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
-                                                <el-col class="bg-purple-light" :span="10" style="text-align: right;">
-                                                    <span>Weapon MATK</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="10">
-                                                    <span>{{computeattribute.weaponmatk_min}} ~
-                                                        {{computeattribute.weaponmatk_max}}</span>
-                                                </el-col>
-                                            </el-row>
-                                            <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
-                                                <el-col class="bg-purple-light" :span="10" style="text-align: right;">
-                                                    <span>Equip MATK&MystAmp.</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="10">
-                                                    <span>{{computeattribute.equipmatk_min}} ~
-                                                        {{computeattribute.equipmatk_max}}</span>
-                                                </el-col>
-                                            </el-row>
-                                            <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
-                                                <el-col class="bg-purple-light" :span="10" style="text-align: right;">
-                                                    <span>MATK%</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="10">
-                                                    <span>{{computeattribute.matkpercent_min}} ~
-                                                        {{computeattribute.matkpercent_max}}</span>
-                                                </el-col>
-                                            </el-row>
-                                            <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
-                                                <el-col class="bg-purple-light" :span="10" style="text-align: right;">
-                                                    <span>Final MATK</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="10">
-                                                    <span>{{computeattribute.finalmatk_min}} ~
-                                                        {{computeattribute.finalmatk_max}}</span>
-                                                </el-col>
-                                            </el-row>
-                                            <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
-                                                <el-col class="bg-purple-light" :span="10" style="text-align: right;">
-                                                    <span>Enemy Reduction</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="10">
-                                                    <span>{{computeattribute.matk1_min}} ~
-                                                        {{computeattribute.matk1_max}}</span>
-                                                </el-col>
-                                            </el-row>
-                                            <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
-                                                <el-col class="bg-purple-light" :span="10" style="text-align: right;">
-                                                    <span>Skill</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="10">
-                                                    <span>{{computeattribute.skillmatk_min}} ~
-                                                        {{computeattribute.skillmatk_max}}</span>
-                                                </el-col>
-                                            </el-row>
-                                            <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
-                                                <el-col class="bg-purple-light" :span="10" style="text-align: right;">
-                                                    <span>Enemy MDEF</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="10">
-                                                    <span>{{computeattribute.matk2_min}} ~
-                                                        {{computeattribute.matk2_max}}</span>
-                                                </el-col>
-                                            </el-row>
-                                            <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
-                                                <el-col class="bg-purple-light" :span="10" style="text-align: right;">
-                                                    <span>Skill Mod</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="10">
-                                                    <span>{{computeattribute.matk3_min}} ~
-                                                        {{computeattribute.matk3_max}}</span>
-                                                </el-col>
-                                            </el-row>
+                                            <div v-for="(record) in computeRecord">
+                                                <el-row v-if="record.title == 'divider'" class="statusbox" type="flex"
+                                                    align="middle" justify="space-around"
+                                                    style="min-height: 0px; height:3px;"></el-row>
+
+                                                <el-row v-else class="statusbox" type="flex" align="middle"
+                                                    justify="space-around" style="height:3px;">
+                                                    <el-col class="bg-purple-light" :span="8"
+                                                        style="text-align: right;">
+                                                        <span>{{record.title}}:</span>
+                                                    </el-col>
+                                                    <el-col
+                                                        v-show="typeof record.val1 !== 'undefined' && typeof record.val1 !== 'undefined'"
+                                                        class="textcenter" :span="10">
+                                                        <el-tooltip v-if="record.tooltip" class="item" effect="dark"
+                                                            placement="left">
+                                                            <template #content>
+                                                                <span> {{record.tooltip}} </span>
+                                                            </template>
+                                                            <el-col class="textcenter">{{record.val1}} ~
+                                                                {{record.val2}}</el-col>
+                                                        </el-tooltip>
+                                                        <span v-else>{{record.val1}} ~ {{record.val2}}</span>
+                                                    </el-col>
+                                                    <el-col v-show="typeof record.val !== 'undefined'"
+                                                        class="textcenter" :span="10">
+                                                        <el-tooltip v-if="record.tooltip" class="item" effect="dark"
+                                                            placement="left">
+                                                            <template #content>
+                                                                <span> {{record.tooltip}} </span>
+                                                            </template>
+                                                            <el-col class="textcenter">{{record.val}}</el-col>
+                                                        </el-tooltip>
+                                                        <span v-else>{{record.val}}</span>
+                                                    </el-col>
+                                                    <el-col v-if="record.method" class="textcenter" :span="6">
+                                                        <span>({{record.method}} {{record.diff}})</span>
+                                                    </el-col>
+                                                    <el-col v-else class="textcenter" :span="6">
+                                                        <span></span>
+                                                    </el-col>
+
+                                                </el-row>
+
+                                            </div>
                                         </div>
                                     </el-collapse-transition>
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
@@ -11511,6 +11476,7 @@
                     return findVal ? findVal.id : 0;
                 },
                 ComputeMATKAttribute(mflag = 0) {
+                    this.resetRecord();
                     var _MATKDamageMin = 0;
                     var _MATKDamageMax = 0;
 
@@ -11519,15 +11485,36 @@
                     var floatmatk_min = (1 - para1);
                     var floatmatk_max = (1 + para1);
                     if (this.IsSupportActive('WL_RECOGNIZEDSPELL')) floatmatk_min = floatmatk_max;
-                    this.computeattribute.weaponmatk_min = Number(this.attribute['StatusMATK']) +
-                        Math.floor((Number(this.weapon.MATK) + Number(this.subweapon.MATK) + Number(this.weapon.refinematk)) * floatmatk_min) + Number(paraminirefineatk2);
-                    this.computeattribute.weaponmatk_max = Number(this.attribute['StatusMATK']) +
-                        Math.floor((Number(this.weapon.MATK) + Number(this.subweapon.MATK) + Number(this.weapon.refinematk)) * floatmatk_max) + Number(this.weapon.refineatk2);
+                    //this.setRecord('Status MATK', [Number(this.attribute['StatusMATK'])], '', '');
+                    this.computeattribute.weaponmatk_min = Math.floor((Number(this.weapon.MATK) + Number(this.subweapon.MATK) + Number(this.weapon.refinematk)) * floatmatk_min) + Number(paraminirefineatk2);
+                    this.computeattribute.weaponmatk_max = Math.floor((Number(this.weapon.MATK) + Number(this.subweapon.MATK) + Number(this.weapon.refinematk)) * floatmatk_max) + Number(this.weapon.refineatk2);
+
+                    this.setRecord('Sub/Weapon MATK', [Number(this.weapon.MATK) + Number(this.subweapon.MATK) + Number(this.weapon.refinematk)], '', '');
+                    this.setRecord('Weap Lv. Variance', [this.computeattribute.weaponmatk_min, this.computeattribute.weaponmatk_max], '±', para1, 'p');
+                    
+                    this.computeattribute.weaponmatk_min += Number(this.attribute['StatusMATK']);
+                    this.computeattribute.weaponmatk_max += Number(this.attribute['StatusMATK']);
+
+                    this.setRecord('Status MATK', [this.computeattribute.weaponmatk_min, this.computeattribute.weaponmatk_max], '+',
+                        Number(this.attribute['StatusMATK']));
+
+                    this.computeattribute.weaponmatk_min += Number(paraminirefineatk2);
+                    this.computeattribute.weaponmatk_max += Number(this.weapon.refineatk2);
+
+                    this.setRecord('Refine MATK', [this.computeattribute.weaponmatk_min, this.computeattribute.weaponmatk_max], '+',
+                        Number(this.weapon.refineatk2));
 
                     var para2 = Number(1) + (this.IsSupportActive('HW_MAGICPOWER') ? Number((this.GetSupportSkill('HW_MAGICPOWER').lv * 5) / 100) : 0);
                     var para3 = this.attribute['MATK'];
-                    this.computeattribute.equipmatk_min = this.MulOper(this.computeattribute.weaponmatk_min, para2) + para3;
-                    this.computeattribute.equipmatk_max = this.MulOper(this.computeattribute.weaponmatk_max, para2) + para3;
+                    this.computeattribute.equipmatk_min = this.MulOper(this.computeattribute.weaponmatk_min, para2);
+                    this.computeattribute.equipmatk_max = this.MulOper(this.computeattribute.weaponmatk_max, para2);
+
+                    this.setRecord('Myst Amp', [this.computeattribute.equipmatk_min, this.computeattribute.equipmatk_max], 'x', para2, 'p');
+
+                    this.computeattribute.equipmatk_min += para3;
+                    this.computeattribute.equipmatk_max += para3;
+
+                    this.setRecord('Extra MATK', [this.computeattribute.equipmatk_min, this.computeattribute.equipmatk_max], '+', para3);
 
                     //var para4 = Number(1) + Number(this.effecttypelist.find(x => x.id == 'MatkPercent').totalvalue / 100) +
                     //    Number(this.effecttypelist.find(x => x.id == 'LevelMatkPercent').totalvalue / 100);
@@ -11535,6 +11522,8 @@
                     var para4 = Number(1) + Number(this.attribute['MATKP'] / 100);
                     this.computeattribute.matkpercent_min = this.MulOper(this.computeattribute.equipmatk_min, para4);
                     this.computeattribute.matkpercent_max = this.MulOper(this.computeattribute.equipmatk_max, para4);
+
+                    this.setRecord('MATK%', [this.computeattribute.matkpercent_min, this.computeattribute.matkpercent_max], 'x', para4, 'p');
 
                     //this.computeattribute.matkpercent_min = this.MulOper(this.computeattribute.matkpercent_min, Number(1) + Number(this.attribute['SMATK'] / 100));
                     //this.computeattribute.matkpercent_max = this.MulOper(this.computeattribute.matkpercent_max, Number(1) + Number(this.attribute['SMATK'] / 100));
@@ -11548,16 +11537,22 @@
 
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.matkpercent_min, para_size);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.matkpercent_max, para_size);
+                    this.setRecord('Size%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_size, 'p');
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_elemt);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_elemt);
+                    this.setRecord('vs.Element%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_elemt, 'p');
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_magicelemt);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_magicelemt);
+                    this.setRecord('Element%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_magicelemt, 'p');
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_race);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_race);
+                    this.setRecord('Race%',[this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_race, 'p');
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_level);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_level);
+                    this.setRecord('Class%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_level, 'p');
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_mons);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_mons);
+                    this.setRecord('Specific Mob%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_mons, 'p');
 
                     //MRES
                     this.enemyattribute.MRESPercent = Number(100 * (1 - (
@@ -11570,11 +11565,15 @@
                         paraMRES = ((2000 + remainingMRES) / (2000 + 5 * remainingMRES));
                     }
 
-                    this.computeattribute.finalmatk_min = Math.ceil(this.computeattribute.finalmatk_min * paraMRES);
-                    this.computeattribute.finalmatk_max = Math.ceil(this.computeattribute.finalmatk_max * paraMRES);
+                    if (paraMRES != 1){
+                        this.computeattribute.finalmatk_min = Math.ceil(this.computeattribute.finalmatk_min * paraMRES);
+                        this.computeattribute.finalmatk_max = Math.ceil(this.computeattribute.finalmatk_max * paraMRES);
+                        this.setRecord('MRES', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', paraMRES, 'p');
+                    }
 
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, Number(1) + Number(this.attribute['SMATK'] / 100));
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, Number(1) + Number(this.attribute['SMATK'] / 100));
+                    this.setRecord('SMATK', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', Number(1) + Number(this.attribute['SMATK'] / 100), 'p');
 
                     this.computeattribute.matk1_min = this.MulOper(this.computeattribute.finalmatk_min, Number(1) + Number(this.enemyattribute.sizeResist / 100));
                     this.computeattribute.matk1_max = this.MulOper(this.computeattribute.finalmatk_max, Number(1) + Number(this.enemyattribute.sizeResist / 100));
@@ -11587,9 +11586,11 @@
 
                     this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.attribute['ELEDDI'] / 100));
                     this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['ELEDDI'] / 100));
+                    this.setRecord('Element Resist', [this.computeattribute.matk1_min, this.computeattribute.finalmatk_max], 'x', Number(1) + Number(this.attribute['ELEDDI'] / 100), 'p');
 
                     this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.attribute['MELDDI'] / 100));
                     this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['MELDDI'] / 100));
+                    this.setRecord('Sightless Mind', [this.computeattribute.matk1_min, this.computeattribute.matk1_max], 'x', Number(1) + Number(this.attribute['MELDDI'] / 100), 'p');
 
 
                     if (this.skill.laterformula == false) {
@@ -11599,6 +11600,7 @@
                         }
                         this.computeattribute.skillmatk_min = Math.floor(this.computeattribute.matk1_min * Number(para_skillpercent / 100));
                         this.computeattribute.skillmatk_max = Math.floor(this.computeattribute.matk1_max * Number(para_skillpercent / 100));
+                        this.setRecord('Skill ATK%', [this.computeattribute.skillmatk_min, this.computeattribute.skillmatk_max], 'x', Number(para_skillpercent / 100), 'p');
                         this.computeattribute.skillmatk_min = this.MulOper(this.computeattribute.skillmatk_min, Number(1) + Number(this.computeattribute['SpecialMATK2'] / 100));
                         this.computeattribute.skillmatk_max = this.MulOper(this.computeattribute.skillmatk_max, Number(1) + Number(this.computeattribute['SpecialMATK2'] / 100));
                     } else {
@@ -11621,23 +11623,31 @@
                                 (1000 + this.MulOper(Number(this.enemyattribute.WeaponMDEF), parabypassMDEF)) /
                                 (1000 + 10 * this.MulOper(Number(this.enemyattribute.WeaponMDEF), parabypassMDEF)));
                         }
-                        this.computeattribute.matk2_min = Math.floor(this.computeattribute.matk2_min * paraMDEF) - Number(this.enemyattribute.StatusMDEF);
-                        this.computeattribute.matk2_max = Math.floor(this.computeattribute.matk2_max * paraMDEF) - Number(this.enemyattribute.StatusMDEF);
+                        this.computeattribute.matk2_min = Math.floor(this.computeattribute.matk2_min * paraMDEF);
+                        this.computeattribute.matk2_max = Math.floor(this.computeattribute.matk2_max * paraMDEF);
+                        this.setRecord('HMDEF', [this.computeattribute.matk2_min, this.computeattribute.matk2_max], 'x', paraMDEF, 'p');
+                        this.computeattribute.matk2_min -= Number(this.enemyattribute.StatusMDEF);
+                        this.computeattribute.matk2_max -= Number(this.enemyattribute.StatusMDEF);
+                        this.setRecord('SMDEF', [this.computeattribute.matk2_min, this.computeattribute.matk2_max], '-', Number(this.enemyattribute.StatusMDEF));
                     }
 
                     this.computeattribute.matk3_min = this.MulOper(this.computeattribute.matk2_min, Number(1) + Number(this.option.EquipSkillAddDamage / 100));
                     this.computeattribute.matk3_max = this.MulOper(this.computeattribute.matk2_max, Number(1) + Number(this.option.EquipSkillAddDamage / 100));
+                    this.setRecord('Skill Mod%', [this.computeattribute.matk3_min, this.computeattribute.matk3_max], 'x', Number(1) + Number(this.option.EquipSkillAddDamage / 100), 'p');
 
                     this.computeattribute.matk4_min = this.MulOper(this.computeattribute.matk3_min, Number(this.skilloption.ElementalPercent / 100));
                     this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk3_max, Number(this.skilloption.ElementalPercent / 100));
+                    this.setRecord('Elemental Advatage', [this.computeattribute.matk4_min, this.computeattribute.matk4_max], 'x', Number(this.skilloption.ElementalPercent / 100), 'p');
 
                     this.computeattribute.matk4_min = this.MulOper(this.computeattribute.matk4_min, Number(1) + Number(this.computeattribute['SpecialMATK3'] / 100));
                     this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk4_max, Number(1) + Number(this.computeattribute['SpecialMATK3'] / 100));
+                    this.setRecord('Skill Specific Mod', [this.computeattribute.matk4_min, this.computeattribute.matk4_max], 'x', Number(1) + Number(this.computeattribute['SpecialMATK3'] / 100), 'p');
 
 
                     if (this.skill.id.includes('SO_SPELLFIST')) {
                         this.computeattribute.matk4_min = Math.floor(this.computeattribute.matk4_min * Number(Math.floor(this.option.SkillPercent) / 100));
                         this.computeattribute.matk4_max = Math.floor(this.computeattribute.matk4_max * Number(Math.floor(this.option.SkillPercent) / 100));
+                        this.setRecord('Spell Fist', [this.computeattribute.matk4_min, this.computeattribute.matk4_max], 'x', Number(Math.floor(this.option.SkillPercent) / 100), 'p');
                     }
                     /*
                     if (this.skill.laterformula == true) {
@@ -11650,12 +11660,13 @@
                     */
                     this.computeattribute.matk4_min = this.MulOper(this.computeattribute.matk4_min, Number(1) + Number(this.computeattribute['SpecialINSIGNIAENEMYMATK'] / 100));
                     this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk4_max, Number(1) + Number(this.computeattribute['SpecialINSIGNIAENEMYMATK'] / 100));
-
+                    this.setRecord('Insignia', [this.computeattribute.matk4_min, this.computeattribute.matk4_max], 'x', Number(1) + Number(this.computeattribute['SpecialINSIGNIAENEMYMATK'] / 100), 'p');
 
                     // 天怒
                     if (this.IsSupportActive('PR_LEXAETERNA')) {
                         this.computeattribute.matk4_min = this.MulOper(this.computeattribute.matk4_min, Number(1) + Number(100 / 100));
                         this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk4_max, Number(1) + Number(100 / 100));
+                        this.setRecord('Lex Aeterna', [this.computeattribute.matk4_min, this.computeattribute.matk4_max], 'x', Number(1) + Number(100 / 100), 'p');
                     }
 
                     if (this.enemyattribute.auraLevel > 0) {
@@ -11671,10 +11682,13 @@
                         _paradiv *= -1;
                         this.computeattribute.matk4_min = Math.floor(this.computeattribute.matk4_min / _paradiv);
                         this.computeattribute.matk4_max = Math.floor(this.computeattribute.matk4_max / _paradiv);
+                        this.setRecord('Hit Count', [this.computeattribute.matk4_min, this.computeattribute.matk4_max], '/', _paradiv);
                     }
 
                     _MATKDamageMin = this.computeattribute.matk4_min * _paradiv;
                     _MATKDamageMax = this.computeattribute.matk4_max * _paradiv;
+                    if (_paradiv != 1)
+                        this.setRecord('Total', [_MATKDamageMin, _MATKDamageMax],'');
 
                     return {
                         Min: _MATKDamageMin,
@@ -15406,7 +15420,7 @@
                     );
 
                     this.UpdateLogList.push(
-                        { id: '2024-12-14', content: 'Added: User Guide<br>Bug Fix: 2H Staff Mastery now gives MATK%' },
+                        { id: '2024-12-14', content: 'Added: User Guide<br>Added: MATK Calculation Summary<br>Bug Fix: 2H Staff Mastery now also gives MATK% correctly' },
                         { id: '2024-12-11', content: 'Added: v2 Shadow Cross skills' },
                         { id: '2024-12-07', content: 'Added: Current iRO Doram skills' },
                         { id: '2024-12-04', content: 'Fixed: Fallen Protect Manteau Script' },
