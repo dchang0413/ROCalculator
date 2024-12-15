@@ -11421,8 +11421,8 @@
                     var aspdTable = this.aspdTable[jobid];
                     var baseASPD = 40;
                     if (weaponType == 'Empty') baseASPD = aspdTable[weaponType];
-                    else if (aspdTable[weaponType]) baseASPD = aspdTable['Empty'] + aspdTable[weaponType];
-
+                    else if (!isNaN(aspdTable[weaponType])) baseASPD = aspdTable['Empty'] + aspdTable[weaponType];
+                    
                     if (!isNaN(aspdTable[subweaponType])) baseASPD += aspdTable[subweaponType];
 
                     return baseASPD;
