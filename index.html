@@ -10885,7 +10885,7 @@
                     if (diff == 0 && method == '+') return;
                     if (difftype == 'p') {
                         if (diff == 1) return;
-                        diff = Math.floor(diff * 100) + '%';
+                        diff = Math.floor(diff * 100 + 0.001) + '%';
                     }
                     if (method == 'x') method = '×';
                     if (method == '/') method = '÷';
@@ -11421,8 +11421,8 @@
                     var aspdTable = this.aspdTable[jobid];
                     var baseASPD = 40;
                     if (weaponType == 'Empty') baseASPD = aspdTable[weaponType];
-                    else if (aspdTable[weaponType]) baseASPD = aspdTable['Empty'] + aspdTable[weaponType];
-
+                    else if (!isNaN(aspdTable[weaponType])) baseASPD = aspdTable['Empty'] + aspdTable[weaponType];
+                    
                     if (!isNaN(aspdTable[subweaponType])) baseASPD += aspdTable[subweaponType];
 
                     return baseASPD;
