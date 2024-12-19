@@ -3844,5 +3844,76 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "shoes",
+		"itemid": -2,
+		"label": "Shoes",
+		"equipname": "Juggernaut",
+		"refinelevel": 9,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "3+(SHOER>4?7:0)+(SHOER>6?10:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "3+(SHOER>4?7:0)+(SHOER>6?10:0)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RE'?20:0",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RE'?100:0",
+				"EffectType": {
+					"id": "BypassDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RE'?20:0",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RE'?40:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RE'?(SKIDS(\"BANISHING_BUSTER\")?100:0):0",
+				"EffectType": {
+					"id": "FixedCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RE'?((SKIDS(\"BANISHING_BUSTER\")?300:0)+(SKIDS(\"FIRE_RAIN\")?250:0)+(SKIDS(\"H_MINE\")?200:0)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]

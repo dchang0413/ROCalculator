@@ -3258,5 +3258,202 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "shoes",
+		"itemid": -3,
+		"label": "Shoes",
+		"equipname": "Ancient Ranger Shoes",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "3*DOWN(SHOER/2)",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "3*DOWN(SHOER/3)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(SHOER/3)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>9?15:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>10?7:0",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>11?20:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>12?30:0",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>13?(SKIDS(\"AIMEDBOLT\")?100:0):0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>13?(SKIDS(\"AIMEDBOLT\")?1:0):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>13?(SKIDS(\"AIMEDBOLT ARROWSTORM\")?(SHOEG(4)?200:100):0):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOEG(1)?0.7:0",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOEG(2)?20:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOEG(3)?10:0",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4157
+				],
+				"itemid_any": [],
+				"equipname": "Goblin Archer Card",
+				"effectlist": [
+					{
+						"EffectNumber": 75,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"AIMEDBOLT\")?40:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4292
+				],
+				"itemid_any": [],
+				"equipname": "Kobold Archer Card",
+				"effectlist": [
+					{
+						"EffectNumber": 75,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"ARROWSTORM\")?40:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27081
+				],
+				"itemid_any": [],
+				"equipname": "Angry Moonlight Flower Card",
+				"effectlist": [
+					{
+						"EffectNumber": "100+(['RA','MI','WA'].includes(CCL)?200:0)",
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "CON"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "6*DOWN(SHOER/2)",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
