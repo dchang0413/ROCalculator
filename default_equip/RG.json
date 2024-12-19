@@ -3455,5 +3455,137 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490605,
+		"label": "Accessory",
+		"equipname": "Document Swordsman",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10+(CCL=='RG'?15:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"EARTHDRIVE IGNITIONBREAK\")?30:0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'&&SKIDS(\"IGNITIONBREAK\")?100:0",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'?40:0",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RG'?20:0",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					18971
+				],
+				"itemid_any": [],
+				"equipname": "Old Rune Circlet",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"IGNITIONBREAK\")?1.5:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"IGNITIONBREAK\")?(10*DOWN(HATR/2)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "4*DOWN(HATR/2)",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					18983
+				],
+				"itemid_any": [],
+				"equipname": "Old Casket of Protection",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"EARTHDRIVE\")?2.5:0",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"EARTHDRIVE\")?(30*DOWN(HATR/2)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "4*DOWN(HATR/2)",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
