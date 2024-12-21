@@ -3598,5 +3598,110 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "shadow",
+		"itemid": 24443,
+		"label": "S.Weapon",
+		"equipname": "Ignition Shadow Weapon",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [
+					24444,
+					24445
+				],
+				"itemid_any": [],
+				"equipname": "Ignition Shadow Earring + Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"IGNITIONBREAK\")?(SHWEAR+SHACCLR+SHACCRR):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 24445,
+		"label": "S.Earring",
+		"equipname": "Ignition Shadow Earring",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"IGNITIONBREAK\")?(0.2+(0.1*DOWN(SHACCRR/3))):0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 24444,
+		"label": "S.Pendant",
+		"equipname": "Ignition Shadow Pendant",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS(\"IGNITIONBREAK\")?(5+(2*DOWN(SHACCLR/2))):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "helm1",
+		"itemid": 410140,
+		"label": "Middle",
+		"equipname": "Hairband of Asmodeus",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "CCL=='RK'&&SKIDS(\"IGNITIONBREAK\")?2.5:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
