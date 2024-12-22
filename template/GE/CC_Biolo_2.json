@@ -164,201 +164,59 @@
 		},
 		{
 			"id": "helm",
-			"itemid": 400738,
+			"itemid": 18977,
 			"label": "Upper",
-			"equipname": "Disciple of Bijou",
+			"equipname": "Old Midas Whisper",
 			"refinelevel": 14,
 			"grade": {
-				"id": 4,
-				"label": "A"
+				"id": 0,
+				"label": "No Grade"
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "5*HATR",
+					"EffectNumber": 1,
 					"EffectType": {
-						"id": "MatkPercent"
+						"id": "AllStatus"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "5*HATR",
-					"EffectType": {
-						"id": "LevelAtkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "20*DOWN(HATR/2)",
-					"EffectType": {
-						"id": "Matk"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "20*DOWN(HATR/2)",
+					"EffectNumber": "4*HATR",
 					"EffectType": {
 						"id": "Atk"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(HATR>9?10:0)+(HATG(3)?15:0)",
-					"EffectType": {
-						"id": "GCDPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(HATR>9?10:0)+(HATG(2)?15:0)",
-					"EffectType": {
-						"id": "VariableCastPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "HATR>10?15:0",
-					"EffectType": {
-						"id": "MeleeDamagePercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "HATR>10?15:0",
+					"EffectNumber": "FLOOR(HATR/2)",
 					"EffectType": {
 						"id": "RangedDamagePercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "HATR>10?15:0",
+					"EffectNumber": "SKIDS('CARTCANNON')?(15*FLOOR(HATR/2)):0",
 					"EffectType": {
-						"id": "ElementalMatkPercent"
+						"id": "SkillDamagePercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "HATR>11?0.3:0",
-					"EffectType": {
-						"id": "FixedCast"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "HATG(1)?10:0",
+					"EffectNumber": "FLOOR(HATR/2)",
 					"EffectType": {
 						"id": "HPPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "HATG(1)?10:0",
+					"EffectNumber": "FLOOR(HATR/2)",
 					"EffectType": {
 						"id": "SPPercent"
 					},
 					"Enable": true
-				},
-				{
-					"EffectNumber": "HATG(4)?15:0",
-					"EffectType": {
-						"id": "POW"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "HATG(4)?15:0",
-					"EffectType": {
-						"id": "SPL"
-					},
-					"Enable": true
 				}
 			],
-			"combolist": [
-				{
-					"itemid_every": [
-						4636
-					],
-					"itemid_any": [],
-					"equipname": "Bijou Card",
-					"effectlist": [
-						{
-							"EffectNumber": 30,
-							"EffectType": {
-								"id": "MatkPercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 30,
-							"EffectType": {
-								"id": "LevelAtkPercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "SWEAR>12?40:0",
-							"EffectType": {
-								"id": "POW"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "SWEAR>12?40:0",
-							"EffectType": {
-								"id": "SPL"
-							},
-							"Enable": true
-						}
-					]
-				},
-				{
-					"itemid_every": [
-						4633
-					],
-					"itemid_any": [],
-					"equipname": "Powerful Archer Skeleton Card",
-					"effectlist": [
-						{
-							"EffectNumber": 15,
-							"EffectType": {
-								"id": "RangedDamagePercent"
-							},
-							"Enable": true
-						}
-					]
-				},
-				{
-					"itemid_every": [
-						4446
-					],
-					"itemid_any": [],
-					"equipname": "Powerful Skeleton Card",
-					"effectlist": [
-						{
-							"EffectNumber": 40,
-							"EffectType": {
-								"id": "Atk"
-							},
-							"Enable": true
-						}
-					]
-				},
-				{
-					"itemid_every": [
-						4634
-					],
-					"itemid_any": [],
-					"equipname": "Powerful Soldier Skeleton Card",
-					"effectlist": [
-						{
-							"EffectNumber": 25,
-							"EffectType": {
-								"id": "CriDamagePercent"
-							},
-							"Enable": true
-						}
-					]
-				}
-			]
+			"combolist": []
 		},
 		{
 			"id": "helm1",
@@ -1064,9 +922,9 @@
 		},
 		{
 			"id": "acc1",
-			"itemid": 490428,
+			"itemid": 490607,
 			"label": "Accessory",
-			"equipname": "Chemical Resistance Glove",
+			"equipname": "Document Merchant",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -1074,28 +932,154 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 3,
+					"EffectNumber": 10,
 					"EffectType": {
-						"id": "POW"
+						"id": "AtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 100,
+					"EffectType": {
+						"id": "Atk"
 					},
 					"Enable": true
 				},
 				{
 					"EffectNumber": 10,
 					"EffectType": {
-						"id": "LevelAtkPercent"
+						"id": "GCDPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SKIDS('CARTCANNON')?(DOWN(MIN(BLV,250)/2)):(SKIDS('ACIDIFIED_ZONE_GROUND')?(DOWN(BLV/10)):0)",
+					"EffectNumber": 10,
+					"EffectType": {
+						"id": "SizeAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "SKIDS(\"AXETORNADO ARMSCANNON CARTCANNON\")?30:0",
 					"EffectType": {
 						"id": "SkillDamagePercent"
 					},
 					"Enable": true
+				},
+				{
+					"EffectNumber": "CCL=='ME'?15:0",
+					"EffectType": {
+						"id": "ElementalAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "CCL=='GE'?10:0",
+					"EffectType": {
+						"id": "AllStatus"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "CCL=='GE'?20:0",
+					"EffectType": {
+						"id": "RangedDamagePercent"
+					},
+					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [
+				{
+					"itemid_every": [
+						18973
+					],
+					"itemid_any": [],
+					"equipname": "Old Driver Band (Red)",
+					"effectlist": [
+						{
+							"EffectNumber": "SKIDS(\"AXETORNADO\")?1:0",
+							"EffectType": {
+								"id": "CDTime"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "SKIDS(\"AXETORNADO\")?(10*DOWN(HATR/2)):0",
+							"EffectType": {
+								"id": "SkillDamagePercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "4*DOWN(HATR/2)",
+							"EffectType": {
+								"id": "LevelAtkPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						18974
+					],
+					"itemid_any": [],
+					"equipname": "Old Driver Band (Yellow)",
+					"effectlist": [
+						{
+							"EffectNumber": "SKIDS(\"ARMSCANNON\")?0.5:0",
+							"EffectType": {
+								"id": "CDTime"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "SKIDS(\"ARMSCANNON\")?100:0",
+							"EffectType": {
+								"id": "VariableCastPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "SKIDS(\"ARMSCANNON\")?(10*DOWN(HATR/2)):0",
+							"EffectType": {
+								"id": "SkillDamagePercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "4*DOWN(HATR/2)",
+							"EffectType": {
+								"id": "LevelAtkPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						18977
+					],
+					"itemid_any": [],
+					"equipname": "Old Midas Whisper",
+					"effectlist": [
+						{
+							"EffectNumber": "SKIDS(\"CARTCANNON\")?(10*DOWN(HATR/2)):0",
+							"EffectType": {
+								"id": "SkillDamagePercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "4*DOWN(HATR/2)",
+							"EffectType": {
+								"id": "LevelAtkPercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
 		},
 		{
 			"id": "acc2",
@@ -2262,15 +2246,31 @@
 		},
 		{
 			"id": "helmUpper1",
-			"itemid": 0,
+			"itemid": 29097,
 			"label": "Helm Enchant",
-			"equipname": "",
-			"effectlist": [],
-			"combolist": [],
+			"equipname": "Master Archer Lv. 7",
 			"refinelevel": 0,
 			"grade": {
-				"id": 0
+				"id": 0,
+				"label": "No Grade"
 			},
+			"effectlist": [
+				{
+					"EffectNumber": 28,
+					"EffectType": {
+						"id": "RangedDamagePercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 7,
+					"EffectType": {
+						"id": "AspdPercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": [],
 			"baseIndex": "2"
 		},
 		{
@@ -2650,8 +2650,8 @@
 		"MATK": 0,
 		"refinelevel": 14,
 		"ShieldWeight": 100,
-		"refinematk": 24,
-		"refineatk": 24
+		"refinematk": 28,
+		"refineatk": 28
 	},
 	"Status": {
 		"Level": 250,
@@ -2671,11 +2671,11 @@
 		"SPL": 0,
 		"CON": "97",
 		"CRT": 0,
-		"ASPD": 190,
+		"ASPD": 191,
 		"HP": 0,
 		"SP": 0,
-		"MHP": 174128,
-		"MSP": 11618
+		"MHP": 179391,
+		"MSP": 11790
 	},
 	"JobStatus": {
 		"STR": 5,
@@ -2736,9 +2736,9 @@
 	},
 	"Option": {
 		"MagnumPoison2Value": 0,
-		"SkillPercent": 5360,
+		"SkillPercent": 5415,
 		"SkillFormulaError": "",
-		"EquipSkillAddDamage": 675,
+		"EquipSkillAddDamage": 755,
 		"BaseCriticalValue": 40,
 		"IgnoreDEF": false,
 		"IgnoreMDEF": false,
@@ -2792,9 +2792,9 @@
 		"BO_HELLTREE",
 		"MC_LOUD"
 	],
-	"Damage": "803,933,958 ~ 876,381,298",
-	"DamageDPS": "4,267,584,460",
+	"Damage": "800,193,200 ~ 871,202,642",
+	"DamageDPS": "4,710,231,665",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "840,157,628",
-	"lastedited": "2024-12-22T11:34:20.009Z"
+	"SkillDamageAvg": "835,697,921",
+	"lastedited": "2024-12-22T11:57:46.911Z"
 }
