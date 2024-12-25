@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
     margin: 0.1;
     padding: 0 !important;
 }
@@ -22,15 +23,19 @@ html, body {
 .divider-purple {
     border-top: 2px solid #a89dca;
 }
+
 .divider-green {
     border-top: 2px solid #c2f0c5;
 }
+
 .divider-red {
     border-top: 2px solid #f49e9e;
 }
+
 .divider-black {
     border-top: 1px solid #d7dae2;
 }
+
 .bg-purple-dark {
     background: #99a9bf;
     background: #305079;
@@ -43,46 +48,59 @@ html, body {
 .bg-green-light {
     background: #baecc6;
 }
+
 .bg-orange-light {
     background: #f1dccb;
 }
+
 .bg-purple-light {
     background: #e5e9f2;
 }
+
 .bg-purple-light2 {
     background: #e2f4ff;
 }
+
 .bg-purple-light3 {
     background: #CBC3E3;
 }
+
 .bg-purple-light4 {
     background: #8c7ac0;
     border-radius: 25px 25px 0px 0px;
 }
+
 .bg-purple-light5 {
     background: #B4DBF3;
     border-radius: 25px 25px 0px 0px;
 }
+
 .bg-green-light1 {
     background: #E2FFE4;
 }
+
 .bg-green-light2 {
     background: #A7F1AC;
     border-radius: 25px 25px 0px 0px;
 }
+
 .bg-red-light1 {
     background: #f8b5b5;
 }
+
 .bg-red-light2 {
     background: #df6d6d;
     border-radius: 25px 25px 0px 0px;
 }
+
 .bg-pink-light1 {
     background: #f59fd8;
 }
+
 .bg-pink-light2 {
     background: #f87fcf;
 }
+
 .bg-4thskill-light {
     background: #fffea7;
 }
@@ -108,11 +126,57 @@ html, body {
 }
 
 .ROCalTitle {
-    height: 50px;
-    position: relative;
     color: white;
     background: #303133;
-    border-radius: 4px;
+    padding: 0px 10px;
+}
+
+.responsive-row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.center-content {
+    text-align: center;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .button-group {
+        justify-content: center;
+    }
+
+    .button-group:first-of-type {
+        margin-top: 20px;
+    }
+
+    .button-group:last-of-type {
+        margin-bottom: 20px;
+    }
+
+    .responsive-row {
+        justify-content: center;
+    }
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.page-container>div:first-child {
+    flex: 1;
 }
 
 .ROCalFooter {
@@ -120,10 +184,11 @@ html, body {
     color: white;
     background: #303133;
     border-radius: 4px;
-    position: absolute;
-    bottom: 0px;
+    text-align: center;
     width: 100%;
+    position: relative;
 }
+
 .paginationbox {
     border-top: 1px solid #d7dae2;
     border-radius: 2px;
@@ -297,20 +362,20 @@ html, body {
 .greenbox {
     text-align: center;
     background: #b6f5ce;
-    color:#0a0b38;
+    color: #0a0b38;
 }
 
 
 .obsidianbox {
     text-align: center;
     background: #e0fdff;
-    color:#0a0b38;
+    color: #0a0b38;
 }
 
 .goldbox {
     text-align: center;
     background: #fff09a;
-    color:#0a0b38;
+    color: #0a0b38;
 }
 
 .textcenter {
@@ -353,7 +418,7 @@ html, body {
     text-align: center;
     vertical-align: middle;
     color: rgb(33, 153, 79);
-    background:rgb(178, 253, 207);
+    background: rgb(178, 253, 207);
     font-size: 24px;
     font-weight: bold;
 }
@@ -361,13 +426,13 @@ html, body {
 .ElementTableCellST100 {
     text-align: center;
     color: white;
-    background:rgb(240, 169, 76);
+    background: rgb(240, 169, 76);
 }
 
 .ElementTableCellST50 {
     text-align: center;
     color: rgb(201, 46, 46);
-    background:rgb(252, 175, 175);
+    background: rgb(252, 175, 175);
     font-size: 24px;
     font-weight: bold;
 }
@@ -375,22 +440,23 @@ html, body {
 .ElementTableCellST25 {
     text-align: center;
     color: rgb(70, 70, 70);
-    background:rgb(170, 170, 170);
+    background: rgb(170, 170, 170);
     font-size: 24px;
     font-weight: bold;
 }
-.el-table--enable-row-hover .el-table__body tr:hover > td {
+
+.el-table--enable-row-hover .el-table__body tr:hover>td {
     background-color: rgba(0, 0, 0, 0) !important;
 }
 
 .ElementRowColTitle {
     border-radius: 2px;
-    font-size:21px;
+    font-size: 21px;
     text-align: center;
     border: 1px solid #0c7a47;
     border-radius: 2px;
 }
 
 .el-select-dropdown__wrap {
-    max-height:674px;
+    max-height: 674px;
 }

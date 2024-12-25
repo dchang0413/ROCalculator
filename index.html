@@ -44,12 +44,15 @@
 </head>
 
 <body>
-    <div id="App" v-cloak>
+    <div class="page-container" id="App" v-cloak>
         <el-dialog :visible.sync="UIPanel['GuideDialog']" v-on:close="ClosePanel('GuideDialog')"
             custom-class="Dialogue-container" width="70%" top="50px" center>
             <span slot="title">User Guide</span>
-            <el-row class="statusbox titlebox" style="padding: 5px; height: 40px;" :gutter="4" type="flex" align="middle" justify="end">
-                <el-button v-on:click="window.open('https://github.com/dchang0413/ROCalculator?tab=readme-ov-file#ro-calculator')" size="small">
+            <el-row class="statusbox titlebox" style="padding: 5px; height: 40px;" :gutter="4" type="flex"
+                align="middle" justify="end">
+                <el-button
+                    v-on:click="window.open('https://github.com/dchang0413/ROCalculator?tab=readme-ov-file#ro-calculator')"
+                    size="small">
                     Github Readme
                 </el-button>
             </el-row>
@@ -132,7 +135,9 @@
                                     Job Bonus Stats
                                     <el-col>
                                         <ul>
-                                            <li>Apply Max Job Level Bonus, when toggled Job Bonus Stats will be automatically assigned as if Job Lvl is 70/50 (70 for 3rd job, 50 for 4th job)</li>
+                                            <li>Apply Max Job Level Bonus, when toggled Job Bonus Stats will be
+                                                automatically assigned as if Job Lvl is 70/50 (70 for 3rd job, 50 for
+                                                4th job)</li>
                                         </ul>
                                     </el-col>
                                 </li>
@@ -165,7 +170,8 @@
                                     Defensive Stats
                                     <el-col>
                                         <ul>
-                                            <li>Numbers shown in (-xx.xx%) indicates the damage reduction without penetration</li>
+                                            <li>Numbers shown in (-xx.xx%) indicates the damage reduction without
+                                                penetration</li>
                                         </ul>
                                     </el-col>
                                 </li>
@@ -178,7 +184,8 @@
                                         <el-col>
                                             <img src="img/readme_target_expand.png" alt="Enemy Target fields">
                                             <ul>
-                                                <li>Each level of Green Aura reduces damage taken by 90%, e.g, 1: 90%, 2: 99%, 3: 99.9%</li>
+                                                <li>Each level of Green Aura reduces damage taken by 90%, e.g, 1: 90%,
+                                                    2: 99%, 3: 99.9%</li>
                                             </ul>
                                         </el-col>
                                     </el-col>
@@ -206,7 +213,8 @@
                                     Selected Skill
                                     <el-col>
                                         <ul>
-                                            <li>Drop down offers different skills and different versions of skills to test with</li>
+                                            <li>Drop down offers different skills and different versions of skills to
+                                                test with</li>
                                         </ul>
                                     </el-col>
                                 </li>
@@ -270,7 +278,8 @@
                                             <li>Example of what field is what</li>
                                         </ul>
                                         <el-col>
-                                            <img src="img/readme_equip_example.png" alt="Equipment Configuration Options">
+                                            <img src="img/readme_equip_example.png"
+                                                alt="Equipment Configuration Options">
                                         </el-col>
                                     </el-col>
                                 </li>
@@ -287,7 +296,8 @@
                                             <li>View / Edit effects</li>
                                         </ul>
                                         <el-col>
-                                            <img src="img/readme_equip_edit.png" alt="Equipment/Card/effect Configuration">
+                                            <img src="img/readme_equip_edit.png"
+                                                alt="Equipment/Card/effect Configuration">
                                         </el-col>
                                     </el-col>
                                 </li>
@@ -347,7 +357,8 @@
                                     Expand
                                     <el-col>
                                         <ul>
-                                            <li>Expanding this section will display all the related modifier from buff and skills</li>
+                                            <li>Expanding this section will display all the related modifier from buff
+                                                and skills</li>
                                         </ul>
                                         <el-col>
                                             <img src="img/readme_castingdelay_expand.png" alt="Cast Delay Table">
@@ -371,11 +382,13 @@
                     <el-row>
                         <div class="aboutbox" style="padding: 5px 40px; text-align:left">
                             <el-row :gutter="4" align="left">
-                                <b>You will need proper understanding of the different types of multiplier, skill characteristics and attributes of equipments to utilize this calculator</b><br><br>
+                                <b>You will need proper understanding of the different types of multiplier, skill
+                                    characteristics and attributes of equipments to utilize this calculator</b><br><br>
                             </el-row>
                             <el-row :gutter="4" align="left">
                                 Feel free to ask if you don't know how to plug in values <br>
-                                Most relevant Cash Shop related equipments are already entered in Preset but there may be error (either from WarpPortal or ourside)
+                                Most relevant Cash Shop related equipments are already entered in Preset but there may
+                                be error (either from WarpPortal or ourside)
                                 <br>
                             </el-row>
                         </div>
@@ -3838,74 +3851,36 @@
         </el-dialog>
         <!-- header -->
         <div class="ROCalTitle">
-            <el-row type="flex" align="middle" justify="end" :gutter="1">
-                <el-col :span="1">
+            <el-row type="flex" align="middle" justify="space-between" class="responsive-row">
+                <el-col :xs="24" :sm="24" :md="10" :lg="8" class="button-group">
+                    <el-button v-on:click="onOpenBuildPreset" size="mini">Build Presets</el-button>
+                    <el-button v-on:click="onOpenAllSet" size="mini">Saved Setups</el-button>
+                    <el-button v-on:click="onOpenAllSetSave" size="mini">Save</el-button>
+                    <el-button v-on:click.stop="openFileExplorer()" size="mini">Load File</el-button>
+                    <input style="display:none" ref="fileInputImport" type="file" name="fileInputImport" @change="onLoadFileAllSetSave" />
                 </el-col>
-                <el-col :span="2">
-                    <el-button v-on:click="onOpenBuildPreset" size="mini">
-                        Build Presets
-                    </el-button>
+                <el-col :xs="24" :sm="24" :md="4" :lg="4" class="center-content">
+                    <div class="effectline">RO Calculator</div>
                 </el-col>
-                <el-col :span="2">
-                    <el-button v-on:click="onOpenAllSet" size="mini">
-                        Saved Setups
-                    </el-button>
-                </el-col>
-                <el-col :span="2">
-                    <el-button v-on:click="onOpenAllSetSave" size="mini">
-                        Save
-                    </el-button>
-                </el-col>
-                <el-col :span="2">
-                    <input style="display:none" ref="fileInputImport" type="file" name="fileInputImport"
-                        @change="onLoadFileAllSetSave">
-                    <el-button v-on:click.stop="openFileExplorer()" size="mini">
-                        Load File
-                    </el-button>
-                </el-col>
-                <el-col :span="1">
-                </el-col>
-                <el-col :span="8">
-                    <div class="effectline grid-content" type="flex" align="middle" justify="space-around">
-                        <span>RO Calculator</span>
-                    </div>
-                </el-col>
-                <el-col :span="1">
-                </el-col>
-                <el-col :span="5" class="textcenter">
+                <el-col :xs="24" :sm="24" :md="6" :lg="6" class="center-content">
                     Originated from TwRO - tailored for iRO
                 </el-col>
-                <el-col :span="1">
-                    <el-button v-on:click="TogglePanel('AboutDialog')" size="small">
-                        About
-                    </el-button>
-                </el-col>
-                <el-col :span="1.5">
-                    <el-button v-on:click="TogglePanel('GuideDialog')" size="small" type="primary">
-                        User Guide
-                    </el-button>
-                </el-col>
-                <el-col :span="1">
-                    <el-button v-on:click="TogglePanel('DonateDialog')" size="small" type="warning">
-                        Donate
-                    </el-button>
-                </el-col>
-                <el-col :span="1">
-                    <el-button v-on:click="TogglePanel('SpecialthanksDialog')" size="small" type="success">
-                        Credits
-                    </el-button>
-                </el-col>
-                <el-col :span="2">
-                    <el-button v-on:click="TogglePanel('UpdateLogDialog')" size="small" type="danger">
-                        Update Log
-                    </el-button>
+                <el-col :xs="24" :sm="24" :md="10" :lg="6" class="button-group">
+                    <el-button v-on:click="TogglePanel('AboutDialog')" size="small">About</el-button>
+                    <el-button v-on:click="TogglePanel('GuideDialog')" size="small" type="primary">User
+                        Guide</el-button>
+                    <el-button v-on:click="TogglePanel('DonateDialog')" size="small" type="warning">Donate</el-button>
+                    <el-button v-on:click="TogglePanel('SpecialthanksDialog')" size="small"
+                        type="success">Credits</el-button>
+                    <el-button v-on:click="TogglePanel('UpdateLogDialog')" size="small" type="danger">Update
+                        Log</el-button>
                 </el-col>
             </el-row>
         </div>
         <!-- main -->
         <div>
             <el-row :gutter="2">
-                <el-col :span="6">
+                <el-col :xs="24" :sm="12" :md="6" :lg="6">
                     <el-scrollbar wrap-class="bodycol-container" :native="true" :noresize="false">
                         <el-row class="titlebox" :gutter="2" type="flex" align="middle" justify="end"
                             style="height:40px; padding: 0px 5px;">
@@ -4722,7 +4697,7 @@
                         </el-row>
                     </el-scrollbar>
                 </el-col>
-                <el-col :span="5">
+                <el-col :xs="24" :sm="12" :md="5" :lg="5">
                     <el-scrollbar wrap-class="bodycol-container" :native="true" :noresize="false">
                         <el-row class="titlebox" :gutter="4" type="flex" align="middle" justify="end"
                             style="height:40px; padding: 0px 5px;">
@@ -5244,7 +5219,7 @@
                         </el-row>
                     </el-scrollbar>
                 </el-col>
-                <el-col :span="7">
+                <el-col :xs="24" :sm="12" :md="7" :lg="7">
                     <el-row class="titlebox" type="flex" align="middle" justify="space-around"
                         style="height:40px; padding: 0px 5px;">
                         <el-col class="textcenter" :span="2" style="padding-right: 9px;">
@@ -7379,7 +7354,7 @@
                         </el-row>
                     </el-scrollbar>
                 </el-col>
-                <el-col :span="6">
+                <el-col :xs="24" :sm="12" :md="6" :lg="6">
                     <el-scrollbar wrap-class="bodycol-container" :native="true" :noresize="false">
                         <el-row>
                             <div class="Attribute">
@@ -8490,7 +8465,6 @@
                     </el-scrollbar>
                 </el-col>
             </el-row>
-
         </div>
         <!-- footer -->
         <div class="ROCalFooter">
@@ -11423,7 +11397,7 @@
                     var baseASPD = 40;
                     if (weaponType == 'Empty') baseASPD = aspdTable[weaponType];
                     else if (!isNaN(aspdTable[weaponType])) baseASPD = aspdTable['Empty'] + aspdTable[weaponType];
-                    
+
                     if (!isNaN(aspdTable[subweaponType])) baseASPD += aspdTable[subweaponType];
 
                     return baseASPD;
@@ -11501,7 +11475,7 @@
 
                     this.setRecord('Sub/Weapon MATK', [Number(this.weapon.MATK) + Number(this.subweapon.MATK) + Number(this.weapon.refinematk)], '', '');
                     this.setRecord('Weap Lv. Variance', [this.computeattribute.weaponmatk_min, this.computeattribute.weaponmatk_max], '±', para1, 'p');
-                    
+
                     this.computeattribute.weaponmatk_min += Number(this.attribute['StatusMATK']);
                     this.computeattribute.weaponmatk_max += Number(this.attribute['StatusMATK']);
 
@@ -11556,7 +11530,7 @@
                     this.setRecord('Element%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_magicelemt, 'p');
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_race);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_race);
-                    this.setRecord('Race%',[this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_race, 'p');
+                    this.setRecord('Race%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_race, 'p');
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_level);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_level);
                     this.setRecord('Class%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_level, 'p');
@@ -11575,7 +11549,7 @@
                         paraMRES = ((2000 + remainingMRES) / (2000 + 5 * remainingMRES));
                     }
 
-                    if (paraMRES != 1){
+                    if (paraMRES != 1) {
                         this.computeattribute.finalmatk_min = Math.ceil(this.computeattribute.finalmatk_min * paraMRES);
                         this.computeattribute.finalmatk_max = Math.ceil(this.computeattribute.finalmatk_max * paraMRES);
                         this.setRecord('MRES', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', paraMRES, 'p');
@@ -11698,7 +11672,7 @@
                     _MATKDamageMin = this.computeattribute.matk4_min * _paradiv;
                     _MATKDamageMax = this.computeattribute.matk4_max * _paradiv;
                     if (_paradiv != 1)
-                        this.setRecord('Total', [_MATKDamageMin, _MATKDamageMax],'');
+                        this.setRecord('Total', [_MATKDamageMin, _MATKDamageMax], '');
 
                     return {
                         Min: _MATKDamageMin,
@@ -14625,7 +14599,7 @@
                         { skill: { id: 'ASC_BREAKER', name: 'Soul Destroyer', level: 10, formula: '(SLV*150+STR+INT)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, halfcri: true, hitnumber: 1, elemental: 0, FCT: 0.25, VCT: 0.25, CD: 0.3, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'ASC_METEORASSAULT', name: 'Meteor Assault', level: 10, formula: '(200+SLV*120+STR*5)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, halfcri: false, hitnumber: 1, elemental: 0, FCT: 0.25, VCT: 0.25, CD: 0.5, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
 
-                        { skill: { id: 'SHC_DANCING_KNIFE', name: 'Dancing Knife', level: 5, formula: '(200*SLV+POW*5)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, FixedDPS:0.3, Note: '', Version: 0, } },
+                        { skill: { id: 'SHC_DANCING_KNIFE', name: 'Dancing Knife', level: 5, formula: '(200*SLV+POW*5)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, FixedDPS: 0.3, Note: '', Version: 0, } },
 
                         { skill: { id: 'SHC_SAVAGE_IMPACT_2', name: 'Savage Impact', level: 10, formula: '(SLV*60+POW*5)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, halfcri: true, hitnumber: 3, elemental: 0, FCT: 0, VCT: 0, CD: 1, GCD: 0.3, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
                         { skill: { id: 'SHC_SAVAGE_IMPACT(ex)_2', name: 'Savge Impact(Shadow Exceed)', level: 10, formula: '(SLV*100+POW*7)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, halfcri: true, hitnumber: 3, elemental: 0, FCT: 0, VCT: 0, CD: 1, GCD: 0.3, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
