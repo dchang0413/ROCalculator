@@ -46,7 +46,7 @@
 <body>
     <div class="page-container" id="App" v-cloak>
         <el-dialog :visible.sync="UIPanel['GuideDialog']" v-on:close="ClosePanel('GuideDialog')"
-            custom-class="Dialogue-container" width="70%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">User Guide</span>
             <el-row class="statusbox titlebox" style="padding: 5px; height: 40px;" :gutter="4" type="flex"
                 align="middle" justify="end">
@@ -372,7 +372,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['AboutDialog']" v-on:close="ClosePanel('AboutDialog')"
-            custom-class="Dialogue-container" width="45%" top="50px" center>
+            custom-class="Donate-container" top="50px" center>
             <span slot="title">About</span>
             <el-row :gutter="9">
                 <el-scrollbar wrap-class="AboutList-container" :native="false" :noresize="false">
@@ -446,7 +446,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['DonateDialog']" v-on:close="ClosePanel('DonateDialog')"
-            custom-class="Dialogue-container" width="45%" top="50px" center>
+            custom-class="Donate-container" top="50px" center>
             <el-row :gutter="6">
                 <el-scrollbar wrap-class="DonateList-container" :native="false" :noresize="false">
                     <el-row class="titlebox" type="flex" align="middle" style="height:20px; padding: 0px 5px;">
@@ -502,7 +502,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['UpdateLogDialog']" v-on:close="ClosePanel('UpdateLogDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Updates</span>
             <el-row :gutter="6">
                 <el-col span="12">
@@ -597,7 +597,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['SpecialthanksDialog']" v-on:close="ClosePanel('SpecialthanksDialog')"
-            custom-class="Dialogue-container" width="60%" top="50px" center>
+            custom-class="Thanks-container" top="50px" center>
             <span slot="title">Special Thanks</span>
             <el-row :gutter="6">
                 <el-scrollbar wrap-class="englishThanksList-container" :native="false" :noresize="false">
@@ -653,7 +653,7 @@
                 </el-col>
             </el-row>
         </el-dialog>
-        <el-dialog :visible.sync="UIPanel['SkillDBDialog']" custom-class="Dialogue-container" width="85%" top="50px"
+        <el-dialog :visible.sync="UIPanel['SkillDBDialog']" custom-class="Dialogue-container" top="50px"
             v-on:close="ClosePanel('SkillDBDialog')" center>
             <span slot="title">Skill List</span>
             <el-row :gutter="2">
@@ -2100,7 +2100,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['BuildPresetDialog']" v-on:close="ClosePanel('BuildPresetDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Build Presets</span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
@@ -2128,84 +2128,35 @@
                         </el-col>
                     </el-row>
                 </div>
-                <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
-                        <el-col class="textcenter" :span="4" style="text-align: center;">
-                            <span class=""><b>Name</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="6">
-                            <span class=""><b>Class</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="2">
-                            <span class=""><b>Level</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="4">
-                            <span class=""><b>Skill Name</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="5">
-                            <span class=""><b>Enemy</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="6">
-                            <span class=""><b>Damage</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="6">
-                            <span class=""><b>DPS</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="5">
-                            <span class=""><b>Last Update(UTC)</b></span>
-                        </el-col>
-                        <el-col :span="4">
-                        </el-col>
-                        <el-col :span="2">
-                        </el-col>
-                    </el-row>
-                </div>
-                <el-scrollbar id="BuildListCont" wrap-class="EquipList-container" :native="false" :noresize="false">
-                    <div v-for="(item, index) in AvailableClassesMetadataList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)"
-                        v-bind:key="item.filename">
-                        <div style="padding: 5px 5px;">
-                            <el-row class="effectline" :class="index%2==0?'bg-purple-light':'bg-purple'">
-                                <el-row class="effectline" :gutter="4" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="4" style="text-align: center;">
-                                        <span class="EffectType">{{ item.name }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="6">
-                                        <span class="">{{ item.class }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="2">
-                                        <span class="">{{ item.level }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="4">
-                                        <span class="">{{ item.skill }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="5">
-                                        <span class="">{{ item.enemy }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="6">
-                                        <span class="">{{ item.damage }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="6">
-                                        <span class="">{{ item.dps }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="5">
-                                        <span class="">{{ item.lastupdate | getDateFromIso8601 }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="4">
-                                        <el-button v-on:click="loadBuild(item.filename)" icon="el-icon-check"
-                                            type="success" type="primary" size="small">
-                                            Load Build
-                                        </el-button>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="2">
-                                        <el-button v-on:click="getBuildURL(item.filename)" icon="el-icon-link"
-                                            type="primary">
-                                        </el-button>
-                                    </el-col>
-                                </el-row>
-                            </el-row>
-                        </div>
-                    </div>
-                </el-scrollbar>
+                <el-table
+                    :data="AvailableClassesMetadataList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)"
+                    :default-sort="{ prop: 'lastupdate', order: 'descending' }"
+                    height="550px"
+                    style="width: 100%"
+                    class="build-table"
+                >
+                    <el-table-column prop="class" label="Class" sortable></el-table-column>
+                    <el-table-column prop="level" label="Level" sortable></el-table-column>
+                    <el-table-column prop="skill" label="Skill Name" sortable></el-table-column>
+                    <el-table-column prop="enemy" label="Enemy" sortable></el-table-column>
+                    <el-table-column prop="damage" label="Damage" sortable></el-table-column>
+                    <el-table-column prop="lastupdate" label="Last Update" sortable :formatter="this.formatDateFromIso8601"></el-table-column>
+                    <el-table-column width="100px">
+                        <template #default="scope">
+                            <el-button v-on:click="loadBuild(scope.row.filename)" icon="el-icon-check"
+                                type="success" type="primary" size="small">
+                                Load
+                            </el-button>
+                        </template>
+                    </el-table-column>
+                    <el-table-column width="100px">
+                        <template #default="scope">
+                            <el-button v-on:click="getBuildURL(scope.row.filename)" icon="el-icon-link"
+                                type="primary" size="small">
+                            </el-button>
+                        </template>
+                    </el-table-column>
+                </el-table>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
                     <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
                         <el-col class="textcenter" :span="4" style="text-align: right;">
@@ -2240,7 +2191,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['EquipDBDialog']" v-on:close="ClosePanel('EquipDBDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Saved/Preset Equip</span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
@@ -2421,7 +2372,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['EquipTextDialog']" v-on:close="ClosePanel('EquipTextDialog')"
-            custom-class="Dialogue-container" width="40%" top="50px" :show-close=false center>
+            custom-class="Donate-container" top="50px" :show-close=false center>
             <el-row class="titlebox" type="flex" align="middle" justify="space-between"
                 style="height:50px; padding: 0 0; width: 100%;">
                 <el-col :span="8">
@@ -2441,7 +2392,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['StatusDBDialog']" v-on:close="ClosePanel('StatusDBDialog')"
-            custom-class="Dialogue-container" width="85%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Character Info</span>
             <el-row :gutter="2">
                 <el-col :span="8">
@@ -2495,7 +2446,8 @@
                                     {{status.SP}}
                                 </el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="min-height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter">Level</el-col>
                                 <el-col>
                                     <el-input v-model.number="status.Level" v-on:input="onOption" placeholder="Level">
@@ -2508,7 +2460,8 @@
                                     </el-input>
                                 </el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="min-height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter" :span="3">STR</el-col>
                                 <el-col :span="10">
                                     <el-input v-model="status.STR" v-on:input="onOption" v-on:change="onStatusChange"
@@ -2520,7 +2473,8 @@
                                 <el-col class="textcenter" :span="1">=</el-col>
                                 <el-col class="textcenter" :span="4">{{status_total.STR}}</el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="min-height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter" :span="3">AGI</el-col>
                                 <el-col :span="10">
                                     <el-input v-model="status.AGI" v-on:input="onOption" v-on:change="onStatusChange"
@@ -2532,7 +2486,8 @@
                                 <el-col class="textcenter" :span="1">=</el-col>
                                 <el-col class="textcenter" :span="4">{{status_total.AGI}}</el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="min-height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter" :span="3">VIT</el-col>
                                 <el-col :span="10">
                                     <el-input v-model="status.VIT" v-on:input="onOption" v-on:change="onStatusChange"
@@ -2544,7 +2499,8 @@
                                 <el-col class="textcenter" :span="1">=</el-col>
                                 <el-col class="textcenter" :span="4">{{status_total.VIT}}</el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="min-height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter" :span="3">INT</el-col>
                                 <el-col :span="10">
                                     <el-input v-model="status.INT" v-on:input="onOption" v-on:change="onStatusChange"
@@ -2556,7 +2512,8 @@
                                 <el-col class="textcenter" :span="1">=</el-col>
                                 <el-col class="textcenter" :span="4">{{status_total.INT}}</el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="min-height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter" :span="3">DEX</el-col>
                                 <el-col :span="10">
                                     <el-input v-model="status.DEX" v-on:input="onOption" v-on:change="onStatusChange"
@@ -2568,7 +2525,8 @@
                                 <el-col class="textcenter" :span="1">=</el-col>
                                 <el-col class="textcenter" :span="4">{{status_total.DEX}}</el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="min-height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter" :span="3">LUK</el-col>
                                 <el-col :span="10">
                                     <el-input v-model="status.LUK" v-on:input="onOption" v-on:change="onStatusChange"
@@ -2649,7 +2607,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['AllSetDBDialog']" v-on:close="ClosePanel('AllSetDBDialog')"
-            custom-class="Dialogue-container" width="85%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Saved Setups</span>
             <el-row :gutter="2">
                 <el-row type="flex" class="titlebox textcenter" align="middle" justify="space-around"
@@ -2660,43 +2618,46 @@
                     <el-scrollbar wrap-class="StatusList-container" :native="false" :noresize="false">
                         <div v-for="(item, index) in StoreDB_AllSet" v-bind:key="item.uuid">
                             <div style="padding: 2px 5px;">
-                                <el-row class="optionbox effectline" :class="index%2==0?'bg-purple-light':'bg-purple'"
-                                    :gutter="4" type="flex" align="middle">
-                                    <el-col :span="2">
-                                        <el-button v-on:click="onSortupAllSet(index)" size="small">
-                                            <i class="el-icon-caret-top"></i>
-                                        </el-button>
+                                <el-row class="optionbox effectline"
+                                    :class="index % 2 === 0 ? 'bg-purple-light' : 'bg-purple'" :gutter="4" type="flex"
+                                    align="middle">
+                                    <el-col :xs="12" :sm="4" :md="2">
+                                        <el-row :xs="12" :sm="4" :md="2" style="margin-bottom: 5px;">
+                                            <el-button v-on:click="onSortupAllSet(index)" size="small">
+                                                <i class="el-icon-caret-top"></i>
+                                            </el-button>
+                                        </el-row>
+                                        <el-row :xs="12" :sm="4" :md="2">
+                                            <el-button v-on:click="onSortdownAllSet(index)" size="small">
+                                                <i class="el-icon-caret-bottom"></i>
+                                            </el-button>
+                                        </el-row>
                                     </el-col>
-                                    <el-col :span="2">
-                                        <el-button v-on:click="onSortdownAllSet(index)" size="small">
-                                            <i class="el-icon-caret-bottom"></i>
-                                        </el-button>
+                                    <el-col :xs="12" :sm="4" :md="3">
+                                        <el-row :xs="12" :sm="4" :md="3" style="margin-bottom: 5px;">
+                                            <el-button v-on:click="onLoadAllSetSaveIdx(index)" type="success" size="small">
+                                                Load
+                                            </el-button>
+                                        </el-row>
+                                        <el-row :xs="12" :sm="4" :md="3">
+                                            <el-button v-on:click="onSaveFileAllSetSave(index)" type="info" size="small">
+                                                Download
+                                            </el-button>
+                                        </el-row>
                                     </el-col>
-                                    <el-col :span="3">
-                                        <el-button v-on:click="onLoadAllSetSaveIdx(index)" type="success" type="primary"
-                                            size="small">
-                                            Load
-                                        </el-button>
-                                    </el-col>
-                                    <el-col :span="3">
-                                        <el-button v-on:click="onSaveFileAllSetSave(index)" type="Info" type="primary"
-                                            size="small">
-                                            Download
-                                        </el-button>
-                                    </el-col>
-                                    <el-col class="textcenter">
+                                    <el-col :xs="24" :sm="8" :md="6" class="textcenter">
                                         <span>{{ item.AllSet.Name }}</span>
                                     </el-col>
-                                    <el-col class="textcenter" :span="4">
+                                    <el-col :xs="24" :sm="8" :md="4" class="textcenter">
                                         <span>{{ item.AllSet.SkillName }}</span>
                                     </el-col>
-                                    <el-col class="textcenter" :span="4">
+                                    <el-col :xs="24" :sm="8" :md="4" class="textcenter">
                                         <span>{{ item.AllSet.EnemyName }}</span>
                                     </el-col>
-                                    <el-col class="textcenter" :span="7">
+                                    <el-col :xs="24" :sm="16" :md="7" class="textcenter">
                                         <span>{{ item.AllSet.Damage }}</span>
                                     </el-col>
-                                    <el-col :span="3">
+                                    <el-col :xs="12" :sm="3" :md="3" style="margin-left: 5px;">
                                         <el-button v-on:click="onRemoveAllSetSave(index)" icon="el-icon-delete"
                                             type="danger" size="mini">
                                         </el-button>
@@ -2709,7 +2670,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['AllSetDBSaveDialog']" v-on:close="ClosePanel('AllSetDBSaveDialog')"
-            custom-class="Dialogue-container" width="40%" top="50px" center>
+            custom-class="Donate-container" top="50px" center>
             <span slot="title">Save Char</span>
             <el-row :gutter="2">
                 <el-row type="flex" class="titlebox textcenter" align="middle" justify="space-around"
@@ -2763,8 +2724,8 @@
                 </div>
             </el-row>
         </el-dialog>
-        <el-dialog :visible.sync="UIPanel['ConsumableDBDialog']" custom-class="Dialogue-container" width="80%"
-            top="50px" v-on:close="ClosePanel('ConsumableDBDialog')" center>
+        <el-dialog :visible.sync="UIPanel['ConsumableDBDialog']" custom-class="Dialogue-container" top="50px"
+            v-on:close="ClosePanel('ConsumableDBDialog')" center>
             <span slot="title">Consumables</span>
             <el-row class="statusbox titlebox" style="padding: 5px 5px; height: 60px;" :gutter="4" type="flex"
                 align="middle" justify="end">
@@ -3080,7 +3041,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['CardDialog']" v-on:close="ClosePanel('CardDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Card List <b>{{fetchCardMapping(ItemDesiredPosition)}}</b></span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
@@ -3241,7 +3202,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['CostumeStoneDialog']" v-on:close="ClosePanel('CostumeStoneDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Costume Stone List <b>{{fetchCostumeStoneMapping(ItemDesiredPosition)}}</b></span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
@@ -3403,7 +3364,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['PetDialog']" v-on:close="ClosePanel('PetDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Pet List</span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
@@ -3555,7 +3516,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['EnchantDialog']" v-on:close="ClosePanel('EnchantDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Enchant List</span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
@@ -3710,9 +3671,10 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['ElementTableDialog']" v-on:close="ClosePanel('ElementTableDialog')"
-            custom-class="Dialogue-container" width="65%" top="50px" center>
+            custom-class="Thanks-container" top="50px" center>
             <span slot="title">Element Table</span>
-            <el-row type="flex" class="titlebox textcenter" align="middle" justify="end" style="min-height:40px;" :span="8">
+            <el-row type="flex" class="titlebox textcenter" align="middle" justify="end" style="min-height:40px;"
+                :span="8">
                 <el-col class="textcenter" :span="8">
                 </el-col>
                 <el-col class="textcenter" :span="4">
@@ -3780,7 +3742,7 @@
         </el-dialog>
 
         <el-dialog :visible.sync="UIPanel['SupportSkillDialog']" v-on:close="ClosePanel('SupportSkillDialog')"
-            custom-class="Dialogue-container" width="40%" top="50px" center>
+            custom-class="Donate-container" top="50px" center>
             <span slot="title">Other Buffs</span>
 
             <el-row type="flex" class="titlebox textcenter" align="middle" justify="space-around"
@@ -3857,7 +3819,8 @@
                     <el-button v-on:click="onOpenAllSet" size="mini">Saved Setups</el-button>
                     <el-button v-on:click="onOpenAllSetSave" size="mini">Save</el-button>
                     <el-button v-on:click.stop="openFileExplorer()" size="mini">Load File</el-button>
-                    <input style="display:none" ref="fileInputImport" type="file" name="fileInputImport" @change="onLoadFileAllSetSave" />
+                    <input style="display:none" ref="fileInputImport" type="file" name="fileInputImport"
+                        @change="onLoadFileAllSetSave" />
                 </el-col>
                 <el-col :xs="24" :sm="24" :md="4" :lg="4" class="center-content">
                     <div class="effectline">RO Calculator</div>
@@ -5144,7 +5107,8 @@
                                         v-if="UIPanel['SupportSkillPanel']?IsActiveOtherSupportSkill(item.skill):IsSelectOtherSupportSkill(item.skill)">
                                         <el-row
                                             :class="item.skill.passive?'optionbox':item.skill.trans=='4th'?'bg-4thskill-light':'optionbox bg-purple-light'"
-                                            :gutter="1" type="flex" align="middle" justify="end" style="min-height:40px;">
+                                            :gutter="1" type="flex" align="middle" justify="end"
+                                            style="min-height:40px;">
                                             <el-col class="textcenter" style="text-align: right;">
                                                 <span class="EffectType">{{ item.skill.name }}</span>
                                             </el-col>
@@ -7277,7 +7241,8 @@
                             </div>
                         </el-row>
                         <!--武器-->
-                        <el-row class="titlebox" type="flex" align="middle" justify="space-around" style="min-height:40px;">
+                        <el-row class="titlebox" type="flex" align="middle" justify="space-around"
+                            style="min-height:40px;">
                             <el-col class="textcenter" :span="10">
                                 <span class="textcenter">Equipment Total Stats</span>
                             </el-col>
@@ -7332,7 +7297,8 @@
                                             <div v-for="(item, id) in this.effecttypelist" v-bind:key="item.id">
 
                                                 <el-row v-if="item.totalvalue!=0" class="statusbox bg-purple"
-                                                    type="flex" align="middle" justify="center" style="min-height:40px;">
+                                                    type="flex" align="middle" justify="center"
+                                                    style="min-height:40px;">
                                                     <el-col class="textcenter" :span="6" style="text-align: right;">
                                                         <span>{{ item.label }}</span>
                                                     </el-col>
@@ -16099,8 +16065,10 @@
                             this.validateFileChecksumAndLoad(filename, filehash);
                         }
                     }
-                }
-
+                },
+                formatDateFromIso8601(row, column) {
+                    return row.lastupdate.split('T')[0];
+                },
             },
             filters: {
                 currency(val) {
@@ -16109,7 +16077,7 @@
                 },
                 currency2(val) {
                     return val.toFixed(2)
-                },
+                },                
                 getDateFromIso8601(val) {
                     return val.split('T')[0];
                 },
