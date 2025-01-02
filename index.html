@@ -5187,8 +5187,8 @@
                     <el-row class="titlebox" type="flex" align="middle" justify="space-around"
                         style="height:40px; padding: 0px 5px;">
                         <el-col class="textcenter" :span="2" style="padding-right: 9px;">
-                            <el-button type="info" v-on:click="ShrinkEquipPanels" size="mini">
-                                <span align="middle">Shrink All</span>
+                            <el-button type="info" v-on:click="IsAllShrink ? ShrinkEquipPanels(true) : ShrinkEquipPanels(false)" size="mini">
+                                <span align="middle">{{IsAllShrink ? 'Stretch All' : 'Shrink All'}}  </span>
                             </el-button>
                         </el-col>
                         <el-col class="textcenter" :span="2"> </el-col>
@@ -9522,15 +9522,15 @@
                 getTStatusPoint(level) {
                     return (level - 199) * 3 + Math.floor((level - 195) / 5) * 4;
                 },
-                ShrinkEquipPanels() {
+                ShrinkEquipPanels(bool) {
                     for (const [key, value] of Object.entries(this.equipspartlist.slice(0, 10))) {
-                        this.UIPanel[value.id + 'Panel'] = false;
+                        this.UIPanel[value.id + 'Panel'] = bool;
                     }
                     for (const [key, value] of Object.entries(this.equipspartlist.slice(30, 31))) {
-                        this.UIPanel[value.id + 'Panel'] = false;
+                        this.UIPanel[value.id + 'Panel'] = bool;
                     }
                     for (const [key, value] of Object.entries(this.equipspartlist.slice(36, 43))) {
-                        this.UIPanel[value.id + 'Panel'] = false;
+                        this.UIPanel[value.id + 'Panel'] = bool;
                     }
                 },
                 TogglePanel(id) {
@@ -16100,6 +16100,20 @@
                 },
                 BuildCount() {
                     return this.AvailableClassesMetadataList.length;
+                },
+                IsAllShrink() {
+                    const ranges = [
+                        { start: 0, end: 10 },
+                        { start: 30, end: 31 },
+                        { start: 36, end: 43 },
+                    ];
+                    
+                    return ranges.every(range => 
+                        this.equipspartlist.slice(range.start, range.end).every(value => {
+                            const panelKey = value.id + 'Panel';
+                            return this.UIPanel[panelKey] === false;
+                        })
+                    );
                 },
                 /*
                 StoreDB_EquipFiltered() {
