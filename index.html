@@ -12,7 +12,7 @@
     <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.13.2/index.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.13.0/theme-chalk/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.13.2/theme-chalk/index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/linq.js/2.2.0.2/linq.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-clipboard2/0.3.1/vue-clipboard.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
@@ -2130,32 +2130,35 @@
                 </div>
                 <el-table
                     :data="AvailableClassesMetadataList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)"
-                    :default-sort="{ prop: 'lastupdate', order: 'descending' }"
-                    height="550px"
-                    style="width: 100%"
-                    class="build-table"
-                >
+                    :default-sort="{ prop: 'lastupdate', order: 'descending' }" height="550px" style="width: 100%"
+                    class="build-table">
                     <el-table-column prop="class" label="Class" sortable></el-table-column>
                     <el-table-column prop="level" label="Level" sortable></el-table-column>
                     <el-table-column prop="skill" label="Skill Name" sortable></el-table-column>
                     <el-table-column prop="enemy" label="Enemy" sortable></el-table-column>
                     <el-table-column prop="damage" label="Damage" sortable></el-table-column>
-                    <el-table-column prop="lastupdate" label="Last Update" sortable :formatter="this.formatDateFromIso8601"></el-table-column>
+                    <el-table-column prop="lastupdate" label="Last Update" sortable
+                        :formatter="this.formatDateFromIso8601"></el-table-column>
                     <el-table-column width="100px">
                         <template #default="scope">
-                            <el-button v-on:click="loadBuild(scope.row.filename)" icon="el-icon-check"
-                                type="success" type="primary" size="small">
+                            <el-button v-on:click="loadBuild(scope.row.filename)" icon="el-icon-check" type="success"
+                                type="primary" size="small">
                                 Load
                             </el-button>
                         </template>
                     </el-table-column>
                     <el-table-column width="100px">
                         <template #default="scope">
-                            <el-button v-on:click="getBuildURL(scope.row.filename)" icon="el-icon-link"
-                                type="primary" size="small">
+                            <el-button v-on:click="getBuildURL(scope.row.filename)" icon="el-icon-link" type="primary"
+                                size="small">
                             </el-button>
                         </template>
                     </el-table-column>
+                    <template #empty>
+                        <div style="text-align: center; color: #333; font-size: 22px;">
+                            No builds to show
+                        </div>
+                    </template>
                 </el-table>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
                     <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
@@ -2219,125 +2222,134 @@
                         </el-col>
                     </el-row>
                 </div>
-                <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
-                        <el-col class="textcenter" :span="4" style="text-align: right;">
-                            <span class=""><b>Location</b></span>
-                        </el-col>
-                        <el-col class="textcenter">
-                            <span class=""><b>Equip Name</b></span>
-                        </el-col>
-                        <el-col :span="3">
-                            <el-button v-on:click="onRemoveAllDataSave('equip')" icon="el-icon-delete" type="danger"
-                                size="mini">
+                <el-table 
+                    :data="StoreDB_EquipFilterList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)"
+                    :default-sort="{ prop: 'equip.equipname', order: 'descending' }"
+                    height="550px"
+                    style="width: 100%"
+                    class="equipment-table"
+                    ref="equipment_table"
+                    :row-class-name="equipmentRowColor"
+                >
+                    <el-table-column
+                        prop="equip.label"
+                        label="Location"
+                        sortable align="center"
+                    ></el-table-column>
+                    <el-table-column
+                        label="Equip Name"
+                        sortable
+                        align="center"
+                        :sort-method="(a, b) => a.equip.equipname.localeCompare(b.equip.equipname)"
+                    >
+                        <template #default="scope">
+                            <span class="">{{ scope.row.equip.equipname }}<a v-if="scope.row.equip.itemid"
+                                target="_blank"
+                                :href="'https://www.divine-pride.net/database/item/' +  scope.row.equip.itemid ">🔗</a>
+                            </span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                        align="center"
+                    >
+                        <template #header>
+                            <el-row>
+                                <el-button v-on:click="onRemoveAllDataSave('equip')" icon="el-icon-delete" type="danger"
+                                    size="mini">
+                                </el-button>
+                                <el-button v-on:click="exportSavedData('equip')" icon="el-icon-check" type="primary"
+                                    size="small">
+                                    Export Equip List
+                                </el-button>
+                            </el-row>
+                        </template>
+                        <template #default="scope">
+                            <el-button v-on:click="onRemoveEquipSave(scope.row.uuid)" icon="el-icon-delete"
+                                type="danger" size="mini">
                             </el-button>
-                        </el-col>
-                        <el-col :span="3" v-if="showExport">
-                            <el-button v-on:click="exportSavedData('equip')" icon="el-icon-check" type="primary"
-                                size="small">
-                                Export Equip List
-                            </el-button>
-                        </el-col>
-                        <el-col :span="5">
-                            <span class=""><b>Load Equip Presets:</b></span>
-                        </el-col>
-                        <el-col :span="6"><!--default_equip-->
-                            <el-select v-model="status.select_default" v-on:change="updateSelectDefault" placeholder=""
-                                v-bind="select_default">
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                        type="expand"
+                    >
+                        <template #default="props">
+                            <el-collapse-transition>
+                                <div v-show="isRowExpanded(props.row)">
+                                    <div v-for="(effect, index) in props.row.equip.effectlist" v-bind:key="props.row.uuid">
+                                        <el-row class="previeweffectbox3 effectline" :gutter="1" type="flex"
+                                            align="middle" justify="center">
+                                            <el-col class="textcenter" style="text-align: right;" :span="4">
+                                                <span class="EffectType">{{
+                                                    effecttypelist[GetETLIndex(effect.EffectType.id)].label
+                                                    }}</span>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="1">
+                                                <span class="">{{
+                                                    effecttypelist[GetETLIndex(effect.EffectType.id)].opersymbol
+                                                    }}</span>
+                                            </el-col>
+                                            <el-col class="textcenter">
+                                                <span class="textwrap">{{
+                                                    effect.EffectNumber!=9999?effect.EffectNumber:'' }}</span>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="1">
+                                                <span lass="">{{
+                                                    effecttypelist[GetETLIndex(effect.EffectType.id)].suffixsymbol
+                                                    }}</span>
+                                            </el-col>
+                                        </el-row>
+                                    </div>
+                                </div>
+                            </el-collapse-transition>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                        align="left"
+                    >
+                        <template #header>
+                            <el-select v-model="status.select_default" v-on:change="updateSelectDefault"
+                                placeholder="Select Equip Presets" v-bind="select_default">
                                 <el-option v-if="showExport" value="GEN" label="General"></el-option>
                                 <el-option v-for="item in default_equip" :key="item.id" :label="item.label"
                                     :value="item.id"></el-option>
                             </el-select>
-                        </el-col>
-                        <el-col :span="5">
-                            <el-button v-on:click="loadDefaultEquip" icon="el-icon-check" type="success" type="primary"
-                                size="small">
+                        </template>
+                        <template label="Actions" #default="scope">
+                            <el-col>
+                                <el-button v-on:click="toggleExpand(scope.row)" icon="el-icon-view" size="small"></el-button>
+                                <span v-if="scope.row.equip.unchecked" style="cursor: pointer">❓untested item</span>
+                                <span v-if="scope.row.equip.noniRO" style="cursor: pointer">⭐non-iRO item</span>
+                            </el-col>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                        align="center"
+                    >
+                        <template #header>
+                            <el-row>
+                                <el-button v-on:click="loadDefaultEquip" icon="el-icon-check" type="success"
+                                    type="primary" size="small">
+                                    Load
+                                </el-button>
+                                <el-button v-on:click="loadAllDefaultEquip" icon="el-icon-check" type="success"
+                                    type="primary" size="small">
+                                    Load All Presets
+                                </el-button>
+                            </el-row>
+                        </template>
+                        <template #default="scope">
+                            <el-button v-on:click="onLoadDataSave(scope.row.uuid, 'equip')" icon="el-icon-check"
+                                type="success" type="primary" size="small">
                                 Load
                             </el-button>
-                        </el-col>
-                        <el-col :span="5">
-                            <el-button v-on:click="loadAllDefaultEquip" icon="el-icon-check" type="success"
-                                type="primary" size="small">
-                                Load All Presets
-                            </el-button>
-                        </el-col>
-                    </el-row>
-                </div>
-                <el-scrollbar id="EquipListCont" wrap-class="EquipList-container" :native="false" :noresize="false">
-                    <div v-for="(item, index) in StoreDB_EquipFilterList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)"
-                        v-bind:key="item.uuid">
-                        <div style="padding: 5px 5px;">
-                            <el-row class="effectline"
-                                :class="item.equip.noniRO?'bg-green-light': (item.equip.unchecked?'bg-orange-light' : (index%2==0?'bg-purple-light':'bg-purple'))">
-                                <el-row class="effectline" :gutter="4" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="4" style="text-align: right;">
-                                        <span class="EffectType">{{ item.equip.label }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter">
-                                        <span class="">{{ item.equip.equipname }}<a v-if="item.equip.itemid"
-                                                target="_blank"
-                                                :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">🔗</a></span>
-                                    </el-col>
-                                    <el-col :span="4">
-                                        <el-button v-on:click="onRemoveEquipSave(item.uuid)" icon="el-icon-delete"
-                                            type="danger" size="mini">
-                                        </el-button>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
-                                            size="small">
-                                        </el-button>
-                                        <el-tooltip class="item" effect="dark"
-                                            content="This item is not verified and may have faulty description/script. We do not have the means to test it"
-                                            placement="right">
-                                            <span v-if="item.equip.unchecked" style="cursor: pointer">❓</span>
-                                        </el-tooltip>
-
-                                        <el-tooltip class="item" effect="dark" content="non-iRO item" placement="right">
-                                            <span v-if="item.equip.noniRO" style="cursor: pointer">⭐</span>
-                                        </el-tooltip>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <el-button v-on:click="onLoadDataSave(item.uuid, 'equip')" icon="el-icon-check"
-                                            type="success" type="primary" size="small">
-                                            Load
-                                        </el-button>
-                                    </el-col>
-                                    <el-col :span="5">
-                                    </el-col>
-                                </el-row>
-                                <el-collapse-transition>
-                                    <div v-show="item.preview" style="padding: 1px 100px 10px 100px;">
-                                        <div v-for="(effect, index) in item.equip.effectlist" v-bind:key="item.uuid">
-                                            <el-row class="previeweffectbox3 effectline" :gutter="1" type="flex"
-                                                align="middle" justify="center">
-                                                <el-col class="textcenter" style="text-align: right;" :span="4">
-                                                    <span class="EffectType">{{
-                                                        effecttypelist[GetETLIndex(effect.EffectType.id)].label
-                                                        }}</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="1">
-                                                    <span class="">{{
-                                                        effecttypelist[GetETLIndex(effect.EffectType.id)].opersymbol
-                                                        }}</span>
-                                                </el-col>
-                                                <el-col class="textcenter">
-                                                    <span class="textnowrap">{{
-                                                        effect.EffectNumber!=9999?effect.EffectNumber:'' }}</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="1">
-                                                    <span lass="">{{
-                                                        effecttypelist[GetETLIndex(effect.EffectType.id)].suffixsymbol
-                                                        }}</span>
-                                                </el-col>
-                                            </el-row>
-                                        </div>
-                                    </div>
-                                </el-collapse-transition>
-                            </el-row>
+                        </template>
+                    </el-table-column>
+                    <template #empty>
+                        <div style="text-align: center; color: #333; font-size: 22px;">
+                            No equipment to show
                         </div>
-                    </div>
-                </el-scrollbar>
+                    </template>
+                </el-table>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
                     <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
                         <el-col class="textcenter" :span="4" style="text-align: right;">
@@ -2635,12 +2647,14 @@
                                     </el-col>
                                     <el-col :xs="12" :sm="4" :md="3">
                                         <el-row :xs="12" :sm="4" :md="3" style="margin-bottom: 5px;">
-                                            <el-button v-on:click="onLoadAllSetSaveIdx(index)" type="success" size="small">
+                                            <el-button v-on:click="onLoadAllSetSaveIdx(index)" type="success"
+                                                size="small">
                                                 Load
                                             </el-button>
                                         </el-row>
                                         <el-row :xs="12" :sm="4" :md="3">
-                                            <el-button v-on:click="onSaveFileAllSetSave(index)" type="info" size="small">
+                                            <el-button v-on:click="onSaveFileAllSetSave(index)" type="info"
+                                                size="small">
                                                 Download
                                             </el-button>
                                         </el-row>
@@ -5187,8 +5201,10 @@
                     <el-row class="titlebox" type="flex" align="middle" justify="space-around"
                         style="height:40px; padding: 0px 5px;">
                         <el-col class="textcenter" :span="2" style="padding-right: 9px;">
-                            <el-button type="info" v-on:click="IsAllShrink ? ShrinkEquipPanels(true) : ShrinkEquipPanels(false)" size="mini">
-                                <span align="middle">{{IsAllShrink ? 'Stretch All' : 'Shrink All'}}  </span>
+                            <el-button type="info"
+                                v-on:click="IsAllShrink ? ShrinkEquipPanels(true) : ShrinkEquipPanels(false)"
+                                size="mini">
+                                <span align="middle">{{IsAllShrink ? 'Stretch All' : 'Shrink All'}} </span>
                             </el-button>
                         </el-col>
                         <el-col class="textcenter" :span="2"> </el-col>
@@ -8459,6 +8475,7 @@
                 OtherSupportSkill: [],
                 OtherSupportSkill_Actived: [],
                 //ui
+                expandedRows: new Set(),
                 SupportSkillJob: 'AB',
                 SupportSkillJobGroup: [],
                 DefaultDB_SupportSkill_Filter: [],
@@ -13753,6 +13770,36 @@
                 onFilterEnchantPreview(index) {
                     this.$set(this.StoreDB_EnchantFilterList[index], 'preview', !this.StoreDB_EnchantFilterList[index].preview);
                 },
+                toggleExpand(row) {
+                    const tableRef = this.$refs.equipment_table;
+                    if (this.isRowExpanded(row)) {
+                        this.expandedRows.delete(row);
+                        tableRef.toggleRowExpansion(row, false);
+                    } else {
+                        this.expandedRows.add(row);
+                        tableRef.toggleRowExpansion(row, true);
+                    }
+                },
+                isRowExpanded(row) {
+                return this.expandedRows.has(row);
+                },
+                equipmentRowColor({ row, rowIndex }) {
+                    if(row.equip.noniRO){
+                        return 'bg-green-light';
+                    }
+                    else if(row.equip.unchecked){
+                        return 'bg-orange-light';
+                    }
+                    else if(rowIndex % 2 === 0){
+                        return 'bg-purple-light';
+                    }
+                    else if(rowIndex % 2 !== 0 && !row.equip.unchecked){
+                        return 'bg-purple';
+                    }
+                    else{
+                        return 'bg-red-light2';
+                    }
+                },
                 SaveEquipDB() {
                     const parsed = JSON.stringify(this.StoreDB_Equip);
                     localStorage.setItem('StoreDB_Equip', parsed);
@@ -16077,7 +16124,7 @@
                 },
                 currency2(val) {
                     return val.toFixed(2)
-                },                
+                },
                 getDateFromIso8601(val) {
                     return val.split('T')[0];
                 },
@@ -16107,8 +16154,8 @@
                         { start: 30, end: 31 },
                         { start: 36, end: 43 },
                     ];
-                    
-                    return ranges.every(range => 
+
+                    return ranges.every(range =>
                         this.equipspartlist.slice(range.start, range.end).every(value => {
                             const panelKey = value.id + 'Panel';
                             return this.UIPanel[panelKey] === false;

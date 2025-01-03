@@ -43,19 +43,19 @@ body {
 }
 
 .bg-purple {
-    background: #d3dce6;
+    background: #d3dce6 !important;
 }
 
 .bg-green-light {
-    background: #baecc6;
+    background: #baecc6 !important;
 }
 
 .bg-orange-light {
-    background: #f1dccb;
+    background: #f1dccb !important;
 }
 
 .bg-purple-light {
-    background: #e5e9f2;
+    background: #e5e9f2 !important;
 }
 
 .bg-purple-light2 {
@@ -179,226 +179,6 @@ body {
     text-align: center;
     background: #606266;
     color: white;
-}
-
-@media (max-width: 600px) {
-    .bodycol-container {
-        height: auto;
-    }
-
-    .textcenter {
-        text-align: center;
-        vertical-align: middle;
-        font-size: 1.5rem;
-        line-height: 2;
-        word-wrap: break-word;
-        word-break: normal;
-    }
-
-    .Dialogue-container {
-        height: auto;
-        width: 90%;
-    }
-
-    .Thanks-container {
-        height: auto;
-        width: 90%;
-    }
-
-    .Donate-container {
-        height: auto;
-        width: 90%;
-    }
-
-    .el-input {
-        font-size: 1.35rem;
-    }
-
-    .el-button--mini,
-    .el-button--small {
-        font-size: 18px;
-    }
-
-    .el-button {
-        font-size: 20px;
-    }
-
-    .el-row--flex.is-align-middle {
-        font-size: 1.35rem;
-    }
-
-    .button-group {
-        justify-content: center;
-    }
-
-    .button-group:first-of-type {
-        margin-top: 20px;
-    }
-
-    .button-group:last-of-type {
-        margin-bottom: 20px;
-    }
-
-    .responsive-row {
-        justify-content: center;
-    }
-}
-
-
-@media (min-width: 600px) and (max-width: 960px) {
-    .bodycol-container {
-        height: auto;
-    }
-
-    .textcenter {
-        text-align: center;
-        vertical-align: middle;
-        font-size: 1.5rem;
-        line-height: 2;
-        word-wrap: break-word;
-        word-break: normal;
-    }
-
-    .Dialogue-container {
-        height: auto;
-        width: 90%;
-    }
-
-    .Thanks-container {
-        height: auto;
-        width: 90%;
-    }
-
-    .Donate-container {
-        height: auto;
-        width: 90%;
-    }
-
-    .el-input {
-        font-size: 1.35rem;
-    }
-
-    .el-button--mini,
-    .el-button--small {
-        font-size: 18px;
-    }
-
-    .el-button {
-        font-size: 20px;
-    }
-
-    .el-row--flex.is-align-middle {
-        font-size: 1.35rem;
-    }
-
-    .button-group {
-        justify-content: center;
-    }
-
-    .button-group:first-of-type {
-        margin-top: 20px;
-    }
-
-    .button-group:last-of-type {
-        margin-bottom: 20px;
-    }
-
-    .responsive-row {
-        justify-content: center;
-    }
-}
-
-
-@media (min-width: 960px) and (max-width: 1200px) {
-    .bodycol-container {
-        height: auto;
-    }
-
-    .textcenter {
-        text-align: center;
-        vertical-align: middle;
-        font-size: 1.5rem;
-        line-height: 2;
-        word-wrap: break-word;
-        word-break: normal;
-    }
-
-    .Dialogue-container {
-        height: auto;
-        width: 90%;
-    }
-
-    .Thanks-container {
-        height: auto;
-        width: 90%;
-    }
-
-    .Donate-container {
-        height: auto;
-        width: 90%;
-    }
-
-    .el-input {
-        font-size: 1.35rem;
-    }
-
-    .el-button--mini,
-    .el-button--small {
-        font-size: 18px;
-    }
-
-    .el-button {
-        font-size: 20px;
-    }
-
-    .el-row--flex.is-align-middle {
-        font-size: 1.35rem;
-    }
-
-    .button-group {
-        justify-content: center;
-    }
-
-    .button-group:first-of-type {
-        margin-top: 20px;
-    }
-
-    .button-group:last-of-type {
-        margin-bottom: 20px;
-    }
-
-    .responsive-row {
-        justify-content: center;
-    }
-}
-
-
-@media (min-width: 1200px) {
-    .bodycol-container {
-        height: calc(100vh - (50px + 35px - 25px));
-    }
-
-    .textcenter {
-        text-align: center;
-        vertical-align: middle;
-        word-wrap: break-word;
-        word-break: normal;
-    }
-
-    .Dialogue-container {
-        height: auto;
-        width: 80%;
-    }
-
-    .Thanks-container {
-        height: auto;
-        width: 60%;
-    }
-
-    .Donate-container {
-        height: auto;
-        width: 50%;
-    }
 }
 
 .body2col-container {
@@ -578,6 +358,10 @@ body {
     overflow: hidden;
 }
 
+.textwrap {
+    white-space: break-spaces;
+}
+
 .titlebox {
     border: 1px solid #d7dae2;
     border-radius: 2px;
@@ -600,22 +384,26 @@ body {
     background: #DCDFE6;
 }
 
+.equipment-table .el-table__header th,
 .build-table .el-table__header th {
     background-color: #606266 !important;
 }
 
+.equipment-table .el-table__header .cell,
 .build-table .el-table__header .cell {
     color: white;
 }
 
 .build-table .el-table__body tr:nth-child(odd) {
     background-color: #e5e9f2 !important;
-    color: #606266;
 }
 
 .build-table .el-table__body tr:nth-child(even) {
     background-color: #d3dce6 !important;
-    color: #606266;
+}
+
+.equipment-table .el-table__expand-icon {
+    display: none;
 }
 
 .cell {
@@ -663,4 +451,248 @@ body {
 
 .el-select-dropdown__wrap {
     max-height: 674px;
+}
+
+@media (max-width: 599px) {
+    .bodycol-container {
+        height: auto;
+    }
+
+    .textcenter {
+        text-align: center;
+        vertical-align: middle;
+        font-size: 1.5em;
+        line-height: 2;
+        word-wrap: break-word;
+        word-break: normal;
+    }
+
+    .Dialogue-container {
+        height: auto;
+        width: 90%;
+    }
+
+    .Thanks-container {
+        height: auto;
+        width: 90%;
+    }
+
+    .Donate-container {
+        height: auto;
+        width: 90%;
+    }
+
+    .el-input {
+        font-size: 1.35em;
+    }
+
+    .el-button--mini,
+    .el-button--small {
+        font-size: 18px;
+    }
+
+    .el-button {
+        font-size: 20px;
+    }
+
+    .el-row--flex.is-align-middle {
+        font-size: 1.35em;
+    }
+
+    .button-group {
+        justify-content: center;
+    }
+
+    .button-group:first-of-type {
+        margin-top: 20px;
+    }
+
+    .button-group:last-of-type {
+        margin-bottom: 20px;
+    }
+
+    .responsive-row {
+        justify-content: center;
+    }
+
+    .equipment-table .el-table__body .cell,
+    .build-table .el-table__body .cell {
+        color: #606266;
+        font-size: 1.2em;
+    }
+}
+
+
+@media (min-width: 600px) and (max-width: 959px) {
+    .bodycol-container {
+        height: auto;
+    }
+
+    .textcenter {
+        text-align: center;
+        vertical-align: middle;
+        font-size: 1.5em;
+        line-height: 2;
+        word-wrap: break-word;
+        word-break: normal;
+    }
+
+    .Dialogue-container {
+        height: auto;
+        width: 90%;
+    }
+
+    .Thanks-container {
+        height: auto;
+        width: 90%;
+    }
+
+    .Donate-container {
+        height: auto;
+        width: 90%;
+    }
+
+    .el-input {
+        font-size: 1.35em;
+    }
+
+    .el-button--mini,
+    .el-button--small {
+        font-size: 18px;
+    }
+
+    .el-button {
+        font-size: 20px;
+    }
+
+    .el-row--flex.is-align-middle {
+        font-size: 1.35em;
+    }
+
+    .button-group {
+        justify-content: center;
+    }
+
+    .button-group:first-of-type {
+        margin-top: 20px;
+    }
+
+    .button-group:last-of-type {
+        margin-bottom: 20px;
+    }
+
+    .responsive-row {
+        justify-content: center;
+    }
+
+    .equipment-table .el-table__body .cell,
+    .build-table .el-table__body .cell {
+        color: #606266;
+        font-size: 1.2em;
+    }
+}
+
+
+@media (min-width: 960px) and (max-width: 1199px) {
+    .bodycol-container {
+        height: auto;
+    }
+
+    .textcenter {
+        text-align: center;
+        vertical-align: middle;
+        font-size: 1.5em;
+        line-height: 2;
+        word-wrap: break-word;
+        word-break: normal;
+    }
+
+    .Dialogue-container {
+        height: auto;
+        width: 90%;
+    }
+
+    .Thanks-container {
+        height: auto;
+        width: 90%;
+    }
+
+    .Donate-container {
+        height: auto;
+        width: 90%;
+    }
+
+    .el-input {
+        font-size: 1.35em;
+    }
+
+    .el-button--mini,
+    .el-button--small {
+        font-size: 18px;
+    }
+
+    .el-button {
+        font-size: 20px;
+    }
+
+    .el-row--flex.is-align-middle {
+        font-size: 1.35em;
+    }
+
+    .button-group {
+        justify-content: center;
+    }
+
+    .button-group:first-of-type {
+        margin-top: 20px;
+    }
+
+    .button-group:last-of-type {
+        margin-bottom: 20px;
+    }
+
+    .responsive-row {
+        justify-content: center;
+    }
+
+    .equipment-table .el-table__body .cell,
+    .build-table .el-table__body .cell {
+        color: #606266;
+        font-size: 1.2em;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .bodycol-container {
+        height: calc(100vh - (50px + 35px - 25px));
+    }
+
+    .textcenter {
+        text-align: center;
+        vertical-align: middle;
+        word-wrap: break-word;
+        word-break: normal;
+    }
+
+    .Dialogue-container {
+        height: auto;
+        width: 80%;
+    }
+
+    .Thanks-container {
+        height: auto;
+        width: 60%;
+    }
+
+    .Donate-container {
+        height: auto;
+        width: 50%;
+    }
+    
+    .equipment-table .el-table__body .cell,
+    .build-table .el-table__body .cell {
+        color: #606266;
+        font-size: 0.85em;
+    }
 }
