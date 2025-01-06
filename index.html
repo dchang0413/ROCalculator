@@ -5130,13 +5130,11 @@
                                             </el-col>
                                             <el-col v-if="item.skill.maxlv>1" class="textcenter" :span="4"
                                                 justify="start">
-                                                <el-col v-if="item.skill.changelv==false" class="textcenter">
-                                                    <span class="">{{ item.skill.maxlv }}</span>
-                                                </el-col>
-                                                <el-col v-else class="textcenter">
-                                                    <el-input v-model.number="item.skill.lv" v-on:change="onOption"
-                                                        size="small" style="text-align:center;" placeholder="level">
-                                                    </el-input>
+                                                <el-col class="textcenter">
+                                                    <el-input 
+                                                        v-model.number="item.skill.lv" v-on:change="onOption"
+                                                        size="small" style="text-align:center; width: 44px; margin: 4"
+                                                        placeholder="" />
                                                 </el-col>
                                             </el-col>
                                             <el-col v-else :span="4">
