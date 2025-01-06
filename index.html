@@ -12,7 +12,7 @@
     <link href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css' rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.13.2/index.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.13.0/theme-chalk/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.13.2/theme-chalk/index.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/linq.js/2.2.0.2/linq.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-clipboard2/0.3.1/vue-clipboard.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js"></script>
@@ -44,12 +44,15 @@
 </head>
 
 <body>
-    <div id="App" v-cloak>
+    <div class="page-container" id="App" v-cloak>
         <el-dialog :visible.sync="UIPanel['GuideDialog']" v-on:close="ClosePanel('GuideDialog')"
-            custom-class="Dialogue-container" width="70%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">User Guide</span>
-            <el-row class="statusbox titlebox" style="padding: 5px; height: 40px;" :gutter="4" type="flex" align="middle" justify="end">
-                <el-button v-on:click="window.open('https://github.com/dchang0413/ROCalculator?tab=readme-ov-file#ro-calculator')" size="small">
+            <el-row class="statusbox titlebox" style="padding: 5px; height: 40px;" :gutter="4" type="flex"
+                align="middle" justify="end">
+                <el-button
+                    v-on:click="window.open('https://github.com/dchang0413/ROCalculator?tab=readme-ov-file#ro-calculator')"
+                    size="small">
                     Github Readme
                 </el-button>
             </el-row>
@@ -132,7 +135,9 @@
                                     Job Bonus Stats
                                     <el-col>
                                         <ul>
-                                            <li>Apply Max Job Level Bonus, when toggled Job Bonus Stats will be automatically assigned as if Job Lvl is 70/50 (70 for 3rd job, 50 for 4th job)</li>
+                                            <li>Apply Max Job Level Bonus, when toggled Job Bonus Stats will be
+                                                automatically assigned as if Job Lvl is 70/50 (70 for 3rd job, 50 for
+                                                4th job)</li>
                                         </ul>
                                     </el-col>
                                 </li>
@@ -165,7 +170,8 @@
                                     Defensive Stats
                                     <el-col>
                                         <ul>
-                                            <li>Numbers shown in (-xx.xx%) indicates the damage reduction without penetration</li>
+                                            <li>Numbers shown in (-xx.xx%) indicates the damage reduction without
+                                                penetration</li>
                                         </ul>
                                     </el-col>
                                 </li>
@@ -178,7 +184,8 @@
                                         <el-col>
                                             <img src="img/readme_target_expand.png" alt="Enemy Target fields">
                                             <ul>
-                                                <li>Each level of Green Aura reduces damage taken by 90%, e.g, 1: 90%, 2: 99%, 3: 99.9%</li>
+                                                <li>Each level of Green Aura reduces damage taken by 90%, e.g, 1: 90%,
+                                                    2: 99%, 3: 99.9%</li>
                                             </ul>
                                         </el-col>
                                     </el-col>
@@ -206,7 +213,8 @@
                                     Selected Skill
                                     <el-col>
                                         <ul>
-                                            <li>Drop down offers different skills and different versions of skills to test with</li>
+                                            <li>Drop down offers different skills and different versions of skills to
+                                                test with</li>
                                         </ul>
                                     </el-col>
                                 </li>
@@ -270,7 +278,8 @@
                                             <li>Example of what field is what</li>
                                         </ul>
                                         <el-col>
-                                            <img src="img/readme_equip_example.png" alt="Equipment Configuration Options">
+                                            <img src="img/readme_equip_example.png"
+                                                alt="Equipment Configuration Options">
                                         </el-col>
                                     </el-col>
                                 </li>
@@ -287,7 +296,8 @@
                                             <li>View / Edit effects</li>
                                         </ul>
                                         <el-col>
-                                            <img src="img/readme_equip_edit.png" alt="Equipment/Card/effect Configuration">
+                                            <img src="img/readme_equip_edit.png"
+                                                alt="Equipment/Card/effect Configuration">
                                         </el-col>
                                     </el-col>
                                 </li>
@@ -347,7 +357,8 @@
                                     Expand
                                     <el-col>
                                         <ul>
-                                            <li>Expanding this section will display all the related modifier from buff and skills</li>
+                                            <li>Expanding this section will display all the related modifier from buff
+                                                and skills</li>
                                         </ul>
                                         <el-col>
                                             <img src="img/readme_castingdelay_expand.png" alt="Cast Delay Table">
@@ -361,7 +372,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['AboutDialog']" v-on:close="ClosePanel('AboutDialog')"
-            custom-class="Dialogue-container" width="45%" top="50px" center>
+            custom-class="Donate-container" top="50px" center>
             <span slot="title">About</span>
             <el-row :gutter="9">
                 <el-scrollbar wrap-class="AboutList-container" :native="false" :noresize="false">
@@ -371,11 +382,13 @@
                     <el-row>
                         <div class="aboutbox" style="padding: 5px 40px; text-align:left">
                             <el-row :gutter="4" align="left">
-                                <b>You will need proper understanding of the different types of multiplier, skill characteristics and attributes of equipments to utilize this calculator</b><br><br>
+                                <b>You will need proper understanding of the different types of multiplier, skill
+                                    characteristics and attributes of equipments to utilize this calculator</b><br><br>
                             </el-row>
                             <el-row :gutter="4" align="left">
                                 Feel free to ask if you don't know how to plug in values <br>
-                                Most relevant Cash Shop related equipments are already entered in Preset but there may be error (either from WarpPortal or ourside)
+                                Most relevant Cash Shop related equipments are already entered in Preset but there may
+                                be error (either from WarpPortal or ourside)
                                 <br>
                             </el-row>
                         </div>
@@ -433,7 +446,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['DonateDialog']" v-on:close="ClosePanel('DonateDialog')"
-            custom-class="Dialogue-container" width="45%" top="50px" center>
+            custom-class="Donate-container" top="50px" center>
             <el-row :gutter="6">
                 <el-scrollbar wrap-class="DonateList-container" :native="false" :noresize="false">
                     <el-row class="titlebox" type="flex" align="middle" style="height:20px; padding: 0px 5px;">
@@ -489,7 +502,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['UpdateLogDialog']" v-on:close="ClosePanel('UpdateLogDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Updates</span>
             <el-row :gutter="6">
                 <el-col span="12">
@@ -584,7 +597,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['SpecialthanksDialog']" v-on:close="ClosePanel('SpecialthanksDialog')"
-            custom-class="Dialogue-container" width="60%" top="50px" center>
+            custom-class="Thanks-container" top="50px" center>
             <span slot="title">Special Thanks</span>
             <el-row :gutter="6">
                 <el-scrollbar wrap-class="englishThanksList-container" :native="false" :noresize="false">
@@ -640,13 +653,13 @@
                 </el-col>
             </el-row>
         </el-dialog>
-        <el-dialog :visible.sync="UIPanel['SkillDBDialog']" custom-class="Dialogue-container" width="85%" top="50px"
+        <el-dialog :visible.sync="UIPanel['SkillDBDialog']" custom-class="Dialogue-container" top="50px"
             v-on:close="ClosePanel('SkillDBDialog')" center>
             <span slot="title">Skill List</span>
             <el-row :gutter="2">
                 <el-col :span="8">
                     <el-row type="flex" class="titlebox textcenter" align="middle" justify="space-around"
-                        style="height:40px;" :span="8">
+                        style="min-height:40px;" :span="8">
                         <span class="textcenter">Skill</span>
                     </el-row>
                     <div style="padding: 0px 5px;">
@@ -887,7 +900,7 @@
                 </el-col>
                 <el-col :span="16">
                     <el-row type="flex" class="titlebox textcenter" align="middle" justify="space-around"
-                        style="height:40px;" :span="16">
+                        style="min-height:40px;" :span="16">
                         <span class="textcenter">Saved List</span>
                     </el-row>
                     <div style="padding: 0px 5px;">
@@ -1205,7 +1218,7 @@
                             <el-row>
                                 <div class="Item" v-for="(item, index) in PreviewETL" v-bind:key="item.id">
                                     <el-row v-if="item.totalvalue!=0" class="effectline previeweffectbox" :gutter="4"
-                                        type="flex" align="middle" justify="end" style="height:40px;">
+                                        type="flex" align="middle" justify="end" style="min-height:40px;">
                                         <el-col class="textcenter" :span="2">
                                         </el-col>
                                         <el-col class="textcenter" style="text-align: right;">
@@ -2087,7 +2100,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['BuildPresetDialog']" v-on:close="ClosePanel('BuildPresetDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Build Presets</span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
@@ -2115,86 +2128,40 @@
                         </el-col>
                     </el-row>
                 </div>
-                <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
-                        <el-col class="textcenter" :span="4" style="text-align: center;">
-                            <span class=""><b>Name</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="6">
-                            <span class=""><b>Class</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="2">
-                            <span class=""><b>Level</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="4">
-                            <span class=""><b>Skill Name</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="5">
-                            <span class=""><b>Enemy</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="6">
-                            <span class=""><b>Damage</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="6">
-                            <span class=""><b>DPS</b></span>
-                        </el-col>
-                        <el-col class="textcenter" :span="5">
-                            <span class=""><b>Last Update(UTC)</b></span>
-                        </el-col>
-                        <el-col :span="4">
-                        </el-col>
-                        <el-col :span="2">
-                        </el-col>
-                    </el-row>
-                </div>
-                <el-scrollbar id="BuildListCont" wrap-class="EquipList-container" :native="false" :noresize="false">
-                    <div v-for="(item, index) in AvailableClassesMetadataList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)"
-                        v-bind:key="item.filename">
-                        <div style="padding: 5px 5px;">
-                            <el-row class="effectline" :class="index%2==0?'bg-purple-light':'bg-purple'">
-                                <el-row class="effectline" :gutter="4" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="4" style="text-align: center;">
-                                        <span class="EffectType">{{ item.name }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="6">
-                                        <span class="">{{ item.class }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="2">
-                                        <span class="">{{ item.level }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="4">
-                                        <span class="">{{ item.skill }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="5">
-                                        <span class="">{{ item.enemy }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="6">
-                                        <span class="">{{ item.damage }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="6">
-                                        <span class="">{{ item.dps }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="5">
-                                        <span class="">{{ item.lastupdate | getDateFromIso8601 }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="4">
-                                        <el-button v-on:click="loadBuild(item.filename)" icon="el-icon-check"
-                                            type="success" type="primary" size="small">
-                                            Load Build
-                                        </el-button>
-                                    </el-col>
-                                    <el-col class="textcenter" :span="2">
-                                        <el-button v-on:click="getBuildURL(item.filename)" icon="el-icon-link"
-                                            type="primary">
-                                        </el-button>
-                                    </el-col>
-                                </el-row>
-                            </el-row>
+                <el-table
+                    :data="AvailableClassesMetadataList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)"
+                    :default-sort="{ prop: 'lastupdate', order: 'descending' }" height="550px" style="width: 100%"
+                    class="build-table">
+                    <el-table-column prop="class" label="Class" sortable></el-table-column>
+                    <el-table-column prop="level" label="Level" sortable></el-table-column>
+                    <el-table-column prop="skill" label="Skill Name" sortable></el-table-column>
+                    <el-table-column prop="enemy" label="Enemy" sortable></el-table-column>
+                    <el-table-column prop="damage" label="Damage" sortable></el-table-column>
+                    <el-table-column prop="lastupdate" label="Last Update" sortable
+                        :formatter="this.formatDateFromIso8601"></el-table-column>
+                    <el-table-column width="100px">
+                        <template #default="scope">
+                            <el-button v-on:click="loadBuild(scope.row.filename)" icon="el-icon-check" type="success"
+                                type="primary" size="small">
+                                Load
+                            </el-button>
+                        </template>
+                    </el-table-column>
+                    <el-table-column width="100px">
+                        <template #default="scope">
+                            <el-button v-on:click="getBuildURL(scope.row.filename)" icon="el-icon-link" type="primary"
+                                size="small">
+                            </el-button>
+                        </template>
+                    </el-table-column>
+                    <template #empty>
+                        <div style="text-align: center; color: #333; font-size: 22px;">
+                            No builds to show
                         </div>
-                    </div>
-                </el-scrollbar>
+                    </template>
+                </el-table>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
                         <el-col class="textcenter" :span="4" style="text-align: right;">
                             <span class=""></span>
                         </el-col>
@@ -2227,7 +2194,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['EquipDBDialog']" v-on:close="ClosePanel('EquipDBDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Saved/Preset Equip</span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
@@ -2255,127 +2222,136 @@
                         </el-col>
                     </el-row>
                 </div>
-                <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
-                        <el-col class="textcenter" :span="4" style="text-align: right;">
-                            <span class=""><b>Location</b></span>
-                        </el-col>
-                        <el-col class="textcenter">
-                            <span class=""><b>Equip Name</b></span>
-                        </el-col>
-                        <el-col :span="3">
-                            <el-button v-on:click="onRemoveAllDataSave('equip')" icon="el-icon-delete" type="danger"
-                                size="mini">
+                <el-table 
+                    :data="StoreDB_EquipFilterList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)"
+                    :default-sort="{ prop: 'equip.equipname', order: 'descending' }"
+                    height="550px"
+                    style="width: 100%"
+                    class="equipment-table"
+                    ref="equipment_table"
+                    :row-class-name="equipmentRowColor"
+                >
+                    <el-table-column
+                        prop="equip.label"
+                        label="Location"
+                        sortable align="center"
+                    ></el-table-column>
+                    <el-table-column
+                        label="Equip Name"
+                        sortable
+                        align="center"
+                        :sort-method="(a, b) => a.equip.equipname.localeCompare(b.equip.equipname)"
+                    >
+                        <template #default="scope">
+                            <span class="">{{ scope.row.equip.equipname }}<a v-if="scope.row.equip.itemid"
+                                target="_blank"
+                                :href="'https://www.divine-pride.net/database/item/' +  scope.row.equip.itemid ">🔗</a>
+                            </span>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                        align="center"
+                    >
+                        <template #header>
+                            <el-row>
+                                <el-button v-on:click="onRemoveAllDataSave('equip')" icon="el-icon-delete" type="danger"
+                                    size="mini">
+                                </el-button>
+                                <el-button v-on:click="exportSavedData('equip')" icon="el-icon-check" type="primary"
+                                    size="small">
+                                    Export Equip List
+                                </el-button>
+                            </el-row>
+                        </template>
+                        <template #default="scope">
+                            <el-button v-on:click="onRemoveEquipSave(scope.row.uuid)" icon="el-icon-delete"
+                                type="danger" size="mini">
                             </el-button>
-                        </el-col>
-                        <el-col :span="3" v-if="showExport">
-                            <el-button v-on:click="exportSavedData('equip')" icon="el-icon-check" type="primary"
-                                size="small">
-                                Export Equip List
-                            </el-button>
-                        </el-col>
-                        <el-col :span="5">
-                            <span class=""><b>Load Equip Presets:</b></span>
-                        </el-col>
-                        <el-col :span="6"><!--default_equip-->
-                            <el-select v-model="status.select_default" v-on:change="updateSelectDefault" placeholder=""
-                                v-bind="select_default">
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                        type="expand"
+                    >
+                        <template #default="props">
+                            <el-collapse-transition>
+                                <div v-show="isRowExpanded(props.row)">
+                                    <div v-for="(effect, index) in props.row.equip.effectlist" v-bind:key="props.row.uuid">
+                                        <el-row class="previeweffectbox3 effectline" :gutter="1" type="flex"
+                                            align="middle" justify="center">
+                                            <el-col class="textcenter" style="text-align: right;" :span="4">
+                                                <span class="EffectType">{{
+                                                    effecttypelist[GetETLIndex(effect.EffectType.id)].label
+                                                    }}</span>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="1">
+                                                <span class="">{{
+                                                    effecttypelist[GetETLIndex(effect.EffectType.id)].opersymbol
+                                                    }}</span>
+                                            </el-col>
+                                            <el-col class="textcenter">
+                                                <span class="textwrap">{{
+                                                    effect.EffectNumber!=9999?effect.EffectNumber:'' }}</span>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="1">
+                                                <span lass="">{{
+                                                    effecttypelist[GetETLIndex(effect.EffectType.id)].suffixsymbol
+                                                    }}</span>
+                                            </el-col>
+                                        </el-row>
+                                    </div>
+                                </div>
+                            </el-collapse-transition>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                        align="left"
+                    >
+                        <template #header>
+                            <el-select v-model="status.select_default" v-on:change="updateSelectDefault"
+                                placeholder="Select Equip Presets" v-bind="select_default">
                                 <el-option v-if="showExport" value="GEN" label="General"></el-option>
                                 <el-option v-for="item in default_equip" :key="item.id" :label="item.label"
                                     :value="item.id"></el-option>
                             </el-select>
-                        </el-col>
-                        <el-col :span="5">
-                            <el-button v-on:click="loadDefaultEquip" icon="el-icon-check" type="success" type="primary"
-                                size="small">
+                        </template>
+                        <template label="Actions" #default="scope">
+                            <el-col>
+                                <el-button v-on:click="toggleExpand(scope.row)" icon="el-icon-view" size="small"></el-button>
+                                <span v-if="scope.row.equip.unchecked" style="cursor: pointer">❓untested item</span>
+                                <span v-if="scope.row.equip.noniRO" style="cursor: pointer">⭐non-iRO item</span>
+                            </el-col>
+                        </template>
+                    </el-table-column>
+                    <el-table-column
+                        align="center"
+                    >
+                        <template #header>
+                            <el-row>
+                                <el-button v-on:click="loadDefaultEquip" icon="el-icon-check" type="success"
+                                    type="primary" size="small">
+                                    Load
+                                </el-button>
+                                <el-button v-on:click="loadAllDefaultEquip" icon="el-icon-check" type="success"
+                                    type="primary" size="small">
+                                    Load All Presets
+                                </el-button>
+                            </el-row>
+                        </template>
+                        <template #default="scope">
+                            <el-button v-on:click="onLoadDataSave(scope.row.uuid, 'equip')" icon="el-icon-check"
+                                type="success" type="primary" size="small">
                                 Load
                             </el-button>
-                        </el-col>
-                        <el-col :span="5">
-                            <el-button v-on:click="loadAllDefaultEquip" icon="el-icon-check" type="success"
-                                type="primary" size="small">
-                                Load All Presets
-                            </el-button>
-                        </el-col>
-                    </el-row>
-                </div>
-                <el-scrollbar id="EquipListCont" wrap-class="EquipList-container" :native="false" :noresize="false">
-                    <div v-for="(item, index) in StoreDB_EquipFilterList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)"
-                        v-bind:key="item.uuid">
-                        <div style="padding: 5px 5px;">
-                            <el-row class="effectline"
-                                :class="item.equip.noniRO?'bg-green-light': (item.equip.unchecked?'bg-orange-light' : (index%2==0?'bg-purple-light':'bg-purple'))">
-                                <el-row class="effectline" :gutter="4" type="flex" align="middle">
-                                    <el-col class="textcenter" :span="4" style="text-align: right;">
-                                        <span class="EffectType">{{ item.equip.label }}</span>
-                                    </el-col>
-                                    <el-col class="textcenter">
-                                        <span class="">{{ item.equip.equipname }}<a v-if="item.equip.itemid"
-                                                target="_blank"
-                                                :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">🔗</a></span>
-                                    </el-col>
-                                    <el-col :span="4">
-                                        <el-button v-on:click="onRemoveEquipSave(item.uuid)" icon="el-icon-delete"
-                                            type="danger" size="mini">
-                                        </el-button>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <el-button v-on:click="onFilterEquipPreview(index)" icon="el-icon-view"
-                                            size="small">
-                                        </el-button>
-                                        <el-tooltip class="item" effect="dark"
-                                            content="This item is not verified and may have faulty description/script. We do not have the means to test it"
-                                            placement="right">
-                                            <span v-if="item.equip.unchecked" style="cursor: pointer">❓</span>
-                                        </el-tooltip>
-
-                                        <el-tooltip class="item" effect="dark" content="non-iRO item" placement="right">
-                                            <span v-if="item.equip.noniRO" style="cursor: pointer">⭐</span>
-                                        </el-tooltip>
-                                    </el-col>
-                                    <el-col :span="6">
-                                        <el-button v-on:click="onLoadDataSave(item.uuid, 'equip')" icon="el-icon-check"
-                                            type="success" type="primary" size="small">
-                                            Load
-                                        </el-button>
-                                    </el-col>
-                                    <el-col :span="5">
-                                    </el-col>
-                                </el-row>
-                                <el-collapse-transition>
-                                    <div v-show="item.preview" style="padding: 1px 100px 10px 100px;">
-                                        <div v-for="(effect, index) in item.equip.effectlist" v-bind:key="item.uuid">
-                                            <el-row class="previeweffectbox3 effectline" :gutter="1" type="flex"
-                                                align="middle" justify="center">
-                                                <el-col class="textcenter" style="text-align: right;" :span="4">
-                                                    <span class="EffectType">{{
-                                                        effecttypelist[GetETLIndex(effect.EffectType.id)].label
-                                                        }}</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="1">
-                                                    <span class="">{{
-                                                        effecttypelist[GetETLIndex(effect.EffectType.id)].opersymbol
-                                                        }}</span>
-                                                </el-col>
-                                                <el-col class="textcenter">
-                                                    <span class="textnowrap">{{
-                                                        effect.EffectNumber!=9999?effect.EffectNumber:'' }}</span>
-                                                </el-col>
-                                                <el-col class="textcenter" :span="1">
-                                                    <span lass="">{{
-                                                        effecttypelist[GetETLIndex(effect.EffectType.id)].suffixsymbol
-                                                        }}</span>
-                                                </el-col>
-                                            </el-row>
-                                        </div>
-                                    </div>
-                                </el-collapse-transition>
-                            </el-row>
+                        </template>
+                    </el-table-column>
+                    <template #empty>
+                        <div style="text-align: center; color: #333; font-size: 22px;">
+                            No equipment to show
                         </div>
-                    </div>
-                </el-scrollbar>
+                    </template>
+                </el-table>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
                         <el-col class="textcenter" :span="4" style="text-align: right;">
                             <span class=""></span>
                         </el-col>
@@ -2408,7 +2384,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['EquipTextDialog']" v-on:close="ClosePanel('EquipTextDialog')"
-            custom-class="Dialogue-container" width="40%" top="50px" :show-close=false center>
+            custom-class="Donate-container" top="50px" :show-close=false center>
             <el-row class="titlebox" type="flex" align="middle" justify="space-between"
                 style="height:50px; padding: 0 0; width: 100%;">
                 <el-col :span="8">
@@ -2428,12 +2404,12 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['StatusDBDialog']" v-on:close="ClosePanel('StatusDBDialog')"
-            custom-class="Dialogue-container" width="85%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Character Info</span>
             <el-row :gutter="2">
                 <el-col :span="8">
                     <el-row type="flex" class="titlebox textcenter" align="middle" justify="space-around"
-                        style="height:40px;" :span="8">
+                        style="min-height:40px;" :span="8">
                         <span class="textcenter">Current Stat</span>
                     </el-row>
                     <div style="padding: 0px 5px;">
@@ -2482,7 +2458,8 @@
                                     {{status.SP}}
                                 </el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter">Level</el-col>
                                 <el-col>
                                     <el-input v-model.number="status.Level" v-on:input="onOption" placeholder="Level">
@@ -2495,7 +2472,8 @@
                                     </el-input>
                                 </el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter" :span="3">STR</el-col>
                                 <el-col :span="10">
                                     <el-input v-model="status.STR" v-on:input="onOption" v-on:change="onStatusChange"
@@ -2507,7 +2485,8 @@
                                 <el-col class="textcenter" :span="1">=</el-col>
                                 <el-col class="textcenter" :span="4">{{status_total.STR}}</el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter" :span="3">AGI</el-col>
                                 <el-col :span="10">
                                     <el-input v-model="status.AGI" v-on:input="onOption" v-on:change="onStatusChange"
@@ -2519,7 +2498,8 @@
                                 <el-col class="textcenter" :span="1">=</el-col>
                                 <el-col class="textcenter" :span="4">{{status_total.AGI}}</el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter" :span="3">VIT</el-col>
                                 <el-col :span="10">
                                     <el-input v-model="status.VIT" v-on:input="onOption" v-on:change="onStatusChange"
@@ -2531,7 +2511,8 @@
                                 <el-col class="textcenter" :span="1">=</el-col>
                                 <el-col class="textcenter" :span="4">{{status_total.VIT}}</el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter" :span="3">INT</el-col>
                                 <el-col :span="10">
                                     <el-input v-model="status.INT" v-on:input="onOption" v-on:change="onStatusChange"
@@ -2543,7 +2524,8 @@
                                 <el-col class="textcenter" :span="1">=</el-col>
                                 <el-col class="textcenter" :span="4">{{status_total.INT}}</el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter" :span="3">DEX</el-col>
                                 <el-col :span="10">
                                     <el-input v-model="status.DEX" v-on:input="onOption" v-on:change="onStatusChange"
@@ -2555,7 +2537,8 @@
                                 <el-col class="textcenter" :span="1">=</el-col>
                                 <el-col class="textcenter" :span="4">{{status_total.DEX}}</el-col>
                             </el-row>
-                            <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="height:40px;">
+                            <el-row class="statusbox bg-purple-light" type="flex" align="middle"
+                                style="min-height:40px;">
                                 <el-col class="textcenter" :span="3">LUK</el-col>
                                 <el-col :span="10">
                                     <el-input v-model="status.LUK" v-on:input="onOption" v-on:change="onStatusChange"
@@ -2579,7 +2562,7 @@
                 </el-col>
                 <el-col :span="16">
                     <el-row type="flex" class="titlebox textcenter" align="middle" justify="space-around"
-                        style="height:40px;" :span="16">
+                        style="min-height:40px;" :span="16">
                         <span class="textcenter">Saved Configs</span>
                     </el-row>
                     <div style="padding: 0px 5px;">
@@ -2636,54 +2619,59 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['AllSetDBDialog']" v-on:close="ClosePanel('AllSetDBDialog')"
-            custom-class="Dialogue-container" width="85%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Saved Setups</span>
             <el-row :gutter="2">
                 <el-row type="flex" class="titlebox textcenter" align="middle" justify="space-around"
-                    style="height:40px;" :span="16">
+                    style="min-height:40px;" :span="16">
                     <span class="textcenter">Saved Setups</span>
                 </el-row>
                 <div style="padding: 0px 5px;">
                     <el-scrollbar wrap-class="StatusList-container" :native="false" :noresize="false">
                         <div v-for="(item, index) in StoreDB_AllSet" v-bind:key="item.uuid">
                             <div style="padding: 2px 5px;">
-                                <el-row class="optionbox effectline" :class="index%2==0?'bg-purple-light':'bg-purple'"
-                                    :gutter="4" type="flex" align="middle">
-                                    <el-col :span="2">
-                                        <el-button v-on:click="onSortupAllSet(index)" size="small">
-                                            <i class="el-icon-caret-top"></i>
-                                        </el-button>
+                                <el-row class="optionbox effectline"
+                                    :class="index % 2 === 0 ? 'bg-purple-light' : 'bg-purple'" :gutter="4" type="flex"
+                                    align="middle">
+                                    <el-col :xs="12" :sm="4" :md="2">
+                                        <el-row :xs="12" :sm="4" :md="2" style="margin-bottom: 5px;">
+                                            <el-button v-on:click="onSortupAllSet(index)" size="small">
+                                                <i class="el-icon-caret-top"></i>
+                                            </el-button>
+                                        </el-row>
+                                        <el-row :xs="12" :sm="4" :md="2">
+                                            <el-button v-on:click="onSortdownAllSet(index)" size="small">
+                                                <i class="el-icon-caret-bottom"></i>
+                                            </el-button>
+                                        </el-row>
                                     </el-col>
-                                    <el-col :span="2">
-                                        <el-button v-on:click="onSortdownAllSet(index)" size="small">
-                                            <i class="el-icon-caret-bottom"></i>
-                                        </el-button>
+                                    <el-col :xs="12" :sm="4" :md="3">
+                                        <el-row :xs="12" :sm="4" :md="3" style="margin-bottom: 5px;">
+                                            <el-button v-on:click="onLoadAllSetSaveIdx(index)" type="success"
+                                                size="small">
+                                                Load
+                                            </el-button>
+                                        </el-row>
+                                        <el-row :xs="12" :sm="4" :md="3">
+                                            <el-button v-on:click="onSaveFileAllSetSave(index)" type="info"
+                                                size="small">
+                                                Download
+                                            </el-button>
+                                        </el-row>
                                     </el-col>
-                                    <el-col :span="3">
-                                        <el-button v-on:click="onLoadAllSetSaveIdx(index)" type="success" type="primary"
-                                            size="small">
-                                            Load
-                                        </el-button>
-                                    </el-col>
-                                    <el-col :span="3">
-                                        <el-button v-on:click="onSaveFileAllSetSave(index)" type="Info" type="primary"
-                                            size="small">
-                                            Download
-                                        </el-button>
-                                    </el-col>
-                                    <el-col class="textcenter">
+                                    <el-col :xs="24" :sm="8" :md="6" class="textcenter">
                                         <span>{{ item.AllSet.Name }}</span>
                                     </el-col>
-                                    <el-col class="textcenter" :span="4">
+                                    <el-col :xs="24" :sm="8" :md="4" class="textcenter">
                                         <span>{{ item.AllSet.SkillName }}</span>
                                     </el-col>
-                                    <el-col class="textcenter" :span="4">
+                                    <el-col :xs="24" :sm="8" :md="4" class="textcenter">
                                         <span>{{ item.AllSet.EnemyName }}</span>
                                     </el-col>
-                                    <el-col class="textcenter" :span="7">
+                                    <el-col :xs="24" :sm="16" :md="7" class="textcenter">
                                         <span>{{ item.AllSet.Damage }}</span>
                                     </el-col>
-                                    <el-col :span="3">
+                                    <el-col :xs="12" :sm="3" :md="3" style="margin-left: 5px;">
                                         <el-button v-on:click="onRemoveAllSetSave(index)" icon="el-icon-delete"
                                             type="danger" size="mini">
                                         </el-button>
@@ -2696,11 +2684,11 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['AllSetDBSaveDialog']" v-on:close="ClosePanel('AllSetDBSaveDialog')"
-            custom-class="Dialogue-container" width="40%" top="50px" center>
+            custom-class="Donate-container" top="50px" center>
             <span slot="title">Save Char</span>
             <el-row :gutter="2">
                 <el-row type="flex" class="titlebox textcenter" align="middle" justify="space-around"
-                    style="height:40px;" :span="8">
+                    style="min-height:40px;" :span="8">
                     <span class="textcenter">Does not save additional buffs</span>
                 </el-row>
                 <div style="padding: 0px 5px;">
@@ -2726,21 +2714,21 @@
                         </el-col>
                     </el-row>
                     <el-scrollbar wrap-class="EquipList-container" :native="false" :noresize="false">
-                        <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="height:40px;">
+                        <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="min-height:40px;">
                             <el-col class="textcenter">Skill Name</el-col>
                             <el-col>
                                 <el-input v-model.number="TempAllSet.SkillName" laceholder="Level">
                                 </el-input>
                             </el-col>
                         </el-row>
-                        <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="height:40px;">
+                        <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="min-height:40px;">
                             <el-col class="textcenter">Target Name</el-col>
                             <el-col>
                                 <el-input v-model.number="TempAllSet.EnmeyName" laceholder="Level">
                                 </el-input>
                             </el-col>
                         </el-row>
-                        <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="height:40px;">
+                        <el-row class="statusbox bg-purple-light" type="flex" align="middle" style="min-height:40px;">
                             <el-col class="textcenter">Damage</el-col>
                             <el-col>
                                 <span>{{TempAllSet.Damage}}</span>
@@ -2750,8 +2738,8 @@
                 </div>
             </el-row>
         </el-dialog>
-        <el-dialog :visible.sync="UIPanel['ConsumableDBDialog']" custom-class="Dialogue-container" width="80%"
-            top="50px" v-on:close="ClosePanel('ConsumableDBDialog')" center>
+        <el-dialog :visible.sync="UIPanel['ConsumableDBDialog']" custom-class="Dialogue-container" top="50px"
+            v-on:close="ClosePanel('ConsumableDBDialog')" center>
             <span slot="title">Consumables</span>
             <el-row class="statusbox titlebox" style="padding: 5px 5px; height: 60px;" :gutter="4" type="flex"
                 align="middle" justify="end">
@@ -2788,7 +2776,7 @@
             </el-row>
             <el-row :gutter="2">
                 <el-col :span="4" class="statusbox ">
-                    <el-row class="optionbox" style="height:40px;" :gutter="4" type="flex" align="middle"
+                    <el-row class="optionbox" style="min-height:40px;" :gutter="4" type="flex" align="middle"
                         justify="middle">
                         <el-col class="textcenter">
                             <span class="EffectType">Total Stats</span>
@@ -2798,7 +2786,7 @@
                         <el-row>
                             <div class="Item" v-for="(item, index) in consumableeffecttypelist" v-bind:key="item.id">
                                 <el-row v-if="item.totalvalue!=0" class="effectline previeweffectbox" :gutter="4"
-                                    type="flex" align="middle" justify="end" style="height:40px;">
+                                    type="flex" align="middle" justify="end" style="min-height:40px;">
                                     <el-col class="textcenter" :span="2">
                                     </el-col>
                                     <el-col class="textcenter" style="text-align: right;">
@@ -2821,7 +2809,7 @@
                     </el-scrollbar>
                 </el-col>
                 <el-col :span="5" class=" ">
-                    <el-row class="effectline previeweffectbox" style="height:40px;" :gutter="4" type="flex"
+                    <el-row class="effectline previeweffectbox" style="min-height:40px;" :gutter="4" type="flex"
                         align="middle" justify="middle">
                         <el-col class="textcenter">
                             <span class="EffectType">Status(Only strongest effect)</span>
@@ -2895,7 +2883,7 @@
                 </el-col>
                 <el-col :span="5" class=" ">
                     <el-scrollbar wrap-class="ConsumableList2-container" :native="false" :noresize="false">
-                        <el-row class="effectline previeweffectbox" style="height:40px;">
+                        <el-row class="effectline previeweffectbox" style="min-height:40px;">
                             <el-col class="textcenter">
                                 <span class="EffectType">Status(Stackable)</span>
                             </el-col>
@@ -2915,7 +2903,7 @@
                                 </el-row>
                             </div>
                         </el-row>
-                        <el-row class="effectline previeweffectbox" style="height:40px;">
+                        <el-row class="effectline previeweffectbox" style="min-height:40px;">
                             <el-col class="textcenter">
                                 <span class="EffectType">HP SP(Stackable)</span>
                             </el-col>
@@ -2934,7 +2922,7 @@
                                 </el-row>
                             </div>
                         </el-row>
-                        <el-row class="effectline previeweffectbox" style="height:40px;">
+                        <el-row class="effectline previeweffectbox" style="min-height:40px;">
                             <el-col class="textcenter">
                                 <span class="EffectType">ASPD</span>
                             </el-col>
@@ -2958,7 +2946,7 @@
                 </el-col>
                 <el-col :span="5" class=" ">
                     <el-scrollbar wrap-class="ConsumableList2-container" :native="false" :noresize="false">
-                        <el-row class="effectline previeweffectbox" style="height:40px;">
+                        <el-row class="effectline previeweffectbox" style="min-height:40px;">
                             <el-col class="textcenter">
                                 <span class="EffectType">ATK MATK(Only strongest effect)</span>
                             </el-col>
@@ -2978,7 +2966,7 @@
                                 </el-row>
                             </div>
                         </el-row>
-                        <el-row class="effectline previeweffectbox" style="height:40px;">
+                        <el-row class="effectline previeweffectbox" style="min-height:40px;">
                             <el-col class="textcenter">
                                 <span class="EffectType">Others(Stackable)</span>
                             </el-col>
@@ -2997,7 +2985,7 @@
                                 </el-row>
                             </div>
                         </el-row>
-                        <el-row class="effectline previeweffectbox" style="height:40px;">
+                        <el-row class="effectline previeweffectbox" style="min-height:40px;">
                             <el-col class="textcenter">
                                 <span class="EffectType">Combat Pill</span>
                             </el-col>
@@ -3017,7 +3005,7 @@
                                 </el-row>
                             </div>
                         </el-row>
-                        <!--<el-row class="effectline previeweffectbox" style="height:40px;">
+                        <!--<el-row class="effectline previeweffectbox" style="min-height:40px;">
                             <el-col class="textcenter" >
                                 <span class="EffectType">Magic Candy</span>
                             </el-col>
@@ -3040,7 +3028,7 @@
                     </el-scrollbar>
                 </el-col>
                 <el-col :span="5" class=" ">
-                    <el-row class="effectline previeweffectbox" style="height:40px;" :gutter="4" type="flex"
+                    <el-row class="effectline previeweffectbox" style="min-height:40px;" :gutter="4" type="flex"
                         align="middle" justify="middle">
                         <el-col class="textcenter">
                             <span class="EffectType">Transform Scroll</span>
@@ -3067,7 +3055,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['CardDialog']" v-on:close="ClosePanel('CardDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Card List <b>{{fetchCardMapping(ItemDesiredPosition)}}</b></span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
@@ -3096,7 +3084,7 @@
                     </el-row>
                 </div>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
                         <el-col class="textcenter" :span="4" style="text-align: right;">
                             <span class=""><b>Location</b></span>
                         </el-col>
@@ -3195,7 +3183,7 @@
                     </div>
                 </el-scrollbar>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
                         <el-col class="textcenter" :span="4" style="text-align: right;">
                             <span class=""></span>
                         </el-col>
@@ -3228,7 +3216,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['CostumeStoneDialog']" v-on:close="ClosePanel('CostumeStoneDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Costume Stone List <b>{{fetchCostumeStoneMapping(ItemDesiredPosition)}}</b></span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
@@ -3257,7 +3245,7 @@
                     </el-row>
                 </div>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
                         <el-col class="textcenter" :span="4" style="text-align: right;">
                             <span class=""><b>Location</b></span>
                         </el-col>
@@ -3356,7 +3344,7 @@
                     </div>
                 </el-scrollbar>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
                         <el-col class="textcenter" :span="4" style="text-align: right;">
                             <span class=""></span>
                         </el-col>
@@ -3390,7 +3378,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['PetDialog']" v-on:close="ClosePanel('PetDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Pet List</span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
@@ -3410,7 +3398,7 @@
                     </el-row>
                 </div>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
                         <el-col class="textcenter" :span="4" style="text-align: right;">
                             <span class=""><b>Location</b></span>
                         </el-col>
@@ -3509,7 +3497,7 @@
                     </div>
                 </el-scrollbar>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
                         <el-col class="textcenter" :span="4" style="text-align: right;">
                             <span class=""></span>
                         </el-col>
@@ -3542,7 +3530,7 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['EnchantDialog']" v-on:close="ClosePanel('EnchantDialog')"
-            custom-class="Dialogue-container" width="80%" top="50px" center>
+            custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Enchant List</span>
             <el-row :gutter="6">
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
@@ -3570,7 +3558,7 @@
                     </el-row>
                 </div>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
                         <el-col class="textcenter">
                             <span class=""><b>Enchant Name</b></span>
                         </el-col>
@@ -3663,7 +3651,7 @@
                     </div>
                 </el-scrollbar>
                 <div class="statusbox titlebox" style="padding: 5px 5px;">
-                    <el-row :gutter="4" type="flex" align="middle" style="height:40px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
                         <el-col class="textcenter" :span="4" style="text-align: right;">
                             <span class=""></span>
                         </el-col>
@@ -3697,9 +3685,10 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['ElementTableDialog']" v-on:close="ClosePanel('ElementTableDialog')"
-            custom-class="Dialogue-container" width="65%" top="50px" center>
+            custom-class="Thanks-container" top="50px" center>
             <span slot="title">Element Table</span>
-            <el-row type="flex" class="titlebox textcenter" align="middle" justify="end" style="height:40px;" :span="8">
+            <el-row type="flex" class="titlebox textcenter" align="middle" justify="end" style="min-height:40px;"
+                :span="8">
                 <el-col class="textcenter" :span="8">
                 </el-col>
                 <el-col class="textcenter" :span="4">
@@ -3711,7 +3700,7 @@
                 </el-col>
             </el-row>
             <el-row>
-                <el-row type="flex" class="titlebox textcenter" align="middle" justify="center" style="height:40px;"
+                <el-row type="flex" class="titlebox textcenter" align="middle" justify="center" style="min-height:40px;"
                     :span="8">
                     <el-col class="textcenter" :span="4" style="font-size: 24px;">
                         <span>Lv: {{ElementTableIndex}}</span>
@@ -3731,7 +3720,7 @@
                 </el-row>
                 <el-row type="flex" class="textcenter" align="middle" justify="center">
                     <el-scrollbar wrap-class="StatusList-container" :native="false" :noresize="false">
-                        <el-row class="textcenter" type="flex" align="middle" justify="center" style="height:40px;">
+                        <el-row class="textcenter" type="flex" align="middle" justify="center" style="min-height:40px;">
                             <el-col class="ElementRowColTitle textcenter" style="width:90px;">
                                 <span>ATK\DEF</span>
                             </el-col>
@@ -3767,7 +3756,7 @@
         </el-dialog>
 
         <el-dialog :visible.sync="UIPanel['SupportSkillDialog']" v-on:close="ClosePanel('SupportSkillDialog')"
-            custom-class="Dialogue-container" width="40%" top="50px" center>
+            custom-class="Donate-container" top="50px" center>
             <span slot="title">Other Buffs</span>
 
             <el-row type="flex" class="titlebox textcenter" align="middle" justify="space-around"
@@ -3795,7 +3784,7 @@
                         <el-row :gutter="4">
                             <div v-for="(item, index) in OtherSupportSkill" v-bind:key="item.id">
                                 <el-row :class="item.skill.passive?'optionbox':'optionbox bg-purple-light'" :gutter="1"
-                                    type="flex" align="middle" justify="end" style="height:40px;">
+                                    type="flex" align="middle" justify="end" style="min-height:40px;">
                                     <el-col class="textcenter" style="text-align: right;">
                                         <span class="EffectType">{{ item.skill.name }}</span>
                                     </el-col>
@@ -3838,74 +3827,37 @@
         </el-dialog>
         <!-- header -->
         <div class="ROCalTitle">
-            <el-row type="flex" align="middle" justify="end" :gutter="1">
-                <el-col :span="1">
-                </el-col>
-                <el-col :span="2">
-                    <el-button v-on:click="onOpenBuildPreset" size="mini">
-                        Build Presets
-                    </el-button>
-                </el-col>
-                <el-col :span="2">
-                    <el-button v-on:click="onOpenAllSet" size="mini">
-                        Saved Setups
-                    </el-button>
-                </el-col>
-                <el-col :span="2">
-                    <el-button v-on:click="onOpenAllSetSave" size="mini">
-                        Save
-                    </el-button>
-                </el-col>
-                <el-col :span="2">
+            <el-row type="flex" align="middle" justify="space-between" class="responsive-row">
+                <el-col :xs="24" :sm="24" :md="8" :lg="8" class="button-group">
+                    <el-button v-on:click="onOpenBuildPreset" size="mini">Build Presets</el-button>
+                    <el-button v-on:click="onOpenAllSet" size="mini">Saved Setups</el-button>
+                    <el-button v-on:click="onOpenAllSetSave" size="mini">Save</el-button>
+                    <el-button v-on:click.stop="openFileExplorer()" size="mini">Load File</el-button>
                     <input style="display:none" ref="fileInputImport" type="file" name="fileInputImport"
-                        @change="onLoadFileAllSetSave">
-                    <el-button v-on:click.stop="openFileExplorer()" size="mini">
-                        Load File
-                    </el-button>
+                        @change="onLoadFileAllSetSave" />
                 </el-col>
-                <el-col :span="1">
+                <el-col :xs="24" :sm="24" :md="4" :lg="4" class="center-content">
+                    <div class="effectline">RO Calculator</div>
                 </el-col>
-                <el-col :span="8">
-                    <div class="effectline grid-content" type="flex" align="middle" justify="space-around">
-                        <span>RO Calculator</span>
-                    </div>
-                </el-col>
-                <el-col :span="1">
-                </el-col>
-                <el-col :span="5" class="textcenter">
+                <el-col :xs="24" :sm="24" :md="6" :lg="6" class="center-content">
                     Originated from TwRO - tailored for iRO
                 </el-col>
-                <el-col :span="1">
-                    <el-button v-on:click="TogglePanel('AboutDialog')" size="small">
-                        About
-                    </el-button>
-                </el-col>
-                <el-col :span="1.5">
-                    <el-button v-on:click="TogglePanel('GuideDialog')" size="small" type="primary">
-                        User Guide
-                    </el-button>
-                </el-col>
-                <el-col :span="1">
-                    <el-button v-on:click="TogglePanel('DonateDialog')" size="small" type="warning">
-                        Donate
-                    </el-button>
-                </el-col>
-                <el-col :span="1">
-                    <el-button v-on:click="TogglePanel('SpecialthanksDialog')" size="small" type="success">
-                        Credits
-                    </el-button>
-                </el-col>
-                <el-col :span="2">
-                    <el-button v-on:click="TogglePanel('UpdateLogDialog')" size="small" type="danger">
-                        Update Log
-                    </el-button>
+                <el-col :xs="24" :sm="24" :md="6" :lg="6" class="button-group">
+                    <el-button v-on:click="TogglePanel('AboutDialog')" size="small">About</el-button>
+                    <el-button v-on:click="TogglePanel('GuideDialog')" size="small" type="primary">User
+                        Guide</el-button>
+                    <el-button v-on:click="TogglePanel('DonateDialog')" size="small" type="warning">Donate</el-button>
+                    <el-button v-on:click="TogglePanel('SpecialthanksDialog')" size="small"
+                        type="success">Credits</el-button>
+                    <el-button v-on:click="TogglePanel('UpdateLogDialog')" size="small" type="danger">Update
+                        Log</el-button>
                 </el-col>
             </el-row>
         </div>
         <!-- main -->
         <div>
             <el-row :gutter="2">
-                <el-col :span="6">
+                <el-col :xs="24" :sm="24" :md="6" :lg="6">
                     <el-scrollbar wrap-class="bodycol-container" :native="true" :noresize="false">
                         <el-row class="titlebox" :gutter="2" type="flex" align="middle" justify="end"
                             style="height:40px; padding: 0px 5px;">
@@ -3979,7 +3931,7 @@
                                 <el-collapse-transition>
                                     <div v-show="UIPanel['StatusPanel']">
                                         <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="textcenter">Level</el-col>
                                             <el-col>
                                                 <el-input v-model.number="status.Level"
@@ -3994,7 +3946,7 @@
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="textcenter" :span="3">STR</el-col>
                                             <el-col :span="10">
                                                 <el-input v-model="status.STR" v-on:input="onOption"
@@ -4013,7 +3965,7 @@
                                             <el-col class="textcenter" :span="4">{{status_total.STR}}</el-col>
                                         </el-row>
                                         <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="textcenter" :span="3">AGI</el-col>
                                             <el-col :span="10">
                                                 <el-input v-model="status.AGI" v-on:input="onOption"
@@ -4032,7 +3984,7 @@
                                             <el-col class="textcenter" :span="4">{{status_total.AGI}}</el-col>
                                         </el-row>
                                         <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="textcenter" :span="3">VIT</el-col>
                                             <el-col :span="10">
                                                 <el-input v-model="status.VIT" v-on:input="onOption"
@@ -4051,7 +4003,7 @@
                                             <el-col class="textcenter" :span="4">{{status_total.VIT}}</el-col>
                                         </el-row>
                                         <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="textcenter" :span="3">INT</el-col>
                                             <el-col :span="10">
                                                 <el-input v-model="status.INT" v-on:input="onOption"
@@ -4070,7 +4022,7 @@
                                             <el-col class="textcenter" :span="4">{{status_total.INT}}</el-col>
                                         </el-row>
                                         <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="textcenter" :span="3">DEX</el-col>
                                             <el-col :span="10">
                                                 <el-input v-model="status.DEX" v-on:input="onOption"
@@ -4089,7 +4041,7 @@
                                             <el-col class="textcenter" :span="4">{{status_total.DEX}}</el-col>
                                         </el-row>
                                         <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="textcenter" :span="3">LUK</el-col>
                                             <el-col :span="10">
                                                 <el-input v-model="status.LUK" v-on:input="onOption"
@@ -4133,7 +4085,7 @@
                                         </el-row>
                                         <div v-if="this.status.Level>=200">
                                             <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="textcenter" :span="3">POW</el-col>
                                                 <el-col :span="10">
                                                     <el-input v-model="status.POW" v-on:input="onOption"
@@ -4152,7 +4104,7 @@
                                                 <el-col class="textcenter" :span="4">{{status_total.POW}}</el-col>
                                             </el-row>
                                             <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="textcenter" :span="3">STA</el-col>
                                                 <el-col :span="10">
                                                     <el-input v-model="status.STA" v-on:input="onOption"
@@ -4171,7 +4123,7 @@
                                                 <el-col class="textcenter" :span="4">{{status_total.STA}}</el-col>
                                             </el-row>
                                             <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="textcenter" :span="3">WIS</el-col>
                                                 <el-col :span="10">
                                                     <el-input v-model="status.WIS" v-on:input="onOption"
@@ -4190,7 +4142,7 @@
                                                 <el-col class="textcenter" :span="4">{{status_total.WIS}}</el-col>
                                             </el-row>
                                             <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="textcenter" :span="3">SPL</el-col>
                                                 <el-col :span="10">
                                                     <el-input v-model="status.SPL" v-on:input="onOption"
@@ -4209,7 +4161,7 @@
                                                 <el-col class="textcenter" :span="4">{{status_total.S_P_L}}</el-col>
                                             </el-row>
                                             <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="textcenter" :span="3">CON</el-col>
                                                 <el-col :span="10">
                                                     <el-input v-model="status.CON" v-on:input="onOption"
@@ -4228,7 +4180,7 @@
                                                 <el-col class="textcenter" :span="4">{{status_total.CON}}</el-col>
                                             </el-row>
                                             <el-row class="statusbox bg-purple-light" type="flex" align="middle"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="textcenter" :span="3">CRT</el-col>
                                                 <el-col :span="10">
                                                     <el-input v-model="status.CRT" v-on:input="onOption"
@@ -4247,7 +4199,7 @@
                                                 <el-col class="textcenter" :span="4">{{status_total.CRT}}</el-col>
                                             </el-row>
                                             <el-row class="statusbox textcenter" type="flex" align="middle"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="textcenter" :span="12">
                                                     Talent Stats
                                                     {{computeattribute.RaisingTStatsPoint}}/{{getTStatusPoint(this.status.Level)}}Pt.
@@ -4696,7 +4648,7 @@
                                             v-bind:key="item.id">
                                             <el-row v-if="item.totalvalue!=0" :gutter="4" type="flex"
                                                 class="statusbox bg-purple" align="middle" justify="end"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="textcenter" :span="2">
                                                 </el-col>
                                                 <el-col class="textcenter" style="text-align: right;">
@@ -4722,7 +4674,7 @@
                         </el-row>
                     </el-scrollbar>
                 </el-col>
-                <el-col :span="5">
+                <el-col :xs="24" :sm="24" :md="5" :lg="5">
                     <el-scrollbar wrap-class="bodycol-container" :native="true" :noresize="false">
                         <el-row class="titlebox" :gutter="4" type="flex" align="middle" justify="end"
                             style="height:40px; padding: 0px 5px;">
@@ -5093,7 +5045,7 @@
                                 <div v-for="(item, index) in SupportSkill_JobMaped" v-bind:key="item.id">
                                     <el-row v-show="!UIPanel['SupportSkillPanel'] | item.skill.active"
                                         :class="item.skill.passive?'optionbox':item.skill.trans=='4th'?'bg-4thskill-light':'optionbox bg-purple-light'"
-                                        :gutter="1" type="flex" align="middle" justify="end" style="height:40px;">
+                                        :gutter="1" type="flex" align="middle" justify="end" style="min-height:40px;">
                                         <el-col class="textcenter" style="text-align: right;">
                                             <span class="EffectType">{{ item.skill.name }}</span>
                                         </el-col>
@@ -5169,7 +5121,8 @@
                                         v-if="UIPanel['SupportSkillPanel']?IsActiveOtherSupportSkill(item.skill):IsSelectOtherSupportSkill(item.skill)">
                                         <el-row
                                             :class="item.skill.passive?'optionbox':item.skill.trans=='4th'?'bg-4thskill-light':'optionbox bg-purple-light'"
-                                            :gutter="1" type="flex" align="middle" justify="end" style="height:40px;">
+                                            :gutter="1" type="flex" align="middle" justify="end"
+                                            style="min-height:40px;">
                                             <el-col class="textcenter" style="text-align: right;">
                                                 <span class="EffectType">{{ item.skill.name }}</span>
                                             </el-col>
@@ -5244,12 +5197,14 @@
                         </el-row>
                     </el-scrollbar>
                 </el-col>
-                <el-col :span="7">
+                <el-col :xs="24" :sm="24" :md="7" :lg="7">
                     <el-row class="titlebox" type="flex" align="middle" justify="space-around"
                         style="height:40px; padding: 0px 5px;">
                         <el-col class="textcenter" :span="2" style="padding-right: 9px;">
-                            <el-button type="info" v-on:click="ShrinkEquipPanels" size="mini">
-                                <span align="middle">Shrink All</span>
+                            <el-button type="info"
+                                v-on:click="IsAllShrink ? ShrinkEquipPanels(true) : ShrinkEquipPanels(false)"
+                                size="mini">
+                                <span align="middle">{{IsAllShrink ? 'Stretch All' : 'Shrink All'}} </span>
                             </el-button>
                         </el-col>
                         <el-col class="textcenter" :span="2"> </el-col>
@@ -5607,7 +5562,7 @@
                                         <div class="Item" v-for="(item, index) in equipspartlist[0].effectlist"
                                             v-bind:key="item.effecttypelist">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                justify="end" style="height:40px;">
+                                                justify="end" style="min-height:40px;">
                                                 <el-col class="textcenter" style="text-align: right;" :span="12">
                                                     <span class="EffectType">{{
                                                         effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
@@ -5643,7 +5598,7 @@
                                             <div v-for="(item, index) in combo.effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                    justify="end" style="height:40px;">
+                                                    justify="end" style="min-height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
                                                         <span class="EffectType">{{
                                                             effecttypelist[GetETLIndex(item.EffectType.id)].label
@@ -5679,7 +5634,7 @@
                                             <div class="Item bg-purple-light2" v-for="(item, index) in card.effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                    justify="end" style="height:40px;">
+                                                    justify="end" style="min-height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
                                                         <span class="EffectType">{{
                                                             effecttypelist[GetETLIndex(item.EffectType.id)].label
@@ -5717,7 +5672,7 @@
                                                 <div v-for="(item, index) in combo.effectlist"
                                                     v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                        justify="end" style="height:40px;">
+                                                        justify="end" style="min-height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;"
                                                             :span="12">
                                                             <span class="EffectType">{{
@@ -5758,7 +5713,7 @@
                                             <div v-for="(item, index) in enchant.effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                    justify="end" style="height:40px;">
+                                                    justify="end" style="min-height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
                                                         <span class="EffectType">{{
                                                             effecttypelist[GetETLIndex(item.EffectType.id)].label
@@ -5792,7 +5747,7 @@
                                                 <div v-for="(item, index) in combo.effectlist"
                                                     v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                        justify="end" style="height:40px;">
+                                                        justify="end" style="min-height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;"
                                                             :span="12">
                                                             <span class="EffectType">{{
@@ -6180,7 +6135,7 @@
                                         <div class="Item" v-for="(item, index) in equipspartlist[1].effectlist"
                                             v-bind:key="item.effecttypelist">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                justify="end" style="height:40px;">
+                                                justify="end" style="min-height:40px;">
                                                 <el-col class="textcenter" style="text-align: right;" :span="12">
                                                     <span class="EffectType">{{
                                                         effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
@@ -6216,7 +6171,7 @@
                                             <div v-for="(item, index) in combo.effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                    justify="end" style="height:40px;">
+                                                    justify="end" style="min-height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
                                                         <span class="EffectType">{{
                                                             effecttypelist[GetETLIndex(item.EffectType.id)].label
@@ -6253,7 +6208,7 @@
                                             <el-row v-for="(item, index) in card.effectlist"
                                                 v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                    justify="end" style="height:40px;">
+                                                    justify="end" style="min-height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
                                                         <span class="EffectType">{{
                                                             effecttypelist[GetETLIndex(item.EffectType.id)].label
@@ -6292,7 +6247,7 @@
                                                 <div v-for="(item, index) in combo.effectlist"
                                                     v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                        justify="end" style="height:40px;">
+                                                        justify="end" style="min-height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;"
                                                             :span="12">
                                                             <span class="EffectType">{{
@@ -6329,7 +6284,7 @@
                                         <div v-for="(item, index) in equipspartlist[5+13].effectlist"
                                             v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                justify="end" style="height:40px;">
+                                                justify="end" style="min-height:40px;">
                                                 <el-col class="textcenter" style="text-align: right;" :span="12">
                                                     <span class="EffectType">{{
                                                         effecttypelist[GetETLIndex(item.EffectType.id)].label }}</span>
@@ -6365,7 +6320,7 @@
                                             <div v-for="(item, index) in combo.effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                    justify="end" style="height:40px;">
+                                                    justify="end" style="min-height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
                                                         <span class="EffectType">{{
                                                             effecttypelist[GetETLIndex(item.EffectType.id)].label
@@ -6404,7 +6359,7 @@
                                             <div v-for="(item, index) in enchant.effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                    justify="end" style="height:40px;">
+                                                    justify="end" style="min-height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
                                                         <span class="EffectType">{{
                                                             effecttypelist[GetETLIndex(item.EffectType.id)].label
@@ -6438,7 +6393,7 @@
                                                 <div v-for="(item, index) in combo.effectlist"
                                                     v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                        justify="end" style="height:40px;">
+                                                        justify="end" style="min-height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;"
                                                             :span="12">
                                                             <span class="EffectType">{{
@@ -6606,7 +6561,7 @@
                                             <div v-for="(item, index) in equipspartlist[eqindex+2].effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                    justify="end" style="height:40px;">
+                                                    justify="end" style="min-height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
                                                         <span class="EffectType">{{
                                                             effecttypelist[GetETLIndex(item.EffectType.id)].label
@@ -6643,7 +6598,7 @@
                                                 <div v-for="(item, index) in combo.effectlist"
                                                     v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                        justify="end" style="height:40px;">
+                                                        justify="end" style="min-height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;"
                                                             :span="12">
                                                             <span class="EffectType">{{
@@ -6679,7 +6634,7 @@
                                             <div v-for="(item, index) in equipspartlist[eqindex+19].effectlist"
                                                 v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                    justify="end" style="height:40px;">
+                                                    justify="end" style="min-height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
                                                         <span class="EffectType">{{
                                                             effecttypelist[GetETLIndex(item.EffectType.id)].label
@@ -6716,7 +6671,7 @@
                                                 <div v-for="(item, index) in combo.effectlist"
                                                     v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                        justify="end" style="height:40px;">
+                                                        justify="end" style="min-height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;"
                                                             :span="12">
                                                             <span class="EffectType">{{
@@ -6756,7 +6711,7 @@
                                                 <div v-for="(item, index) in enchant.effectlist"
                                                     v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                        justify="end" style="height:40px;">
+                                                        justify="end" style="min-height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;"
                                                             :span="12">
                                                             <span class="EffectType">{{
@@ -6792,7 +6747,7 @@
                                                     <div v-for="(item, index) in combo.effectlist"
                                                         v-bind:key="item.effecttypelist">
                                                         <el-row class="effectline" :gutter="4" type="flex"
-                                                            align="middle" justify="end" style="height:40px;">
+                                                            align="middle" justify="end" style="min-height:40px;">
                                                             <el-col class="textcenter" style="text-align: right;"
                                                                 :span="12">
                                                                 <span class="EffectType">{{
@@ -6881,7 +6836,7 @@
                                             <div v-for="(item, index) in equipspartlist[eqindex+37].effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                    justify="end" style="height:40px;">
+                                                    justify="end" style="min-height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
                                                         <span class="EffectType">{{
                                                             effecttypelist[GetETLIndex(item.EffectType.id)].label
@@ -6918,7 +6873,7 @@
                                                 <div v-for="(item, index) in combo.effectlist"
                                                     v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                        justify="end" style="height:40px;">
+                                                        justify="end" style="min-height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;"
                                                             :span="12">
                                                             <span class="EffectType">{{
@@ -7025,7 +6980,7 @@
                                             <div v-for="(item, index) in equipspartlist[eqindex+30].effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                    justify="end" style="height:40px;">
+                                                    justify="end" style="min-height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
                                                         <span class="EffectType">{{
                                                             effecttypelist[GetETLIndex(item.EffectType.id)].label
@@ -7062,7 +7017,7 @@
                                                 <div v-for="(item, index) in combo.effectlist"
                                                     v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                        justify="end" style="height:40px;">
+                                                        justify="end" style="min-height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;"
                                                             :span="12">
                                                             <span class="EffectType">{{
@@ -7101,7 +7056,7 @@
                                                 <div v-for="(item, index) in equipspartlist[stidx+31].effectlist"
                                                     v-bind:key="item.effecttypelist" class="bg-purple-light2">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                        justify="end" style="height:40px;">
+                                                        justify="end" style="min-height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;"
                                                             :span="12">
                                                             <span class="EffectType">{{
@@ -7141,7 +7096,7 @@
                                                     <div v-for="(item, index) in combo.effectlist"
                                                         v-bind:key="item.effecttypelist">
                                                         <el-row class="effectline" :gutter="4" type="flex"
-                                                            align="middle" justify="end" style="height:40px;">
+                                                            align="middle" justify="end" style="min-height:40px;">
                                                             <el-col class="textcenter" style="text-align: right;"
                                                                 :span="12">
                                                                 <span class="EffectType">{{
@@ -7230,7 +7185,7 @@
                                             <div v-for="(item, index) in equipspartlist[eqindex+36].effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                    justify="end" style="height:40px;">
+                                                    justify="end" style="min-height:40px;">
                                                     <el-col class="textcenter" style="text-align: right;" :span="12">
                                                         <span class="EffectType">{{
                                                             effecttypelist[GetETLIndex(item.EffectType.id)].label
@@ -7267,7 +7222,7 @@
                                                 <div v-for="(item, index) in combo.effectlist"
                                                     v-bind:key="item.effecttypelist">
                                                     <el-row class="effectline" :gutter="4" type="flex" align="middle"
-                                                        justify="end" style="height:40px;">
+                                                        justify="end" style="min-height:40px;">
                                                         <el-col class="textcenter" style="text-align: right;"
                                                             :span="12">
                                                             <span class="EffectType">{{
@@ -7302,7 +7257,8 @@
                             </div>
                         </el-row>
                         <!--武器-->
-                        <el-row class="titlebox" type="flex" align="middle" justify="space-around" style="height:40px;">
+                        <el-row class="titlebox" type="flex" align="middle" justify="space-around"
+                            style="min-height:40px;">
                             <el-col class="textcenter" :span="10">
                                 <span class="textcenter">Equipment Total Stats</span>
                             </el-col>
@@ -7357,7 +7313,8 @@
                                             <div v-for="(item, id) in this.effecttypelist" v-bind:key="item.id">
 
                                                 <el-row v-if="item.totalvalue!=0" class="statusbox bg-purple"
-                                                    type="flex" align="middle" justify="center" style="height:40px;">
+                                                    type="flex" align="middle" justify="center"
+                                                    style="min-height:40px;">
                                                     <el-col class="textcenter" :span="6" style="text-align: right;">
                                                         <span>{{ item.label }}</span>
                                                     </el-col>
@@ -7379,7 +7336,7 @@
                         </el-row>
                     </el-scrollbar>
                 </el-col>
-                <el-col :span="6">
+                <el-col :xs="24" :sm="24" :md="6" :lg="6">
                     <el-scrollbar wrap-class="bodycol-container" :native="true" :noresize="false">
                         <el-row>
                             <div class="Attribute">
@@ -7450,7 +7407,7 @@
                                         </div>
                                         <!-- <div v-show="UIPanel['ATKCompute']">
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Base Weapon ATK:</span>
                                                 </el-col>
@@ -7460,7 +7417,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Refine/Over-Upgrade ATK</span>
                                                 </el-col>
@@ -7470,7 +7427,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Size&Ammo</span>
                                                 </el-col>
@@ -7480,7 +7437,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Total Weapon ATK</span>
                                                 </el-col>
@@ -7490,7 +7447,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span content="Race, Class, Size, Element Mods">Group B ATK%</span>
                                                 </el-col>
@@ -7500,7 +7457,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span content="Type2 ATK%">Group A ATK%</span>
                                                 </el-col>
@@ -7510,7 +7467,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Group Sum</span>
                                                 </el-col>
@@ -7520,7 +7477,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Final ATK</span>
                                                 </el-col>
@@ -7530,7 +7487,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Crit/Range/Melee%</span>
                                                 </el-col>
@@ -7540,7 +7497,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Skill Damage&Enemy DEF</span>
                                                 </el-col>
@@ -7553,7 +7510,7 @@
                                     </el-collapse-transition>
 
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                             <span>Basic Attack</span>
                                         </el-col>
@@ -7563,7 +7520,7 @@
                                         </el-col>
                                     </el-row>
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                             <span>Basic Attack(Crit)</span>
                                         </el-col>
@@ -7582,7 +7539,7 @@
                                         </el-col>
                                     </el-row>
                                     <el-row v-if="status.ASPD!=0" class="statusbox" type="flex" align="middle"
-                                        justify="space-around" style="height:40px;">
+                                        justify="space-around" style="min-height:40px;">
                                         <el-col class="" :span="10" style="text-align: right;">
                                             <span>Basic Attack DPS</span>
                                         </el-col>
@@ -7592,7 +7549,7 @@
                                     </el-row>
 
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Skill Damage</span>
                                         </el-col>
@@ -7602,7 +7559,7 @@
                                         </el-col>
                                     </el-row>
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Skill Damage(Avg)</span>
                                         </el-col>
@@ -7613,7 +7570,7 @@
                                     <el-row
                                         v-if="eval(SkillFormulaReplace(skill.hitnumber))>1||eval(SkillFormulaReplace(skill.hitnumber))<0||skill.id=='WL_CHAINLIGHTNING'"
                                         class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Total Skill Damage</span>
                                         </el-col>
@@ -7625,7 +7582,7 @@
                                     <el-row
                                         v-if="eval(SkillFormulaReplace(skill.hitnumber))>1||eval(SkillFormulaReplace(skill.hitnumber))<0||skill.id=='WL_CHAINLIGHTNING'"
                                         class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Total Skill Damage(Avg)</span>
                                         </el-col>
@@ -7634,7 +7591,7 @@
                                         </el-col>
                                     </el-row>
                                     <el-row v-if="skill.critical || skill.isUnion" class="statusbox" type="flex"
-                                        align="middle" justify="space-around" style="height:40px;">
+                                        align="middle" justify="space-around" style="min-height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Skill Damage (Crit)({{attribute['CRI']}} %)</span>
                                         </el-col>
@@ -7649,7 +7606,7 @@
                                         </el-col>
                                     </el-row>
                                     <el-row v-if="skill.critical || skill.isUnion" class="statusbox" type="flex"
-                                        align="middle" justify="space-around" style="height:40px;">
+                                        align="middle" justify="space-around" style="min-height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Skill Damage (Crit/Avg)</span>
                                         </el-col>
@@ -7663,7 +7620,7 @@
                                         </el-col>
                                     </el-row>
                                     <el-row v-if="status.ASPD!=0" class="statusbox" type="flex" align="middle"
-                                        justify="space-around" style="height:40px;">
+                                        justify="space-around" style="min-height:40px;">
                                         <el-col class="" :span="10" style="text-align: right;">
                                             <span>Skill DPS</span>
                                         </el-col>
@@ -7739,7 +7696,7 @@
                                         </div>
                                     </el-collapse-transition>
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Skill Damage</span>
                                         </el-col>
@@ -7749,7 +7706,7 @@
                                         </el-col>
                                     </el-row>
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Skill Damage(Avg)</span>
                                         </el-col>
@@ -7760,7 +7717,7 @@
                                     <el-row
                                         v-if="eval(SkillFormulaReplace(skill.hitnumber))>1||eval(SkillFormulaReplace(skill.hitnumber))<0"
                                         class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Total Skill Damage</span>
                                         </el-col>
@@ -7772,7 +7729,7 @@
                                     <el-row
                                         v-if="eval(SkillFormulaReplace(skill.hitnumber))>1||eval(SkillFormulaReplace(skill.hitnumber))<0"
                                         class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Total Skill Dmg(Avg)</span>
                                         </el-col>
@@ -7781,7 +7738,7 @@
                                         </el-col>
                                     </el-row>
                                     <el-row v-if="status.ASPD!=0" class="statusbox" type="flex" align="middle"
-                                        justify="space-around" style="height:40px;">
+                                        justify="space-around" style="min-height:40px;">
                                         <el-col class="" :span="10" style="text-align: right;">
                                             <span>Skill DPS</span>
                                         </el-col>
@@ -7791,7 +7748,7 @@
                                     </el-row>
                                 </div>
                                 <div v-show="UIPanel['DragonBreathPanel']">
-                                    <el-row class="titlebox" type="flex" align="middle" style="height:40px;">
+                                    <el-row class="titlebox" type="flex" align="middle" style="min-height:40px;">
                                         <el-col class="textcenter" :span="2">
                                         </el-col>
                                         <el-col class="textcenter" :span="20">
@@ -7799,7 +7756,7 @@
                                         </el-col>
                                     </el-row>
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Skill Damage</span>
                                         </el-col>
@@ -7808,7 +7765,7 @@
                                         </el-col>
                                     </el-row>
                                     <el-row v-if="status.ASPD!=0" class="statusbox" type="flex" align="middle"
-                                        justify="space-around" style="height:40px;">
+                                        justify="space-around" style="min-height:40px;">
                                         <el-col class="bg-purple" :span="10" style="text-align: right;">
                                             <span>Skill DPS</span>
                                         </el-col>
@@ -7834,7 +7791,7 @@
                                     </el-col>
                                 </el-row>
                                 <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                    style="height:40px;">
+                                    style="min-height:40px;">
                                     <el-col class="bg-purple-light" :span="8" style="text-align: right;">
                                         <span>HP%:</span>
                                     </el-col>
@@ -7849,7 +7806,7 @@
                                     </el-col>
                                 </el-row>
                                 <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                    style="height:40px;">
+                                    style="min-height:40px;">
                                     <el-col class="bg-purple-light" :span="8" style="text-align: right;">
                                         <span>SP%:</span>
                                     </el-col>
@@ -7867,7 +7824,7 @@
                                     <div v-show="UIPanel['General']">
                                         <div v-if="skill.DamageTypeIdx==0">
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>ATK Status+Extra:</span>
                                                 </el-col>
@@ -7877,7 +7834,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>P.ATK:</span>
                                                 </el-col>
@@ -7886,7 +7843,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Mastery Atk:</span>
                                                 </el-col>
@@ -7895,7 +7852,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Element Bonus:</span>
                                                 </el-col>
@@ -7904,7 +7861,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Size Penalty:</span>
                                                 </el-col>
@@ -7913,7 +7870,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Range Mod%:</span>
                                                 </el-col>
@@ -7922,7 +7879,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Bonus Range Damage%:</span>
                                                 </el-col>
@@ -7931,7 +7888,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Melee Mod%:</span>
                                                 </el-col>
@@ -7940,7 +7897,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Bonus Melee Damage%:</span>
                                                 </el-col>
@@ -7949,7 +7906,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="8" style="text-align: right;">
                                                     <span>Crit:</span>
                                                 </el-col>
@@ -7964,7 +7921,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>C.RATE:</span>
                                                 </el-col>
@@ -7973,7 +7930,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>ATK%:</span>
                                                 </el-col>
@@ -7982,7 +7939,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>vs. Element%:</span>
                                                 </el-col>
@@ -7991,7 +7948,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>vs. Class%:</span>
                                                 </el-col>
@@ -8000,7 +7957,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>vs. Race%:</span>
                                                 </el-col>
@@ -8009,7 +7966,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>vs. Size%:</span>
                                                 </el-col>
@@ -8018,7 +7975,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Reduce Element Resist%:</span>
                                                 </el-col>
@@ -8027,7 +7984,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Bypass DEF%:</span>
                                                 </el-col>
@@ -8036,7 +7993,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Bypass RES%:</span>
                                                 </el-col>
@@ -8045,7 +8002,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Skill Mod%:</span>
                                                 </el-col>
@@ -8054,7 +8011,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Cooldown:</span>
                                                 </el-col>
@@ -8063,7 +8020,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Cast Delay%:</span>
                                                 </el-col>
@@ -8074,7 +8031,7 @@
                                         </div>
                                         <div v-else-if="skill.DamageTypeIdx==1">
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Matk Status+Extra:</span>
                                                 </el-col>
@@ -8083,7 +8040,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>S.MATK</span>
                                                 </el-col>
@@ -8092,7 +8049,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Element Bonus:</span>
                                                 </el-col>
@@ -8101,7 +8058,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>MATK%:</span>
                                                 </el-col>
@@ -8110,7 +8067,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Element Magic%:</span>
                                                 </el-col>
@@ -8119,7 +8076,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>vs. Element%:</span>
                                                 </el-col>
@@ -8128,7 +8085,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>vs. Class%:</span>
                                                 </el-col>
@@ -8137,7 +8094,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>vs. Race%:</span>
                                                 </el-col>
@@ -8146,7 +8103,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>vs. Size%:</span>
                                                 </el-col>
@@ -8155,7 +8112,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Reduce Element Resist%:</span>
                                                 </el-col>
@@ -8164,7 +8121,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Bonus Magic Damage%:</span>
                                                 </el-col>
@@ -8173,7 +8130,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Bypass MDEF%:</span>
                                                 </el-col>
@@ -8182,7 +8139,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Bypass MRES%:</span>
                                                 </el-col>
@@ -8191,7 +8148,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Skill Mod%:</span>
                                                 </el-col>
@@ -8200,7 +8157,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Cooldown:</span>
                                                 </el-col>
@@ -8209,7 +8166,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Cast Delay%:</span>
                                                 </el-col>
@@ -8220,7 +8177,7 @@
                                         </div>
                                         <div v-else-if="skill.DamageTypeIdx==2">
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Range Mod%:</span>
                                                 </el-col>
@@ -8229,7 +8186,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Bonus Range Damage%:</span>
                                                 </el-col>
@@ -8238,7 +8195,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Reduce Element Resist%:</span>
                                                 </el-col>
@@ -8247,7 +8204,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Skill Mod%:</span>
                                                 </el-col>
@@ -8256,7 +8213,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>POW:</span>
                                                 </el-col>
@@ -8265,7 +8222,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>P.ATK:</span>
                                                 </el-col>
@@ -8274,7 +8231,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Cooldown:</span>
                                                 </el-col>
@@ -8283,7 +8240,7 @@
                                                 </el-col>
                                             </el-row>
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                                style="height:40px;">
+                                                style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                     <span>Cast Delay%:</span>
                                                 </el-col>
@@ -8313,7 +8270,7 @@
                                 <el-collapse-transition>
                                     <div v-show="UIPanel['CastDelay']">
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                 <span>ASPD Delay%:</span>
                                             </el-col>
@@ -8322,7 +8279,7 @@
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                 <span>Cooldown:</span>
                                             </el-col>
@@ -8331,7 +8288,7 @@
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                 <span>Cast Delay%:</span>
                                             </el-col>
@@ -8340,7 +8297,7 @@
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                 <span>FCT:</span>
                                             </el-col>
@@ -8349,7 +8306,7 @@
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                 <span>VCT%:</span>
                                             </el-col>
@@ -8358,7 +8315,7 @@
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                 <span>VCT(sec):</span>
                                             </el-col>
@@ -8367,7 +8324,7 @@
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                 <span>VCT(Eqp%):</span>
                                             </el-col>
@@ -8376,7 +8333,7 @@
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                 <span>VCT(Buff%):</span>
                                             </el-col>
@@ -8385,7 +8342,7 @@
                                             </el-col>
                                         </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                            style="height:40px;">
+                                            style="min-height:40px;">
                                             <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                                 <span>VCT(Skill%):</span>
                                             </el-col>
@@ -8396,7 +8353,7 @@
                                     </div>
                                 </el-collapse-transition>
                                 <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                    style="height:40px;">
+                                    style="min-height:40px;">
                                     <el-col class="bg-purple-light" :span="10" style="text-align: right;">
                                         <span>INT+DEX*2:</span>
                                     </el-col>
@@ -8406,7 +8363,7 @@
                                     </el-col>
                                 </el-row>
                                 <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                    style="height:40px;">
+                                    style="min-height:40px;">
                                     <el-col class="bg-purple" :span="6" style="text-align: right;">
                                         <span>Total Cast Time:</span>
                                     </el-col>
@@ -8421,7 +8378,7 @@
                                     </el-col>
                                 </el-row>
                                 <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                    style="height:40px;">
+                                    style="min-height:40px;">
                                     <el-col class="bg-purple" style="text-align: right;" :span="6">
                                         <span>ASPD:</span>
                                     </el-col>
@@ -8437,7 +8394,7 @@
                                 </el-row>
                                 <div v-show="(computeattribute['DelayTime'])>computeattribute['AspdDelay']">
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="textcenter">
                                             <span>Cooldown/Delay > ASPD Delay</span>
                                         </el-col>
@@ -8445,7 +8402,7 @@
                                 </div>
                                 <div v-show="(computeattribute['DelayTime'])>computeattribute['AspdDelay']">
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="textcenter">
                                             <span>Improving Cooldown/Cast Delay can improve spam</span>
                                         </el-col>
@@ -8453,7 +8410,7 @@
                                 </div>
                                 <div v-show="(computeattribute['DelayTime'])<computeattribute['AspdDelay']">
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="textcenter">
                                             <span>Cooldown/Delay > ASPD Delay</span>
                                         </el-col>
@@ -8461,14 +8418,14 @@
                                 </div>
                                 <div v-show="(computeattribute['DelayTime'])<computeattribute['AspdDelay']">
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="textcenter">
                                             <span>Improving ASPD can improve spam</span>
                                         </el-col>
                                     </el-row>
                                 </div>
                                 <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                    style="height:40px;">
+                                    style="min-height:40px;">
                                     <el-col class="bg-purple" style="text-align: right;">
                                         <span>Action per sec:</span>
                                     </el-col>
@@ -8478,7 +8435,7 @@
                                 </el-row>
                                 <div>
                                     <el-row class="statusbox" type="flex" align="middle" justify="space-around"
-                                        style="height:40px;">
+                                        style="min-height:40px;">
                                         <el-col class="textcenter">
                                             <span>This calculation is theoretical<br> Ping and animation can still
                                                 affect actual outcome</span>
@@ -8490,7 +8447,6 @@
                     </el-scrollbar>
                 </el-col>
             </el-row>
-
         </div>
         <!-- footer -->
         <div class="ROCalFooter">
@@ -8519,6 +8475,7 @@
                 OtherSupportSkill: [],
                 OtherSupportSkill_Actived: [],
                 //ui
+                expandedRows: new Set(),
                 SupportSkillJob: 'AB',
                 SupportSkillJobGroup: [],
                 DefaultDB_SupportSkill_Filter: [],
@@ -9582,15 +9539,15 @@
                 getTStatusPoint(level) {
                     return (level - 199) * 3 + Math.floor((level - 195) / 5) * 4;
                 },
-                ShrinkEquipPanels() {
+                ShrinkEquipPanels(bool) {
                     for (const [key, value] of Object.entries(this.equipspartlist.slice(0, 10))) {
-                        this.UIPanel[value.id + 'Panel'] = false;
+                        this.UIPanel[value.id + 'Panel'] = bool;
                     }
                     for (const [key, value] of Object.entries(this.equipspartlist.slice(30, 31))) {
-                        this.UIPanel[value.id + 'Panel'] = false;
+                        this.UIPanel[value.id + 'Panel'] = bool;
                     }
                     for (const [key, value] of Object.entries(this.equipspartlist.slice(36, 43))) {
-                        this.UIPanel[value.id + 'Panel'] = false;
+                        this.UIPanel[value.id + 'Panel'] = bool;
                     }
                 },
                 TogglePanel(id) {
@@ -11423,7 +11380,7 @@
                     var baseASPD = 40;
                     if (weaponType == 'Empty') baseASPD = aspdTable[weaponType];
                     else if (!isNaN(aspdTable[weaponType])) baseASPD = aspdTable['Empty'] + aspdTable[weaponType];
-                    
+
                     if (!isNaN(aspdTable[subweaponType])) baseASPD += aspdTable[subweaponType];
 
                     return baseASPD;
@@ -11501,7 +11458,7 @@
 
                     this.setRecord('Sub/Weapon MATK', [Number(this.weapon.MATK) + Number(this.subweapon.MATK) + Number(this.weapon.refinematk)], '', '');
                     this.setRecord('Weap Lv. Variance', [this.computeattribute.weaponmatk_min, this.computeattribute.weaponmatk_max], '±', para1, 'p');
-                    
+
                     this.computeattribute.weaponmatk_min += Number(this.attribute['StatusMATK']);
                     this.computeattribute.weaponmatk_max += Number(this.attribute['StatusMATK']);
 
@@ -11556,7 +11513,7 @@
                     this.setRecord('Element%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_magicelemt, 'p');
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_race);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_race);
-                    this.setRecord('Race%',[this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_race, 'p');
+                    this.setRecord('Race%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_race, 'p');
                     this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_level);
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_level);
                     this.setRecord('Class%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_level, 'p');
@@ -11575,7 +11532,7 @@
                         paraMRES = ((2000 + remainingMRES) / (2000 + 5 * remainingMRES));
                     }
 
-                    if (paraMRES != 1){
+                    if (paraMRES != 1) {
                         this.computeattribute.finalmatk_min = Math.ceil(this.computeattribute.finalmatk_min * paraMRES);
                         this.computeattribute.finalmatk_max = Math.ceil(this.computeattribute.finalmatk_max * paraMRES);
                         this.setRecord('MRES', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', paraMRES, 'p');
@@ -11698,7 +11655,7 @@
                     _MATKDamageMin = this.computeattribute.matk4_min * _paradiv;
                     _MATKDamageMax = this.computeattribute.matk4_max * _paradiv;
                     if (_paradiv != 1)
-                        this.setRecord('Total', [_MATKDamageMin, _MATKDamageMax],'');
+                        this.setRecord('Total', [_MATKDamageMin, _MATKDamageMax], '');
 
                     return {
                         Min: _MATKDamageMin,
@@ -13813,6 +13770,36 @@
                 onFilterEnchantPreview(index) {
                     this.$set(this.StoreDB_EnchantFilterList[index], 'preview', !this.StoreDB_EnchantFilterList[index].preview);
                 },
+                toggleExpand(row) {
+                    const tableRef = this.$refs.equipment_table;
+                    if (this.isRowExpanded(row)) {
+                        this.expandedRows.delete(row);
+                        tableRef.toggleRowExpansion(row, false);
+                    } else {
+                        this.expandedRows.add(row);
+                        tableRef.toggleRowExpansion(row, true);
+                    }
+                },
+                isRowExpanded(row) {
+                return this.expandedRows.has(row);
+                },
+                equipmentRowColor({ row, rowIndex }) {
+                    if(row.equip.noniRO){
+                        return 'bg-green-light';
+                    }
+                    else if(row.equip.unchecked){
+                        return 'bg-orange-light';
+                    }
+                    else if(rowIndex % 2 === 0){
+                        return 'bg-purple-light';
+                    }
+                    else if(rowIndex % 2 !== 0 && !row.equip.unchecked){
+                        return 'bg-purple';
+                    }
+                    else{
+                        return 'bg-red-light2';
+                    }
+                },
                 SaveEquipDB() {
                     const parsed = JSON.stringify(this.StoreDB_Equip);
                     localStorage.setItem('StoreDB_Equip', parsed);
@@ -14625,7 +14612,7 @@
                         { skill: { id: 'ASC_BREAKER', name: 'Soul Destroyer', level: 10, formula: '(SLV*150+STR+INT)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: true, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, halfcri: true, hitnumber: 1, elemental: 0, FCT: 0.25, VCT: 0.25, CD: 0.3, GCD: 2, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'ASC_METEORASSAULT', name: 'Meteor Assault', level: 10, formula: '(200+SLV*120+STR*5)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, halfcri: false, hitnumber: 1, elemental: 0, FCT: 0.25, VCT: 0.25, CD: 0.5, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
 
-                        { skill: { id: 'SHC_DANCING_KNIFE', name: 'Dancing Knife', level: 5, formula: '(200*SLV+POW*5)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, FixedDPS:0.3, Note: '', Version: 0, } },
+                        { skill: { id: 'SHC_DANCING_KNIFE', name: 'Dancing Knife', level: 5, formula: '(200*SLV+POW*5)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, FixedDPS: 0.3, Note: '', Version: 0, } },
 
                         { skill: { id: 'SHC_SAVAGE_IMPACT_2', name: 'Savage Impact', level: 10, formula: '(SLV*60+POW*5)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, halfcri: true, hitnumber: 3, elemental: 0, FCT: 0, VCT: 0, CD: 1, GCD: 0.3, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
                         { skill: { id: 'SHC_SAVAGE_IMPACT(ex)_2', name: 'Savge Impact(Shadow Exceed)', level: 10, formula: '(SLV*100+POW*7)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, halfcri: true, hitnumber: 3, elemental: 0, FCT: 0, VCT: 0, CD: 1, GCD: 0.3, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 2, } },
@@ -15435,6 +15422,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2024-12-23', content: 'Added: Flush Weapons' },
                         { id: '2024-12-22', content: 'Added: Astraea-LT gear' },
                         { id: '2024-12-21', content: 'Added: Hairband of Asmodeus and Ignition break shadow set' },
                         { id: '2024-12-19', content: 'Added: God-Devouring Demonic Shield-LT and Documents' },
@@ -16124,8 +16112,10 @@
                             this.validateFileChecksumAndLoad(filename, filehash);
                         }
                     }
-                }
-
+                },
+                formatDateFromIso8601(row, column) {
+                    return row.lastupdate.split('T')[0];
+                },
             },
             filters: {
                 currency(val) {
@@ -16157,6 +16147,20 @@
                 },
                 BuildCount() {
                     return this.AvailableClassesMetadataList.length;
+                },
+                IsAllShrink() {
+                    const ranges = [
+                        { start: 0, end: 10 },
+                        { start: 30, end: 31 },
+                        { start: 36, end: 43 },
+                    ];
+
+                    return ranges.every(range =>
+                        this.equipspartlist.slice(range.start, range.end).every(value => {
+                            const panelKey = value.id + 'Panel';
+                            return this.UIPanel[panelKey] === false;
+                        })
+                    );
                 },
                 /*
                 StoreDB_EquipFiltered() {
