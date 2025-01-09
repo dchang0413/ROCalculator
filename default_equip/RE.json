@@ -3847,7 +3847,7 @@
 	},
 	{
 		"id": "shoes",
-		"itemid": -2,
+		"itemid": 470028,
 		"label": "Shoes",
 		"equipname": "Juggernaut",
 		"refinelevel": 9,
@@ -4020,5 +4020,55 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "acc",
+		"itemid": -4,
+		"label": "Accessory",
+		"equipname": "Duelist Gold Coin",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"HEAT_BARREL\")?40:0",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"MAGAZINE_FOR_ONE THE_VIGILANTE_AT_NIGHT WILD_FIRE\")?(DOWN(BLV/10)):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]

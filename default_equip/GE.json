@@ -3154,5 +3154,132 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "weaponl",
+		"itemid": -3,
+		"label": "OffHand",
+		"equipname": "High-tech Shield",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "15+(SWEAR>12?20:0)+(SWEAG(3)?20:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(SWEAR/2))+(SWEAG(2)?3:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(SWEAR/2))+(SWEAG(2)?3:0)",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "5*DOWN(SWEAR/3)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(SWEAR/3)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAR>9?15:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"CARTCANNON\")?((SWEAR>10?50:0)+(SWEAR>13?80:0)):0)+(SKIDS(\"SPORE_EXPLOSION\")?((SWEAR>11?50:0)+(SWEAR>13?80:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SWEAG(4)?10:0",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					1077
+				],
+				"itemid_any": [],
+				"equipname": "Poison Spore Egg",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"SPORE_EXPLOSION\")?40:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					9123
+				],
+				"itemid_any": [],
+				"equipname": "Child Admin Beta Egg",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS(\"CARTCANNON\")?40:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shield",
+				"label": "Shield"
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 2,
+				"saferefine": 7,
+				"overatk": 3
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": 0,
+			"MATK": 0,
+			"refinelevel": 14,
+			"ShieldWeight": 50,
+			"refinematk": 0,
+			"refineatk": 0
+		}
 	}
 ]
