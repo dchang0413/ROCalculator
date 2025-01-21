@@ -4364,6 +4364,15 @@
                                     <div v-show="UIPanel['EnemyPanel']">
                                         <el-row class="statusbox bg-purple-light" :gutter="4" type="flex"
                                             align="middle">
+                                            <el-col class="textcenter" :span="12">HP</el-col>
+                                            <el-col :span="12">
+                                                <el-input v-model="enemyattribute.hp"
+                                                    v-on:input="onChangeEnemyStatus" placeholder="HP">
+                                                </el-input>
+                                            </el-col>
+                                        </el-row>
+                                        <el-row class="statusbox bg-purple-light" :gutter="4" type="flex"
+                                            align="middle">
                                             <el-col class="textcenter" :span="6">Level</el-col>
                                             <el-col :span="6">
                                                 <el-input v-model="enemyattribute.level"
@@ -4540,6 +4549,11 @@
                                 </el-collapse-transition>
                                 <el-collapse-transition>
                                     <div v-show="UIPanel['EnemyPanel']==false">
+                                        <el-row class="statusbox" type="flex" align="middle" :gutter="4">
+                                            <el-col class="textcenter" :span="24">
+                                                HP: {{ enemyattribute.hp }}
+                                            </el-col>
+                                        </el-row>
                                         <el-row class="statusbox" type="flex" align="middle" :gutter="4">
                                             <el-col class="textcenter" :span="24">
                                                 Lv:{{enemyattribute.level}} /
@@ -7628,6 +7642,15 @@
                                             <span>{{ computeattribute.atkmulti_DPS | currency }}</span>
                                         </el-col>
                                     </el-row>
+                                    <el-row v-if="status.ASPD!=0 && computeattribute.atkmulti_DPS>0" class="statusbox" type="flex" align="middle"
+                                        justify="space-around" style="min-height:40px;">
+                                        <el-col class="bg-purple" :span="10" style="text-align: right;">
+                                            <span>Target TTK</span>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="10">
+                                            <span>{{ enemyattribute.hp / computeattribute.atkmulti_DPS | currency }} seconds</span>
+                                        </el-col>
+                                    </el-row>
                                 </div>
                                 <div v-show="UIPanel['MATKPanel']">
                                     <el-row class="titlebox" type="flex" align="middle"
@@ -7746,6 +7769,15 @@
                                             <span>{{ computeattribute.matkmulti_DPS | currency }}</span>
                                         </el-col>
                                     </el-row>
+                                    <el-row v-if="status.ASPD!=0 && computeattribute.matkmulti_DPS>0" class="statusbox" type="flex" align="middle"
+                                        justify="space-around" style="min-height:40px;">
+                                        <el-col class="bg-purple" :span="10" style="text-align: right;">
+                                            <span>Target TTK</span>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="10">
+                                            <span>{{ enemyattribute.hp / computeattribute.matkmulti_DPS | currency }} seconds</span>
+                                        </el-col>
+                                    </el-row>
                                 </div>
                                 <div v-show="UIPanel['DragonBreathPanel']">
                                     <el-row class="titlebox" type="flex" align="middle" style="min-height:40px;">
@@ -7771,6 +7803,15 @@
                                         </el-col>
                                         <el-col class="textcenter" :span="10">
                                             <span>{{computeattribute.DragonBreathDMG_DPS | currency }}</span>
+                                        </el-col>
+                                    </el-row>
+                                    <el-row v-if="status.ASPD!=0 && computeattribute.DragonBreathDMG_DPS>0" class="statusbox" type="flex" align="middle"
+                                        justify="space-around" style="min-height:40px;">
+                                        <el-col class="bg-purple" :span="10" style="text-align: right;">
+                                            <span>Target TTK</span>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="10">
+                                            <span>{{ enemyattribute.hp / computeattribute.DragonBreathDMG_DPS | currency }} seconds</span>
                                         </el-col>
                                     </el-row>
                                 </div>
