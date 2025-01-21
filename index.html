@@ -7648,7 +7648,7 @@
                                             <span>Target TTK</span>
                                         </el-col>
                                         <el-col class="textcenter" :span="10">
-                                            <span>{{ enemyattribute.hp / computeattribute.atkmulti_DPS | currency }} seconds</span>
+                                            <span>{{ enemyattribute.hp / computeattribute.atkmulti_DPS | damageToTime }}</span>
                                         </el-col>
                                     </el-row>
                                 </div>
@@ -7775,7 +7775,7 @@
                                             <span>Target TTK</span>
                                         </el-col>
                                         <el-col class="textcenter" :span="10">
-                                            <span>{{ enemyattribute.hp / computeattribute.matkmulti_DPS | currency }} seconds</span>
+                                            <span>{{ enemyattribute.hp / computeattribute.matkmulti_DPS | damageToTime }}</span>
                                         </el-col>
                                     </el-row>
                                 </div>
@@ -7811,7 +7811,7 @@
                                             <span>Target TTK</span>
                                         </el-col>
                                         <el-col class="textcenter" :span="10">
-                                            <span>{{ enemyattribute.hp / computeattribute.DragonBreathDMG_DPS | currency }} seconds</span>
+                                            <span>{{ enemyattribute.hp / computeattribute.DragonBreathDMG_DPS | damageToTime }}</span>
                                         </el-col>
                                     </el-row>
                                 </div>
@@ -16175,6 +16175,18 @@
                 },
                 getDateFromIso8601(val) {
                     return val.split('T')[0];
+                },
+                damageToTime(val) {
+                    if (isNaN(val)) return 'N/A';
+
+                    const hours = Math.floor(val / 3600);
+                    const minutes = Math.floor((val % 3600) / 60);
+                    const seconds = val % 60; 
+
+                    if (val < 60) return `${seconds.toFixed(1)} seconds`;;
+                    if (val < 3600) return `${minutes} minute${minutes > 1 ? 's' : ''}`;
+                    
+                    return `${hours} hour${hours > 1 ? 's' : ''} ${minutes} minute${minutes > 1 ? 's' : ''}`;
                 },
             },
             computed: {
