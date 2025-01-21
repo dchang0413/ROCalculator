@@ -9205,6 +9205,7 @@
                     100, 60, 100, 100, 100, 0, 200, 0, 175, 0
                 ],
                 enemyattribute: {
+                    id: 0,
                     name: '',
                     level: 0, hp: 0, VIT: 0, INT: 0, LUK: 0,
                     elemental: 0, elementallevel: 1, size: '',
@@ -15414,6 +15415,7 @@
                         { str1: 'ERI', str2: 'this.enemyattribute.race', description: 'enemy race id' },
                         { str1: 'isBoss', str2: 'this.enemyattribute.classid==1', description: 'if enemy is boss' },
                         { str1: 'ECI', str2: 'this.enemyattribute.classid', description: 'enemy class id' },
+                        { str1: 'EID', str2: 'this.enemyattribute.id', description: 'enemy monster id' },
                         { str1: 'MUL', str2: 'this.MulOper', description: 'MUL(A,B) = A*B, if B>1 then floor result, if B<1 then ceil result' },
                         { str1: 'DOWN', str2: 'Math.floor', description: 'DOWN(A) floor...' },
                         { str1: 'UP', str2: 'Math.ceil', description: 'UP(A) ceil...' },
@@ -15424,6 +15426,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2025-01-21', content: 'Added: January Kachua gear' },
                         { id: '2025-01-12', content: 'Added: Betelgeuse And Rigel AS a target' },
                         { id: '2025-01-09', content: 'Added: OCP 67 gear' },
                         { id: '2024-12-23', content: 'Added: Flush Weapons' },
