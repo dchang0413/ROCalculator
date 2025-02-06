@@ -4441,5 +4441,69 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": -4,
+		"label": "Garment",
+		"equipname": "Will of Karasu",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(30+(GARMG(1)?10:0)+(GARMG(4)?20:0))",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((2*GARMR)+(GARMR>12?15:0))",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((GARMR>11?100:0)+(GARMR>12?150:0)+(GARMR>13?150:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((GARMR>11?5:0)+(GARMR>12?7:0)+(GARMR>13?7:0)+(GARMG(2)?7:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>13?0.5:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(3)?20:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]

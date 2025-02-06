@@ -988,5 +988,75 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "armor",
+		"itemid": -2,
+		"label": "Armor",
+		"equipname": "Howling Tiger Pajama",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(SKIDS(\"CHUL_HO_SONIC_CLAW HOWLING_OF_CHUL_HO HOGOGONG_STRIKE\")?(DOWN(BLV/10)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*ARMORR)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*ARMORR)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>6?10:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"HISS\")?(ARMORR>8?45:0):0)",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>9?15:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>11?150:0)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>11?15:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
