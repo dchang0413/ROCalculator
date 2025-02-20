@@ -1151,9 +1151,9 @@
 		},
 		{
 			"id": "acc1",
-			"itemid": 490607,
+			"itemid": 490428,
 			"label": "Accessory",
-			"equipname": "Document Merchant",
+			"equipname": "Chemical Resistance Glove",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -1161,154 +1161,28 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 10,
+					"EffectNumber": 3,
 					"EffectType": {
-						"id": "AtkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": 100,
-					"EffectType": {
-						"id": "Atk"
+						"id": "POW"
 					},
 					"Enable": true
 				},
 				{
 					"EffectNumber": 10,
 					"EffectType": {
-						"id": "GCDPercent"
+						"id": "LevelAtkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": 10,
-					"EffectType": {
-						"id": "SizeAtkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "SKIDS(\"AXETORNADO ARMSCANNON CARTCANNON\")?30:0",
+					"EffectNumber": "SKIDS('CARTCANNON')?(DOWN(MIN(BLV,250)/2)):(SKIDS('ACIDIFIED_ZONE_GROUND')?(DOWN(BLV/10)):0)",
 					"EffectType": {
 						"id": "SkillDamagePercent"
 					},
 					"Enable": true
-				},
-				{
-					"EffectNumber": "CCL=='ME'?15:0",
-					"EffectType": {
-						"id": "ElementalAtkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "CCL=='GE'?10:0",
-					"EffectType": {
-						"id": "AllStatus"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "CCL=='GE'?20:0",
-					"EffectType": {
-						"id": "RangedDamagePercent"
-					},
-					"Enable": true
 				}
 			],
-			"combolist": [
-				{
-					"itemid_every": [
-						18973
-					],
-					"itemid_any": [],
-					"equipname": "Old Driver Band (Red)",
-					"effectlist": [
-						{
-							"EffectNumber": "SKIDS(\"AXETORNADO\")?1:0",
-							"EffectType": {
-								"id": "CDTime"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "SKIDS(\"AXETORNADO\")?(10*DOWN(HATR/2)):0",
-							"EffectType": {
-								"id": "SkillDamagePercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "4*DOWN(HATR/2)",
-							"EffectType": {
-								"id": "LevelAtkPercent"
-							},
-							"Enable": true
-						}
-					]
-				},
-				{
-					"itemid_every": [
-						18974
-					],
-					"itemid_any": [],
-					"equipname": "Old Driver Band (Yellow)",
-					"effectlist": [
-						{
-							"EffectNumber": "SKIDS(\"ARMSCANNON\")?0.5:0",
-							"EffectType": {
-								"id": "CDTime"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "SKIDS(\"ARMSCANNON\")?100:0",
-							"EffectType": {
-								"id": "VariableCastPercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "SKIDS(\"ARMSCANNON\")?(10*DOWN(HATR/2)):0",
-							"EffectType": {
-								"id": "SkillDamagePercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "4*DOWN(HATR/2)",
-							"EffectType": {
-								"id": "LevelAtkPercent"
-							},
-							"Enable": true
-						}
-					]
-				},
-				{
-					"itemid_every": [
-						18977
-					],
-					"itemid_any": [],
-					"equipname": "Old Midas Whisper",
-					"effectlist": [
-						{
-							"EffectNumber": "SKIDS(\"CARTCANNON\")?(10*DOWN(HATR/2)):0",
-							"EffectType": {
-								"id": "SkillDamagePercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "4*DOWN(HATR/2)",
-							"EffectType": {
-								"id": "LevelAtkPercent"
-							},
-							"Enable": true
-						}
-					]
-				}
-			]
+			"combolist": []
 		},
 		{
 			"id": "acc2",
@@ -1503,31 +1377,15 @@
 		},
 		{
 			"id": "helmcard",
-			"itemid": 4529,
+			"itemid": 0,
 			"label": "Headgear Card",
-			"equipname": "Cruel Coelacanth Card",
+			"equipname": "",
+			"effectlist": [],
+			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
-			"effectlist": [
-				{
-					"EffectNumber": "2+(DOWN(HATR/2))",
-					"EffectType": {
-						"id": "LevelAtkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "-(DOWN(HATR/2))",
-					"EffectType": {
-						"id": "SPPercent"
-					},
-					"Enable": true
-				}
-			],
-			"combolist": []
+				"id": 0
+			}
 		},
 		{
 			"id": "helm1card",
@@ -2880,11 +2738,11 @@
 		"SPL": 0,
 		"CON": "97",
 		"CRT": 0,
-		"ASPD": 189,
+		"ASPD": 188,
 		"HP": 0,
 		"SP": 0,
-		"MHP": 174128,
-		"MSP": 19503
+		"MHP": 166626,
+		"MSP": 20193
 	},
 	"JobStatus": {
 		"STR": 5,
@@ -2945,9 +2803,9 @@
 	},
 	"Option": {
 		"MagnumPoison2Value": 0,
-		"SkillPercent": 6560,
+		"SkillPercent": 6510,
 		"SkillFormulaError": "",
-		"EquipSkillAddDamage": 780,
+		"EquipSkillAddDamage": 875,
 		"BaseCriticalValue": 40,
 		"IgnoreDEF": false,
 		"IgnoreMDEF": false,
@@ -3002,9 +2860,9 @@
 		"BO_HELLTREE",
 		"MC_LOUD"
 	],
-	"Damage": "2,549,879,416 ~ 2,680,664,448",
-	"DamageDPS": "12,161,607,015",
+	"Damage": "2,516,436,998 ~ 2,650,356,808",
+	"DamageDPS": "11,009,049,682",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "2,615,271,932",
-	"lastedited": "2025-02-20T01:40:32.846Z"
+	"SkillDamageAvg": "2,583,396,903",
+	"lastedited": "2025-02-20T11:32:43.712Z"
 }
