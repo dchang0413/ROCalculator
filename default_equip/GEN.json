@@ -10374,7 +10374,7 @@
 	},
 	{
 		"id": "armor",
-		"itemid": -1,
+		"itemid": 450431,
 		"label": "Armor",
 		"equipname": "Varmundt Energy Suit",
 		"refinelevel": 14,
@@ -10480,7 +10480,7 @@
 	},
 	{
 		"id": "shoes",
-		"itemid": -5,
+		"itemid": 470330,
 		"label": "Shoes",
 		"equipname": "Santa Red Boots",
 		"refinelevel": 14,
@@ -10623,6 +10623,187 @@
 						"EffectNumber": "isBoss?50:0",
 						"EffectType": {
 							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "armor",
+		"itemid": -1,
+		"label": "Armor",
+		"equipname": "Rest in Peace",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "((2*ARMORR)+(ARMORR>13?15:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((2*ARMORR)+(ARMORR>13?15:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((30*DOWN(ARMORR/2))+(ARMORR>13?250:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((30*DOWN(ARMORR/2))+(ARMORR>13?250:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>10?20:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>10?20:0)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>11?15:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORR>12?30:0)+(ARMORG(1)?15:0))",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORR>12?30:0)+(ARMORG(1)?15:0))",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>13?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(2)?15:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(3)?15:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(3)?15:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					27103
+				],
+				"itemid_any": [],
+				"equipname": "Restless Dead Card",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "SPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4276
+				],
+				"itemid_any": [],
+				"equipname": "Lord of the Dead Card",
+				"effectlist": [
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(isBoss?30:0)",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(isBoss?30:0)",
+						"EffectType": {
+							"id": "LevelMatkPercent"
 						},
 						"Enable": true
 					}
