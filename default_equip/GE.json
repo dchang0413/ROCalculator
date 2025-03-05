@@ -3471,5 +3471,200 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "acc",
+		"itemid": 490628,
+		"label": "Accessory",
+		"equipname": "Fake Alloy G Module",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10+(CCL=='GE'?10:0))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10+(CCL=='GE'?10:0))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"CARTCANNON CART_TORNADO\")&&CCL=='GE'?30:0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"CART_TORNADO\")&&CCL=='GE'?2:0)",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"CARTCANNON\")&&CCL=='GE'?100:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					460030
+				],
+				"itemid_any": [],
+				"equipname": "Fake Alloy Pot",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "Cri"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 8,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "((SKIDS(\"CARTCANNON CART_TORNADO\")&&CCL=='GE'?30:0)+(SKIDS(\"SPORE_EXPLOSION HELLS_PLANT\")&&CCL=='GE'&&SWEAR>11?60:0)+(SKIDS(\"EXPLOSIVE_POWDER MAYHEMIC_THORNS\")&&CCL=='GE'&&SWEAR>11?15:0))",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					460066
+				],
+				"itemid_any": [],
+				"equipname": "Fake Alloy Pot-LT",
+				"effectlist": [
+					{
+						"EffectNumber": "(10+(SWEAG(3)?5:0)+(SWEAG(4)?10:0))",
+						"EffectType": {
+							"id": "Cri"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(20+(SWEAG(3)?20:0)+(SWEAG(4)?20:0))",
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 12,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SWEAG(1)?15:0)",
+						"EffectType": {
+							"id": "AspdPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "((SWEAG(1)?50:0)+(SWEAG(2)?50:0))",
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "((SWEAG(1)?5:0)+(SWEAG(2)?5:0))",
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SWEAG(3)?10:0)",
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SWEAG(3)?10:0)",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "((SKIDS(\"CARTCANNON CART_TORNADO\")&&CCL=='GE'?50:0)+(SKIDS(\"SPORE_EXPLOSION HELLS_PLANT\")&&CCL=='GE'&&SWEAR>11?60:0)+(SKIDS(\"MAYHEMIC_THORNS\")&&CCL=='GE'&&SWEAR>11?15:0)+(SKIDS(\"EXPLOSIVE_POWDER\")&&CCL=='GE'?((SWEAR>11?15:0)+(SWEAG(2)?15:0)+(SWEAG(4)?15:0)):0))",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
