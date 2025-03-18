@@ -7594,5 +7594,350 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": -1,
+		"label": "Garment",
+		"equipname": "Black Cat Backpack",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "((30*DOWN(GARMR/2))+(GARMR>10?100:0)+(GARMG(1)?100:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(2*DOWN(GARMR/2))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(2*DOWN(GARMR/2))",
+				"EffectType": {
+					"id": "CRT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((15*DOWN(GARMR/3))+(GARMR>11?20:0))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(15*DOWN(GARMR/3))",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>8?15:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>8?15:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>9?20:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>10?30:0)",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>11?10:0)",
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"FATALMENACE\")?((GARMR>12?40:0)+(GARMG(3)?(50*DOWN(GARMR/3)):0)):0)+(SKIDS(\"IGNITIONBREAK\")?((GARMR>12?40:0)+(GARMG(3)?(50*DOWN(GARMR/3)):0)):0)+(SKIDS(\"DEFT_STAB\")?((GARMR>12?40:0)+(GARMG(4)?(30*DOWN(GARMR/3)):0)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(2)?15:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					510028
+				],
+				"itemid_any": [],
+				"equipname": "Poenitentia Dilacero",
+				"effectlist": [
+					{
+						"EffectNumber": 200,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "isBoss?20:0",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(GARMR>12?77:0)",
+						"EffectType": {
+							"id": "STR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(GARMR>12?77:0)",
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(GARMR>12?77:0)",
+						"EffectType": {
+							"id": "LUK"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27184
+				],
+				"itemid_any": [],
+				"equipname": "Lord Sakray Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "CRT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "((SKIDS(\"IGNITIONBREAK\")?(WEAR>12?1:0):0)+(SKIDS(\"DARKCROW\")?(WEAR>12?30:0):0))",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4647
+				],
+				"itemid_any": [],
+				"equipname": "Infinite Osiris Card",
+				"effectlist": [
+					{
+						"EffectNumber": 9999,
+						"EffectType": {
+							"id": "WeaponPerfection"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "isBoss?30:0",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shoes",
+		"itemid": -3,
+		"label": "Shoes",
+		"equipname": "Ancient Knight Shoes",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(3*DOWN(SHOER/2))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((5*DOWN(SHOER/3))+(SHOEG(4)?50:0))",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(SHOER/3))",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SHOER>8?15:0)+(SHOEG(2)?15:0))",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>10?12:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"HUNDREDSPEAR\")?((SHOER>12?100:0)+(SHOER>13?(2*BLV):0)):0)+(SKIDS(\"WINDCUTTER\")?((SHOER>12?100:0)+(SHOER>13?(5*BLV):0)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(1)?0.5:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(3)?10:0)",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4140
+				],
+				"itemid_any": [],
+				"equipname": "Abysmal Knight Card",
+				"effectlist": [
+					{
+						"EffectNumber": 150,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"WINDCUTTER\")?60:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4608
+				],
+				"itemid_any": [],
+				"equipname": "White Knight Card",
+				"effectlist": [
+					{
+						"EffectNumber": 150,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"HUNDREDSPEAR\")?60:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4276
+				],
+				"itemid_any": [],
+				"equipname": "Lord of the Dead Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(150+(['RG','RK'].includes(CCL)?250:0))",
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(6*DOWN(SHOER/2))",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

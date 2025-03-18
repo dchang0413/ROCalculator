@@ -967,6 +967,55 @@
 	},
 	{
 		"id": "armorcard",
+		"itemid": 300266,
+		"label": "Armor Card",
+		"equipname": "Unknown Swordsman Card",
+		"effectlist": [
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4352
+				],
+				"itemid_any": [],
+				"equipname": "Boss Egnigem Card",
+				"effectlist": [
+					{
+						"EffectNumber": "['RG','RK'].includes(CCL)?2:0",
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "['RG','RK'].includes(CCL)?(10+(2*DOWN((ARMORR+SHOER)/4))):0",
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "['RG','RK'].includes(CCL)?(10+(2*DOWN((ARMORR+SHOER)/4))):0",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
 		"itemid": 4302,
 		"label": "Armor Card",
 		"equipname": "Tao Gunka Card",
