@@ -4505,5 +4505,209 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "shoes",
+		"itemid": -1,
+		"label": "Shoes",
+		"equipname": "Corruption Boots",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "3*DOWN(SHOER/2)",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((3*DOWN(SHOER/3))+(SHOER>12?15:0)+(SHOEG(4)?(8*DOWN(SHOER/2)):0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "3*DOWN(SHOER/3)",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(SHOER/3))+(SHOEG(3)?20:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((30*DOWN(SHOER/2))+(SHOER>12?250:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>9?20:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>9?20:0)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>10?15:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(20+(SHOER>11?30:0))",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(2)?15:0)",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(1)?20:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>10?0.5:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4441
+				],
+				"itemid_any": [],
+				"equipname": "Fallen Bishop Card",
+				"effectlist": [
+					{
+						"EffectNumber": "SHOER>13?200:0",
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>13?200:0",
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>13?200:0",
+						"EffectType": {
+							"id": "LUK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>13?50:0",
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "isBoss?40:0",
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4539
+				],
+				"itemid_any": [],
+				"equipname": "Sealed Fallen Bishop Card",
+				"effectlist": [
+					{
+						"EffectNumber": "SHOER>13?100:0",
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>13?100:0",
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>13?100:0",
+						"EffectType": {
+							"id": "LUK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>13?25:0",
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "isBoss?20:0",
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4435
+				],
+				"itemid_any": [],
+				"equipname": "Zombie Slaughter Card",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
