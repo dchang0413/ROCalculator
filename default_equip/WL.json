@@ -2602,5 +2602,41 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490740,
+		"label": "Accessory",
+		"equipname": "Tetra Ring",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"TETRAVORTEX\")?(BLV):0)+(SKIDS(\"ALL_BLOOM CRYSTAL_IMPACT DESTRUCTIVE_HURRICANE VIOLENT_QUAKE\")?(DOWN(BLV/5)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
