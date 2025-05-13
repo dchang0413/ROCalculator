@@ -11413,10 +11413,10 @@
                     }
 
                     if (this.enemyattribute.relieveLevel > 0) {
-                        this.computeattribute.matk4_min = Math.floor(this.computeattribute.atkc9_min * (1 - (this.enemyattribute.relieveLevel / 10)));
-                        this.computeattribute.matk4_max = Math.floor(this.computeattribute.atkc9_max * (1 - (this.enemyattribute.relieveLevel / 10)));
+                        this.computeattribute.atkc9_min = Math.floor(this.computeattribute.atkc9_min * (1 - (this.enemyattribute.relieveLevel / 10)));
+                        this.computeattribute.atkc9_max = Math.floor(this.computeattribute.atkc9_max * (1 - (this.enemyattribute.relieveLevel / 10)));
 
-                        this.setRecord('NPC Relieve', [this.computeattribute.atkc9_min, this.computeattribute.atkc9_max], 'x', Math.pow(0.1, this.enemyattribute.relieveLevel), 'p');
+                        this.setRecord('NPC Relieve', [this.computeattribute.atkc9_min, this.computeattribute.atkc9_max], 'x', (1 - (this.enemyattribute.relieveLevel / 10)), 'p');
                     }
 
                     if (!isNA) {
@@ -11724,7 +11724,7 @@
                         this.computeattribute.matk4_min = Math.floor(this.computeattribute.matk4_min * (1 - (this.enemyattribute.relieveLevel / 10)));
                         this.computeattribute.matk4_max = Math.floor(this.computeattribute.matk4_max * (1 - (this.enemyattribute.relieveLevel / 10)));
 
-                        this.setRecord('NPC Relieve', [this.computeattribute.matk4_min, this.computeattribute.matk4_max], 'x', Math.pow(0.1, this.enemyattribute.relieveLevel), 'p');
+                        this.setRecord('NPC Relieve', [this.computeattribute.matk4_min, this.computeattribute.matk4_max], 'x', (1 - (this.enemyattribute.relieveLevel / 10)), 'p');
                     }
 
                     var _paradiv = eval(this.SkillFormulaReplace(this.skill.hitnumber));
