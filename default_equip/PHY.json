@@ -7946,5 +7946,179 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": -2,
+		"label": "Garment",
+		"equipname": "Royal Morroc Cape",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(20+(GARMR>6?15:0))",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((30*DOWN(GARMR/2))+(GARMG(1)?100:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((3*DOWN(GARMR/2)))",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(GARMR/2))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((10*DOWN(GARMR/3))+(GARMR>11?15:0))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((10*DOWN(GARMR/3))+(GARMR>9?15:0)+(GARMR>11?15:0))",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>6?20:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>8?20:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>9?30:0)",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>10?15:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>11?10:0)",
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"CROSSIMPACT FATALMENACE\")?((GARMR>12?50:0)+(GARMG(4)&&GARMR>13?70:0)):0)+(SKIDS(\"DANCING_KNIFE\")?(GARMR>13?100:0):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMG(2)?15:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMG(3)?20:0",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4121
+				],
+				"itemid_any": [],
+				"equipname": "Phreeoni Card",
+				"effectlist": [
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "GARMR>13?250:0",
+						"EffectType": {
+							"id": "STR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "GARMR>13?250:0",
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "GARMR>13?250:0",
+						"EffectType": {
+							"id": "LUK"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4656
+				],
+				"itemid_any": [],
+				"equipname": "Nightmare Mummy Card",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
