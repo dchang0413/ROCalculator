@@ -1,5 +1,5 @@
 {
-	"Name": "BiS Neutral CI",
+	"Name": "SX_02",
 	"Equip": [
 		{
 			"id": "weaponr",
@@ -537,9 +537,9 @@
 		},
 		{
 			"id": "robe",
-			"itemid": 480479,
+			"itemid": 480597,
 			"label": "Garment",
-			"equipname": "Royal Prontera Cape",
+			"equipname": "Royal Morroc Cape",
 			"refinelevel": 14,
 			"grade": {
 				"id": 4,
@@ -547,84 +547,84 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "20+(GARMR>6?15:0)",
+					"EffectNumber": "(20+(GARMR>6?15:0))",
 					"EffectType": {
 						"id": "AtkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(20*DOWN(GARMR/2))+(GARMG(1)?100:0)",
+					"EffectNumber": "((30*DOWN(GARMR/2))+(GARMG(1)?100:0))",
 					"EffectType": {
 						"id": "Atk"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "2*DOWN(GARMR/2)",
+					"EffectNumber": "((3*DOWN(GARMR/2)))",
 					"EffectType": {
 						"id": "CON"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "2*DOWN(GARMR/2)",
+					"EffectNumber": "(3*DOWN(GARMR/2))",
 					"EffectType": {
-						"id": "CRT"
+						"id": "POW"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(7*DOWN(GARMR/3))+(GARMR>11?15:0)",
+					"EffectNumber": "((10*DOWN(GARMR/3))+(GARMR>11?15:0))",
 					"EffectType": {
-						"id": "RangedDamagePercent"
+						"id": "MeleeDamagePercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "7*DOWN(GARMR/3)",
+					"EffectNumber": "((10*DOWN(GARMR/3))+(GARMR>9?15:0)+(GARMR>11?15:0))",
 					"EffectType": {
 						"id": "CriDamagePercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "GARMR>6?10:0",
+					"EffectNumber": "(GARMR>6?20:0)",
 					"EffectType": {
 						"id": "AspdPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "GARMR>8?20:0",
+					"EffectNumber": "(GARMR>8?20:0)",
 					"EffectType": {
 						"id": "ElementalAtkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "GARMR>9?20:0",
+					"EffectNumber": "(GARMR>9?30:0)",
 					"EffectType": {
 						"id": "Cri"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "GARMR>10?15:0",
+					"EffectNumber": "(GARMR>10?15:0)",
 					"EffectType": {
 						"id": "AllStatus"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "GARMR>11?10:0",
+					"EffectNumber": "(GARMR>11?10:0)",
 					"EffectType": {
 						"id": "CRIDR"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SKIDS(\"IGNITIONBREAK CANNONSPEAR\")?((GARMR>12?50:0)+(GARMG(4)&&GARMR>13?70:0)):0",
+					"EffectNumber": "(SKIDS(\"CROSSIMPACT FATALMENACE\")?((GARMR>12?50:0)+(GARMG(4)&&GARMR>13?70:0)):0)+(SKIDS(\"DANCING_KNIFE\")?(GARMR>13?100:0):0)",
 					"EffectType": {
 						"id": "SkillDamagePercent"
 					},
@@ -648,13 +648,13 @@
 			"combolist": [
 				{
 					"itemid_every": [
-						4147
+						4121
 					],
 					"itemid_any": [],
-					"equipname": "Baphomet Card",
+					"equipname": "Phreeoni Card",
 					"effectlist": [
 						{
-							"EffectNumber": "isBoss?40:0",
+							"EffectNumber": 40,
 							"EffectType": {
 								"id": "LevelAtkPercent"
 							},
@@ -685,20 +685,20 @@
 				},
 				{
 					"itemid_every": [
-						27335
+						4656
 					],
 					"itemid_any": [],
-					"equipname": "Chaotic Baphomet Junior Card",
+					"equipname": "Nightmare Mummy Card",
 					"effectlist": [
 						{
-							"EffectNumber": 15,
+							"EffectNumber": 20,
 							"EffectType": {
-								"id": "AtkPercent"
+								"id": "CriDamagePercent"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": 15,
+							"EffectNumber": 20,
 							"EffectType": {
 								"id": "HPPercent"
 							},
@@ -710,9 +710,9 @@
 		},
 		{
 			"id": "shoes",
-			"itemid": 470289,
+			"itemid": 470345,
 			"label": "Shoes",
-			"equipname": "Ancient Mechanic Greaves",
+			"equipname": "Legendary Dragon Shoes",
 			"refinelevel": 14,
 			"grade": {
 				"id": 4,
@@ -722,91 +722,98 @@
 				{
 					"EffectNumber": 15,
 					"EffectType": {
-						"id": "AtkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "2*DOWN(SHOER/3)",
-					"EffectType": {
-						"id": "GCDPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "3*DOWN(SHOER/3)",
-					"EffectType": {
 						"id": "HPPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SHOER>9?20:0",
+					"EffectNumber": 15,
 					"EffectType": {
-						"id": "MeleeDamagePercent"
+						"id": "SPPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SHOER>9?20:0",
+					"EffectNumber": "((30*DOWN(SHOER/2))+(SHOER>10?120:0))",
 					"EffectType": {
-						"id": "RangedDamagePercent"
+						"id": "Atk"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SHOER>10?20:0",
+					"EffectNumber": "((30*DOWN(SHOER/2))+(SHOER>10?120:0))",
 					"EffectType": {
-						"id": "ElementalAtkPercent"
+						"id": "Matk"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SKIDS(\"AXETORNADO ARMSCANNON\")?((SHOER>12?150:0)+(SHOEG(4)?150:0)):0",
+					"EffectNumber": "((2*DOWN(SHOER/2))+(SHOER>12?15:0))",
 					"EffectType": {
-						"id": "SkillDamagePercent"
+						"id": "POW"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SKIDS(\"AXETORNADO\")?(SHOER>12?2:0):0",
+					"EffectNumber": "((2*DOWN(SHOER/2))+(SHOER>12?15:0))",
 					"EffectType": {
-						"id": "CDTime"
+						"id": "SPL"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SKIDS(\"ARMSCANNON\")?(SHOER>12?100:0):0",
-					"EffectType": {
-						"id": "VariableCastPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "SHOEG(1)?0.7:0",
-					"EffectType": {
-						"id": "FixedCast"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "SHOEG(2)?20:0",
+					"EffectNumber": "((10*DOWN(SHOER/3))+(SHOER>9?15:0)+(SHOEG(1)?20:0))",
 					"EffectType": {
 						"id": "SizeAtkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "SHOEG(3)?10:0",
+					"EffectNumber": "((10*DOWN(SHOER/3))+(SHOER>9?15:0)+(SHOEG(1)?20:0))",
 					"EffectType": {
-						"id": "AllTrait"
+						"id": "SizeMatkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "3*DOWN(SHOER/2)",
+					"EffectNumber": "(SHOER>11?30:0)",
 					"EffectType": {
-						"id": "POW"
+						"id": "ElementalAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHOER>11?30:0)",
+					"EffectType": {
+						"id": "ElementalMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHOEG(2)?15:0)",
+					"EffectType": {
+						"id": "GCDPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHOEG(3)?20:0)",
+					"EffectType": {
+						"id": "PATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHOEG(3)?20:0)",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHOEG(4)&&SHOER>12?1:0)",
+					"EffectType": {
+						"id": "FixedCast"
 					},
 					"Enable": true
 				}
@@ -814,110 +821,116 @@
 			"combolist": [
 				{
 					"itemid_every": [
-						4699
+						450357
 					],
 					"itemid_any": [],
-					"equipname": "Rock Step Card",
+					"equipname": "Violent Dragon Shadow Armor-LT",
 					"effectlist": [
 						{
-							"EffectNumber": 75,
+							"EffectNumber": 200,
 							"EffectType": {
-								"id": "Atk"
+								"id": "Matk"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": "SKIDS(\"ARMSCANNON\")?50:0",
+							"EffectNumber": 20,
 							"EffectType": {
-								"id": "SkillDamagePercent"
+								"id": "ElementalMatkPercent"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": 10,
+							"EffectNumber": "(SHOER>12?150:0)",
 							"EffectType": {
-								"id": "MeleeDamagePercent"
+								"id": "INT"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": 10,
+							"EffectNumber": "(SHOER>12?150:0)",
 							"EffectType": {
-								"id": "RangedDamagePercent"
+								"id": "DEX"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHOER>12?150:0)",
+							"EffectType": {
+								"id": "LUK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHOER>12?25:0)",
+							"EffectType": {
+								"id": "LevelMatkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHOER>12?25:0)",
+							"EffectType": {
+								"id": "LevelAtkPercent"
 							},
 							"Enable": true
 						}
 					]
 				},
 				{
-					"itemid_every": [
-						4688
+					"itemid_every": [],
+					"itemid_any": [
+						450358,
+						480454
 					],
-					"itemid_any": [],
-					"equipname": "True Howard Alt-Eisen Card",
+					"equipname": "Abyss Lake Roaring Armor-LT OR Battle Aura Manteau-LT",
 					"effectlist": [
 						{
-							"EffectNumber": 75,
+							"EffectNumber": 200,
 							"EffectType": {
 								"id": "Atk"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": "SKIDS(\"AXETORNADO\")?50:0",
+							"EffectNumber": 20,
 							"EffectType": {
-								"id": "SkillDamagePercent"
+								"id": "ElementalAtkPercent"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": 10,
+							"EffectNumber": "(SHOER>12?150:0)",
 							"EffectType": {
-								"id": "MeleeDamagePercent"
+								"id": "STR"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": 10,
+							"EffectNumber": "(SHOER>12?150:0)",
 							"EffectType": {
-								"id": "RangedDamagePercent"
-							},
-							"Enable": true
-						}
-					]
-				},
-				{
-					"itemid_every": [
-						4342
-					],
-					"itemid_any": [],
-					"equipname": "RSX-0806 Card",
-					"effectlist": [
-						{
-							"EffectNumber": "100+(['ME','GE'].includes(CCL)?200:0)",
-							"EffectType": {
-								"id": "Atk"
+								"id": "DEX"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": 15,
+							"EffectNumber": "(SHOER>12?150:0)",
 							"EffectType": {
-								"id": "POW"
+								"id": "LUK"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": "6*DOWN(SHOER/2)",
+							"EffectNumber": "(SHOER>12?25:0)",
 							"EffectType": {
-								"id": "MeleeDamagePercent"
+								"id": "LevelMatkPercent"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": "6*DOWN(SHOER/2)",
+							"EffectNumber": "(SHOER>12?25:0)",
 							"EffectType": {
-								"id": "RangedDamagePercent"
+								"id": "LevelAtkPercent"
 							},
 							"Enable": true
 						}
@@ -1223,9 +1236,9 @@
 		},
 		{
 			"id": "weaponcard",
-			"itemid": 4147,
+			"itemid": 4121,
 			"label": "Weapon Card",
-			"equipname": "Baphomet Card",
+			"equipname": "Phreeoni Card",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -1398,9 +1411,9 @@
 		},
 		{
 			"id": "armorcard",
-			"itemid": 4342,
+			"itemid": 4408,
 			"label": "Armor Card",
-			"equipname": "RSX-0806 Card",
+			"equipname": "Gloom Under Night Card",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -1408,9 +1421,16 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 3,
+					"EffectNumber": "(ERI==0||ERI==3)?40:0",
 					"EffectType": {
-						"id": "VIT"
+						"id": "RaceAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(EEI==6||EEI==7)?40:0",
+					"EffectType": {
+						"id": "ElementalAtkPercent"
 					},
 					"Enable": true
 				}
@@ -2830,11 +2850,11 @@
 		"SPL": 0,
 		"CON": 0,
 		"CRT": "97",
-		"ASPD": 192,
+		"ASPD": 193,
 		"HP": 0,
 		"SP": 0,
-		"MHP": 219567,
-		"MSP": 7048
+		"MHP": 220597,
+		"MSP": 7793
 	},
 	"JobStatus": {
 		"STR": 8,
@@ -2897,26 +2917,26 @@
 		"MagnumPoison2Value": 25,
 		"SkillPercent": 5375,
 		"SkillFormulaError": "",
-		"EquipSkillAddDamage": 840,
+		"EquipSkillAddDamage": 960,
 		"BaseCriticalValue": 40,
 		"IgnoreDEF": true,
 		"IgnoreMDEF": false,
 		"MemoryofThanatosCard": false
 	},
-	"EnemyName": "Dummy",
+	"EnemyName": "Training Dummy (Lv. 10)",
 	"Enemy": {
-		"id": 21077,
-		"name": "Dummy",
-		"level": 100,
-		"hp": 2000000000,
-		"LUK": 1,
-		"VIT": 1,
+		"id": 2408,
+		"name": "Training Dummy (Lv. 10)",
+		"level": 10,
+		"hp": 0,
+		"LUK": 0,
+		"VIT": 0,
 		"elemental": 0,
 		"elementallevel": 1,
 		"size": 1,
-		"StatusDEF": 50,
+		"StatusDEF": 5,
 		"WeaponDEF": 0,
-		"StatusMDEF": 25,
+		"StatusMDEF": 2,
 		"WeaponMDEF": 0,
 		"RES": 0,
 		"MRES": 0,
@@ -2929,6 +2949,7 @@
 		"criResist": 0,
 		"doram": false,
 		"auraLevel": 0,
+		"relieveLevel": 0,
 		"race": 6,
 		"classid": 1,
 		"RESPercent": "0.00",
@@ -2954,9 +2975,9 @@
 		"GC_POISONINGWEAPON:1",
 		"SHC_POTENT_VENOM"
 	],
-	"Damage": "3,648,243,592 ~ 3,932,197,773",
-	"DamageDPS": "10,802,128,944",
+	"Damage": "10,154,213,769 ~ 10,754,626,085",
+	"DamageDPS": "29,795,096,792",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "3,790,220,683",
-	"lastedited": "2024-10-09T14:14:22.506Z"
+	"SkillDamageAvg": "10,454,419,927",
+	"lastedited": "2025-05-22T01:34:07.728Z"
 }
