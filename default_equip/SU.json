@@ -2757,5 +2757,69 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "armor",
+		"itemid": -3,
+		"label": "Armor",
+		"equipname": "Radiant Purify",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(SKIDS(\"MASSIVE_F_BLASTER OLEUM_SANCTUM EXPOSION_BLASTER\")?(DOWN(BLV/10)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*ARMORR)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>6?10:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"HOWLINGOFLION\")&&ARMORR>8?100:0)",
+				"EffectType": {
+					"id": "FixedCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>9?15:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>11?150:0)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>11?15:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
