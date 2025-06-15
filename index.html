@@ -14237,6 +14237,13 @@
                     var _dbidx = this.GetJobMapSkillIdx(this.JobMapedSkillId);
                     this.skill = _.cloneDeep(this.StoreDB_JobMapedSkill[_dbidx].skill);
                     this.LoadSkill();
+
+                    let savedSkillName = this.skill?.name || "Unknown";
+                    gtag("event", "skill_used", {
+                        "event_category": "Skill",
+                        "event_label": savedSkillName,
+                        "event_action": "Loaded Save"
+                    });
                 },
                 onLoadSkillDefault(saveid) {
                     this.skill = _.cloneDeep(this.DefaultDB_Skill[saveid].skill);
@@ -14362,6 +14369,7 @@
                     localStorage.setItem('StoreDB_AllSet', parsed);
 
                     let savedSkillName = this.skill?.name || "Unknown";
+                    console.log(savedSkillName);
                     gtag("event", "skill_used", {
                         "event_category": "Skill",
                         "event_label": savedSkillName,
@@ -14505,6 +14513,7 @@
                     });
 
                     let savedSkillName = this.skill?.name || "Unknown";
+                    console.log(savedSkillName);
                     gtag("event", "skill_used", {
                         "event_category": "Skill",
                         "event_label": savedSkillName,
