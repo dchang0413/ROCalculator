@@ -13587,6 +13587,13 @@
                             }
                         }
                         console.log("Load Equip " + idx + ": " + useDB[_dbidx].equip.equipname + " | Item Id: " + useDB[_dbidx].equip.itemid);
+
+                        gtag("event", "equip_loaded", {
+                            "event_category": "Equipment",
+                            "event_label": useDB[_dbidx].equip.equipname,
+                            "event_action": "Loaded Equipment"
+                        });
+
                         if (!('effectlist' in useDB[_dbidx].equip)) useDB[_dbidx].equip.effectlist = [];
                         if (!('combolist' in useDB[_dbidx].equip)) useDB[_dbidx].equip.combolist = [];
                         useDB[_dbidx].equip.effectlist.forEach(x => x.Enable = x.Enable == null ? true : x.Enable);
@@ -14369,7 +14376,6 @@
                     localStorage.setItem('StoreDB_AllSet', parsed);
 
                     let savedSkillName = this.skill?.name || "Unknown";
-                    console.log(savedSkillName);
                     gtag("event", "skill_used", {
                         "event_category": "Skill",
                         "event_label": savedSkillName,
