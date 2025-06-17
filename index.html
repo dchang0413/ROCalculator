@@ -12012,13 +12012,16 @@
                 onSpecialATKChange() {
                     this.onSkillPercentChange();
                 },
-                onChangeClass() {
+                onChangeClass(sendGA = true) {
                     let selectedJobId = this.status.classid; 
-                    gtag("event", "job_selected", {
-                        "event_category": "Class Selection",
-                        "event_label": this.classlist.find(job => job.id === this.status.classid)?.label || "Unknown",
-                        "event_action": "Selected"
-                    });
+                    if (sendGA){
+                        gtag("event", "job_selected", {
+                            "event_category": "Class Selection",
+                            "event_label": this.classlist.find(job => job.id === this.status.classid)?.label || "Unknown",
+                            "event_action": "Selected"
+                        });
+                    }
+                        
 
                     console.log(this.status.classid + " --");
                     this.StoreDB_JobMapedSkill = this.DefaultDB_Skill.filter(post => {
@@ -12042,7 +12045,7 @@
 
                     if (this.StoreDB_JobMapedSkill.length > 0) {
                         this.JobMapedSkillId = this.StoreDB_JobMapedSkill[0].skill.id;
-                        this.onLoadJobMapSkill();
+                        this.onLoadJobMapSkill(sendGA);
                     } else {
                         this.JobMapedSkillId = 'No Skills';
                         this.onOption();
@@ -14241,17 +14244,19 @@
                 GetJobMapSkillIdx(skillid) {
                     return this.StoreDB_JobMapedSkill.findIndex(x => x.skill.id == skillid);
                 },
-                onLoadJobMapSkill() {
+                onLoadJobMapSkill(sendGA = true) {
                     var _dbidx = this.GetJobMapSkillIdx(this.JobMapedSkillId);
                     this.skill = _.cloneDeep(this.StoreDB_JobMapedSkill[_dbidx].skill);
                     this.LoadSkill();
 
-                    let savedSkillName = this.skill?.name || "Unknown";
-                    gtag("event", "skill_used", {
-                        "event_category": "Skill",
-                        "event_label": savedSkillName,
-                        "event_action": "Loaded Save"
-                    });
+                    if (sendGA){
+                        let savedSkillName = this.skill?.name || "Unknown";
+                        gtag("event", "skill_used", {
+                            "event_category": "Skill",
+                            "event_label": savedSkillName,
+                            "event_action": "Skill Selected"
+                        });
+                    }
                 },
                 onLoadSkillDefault(saveid) {
                     this.skill = _.cloneDeep(this.DefaultDB_Skill[saveid].skill);
@@ -14375,13 +14380,6 @@
                     });
                     const parsed = JSON.stringify(this.StoreDB_AllSet);
                     localStorage.setItem('StoreDB_AllSet', parsed);
-
-                    let savedSkillName = this.skill?.name || "Unknown";
-                    gtag("event", "skill_used", {
-                        "event_category": "Skill",
-                        "event_label": savedSkillName,
-                        "event_action": "Selected"
-                    });
 
                     this.ClosePanel('AllSetDBSaveDialog');
                 },
@@ -16456,7 +16454,7 @@
                 };
                 this.subweapon_init = _.cloneDeep(this.subweapon);
                 this.ChangeWeapon();
-                this.onChangeClass();
+                this.onChangeClass(false);
                 this.onChangeSupportClass();
                 this.OpenPanel('General');
                 window.onbeforeunload = e => {   //關閉 重新整理
