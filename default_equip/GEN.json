@@ -13152,5 +13152,172 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "armor",
+		"itemid": 450391,
+		"label": "Armor",
+		"equipname": "Janus Armor-LT",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(120+(10*DOWN(ARMORR/2))+(ARMORG(1)?(5*DOWN(ARMORR/2)):0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(120+(10*DOWN(ARMORR/2))+(ARMORG(1)?(5*DOWN(ARMORR/2)):0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>8?10:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>8?10:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>10?15:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>10?15:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>12?15:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"VARETYR_SPEAR CART_TORNADO\")&&CCL=='SN'?1:0)",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORG(1)?(4*DOWN(ARMORR/3)):0)+(ARMORG(3)?(5*DOWN(ARMORR/3)):0))",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORG(1)?(4*DOWN(ARMORR/3)):0)+(ARMORG(3)?(5*DOWN(ARMORR/3)):0))",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(3)?(DOWN(ARMORR/2)):0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(3)?(DOWN(ARMORR/2)):0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(4)&&ARMORR>12?15:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(4)&&ARMORR>12?15:0)",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"STORMGUST METEOR VERMILION HOLYCROSS SHIELDBOOMERANG\")?(40*DOWN(ARMORR/3)):0)+(SKIDS(\"SPIRAL_PIERCE_MAX NAPALM_VULCAN_STRIKE\")?((ARMORG(2)?(5*DOWN(ARMORR/3)):0)+(ARMORG(4)?(5*DOWN(ARMORR/3)):0)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4197
+				],
+				"itemid_any": [],
+				"equipname": "Mastering Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(CCL=='SN'?(10+(3*DOWN(ARMORR/2))):0)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(CCL=='SN'?(10+(3*DOWN(ARMORR/2))):0)",
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4662
+				],
+				"itemid_any": [],
+				"equipname": "Big Eggring Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(CCL=='SN'?(15+(6*DOWN(ARMORR/3))):0)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(CCL=='SN'?(15+(6*DOWN(ARMORR/3))):0)",
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
