@@ -3941,5 +3941,153 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": -15,
+		"label": "Accessory",
+		"equipname": "Fallen Seraphim Ring (Imperial Guard)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"CROSS_RAIN\")?25:0)+(SKIDS(\"RAYOFGENESIS\")?35:0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					500019
+				],
+				"itemid_any": [],
+				"equipname": "Poenitentia Gladius",
+				"effectlist": [
+					{
+						"EffectNumber": "(WEAR>9?10:0)",
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "((SKIDS(\"CROSS_RAIN\")&&WEAR>9?35:0)+(SKIDS(\"RAYOFGENESIS\")&&WEAR>9?70:0))",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR>9?15:0)",
+						"EffectType": {
+							"id": "RaceMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc2",
+		"itemid": -15,
+		"label": "Accessory",
+		"equipname": "Poenitentia Ring (Imperial Guard)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"CROSS_RAIN\")?25:0)+(SKIDS(\"RAYOFGENESIS\")?35:0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					500019
+				],
+				"itemid_any": [],
+				"equipname": "Poenitentia Gladius",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"CROSS_RAIN\")&&WEAR>9?2:0)",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

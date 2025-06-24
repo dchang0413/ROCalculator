@@ -2821,5 +2821,121 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "acc2",
+		"itemid": -16,
+		"label": "Accessory",
+		"equipname": "Champion Glove",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(5+(BLV>99?7:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5+(BLV>99?7:0))",
+				"EffectType": {
+					"id": "STA"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV>99?7:0)",
+				"EffectType": {
+					"id": "WIS"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV<100?10000:0)",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV<100?2000:0)",
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV<100?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV>99?(DOWN(BLV/3)):0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"FINGEROFFENSIVE\")&&BLV<100?150:0)+(SKIDS(\"EXPOSION_BLASTER\")&&BLV>99?(3*DOWN(BLV/10)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4316
+				],
+				"itemid_any": [],
+				"equipname": "False Angel Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "STR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"EXTREMITYFIST\")?100:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
