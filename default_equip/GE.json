@@ -774,7 +774,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SKIDES('ACIDIFIED_ZONE_GROUND')?(FLOOR(BLV/10)):0",
+				"EffectNumber": "SKIDS('ACIDIFIED_ZONE_GROUND')?(FLOOR(BLV/10)):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -3777,6 +3777,94 @@
 						"EffectNumber": 40,
 						"EffectType": {
 							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": -4,
+		"label": "Garment",
+		"equipname": "Colorful Potion Cape",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(SKIDS(\"CRAZYWEED\")&&CCL=='GE'?1.2:0)",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"CARTCANNON CART_TORNADO\")&&CCL=='GE'?30:0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((10*DOWN(GARMR/2))+(GARMR>10?50:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(GARMR/3))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(GARMR/3))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>6?10:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>8?10:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4121
+				],
+				"itemid_any": [],
+				"equipname": "Phreeoni Card",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(isBoss?20:0)",
+						"EffectType": {
+							"id": "LevelAtkPercent"
 						},
 						"Enable": true
 					}

@@ -12424,5 +12424,479 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "weaponl",
+		"itemid": -2,
+		"label": "OffHand",
+		"equipname": "Odin Grace Shield",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(SKIDS(\"CROSS_RAIN RAYOFGENESIS\")&&CCL=='RG'?25:0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((10*DOWN(SRL/2))+(SRL>8?30:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SRL>6?15:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SRL>8?5:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((EEI==0||EEI==6)&&SRL>10?8:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"CROSS_RAIN\")&&SRL>12?0.3:0)+(SKIDS(\"RAYOFGENESIS\")&&SRL>12?1:0))",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shield",
+				"label": "Shield"
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 0,
+				"saferefine": 0,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": 0,
+			"MATK": 0,
+			"refinelevel": 14,
+			"ShieldWeight": 350,
+			"refineatk": 0,
+			"refinematk": 0
+		}
+	},
+	{
+		"id": "shoes",
+		"itemid": -3,
+		"label": "Shoes",
+		"equipname": "Pantheon Boots",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((30*DOWN(SHOER/2))+(SHOER>11?150:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((30*DOWN(SHOER/2))+(SHOER>11?150:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((2*DOWN(SHOER/2))+(SHOER>13?20:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((2*DOWN(SHOER/2))+(SHOER>13?20:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((10*DOWN(SHOER/3))+(SHOER>10?15:0)+(SHOEG(1)?15:0))",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((10*DOWN(SHOER/3))+(SHOER>10?15:0)+(SHOEG(1)?15:0))",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>12?30:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>12?30:0)",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>13?20:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(2)?20:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(2)?20:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(3)?0.5:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(4)&&SHOER>13?175:0)",
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(4)&&SHOER>13?175:0)",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(4)&&SHOER>13?175:0)",
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(4)&&SHOER>13?175:0)",
+				"EffectType": {
+					"id": "LUK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [],
+				"itemid_any": [
+					450293,
+					450294,
+					450295,
+					450296,
+					450297,
+					450298
+				],
+				"equipname": "Ceres Leather Armor-LT or Jupiter Light Armor-LT or Apollo Armor-LT or Mars Armor-LT or Venus Feather Armor-LT or Vulcanus Armor-LT",
+				"effectlist": [
+					{
+						"EffectNumber": 200,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 200,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "ElementalAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHOER>13?10:0)",
+						"EffectType": {
+							"id": "AllStatus"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHOER>13?10:0)",
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHOER>13?30:0)",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHOER>13?30:0)",
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": -5,
+		"label": "Garment",
+		"equipname": "White Knight Cape",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 200,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10+(GARMR>10?15:0))",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((3*GARMR)+(GARMG(4)?150:0))",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*GARMR)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*GARMR)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((GARMR>10?5:0)+(GARMR>12?10:0)+(GARMR>13?15:0)+(GARMG(4)?15:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>10?15:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((EEI==6||EEI==8)?((GARMR>12?20:0)+(GARMR>13?40:0)+(GARMG(1)?15:0)):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"ADORAMUS SOULEXPANSION\")&&GARMG(2)?0.5:0)",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"CROSS_RAIN RAYOFGENESIS\")&&GARMG(3)?25:0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4608
+				],
+				"itemid_any": [],
+				"equipname": "White Knight Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(EEI==6?25:0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27384
+				],
+				"itemid_any": [],
+				"equipname": "Mutating White Knight Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(EEI==8?(10+(GARMG(4)?25:0)):0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc2",
+		"itemid": -7,
+		"label": "Accessory",
+		"equipname": "Consecrate Fides Monile",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(50*BLV)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*BLV)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(BLV/5))",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(BLV/5))",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
