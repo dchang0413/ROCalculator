@@ -12427,7 +12427,7 @@
 	},
 	{
 		"id": "weaponl",
-		"itemid": -2,
+		"itemid": 460112,
 		"label": "OffHand",
 		"equipname": "Odin Grace Shield",
 		"refinelevel": 14,
@@ -12507,7 +12507,7 @@
 	},
 	{
 		"id": "shoes",
-		"itemid": -3,
+		"itemid": 470355,
 		"label": "Shoes",
 		"equipname": "Pantheon Boots",
 		"refinelevel": 14,
@@ -12719,7 +12719,7 @@
 	},
 	{
 		"id": "robe",
-		"itemid": -5,
+		"itemid": 480607,
 		"label": "Garment",
 		"equipname": "White Knight Cape",
 		"refinelevel": 14,
@@ -12837,7 +12837,7 @@
 	},
 	{
 		"id": "acc2",
-		"itemid": -7,
+		"itemid": 490707,
 		"label": "Accessory",
 		"equipname": "Consecrate Fides Monile",
 		"refinelevel": 0,
@@ -12901,7 +12901,7 @@
 	},
 	{
 		"id": "robe",
-		"itemid": -10,
+		"itemid": 480583,
 		"label": "Garment",
 		"equipname": "Angel Ribbon Wing (Red)",
 		"refinelevel": 14,
@@ -13035,7 +13035,7 @@
 	},
 	{
 		"id": "robe",
-		"itemid": -11,
+		"itemid": 480584,
 		"label": "Garment",
 		"equipname": "Angel Ribbon Wing (White)",
 		"refinelevel": 14,
@@ -13318,6 +13318,225 @@
 				]
 			}
 		],
+		"idx": 3
+	},
+	{
+		"id": "weaponl",
+		"itemid": 460106,
+		"label": "OffHand",
+		"equipname": "Kitten Shield",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 15000,
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3000,
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SRL>11?50:0)",
+				"EffectType": {
+					"id": "FixedCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAG(2)?15:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAG(2)?15:0)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAG(3)?15:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAG(4)?15:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAG(4)?15:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					400758
+				],
+				"itemid_any": [],
+				"equipname": "Cat Paw Potential Hat",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(50*DOWN(HATR/2))",
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(3*DOWN(HATR/3))",
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					400759
+				],
+				"itemid_any": [],
+				"equipname": "Cat Paw Growth Hat",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(50*DOWN(HATR/2))",
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(3*DOWN(HATR/3))",
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shield",
+				"label": "Shield"
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 0,
+				"saferefine": 0,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": 0,
+			"MATK": 0,
+			"refinelevel": 14,
+			"ShieldWeight": 10,
+			"refineatk": 0,
+			"refinematk": 0
+		}
+	},
+	{
+		"id": "helm1",
+		"itemid": 410434,
+		"label": "Middle",
+		"equipname": "Vampire Von Blood",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5000,
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 500,
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
 		"idx": 3
 	}
 ]
