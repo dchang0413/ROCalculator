@@ -8177,5 +8177,172 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "armor",
+		"itemid": -1,
+		"label": "Armor",
+		"equipname": "Kiel Academy Uniform",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(5+ARMORR)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5+ARMORR)",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(50+(10*ARMORR)+(20*DOWN(ARMORR/2)))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(['KO','OB','RE','SE','SL','SUM','SN'].includes(CCL)?30000:0)",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(ARMORR/2))",
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(ARMORR/2))",
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORR>10?10:0)+(ARMORR>11?20:0)+(ARMORR>12?30:0)+(ARMORG(2)?15:0)+(ARMORG(4)&&ARMORR>13?40:0))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORR>10?5:0)+(ARMORR>11?10:0)+(ARMORR>12?15:0))",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORR>12?10:0)+(ARMORR>13?15:0))",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(1)?20:0)",
+				"EffectType": {
+					"id": "BypassDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORG(2)?15:0)+(ARMORG(4)?40:0))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"A_MACHINE\")&&ARMORG(3)?75:0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4403
+				],
+				"itemid_any": [],
+				"equipname": "Kiel-D-01 Card",
+				"effectlist": [
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ARMORG(4)?30:0)",
+						"EffectType": {
+							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ARMORG(4)?1:0)",
+						"EffectType": {
+							"id": "FixedCast"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4401
+				],
+				"itemid_any": [],
+				"equipname": "Alicel Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(ARMORR>11?30:0)",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"A_MACHINE\")&&ARMORR>11?75:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

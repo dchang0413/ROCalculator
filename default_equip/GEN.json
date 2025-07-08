@@ -13538,5 +13538,222 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "weaponl",
+		"itemid": -2,
+		"label": "OffHand",
+		"equipname": "Dragonic Shield",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(5+SWEAR)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5+SWEAR)",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(50+(15*SWEAR))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(SWEAR/2))",
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(SWEAR/2))",
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((7*DOWN(SWEAR/2))+(SWEAG(2)?15:0))",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((7*DOWN(SWEAR/2))+(SWEAG(2)?15:0))",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"DRAGONBREATH\")?((SWEAR>9?75:0)+(SWEAG(3)?75:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>10?2:0)",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SWEAR>10?20:0)+(SWEAR>11?30:0))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>11?10:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>11?10:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SWEAR>12?5:0)+(SWEAG(4)?10:0))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAG(1)?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					450442
+				],
+				"itemid_any": [],
+				"equipname": "Saint Knight Armor",
+				"effectlist": [
+					{
+						"EffectNumber": 200,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 200,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"RAYOFGENESIS HUNDREDSPEAR\")?(DOWN(BLV/3)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shield",
+				"label": "Shield"
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 2,
+				"saferefine": 7,
+				"overatk": 3
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": 0,
+			"MATK": 0,
+			"refinelevel": 14,
+			"ShieldWeight": 200,
+			"refinematk": 0,
+			"refineatk": 0
+		}
+	},
+	{
+		"id": "acc",
+		"itemid": -4,
+		"label": "Accessory",
+		"equipname": "Gloves of Light and Darkness",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 7,
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 7,
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"ADORAMUS METEORASSAULT\")?(DOWN(BLV/2)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
