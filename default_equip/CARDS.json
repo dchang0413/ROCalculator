@@ -6959,5 +6959,237 @@
 		"combolist": [],
 		"flags": [],
 		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300441,
+		"label": "Weapon Card",
+		"equipname": "Burning Night Card",
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber":"(['OneHandedAxe','TwoHandedAxe'].includes(WTI)?(10+(2*DOWN(WEAR/3))+(BLV>199?(3*DOWN(WEAR/3)):0)):0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300442,
+		"label": "Weapon Card",
+		"equipname": "Deadsera Card",
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber":"(['OneHandedRods'].includes(WTI)?(10+(2*DOWN(WEAR/3))+(BLV>199?(3*DOWN(WEAR/3)):0)):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300443,
+		"label": "Shoes Card",
+		"equipname": "Hardrock Titan Card",
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber":"(EEI==4?((SHOER>6?10:0)+(SHOER>8?7:0)):0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300444,
+		"label": "Shoes Card",
+		"equipname": "Deadween Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(5+(SHOER>6?3:0)+(SHOER>8?2:0))",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300445,
+		"label": "Armor Card",
+		"equipname": "Gaia Pol Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(ERI==2||ERI==8)?40:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EEI==0||EEI==4)?40:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300446,
+		"label": "Weapon Card",
+		"equipname": "Punch Bug Card",
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber":"(['Knuckles'].includes(WTI)?(10+(2*DOWN(WEAR/3))+(BLV>199?(3*DOWN(WEAR/3)):0)):0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300447,
+		"label": "Acc Card",
+		"equipname": "Aferde Card",
+		"effectlist": [
+			{
+				"EffectNumber": 6,
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300449
+				],
+				"itemid_any": [],
+				"equipname": "Timbers Card",
+				"effectlist": [
+					{
+						"EffectNumber": 8,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300448,
+		"label": "Acc Card",
+		"equipname": "Dispol Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==6?35:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc1card",
+		"itemid": 300449,
+		"label": "Acc Card",
+		"equipname": "Timbers Card",
+		"effectlist": [
+			{
+				"EffectNumber": 6,
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300450,
+		"label": "Shoes Card",
+		"equipname": "Renire Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==3?(3*SHOER):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
 	}
 ]
