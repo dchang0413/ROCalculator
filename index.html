@@ -12419,10 +12419,14 @@
                     }
                     if (this.IsSupportActive('GC_CLOAKINGEXCEED')) {
                         if (this.skill.id.includes('SAVAGE_IMPACT')) this.skill.hitnumber = 5;
-                        else if (this.skill.id.includes('SHADOW_STAB')) this.skill.hitnumber = 2;
+                        else if (this.skill.id.includes('SHADOW_STAB')) {
+                            this.skill.hitnumber = this.skill.version == 4 ? 3 : 2;
+                        }
                     } else {
                         if (this.skill.id.includes('SAVAGE_IMPACT')) this.skill.hitnumber = 3;
-                        else if (this.skill.id.includes('SHADOW_STAB')) this.skill.hitnumber = 1;
+                        else if (this.skill.id.includes('SHADOW_STAB')) {
+                            this.skill.hitnumber = this.skill.version == 4 ? 2 : 1;
+                        }
                     }
                     if (this.IsSupportActive('SHC_POTENT_VENOM')) {
                         this.attribute['BYPASSRES'] += 3 * this.GetSupportSkill('SHC_POTENT_VENOM').lv;;
@@ -14844,6 +14848,7 @@
                         { skill: { id: 'SHC_SAVAGE_IMPACT_4', name: 'Savage Impact', level: 10, formula: '(SLV*90+POW*5)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, halfcri: true, hitnumber: 3, elemental: 0, FCT: 0, VCT: 0, CD: 0.7, GCD: 0.3, Note: '', Version: 4, } },
                         { skill: { id: 'SHC_SAVAGE_IMPACT(ex)_4', name: 'Savage Impact(Shadow Exceed)', level: 10, formula: '(SLV*110+POW*7)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: true, cannon: false, transWeaponDEF: false, laterformula: false, halfcri: true, hitnumber: 3, elemental: 0, FCT: 0, VCT: 0, CD: 0.7, GCD: 0.3, Note: '', Version: 4, } },
                         { skill: { id: 'SHC_SHADOW_STAB_4', name: 'Shadow Stab', level: 5, formula: '(SLV*350+POW*5)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, halfcri: true, hitnumber: 2, elemental: 0, FCT: 0, VCT: 0, CD: 0.35, GCD: 0, Note: '', Version: 4, } },
+                        { skill: { id: 'SHC_SHADOW_STAB(ex)_4', name: 'Shadow Stab (Cloaking Exceed)', level: 5, formula: '(SLV*400+POW*7)*BLV/100', class: 'GX', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: true, laterformula: false, halfcri: true, hitnumber: 3, elemental: 0, FCT: 0, VCT: 0, CD: 0.35, GCD: 0, Note: '', Version: 4, } },
 
                         { skill: { id: 'NC_AXETORNADO', name: 'Axe Tornado', level: 5, formula: '(200+180*SLV+VIT)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -6, elemental: 0, FCT: 0, VCT: 0, CD: 2, GCD: 0.5, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'NC_AXEBOOMERANG', name: 'Axe Boomerang', level: 5, formula: '(250+50*SLV+WGT)*BLV/100', class: 'ME', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: "5-(SLV-1)*0.5", GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: 'Weapon Weight Scaling', Version: 0, } },
