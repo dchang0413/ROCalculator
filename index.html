@@ -12424,9 +12424,7 @@
                         }
                     } else {
                         if (this.skill.id.includes('SAVAGE_IMPACT')) this.skill.hitnumber = 3;
-                        else if (this.skill.id.includes('SHADOW_STAB')) {
-                            this.skill.hitnumber = this.skill.Version == 4 ? 2 : 1;
-                        }
+                        else if (this.skill.id.includes('SHADOW_STAB') && this.skill.Version != 4) this.skill.hitnumber = 1;
                     }
                     if (this.IsSupportActive('SHC_POTENT_VENOM')) {
                         this.attribute['BYPASSRES'] += 3 * this.GetSupportSkill('SHC_POTENT_VENOM').lv;;
