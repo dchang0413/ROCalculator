@@ -4036,5 +4036,252 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "acc2",
+		"itemid": 490772,
+		"label": "Accessory",
+		"equipname": "Poenitentia Ring (Wind Hawk)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"CRESCIVE_BOLT\")?25:0)+(SKIDS(\"AIMEDBOLT\")?35:0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490771,
+		"label": "Accessory",
+		"equipname": "Falcon Claw",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"CRESCIVE_BOLT\")?25:0)+(SKIDS(\"AIMEDBOLT\")?35:0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					700023
+				],
+				"itemid_any": [],
+				"equipname": "Poenitentia Nervus",
+				"effectlist": [
+					{
+						"EffectNumber": "(WEAR>9?10:0)",
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "((SKIDS(\"CRESCIVE_BOLT\")&&WEAR>?35:0)+(SKIDS(\"AIMEDBOLT\")&&WEAR>?70:0))",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR>9?15:0)",
+						"EffectType": {
+							"id": "RaceAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc2",
+		"itemid": 490782,
+		"label": "Accessory",
+		"equipname": "Icarus Gloves",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(5+(BLV>99?7:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5+(BLV>99?7:0))",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV>99?7:0)",
+				"EffectType": {
+					"id": "CRT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV<100?15000:0)",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV<100?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV>99?(DOWN(BLV/3)):0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"FALCONASSAULT\")&&BLV<100?200:0)+(SKIDS(\"GALESTORM\")&&BLV>99?(3*DOWN(BLV/10)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4351
+				],
+				"itemid_any": [],
+				"equipname": "Kavach Icarus Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AGI"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"BLITZBEAT\")?200:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

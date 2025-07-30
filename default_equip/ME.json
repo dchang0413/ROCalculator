@@ -3326,7 +3326,7 @@
 	},
 	{
 		"id": "helm",
-		"itemid": -3,
+		"itemid": 400948,
 		"label": "Upper",
 		"equipname": "Robotic Valkyrie Hairband",
 		"refinelevel": 14,
@@ -3449,7 +3449,7 @@
 	},
 	{
 		"id": "armor",
-		"itemid": -4,
+		"itemid": 450419,
 		"label": "Armor",
 		"equipname": "World All",
 		"refinelevel": 14,
@@ -3482,5 +3482,605 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "acc2",
+		"itemid": 490770,
+		"label": "Accessory",
+		"equipname": "Poenitentia Ring (Meister)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"AXE_STOMP\")?25:0)+(SKIDS(\"ARMSCANNON\")?35:0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					590016
+				],
+				"itemid_any": [],
+				"equipname": "Poenitentia Clava",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"ARMSCANNON\")&&WEAR>9?100:0)",
+						"EffectType": {
+							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					620006
+				],
+				"itemid_any": [],
+				"equipname": "Poenitentia Axia",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"AXE_STOMP\")&&WEAR>9?0.5:0)",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR>9?10:0)",
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490769,
+		"label": "Accessory",
+		"equipname": "Machine Arm",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"AXE_STOMP\")?25:0)+(SKIDS(\"ARMSCANNON\")?35:0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					590016
+				],
+				"itemid_any": [],
+				"equipname": "Poenitentia Clava",
+				"effectlist": [
+					{
+						"EffectNumber": "(WEAR>9?10:0)",
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"ARMSCANNON\")&&WEAR>9?70:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR>9?15:0)",
+						"EffectType": {
+							"id": "RaceAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					620006
+				],
+				"itemid_any": [],
+				"equipname": "Poenitentia Axia",
+				"effectlist": [
+					{
+						"EffectNumber": "(WEAR>9?10:0)",
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"AXE_STOMP\")&&WEAR>9?35:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR>9?15:0)",
+						"EffectType": {
+							"id": "RaceAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400380,
+		"label": "Upper",
+		"equipname": "Crown of Good and Evil (Meister)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(5*DOWN(HATR/3))",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(HATR/4))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(HATR/4))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>8?5:0)",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>8?5:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?5:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATR>10?0.3:0)+(HATR>11&&HATG(4)?0.2:0))",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(1)?5:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATG(2)?3:0)+(HATG(3)?2:0))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATG(2)?3:0)+(HATG(3)?2:0))",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					1341
+				],
+				"itemid_any": [],
+				"equipname": "Destruction Axe",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"TRIPLE_LASER\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(10*DOWN(WEAR/3))",
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312021,
+					1341
+					
+				],
+				"itemid_any": [],
+				"equipname": "Destruction Axe + Evil Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"TRIPLE_LASER\")?15:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					620022
+				],
+				"itemid_any": [],
+				"equipname": "Divine Buster",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"MIGHTY_SMASH\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)+(SKIDS(\"AXE_STOMP\")?(5*DOWN(WEAR/3)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312014,
+					620022
+					
+				],
+				"itemid_any": [],
+				"equipname": "Divine Buster + Good Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"MIGHTY_SMASH\")?15:0)+(SKIDS(\"AXE_STOMP\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 1341,
+		"label": "MainHand",
+		"equipname": "Destruction Axe",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>6?5:0)+(WEAG(1)?10:0))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"TRIPLE_LASER\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>9?10:0)",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?20:0)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?10:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?10:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?10:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedAxe",
+				"label": "1HAxes",
+				"sizefix": {
+					"small": 50,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "230",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 440,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 620022,
+		"label": "MainHand",
+		"equipname": "Divine Buster",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>6?5:0)+(WEAG(1)?10:0))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"MIGHTY_SMASH\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0)+(SKIDS(\"AXE_STOMP\")?(WEAR>10?15:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>9?10:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?10:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(3)?10:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(4)?10:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedAxe",
+				"label": "2HAxes",
+				"sizefix": {
+					"small": 50,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "330",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 660,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
 	}
 ]

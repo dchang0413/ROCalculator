@@ -4088,5 +4088,383 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "helm",
+		"itemid": 400374,
+		"label": "Upper",
+		"equipname": "Crown of Good and Evil (Dragon Knight)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(5*DOWN(HATR/3))",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(HATR/4))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(HATR/4))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>8?5:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>8?5:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?5:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATR>10?0.3:0)+(HATR>11&&HATG(4)?0.2:0))",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(1)?5:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATG(2)?3:0)+(HATG(3)?2:0))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATG(2)?3:0)+(HATG(3)?2:0))",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					600041
+				],
+				"itemid_any": [],
+				"equipname": "Execution Great Sword",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"HACKANDSLASHER\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)+(SKIDS(\"STORMSLASH\")?(5*DOWN(WEAR/3)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312021,
+					600041
+					
+				],
+				"itemid_any": [],
+				"equipname": "Execution Great Sword + Evil Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"HACKANDSLASHER\")?15:0)+(SKIDS(\"STORMSLASH\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					630027
+				],
+				"itemid_any": [],
+				"equipname": "Jupiter Spear",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"DRAGONIC_BREATH\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)+(SKIDS(\"MADNESS_CRUSHER\")?(5*DOWN(WEAR/3)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312014,
+					630027
+					
+				],
+				"itemid_any": [],
+				"equipname": "Jupiter Spear + Good Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"DRAGONIC_BREATH\")?15:0)+(SKIDS(\"MADNESS_CRUSHER\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 600041,
+		"label": "MainHand",
+		"equipname": "Execution Great Sword",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>6?5:0)+(WEAG(1)?10:0))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"HACKANDSLASHER\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0)+(SKIDS(\"STORMSLASH\")?(WEAR>10?15:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>9?10:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?10:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?10:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?10:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedSword",
+				"label": "2HSword",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "280",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 420,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 630027,
+		"label": "MainHand",
+		"equipname": "Jupiter Spear",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>6?5:0)+(WEAG(1)?10:0))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"DRAGONIC_BREATH\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0)+(SKIDS(\"MADNESS_CRUSHER\")?(WEAR>10?15:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>9?10:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?10:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(3)?10:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(4)?10:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "TwoHandedSpears",
+				"label": "2HSpear",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "300",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 500,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
 	}
 ]
