@@ -13541,7 +13541,7 @@
 	},
 	{
 		"id": "weaponl",
-		"itemid": -2,
+		"itemid": 460117,
 		"label": "OffHand",
 		"equipname": "Dragonic Shield",
 		"refinelevel": 14,
@@ -13708,7 +13708,7 @@
 	},
 	{
 		"id": "acc",
-		"itemid": -4,
+		"itemid": 490780,
 		"label": "Accessory",
 		"equipname": "Gloves of Light and Darkness",
 		"refinelevel": 0,
@@ -13754,6 +13754,187 @@
 			}
 		],
 		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": 480615,
+		"label": "Garment",
+		"equipname": "Royal Monastery Muffler",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((GARMR>9?150:0)+(GARMG(1)?75:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((GARMR>9?150:0)+(GARMG(1)?75:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((7*DOWN(GARMR/2))+(GARMR>11?15:0)+(GARMR>11&&['SU','AB','RG','RK'].includes(CCL)?10:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((7*DOWN(GARMR/2))+(GARMR>11?15:0)+(GARMR>11&&['SU','AB','RG','RK'].includes(CCL)?10:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((7*DOWN(GARMR/3))+(GARMR>6?10:0))",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((7*DOWN(GARMR/3))+(GARMR>6?10:0))",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((GARMR>8?20:0)+(GARMR>9&&['SU','AB','RG','RK'].includes(CCL)?15:0))",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((GARMR>8?20:0)+(GARMR>9&&['SU','AB','RG','RK'].includes(CCL)?15:0))",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>10?15:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"ADORAMUS RAYOFGENESIS TIGERCANNON\")?((GARMR>12?70:0)+(GARMG(4)?100:0)):0)+(SKIDS(\"CROSS_RAIN\")?(GARMR>13?50:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMG(2)?15:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMG(3)?10:0",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMG(3)?10:0",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4441
+				],
+				"itemid_any": [],
+				"equipname": "Fallen Bishop Card",
+				"effectlist": [
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "GARMR>13?250:0",
+						"EffectType": {
+							"id": "STR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "GARMR>13?250:0",
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "GARMR>13?250:0",
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4190
+				],
+				"itemid_any": [],
+				"equipname": "Wraith Card",
+				"effectlist": [
+					{
+						"EffectNumber": 0.5,
+						"EffectType": {
+							"id": "FixedCast"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"idx": 3
 	}
 ]

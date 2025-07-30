@@ -308,7 +308,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(SKIDS(\"REVERBERATION\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"METALIC_FURY\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
+				"EffectNumber": "((SKIDS(\"REVERBERATION\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"METALIC_FURY\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0))",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -322,7 +322,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(SKIDS(\"REVERBERATION\")&&WEAR>10)?0.5:0)",
+				"EffectNumber": "(SKIDS(\"REVERBERATION\")&&WEAR>10?0.5:0)",
 				"EffectType": {
 					"id": "FixedCast"
 				},
@@ -399,7 +399,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(SKIDS(\"REVERBERATION\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"METALIC_FURY\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
+				"EffectNumber": "((SKIDS(\"REVERBERATION\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"METALIC_FURY\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0))",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -413,7 +413,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(SKIDS(\"REVERBERATION\")&&WEAR>10)?0.5:0)",
+				"EffectNumber": "(SKIDS(\"REVERBERATION\")&&WEAR>10?0.5:0)",
 				"EffectType": {
 					"id": "FixedCast"
 				},
@@ -490,7 +490,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(SKIDS(\"SEVERE_RAINSTORM\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"RHYTHMSHOOTING\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0)",
+				"EffectNumber": "((SKIDS(\"SEVERE_RAINSTORM\")?3*DOWN(WEAR/2)+(WEAR>8?30:0):0)+(SKIDS(\"RHYTHMSHOOTING\")?10+(WEAG(3)?25:(WEAG(2)?13:(WEAG(1)?5:0))):0))",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
@@ -504,7 +504,7 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(SKIDS(\"SEVERE_RAINSTORM\")&&WEAR>10)?2:0",
+				"EffectNumber": "(SKIDS(\"SEVERE_RAINSTORM\")&&WEAR>10?2:0)",
 				"EffectType": {
 					"id": "CDTime"
 				},
@@ -3195,6 +3195,823 @@
 			"ArrowATK": 0,
 			"BulletATK": 0,
 			"Weight": 10,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "robe",
+		"itemid": 480604,
+		"label": "Garment",
+		"equipname": "Wings of Melody",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(15*DOWN(GARMR/2))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(15*DOWN(GARMR/2))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(GARMR/2))",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(GARMR/2))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(GARMR/3))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(GARMR/3))",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>6?15:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>8?10:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>8?10:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>10?10:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>10?10:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>12&&['MI','WA'].includes(CCL)?25:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>12&&['MI','WA'].includes(CCL)?25:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"ROSEBLOSSOM METALIC_FURY\")&&GARMR>12&&['MI','WA'].includes(CCL)?30:0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(2)?10:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(2)?10:0)",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(3)?12:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(3)?12:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"KVASIR_SONATA SPECIALSINGER\")&&GARMG(4)?30:0)",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					27106
+				],
+				"itemid_any": [],
+				"equipname": "Awakened Ferre Card",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "CON"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(isBoss?50:0)",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(isBoss?50:0)",
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27108
+				],
+				"itemid_any": [],
+				"equipname": "Singing Ferre Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"METALIC_FURY\")?30:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27107
+				],
+				"itemid_any": [],
+				"equipname": "Playing Ferre Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"ROSEBLOSSOM\")?30:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400385,
+		"label": "Upper",
+		"equipname": "Crown of Good and Evil (Trouvere & Troubadour)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(5*DOWN(HATR/3))",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(HATR/3))",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(HATR/4))",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(HATR/4))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>8?10:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?5:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?5:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATR>10?0.3:0)+(HATR>11&&HATG(4)?0.2:0))",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(1)?5:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATG(2)?3:0)+(HATG(3)?2:0))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATG(2)?3:0)+(HATG(3)?2:0))",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(3)?2:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [],
+				"itemid_any": [
+					570036,
+					580037
+				],
+				"equipname": "Crime Violin or Crime Whip",
+				"effectlist": [
+					{
+						"EffectNumber": "((SKIDS(\"METALIC_FURY\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)+(SKIDS(\"SOUNDBLEND\")?(5*DOWN(WEAR/3)):0))",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312021
+				],
+				"itemid_any": [
+					570036,
+					580037
+				],
+				"equipname": "Crime Violin or Crime Whip + Evil Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "((SKIDS(\"METALIC_FURY\")?15:0)+(SKIDS(\"SOUNDBLEND\")?20:0))",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [],
+				"itemid_any": [
+					570037,
+					580038
+				],
+				"equipname": "Light Power Harp or Light Power Spark",
+				"effectlist": [
+					{
+						"EffectNumber": "((SKIDS(\"RHYTHMSHOOTING\")?((4*DOWN(WEAR/3))+(WEAG(3)?10:0)):0)+(SKIDS(\"ROSEBLOSSOM\")?(5*DOWN(WEAR/3)):0))",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					312014
+				],
+				"itemid_any": [
+					570037,
+					580038
+				],
+				"equipname": "Light Power Harp or Light Power Spark + Good Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "((SKIDS(\"RHYTHMSHOOTING\")?15:0)+(SKIDS(\"ROSEBLOSSOM\")?20:0))",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 570036,
+		"label": "MainHand",
+		"equipname": "Crime Violin",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>6?5:0)+(WEAG(1)?10:0))",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"METALIC_FURY\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0)+(SKIDS(\"SOUNDBLEND\")?(WEAR>10?15:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>9?10:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?10:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?10:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?10:0)",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Instruments",
+				"label": "Instrument",
+				"sizefix": {
+					"small": 75,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "120",
+			"MATK": 220,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 110,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 580037,
+		"label": "MainHand",
+		"equipname": "Crime Whip",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>6?5:0)+(WEAG(1)?10:0))",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"METALIC_FURY\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0)+(SKIDS(\"SOUNDBLEND\")?(WEAR>10?15:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>9?10:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?10:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?10:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?10:0)",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Whips",
+				"label": "Whip",
+				"sizefix": {
+					"small": 75,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "120",
+			"MATK": 220,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 110,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 570037,
+		"label": "MainHand",
+		"equipname": "Light Power Harp",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>6?5:0)+(WEAG(1)?10:0))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"RHYTHMSHOOTING\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0)+(SKIDS(\"ROSEBLOSSOM\")?(WEAR>10?15:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>9?10:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?10:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?10:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?10:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Instruments",
+				"label": "Instrument",
+				"sizefix": {
+					"small": 75,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "200",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 200,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "weaponr",
+		"itemid": 580038,
+		"label": "MainHand",
+		"equipname": "Light Power Spark",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>6?5:0)+(WEAG(1)?10:0))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"RHYTHMSHOOTING\")?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0)+(SKIDS(\"ROSEBLOSSOM\")?(WEAR>10?15:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>9?10:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(2)?10:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?10:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?10:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Whips",
+				"label": "Whip",
+				"sizefix": {
+					"small": 75,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "200",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 200,
 			"refinematk": 0,
 			"refineatk": 0,
 			"refineatk2": 0

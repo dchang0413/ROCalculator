@@ -5034,5 +5034,144 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400936,
+		"label": "Upper",
+		"equipname": "Queen Bee Jeweled Crown",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 6,
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((20*DOWN(HATR/2))+(HATR>8?60:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((2*DOWN(HATR/3))+(CCL=='SO'?15:0))",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>6?25:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>6?10:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>8?12:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?12:0)",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>12?12:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(1)?0.5:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"CONFLAGRATION LIGHTNING_LAND VENOM_SWAMP\")&&HATG(2)?30:0)+(SKIDS(\"DIAMOND_STORM TERRA_DRIVE\")&&HATG(3)?30:0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(4)?(3+(2*DOWN(HATR/2))):0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4132
+				],
+				"itemid_any": [],
+				"equipname": "Mistress Card",
+				"effectlist": [
+					{
+						"EffectNumber": 0.2,
+						"EffectType": {
+							"id": "FixedCast"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(isBoss?12:0)",
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4484
+				],
+				"itemid_any": [],
+				"equipname": "Sealed Mistress Card",
+				"effectlist": [
+					{
+						"EffectNumber": 0.1,
+						"EffectType": {
+							"id": "FixedCast"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(isBoss?7:0)",
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
