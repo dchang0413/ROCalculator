@@ -544,6 +544,10 @@
 
                                 <a href="https://forums.warpportal.com/index.php?/topic/257128-damage-calculator-project/"
                                     target="_blank"><span style="color:steelblue"> WarpPortal Forum Post </span></a><br>
+
+                                <a v-if="showoldCalc" href="https://oldcalc.irowiki.org/"
+                                    target="_blank"><span style="color:steelblue"> Old Calc </span></a><br>
+
                             </div>
                         </el-row>
                         <el-row v-if="UpdatedFiles.length>0">
@@ -8664,6 +8668,7 @@
                 PreviewComboIDAny: [],
                 PreviewCombo: [],
                 showExport: window.location.href.includes('localhost'),
+                showoldCalc: window.location.href.includes('irowiki'),
 
                 StoreDB_Consumable: [],
 
