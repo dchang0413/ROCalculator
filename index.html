@@ -510,6 +510,18 @@
                         <el-col class="textcenter">Update Detail</el-col>
                     </el-row>
                     <el-scrollbar wrap-class="Announce-container" :native="false" :noresize="false">
+                        <div v-if="showoldCalc" class="aboutbox" style="padding: 5px 55px; text-align:left">
+                                <el-row class="statusbox" type="flex" align="middle" justify="space-around"
+                                    style="color:rgb(199, 38, 52);">
+                                    <el-col class="textcenter">
+                                        We plan on moving the site to <a href="https://calc.irowiki.org" target="_blank"><span style="color:steelblue">calc.irowiki.org</span></a> <br>
+                                        Your Saved Setups in <a href="https://newcalc.irowiki.org" target="_blank"><span style="color:steelblue">newcalc.irowiki.org</span></a> will not be migrated. <br>
+                                        If you plan on keeping your saves you will need to download them and keep a local copy.<br><br>
+                                        We plan to finalize the move on 9/1
+                                    </el-col>
+                                </el-row>
+                            </div>
+
                         <el-row>
                             <div class="aboutbox" style="padding: 5px 55px; text-align:left">
                                 <el-row :gutter="4" type="flex" align="left">
