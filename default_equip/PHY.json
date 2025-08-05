@@ -8344,5 +8344,909 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": 20718,
+		"label": "Garment",
+		"equipname": "Giant Faceworm Snake Skin",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shoes",
+		"itemid": -1,
+		"label": "Shoes",
+		"equipname": "Flush Sandals",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 200,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3+SHOER)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((15*DOWN(SHOER/3))+(SHOEG(2)?15:0))",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((15*DOWN(SHOER/3))+(SHOEG(2)?15:0))",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>9?20:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>10?20:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>10?20:0)",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>11&&['GE','ME'].includes(CCL)?30:0)",
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>11&&['GE','ME','GX','SC'].includes(CCL)?30:0)",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>11&&['GX','SC'].includes(CCL)?30:0)",
+				"EffectType": {
+					"id": "DEX"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"BREAKER BACKSTAP\")&&SHOER>11&&['GX','SC'].includes(CCL)?150:0)+(SKIDS(\"ACIDDEMONSTRATION CARTTERMINATION\")&&SHOER>11&&['GE','ME'].includes(CCL)?150:0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(1)?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(3)?15:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(3)?15:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SHOER>12?10:0)+(SHOEG(4)?7:0))",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					500056
+				],
+				"itemid_any": [],
+				"equipname": "Flush Safety Saber",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"MAYHEMIC_THORNS\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(10*WEAR)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					610042
+				],
+				"itemid_any": [],
+				"equipname": "Flush Bolt Crusher",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"IMPACT_CRATER\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(10*WEAR)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					510077
+				],
+				"itemid_any": [],
+				"equipname": "Flush Jewel Detector Mk47",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"ABYSS_SQUARE\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(10*WEAR)",
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					510105
+				],
+				"itemid_any": [],
+				"equipname": "Flush Metal Detector Mk47",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"SHADOW_STAB\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(10*WEAR)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shoes",
+		"itemid": -2,
+		"label": "Shoes",
+		"equipname": "Muqaddas Shoes",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 200,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 200,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((15*DOWN(SHOER/3))+(SHOEG(2)?15:0))",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((15*DOWN(SHOER/3))+(SHOEG(2)?15:0))",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>9?20:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>10?20:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>10?20:0)",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>11&&['AB','SU','RK','RG'].includes(CCL)?30:0)",
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>11&&['AB','SU','RK','RG'].includes(CCL)?30:0)",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"MAGNUS FINGEROFFENSIVE\")&&SHOER>11&&['AB','SU'].includes(CCL)?150:0)+(SKIDS(\"GRANDCROSS BOWLINGBASH\")&&SHOER>11&&['RK','RG'].includes(CCL)?150:0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(1)?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(3)?15:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(3)?15:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SHOER>12?10:0)+(SHOEG(4)?7:0))",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					630028
+				],
+				"itemid_any": [],
+				"equipname": "Muqaddas Banjiiraa",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"MADNESS_CRUSHER\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(10*WEAR)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					560048
+				],
+				"itemid_any": [],
+				"equipname": "Muqaddas Mashts",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"THIRD_FLAME_BOMB\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(10*WEAR)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					500074
+				],
+				"itemid_any": [],
+				"equipname": "Muqaddas Sasyiir",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"CROSS_RAIN\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(10*WEAR)",
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					550117
+				],
+				"itemid_any": [],
+				"equipname": "Muqaddas Baru",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"FRAMEN\")?20:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(10*WEAR)",
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": -3,
+		"label": "Garment",
+		"equipname": "Comet Cavalry",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(250+(30*DOWN(GARMR/2))+(GARMR>12?250:0)+(GARMR>13&&GARMG(4)?250:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(250+(30*DOWN(GARMR/2))+(GARMR>12?250:0)+(GARMR>13&&GARMG(4)?250:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((DOWN(GARMR/2))+(GARMR>10?15:0)+(GARMG(2)?10:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((DOWN(GARMR/2))+(GARMR>10?15:0)+(GARMG(2)?10:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"HUNDREDSPEAR CANNONSPEAR\")&&GARMR>11?(DOWN(BLV/2)):0)+(SKIDS(\"COMET\")?(20+(GARMR>13?50:0)+(GARMR>13&&GARMG(4)?150:0)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>12?25:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(1)?15:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(3)?17:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(3)?17:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [],
+				"itemid_any": [
+					4419,
+					27113,
+					300445
+				],
+				"equipname": "Ktullanux Card OR Awakened Ktullanux Card OR Gaia Pol Card",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4481
+				],
+				"itemid_any": [],
+				"equipname": "Sealed Ktullanux Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc",
+		"itemid": -4,
+		"label": "Accessory",
+		"equipname": "Faceworm Queen's Scale",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(2*DOWN(MIN(BLV,250)/5))",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(MIN(BLV,250)/5))",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					20718
+				],
+				"itemid_any": [],
+				"equipname": "Giant Faceworm Snake Skin",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "CON"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(5*GARMR)",
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(5*GARMR)",
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27164
+				],
+				"itemid_any": [],
+				"equipname": "Faceworm Queen Card",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "CON"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "CRIDR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "RaceAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27163
+				],
+				"itemid_any": [],
+				"equipname": "Faceworm Card",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "CON"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 4,
+						"EffectType": {
+							"id": "CRIDR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
