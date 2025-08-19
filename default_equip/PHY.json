@@ -9248,5 +9248,445 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": -1,
+		"label": "Upper",
+		"equipname": "Future Yoyo King Hat",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(20+(7*DOWN(HATR/2))+(HATR>9?15:0))",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(CCL=='SN'?50000:0)",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(CCL=='SN'?5000:0)",
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(HATR/2))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((7*DOWN(HATR/3))+(HATR>12?20:0)+(HATG(4)?8:0))",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATR>10?7:0)+(HATR>11?7:0)+(HATG(4)?8:0))",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATR>10?70:0)+(HATR>11?70:0)+(HATR>12?200:0)+(HATR>13?250:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>13?25:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>13?0.5:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(1)?15:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?20:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?20:0)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(3)?50:0)",
+				"EffectType": {
+					"id": "BypassDEFPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4376
+				],
+				"itemid_any": [],
+				"equipname": "Lady Tanee Card",
+				"effectlist": [
+					{
+						"EffectNumber": 150,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 50,
+						"EffectType": {
+							"id": "SPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					9016
+				],
+				"itemid_any": [],
+				"equipname": "Yoyo Egg",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "AllStatus"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shoes",
+		"itemid": -3,
+		"label": "Shoes",
+		"equipname": "Ancient Sky Emperor Shoes",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(5+(SHOER>11?5:0)+(SHOER>12?13:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10+(SHOEG(2)?15:0))",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((CCL=='SE'?7:0)+(SHOER>13?25:0))",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((CCL=='SE'?7:0)+(SHOER>14&&SHOEG(4)?20:0))",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"ALL_IN_THE_SKY\")?(CCL=='SE'?(20*SHOER):0):0)+(SKIDS(\"FALLINGSTAR FULLMOONKICK SOLARBURST\")?(SHOER>10?50:0):0)+(SKIDS(\"FALLNOON_BLASTINGSTAR MIDNIGHT_KICK STAR_CANNON\")?(SHOER>11?50:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"STAR_CANNON\")?(SHOER>13?3.5:0):0)+(SKIDS(\"TWINKLING_GALAXY\")?(SHOEG(3)?5:0):0))",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((5*SHOER)+(SHOER>9?30:0))",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SHOER>11?50:0)+(SHOER>12?130:0)+(SHOEG(1)?75:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>13?25:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>14&&SHOEG(4)?20:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>14&&SHOEG(4)?20:0)",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300297
+				],
+				"itemid_any": [],
+				"equipname": "Goblin King Card",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHOER>13?300:0)",
+						"EffectType": {
+							"id": "STR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHOER>13?300:0)",
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHOER>13?300:0)",
+						"EffectType": {
+							"id": "LUK"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4155
+				],
+				"itemid_any": [],
+				"equipname": "Goblin Leader Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(SHOEG(3)?15:0)",
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHOEG(3)?15:0)",
+						"EffectType": {
+							"id": "CON"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "weaponl",
+		"itemid": -5,
+		"label": "OffHand",
+		"equipname": "Hard Shell Shield",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(10*DOWN(SWEAR/2))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(2*DOWN(SWEAR/2))",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>8?5:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>12?10:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>12?10:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4494
+				],
+				"itemid_any": [],
+				"equipname": "Sealed Turtle General Card",
+				"effectlist": [
+					{
+						"EffectNumber": 4,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4305
+				],
+				"itemid_any": [],
+				"equipname": "Turtle General Card",
+				"effectlist": [
+					{
+						"EffectNumber": 7,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shield",
+				"label": "Shield"
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 2,
+				"saferefine": 7,
+				"overatk": 3
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": 0,
+			"MATK": 0,
+			"refinelevel": 14,
+			"ShieldWeight": 350,
+			"refinematk": 0,
+			"refineatk": 0
+		}
 	}
 ]

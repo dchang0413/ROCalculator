@@ -1137,5 +1137,100 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "acc2",
+		"itemid": -4,
+		"label": "Accessory",
+		"equipname": "Mad Linker Glove",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(5+(BLV>99?10:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5+(BLV>99?10:0))",
+				"EffectType": {
+					"id": "STA"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(15+(BLV>99?(DOWN(BLV/5)):0))",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV<100?20000:0)",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"SOULSTRIKE\")&&BLV<100?300:0)+(SKIDS(\"TALISMAN_OF_WHITE_TIGER\")&&BLV>99?(3*DOWN(BLV/10)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4212
+				],
+				"itemid_any": [],
+				"equipname": "Bongun Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "DEX"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"SOULSTRIKE\")?300:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
