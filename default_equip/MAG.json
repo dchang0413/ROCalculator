@@ -5337,5 +5337,151 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "armor",
+		"itemid": -2,
+		"label": "Armor",
+		"equipname": "Cocytus Armor",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV<100?-200:0)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV<100?-200:0)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"COLDBOLT STORMGUST\")?(10*MIN(BLV,250)):0)+(SKIDS(\"JACKFROST\")?(ARMORR>13?50:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR+(ARMORG(1)?5:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((5*ARMORR)+(ARMORR>12?20:0)+(ARMORR>13?20:0))",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(ARMORR/2))",
+				"EffectType": {
+					"id": "WIS"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(ARMORR/2))",
+				"EffectType": {
+					"id": "STA"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10*DOWN(ARMORR/2))",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>9?10:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>10?20:0)",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(2)?30:0)",
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(3)?10:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					27110
+				],
+				"itemid_any": [],
+				"equipname": "Angry Gazeti Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(AEI==2)?20:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4324
+				],
+				"itemid_any": [],
+				"equipname": "Hatii Card",
+				"effectlist": [
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(AEI==2)?40:0",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
