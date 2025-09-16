@@ -3109,5 +3109,79 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": -14,
+		"label": "Accessory",
+		"equipname": "Unknown Watch (Abyss Chaser)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					510051
+				],
+				"itemid_any": [],
+				"equipname": "Wicked Dagger",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR>9?20:0)",
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAG(2)?5:0)",
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"ABYSS_SQUARE\")?(10+(WEAR>9?10:0)+(WEAG(2)?15:0)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

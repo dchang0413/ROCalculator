@@ -2863,5 +2863,79 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": -20,
+		"label": "Accessory",
+		"equipname": "Unknown Watch (Elemental Master)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					540041
+				],
+				"itemid_any": [],
+				"equipname": "Solid Manual",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR>9?20:0)",
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAG(2)?5:0)",
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"CONFLAGRATION LIGHTNING_LAND\")?(10+(WEAR>9?10:0)+(WEAG(2)?15:0)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
