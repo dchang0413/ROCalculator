@@ -14916,5 +14916,94 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 1270127,
+		"label": "S.Earring",
+		"equipname": "Limit Break Shadow Earring",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(isBoss?0:(BLV>149?(25-(2*DOWN((BLV-150)/10))):25))",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(isBoss?0:(BLV>149?(25-(2*DOWN((BLV-150)/10))):25))",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 1270128,
+		"label": "S.Pendant",
+		"equipname": "Limit Break Shadow Pendant",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(isBoss?0:(BLV>149?(25-(2*DOWN((BLV-150)/10))):25))",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(isBoss?0:(BLV>149?(25-(2*DOWN((BLV-150)/10))):25))",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					1270127
+				],
+				"itemid_any": [],
+				"equipname": "Limit Break Shadow Earring",
+				"effectlist": [
+					{
+						"EffectNumber": 12,
+						"EffectType": {
+							"id": "AllStatus"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 8,
+						"EffectType": {
+							"id": "RaceAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 8,
+						"EffectType": {
+							"id": "RaceMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
