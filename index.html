@@ -4246,7 +4246,7 @@
                                                 <span>Apply Max Job Bonus</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="12">
-                                                <el-switch v-model="status.UseJobMaxPoint" v-on:change="onOption();fetchJobBonusTable();"
+                                                <el-switch v-model="status.UseJobMaxPoint" v-on:change="fetchJobBonusTable();"
                                                     active-color="#13ce66" inactive-color="#8a9799">
                                                 </el-switch>
                                             </el-col>
@@ -12195,6 +12195,7 @@
                     .then(res => res.json())
                     .then(json => {
                         this.jobBonusTable = json;
+                        this.onOption();
                     });
                 },
 
