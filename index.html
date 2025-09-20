@@ -4241,16 +4241,6 @@
                                                 </el-input>
                                             </el-col>
                                         </el-row>
-                                        <el-row class="statusbox" type="flex" align="middle">
-                                            <el-col class="textcenter" :span="12">
-                                                <span>Apply Max Job Bonus</span>
-                                            </el-col>
-                                            <el-col class="textcenter" :span="12">
-                                                <el-switch v-model="status.UseJobMaxPoint" v-on:change="fetchJobBonusTable();"
-                                                    active-color="#13ce66" inactive-color="#8a9799">
-                                                </el-switch>
-                                            </el-col>
-                                        </el-row>
                                     </div>
                                 </el-collapse-transition>
                                 <el-collapse-transition>
@@ -14098,7 +14088,7 @@
                     if (this.status.SP == null) this.status.SP = 0;
                     if (this.status.Transcendent == null) this.status.Transcendent = false;
                     if (this.status.classid == null) this.status.classid = "AB";
-                    if (this.status.UseJobMaxPoint == null) this.status.UseJobMaxPoint = false;
+                    if (this.status.UseJobMaxPoint == null) this.status.UseJobMaxPoint = true;
                     this.onOption();
                     this.ClosePanel('StatusDBDialog');
                 },
@@ -14658,7 +14648,7 @@
                     if (this.skill.SpecialMATK3 == null) this.skill.SpecialMATK3 = 0;
                     if (this.skill.DamageTypeIdx == null) this.skill.DamageTypeIdx = 0;
                     if (this.skilloption.CarWeight == null) this.skilloption.CarWeight = 10500;
-                    if (this.status.UseJobMaxPoint == null) this.status.UseJobMaxPoint = false;
+                    if (this.status.UseJobMaxPoint == null) this.status.UseJobMaxPoint = true;
                     if (this.status.MHP == null) { this.status.MHP = 0; console.log("yaaaa") }
                     if (this.status.MSP == null) this.status.MSP = 0;
                 },
@@ -15686,7 +15676,7 @@
                     );
 
                     this.UpdateLogList.push(
-                        { id: '2025-09-20', content: 'Update: Apply Max Job Bonus now apply job bonus according to your job level entered' },
+                        { id: '2025-09-20', content: 'Update: Job level bonus stat is now added automatically according to the character and job level entered' },
                         { id: '2025-09-16', content: 'Added: September Kachua Mileage Coupon gear' },
                         { id: '2025-09-16', content: 'Added: September Kachua gear' },
                         { id: '2025-09-02', content: 'Added: OCP 75 gear' },
@@ -16521,6 +16511,7 @@
                 this.onChangeClass(false);
                 this.onChangeSupportClass();
                 this.OpenPanel('General');
+                this.status.UseJobMaxPoint = true;
                 window.onbeforeunload = e => {   //關閉 重新整理
                     return ''
                 };
