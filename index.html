@@ -12197,6 +12197,13 @@
                         this.jobBonusTable = json;
                         this.onOption();
                     });
+                    
+                    fetch(this.getURL()+`job_bonus_3rd/${this.ClassInfo.id}.json`, { cache: "no-cache" })
+                    .then(res => res.json())
+                    .then(json => {
+                        this.jobBonusTable_3rd = json;
+                        this.onOption();
+                    });
                 },
 
                 onOption() {
@@ -12224,12 +12231,17 @@
                             this.status_job.CON += jobBonus[10];
                             this.status_job.CRT += jobBonus[11];
                         } else {
-                            this.status_job.STR += this.ClassInfo.JobMaxPoint[0];
-                            this.status_job.AGI += this.ClassInfo.JobMaxPoint[1];
-                            this.status_job.VIT += this.ClassInfo.JobMaxPoint[2];
-                            this.status_job.INT += this.ClassInfo.JobMaxPoint[3];
-                            this.status_job.DEX += this.ClassInfo.JobMaxPoint[4];
-                            this.status_job.LUK += this.ClassInfo.JobMaxPoint[5];
+                            let jobBonus = this.ClassInfo.TJobMaxPoint;
+                            if (this.jobBonusTable_3rd){
+                                let jlv = Math.min(Object.keys(this.jobBonusTable_3rd).length,this.status.JOBLevel);
+                                jobBonus = this.jobBonusTable_3rd[jlv];
+                            }
+                            this.status_job.STR += jobBonus[0];
+                            this.status_job.AGI += jobBonus[1];
+                            this.status_job.VIT += jobBonus[2];
+                            this.status_job.INT += jobBonus[3];
+                            this.status_job.DEX += jobBonus[4];
+                            this.status_job.LUK += jobBonus[5];
                         }
                     }
 
@@ -15674,7 +15686,7 @@
                     );
 
                     this.UpdateLogList.push(
-                        { id: '2025-09-20', content: 'Update: Apply Max Job Bonus now apply 4th job bonus according to your job level entered' },
+                        { id: '2025-09-20', content: 'Update: Apply Max Job Bonus now apply job bonus according to your job level entered' },
                         { id: '2025-09-16', content: 'Added: September Kachua Mileage Coupon gear' },
                         { id: '2025-09-16', content: 'Added: September Kachua gear' },
                         { id: '2025-09-02', content: 'Added: OCP 75 gear' },
