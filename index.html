@@ -4246,7 +4246,7 @@
                                                 <span>Apply Max Job Bonus</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="12">
-                                                <el-switch v-model="status.UseJobMaxPoint" v-on:change="onOption"
+                                                <el-switch v-model="status.UseJobMaxPoint" v-on:change="onOption();fetchJobBonusTable();"
                                                     active-color="#13ce66" inactive-color="#8a9799">
                                                 </el-switch>
                                             </el-col>
@@ -12064,6 +12064,8 @@
                         this.JobMapedSkillId = 'No Skills';
                         this.onOption();
                     }
+
+                    this.fetchJobBonusTable();
                 },
                 onChangeSupportClass() {
                     var selectjob = this.SupportSkillJob;
@@ -12188,24 +12190,38 @@
                     this.ComputeSizefix(); // 包含onOption
                     this.onOption();
                 },
+                fetchJobBonusTable() {
+                    fetch(this.getURL()+`job_bonus/${this.ClassInfo.id}.json`, { cache: "no-cache" })
+                    .then(res => res.json())
+                    .then(json => {
+                        this.jobBonusTable = json;
+                    });
+                },
+
                 onOption() {
                     this.status_add = Object.assign({}, this.status_add_init);
                     this.attribute = Object.assign({}, this.attribute_init);
                     if (this.status.UseJobMaxPoint) {
                         this.status_job = _.cloneDeep(this.status_job_init);
                         if (this.status.Level >= 200 && this.ClassInfo.TJobMaxPoint != null) {
-                            this.status_job.STR += this.ClassInfo.TJobMaxPoint[0];
-                            this.status_job.AGI += this.ClassInfo.TJobMaxPoint[1];
-                            this.status_job.VIT += this.ClassInfo.TJobMaxPoint[2];
-                            this.status_job.INT += this.ClassInfo.TJobMaxPoint[3];
-                            this.status_job.DEX += this.ClassInfo.TJobMaxPoint[4];
-                            this.status_job.LUK += this.ClassInfo.TJobMaxPoint[5];
-                            this.status_job.POW += this.ClassInfo.TJobMaxPoint[6];
-                            this.status_job.STA += this.ClassInfo.TJobMaxPoint[7];
-                            this.status_job.WIS += this.ClassInfo.TJobMaxPoint[8];
-                            this.status_job.SPL += this.ClassInfo.TJobMaxPoint[9];
-                            this.status_job.CON += this.ClassInfo.TJobMaxPoint[10];
-                            this.status_job.CRT += this.ClassInfo.TJobMaxPoint[11];
+                            let jobBonus = this.ClassInfo.TJobMaxPoint;
+                            if (this.jobBonusTable){
+                                let jlv = Math.min(Object.keys(this.jobBonusTable).length,this.status.JOBLevel);
+                                jobBonus = this.jobBonusTable[jlv];
+                            }
+                            
+                            this.status_job.STR += jobBonus[0];
+                            this.status_job.AGI += jobBonus[1];
+                            this.status_job.VIT += jobBonus[2];
+                            this.status_job.INT += jobBonus[3];
+                            this.status_job.DEX += jobBonus[4];
+                            this.status_job.LUK += jobBonus[5];
+                            this.status_job.POW += jobBonus[6];
+                            this.status_job.STA += jobBonus[7];
+                            this.status_job.WIS += jobBonus[8];
+                            this.status_job.SPL += jobBonus[9];
+                            this.status_job.CON += jobBonus[10];
+                            this.status_job.CRT += jobBonus[11];
                         } else {
                             this.status_job.STR += this.ClassInfo.JobMaxPoint[0];
                             this.status_job.AGI += this.ClassInfo.JobMaxPoint[1];
@@ -15657,6 +15673,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2025-09-20', content: 'Update: Apply Max Job Bonus now apply 4th job bonus according to your job level entered' },
                         { id: '2025-09-16', content: 'Added: September Kachua Mileage Coupon gear' },
                         { id: '2025-09-16', content: 'Added: September Kachua gear' },
                         { id: '2025-09-02', content: 'Added: OCP 75 gear' },
