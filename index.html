@@ -2215,17 +2215,25 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['CompareDialog']" v-on:close="ClosePanel('CompareDialog')"
-            custom-class="Dialogue-container" top="50px" center>
+            custom-class="Dialogue-container" top="50px" width="97%" center>
             <table class="compareTable" style="width:100%">
-                <tr class="bg-purple-light5">
-                    <th style="width:40%">Current Build</th>
+                <tr class="bg-purple-light5 stickyHeader">
+                    <th v-if="EquipText" style="width:40%" colspan="2">Current Build</th>
+                    <th v-else style="width:40%">Current Build</th>
                     <th style="width:20%"></th>
-                    <th style="width:40%">Saved State</th>
+                    <th v-if="clonedEquipText" style="width:40%" colspan="2">Saved State</th>
+                    <th v-else style="width:40%" colspan="2">Saved State</th>
                 </tr>
                 <tr>
+                    <td v-if="EquipText" :rowspan="this.enemyattribute.name != clone.EnemyName?44:43" width="25%" class="text-wrapper" style="vertical-align: initial">
+                        <span class="stickyText">{{EquipText}}</span>
+                    </td>
                     <td>{{skill.name}}</td>
                     <td>Skill</td>
                     <td>{{clone.SkillName}}</td>
+                    <td v-if="clonedEquipText" :rowspan="this.enemyattribute.name != clone.EnemyName?44:43" width="25%" class="text-wrapper" style="vertical-align: initial">
+                        <span class="stickyText">{{clonedEquipText}}</span>
+                    </td>
                 </tr>
                 <tr>
                     <td>{{this.getSkillDamageAvg()|currency}} 
@@ -2244,7 +2252,7 @@
                     <td>{{clone.dps|currency}}</td>
                 </tr>
                 <tr v-if="clone.enemyattribute">
-                    <td>{{ enemyattribute.hp / this.getSkillDPS() | damageToTime }}
+                    <td>{{ enemyattribute.hp / this.getSkillDPS() | damageToTime }}<br>
                         (<span :class="enemyattribute.hp/this.getSkillDPS()-clone.enemyattribute.hp/clone.dps < 0 ? 'positiveDiff' : 'negativeDiff'">
                             {{enemyattribute.hp/this.getSkillDPS()-clone.enemyattribute.hp/clone.dps | damageToTime}}
                         </span>)</td>
@@ -2277,11 +2285,11 @@
                     <td>Action per sec</td>
                     <td>{{clone.HitperSec}}</td>
                 </tr>
-                <tr>
+                <!--<tr>
                     <td class="text-wrapper">{{EquipText}}</td>
                     <td>Equip</td>
                     <td class="text-wrapper">{{clonedEquipText}}</td>
-                </tr>
+                </tr>-->
                 <tr class="bg-green-light2">
                     <td colspan=3>Other Stats</td>
                 </tr>
@@ -10532,9 +10540,6 @@
                     this.buildSupportSkill();
 
                     this.clonedEquipText = this.GetClonedBasicEquipString();
-                    console.log(this);
-                    console.log(this.computeattribute);
-                    console.log(this.clone);
                 },
                 GetEquipEffect(index) {
                     var _EffectTypeInfo;
