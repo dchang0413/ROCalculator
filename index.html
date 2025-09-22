@@ -34,7 +34,8 @@
 
         gtag('config', 'G-DM1G8P7BCY');
 
-        var filename = "./styles.css";
+        const timestamp = new Date().getTime();
+        var filename = "./styles.css?"+timestamp;
         var fileref = document.createElement("link");
         fileref.rel = "stylesheet";
         fileref.type = "text/css";
