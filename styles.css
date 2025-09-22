@@ -162,6 +162,12 @@ body {
     flex: 1;
 }
 
+.panel-switch-btns {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .ROCalFooter {
     height: 25px;
     color: white;
@@ -452,6 +458,52 @@ body {
 
 .el-select-dropdown__wrap {
     max-height: 674px;
+}
+
+.compareTable table {
+	background-color: #3d3b63;
+	border-collapse: collapse;
+	border-radius: 10px;
+	font-size: 1em;
+	color: white;
+	overflow: hidden;
+	width: auto;
+	/*max-width: 100%;*/
+}
+.compareTable thead {
+	background-color: #f3646c;
+}
+.compareTable th {
+	letter-spacing: 0.3px;
+	text-shadow: 0 1px 1px #2b2a466b;
+    text-align: center;
+}
+.compareTable table > thead > tr > th {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+.compareTable td {
+    text-align: center;
+}
+.compareTable td strong {
+	color: white;
+}
+.compareTable td,
+.compareTable th {
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	padding: 11px;
+}
+.compareTable thead th:hover,
+.compareTable thead tr:hover,
+.compareTable th:hover {
+}
+.compareTable tbody tr:hover td,
+.compareTable tbody tr:hover td a {
+}
+.compareTable .positiveDiff {
+    color: green;
+}
+.compareTable .negativeDiff {
+    color: red;
 }
 
 @media (max-width: 599px) {

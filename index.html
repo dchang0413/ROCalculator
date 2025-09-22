@@ -813,7 +813,7 @@
                             </el-row>
                             <el-row class="optionbox" :gutter="4" type="flex" align="middle" justify="end">
                                 <el-col class="textcenter" :span="12">
-                                    <span>Half Crit Rate</span>
+                                    <span>Half CRI</span>
                                 </el-col>
                                 <el-col class="textcenter" :span="12">
                                     <el-switch v-model="skill.halfcri" active-color="#13ce66" v-on:change="onOption"
@@ -955,7 +955,7 @@
                                                             :span="3">Crit
                                                         </el-col>
                                                         <el-col v-if="item.skill.halfcri" class="skilltag"
-                                                            :span="3">Half Crit Rate
+                                                            :span="3">Half CRI Rate
                                                         </el-col>
                                                         <el-col v-if="item.skill.cannon" class="skilltag" :span="3">Ammo
                                                         </el-col>
@@ -1024,7 +1024,7 @@
                                                         <el-col v-if="item.skill.critical" class="skilltag skillline"
                                                             :span="3">Crit</el-col>
                                                         <el-col v-if="item.skill.halfcri" class="skilltag skillline"
-                                                            :span="3">Half Crit Rate</el-col>
+                                                            :span="3">Half CRI Rate</el-col>
                                                         <el-col v-if="item.skill.cannon" class="skilltag skillline"
                                                             :span="3">Ammo</el-col>
                                                         <el-col v-if="item.skill.transWeaponDEF"
@@ -1642,7 +1642,7 @@
                                 <el-row :class="PreviewETL[GetETLIndex('Cri')].totalvalue!=0?'previeweffectbox2':''"
                                     :gutter="6" type="flex" align="middle">
                                     <el-col class="textcenter" :span="8">
-                                        CRIT
+                                        CRI
                                     </el-col>
                                     <el-col class="textcenter" :span="16">
                                         <el-input v-if="PreviewETL[0]"
@@ -2213,6 +2213,277 @@
                     </el-row>
                 </div>
             </el-row>
+        </el-dialog>
+        <el-dialog :visible.sync="UIPanel['CompareDialog']" v-on:close="ClosePanel('CompareDialog')"
+            custom-class="Dialogue-container" top="50px" center>
+            <table class="compareTable" style="width:100%">
+                <tr class="bg-purple-light5">
+                    <th style="width:40%">Current Build</th>
+                    <th style="width:20%"></th>
+                    <th style="width:40%">Saved State</th>
+                </tr>
+                <tr>
+                    <td>{{skill.name}}</td>
+                    <td>Skill</td>
+                    <td>{{clone.SkillName}}</td>
+                </tr>
+                <tr>
+                    <td>{{this.getSkillDamageAvg()|currency}} 
+                        (<span :class="parseFloat(this.getSkillDamageAvg())-parseFloat(clone.skilldamageavg) > 0 ? 'positiveDiff' : 'negativeDiff'">
+                            {{parseFloat(this.getSkillDamageAvg())-parseFloat(clone.skilldamageavg)|currency}}
+                        </span>)</td>
+                    <td>Skill Damage(Avg)</td>
+                    <td>{{clone.skilldamageavg|currency}}</td>
+                </tr>
+                <tr>
+                    <td>{{this.getSkillDPS()| currency}} 
+                        (<span :class="this.getSkillDPS()-clone.dps > 0 ? 'positiveDiff' : 'negativeDiff'">
+                            {{this.getSkillDPS()-clone.dps|currency}}
+                        </span>)</td>
+                    <td>DPS</td>
+                    <td>{{clone.dps|currency}}</td>
+                </tr>
+                <tr v-if="clone.enemyattribute">
+                    <td>{{ enemyattribute.hp / this.getSkillDPS() | damageToTime }}
+                        (<span :class="enemyattribute.hp/this.getSkillDPS()-clone.enemyattribute.hp/clone.dps < 0 ? 'positiveDiff' : 'negativeDiff'">
+                            {{enemyattribute.hp/this.getSkillDPS()-clone.enemyattribute.hp/clone.dps | damageToTime}}
+                        </span>)</td>
+                    <td>Target Kill Time</td>
+                    <td v-if="clone.enemyattribute&&clone.computeattribute">{{ clone.enemyattribute.hp / clone.dps | damageToTime }}</td>
+                    <td v-else></td>
+                </tr>
+                <tr v-if="this.enemyattribute.name != clone.EnemyName">
+                    <td>{{this.enemyattribute.name}}</td>
+                    <td>Enemy</td>
+                    <td>{{clone.EnemyName}}</td>
+                </tr>
+                <tr>
+                    <td>{{status.Level}}</td>
+                    <td>Level</td>
+                    <td>{{clone.level}}</td>
+                </tr>
+                <tr>
+                    <td>{{status.ASPD}}</td>
+                    <td>ASPD</td>
+                    <td>{{clone.aspd}}</td>
+                </tr>
+                <tr>
+                    <td>{{attribute['GCD']}} %</td>
+                    <td>Cast Delay</td>
+                    <td>{{clone.delay}} %</td>
+                </tr>
+                <tr>
+                    <td>{{computeattribute['HitperSec']}}</td>
+                    <td>Action per sec</td>
+                    <td>{{clone.HitperSec}}</td>
+                </tr>
+                <tr>
+                    <td class="text-wrapper">{{EquipText}}</td>
+                    <td>Equip</td>
+                    <td class="text-wrapper">{{clonedEquipText}}</td>
+                </tr>
+                <tr class="bg-green-light2">
+                    <td colspan=3>Other Stats</td>
+                </tr>
+                <tr>
+                    <td>{{status.MHP}} | +{{attribute['HP']}} | {{attribute['HPP']}}%</td>
+                    <td>Total HP | +HP | +HP%</td>
+                    <td v-if="clone.Status && clone.attribute">{{clone.Status.MHP}} | +{{clone.attribute['HP']}} | {{clone.attribute['HPP']}}%</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{status.MSP}} | +{{attribute['SP']}} | {{attribute['SPP']}}%</td>
+                    <td>Total SP | +SP | +SP%</td>
+                    <td v-if="clone.Status && clone.attribute">{{clone.Status.MSP}} | +{{clone.attribute['SP']}} | {{clone.attribute['SPP']}}%</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{status_total.STR}} | {{status_total.AGI}} | {{status_total.VIT}} | {{status_total.INT}} | {{status_total.DEX}} | {{status_total.LUK}}</td>
+                    <td>Basic Stats<br>STR | AGI | VIT | INT | DEX | LUK</td>
+                    <td v-if="clone.status_total">{{clone.status_total.STR}} | {{clone.status_total.AGI}} | {{clone.status_total.VIT}} | {{clone.status_total.INT}} | {{clone.status_total.DEX}} | {{clone.status_total.LUK}}</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{status_total.POW}} | {{status_total.STA}} | {{status_total.WIS}} | {{status_total.SPL}} | {{status_total.CON}} | {{status_total.CRT}}</td>
+                    <td>Talent Stats<br>POW | STA | WIS | SPL | CON | CRT</td>
+                    <td v-if="clone.status_total">{{clone.status_total.POW}} | {{clone.status_total.STA}} | {{clone.status_total.WIS}} | {{clone.status_total.SPL}} | {{clone.status_total.CON}} | {{clone.status_total.CRT}}</td>
+                    <td v-else></td>
+                </tr>
+                <tr class="bg-red-light2">
+                    <td colspan=3>Physical Stats</td>
+                </tr>
+                <tr>
+                    <td>{{attribute.StatusATK+computeattribute['SpecialATKFront']}} + {{attribute.WeaponATK}}</td>
+                    <td>ATK Status + Extra</td>
+                    <td v-if="clone.attribute&&clone.computeattribute">{{clone.attribute.StatusATK+clone.computeattribute['SpecialATKFront']}} + {{clone.attribute.WeaponATK}}</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute.PATK}}</td>
+                    <td>P.ATK</td>
+                    <td v-if="clone.attribute">{{clone.attribute.PATK}}</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{skilloption.WeaponMasteryATK}}</td>
+                    <td>Mastery ATK</td>
+                    <td v-if="clone.skilloption">{{clone.skilloption.WeaponMasteryATK}}</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{computeattribute.sizefix}} %</td>
+                    <td>Size Penalty</td>
+                    <td v-if="clone.computeattribute">{{clone.computeattribute.sizefix}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['RNGDP']}} %</td>
+                    <td>Range Mod%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['RNGDP']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['MELDP']}} %</td>
+                    <td>Melee Mod%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['MELDP']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['CRI']}} %</td>
+                    <td>CRI</td>
+                    <td v-if="clone.attribute">{{clone.attribute['CRI']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['CRIDP']}} %</td>
+                    <td>Crit Mod%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['CRIDP']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute.CRIDR}}</td>
+                    <td>C.RATE</td>
+                    <td v-if="clone.attribute">{{clone.attribute['CRIDR']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['ATKP']}} %</td>
+                    <td>ATK%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['ATKP']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['ElementalAtkPercent']}} %</td>
+                    <td>vs. Element%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['ElementalAtkPercent']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['LevelAtkPercent']}} %</td>
+                    <td>vs. Class%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['LevelAtkPercent']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['RaceAtkPercent']}} %</td>
+                    <td>vs. Race%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['RaceAtkPercent']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['SizeAtkPercent']}} %</td>
+                    <td>vs. Size%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['SizeAtkPercent']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{option.EquipSkillAddDamage}} %</td>
+                    <td>Skill Mod%</td>
+                    <td v-if="clone.option">{{clone.option.EquipSkillAddDamage}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['BYPASSDEF']}} %</td>
+                    <td>Bypass DEF%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['BYPASSDEF']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['BYPASSRES']}} %</td>
+                    <td>Bypass RES%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['BYPASSRES']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr class="bg-purple-light4">
+                    <td colspan=3>Magic Stats</td>
+                </tr>
+                <tr>
+                    <td>{{attribute.StatusMATK}} + {{attribute.WeaponMATK}}</td>
+                    <td>MATK Status + Extra</td>
+                    <td v-if="clone.attribute">{{clone.attribute.StatusMATK}} + {{clone.attribute.WeaponMATK}}</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute.SMATK}}</td>
+                    <td>S.MATK</td>
+                    <td v-if="clone.attribute">{{clone.attribute.SMATK}}</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['MATKP']}} %</td>
+                    <td>MATK%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['MATKP']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['ElementalMagicPercent']}} %</td>
+                    <td>Element Magic%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['ElementalMagicPercent']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['ElementalMatkPercent']}} %</td>
+                    <td>vs. Element%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['ElementalMatkPercent']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['LevelMatkPercent']}} %</td>
+                    <td>vs. Class%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['LevelMatkPercent']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['RaceMatkPercent']}} %</td>
+                    <td>vs. Race%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['RaceMatkPercent']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['SizeMatkPercent']}} %</td>
+                    <td>vs. Size%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['SizeMatkPercent']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{option.EquipSkillAddDamage}} %</td>
+                    <td>Skill Mod%</td>
+                    <td v-if="clone.option">{{clone.option.EquipSkillAddDamage}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['BYPASSMDEF']}} %</td>
+                    <td>Bypass MDEF%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['BYPASSMDEF']}} %</td>
+                    <td v-else></td>
+                </tr>
+                <tr>
+                    <td>{{attribute['BYPASSMRES']}} %</td>
+                    <td>Bypass MRES%</td>
+                    <td v-if="clone.attribute">{{clone.attribute['BYPASSMRES']}} %</td>
+                    <td v-else></td>
+                </tr>
+            </table>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['EquipDBDialog']" v-on:close="ClosePanel('EquipDBDialog')"
             custom-class="Dialogue-container" top="50px" center>
@@ -2887,7 +3158,7 @@
                                         <el-row class="optionbox textcenter" style="padding: 0px 10px;" type="flex"
                                             align="middle" justify="middle">
                                             <el-col class="textcenter" :span="8">
-                                                <span>CRIT</span>
+                                                <span>CRI</span>
                                             </el-col>
                                             <el-col class="textcenter" :span="2">
                                             </el-col>
@@ -3849,7 +4120,7 @@
         <!-- header -->
         <div class="ROCalTitle">
             <el-row type="flex" align="middle" justify="space-between" class="responsive-row">
-                <el-col :xs="24" :sm="24" :md="8" :lg="8" class="button-group">
+                <el-col :xs="24" :sm="24" :md="6" :lg="6" class="button-group">
                     <el-button v-on:click="onOpenBuildPreset" size="mini">Build Presets</el-button>
                     <el-button v-on:click="onOpenAllSet" size="mini">Saved Setups</el-button>
                     <el-button v-on:click="onOpenAllSetSave" size="mini">Save</el-button>
@@ -3857,10 +4128,10 @@
                     <input style="display:none" ref="fileInputImport" type="file" name="fileInputImport"
                         @change="onLoadFileAllSetSave" />
                 </el-col>
-                <el-col :xs="24" :sm="24" :md="4" :lg="4" class="center-content">
+                <el-col :xs="24" :sm="24" :md="2" :lg="2" class="center-content">
                     <div class="effectline">RO Calculator</div>
                 </el-col>
-                <el-col :xs="24" :sm="24" :md="6" :lg="6" class="center-content">
+                <el-col :xs="24" :sm="24" :md="5" :lg="5" class="center-content">
                     Originated from TwRO - tailored for iRO
                 </el-col>
                 <el-col :xs="24" :sm="24" :md="6" :lg="6" class="button-group">
@@ -7454,6 +7725,10 @@
                 </el-col>
                 <el-col :xs="24" :sm="24" :md="6" :lg="6">
                     <el-scrollbar wrap-class="bodycol-container" :native="true" :noresize="false">
+                        <div class="panel-switch-btns">
+                            <el-button @click="onOpenCompareWindow">Compare</el-button>
+                            <el-button @click="cloneSetup">Save State</el-button>
+                        </div>
                         <el-row>
                             <div class="Attribute">
                                 <div v-show="UIPanel['ATKPanel']">
@@ -8051,7 +8326,7 @@
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
                                                 style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="8" style="text-align: right;">
-                                                    <span>Crit:</span>
+                                                    <span>CRI:</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="4">
                                                     <span>{{attribute['CRI']}} %</span>
@@ -8176,7 +8451,7 @@
                                             <el-row class="statusbox" type="flex" align="middle" justify="space-around"
                                                 style="min-height:40px;">
                                                 <el-col class="bg-purple-light" :span="10" style="text-align: right;">
-                                                    <span>Matk Status+Extra:</span>
+                                                    <span>MATK Status+Extra:</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="10">
                                                     <span>{{attribute.StatusMATK}} + {{attribute.WeaponMATK}}</span>
@@ -8690,7 +8965,11 @@
                 TempAllSet: {},
 
                 EquipText: '',
+                clonedEquipText: '',
                 ItemDesiredPosition: -1,
+
+                clone: false,
+                clonedOnce: false,
 
                 EnchantingLocation: false,
                 AvailableEnchants: [],
@@ -9020,7 +9299,7 @@
                     { label: 'FCT%', id: 'FixedCastPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\-', suffixsymbol: '\%', category: 'CastTime' },
                     { label: 'ASPD', id: 'ASPD', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category: 'ASPD' },
                     { label: 'ASPD%', id: 'AspdPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%', category: 'ASPD' },
-                    { label: 'Crit%', id: 'Cri', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%', category: 'Crit' },
+                    { label: 'CRI', id: 'Cri', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%', category: 'Crit' },
 
                     { label: 'HP %', id: 'HPPercent', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '\%', category: 'HP' },
                     { label: 'HP', id: 'HP', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category: 'HP' },
@@ -9036,7 +9315,7 @@
                     { label: 'Stat', flag: 'Stat' },
                     { label: 'Melee', flag: 'Melee' },
                     { label: 'Range', flag: 'Range' },
-                    { label: 'Crit', flag: 'Crit' },
+                    { label: 'CRI', flag: 'Crit' },
                     { label: 'Magic', flag: 'Magic' },
                     { label: 'Cooldown', flag: 'Cooldown' },
                     { label: 'Delay', flag: 'Delay' },
@@ -9074,7 +9353,7 @@
                     { label: 'SP %', id: 'SPPercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'FCT %', id: 'FixedCastPercent', totalvalue: 0, opersymbol: '\-', suffixsymbol: '\%' },
                     { label: 'VCT %', id: 'VariableCastPercent', totalvalue: 0, opersymbol: '\-', suffixsymbol: '\%' },
-                    { label: 'Crit%', id: 'Cri', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
+                    { label: 'CRI', id: 'Cri', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Crit Mod%', id: 'CriDamagePercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Range Mod%', id: 'RangedDamagePercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
                     { label: 'Melee Mod%', id: 'MeleeDamagePercent', totalvalue: 0, opersymbol: '\+', suffixsymbol: '\%' },
@@ -9661,6 +9940,7 @@
                     EnchantDialog: false,
                     ElementTableDialog: false,
                     WeaponSizeTableDialog: false,
+                    CompareDialog: false,
 
                     StatusPanel: true,
                     EnemyPanel: false,
@@ -10220,6 +10500,42 @@
                             console.log(e)
                         });
                 },
+                cloneSetup(){
+                    console.log('???');
+                    if (!this.clone) this.clone = {};
+
+                    this.$set(this.clone, 'Equip', this.equipspartlist);
+                    this.$set(this.clone, 'Weapon', this.weapon);
+                    this.$set(this.clone, 'subweapon', this.subweapon);
+                    this.$set(this.clone, 'Status', structuredClone(this.status));
+                    this.$set(this.clone, 'JobStatus', this.status_job);
+                    this.$set(this.clone, 'Skill', this.skill);
+                    this.$set(this.clone, 'EnemyName', this.enemyattribute.name);
+                    
+                    
+                    this.$set(this.clone, 'SkillName', this.skill.name);
+                    this.$set(this.clone, 'level', this.status.Level);
+                    this.$set(this.clone, 'dps', Math.max(this.computeattribute.matkmulti_DPS,this.computeattribute.DragonBreathDMG_DPS,this.computeattribute.atkmulti_DPS));
+                    this.$set(this.clone, 'skilldamageavg', this.getSkillDamageAvg());
+                    this.$set(this.clone, 'aspd', this.status.ASPD);
+                    this.$set(this.clone, 'delay', this.attribute['GCD']);
+                    this.$set(this.clone, 'HitperSec', this.computeattribute['HitperSec']);
+                    this.$set(this.clone, 'status_total', structuredClone(this.status_total));
+                    this.$set(this.clone, 'attribute', structuredClone(this.attribute));
+                    this.$set(this.clone, 'computeattribute', structuredClone(this.computeattribute));
+                    this.$set(this.clone, 'skillOption', structuredClone(this.skilloption));
+                    this.$set(this.clone, 'option', structuredClone(this.option));
+                    this.$set(this.clone, 'enemyattribute', structuredClone(this.enemyattribute));
+
+                    this.$set(this.clone, 'equipspartlist', this.equipspartlist);
+                    this.buildConsumable();
+                    this.buildSupportSkill();
+
+                    this.clonedEquipText = this.GetClonedBasicEquipString();
+                    console.log(this);
+                    console.log(this.computeattribute);
+                    console.log(this.clone);
+                },
                 GetEquipEffect(index) {
                     var _EffectTypeInfo;
                     var _BuildString = '\n';
@@ -10241,6 +10557,58 @@
                                 + _EffectTypeInfo.suffixsymbol;
                         }
 
+                    }
+                    return _BuildString;
+                },
+                GetClonedBasicEquipString() {
+                    var _BuildString = "";
+                    if (this.hasOwnProperty('clone')){
+                        // main gear
+                        for (var i = 0; i < 10; ++i) {
+                            if (this.clone.equipspartlist[i].equipname.trim() == '') continue;
+                            else _BuildString += this.clone.equipspartlist[i].label + ": " + this.clone.equipspartlist[i].equipname;
+                            _BuildString += '\n'
+                            if (i == 0) {
+                                for (var j = 10; j < 14; j++) {
+                                    _BuildString += `\tCard - ${j - 9}: `
+                                    _BuildString += (this.clone.equipspartlist[i + j].equipname.trim() == '') ? 'None' : this.clone.equipspartlist[i + j].equipname;
+                                    _BuildString += '\n'
+                                }
+                            }
+                            if (i == 1) {
+                                if (this.clone.subweapon.ATK > 0 || this.clone.subweapon.MATK > 0) {
+                                    for (var j = 13; j < 17; j++) {
+                                        _BuildString += `\tCard - ${j - 12}: `
+                                        _BuildString += (this.clone.equipspartlist[i + j].equipname.trim() == '') ? 'None' : this.clone.equipspartlist[i + j].equipname;
+                                        _BuildString += '\n'
+                                    }
+                                }
+                                if (this.subweapon.ShieldWeight > 0) {
+                                    for (var j = 17; j < 18; j++) {
+                                        _BuildString += `\tCard: `
+                                        _BuildString += (this.clone.equipspartlist[i + j].equipname.trim() == '') ? 'None' : this.clone.equipspartlist[i + j].equipname;
+                                        _BuildString += '\n'
+                                    }
+                                }
+                            }
+                            if (i >= 2 && i !== 4) {
+                                _BuildString += `\tCard: `
+                                _BuildString += (this.clone.equipspartlist[i + 17].equipname.trim() == '') ? 'None' : this.clone.equipspartlist[i + 17].equipname;
+                                _BuildString += '\n'
+                            }
+                        }
+                        // shadow gear
+                        for (var i = 37; i < 43; ++i) {
+                            if (this.clone.equipspartlist[i].equipname.trim() == '') continue;
+                            else _BuildString += this.clone.equipspartlist[i].label + ": " + this.clone.equipspartlist[i].equipname;
+                            _BuildString += '\n'
+                        }
+                        // costume stones
+                        for (var i = 31; i < 36; ++i) {
+                            if (this.clone.equipspartlist[i].equipname.trim() == '') continue;
+                            else _BuildString += this.clone.equipspartlist[i].label + ": " + this.clone.equipspartlist[i].equipname;
+                            _BuildString += '\n'
+                        }
                     }
                     return _BuildString;
                 },
@@ -11030,6 +11398,11 @@
 
                     if (vals.length == 1 || vals[0] == vals[1]) this.computeRecord.push({ title: title, val: vals[0], method: method, diff: diff, tooltip: tooltip });
                     else this.computeRecord.push({ title: title, val1: vals[0], val2: vals[1], method: method, diff: diff, tooltip: tooltip })
+                },
+                resetDamage(){
+                    this.computeattribute.matkmulti_DPS=
+                    this.computeattribute.DragonBreathDMG_DPS=
+                    this.computeattribute.atkmulti_DPS=0
                 },
                 ComputeATKAttribute(isNA, isCRI) {
                     this.resetRecord();
@@ -11941,6 +12314,7 @@
                     this.ClosePanel('ATKPanel');
                     this.ClosePanel('MATKPanel');
                     this.ClosePanel('DragonBreathPanel');
+                    this.resetDamage();
                     switch (this.skill.DamageTypeIdx) {
                         case 0:
                             this.ComputeATKAttribute(true, true);
@@ -12133,7 +12507,6 @@
                 },
                 buildSupportSkill() {
                     this.StoreDB_SupportSkill = [];
-                    console.log(this.StoreDB_SupportSkill.length);
                     var A = this;
                     this.DefaultDB_SupportSkill.forEach(function (item, i) {
                         if (item.skill.active) {
@@ -12148,7 +12521,6 @@
                             }
                         }
                     });
-                    console.log(this.StoreDB_SupportSkill.length);
                 },
                 parseSupportSkill() {
                     var _idx;
@@ -13742,6 +14114,18 @@
                     }
                     this.OpenPanel('EquipDBDialog');
                 },
+                onOpenCompareWindow(){
+                    console.log(this.clonedOnce);
+                    if (!this.clone && !this.clonedOnce) {
+                        this.cloneSetup();
+                        this.clonedOnce = true;
+                    }
+                    console.log(this.clonedOnce);
+
+                    this.EquipText = this.GetBasicEquipString();
+
+                    this.OpenPanel('CompareDialog');
+                },
                 onFilterBuildSearch() {
                     this.AvailableClassesMetadataGroup = [];
                     this.AvailableClassesMetadataList = this.BuildMetadata.filter(post => {
@@ -14201,6 +14585,9 @@
                 getEnchantWithEffects(start, end) {
                     const enchants = this.equipspartlist.slice(start, end).filter(x => x.effectlist.length > 0);
                     return enchants;
+                },
+                getSkillDPS(){
+                    return Math.max(this.computeattribute.matkmulti_DPS,this.computeattribute.DragonBreathDMG_DPS,this.computeattribute.atkmulti_DPS);
                 },
                 getSkillDamageAvg() {
                     if (this.skill.DamageTypeIdx === 0) {
@@ -15676,6 +16063,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2025-09-21', content: 'Update: Added Compare functionality' },
                         { id: '2025-09-20', content: 'Update: Job level bonus stat is now added automatically according to the character and job level entered' },
                         { id: '2025-09-16', content: 'Added: September Kachua Mileage Coupon gear' },
                         { id: '2025-09-16', content: 'Added: September Kachua gear' },
@@ -16402,11 +16790,11 @@
             },
             filters: {
                 currency(val) {
-                    return val.toFixed(0).replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
+                    return isNaN(val) ? val : parseFloat(val).toFixed(0).replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
                     /* return price.toLocaleString('en-US');  寫法二：轉為千分號*/
                 },
                 currency2(val) {
-                    return val.toFixed(2)
+                    return isNaN(val) ? val : parseFloat(val).toFixed(2)
                 },
                 getDateFromIso8601(val) {
                     return val.split('T')[0];
