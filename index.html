@@ -11405,8 +11405,8 @@
                                                                 */
                         } else if (this.status.Level > 200) {
                             if (this.ClassInfo.fourthhp) {
-                                _BaseHP = this.ClassInfo.fourthhp[Number(this.status.Level - 200)];
-                                _BaseSP = this.ClassInfo.fourthsp[Number(this.status.Level - 200)];
+                                _BaseHP = this.ClassInfo.fourthhp[Math.min(this.ClassInfo.fourthhp.length-1,Number(this.status.Level - 200))];
+                                _BaseSP = this.ClassInfo.fourthsp[Math.min(this.ClassInfo.fourthhp.length-1,Number(this.status.Level - 200))];
                             } else {
                                 _BaseHP = this.ClassInfo.basehp[101];
                                 _BaseSP = this.ClassInfo.basesp[101];
