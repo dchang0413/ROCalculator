@@ -2163,6 +2163,14 @@
                         :formatter="this.formatDateFromIso8601"></el-table-column>
                     <el-table-column width="100px">
                         <template #default="scope">
+                            <el-button v-on:click="cloneBuild(scope.row.filename)" icon="el-icon-notebook-1" type="success"
+                                type="primary" size="small">
+                                Compare
+                            </el-button>
+                        </template>
+                    </el-table-column>
+                    <el-table-column width="100px">
+                        <template #default="scope">
                             <el-button v-on:click="loadBuild(scope.row.filename)" icon="el-icon-check" type="success"
                                 type="primary" size="small">
                                 Load
@@ -2256,7 +2264,7 @@
                     <td>DPS</td>
                     <td>{{clone.dps|currency}}</td>
                 </tr>
-                <tr>
+                <tr v-if="clone.enemyattribute">
                     <td>{{ enemyattribute.hp / this.getSkillDPS() | damageToTimeFull }}<br>
                         (<span :class="clone.enemyattribute.hp/clone.dps>=enemyattribute.hp/this.getSkillDPS() ? 'positiveTimeDiff' : 'negativeTimeDiff'">
                             {{enemyattribute.hp/this.getSkillDPS()-clone.enemyattribute.hp/clone.dps | damageToTimeFull}}
@@ -10609,6 +10617,40 @@
                             console.log(e)
                         });
                 },
+                cloneBuild(filename){
+                    let href = this.getURL() + 'template/' + filename;
+                    fetch(href, { cache: "no-cache" })
+                        .then(res => res.json())
+                        .then(json => {
+                            if (!this.clone) this.clone = {};
+
+                            this.$set(this.clone, 'Status', structuredClone(json.Status));
+                            this.$set(this.clone, 'JobStatus', json.status_job);
+                            this.$set(this.clone, 'Skill', json.Skill);
+                            this.$set(this.clone, 'EnemyName', json.Enemy.name);
+                            
+                            this.$set(this.clone, 'SkillName', json.Skill.name);
+                            this.$set(this.clone, 'level', json.Status.Level);
+                            this.$set(this.clone, 'dps', parseFloat(json.DamageDPS.replaceAll(",","")));
+                            this.$set(this.clone, 'skilldamageavg', parseFloat(json.SkillDamageAvg.replaceAll(",","")));
+                            this.$set(this.clone, 'aspd', json.Status.ASPD);
+                            this.$set(this.clone, 'delay', json.attribute['GCD']);
+                            this.$set(this.clone, 'HitperSec', json.computeattribute['HitperSec']);
+                            this.$set(this.clone, 'status_total', structuredClone(json.status_total));
+                            this.$set(this.clone, 'attribute', structuredClone(json.attribute));
+                            this.$set(this.clone, 'computeattribute', structuredClone(json.computeattribute));
+                            this.$set(this.clone, 'skillOption', structuredClone(json.SkillOption));
+                            this.$set(this.clone, 'option', structuredClone(json.Option));
+                            this.$set(this.clone, 'enemyattribute', structuredClone(json.Enemy));
+                            this.$set(this.clone, 'equipspartlist', structuredClone(json.Equip));
+
+                            
+                            this.GetDetailedEquipString(true);
+                            this.GetDetailedEquipString();
+
+                            this.OpenPanel('CompareDialog');
+                        });
+                },
                 cloneSetup(){
                     if (!this.clone) this.clone = {};
 
@@ -14866,6 +14908,10 @@
                     this.$set(this.TempAllSet, 'DamageDPS', 0);
                     this.$set(this.TempAllSet, 'NormalAttackDPS', 0);
                     this.$set(this.TempAllSet, 'SkillDamageAvg', this.$options.filters.currency(this.getSkillDamageAvg()));
+
+                    this.$set(this.TempAllSet, 'attribute', this.attribute);
+                    this.$set(this.TempAllSet, 'computeattribute', this.computeattribute);
+                    this.$set(this.TempAllSet, 'status_total', this.status_total);
 
                     var _hitnumbervalue = eval(this.SkillFormulaReplace(this.skill.hitnumber));
                     switch (this.skill.DamageTypeIdx) {
