@@ -2217,49 +2217,52 @@
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['CompareDialog']" v-on:close="ClosePanel('CompareDialog')"
             custom-class="Dialogue-container" top="50px" width="97%" center>
-            <table class="compareTable" style="width:100%">
+            <table v-if="clone" class="compareTable" style="width:100%; white-space: nowrap">
                 <tr class="bg-purple-light5 stickyHeader">
-                    <th v-if="EquipText" style="width:40%" colspan="2">Current Build</th>
+                    <th v-if="detailEquipText" style="width:40%" colspan="2">Current Build</th>
                     <th v-else style="width:40%">Current Build</th>
                     <th style="width:20%"></th>
-                    <th v-if="clonedEquipText" style="width:40%" colspan="2">Saved State</th>
+                    <th v-if="clonedDetailEquipText" style="width:40%" colspan="2">Saved State</th>
                     <th v-else style="width:40%" colspan="2">Saved State</th>
                 </tr>
                 <tr>
-                    <td v-if="EquipText" :rowspan="this.enemyattribute.name != clone.EnemyName?44:43" width="25%" class="text-wrapper" style="vertical-align: initial">
-                        <span class="stickyText">{{EquipText}}</span>
+                    <td v-if="detailEquipText" :rowspan="this.enemyattribute.name != clone.EnemyName?44:43" width="25%" class="text-wrapper" style="vertical-align: initial">
+                        <span class="stickyText">
+                            <span v-for="equipText in detailEquipText"><img :src="equipText.imgURL">{{equipText.text}}</span>
+                        </span>
                     </td>
                     <td>{{skill.name}}</td>
                     <td>Skill</td>
                     <td>{{clone.SkillName}}</td>
-                    <td v-if="clonedEquipText" :rowspan="this.enemyattribute.name != clone.EnemyName?44:43" width="25%" class="text-wrapper" style="vertical-align: initial">
-                        <span class="stickyText">{{clonedEquipText}}</span>
+                    <td v-if="clonedDetailEquipText" :rowspan="this.enemyattribute.name != clone.EnemyName?44:43" width="25%" class="text-wrapper" style="vertical-align: initial">
+                        <span class="stickyText">
+                            <span v-for="equipText in clonedDetailEquipText"><img :src="equipText.imgURL">{{equipText.text}}</span>
+                        </span>
                     </td>
                 </tr>
                 <tr>
-                    <td>{{this.getSkillDamageAvg()|currency}} 
-                        (<span :class="parseFloat(this.getSkillDamageAvg())-parseFloat(clone.skilldamageavg) > 0 ? 'positiveDiff' : 'negativeDiff'">
+                    <td>{{this.getSkillDamageAvg()|currency}}<br>
+                        (<span :class="parseFloat(this.getSkillDamageAvg())>=parseFloat(clone.skilldamageavg) ? 'positiveDiff' : 'negativeDiff'">
                             {{parseFloat(this.getSkillDamageAvg())-parseFloat(clone.skilldamageavg)|currency}}
                         </span>)</td>
                     <td>Skill Damage(Avg)</td>
                     <td>{{clone.skilldamageavg|currency}}</td>
                 </tr>
                 <tr>
-                    <td>{{this.getSkillDPS()| currency}} 
-                        (<span :class="this.getSkillDPS()-clone.dps > 0 ? 'positiveDiff' : 'negativeDiff'">
+                    <td>{{this.getSkillDPS()| currency}} <br>
+                        (<span :class="this.getSkillDPS()>=clone.dps ? 'positiveDiff' : 'negativeDiff'">
                             {{this.getSkillDPS()-clone.dps|currency}}
                         </span>)</td>
                     <td>DPS</td>
                     <td>{{clone.dps|currency}}</td>
                 </tr>
-                <tr v-if="clone.enemyattribute">
-                    <td>{{ enemyattribute.hp / this.getSkillDPS() | damageToTime }}<br>
-                        (<span :class="enemyattribute.hp/this.getSkillDPS()-clone.enemyattribute.hp/clone.dps < 0 ? 'positiveDiff' : 'negativeDiff'">
-                            {{enemyattribute.hp/this.getSkillDPS()-clone.enemyattribute.hp/clone.dps | damageToTime}}
+                <tr>
+                    <td>{{ enemyattribute.hp / this.getSkillDPS() | damageToTimeFull }}<br>
+                        (<span :class="clone.enemyattribute.hp/clone.dps>=enemyattribute.hp/this.getSkillDPS() ? 'positiveTimeDiff' : 'negativeTimeDiff'">
+                            {{enemyattribute.hp/this.getSkillDPS()-clone.enemyattribute.hp/clone.dps | damageToTimeFull}}
                         </span>)</td>
                     <td>Target Kill Time</td>
-                    <td v-if="clone.enemyattribute&&clone.computeattribute">{{ clone.enemyattribute.hp / clone.dps | damageToTime }}</td>
-                    <td v-else></td>
+                    <td>{{ clone.enemyattribute.hp / clone.dps | damageToTimeFull }}</td>
                 </tr>
                 <tr v-if="this.enemyattribute.name != clone.EnemyName">
                     <td>{{this.enemyattribute.name}}</td>
@@ -2272,17 +2275,25 @@
                     <td>{{clone.level}}</td>
                 </tr>
                 <tr>
-                    <td>{{status.ASPD}}</td>
+                    <td>{{status.ASPD}}
+                        (<span :class="status.ASPD>=clone.aspd ? 'positiveDiff' : 'negativeDiff'">
+                            {{status.ASPD-clone.aspd}}
+                        </span>)</td>
                     <td>ASPD</td>
                     <td>{{clone.aspd}}</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['GCD']}} %</td>
+                    <td>{{attribute['GCD']}} %
+                        (<span :class="status.ASPD>=clone.delay ? 'positiveTimeDiff' : 'negativeTimeDiff'">
+                            {{attribute['GCD']-clone.delay}} % 
+                        </span>)</td>
                     <td>Cast Delay</td>
                     <td>{{clone.delay}} %</td>
                 </tr>
-                <tr>
-                    <td>{{computeattribute['HitperSec']}}</td>
+                <tr><td>{{computeattribute['HitperSec']}}
+                        (<span :class="computeattribute['HitperSec']>=clone.HitperSec ? 'positiveDiff' : 'negativeDiff'">
+                            {{computeattribute['HitperSec']-clone.HitperSec|currency2}} 
+                        </span>)</td>
                     <td>Action per sec</td>
                     <td>{{clone.HitperSec}}</td>
                 </tr>
@@ -2295,202 +2306,289 @@
                     <td colspan=3>Other Stats</td>
                 </tr>
                 <tr>
-                    <td>{{status.MHP}} | +{{attribute['HP']}} | {{attribute['HPP']}}%</td>
+                    <td>{{status.MHP}} | +{{attribute['HP']}} | {{attribute['HPP']}}%<br>
+                        (
+                            <span :class="status.MHP>=clone.Status.MHP ? 'positiveDiff' : 'negativeDiff'">{{status.MHP-clone.Status.MHP}}</span> | 
+                            <span :class="attribute['HP']>=clone.attribute['HP'] ? 'positiveDiff' : 'negativeDiff'">{{attribute['HP']-clone.attribute['HP']}}</span> | 
+                            <span :class="attribute['HPP']>=clone.attribute['HPP'] ? 'positiveDiff' : 'negativeDiff'">{{attribute['HPP']-clone.attribute['HPP']}}%</span>
+                        )
+                    </td>
                     <td>Total HP | +HP | +HP%</td>
-                    <td v-if="clone.Status && clone.attribute">{{clone.Status.MHP}} | +{{clone.attribute['HP']}} | {{clone.attribute['HPP']}}%</td>
-                    <td v-else></td>
+                    <td>{{clone.Status.MHP}} | +{{clone.attribute['HP']}} | {{clone.attribute['HPP']}}%</td>
                 </tr>
                 <tr>
-                    <td>{{status.MSP}} | +{{attribute['SP']}} | {{attribute['SPP']}}%</td>
+                    <td>{{status.MSP}} | +{{attribute['SP']}} | {{attribute['SPP']}}%<br>
+                        (
+                            <span :class="status.MSP>=clone.Status.MSP ? 'positiveDiff' : 'negativeDiff'">{{status.MSP-clone.Status.MSP}}</span> | 
+                            <span :class="attribute['SP']>=clone.attribute['SP'] ? 'positiveDiff' : 'negativeDiff'">{{attribute['SP']-clone.attribute['SP']}}</span> | 
+                            <span :class="attribute['SPP']>=clone.attribute['SPP'] ? 'positiveDiff' : 'negativeDiff'">{{attribute['SPP']-clone.attribute['SPP']}}%</span>
+                        )
+                    </td>
                     <td>Total SP | +SP | +SP%</td>
-                    <td v-if="clone.Status && clone.attribute">{{clone.Status.MSP}} | +{{clone.attribute['SP']}} | {{clone.attribute['SPP']}}%</td>
-                    <td v-else></td>
+                    <td>{{clone.Status.MSP}} | +{{clone.attribute['SP']}} | {{clone.attribute['SPP']}}%</td>
                 </tr>
                 <tr>
-                    <td>{{status_total.STR}} | {{status_total.AGI}} | {{status_total.VIT}} | {{status_total.INT}} | {{status_total.DEX}} | {{status_total.LUK}}</td>
+                    <td>{{status_total.STR}} | {{status_total.AGI}} | {{status_total.VIT}} | {{status_total.INT}} | {{status_total.DEX}} | {{status_total.LUK}}<br>
+                        (
+                            <span :class="status_total.STR>=clone.status_total.STR ? 'positiveDiff' : 'negativeDiff'">{{status_total.STR-clone.status_total.STR}}</span> | 
+                            <span :class="status_total.AGI>=clone.status_total.AGI ? 'positiveDiff' : 'negativeDiff'">{{status_total.AGI-clone.status_total.AGI}}</span> | 
+                            <span :class="status_total.VIT>=clone.status_total.VIT ? 'positiveDiff' : 'negativeDiff'">{{status_total.VIT-clone.status_total.VIT}}</span> | 
+                            <span :class="status_total.INT>=clone.status_total.INT ? 'positiveDiff' : 'negativeDiff'">{{status_total.INT-clone.status_total.INT}}</span> | 
+                            <span :class="status_total.DEX>=clone.status_total.DEX ? 'positiveDiff' : 'negativeDiff'">{{status_total.DEX-clone.status_total.DEX}}</span> | 
+                            <span :class="status_total.LUK>=clone.status_total.LUK ? 'positiveDiff' : 'negativeDiff'">{{status_total.LUK-clone.status_total.LUK}}</span>
+                        )
+                    </td>
                     <td>Basic Stats<br>STR | AGI | VIT | INT | DEX | LUK</td>
-                    <td v-if="clone.status_total">{{clone.status_total.STR}} | {{clone.status_total.AGI}} | {{clone.status_total.VIT}} | {{clone.status_total.INT}} | {{clone.status_total.DEX}} | {{clone.status_total.LUK}}</td>
-                    <td v-else></td>
+                    <td>{{clone.status_total.STR}} | {{clone.status_total.AGI}} | {{clone.status_total.VIT}} | {{clone.status_total.INT}} | {{clone.status_total.DEX}} | {{clone.status_total.LUK}}</td>
                 </tr>
                 <tr>
-                    <td>{{status_total.POW}} | {{status_total.STA}} | {{status_total.WIS}} | {{status_total.SPL}} | {{status_total.CON}} | {{status_total.CRT}}</td>
+                    <td>{{status_total.POW}} | {{status_total.STA}} | {{status_total.WIS}} | {{status_total.SPL}} | {{status_total.CON}} | {{status_total.CRT}}<br>
+                        (
+                            <span :class="status_total.POW>=clone.status_total.POW ? 'positiveDiff' : 'negativeDiff'">{{status_total.POW-clone.status_total.POW}}</span> | 
+                            <span :class="status_total.STA>=clone.status_total.STA ? 'positiveDiff' : 'negativeDiff'">{{status_total.STA-clone.status_total.STA}}</span> | 
+                            <span :class="status_total.WIS>=clone.status_total.WIS ? 'positiveDiff' : 'negativeDiff'">{{status_total.WIS-clone.status_total.WIS}}</span> | 
+                            <span :class="status_total.SPL>=clone.status_total.SPL ? 'positiveDiff' : 'negativeDiff'">{{status_total.SPL-clone.status_total.SPL}}</span> | 
+                            <span :class="status_total.CON>=clone.status_total.CON ? 'positiveDiff' : 'negativeDiff'">{{status_total.CON-clone.status_total.CON}}</span> | 
+                            <span :class="status_total.CRT>=clone.status_total.CRT ? 'positiveDiff' : 'negativeDiff'">{{status_total.CRT-clone.status_total.CRT}}</span>
+                        )
+                    </td>
                     <td>Talent Stats<br>POW | STA | WIS | SPL | CON | CRT</td>
-                    <td v-if="clone.status_total">{{clone.status_total.POW}} | {{clone.status_total.STA}} | {{clone.status_total.WIS}} | {{clone.status_total.SPL}} | {{clone.status_total.CON}} | {{clone.status_total.CRT}}</td>
-                    <td v-else></td>
+                    <td>{{clone.status_total.POW}} | {{clone.status_total.STA}} | {{clone.status_total.WIS}} | {{clone.status_total.SPL}} | {{clone.status_total.CON}} | {{clone.status_total.CRT}}</td>
                 </tr>
                 <tr class="bg-red-light2">
                     <td colspan=3>Physical Stats</td>
                 </tr>
                 <tr>
-                    <td>{{attribute.StatusATK+computeattribute['SpecialATKFront']}} + {{attribute.WeaponATK}}</td>
+                    <td>{{attribute.StatusATK+computeattribute['SpecialATKFront']}} + {{attribute.WeaponATK}}<br>
+                        (
+                            <span :class="attribute.StatusATK+computeattribute['SpecialATKFront']>=clone.attribute.StatusATK+clone.computeattribute['SpecialATKFront'] ? 'positiveDiff' : 'negativeDiff'">{{attribute.StatusATK+computeattribute['SpecialATKFront']-clone.attribute.StatusATK+clone.computeattribute['SpecialATKFront']}}</span> | 
+                            <span :class="attribute.WeaponATK>=clone.attribute.WeaponATK ? 'positiveDiff' : 'negativeDiff'">{{attribute.WeaponATK-clone.attribute.WeaponATK}}</span>
+                        )
+                    </td>
                     <td>ATK Status + Extra</td>
-                    <td v-if="clone.attribute&&clone.computeattribute">{{clone.attribute.StatusATK+clone.computeattribute['SpecialATKFront']}} + {{clone.attribute.WeaponATK}}</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute.StatusATK+clone.computeattribute['SpecialATKFront']}} + {{clone.attribute.WeaponATK}}</td>
                 </tr>
                 <tr>
-                    <td>{{attribute.PATK}}</td>
+                    <td>{{attribute.PATK}}
+                        (<span :class="attribute.PATK>=clone.attribute.PATK ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute.PATK-clone.attribute.PATK}} 
+                        </span>)</td>
                     <td>P.ATK</td>
-                    <td v-if="clone.attribute">{{clone.attribute.PATK}}</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute.PATK}}</td>
                 </tr>
                 <tr>
-                    <td>{{skilloption.WeaponMasteryATK}}</td>
+                    <td>{{skilloption.WeaponMasteryATK}}
+                        (<span :class="skilloption.WeaponMasteryATK>=(clone.skilloption ? clone.skilloption.WeaponMasteryATK : 0) ? 'positiveDiff' : 'negativeDiff'">
+                            {{skilloption.WeaponMasteryATK-clone.skilloption ? clone.skilloption.WeaponMasteryATK : 0}} 
+                        </span>)</td>
                     <td>Mastery ATK</td>
                     <td v-if="clone.skilloption">{{clone.skilloption.WeaponMasteryATK}}</td>
-                    <td v-else></td>
+                    <td v-else>0</td>
                 </tr>
                 <tr>
-                    <td>{{computeattribute.sizefix}} %</td>
+                    <td>{{computeattribute.sizefix}} %
+                        (<span :class="computeattribute.sizefix>=clone.computeattribute.sizefix ? 'positiveDiff' : 'negativeDiff'">
+                            {{computeattribute.sizefix-clone.computeattribute.sizefix}} %
+                        </span>)</td>
                     <td>Size Penalty</td>
-                    <td v-if="clone.computeattribute">{{clone.computeattribute.sizefix}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.computeattribute.sizefix}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['RNGDP']}} %</td>
+                    <td>{{attribute['RNGDP']}} %
+                        (<span :class="attribute['RNGDP']>=clone.attribute['RNGDP'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['RNGDP']-clone.attribute['RNGDP']}} %
+                        </span>)</td>
                     <td>Range Mod%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['RNGDP']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['RNGDP']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['MELDP']}} %</td>
+                    <td>{{attribute['MELDP']}} %
+                        (<span :class="attribute['MELDP']>=clone.attribute['MELDP'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['MELDP']-clone.attribute['MELDP']}} %
+                        </span>)</td>
                     <td>Melee Mod%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['MELDP']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['MELDP']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['CRI']}} %</td>
+                    <td>{{attribute['CRI']}} %
+                        (<span :class="attribute['CRI']>=clone.attribute['CRI'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['CRI']-clone.attribute['CRI']|currency2}} %
+                        </span>)</td>
                     <td>CRI</td>
-                    <td v-if="clone.attribute">{{clone.attribute['CRI']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['CRI']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['CRIDP']}} %</td>
+                    <td>{{attribute['CRIDP']}} %
+                        (<span :class="attribute['CRIDP']>=clone.attribute['CRIDP'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['CRIDP']-clone.attribute['CRIDP']}} %
+                        </span>)</td>
                     <td>Crit Mod%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['CRIDP']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['CRIDP']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute.CRIDR}}</td>
+                    <td>{{attribute.CRIDR}}
+                        (<span :class="attribute['CRIDR']>=clone.attribute['CRIDR'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['CRIDR']-clone.attribute['CRIDR']}}
+                        </span>)</td>
                     <td>C.RATE</td>
-                    <td v-if="clone.attribute">{{clone.attribute['CRIDR']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['CRIDR']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['ATKP']}} %</td>
+                    <td>{{attribute['ATKP']}} %
+                        (<span :class="attribute['ATKP']>=clone.attribute['ATKP'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['ATKP']-clone.attribute['ATKP']}} %
+                        </span>)</td>
                     <td>ATK%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['ATKP']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['ATKP']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['ElementalAtkPercent']}} %</td>
+                    <td>{{attribute['ElementalAtkPercent']}} %
+                        (<span :class="attribute['ElementalAtkPercent']>=clone.attribute['ElementalAtkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['ElementalAtkPercent']-clone.attribute['ElementalAtkPercent']}} %
+                        </span>)</td>
                     <td>vs. Element%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['ElementalAtkPercent']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['ElementalAtkPercent']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['LevelAtkPercent']}} %</td>
+                    <td>{{attribute['LevelAtkPercent']}} %
+                        (<span :class="attribute['LevelAtkPercent']>=clone.attribute['LevelAtkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['LevelAtkPercent']-clone.attribute['LevelAtkPercent']}} %
+                        </span>)</td>
                     <td>vs. Class%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['LevelAtkPercent']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['LevelAtkPercent']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['RaceAtkPercent']}} %</td>
+                    <td>{{attribute['RaceAtkPercent']}} %
+                        (<span :class="attribute['RaceAtkPercent']>=clone.attribute['RaceAtkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['RaceAtkPercent']-clone.attribute['RaceAtkPercent']}} %
+                        </span>)</td>
                     <td>vs. Race%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['RaceAtkPercent']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['RaceAtkPercent']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['SizeAtkPercent']}} %</td>
+                    <td>{{attribute['SizeAtkPercent']}} %
+                        (<span :class="attribute['SizeAtkPercent']>=clone.attribute['SizeAtkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['SizeAtkPercent']-clone.attribute['SizeAtkPercent']}} %
+                        </span>)</td>
                     <td>vs. Size%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['SizeAtkPercent']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['SizeAtkPercent']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{option.EquipSkillAddDamage}} %</td>
+                    <td>{{option.EquipSkillAddDamage}} %
+                        (<span :class="option.EquipSkillAddDamage>=clone.option.EquipSkillAddDamage ? 'positiveDiff' : 'negativeDiff'">
+                            {{option.EquipSkillAddDamage-clone.option.EquipSkillAddDamage}} %
+                        </span>)</td>
                     <td>Skill Mod%</td>
-                    <td v-if="clone.option">{{clone.option.EquipSkillAddDamage}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.option.EquipSkillAddDamage}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['BYPASSDEF']}} %</td>
+                    <td>{{attribute['BYPASSDEF']}} %
+                        (<span :class="attribute['BYPASSDEF']>=clone.attribute['BYPASSDEF'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['BYPASSDEF']-clone.attribute['BYPASSDEF']}} %
+                        </span>)</td>
                     <td>Bypass DEF%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['BYPASSDEF']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['BYPASSDEF']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['BYPASSRES']}} %</td>
+                    <td>{{attribute['BYPASSRES']}} %
+                        (<span :class="attribute['BYPASSRES']>=clone.attribute['BYPASSRES'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['BYPASSRES']-clone.attribute['BYPASSRES']}} %
+                        </span>)</td>
                     <td>Bypass RES%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['BYPASSRES']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['BYPASSRES']}} %</td>
                 </tr>
                 <tr class="bg-purple-light4">
                     <td colspan=3>Magic Stats</td>
                 </tr>
                 <tr>
-                    <td>{{attribute.StatusMATK}} + {{attribute.WeaponMATK}}</td>
+                    <td>{{attribute.StatusMATK}} + {{attribute.WeaponMATK}}<br>
+                        (
+                            <span :class="attribute.StatusMATK>=clone.attribute.StatusMATK ? 'positiveDiff' : 'negativeDiff'">{{attribute.StatusMATK-clone.attribute.StatusMATK}}</span> | 
+                            <span :class="attribute.WeaponMATK>=clone.attribute.WeaponMATK ? 'positiveDiff' : 'negativeDiff'">{{attribute.WeaponMATK-clone.attribute.WeaponMATK}}</span>
+                        )
+                    </td>
                     <td>MATK Status + Extra</td>
-                    <td v-if="clone.attribute">{{clone.attribute.StatusMATK}} + {{clone.attribute.WeaponMATK}}</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute.StatusMATK}} + {{clone.attribute.WeaponMATK}}</td>
                 </tr>
                 <tr>
-                    <td>{{attribute.SMATK}}</td>
+                    <td>{{attribute.SMATK}}
+                        (<span :class="attribute.SMATK>=clone.attribute.SMATK ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute.SMATK-clone.attribute.SMATK}}
+                        </span>)</td>
                     <td>S.MATK</td>
-                    <td v-if="clone.attribute">{{clone.attribute.SMATK}}</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute.SMATK}}</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['MATKP']}} %</td>
+                    <td>{{attribute['MATKP']}} %
+                        (<span :class="attribute['MATKP']>=clone.attribute['MATKP'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['MATKP']-clone.attribute['MATKP']}} %
+                        </span>)</td>
                     <td>MATK%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['MATKP']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['MATKP']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['ElementalMagicPercent']}} %</td>
+                    <td>{{attribute['ElementalMagicPercent']}} %
+                        (<span :class="attribute['ElementalMagicPercent']>=clone.attribute['ElementalMagicPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['ElementalMagicPercent']-clone.attribute['ElementalMagicPercent']}} %
+                        </span>)</td>
                     <td>Element Magic%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['ElementalMagicPercent']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['ElementalMagicPercent']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['ElementalMatkPercent']}} %</td>
+                    <td>{{attribute['ElementalMatkPercent']}} %
+                        (<span :class="attribute['ElementalMatkPercent']>=clone.attribute['ElementalMatkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['ElementalMatkPercent']-clone.attribute['ElementalMatkPercent']}} %
+                        </span>)</td>
                     <td>vs. Element%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['ElementalMatkPercent']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['ElementalMatkPercent']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['LevelMatkPercent']}} %</td>
+                    <td>{{attribute['LevelMatkPercent']}} %
+                        (<span :class="attribute['LevelMatkPercent']>=clone.attribute['LevelMatkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['LevelMatkPercent']-clone.attribute['LevelMatkPercent']}} %
+                        </span>)</td>
                     <td>vs. Class%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['LevelMatkPercent']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['LevelMatkPercent']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['RaceMatkPercent']}} %</td>
+                    <td>{{attribute['RaceMatkPercent']}} %
+                        (<span :class="attribute['RaceMatkPercent']>=clone.attribute['RaceMatkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['RaceMatkPercent']-clone.attribute['RaceMatkPercent']}} %
+                        </span>)</td>
                     <td>vs. Race%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['RaceMatkPercent']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['RaceMatkPercent']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['SizeMatkPercent']}} %</td>
+                    <td>{{attribute['SizeMatkPercent']}} %
+                        (<span :class="attribute['SizeMatkPercent']>=clone.attribute['SizeMatkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['SizeMatkPercent']-clone.attribute['SizeMatkPercent']}} %
+                        </span>)</td>
                     <td>vs. Size%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['SizeMatkPercent']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['SizeMatkPercent']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{option.EquipSkillAddDamage}} %</td>
+                    <td>{{option.EquipSkillAddDamage}} %
+                        (<span :class="option.EquipSkillAddDamage>=clone.option.EquipSkillAddDamage ? 'positiveDiff' : 'negativeDiff'">
+                            {{option.EquipSkillAddDamage-clone.option.EquipSkillAddDamage}} %
+                        </span>)</td>
                     <td>Skill Mod%</td>
-                    <td v-if="clone.option">{{clone.option.EquipSkillAddDamage}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.option.EquipSkillAddDamage}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['BYPASSMDEF']}} %</td>
+                    <td>{{attribute['BYPASSMDEF']}} %
+                        (<span :class="attribute['BYPASSMDEF']>=clone.attribute['BYPASSMDEF'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['BYPASSMDEF']-clone.attribute['BYPASSMDEF']}} %
+                        </span>)</td>
                     <td>Bypass MDEF%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['BYPASSMDEF']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['BYPASSMDEF']}} %</td>
                 </tr>
                 <tr>
-                    <td>{{attribute['BYPASSMRES']}} %</td>
+                    <td>{{attribute['BYPASSMRES']}} %
+                        (<span :class="attribute['BYPASSMRES']>=clone.attribute['BYPASSMRES'] ? 'positiveDiff' : 'negativeDiff'">
+                            {{attribute['BYPASSMRES']-clone.attribute['BYPASSMRES']}} %
+                        </span>)</td>
                     <td>Bypass MRES%</td>
-                    <td v-if="clone.attribute">{{clone.attribute['BYPASSMRES']}} %</td>
-                    <td v-else></td>
+                    <td>{{clone.attribute['BYPASSMRES']}} %</td>
                 </tr>
             </table>
         </el-dialog>
@@ -8974,6 +9072,8 @@
                 TempAllSet: {},
 
                 EquipText: '',
+                detailEquipText: {},
+                clonedDetailEquipText: {},
                 clonedEquipText: '',
                 ItemDesiredPosition: -1,
 
@@ -10510,12 +10610,8 @@
                         });
                 },
                 cloneSetup(){
-                    console.log('???');
                     if (!this.clone) this.clone = {};
 
-                    this.$set(this.clone, 'Equip', this.equipspartlist);
-                    this.$set(this.clone, 'Weapon', this.weapon);
-                    this.$set(this.clone, 'subweapon', this.subweapon);
                     this.$set(this.clone, 'Status', structuredClone(this.status));
                     this.$set(this.clone, 'JobStatus', this.status_job);
                     this.$set(this.clone, 'Skill', this.skill);
@@ -10540,7 +10636,7 @@
                     this.buildConsumable();
                     this.buildSupportSkill();
 
-                    this.clonedEquipText = this.GetClonedBasicEquipString();
+                    this.GetDetailedEquipString(true);
                 },
                 GetEquipEffect(index) {
                     var _EffectTypeInfo;
@@ -10566,57 +10662,66 @@
                     }
                     return _BuildString;
                 },
-                GetClonedBasicEquipString() {
-                    var _BuildString = "";
-                    if (this.hasOwnProperty('clone')){
-                        // main gear
-                        for (var i = 0; i < 10; ++i) {
-                            if (this.clone.equipspartlist[i].equipname.trim() == '') continue;
-                            else _BuildString += this.clone.equipspartlist[i].label + ": " + this.clone.equipspartlist[i].equipname;
-                            _BuildString += '\n'
-                            if (i == 0) {
-                                for (var j = 10; j < 14; j++) {
-                                    _BuildString += `\tCard - ${j - 9}: `
-                                    _BuildString += (this.clone.equipspartlist[i + j].equipname.trim() == '') ? 'None' : this.clone.equipspartlist[i + j].equipname;
-                                    _BuildString += '\n'
-                                }
-                            }
-                            if (i == 1) {
-                                if (this.clone.subweapon.ATK > 0 || this.clone.subweapon.MATK > 0) {
-                                    for (var j = 13; j < 17; j++) {
-                                        _BuildString += `\tCard - ${j - 12}: `
-                                        _BuildString += (this.clone.equipspartlist[i + j].equipname.trim() == '') ? 'None' : this.clone.equipspartlist[i + j].equipname;
-                                        _BuildString += '\n'
-                                    }
-                                }
-                                if (this.subweapon.ShieldWeight > 0) {
-                                    for (var j = 17; j < 18; j++) {
-                                        _BuildString += `\tCard: `
-                                        _BuildString += (this.clone.equipspartlist[i + j].equipname.trim() == '') ? 'None' : this.clone.equipspartlist[i + j].equipname;
-                                        _BuildString += '\n'
-                                    }
-                                }
-                            }
-                            if (i >= 2 && i !== 4) {
-                                _BuildString += `\tCard: `
-                                _BuildString += (this.clone.equipspartlist[i + 17].equipname.trim() == '') ? 'None' : this.clone.equipspartlist[i + 17].equipname;
-                                _BuildString += '\n'
+                GetDetailedEquipString(clone=false) {
+                    var equiplist = clone ? this.clone.equipspartlist : this.equipspartlist;
+                    var returnObj = clone ? this.clonedDetailEquipText : this.detailEquipText;
+                    var partString = "";
+                    var refineText, gradeText;
+                    // main gear
+                    for (var i = 0; i < 10; ++i) {
+                        partString = '';
+                        refineText = equiplist[i].refinelevel > 0 ? `+${equiplist[i].refinelevel} ` : '';
+                        gradeText = equiplist[i].grade && equiplist[i].grade.id > 0 ? `[${equiplist[i].grade.label}] ` : '';
+
+                        if (equiplist[i].equipname.trim() == '') continue;
+                        else partString += equiplist[i].label + ": " + refineText + gradeText + equiplist[i].equipname;
+                        partString += '\n'
+                        if (i == 0) {
+                            for (var j = 10; j < 14; j++) {
+                                if (equiplist[i + j].equipname.trim() == '') continue;
+                                partString += `\tCard - ${j - 9}: `
+                                partString += (equiplist[i + j].equipname.trim() == '') ? 'None' : equiplist[i + j].equipname;
+                                partString += '\n'
                             }
                         }
-                        // shadow gear
-                        for (var i = 37; i < 43; ++i) {
-                            if (this.clone.equipspartlist[i].equipname.trim() == '') continue;
-                            else _BuildString += this.clone.equipspartlist[i].label + ": " + this.clone.equipspartlist[i].equipname;
-                            _BuildString += '\n'
+                        if (i == 1) {
+                            if (this.subweapon.ATK > 0 || this.subweapon.MATK > 0) {
+                                for (var j = 13; j < 17; j++) {
+                                    if (equiplist[i + j].equipname.trim() == '') continue;
+                                    partString += `\tCard - ${j - 12}: `
+                                    partString += (equiplist[i + j].equipname.trim() == '') ? 'None' : equiplist[i + j].equipname;
+                                    partString += '\n'
+                                }
+                            }
+                            if (this.subweapon.ShieldWeight > 0) {
+                                for (var j = 17; j < 18; j++) {
+                                    if (equiplist[i + j].equipname.trim() == '') continue;
+                                    partString += `\tCard: `
+                                    partString += (equiplist[i + j].equipname.trim() == '') ? 'None' : equiplist[i + j].equipname;
+                                    partString += '\n'
+                                }
+                            }
                         }
-                        // costume stones
-                        for (var i = 31; i < 36; ++i) {
-                            if (this.clone.equipspartlist[i].equipname.trim() == '') continue;
-                            else _BuildString += this.clone.equipspartlist[i].label + ": " + this.clone.equipspartlist[i].equipname;
-                            _BuildString += '\n'
+                        if (i >= 2 && i !== 4) {
+                            if (equiplist[i + 17].equipname.trim() == '') continue;
+                            partString += `\tCard: `
+                            partString += (equiplist[i + 17].equipname.trim() == '') ? 'None' : equiplist[i + 17].equipname;
+                            partString += '\n'
                         }
+                        returnObj[i] = { 'imgURL': `https://irowiki.org/images/db/item/${equiplist[i].itemid}.png`, 'text': partString };
                     }
-                    return _BuildString;
+                    // shadow gear
+                    for (var i = 37; i < 43; ++i) {
+                        partString = '';
+                        if (equiplist[i].equipname.trim() == '') continue;
+                        else returnObj[i] = { 'imgURL': `https://irowiki.org/images/db/item/${equiplist[i].itemid}.png`, 'text' : equiplist[i].label + ": " + refineText + gradeText + equiplist[i].equipname + "\n" };
+                    }
+                    // costume stones
+                    for (var i = 31; i < 36; ++i) {
+                        partString = '';
+                        if (equiplist[i].equipname.trim() == '') continue;
+                        else returnObj[i] = { 'imgURL': `https://irowiki.org/images/db/item/${equiplist[i].itemid}.png`, 'text' : equiplist[i].label + ": " + refineText + gradeText + equiplist[i].equipname + "\n" };
+                    }
                 },
                 GetBasicEquipString() {
                     var _BuildString = "";
@@ -14121,14 +14226,12 @@
                     this.OpenPanel('EquipDBDialog');
                 },
                 onOpenCompareWindow(){
-                    console.log(this.clonedOnce);
                     if (!this.clone && !this.clonedOnce) {
                         this.cloneSetup();
                         this.clonedOnce = true;
                     }
-                    console.log(this.clonedOnce);
 
-                    this.EquipText = this.GetBasicEquipString();
+                    this.GetDetailedEquipString();
 
                     this.OpenPanel('CompareDialog');
                 },
@@ -16817,6 +16920,15 @@
                     
                     return `${hours} hour${hours > 1 ? 's' : ''} ${minutes} minute${minutes > 1 ? 's' : ''}`;
                 },
+                damageToTimeFull(val){
+                    if (isNaN(val)) return 'N/A';
+
+                    const hours = Math.floor(val / 3600);
+                    const minutes = Math.floor((val % 3600) / 60);
+                    const seconds = val % 60; 
+
+                    return `${hours} hour${hours > 1 ? 's' : ''} ${minutes} minute${minutes > 1 ? 's' : ''} ${seconds.toFixed(1)} seconds`;
+                }
             },
             computed: {
                 StoreDB_EquipCount() {
