@@ -2158,7 +2158,9 @@
                     <el-table-column prop="level" label="Level" sortable></el-table-column>
                     <el-table-column prop="skill" label="Skill Name" sortable></el-table-column>
                     <el-table-column prop="enemy" label="Enemy" sortable></el-table-column>
-                    <el-table-column prop="damage" label="Damage" sortable></el-table-column>
+                    <el-table-column prop="damage" label="Damage" sortable
+                        :sort-method="this.numericSort"
+                    ></el-table-column>
                     <el-table-column prop="lastupdate" label="Last Update" sortable
                         :formatter="this.formatDateFromIso8601"></el-table-column>
                     <el-table-column width="100px">
@@ -16957,6 +16959,11 @@
                 },
                 formatDateFromIso8601(row, column) {
                     return row.lastupdate.split('T')[0];
+                },
+                numericSort(a, b) {
+                    const numA = parseFloat(a.damage.match(/\d+/g).join(''));
+                    const numB = parseFloat(b.damage.match(/\d+/g).join(''));
+                    return numA - numB;
                 },
             },
             filters: {
