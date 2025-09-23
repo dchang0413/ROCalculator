@@ -2236,7 +2236,7 @@
                 <tr>
                     <td v-if="detailEquipText" :rowspan="this.enemyattribute.name != clone.EnemyName?44:43" width="25%" class="text-wrapper" style="vertical-align: initial">
                         <span class="stickyText">
-                            <span v-for="equipText in detailEquipText"><img :src="equipText.imgURL">{{equipText.text}}</span>
+                            <span v-for="equipText in detailEquipText" :class="skill.name==clone.SkillName && equipText.itemid != clonedDetailEquipText[equipText.slotid].itemid ? 'equipDiff' : ''"><img :src="equipText.imgURL">{{equipText.text}}</span>
                         </span>
                     </td>
                     <td>{{skill.name}}</td>
@@ -10750,19 +10750,35 @@
                             partString += (equiplist[i + 17].equipname.trim() == '') ? 'None' : equiplist[i + 17].equipname;
                             partString += '\n'
                         }
-                        returnObj[i] = { 'imgURL': `https://irowiki.org/images/db/item/${equiplist[i].itemid}.png`, 'text': partString };
+                        returnObj[i] = { 
+                            'slotid': i,
+                            'itemid': equiplist[i].itemid,
+                            'imgURL': `https://irowiki.org/images/db/item/${equiplist[i].itemid}.png`, 
+                            'text': partString 
+                        };
                     }
                     // shadow gear
                     for (var i = 37; i < 43; ++i) {
                         partString = '';
+                        refineText = equiplist[i].refinelevel > 0 ? `+${equiplist[i].refinelevel} ` : '';
                         if (equiplist[i].equipname.trim() == '') continue;
-                        else returnObj[i] = { 'imgURL': `https://irowiki.org/images/db/item/${equiplist[i].itemid}.png`, 'text' : equiplist[i].label + ": " + refineText + gradeText + equiplist[i].equipname + "\n" };
+                        else returnObj[i] = { 
+                            'slotid': i,
+                            'itemid': equiplist[i].itemid,
+                            'imgURL': `https://irowiki.org/images/db/item/${equiplist[i].itemid}.png`, 
+                            'text' : equiplist[i].label + ": " + refineText + gradeText + equiplist[i].equipname + "\n" 
+                        };
                     }
                     // costume stones
                     for (var i = 31; i < 36; ++i) {
                         partString = '';
                         if (equiplist[i].equipname.trim() == '') continue;
-                        else returnObj[i] = { 'imgURL': `https://irowiki.org/images/db/item/${equiplist[i].itemid}.png`, 'text' : equiplist[i].label + ": " + refineText + gradeText + equiplist[i].equipname + "\n" };
+                        else returnObj[i] = { 
+                            'slotid': i,
+                            'itemid': equiplist[i].itemid,
+                            'imgURL': `https://irowiki.org/images/db/item/${equiplist[i].itemid}.png`, 
+                            'text' : equiplist[i].label + ": " + refineText + gradeText + equiplist[i].equipname + "\n" 
+                        };
                     }
                 },
                 GetBasicEquipString() {
