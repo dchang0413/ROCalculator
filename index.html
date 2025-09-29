@@ -2652,9 +2652,13 @@
                         :sort-method="(a, b) => a.equip.equipname.localeCompare(b.equip.equipname)"
                     >
                         <template #default="scope">
-                            <span class="">{{ scope.row.equip.equipname }}<a v-if="scope.row.equip.itemid"
-                                target="_blank"
-                                :href="'https://www.divine-pride.net/database/item/' +  scope.row.equip.itemid ">🔗</a>
+                            <span class="">
+                                <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  scope.row.equip.itemid ">
+                                    <img :src="'https://db.irowiki.org/image/item/' + scope.row.equip.itemid + '.png'" alt="icon" style="width: 24px; height: 24px;" />
+                                </a>
+                                <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  scope.row.equip.itemid ">
+                                    {{ scope.row.equip.equipname }}
+                                </a>
                             </span>
                         </template>
                     </el-table-column>
