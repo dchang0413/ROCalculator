@@ -3542,7 +3542,14 @@
                                         <span class="EffectType">{{ item.equip.label }}</span>
                                     </el-col>
                                     <el-col class="textcenter">
-                                        <span class="">{{ item.equip.equipname }}</span>
+                                        <span class="">
+                                            <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">
+                                                <img :src="'https://db.irowiki.org/image/item/' + item.equip.itemid + '.png'" alt="icon" style="width: 24px; height: 24px;" />
+                                            </a>
+                                            <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">
+                                                {{ item.equip.equipname }}
+                                            </a>
+                                        </span>
                                     </el-col>
                                     <el-col :span="4">
                                         <el-button v-on:click="onRemoveEquipSave(item.uuid)" icon="el-icon-delete"
@@ -3703,7 +3710,14 @@
                                         <span class="EffectType">{{ item.equip.label }}</span>
                                     </el-col>
                                     <el-col class="textcenter">
-                                        <span class="">{{ item.equip.equipname }}</span>
+                                        <span class="">
+                                            <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">
+                                                <img :src="'https://db.irowiki.org/image/item/' + item.equip.itemid + '.png'" alt="icon" style="width: 24px; height: 24px;" />
+                                            </a>
+                                            <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">
+                                                {{ item.equip.equipname }}
+                                            </a>
+                                        </span>
                                     </el-col>
                                     <el-col :span="4">
                                         <el-button v-on:click="onRemoveEquipSave(item.uuid)" icon="el-icon-delete"
@@ -4010,7 +4024,14 @@
                             <el-row class="effectline" :class="index%2==0?'bg-purple-light':'bg-purple'">
                                 <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                     <el-col class="textcenter">
-                                        <span class="">{{ item.equip.equipname }}</span>
+                                        <span class="">
+                                            <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">
+                                                <img :src="'https://db.irowiki.org/image/item/' + item.equip.itemid + '.png'" alt="icon" style="width: 24px; height: 24px;" />
+                                            </a>
+                                            <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">
+                                                {{ item.equip.equipname }}
+                                            </a>
+                                        </span>
                                     </el-col>
                                     <el-col :span="4">
                                         <el-button v-on:click="onRemoveEquipSave(item.uuid)" icon="el-icon-delete"
@@ -16620,6 +16641,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2025-10-01', content: 'Added: OCP 76 gear' },
                         { id: '2025-09-30', content: 'Added: EP19 cards' },
                         { id: '2025-09-21', content: 'Update: Added Compare functionality' },
                         { id: '2025-09-20', content: 'Update: Job level bonus stat is now added automatically according to the character and job level entered' },

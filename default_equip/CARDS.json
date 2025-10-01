@@ -3192,6 +3192,56 @@
 	},
 	{
 		"id": "helmcard",
+		"itemid": 27294,
+		"label": "Headgear Card",
+		"equipname": "Ancient Tao Gunka Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(30+(HATR>9?20:0))",
+				"EffectType": {
+					"id": "BypassDEFPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 27292,
+		"label": "Garment Card",
+		"equipname": "Ancient Stalactic Golem Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(150*DOWN(BVI/10))",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(BVI/10))",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BVI>199?3:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "helmcard",
 		"itemid": 4357,
 		"label": "Headgear Card",
 		"equipname": "Lord Knight Card",
@@ -4241,6 +4291,45 @@
 	},
 	{
 		"id": "shoescard",
+		"itemid": 27150,
+		"label": "Shoes Card",
+		"equipname": "Toxic Enhancement Chimera Card",
+		"effectlist": [
+			{
+				"EffectNumber": 1000,
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 200,
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>11?15:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>11?15:0)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
 		"itemid": 4352,
 		"label": "Shoes Card",
 		"equipname": "Boss Egnigem Card",
@@ -4609,6 +4698,16 @@
 				"Enable": true
 			}
 		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acccard",
+		"itemid": 4175,
+		"label": "Acc Card",
+		"equipname": "Poisonous Toad Card",
+		"effectlist": [],
 		"combolist": [],
 		"flags": [],
 		"idx": 3
@@ -5714,6 +5813,55 @@
 					},
 					{
 						"EffectNumber": 5,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300014,
+		"label": "Armor Card",
+		"equipname": "Ingrid Card",
+		"effectlist": [
+			{
+				"EffectNumber": 40,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": -15,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4407
+				],
+				"itemid_any": [],
+				"equipname": "Randgris Card",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
 						"EffectType": {
 							"id": "HPPercent"
 						},
@@ -8480,6 +8628,76 @@
 			}
 		],
 		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300008,
+		"label": "Weapon Card",
+		"equipname": "Angelgiold Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(ERI==3?10:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 4394,
+		"label": "Weapon Card",
+		"equipname": "Lady Solace Card",
+		"effectlist": [],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 300272,
+		"label": "Garment Card",
+		"equipname": "Pray Giver Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==6?10:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": -25,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4394
+				],
+				"itemid_any": [],
+				"equipname": "Lady Solace Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(AEI==6&&BLV>199?(15*DOWN(BIN/40)):0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"flags": [],
 		"idx": 3
 	}
