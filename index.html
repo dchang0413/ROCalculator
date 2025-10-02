@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>RO Calculator</title>
+    <title>iRO Wiki Calculator</title>
     <!--
     <script src="https://unpkg.com/vue"></script>
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
@@ -2652,9 +2652,13 @@
                         :sort-method="(a, b) => a.equip.equipname.localeCompare(b.equip.equipname)"
                     >
                         <template #default="scope">
-                            <span class="">{{ scope.row.equip.equipname }}<a v-if="scope.row.equip.itemid"
-                                target="_blank"
-                                :href="'https://www.divine-pride.net/database/item/' +  scope.row.equip.itemid ">🔗</a>
+                            <span class="">
+                                <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  scope.row.equip.itemid ">
+                                    <img :src="'https://db.irowiki.org/image/item/' + scope.row.equip.itemid + '.png'" alt="icon" style="width: 24px; height: 24px;" />
+                                </a>
+                                <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  scope.row.equip.itemid ">
+                                    {{ scope.row.equip.equipname }}
+                                </a>
                             </span>
                         </template>
                     </el-table-column>
@@ -3538,7 +3542,14 @@
                                         <span class="EffectType">{{ item.equip.label }}</span>
                                     </el-col>
                                     <el-col class="textcenter">
-                                        <span class="">{{ item.equip.equipname }}</span>
+                                        <span class="">
+                                            <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">
+                                                <img :src="'https://db.irowiki.org/image/item/' + item.equip.itemid + '.png'" alt="icon" style="width: 24px; height: 24px;" />
+                                            </a>
+                                            <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">
+                                                {{ item.equip.equipname }}
+                                            </a>
+                                        </span>
                                     </el-col>
                                     <el-col :span="4">
                                         <el-button v-on:click="onRemoveEquipSave(item.uuid)" icon="el-icon-delete"
@@ -3699,7 +3710,14 @@
                                         <span class="EffectType">{{ item.equip.label }}</span>
                                     </el-col>
                                     <el-col class="textcenter">
-                                        <span class="">{{ item.equip.equipname }}</span>
+                                        <span class="">
+                                            <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">
+                                                <img :src="'https://db.irowiki.org/image/item/' + item.equip.itemid + '.png'" alt="icon" style="width: 24px; height: 24px;" />
+                                            </a>
+                                            <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">
+                                                {{ item.equip.equipname }}
+                                            </a>
+                                        </span>
                                     </el-col>
                                     <el-col :span="4">
                                         <el-button v-on:click="onRemoveEquipSave(item.uuid)" icon="el-icon-delete"
@@ -4006,7 +4024,14 @@
                             <el-row class="effectline" :class="index%2==0?'bg-purple-light':'bg-purple'">
                                 <el-row class="effectline" :gutter="4" type="flex" align="middle">
                                     <el-col class="textcenter">
-                                        <span class="">{{ item.equip.equipname }}</span>
+                                        <span class="">
+                                            <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">
+                                                <img :src="'https://db.irowiki.org/image/item/' + item.equip.itemid + '.png'" alt="icon" style="width: 24px; height: 24px;" />
+                                            </a>
+                                            <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  item.equip.itemid ">
+                                                {{ item.equip.equipname }}
+                                            </a>
+                                        </span>
                                     </el-col>
                                     <el-col :span="4">
                                         <el-button v-on:click="onRemoveEquipSave(item.uuid)" icon="el-icon-delete"
@@ -5673,6 +5698,25 @@
                                         <el-col class="textcenter">
                                             <div>
                                                 <el-input v-model="equipspartlist[0].equipname" placeholder="Equip Name">
+                                                    <template v-if="equipspartlist[0].itemid" slot="prepend">
+                                                        <el-tooltip
+                                                            placement="top"
+                                                            effect="dark"
+                                                        >
+                                                        <template slot="content">
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/collection/' + equipspartlist[0].itemid + '.png'"
+                                                                alt="Equip preview"
+                                                                style="width: 75px; height: 100px;"
+                                                            />
+                                                        </template>
+                                                        <img
+                                                            :src="'https://db.irowiki.org/image/item/' + equipspartlist[0].itemid + '.png'"
+                                                            alt="icon"
+                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                        />
+                                                        </el-tooltip>
+                                                    </template>
                                                     <el-button v-if="equipspartlist[0].itemid" slot="append">
                                                         <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[0].itemid ">
                                                             <img src="https://www.divine-pride.net/favicon.ico" />
@@ -5850,6 +5894,25 @@
                                         <el-col class="textcenter">
                                             <div>
                                                 <el-input v-model="equipspartlist[10].equipname" placeholder="Card Name">
+                                                    <template v-if="equipspartlist[10].itemid" slot="prepend">
+                                                        <el-tooltip
+                                                            placement="top"
+                                                            effect="dark"
+                                                        >
+                                                        <template slot="content">
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/card/' + equipspartlist[10].itemid + '.png'"
+                                                                alt="Card preview"
+                                                                style="width: 300px; height: 400px;"
+                                                            />
+                                                        </template>
+                                                        <img
+                                                            :src="'https://db.irowiki.org/image/item/' + equipspartlist[10].itemid + '.png'"
+                                                            alt="icon"
+                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                        />
+                                                        </el-tooltip>
+                                                    </template>
                                                     <el-button v-if="equipspartlist[10].itemid" slot="append">
                                                         <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[10].itemid ">
                                                             <img src="https://www.divine-pride.net/favicon.ico" />
@@ -5883,6 +5946,25 @@
                                         <el-col class="textcenter">
                                             <div>
                                                 <el-input v-model="equipspartlist[11].equipname" placeholder="Card Name">
+                                                    <template v-if="equipspartlist[11].itemid" slot="prepend">
+                                                        <el-tooltip
+                                                            placement="top"
+                                                            effect="dark"
+                                                        >
+                                                        <template slot="content">
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/card/' + equipspartlist[11].itemid + '.png'"
+                                                                alt="Card preview"
+                                                                style="width: 300px; height: 400px;"
+                                                            />
+                                                        </template>
+                                                        <img
+                                                            :src="'https://db.irowiki.org/image/item/' + equipspartlist[11].itemid + '.png'"
+                                                            alt="icon"
+                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                        />
+                                                        </el-tooltip>
+                                                    </template>
                                                     <el-button v-if="equipspartlist[11].itemid" slot="append">
                                                         <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[11].itemid ">
                                                             <img src="https://www.divine-pride.net/favicon.ico" />
@@ -5916,6 +5998,25 @@
                                         <el-col class="textcenter">
                                             <div>
                                                 <el-input v-model="equipspartlist[12].equipname" placeholder="Card Name">
+                                                    <template v-if="equipspartlist[12].itemid" slot="prepend">
+                                                        <el-tooltip
+                                                            placement="top"
+                                                            effect="dark"
+                                                        >
+                                                        <template slot="content">
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/card/' + equipspartlist[12].itemid + '.png'"
+                                                                alt="Card preview"
+                                                                style="width: 300px; height: 400px;"
+                                                            />
+                                                        </template>
+                                                        <img
+                                                            :src="'https://db.irowiki.org/image/item/' + equipspartlist[12].itemid + '.png'"
+                                                            alt="icon"
+                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                        />
+                                                        </el-tooltip>
+                                                    </template>
                                                     <el-button v-if="equipspartlist[12].itemid" slot="append">
                                                         <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[12].itemid ">
                                                             <img src="https://www.divine-pride.net/favicon.ico" />
@@ -5949,6 +6050,25 @@
                                         <el-col class="textcenter">
                                             <div>
                                                 <el-input v-model="equipspartlist[13].equipname" placeholder="Card Name">
+                                                    <template v-if="equipspartlist[13].itemid" slot="prepend">
+                                                        <el-tooltip
+                                                            placement="top"
+                                                            effect="dark"
+                                                        >
+                                                        <template slot="content">
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/card/' + equipspartlist[13].itemid + '.png'"
+                                                                alt="Card preview"
+                                                                style="width: 300px; height: 400px;"
+                                                            />
+                                                        </template>
+                                                        <img
+                                                            :src="'https://db.irowiki.org/image/item/' + equipspartlist[13].itemid + '.png'"
+                                                            alt="icon"
+                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                        />
+                                                        </el-tooltip>
+                                                    </template>
                                                     <el-button v-if="equipspartlist[13].itemid" slot="append">
                                                         <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[13].itemid ">
                                                             <img src="https://www.divine-pride.net/favicon.ico" />
@@ -5984,6 +6104,25 @@
                                                 <el-col class="textcenter">
                                                     <div>
                                                         <el-input v-model="enchant.equipname" placeholder="Enchant Name">
+                                                            <template v-if="enchant.itemid" slot="prepend">
+                                                                <el-tooltip
+                                                                    placement="top"
+                                                                    effect="dark"
+                                                                >
+                                                                <template slot="content">
+                                                                    <img
+                                                                        :src="'https://db.irowiki.org/image/collection/' + enchant.itemid + '.png'"
+                                                                        alt="Enchant preview"
+                                                                        style="width: 75px; height: 100px;"
+                                                                    />
+                                                                </template>
+                                                                <img
+                                                                    :src="'https://db.irowiki.org/image/item/' + enchant.itemid + '.png'"
+                                                                    alt="icon"
+                                                                    style="width: 24px; height: 24px; cursor: pointer;"
+                                                                />
+                                                                </el-tooltip>
+                                                            </template>
                                                             <el-button v-if="enchant.itemid" slot="append">
                                                                 <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  enchant.itemid ">
                                                                     <img src="https://www.divine-pride.net/favicon.ico" />
@@ -6248,6 +6387,25 @@
                                         <el-col class="textcenter">
                                             <div>
                                                 <el-input v-model="equipspartlist[1].equipname" clearable placeholder="Equip Name">
+                                                    <template v-if="equipspartlist[1].itemid" slot="prepend">
+                                                        <el-tooltip
+                                                            placement="top"
+                                                            effect="dark"
+                                                        >
+                                                        <template slot="content">
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/collection/' + equipspartlist[1].itemid + '.png'"
+                                                                alt="Equip preview"
+                                                                style="width: 75px; height: 100px;"
+                                                            />
+                                                        </template>
+                                                        <img
+                                                            :src="'https://db.irowiki.org/image/item/' + equipspartlist[1].itemid + '.png'"
+                                                            alt="icon"
+                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                        />
+                                                        </el-tooltip>
+                                                    </template>
                                                     <el-button v-if="equipspartlist[1].itemid" slot="append">
                                                         <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[1].itemid ">
                                                             <img src="https://www.divine-pride.net/favicon.ico" />
@@ -6380,6 +6538,25 @@
                                         <el-col class="textcenter">
                                             <div>
                                                 <el-input v-model="equipspartlist[1+13].equipname" placeholder="Card Name">
+                                                    <template v-if="equipspartlist[1+13].itemid" slot="prepend">
+                                                        <el-tooltip
+                                                            placement="top"
+                                                            effect="dark"
+                                                        >
+                                                        <template slot="content">
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/card/' + equipspartlist[1+13].itemid + '.png'"
+                                                                alt="Card preview"
+                                                                style="width: 300px; height: 400px;"
+                                                            />
+                                                        </template>
+                                                        <img
+                                                            :src="'https://db.irowiki.org/image/item/' + equipspartlist[1+13].itemid + '.png'"
+                                                            alt="icon"
+                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                        />
+                                                        </el-tooltip>
+                                                    </template>
                                                     <el-button v-if="equipspartlist[1+13].itemid" slot="append">
                                                         <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[1+13].itemid ">
                                                             <img src="https://www.divine-pride.net/favicon.ico" />
@@ -6414,6 +6591,25 @@
                                         <el-col class="textcenter">
                                             <div>
                                                 <el-input v-model="equipspartlist[2+13].equipname" placeholder="Card Name">
+                                                    <template v-if="equipspartlist[2+13].itemid" slot="prepend">
+                                                        <el-tooltip
+                                                            placement="top"
+                                                            effect="dark"
+                                                        >
+                                                        <template slot="content">
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/card/' + equipspartlist[2+13].itemid + '.png'"
+                                                                alt="Card preview"
+                                                                style="width: 300px; height: 400px;"
+                                                            />
+                                                        </template>
+                                                        <img
+                                                            :src="'https://db.irowiki.org/image/item/' + equipspartlist[2+13].itemid + '.png'"
+                                                            alt="icon"
+                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                        />
+                                                        </el-tooltip>
+                                                    </template>
                                                     <el-button v-if="equipspartlist[2+13].itemid" slot="append">
                                                         <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[2+13].itemid ">
                                                             <img src="https://www.divine-pride.net/favicon.ico" />
@@ -6448,6 +6644,25 @@
                                         <el-col class="textcenter">
                                             <div>
                                                 <el-input v-model="equipspartlist[3+13].equipname" placeholder="Card Name">
+                                                    <template v-if="equipspartlist[3+13].itemid" slot="prepend">
+                                                        <el-tooltip
+                                                            placement="top"
+                                                            effect="dark"
+                                                        >
+                                                        <template slot="content">
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/card/' + equipspartlist[3+13].itemid + '.png'"
+                                                                alt="Card preview"
+                                                                style="width: 300px; height: 400px;"
+                                                            />
+                                                        </template>
+                                                        <img
+                                                            :src="'https://db.irowiki.org/image/item/' + equipspartlist[3+13].itemid + '.png'"
+                                                            alt="icon"
+                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                        />
+                                                        </el-tooltip>
+                                                    </template>
                                                     <el-button v-if="equipspartlist[3+13].itemid" slot="append">
                                                         <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[3+13].itemid ">
                                                             <img src="https://www.divine-pride.net/favicon.ico" />
@@ -6482,6 +6697,25 @@
                                         <el-col class="textcenter">
                                             <div>
                                                 <el-input v-model="equipspartlist[4+13].equipname" placeholder="Card Name">
+                                                    <template v-if="equipspartlist[4+13].itemid" slot="prepend">
+                                                        <el-tooltip
+                                                            placement="top"
+                                                            effect="dark"
+                                                        >
+                                                        <template slot="content">
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/card/' + equipspartlist[4+13].itemid + '.png'"
+                                                                alt="Card preview"
+                                                                style="width: 300px; height: 400px;"
+                                                            />
+                                                        </template>
+                                                        <img
+                                                            :src="'https://db.irowiki.org/image/item/' + equipspartlist[4+13].itemid + '.png'"
+                                                            alt="icon"
+                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                        />
+                                                        </el-tooltip>
+                                                    </template>
                                                     <el-button v-if="equipspartlist[4+13].itemid" slot="append">
                                                         <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[4+13].itemid ">
                                                             <img src="https://www.divine-pride.net/favicon.ico" />
@@ -6515,6 +6749,25 @@
                                         <el-col class="textcenter">
                                             <div>
                                                 <el-input v-model="equipspartlist[5+13].equipname" placeholder="Card Name">
+                                                    <template v-if="equipspartlist[5+13].itemid" slot="prepend">
+                                                        <el-tooltip
+                                                            placement="top"
+                                                            effect="dark"
+                                                        >
+                                                        <template slot="content">
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/card/' + equipspartlist[5+13].itemid + '.png'"
+                                                                alt="Card preview"
+                                                                style="width: 300px; height: 400px;"
+                                                            />
+                                                        </template>
+                                                        <img
+                                                            :src="'https://db.irowiki.org/image/item/' + equipspartlist[5+13].itemid + '.png'"
+                                                            alt="icon"
+                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                        />
+                                                        </el-tooltip>
+                                                    </template>
                                                     <el-button v-if="equipspartlist[5+13].itemid" slot="append">
                                                         <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[5+13].itemid ">
                                                             <img src="https://www.divine-pride.net/favicon.ico" />
@@ -6551,6 +6804,25 @@
                                                 <el-col class="textcenter">
                                                     <div>
                                                         <el-input v-model="enchant.equipname" placeholder="Enchant Name">
+                                                            <template v-if="enchant.itemid" slot="prepend">
+                                                                <el-tooltip
+                                                                    placement="top"
+                                                                    effect="dark"
+                                                                >
+                                                                <template slot="content">
+                                                                    <img
+                                                                        :src="'https://db.irowiki.org/image/collection/' + enchant.itemid + '.png'"
+                                                                        alt="Enchant preview"
+                                                                        style="width: 75px; height: 100px;"
+                                                                    />
+                                                                </template>
+                                                                <img
+                                                                    :src="'https://db.irowiki.org/image/item/' + enchant.itemid + '.png'"
+                                                                    alt="icon"
+                                                                    style="width: 24px; height: 24px; cursor: pointer;"
+                                                                />
+                                                                </el-tooltip>
+                                                            </template>
                                                             <el-button v-if="enchant.itemid" slot="append">
                                                                 <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  enchant.itemid ">
                                                                     <img src="https://www.divine-pride.net/favicon.ico" />
@@ -6589,6 +6861,25 @@
                                                 <el-col class="textcenter">
                                                     <div>
                                                         <el-input v-model="enchant.equipname" placeholder="Enchant Name">
+                                                            <template v-if="enchant.itemid" slot="prepend">
+                                                                <el-tooltip
+                                                                    placement="top"
+                                                                    effect="dark"
+                                                                >
+                                                                <template slot="content">
+                                                                    <img
+                                                                        :src="'https://db.irowiki.org/image/collection/' + enchant.itemid + '.png'"
+                                                                        alt="Enchant preview"
+                                                                        style="width: 75px; height: 100px;"
+                                                                    />
+                                                                </template>
+                                                                <img
+                                                                    :src="'https://db.irowiki.org/image/item/' + enchant.itemid + '.png'"
+                                                                    alt="icon"
+                                                                    style="width: 24px; height: 24px; cursor: pointer;"
+                                                                />
+                                                                </el-tooltip>
+                                                            </template>
                                                             <el-button v-if="enchant.itemid" slot="append">
                                                                 <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  enchant.itemid ">
                                                                     <img src="https://www.divine-pride.net/favicon.ico" />
@@ -6927,6 +7218,25 @@
                                             <el-col class="textcenter">
                                                 <div>
                                                     <el-input v-model="equipspartlist[eqindex+2].equipname" placeholder="Equip Name">
+                                                        <template v-if="equipspartlist[eqindex+2].itemid" slot="prepend">
+                                                            <el-tooltip
+                                                                placement="top"
+                                                                effect="dark"
+                                                            >
+                                                            <template slot="content">
+                                                                <img
+                                                                    :src="'https://db.irowiki.org/image/collection/' + equipspartlist[eqindex+2].itemid + '.png'"
+                                                                    alt="Equip preview"
+                                                                    style="width: 75px; height: 100px;"
+                                                                />
+                                                            </template>
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/item/' + equipspartlist[eqindex+2].itemid + '.png'"
+                                                                alt="icon"
+                                                                style="width: 24px; height: 24px; cursor: pointer;"
+                                                            />
+                                                            </el-tooltip>
+                                                        </template>
                                                         <el-button v-if="equipspartlist[eqindex+2].itemid" slot="append">
                                                             <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[eqindex+2].itemid ">
                                                                 <img src="https://www.divine-pride.net/favicon.ico" />
@@ -6989,6 +7299,25 @@
                                             <el-col class="textcenter">
                                                 <div>
                                                     <el-input v-model="equipspartlist[eqindex+19].equipname" placeholder="Card Name">
+                                                        <template v-if="equipspartlist[eqindex+19].itemid" slot="prepend">
+                                                            <el-tooltip
+                                                                placement="top"
+                                                                effect="dark"
+                                                            >
+                                                            <template slot="content">
+                                                                <img
+                                                                    :src="'https://db.irowiki.org/image/card/' + equipspartlist[eqindex+19].itemid + '.png'"
+                                                                    alt="Card preview"
+                                                                    style="width: 300px; height: 400px;"
+                                                                />
+                                                            </template>
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/item/' + equipspartlist[eqindex+19].itemid + '.png'"
+                                                                alt="icon"
+                                                                style="width: 24px; height: 24px; cursor: pointer;"
+                                                            />
+                                                            </el-tooltip>
+                                                        </template>
                                                         <el-button v-if="equipspartlist[eqindex+19].itemid" slot="append">
                                                             <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[eqindex+19].itemid ">
                                                                 <img src="https://www.divine-pride.net/favicon.ico" />
@@ -7026,6 +7355,25 @@
                                                     <el-col class="textcenter">
                                                         <div>
                                                             <el-input v-model="enchant.equipname" placeholder="Enchant Name">
+                                                                <template v-if="enchant.itemid" slot="prepend">
+                                                                    <el-tooltip
+                                                                        placement="top"
+                                                                        effect="dark"
+                                                                    >
+                                                                    <template slot="content">
+                                                                        <img
+                                                                            :src="'https://db.irowiki.org/image/collection/' + enchant.itemid + '.png'"
+                                                                            alt="Enchant preview"
+                                                                            style="width: 75px; height: 100px;"
+                                                                        />
+                                                                    </template>
+                                                                    <img
+                                                                        :src="'https://db.irowiki.org/image/item/' + enchant.itemid + '.png'"
+                                                                        alt="icon"
+                                                                        style="width: 24px; height: 24px; cursor: pointer;"
+                                                                    />
+                                                                    </el-tooltip>
+                                                                </template>
                                                                 <el-button v-if="enchant.itemid" slot="append">
                                                                     <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  enchant.itemid ">
                                                                         <img src="https://www.divine-pride.net/favicon.ico" />
@@ -7295,6 +7643,25 @@
                                             <el-col class="textcenter">
                                                 <div>
                                                     <el-input v-model="equipspartlist[eqindex+37].equipname" placeholder="Equip Name">
+                                                        <template v-if="equipspartlist[eqindex+37].itemid" slot="prepend">
+                                                            <el-tooltip
+                                                                placement="top"
+                                                                effect="dark"
+                                                            >
+                                                            <template slot="content">
+                                                                <img
+                                                                    :src="'https://db.irowiki.org/image/collection/' + equipspartlist[eqindex+37].itemid + '.png'"
+                                                                    alt="Equip preview"
+                                                                    style="width: 75px; height: 100px;"
+                                                                />
+                                                            </template>
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/item/' + equipspartlist[eqindex+37].itemid + '.png'"
+                                                                alt="icon"
+                                                                style="width: 24px; height: 24px; cursor: pointer;"
+                                                            />
+                                                            </el-tooltip>
+                                                        </template>
                                                         <el-button v-if="equipspartlist[eqindex+37].itemid" slot="append">
                                                             <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[eqindex+37].itemid ">
                                                                 <img src="https://www.divine-pride.net/favicon.ico" />
@@ -7423,6 +7790,25 @@
                                             <el-col class="textcenter">
                                                 <div>
                                                     <el-input v-model="equipspartlist[eqindex+30].equipname" placeholder="Costume Name">
+                                                        <template v-if="equipspartlist[eqindex+30].itemid" slot="prepend">
+                                                            <el-tooltip
+                                                                placement="top"
+                                                                effect="dark"
+                                                            >
+                                                            <template slot="content">
+                                                                <img
+                                                                    :src="'https://db.irowiki.org/image/collection/' + equipspartlist[eqindex+30].itemid + '.png'"
+                                                                    alt="Costume preview"
+                                                                    style="width: 75px; height: 100px;"
+                                                                />
+                                                            </template>
+                                                            <img
+                                                                :src="'https://db.irowiki.org/image/item/' + equipspartlist[eqindex+30].itemid + '.png'"
+                                                                alt="icon"
+                                                                style="width: 24px; height: 24px; cursor: pointer;"
+                                                            />
+                                                            </el-tooltip>
+                                                        </template>
                                                         <el-button v-if="equipspartlist[eqindex+30].itemid" slot="append">
                                                             <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[eqindex+30].itemid ">
                                                                 <img src="https://www.divine-pride.net/favicon.ico" />
@@ -7459,6 +7845,25 @@
                                                 <el-col class="textcenter">
                                                     <div>
                                                         <el-input v-model="equipspartlist[stidx+31].equipname" :placeholder="equipspartlist[stidx+31].label + ' Name'">
+                                                            <template v-if="equipspartlist[stidx+31].itemid" slot="prepend">
+                                                                <el-tooltip
+                                                                    placement="top"
+                                                                    effect="dark"
+                                                                >
+                                                                <template slot="content">
+                                                                    <img
+                                                                        :src="'https://db.irowiki.org/image/collection/' + equipspartlist[stidx+31].itemid + '.png'"
+                                                                        alt="Stone preview"
+                                                                        style="width: 75px; height: 100px;"
+                                                                    />
+                                                                </template>
+                                                                <img
+                                                                    :src="'https://db.irowiki.org/image/item/' + equipspartlist[stidx+31].itemid + '.png'"
+                                                                    alt="icon"
+                                                                    style="width: 24px; height: 24px; cursor: pointer;"
+                                                                />
+                                                                </el-tooltip>
+                                                            </template>
                                                             <el-button v-if="equipspartlist[stidx+31].itemid" slot="append">
                                                                 <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  equipspartlist[stidx+31].itemid ">
                                                                     <img src="https://www.divine-pride.net/favicon.ico" />
@@ -16236,6 +16641,8 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2025-10-01', content: 'Added: OCP 76 gear' },
+                        { id: '2025-09-30', content: 'Added: EP19 cards' },
                         { id: '2025-09-21', content: 'Update: Added Compare functionality' },
                         { id: '2025-09-20', content: 'Update: Job level bonus stat is now added automatically according to the character and job level entered' },
                         { id: '2025-09-16', content: 'Added: September Kachua Mileage Coupon gear' },

@@ -1858,24 +1858,6 @@
 		"idx": 3
 	},
 	{
-		"id": "robecard",
-		"itemid": 300382,
-		"label": "Garment Card",
-		"equipname": "Aquila Card",
-		"effectlist": [
-			{
-				"EffectNumber": "(AEI==5||AEI==9)?100:0",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"flags": [],
-		"idx": 3
-	},
-	{
 		"id": "shieldcard",
 		"itemid": 300239,
 		"label": "Shield Card",
@@ -3210,6 +3192,56 @@
 	},
 	{
 		"id": "helmcard",
+		"itemid": 27294,
+		"label": "Headgear Card",
+		"equipname": "Ancient Tao Gunka Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(30+(HATR>9?20:0))",
+				"EffectType": {
+					"id": "BypassDEFPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 27292,
+		"label": "Garment Card",
+		"equipname": "Ancient Stalactic Golem Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(150*DOWN(BVI/10))",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(BVI/10))",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BVI>199?3:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "helmcard",
 		"itemid": 4357,
 		"label": "Headgear Card",
 		"equipname": "Lord Knight Card",
@@ -4259,6 +4291,45 @@
 	},
 	{
 		"id": "shoescard",
+		"itemid": 27150,
+		"label": "Shoes Card",
+		"equipname": "Toxic Enhancement Chimera Card",
+		"effectlist": [
+			{
+				"EffectNumber": 1000,
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 200,
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>11?15:0)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>11?15:0)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
 		"itemid": 4352,
 		"label": "Shoes Card",
 		"equipname": "Boss Egnigem Card",
@@ -4627,6 +4698,16 @@
 				"Enable": true
 			}
 		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acccard",
+		"itemid": 4175,
+		"label": "Acc Card",
+		"equipname": "Poisonous Toad Card",
+		"effectlist": [],
 		"combolist": [],
 		"flags": [],
 		"idx": 3
@@ -5744,6 +5825,55 @@
 		"idx": 3
 	},
 	{
+		"id": "armorcard",
+		"itemid": 300014,
+		"label": "Armor Card",
+		"equipname": "Ingrid Card",
+		"effectlist": [
+			{
+				"EffectNumber": 40,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": -15,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4407
+				],
+				"itemid_any": [],
+				"equipname": "Randgris Card",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
 		"id": "weaponcard",
 		"itemid": 4625,
 		"label": "Weapon Card",
@@ -6215,31 +6345,6 @@
 				"EffectNumber": "10-(2*DOWN(BLU/10))",
 				"EffectType": {
 					"id": "CriDamagePercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"flags": [],
-		"idx": 3
-	},
-	{
-		"id": "armorcard",
-		"itemid": 300378,
-		"label": "Armor Card",
-		"equipname": "Simulation Juncea Card",
-		"effectlist": [
-			{
-				"EffectNumber": 20,
-				"EffectType": {
-					"id": "PATK"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 20,
-				"EffectType": {
-					"id": "SMATK"
 				},
 				"Enable": true
 			}
@@ -7788,6 +7893,811 @@
 			}
 		],
 		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "helmcard",
+		"itemid": 300359,
+		"label": "Headgear Card",
+		"equipname": "Ice Gangu Card",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==2?(4+(HATR>8?3:0)):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?5:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "helmcard",
+		"itemid": 300360,
+		"label": "Headgear Card",
+		"equipname": "Shining Seaweed Card",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3+(HATR>8?2:0))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?5:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300361,
+		"label": "Armor Card",
+		"equipname": "Ice Straw Card",
+		"effectlist": [
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==2?(4*DOWN(ARMORR/2)):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300359
+				],
+				"itemid_any": [],
+				"equipname": "Ice Gangu Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300362,
+		"label": "Armor Card",
+		"equipname": "Unfrost Flower Card",
+		"effectlist": [
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(ARMORR/3))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300360
+				],
+				"itemid_any": [],
+				"equipname": "Shining Seaweed Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "helmcard",
+		"itemid": 300363,
+		"label": "Headgear Card",
+		"equipname": "Limacina Card",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3+(HATR>8?2:0))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?5:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300364,
+		"label": "Acc Card",
+		"equipname": "Calmaring Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==4?35:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc1card",
+		"itemid": 300365,
+		"label": "Acc Card",
+		"equipname": "Primitive Rgan Card",
+		"effectlist": [
+			{
+				"EffectNumber": 8,
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc1card",
+		"itemid": 300366,
+		"label": "Acc Card",
+		"equipname": "Lowest Rgan Card",
+		"effectlist": [
+			{
+				"EffectNumber": 6,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300367,
+		"label": "Acc Card",
+		"equipname": "Junior Rgan Card",
+		"effectlist": [
+			{
+				"EffectNumber": 8,
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300365
+				],
+				"itemid_any": [],
+				"equipname": "Primitive Rgan Card",
+				"effectlist": [
+					{
+						"EffectNumber": 8,
+						"EffectType": {
+							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300368,
+		"label": "Acc Card",
+		"equipname": "Midrange Rgan Card",
+		"effectlist": [
+			{
+				"EffectNumber": 6,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300366
+				],
+				"itemid_any": [],
+				"equipname": "Lowest Rgan Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300369,
+		"label": "Acc Card",
+		"equipname": "Disposed Primitive Rgan Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==7?35:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300370,
+		"label": "Acc Card",
+		"equipname": "Disposed Midrange Rgan Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==8?35:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300371,
+		"label": "Acc Card",
+		"equipname": "Cave Calmaring Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==5?35:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 300372,
+		"label": "Garment Card",
+		"equipname": "Cave Flower Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==8?(3*GARMR):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shieldcard",
+		"itemid": 300373,
+		"label": "Shield Card",
+		"equipname": "Hallucigenia Baby Card",
+		"effectlist": [],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300374,
+		"label": "Shoes Card",
+		"equipname": "Hallucigenia Card",
+		"effectlist": [
+			{
+				"EffectNumber": -10,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300373
+				],
+				"itemid_any": [],
+				"equipname": "Hallucigenia Baby Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(EEI==4?9:0)",
+						"EffectType": {
+							"id": "ElementalAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ERI==7?9:0)",
+						"EffectType": {
+							"id": "RaceAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ESIZE==0?9:0)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(EEI==4?9:0)",
+						"EffectType": {
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ERI==7?9:0)",
+						"EffectType": {
+							"id": "RaceMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ESIZE==0?9:0)",
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 300375,
+		"label": "Garment Card",
+		"equipname": "One Eye Dollocaris Card",
+		"effectlist": [
+			{
+				"EffectNumber": "([0,6,7,8].includes(AEI)?((GARMR>11?25:-25)+(GARMG(1)?8:0)):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300376,
+		"label": "Armor Card",
+		"equipname": "Two Eyes Dollocaris Card",
+		"effectlist": [
+			{
+				"EffectNumber": "((ARMORR>11?30:-30))",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORR>11?10:-10))",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORR>11?10:-10))",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "helmcard",
+		"itemid": 300377,
+		"label": "Headgear Card",
+		"equipname": "Ultra Limacina Card",
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(2*DOWN(HATR/3))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(2*DOWN(HATR/3))",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?0.5:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300378,
+		"label": "Armor Card",
+		"equipname": "Simulation Juncea Card",
+		"effectlist": [
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shieldcard",
+		"itemid": 300379,
+		"label": "Shield Card",
+		"equipname": "Enhanced Superior Rgan Card",
+		"effectlist": [],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300380,
+		"label": "Shoes Card",
+		"equipname": "Entangled Intermediate Rgan Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(5+(SHOER>11?15:-15))",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>11?10:-10)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(1)?5:0)",
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300381,
+		"label": "Armor Card",
+		"equipname": "Heart Hunter AT Card",
+		"effectlist": [
+			{
+				"EffectNumber": 1,
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(ARMORR/3))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300363
+				],
+				"itemid_any": [],
+				"equipname": "Limacina Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 300382,
+		"label": "Garment Card",
+		"equipname": "Aquila Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==5||AEI==9)?100:0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300008,
+		"label": "Weapon Card",
+		"equipname": "Angelgiold Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(ERI==3?10:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 4394,
+		"label": "Weapon Card",
+		"equipname": "Lady Solace Card",
+		"effectlist": [],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 300272,
+		"label": "Garment Card",
+		"equipname": "Pray Giver Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==6?10:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": -25,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4394
+				],
+				"itemid_any": [],
+				"equipname": "Lady Solace Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(AEI==6&&BLV>199?(15*DOWN(BIN/40)):0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
 		"flags": [],
 		"idx": 3
 	}
