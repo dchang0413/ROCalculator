@@ -1397,24 +1397,6 @@
 	},
 	{
 		"id": "weaponcard",
-		"itemid": 300219,
-		"label": "Weapon Card",
-		"equipname": "Ashring Card",
-		"effectlist": [
-			{
-				"EffectNumber": "((WTI=='OneHandedRods'|WTI=='TwoHandedRods')&&AEI==7)?(10+(WEAR>9?10:0)+(WEAR>13?10:0)):0",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"flags": [],
-		"idx": 3
-	},
-	{
-		"id": "weaponcard",
 		"itemid": 300010,
 		"label": "Weapon Card",
 		"equipname": "Arch Plasma Card",
@@ -5758,24 +5740,6 @@
 		"idx": 3
 	},
 	{
-		"id": "shoescard",
-		"itemid": 300217,
-		"label": "Shoes Card",
-		"equipname": "Burning Fang Card",
-		"effectlist": [
-			{
-				"EffectNumber": 20,
-				"EffectType": {
-					"id": "MeleeDamagePercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"flags": [],
-		"idx": 3
-	},
-	{
 		"id": "armorcard",
 		"itemid": 300013,
 		"label": "Armor Card",
@@ -6124,42 +6088,6 @@
 				"EffectNumber": "2+(['RG','RK'].includes(CCL)?(DOWN(HATR/3)):0)",
 				"EffectType": {
 					"id": "STR"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"flags": [],
-		"idx": 3
-	},
-	{
-		"id": "armorcard",
-		"itemid": 300228,
-		"label": "Armor Card",
-		"equipname": "Twisted God Card",
-		"effectlist": [
-			{
-				"EffectNumber": "ERI==3?75:0",
-				"EffectType": {
-					"id": "RaceMatkPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"flags": [],
-		"idx": 3
-	},
-	{
-		"id": "armorcard",
-		"itemid": 300227,
-		"label": "Armor Card",
-		"equipname": "Schulang Card",
-		"effectlist": [
-			{
-				"EffectNumber": "ERI==0?75:0",
-				"EffectType": {
-					"id": "RaceMatkPercent"
 				},
 				"Enable": true
 			}
@@ -7084,24 +7012,6 @@
 	},
 	{
 		"id": "weaponcard",
-		"itemid": 300214,
-		"label": "Weapon Card",
-		"equipname": "Hot Molar Card",
-		"effectlist": [
-			{
-				"EffectNumber": "WTI=='Katars'?(10+(DOWN(WEAR/2))):0",
-				"EffectType": {
-					"id": "MeleeDamagePercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"flags": [],
-		"idx": 3
-	},
-	{
-		"id": "weaponcard",
 		"itemid": 4699,
 		"label": "Weapon Card",
 		"equipname": "Rock Step Card",
@@ -7729,78 +7639,6 @@
 		"idx": 3
 	},
 	{
-		"id": "acc2card",
-		"itemid": 300218,
-		"label": "Acc Card",
-		"equipname": "Ashhopper Card",
-		"effectlist": [
-			{
-				"EffectNumber": "(AEI==0?35:0)",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"flags": [],
-		"idx": 3
-	},
-	{
-		"id": "acc2card",
-		"itemid": 300211,
-		"label": "Acc Card",
-		"equipname": "Ash Toad Card",
-		"effectlist": [
-			{
-				"EffectNumber": "(AEI==4?35:0)",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"flags": [],
-		"idx": 3
-	},
-	{
-		"id": "acc2card",
-		"itemid": 300216,
-		"label": "Acc Card",
-		"equipname": "Lava Toad Card",
-		"effectlist": [
-			{
-				"EffectNumber": "(AEI==1?35:0)",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"flags": [],
-		"idx": 3
-	},
-	{
-		"id": "acc2card",
-		"itemid": 300222,
-		"label": "Acc Card",
-		"equipname": "Firewind Kite Card",
-		"effectlist": [
-			{
-				"EffectNumber": "(AEI==3?35:0)",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"flags": [],
-		"idx": 3
-	},
-	{
 		"id": "acccard",
 		"itemid": 300105,
 		"label": "Acc Card",
@@ -7888,6 +7726,292 @@
 				"EffectNumber": "(SKIDS(\"FIREBALL\")?25:0)",
 				"EffectType": {
 					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300211,
+		"label": "Acc Card",
+		"equipname": "Ash Toad Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==4?35:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300212,
+		"label": "Armor Card",
+		"equipname": "Rakehand Card",
+		"effectlist": [],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 300213,
+		"label": "Garment Card",
+		"equipname": "Spark Card",
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EEI==1?10:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300214,
+		"label": "Weapon Card",
+		"equipname": "Hot Molar Card",
+		"effectlist": [
+			{
+				"EffectNumber": "WTI=='Katars'?(10+(DOWN(WEAR/2))):0",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300215,
+		"label": "Shoes Card",
+		"equipname": "Volcaring Card",
+		"effectlist": [
+			{
+				"EffectNumber": "((AEI==1||AEI==4)?(5+(DOWN(SHOER/2))):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300216,
+		"label": "Acc Card",
+		"equipname": "Lava Toad Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==1?35:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300217,
+		"label": "Shoes Card",
+		"equipname": "Burning Fang Card",
+		"effectlist": [
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300218,
+		"label": "Acc Card",
+		"equipname": "Ashhopper Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==0?35:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300219,
+		"label": "Weapon Card",
+		"equipname": "Ashring Card",
+		"effectlist": [
+			{
+				"EffectNumber": "((WTI=='OneHandedRods'|WTI=='TwoHandedRods')&&AEI==7)?(10+(WEAR>9?10:0)+(WEAR>13?10:0)):0",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300220,
+		"label": "Acc Card",
+		"equipname": "Grey Wolf Card",
+		"effectlist": [
+			{
+				"EffectNumber": 6,
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300223
+				],
+				"itemid_any": [],
+				"equipname": "Phantom Wolf Card",
+				"effectlist": [
+					{
+						"EffectNumber": 8,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300221,
+		"label": "Shoes Card",
+		"equipname": "Tumble Ring Card",
+		"effectlist": [
+			{
+				"EffectNumber": "((AEI==0||AEI==7)?(5+(DOWN(SHOER/2))):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300222,
+		"label": "Acc Card",
+		"equipname": "Firewind Kite Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==3?35:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "acc1card",
+		"itemid": 300223,
+		"label": "Acc Card",
+		"equipname": "Phantom Wolf Card",
+		"effectlist": [
+			{
+				"EffectNumber": 6,
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300227,
+		"label": "Armor Card",
+		"equipname": "Schulang Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(ERI==0?75:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300228,
+		"label": "Armor Card",
+		"equipname": "Twisted God Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(ERI==3?75:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
 				},
 				"Enable": true
 			}
