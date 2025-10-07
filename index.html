@@ -4316,7 +4316,7 @@
                                     </el-col>
                                     <el-col :span="12">
                                         <div class="grid-content">
-                                            <el-select v-model="status.classid" v-on:change="onChangeClass"
+                                            <el-select v-model="status.classid" v-on:change="onChangeClass(false)"
                                                 placeholder="">
                                                 <el-option v-for="item in classlist" :key="item.id" :label="item.label"
                                                     :value="item.id">
