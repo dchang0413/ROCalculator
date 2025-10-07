@@ -1059,9 +1059,9 @@
 		},
 		{
 			"id": "acc1",
-			"itemid": 490791,
+			"itemid": 490783,
 			"label": "Accessory",
-			"equipname": "Faceworm Queen's Scale",
+			"equipname": "Unknown Watch (Shadow Cross)",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -1069,49 +1069,21 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 15,
+					"EffectNumber": 10,
 					"EffectType": {
 						"id": "POW"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": 15,
+					"EffectNumber": 100,
 					"EffectType": {
-						"id": "CON"
+						"id": "Atk"
 					},
 					"Enable": true
 				},
 				{
 					"EffectNumber": 15,
-					"EffectType": {
-						"id": "AspdPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": 15,
-					"EffectType": {
-						"id": "MeleeDamagePercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": 15,
-					"EffectType": {
-						"id": "RangedDamagePercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(2*DOWN(MIN(BLV,250)/5))",
-					"EffectType": {
-						"id": "CriDamagePercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(DOWN(MIN(BLV,250)/5))",
 					"EffectType": {
 						"id": "LevelAtkPercent"
 					},
@@ -1121,124 +1093,36 @@
 			"combolist": [
 				{
 					"itemid_every": [
-						20718
+						610035
 					],
 					"itemid_any": [],
-					"equipname": "Giant Faceworm Snake Skin",
+					"equipname": "Wicked Katar",
 					"effectlist": [
-						{
-							"EffectNumber": 5,
-							"EffectType": {
-								"id": "POW"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 5,
-							"EffectType": {
-								"id": "CON"
-							},
-							"Enable": true
-						},
 						{
 							"EffectNumber": 15,
-							"EffectType": {
-								"id": "HPPercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 15,
-							"EffectType": {
-								"id": "SPPercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "(5*GARMR)",
-							"EffectType": {
-								"id": "MeleeDamagePercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "(5*GARMR)",
-							"EffectType": {
-								"id": "RangedDamagePercent"
-							},
-							"Enable": true
-						}
-					]
-				},
-				{
-					"itemid_every": [
-						27164
-					],
-					"itemid_any": [],
-					"equipname": "Faceworm Queen Card",
-					"effectlist": [
-						{
-							"EffectNumber": 20,
-							"EffectType": {
-								"id": "POW"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 20,
-							"EffectType": {
-								"id": "CON"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 20,
-							"EffectType": {
-								"id": "CRIDR"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 30,
-							"EffectType": {
-								"id": "RaceAtkPercent"
-							},
-							"Enable": true
-						}
-					]
-				},
-				{
-					"itemid_every": [
-						27163
-					],
-					"itemid_any": [],
-					"equipname": "Faceworm Card",
-					"effectlist": [
-						{
-							"EffectNumber": 3,
-							"EffectType": {
-								"id": "POW"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 3,
-							"EffectType": {
-								"id": "CON"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 4,
-							"EffectType": {
-								"id": "CRIDR"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 10,
 							"EffectType": {
 								"id": "SizeAtkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(WEAR>9?20:0)",
+							"EffectType": {
+								"id": "CriDamagePercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(WEAG(2)?5:0)",
+							"EffectType": {
+								"id": "PATK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "SKIDS(\"SAVAGE_IMPACT\")?(10+(WEAR>9?10:0)+(WEAG(2)?15:0)):0",
+							"EffectType": {
+								"id": "SkillDamagePercent"
 							},
 							"Enable": true
 						}
@@ -1537,26 +1421,86 @@
 		},
 		{
 			"id": "helmcard",
-			"itemid": 0,
+			"itemid": 300360,
 			"label": "Headgear Card",
-			"equipname": "",
+			"equipname": "Shining Seaweed Card",
 			"refinelevel": 0,
 			"grade": {
-				"id": 0
+				"id": 0,
+				"label": "No Grade"
 			},
-			"effectlist": [],
+			"effectlist": [
+				{
+					"EffectNumber": 10,
+					"EffectType": {
+						"id": "Atk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 1,
+					"EffectType": {
+						"id": "PATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(3+(HATR>8?2:0))",
+					"EffectType": {
+						"id": "MeleeDamagePercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(HATR>10?5:0)",
+					"EffectType": {
+						"id": "VariableCastPercent"
+					},
+					"Enable": true
+				}
+			],
 			"combolist": []
 		},
 		{
 			"id": "helm1card",
-			"itemid": 0,
+			"itemid": 300360,
 			"label": "Headgear Card",
-			"equipname": "",
+			"equipname": "Shining Seaweed Card",
 			"refinelevel": 0,
 			"grade": {
-				"id": 0
+				"id": 0,
+				"label": "No Grade"
 			},
-			"effectlist": [],
+			"effectlist": [
+				{
+					"EffectNumber": 10,
+					"EffectType": {
+						"id": "Atk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 1,
+					"EffectType": {
+						"id": "PATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(3+(HATR>8?2:0))",
+					"EffectType": {
+						"id": "MeleeDamagePercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(HATR>10?5:0)",
+					"EffectType": {
+						"id": "VariableCastPercent"
+					},
+					"Enable": true
+				}
+			],
 			"combolist": []
 		},
 		{
@@ -1672,6 +1616,27 @@
 		},
 		{
 			"id": "acc1card",
+			"itemid": 300365,
+			"label": "Acc Card",
+			"equipname": "Primitive Rgan Card",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [
+				{
+					"EffectNumber": 8,
+					"EffectType": {
+						"id": "MeleeDamagePercent"
+					},
+					"Enable": true
+				}
+			],
+			"combolist": []
+		},
+		{
+			"id": "acc2card",
 			"itemid": 27163,
 			"label": "Acc Card",
 			"equipname": "Faceworm Card",
@@ -1749,18 +1714,6 @@
 					]
 				}
 			]
-		},
-		{
-			"id": "acc2card",
-			"itemid": 0,
-			"label": "Acc Card",
-			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0
-			},
-			"effectlist": [],
-			"combolist": []
 		},
 		{
 			"id": "costumeupper",
@@ -3034,8 +2987,8 @@
 		"refineatk": 0
 	},
 	"Status": {
-		"Level": 269,
-		"JOBLevel": 50,
+		"Level": 260,
+		"JOBLevel": 55,
 		"Transcendent": true,
 		"classid": "GX",
 		"UseJobMaxPoint": true,
@@ -3051,11 +3004,11 @@
 		"SPL": 0,
 		"CON": 0,
 		"CRT": "100",
-		"ASPD": 193,
+		"ASPD": 192,
 		"HP": 0,
 		"SP": 0,
-		"MHP": null,
-		"MSP": null
+		"MHP": 156127,
+		"MSP": 7618
 	},
 	"JobStatus": {
 		"STR": 8,
@@ -3064,12 +3017,12 @@
 		"INT": 5,
 		"DEX": 9,
 		"LUK": 4,
-		"POW": 11,
-		"STA": 7,
+		"POW": 12,
+		"STA": 8,
 		"WIS": 4,
 		"SPL": 0,
-		"CON": 6,
-		"CRT": 5
+		"CON": 7,
+		"CRT": 7
 	},
 	"SkillName": "Savage Impact",
 	"Skill": {
@@ -3116,9 +3069,9 @@
 	},
 	"Option": {
 		"MagnumPoison2Value": 25,
-		"SkillPercent": 6321.5,
+		"SkillPercent": 6058,
 		"SkillFormulaError": "",
-		"EquipSkillAddDamage": 28,
+		"EquipSkillAddDamage": 63,
 		"BaseCriticalValue": 40,
 		"IgnoreDEF": false,
 		"IgnoreMDEF": false,
@@ -3176,16 +3129,16 @@
 		"GC_POISONINGWEAPON:1",
 		"SHC_POTENT_VENOM"
 	],
-	"Damage": "30,909,895,929",
-	"DamageDPS": "43,892,052,219",
+	"Damage": "32,330,618,055",
+	"DamageDPS": "45,909,477,638",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "30,909,895,929",
+	"SkillDamageAvg": "32,330,618,055",
 	"attribute": {
-		"StatusATK": 2479,
-		"WeaponATK": 2066,
-		"StatusMATK": 736,
+		"StatusATK": 2457,
+		"WeaponATK": 2186,
+		"StatusMATK": 734,
 		"WeaponMATK": 634,
-		"ATK": 1562,
+		"ATK": 1682,
 		"MATK": 410,
 		"ATKP": 100,
 		"MATKP": 0,
@@ -3195,26 +3148,26 @@
 		"HPP": 26,
 		"SP": 0,
 		"SPP": 30,
-		"PATK": 275,
-		"SMATK": 80,
-		"CRIDR": 82,
+		"PATK": 278,
+		"SMATK": 77,
+		"CRIDR": 83,
 		"RES": 0,
 		"MRES": 0,
 		"ASPD": 2,
-		"ASPDP": 53,
+		"ASPDP": 38,
 		"SKILLASPDP": 15,
-		"CRI": 329.99,
+		"CRI": 329.9,
 		"HIT": 0,
-		"CRIDP": 558,
-		"RNGDP": 185,
-		"MELDP": 317,
+		"CRIDP": 478,
+		"RNGDP": 170,
+		"MELDP": 320,
 		"ELEDDI": 0,
 		"RNGDDI": 0,
 		"MELDDI": 75,
 		"MAGDDI": 0,
 		"SK1VCTP": 0,
 		"SK2VCTP": 0,
-		"EQVCTP": -15,
+		"EQVCTP": -25,
 		"VCTS": 0,
 		"FCT": -1.6,
 		"FCTP": 0,
@@ -3229,8 +3182,8 @@
 		"ElementalMagicPercent": 0,
 		"SizeMatkPercent": 101,
 		"ElementalAtkPercent": 94,
-		"LevelAtkPercent": 175,
-		"SizeAtkPercent": 291,
+		"LevelAtkPercent": 140,
+		"SizeAtkPercent": 306,
 		"RaceAtkPercent": 60,
 		"MonsterAtkPercent": 0,
 		"ElementalMatkPercent": 30,
@@ -3264,67 +3217,67 @@
 		"atkc1_max": 1463,
 		"atkc2_min": 1323,
 		"atkc2_max": 1463,
-		"weaponatk_min": 3215,
-		"weaponatk_max": 3390,
-		"atkequip_min": 429209,
-		"atkequip_max": 452551,
-		"atkbranch_min": 3215,
-		"atkbranch_max": 3390,
-		"atkc4_min": 432424,
-		"atkc4_max": 455941,
-		"atkc5_min": 1640212,
-		"atkc5_max": 1728401,
-		"atkc6_min": 6839684,
-		"atkc6_max": 7207432,
+		"weaponatk_min": 3335,
+		"weaponatk_max": 3510,
+		"atkequip_min": 403468,
+		"atkequip_max": 424627,
+		"atkbranch_min": 3335,
+		"atkbranch_max": 3510,
+		"atkc4_min": 406803,
+		"atkc4_max": 428137,
+		"atkc5_min": 1556320,
+		"atkc5_max": 1636962,
+		"atkc6_min": 6536544,
+		"atkc6_max": 6875240,
 		"atkskillcritical_min": 0,
 		"atkskillcritical_max": 0,
-		"atkc7_min": 518790026,
-		"atkc7_max": 546683712,
-		"normalattack_min": 14363326,
-		"normalattack_max": 15135597,
+		"atkc7_min": 475141378,
+		"atkc7_max": 499761190,
+		"normalattack_min": 13726732,
+		"normalattack_max": 14437995,
 		"normalcritical": 0,
 		"NADamageCRI_min": 0,
 		"NADamageCRI_max": 0,
-		"normalattack_DPS": 1579249050,
-		"atkc8_min": 664051233,
-		"atkc8_max": 699755151,
-		"atkc9_min": 1162089657,
-		"atkc9_max": 1224571514,
-		"atkc9_avg": 1193330585.5,
-		"atkmulti_min": 3486268971,
-		"atkmulti_max": 3673714542,
-		"SkillDamage_min": 3486268971,
-		"SkillDamage_max": 3673714542,
-		"SkillDamage_avg": 3579991756.5,
-		"SkillDamageCRI_min": 30909895929,
-		"SkillDamageCRI_max": 30909895929,
-		"SkillDamageCRI_avg": 30909895929,
-		"atkmulti_DPS": 43892052219.18,
+		"normalattack_DPS": 1163107431.25,
+		"atkc8_min": 774480446,
+		"atkc8_max": 814610739,
+		"atkc9_min": 1355340780,
+		"atkc9_max": 1425568793,
+		"atkc9_avg": 1390454786.5,
+		"atkmulti_min": 4066022340,
+		"atkmulti_max": 4276706379,
+		"SkillDamage_min": 4066022340,
+		"SkillDamage_max": 4276706379,
+		"SkillDamage_avg": 4171364359.5,
+		"SkillDamageCRI_min": 32330618055,
+		"SkillDamageCRI_max": 32330618055,
+		"SkillDamageCRI_avg": 32330618055,
+		"atkmulti_DPS": 45909477638.1,
 		"SpecialMATK1": 0,
 		"SpecialMATK3": 0,
 		"SpecialINSIGNIAENEMYMATK": 0,
-		"weaponmatk_min": 2539,
-		"weaponmatk_max": 2933,
-		"equipmatk_min": 3614,
-		"equipmatk_max": 4008,
-		"matkpercent_min": 11131,
-		"matkpercent_max": 12344,
-		"finalmatk_min": 1617678,
-		"finalmatk_max": 1793982,
-		"matk1_min": 1941213,
-		"matk1_max": 2152778,
-		"skillmatk_min": 135884910,
-		"skillmatk_max": 150694460,
-		"matk2_min": 134673954,
-		"matk2_max": 149351538,
-		"matk3_min": 674716509,
-		"matk3_max": 748251205,
-		"matk4_min": 118075389,
-		"matk4_max": 130943960,
-		"matk4_avg": 124509674.5,
-		"matkmulti_min": 1180753890,
-		"matkmulti_max": 1309439600,
-		"matkmulti_avg": 1245096745,
+		"weaponmatk_min": 131,
+		"weaponmatk_max": 131,
+		"equipmatk_min": 131,
+		"equipmatk_max": 131,
+		"matkpercent_min": 131,
+		"matkpercent_max": 131,
+		"finalmatk_min": 134,
+		"finalmatk_max": 134,
+		"matk1_min": 134,
+		"matk1_max": 134,
+		"skillmatk_min": 174,
+		"skillmatk_max": 174,
+		"matk2_min": 149,
+		"matk2_max": 149,
+		"matk3_min": 149,
+		"matk3_max": 149,
+		"matk4_min": 149,
+		"matk4_max": 149,
+		"matk4_avg": 149,
+		"matkmulti_min": 1490,
+		"matkmulti_max": 1490,
+		"matkmulti_avg": 1490,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
 		"matkmulti_DPS": 0,
@@ -3334,10 +3287,10 @@
 		"CastTime": 0,
 		"DelayTime": 0.7,
 		"HitperSec": 1.42,
-		"AspdDelay": 0.14,
+		"AspdDelay": 0.16,
 		"SpecialMATK2": 0,
-		"normalcritical_min": 221094867,
-		"normalcritical_max": 221094867
+		"normalcritical_min": 186097189,
+		"normalcritical_max": 186097189
 	},
 	"status_total": {
 		"STR": 635,
@@ -3346,13 +3299,13 @@
 		"INT": 99,
 		"DEX": 584,
 		"LUK": 631,
-		"POW": 290,
-		"STA": 17,
+		"POW": 286,
+		"STA": 18,
 		"WIS": 14,
 		"SPL": 0,
-		"CON": 98,
-		"CRT": 145,
+		"CON": 84,
+		"CRT": 147,
 		"S_P_L": 39
 	},
-	"lastedited": "2025-09-02T14:20:12.590Z"
+	"lastedited": "2025-10-07T10:23:55.735Z"
 }
