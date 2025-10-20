@@ -3579,5 +3579,139 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "acc2",
+		"itemid": 490744,
+		"label": "Accessory",
+		"equipname": "Poenitentia Ring (Inquisitor)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"EXPOSION_BLASTER\")?25:0)+(SKIDS(\"RAMPAGEBLASTER\")?35:0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					560013
+				],
+				"itemid_any": [],
+				"equipname": "Poenitentia Ungula",
+				"effectlist": [
+					{
+						"EffectNumber": "((SKIDS(\"EXPOSION_BLASTER\")&&WEAR>9?0.35:0)+(SKIDS(\"RAMPAGEBLASTER EARTHSHAKER\")&&WEAR>9?1.5:0))",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490743,
+		"label": "Accessory",
+		"equipname": "Regulus Ring",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"EXPOSION_BLASTER\")?25:0)+(SKIDS(\"RAMPAGEBLASTER\")?35:0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					560013
+				],
+				"itemid_any": [],
+				"equipname": "Poenitentia Ungula",
+				"effectlist": [
+					{
+						"EffectNumber": "(WEAR>9?10:0)",
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "((SKIDS(\"EXPOSION_BLASTER\")&&WEAR>9?35:0)+(SKIDS(\"RAMPAGEBLASTER\")&&WEAR>9?70:0))",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR>9?15:0)",
+						"EffectType": {
+							"id": "RaceAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
