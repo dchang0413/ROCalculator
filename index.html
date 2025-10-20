@@ -15372,12 +15372,13 @@
                     this.ClosePanel('AllSetDBSaveDialog');
                     gtag("event", "build_saved", {
                         "event_category": "Saving Build",
-                        "build_class_id" : this.ClassInfo.id,
-                        "build_dps" : this.getSkillDPS(),
-                        "build_skill" : this.skill.name,
-                        "build_json": parsed,
-                        "event_action": "Saving Build",
-                        "event_label": "Saving Build"
+                        "event_action": this.ClassInfo.id,
+                        "event_label": {
+                            "build_class_id" : this.ClassInfo.id,
+                            "build_dps" : this.getSkillDPS(),
+                            "build_skill" : this.skill.name,
+                            "build_json": parsed,
+                        }
                     });
                 },
                 onSortupAllSet(dbidx) {
