@@ -2218,19 +2218,19 @@
             <div class="container-fluid p-0">
                 <div class="row">
                     <div class="col-sm p-0 m-0 order-2 order-sm-1">
-                        <div class="w-100 bg-success text-center font-weight-bold"
-                            style='font-size:1.25rem;color:black;line-height: 3rem;'>Current Build</div>
+                        <div class="w-100 bg-purple-light5 rounded-0 text-center font-weight-bold text-body"
+                            style='font-size:1.25rem;line-height: 3rem;'>Current Build</div>
                         <div class='d-flex flex-column text-wrapper'><span style='word-break: break-word;'
                                 v-if="detailEquipText" v-for="equipText in detailEquipText"
                                 :class="skill.name==clone.SkillName && equipText.itemid != clonedDetailEquipText[equipText.slotid].itemid ? 'equipDiff' : ''"><img
                                     :src="equipText.imgURL">{{equipText.text}}</span></div>
                     </div>
                     <div class="col-sm-6 p-0 m-0 order-1 order-sm-2" style='flex-basis: max-content;'>
-                        <div class="w-100 bg-info text-center font-weight-bold"
-                            style='font-size:1.25rem;color:black;line-height: 3rem;'>Comparison Info</div>
+                        <div class="w-100 bg-purple-light5 rounded-0 text-center font-weight-bold text-body"
+                            style='font-size:1.25rem;line-height: 3rem;'>Comparison Info</div>
                         <table v-if="clone" class="compareTable"
                             style='height: 80dvh;overflow-y: scroll;display: inline-block;'>
-                            <tr class="bg-warning">
+                            <tr style='background-color:#f4f097;'>
                                 <td colspan=3>DPS Comparison</td>
                             </tr>
                             <tr>
@@ -2665,8 +2665,8 @@
                         </table>
                     </div>
                     <div class="col-sm p-0 m-0 order-3 order-sm-3">
-                        <div class="w-100 bg-secondary text-center font-weight-bold"
-                            style='font-size:1.25rem;color:black;line-height: 3rem;'>Saved State</div>
+                        <div class="w-100 bg-purple-light5 rounded-0 text-center font-weight-bold text-body"
+                            style='font-size:1.25rem;line-height: 3rem;'>Saved State</div>
                         <div class='d-flex flex-column text-wrapper'><span style='word-break: break-word;'
                                 v-if="clonedDetailEquipText" v-for="equipText in clonedDetailEquipText"><img
                                     :src="equipText.imgURL">{{equipText.text}}</span></div>
