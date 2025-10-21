@@ -2214,381 +2214,468 @@
             </el-row>
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['CompareDialog']" v-on:close="ClosePanel('CompareDialog')"
-            custom-class="Dialogue-container" top="50px" width="97%" center>
-            <table v-if="clone" class="compareTable" style="width:100%; white-space: nowrap">
-                <tr class="bg-purple-light5 stickyHeader">
-                    <th v-if="detailEquipText" style="width:40%" colspan="2">Current Build</th>
-                    <th v-else style="width:40%">Current Build</th>
-                    <th style="width:20%"></th>
-                    <th v-if="clonedDetailEquipText" style="width:40%" colspan="2">Saved State</th>
-                    <th v-else style="width:40%" colspan="2">Saved State</th>
-                </tr>
-                <tr>
-                    <td v-if="detailEquipText" :rowspan="this.enemyattribute.name != clone.EnemyName?44:43" width="25%" class="text-wrapper" style="vertical-align: initial">
-                        <span class="stickyText">
-                            <span v-for="equipText in detailEquipText" :class="skill.name==clone.SkillName && equipText.itemid != clonedDetailEquipText[equipText.slotid].itemid ? 'equipDiff' : ''"><img :src="equipText.imgURL">{{equipText.text}}</span>
-                        </span>
-                    </td>
-                    <td>{{skill.name}}</td>
-                    <td>Skill</td>
-                    <td>{{clone.SkillName}}</td>
-                    <td v-if="clonedDetailEquipText" :rowspan="this.enemyattribute.name != clone.EnemyName?44:43" width="25%" class="text-wrapper" style="vertical-align: initial">
-                        <span class="stickyText">
-                            <span v-for="equipText in clonedDetailEquipText"><img :src="equipText.imgURL">{{equipText.text}}</span>
-                        </span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>{{this.getSkillDamageAvg()|currency}}<br>
-                        (<span :class="parseFloat(this.getSkillDamageAvg())>=parseFloat(clone.skilldamageavg) ? 'positiveDiff' : 'negativeDiff'">
-                            {{parseFloat(this.getSkillDamageAvg())-parseFloat(clone.skilldamageavg)|currency}}
-                        </span>)</td>
-                    <td>Skill Damage(Avg)</td>
-                    <td>{{clone.skilldamageavg|currency}}</td>
-                </tr>
-                <tr>
-                    <td>{{this.getSkillDPS()| currency}} <br>
-                        (<span :class="this.getSkillDPS()>=clone.dps ? 'positiveDiff' : 'negativeDiff'">
-                            {{this.getSkillDPS()-clone.dps|currency}}
-                        </span>)</td>
-                    <td>DPS</td>
-                    <td>{{clone.dps|currency}}</td>
-                </tr>
-                <tr v-if="clone.enemyattribute">
-                    <td>{{ enemyattribute.hp / this.getSkillDPS() | damageToTimeFull }}<br>
-                        (<span :class="clone.enemyattribute.hp/clone.dps>=enemyattribute.hp/this.getSkillDPS() ? 'positiveTimeDiff' : 'negativeTimeDiff'">
-                            {{enemyattribute.hp/this.getSkillDPS()-clone.enemyattribute.hp/clone.dps | damageToTimeFull}}
-                        </span>)</td>
-                    <td>Target Kill Time</td>
-                    <td>{{ clone.enemyattribute.hp / clone.dps | damageToTimeFull }}</td>
-                </tr>
-                <tr v-if="this.enemyattribute.name != clone.EnemyName">
-                    <td>{{this.enemyattribute.name}}</td>
-                    <td>Enemy</td>
-                    <td>{{clone.EnemyName}}</td>
-                </tr>
-                <tr>
-                    <td>{{status.Level}}</td>
-                    <td>Level</td>
-                    <td>{{clone.level}}</td>
-                </tr>
-                <tr>
-                    <td>{{status.ASPD}}
-                        (<span :class="status.ASPD>=clone.aspd ? 'positiveDiff' : 'negativeDiff'">
-                            {{status.ASPD-clone.aspd}}
-                        </span>)</td>
-                    <td>ASPD</td>
-                    <td>{{clone.aspd}}</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['GCD']}} %
-                        (<span :class="status.ASPD>=clone.delay ? 'positiveTimeDiff' : 'negativeTimeDiff'">
-                            {{attribute['GCD']-clone.delay}} % 
-                        </span>)</td>
-                    <td>Cast Delay</td>
-                    <td>{{clone.delay}} %</td>
-                </tr>
-                <tr><td>{{computeattribute['HitperSec']}}
-                        (<span :class="computeattribute['HitperSec']>=clone.HitperSec ? 'positiveDiff' : 'negativeDiff'">
-                            {{computeattribute['HitperSec']-clone.HitperSec|currency2}} 
-                        </span>)</td>
-                    <td>Action per sec</td>
-                    <td>{{clone.HitperSec}}</td>
-                </tr>
-                <!--<tr>
-                    <td class="text-wrapper">{{EquipText}}</td>
-                    <td>Equip</td>
-                    <td class="text-wrapper">{{clonedEquipText}}</td>
-                </tr>-->
-                <tr class="bg-green-light2">
-                    <td colspan=3>Other Stats</td>
-                </tr>
-                <tr>
-                    <td>{{status.MHP}} | +{{attribute['HP']}} | {{attribute['HPP']}}%<br>
-                        (
-                            <span :class="status.MHP>=clone.Status.MHP ? 'positiveDiff' : 'negativeDiff'">{{status.MHP-clone.Status.MHP}}</span> | 
-                            <span :class="attribute['HP']>=clone.attribute['HP'] ? 'positiveDiff' : 'negativeDiff'">{{attribute['HP']-clone.attribute['HP']}}</span> | 
-                            <span :class="attribute['HPP']>=clone.attribute['HPP'] ? 'positiveDiff' : 'negativeDiff'">{{attribute['HPP']-clone.attribute['HPP']}}%</span>
-                        )
-                    </td>
-                    <td>Total HP | +HP | +HP%</td>
-                    <td>{{clone.Status.MHP}} | +{{clone.attribute['HP']}} | {{clone.attribute['HPP']}}%</td>
-                </tr>
-                <tr>
-                    <td>{{status.MSP}} | +{{attribute['SP']}} | {{attribute['SPP']}}%<br>
-                        (
-                            <span :class="status.MSP>=clone.Status.MSP ? 'positiveDiff' : 'negativeDiff'">{{status.MSP-clone.Status.MSP}}</span> | 
-                            <span :class="attribute['SP']>=clone.attribute['SP'] ? 'positiveDiff' : 'negativeDiff'">{{attribute['SP']-clone.attribute['SP']}}</span> | 
-                            <span :class="attribute['SPP']>=clone.attribute['SPP'] ? 'positiveDiff' : 'negativeDiff'">{{attribute['SPP']-clone.attribute['SPP']}}%</span>
-                        )
-                    </td>
-                    <td>Total SP | +SP | +SP%</td>
-                    <td>{{clone.Status.MSP}} | +{{clone.attribute['SP']}} | {{clone.attribute['SPP']}}%</td>
-                </tr>
-                <tr>
-                    <td>{{status_total.STR}} | {{status_total.AGI}} | {{status_total.VIT}} | {{status_total.INT}} | {{status_total.DEX}} | {{status_total.LUK}}<br>
-                        (
-                            <span :class="status_total.STR>=clone.status_total.STR ? 'positiveDiff' : 'negativeDiff'">{{status_total.STR-clone.status_total.STR}}</span> | 
-                            <span :class="status_total.AGI>=clone.status_total.AGI ? 'positiveDiff' : 'negativeDiff'">{{status_total.AGI-clone.status_total.AGI}}</span> | 
-                            <span :class="status_total.VIT>=clone.status_total.VIT ? 'positiveDiff' : 'negativeDiff'">{{status_total.VIT-clone.status_total.VIT}}</span> | 
-                            <span :class="status_total.INT>=clone.status_total.INT ? 'positiveDiff' : 'negativeDiff'">{{status_total.INT-clone.status_total.INT}}</span> | 
-                            <span :class="status_total.DEX>=clone.status_total.DEX ? 'positiveDiff' : 'negativeDiff'">{{status_total.DEX-clone.status_total.DEX}}</span> | 
-                            <span :class="status_total.LUK>=clone.status_total.LUK ? 'positiveDiff' : 'negativeDiff'">{{status_total.LUK-clone.status_total.LUK}}</span>
-                        )
-                    </td>
-                    <td>Basic Stats<br>STR | AGI | VIT | INT | DEX | LUK</td>
-                    <td>{{clone.status_total.STR}} | {{clone.status_total.AGI}} | {{clone.status_total.VIT}} | {{clone.status_total.INT}} | {{clone.status_total.DEX}} | {{clone.status_total.LUK}}</td>
-                </tr>
-                <tr>
-                    <td>{{status_total.POW}} | {{status_total.STA}} | {{status_total.WIS}} | {{status_total.SPL}} | {{status_total.CON}} | {{status_total.CRT}}<br>
-                        (
-                            <span :class="status_total.POW>=clone.status_total.POW ? 'positiveDiff' : 'negativeDiff'">{{status_total.POW-clone.status_total.POW}}</span> | 
-                            <span :class="status_total.STA>=clone.status_total.STA ? 'positiveDiff' : 'negativeDiff'">{{status_total.STA-clone.status_total.STA}}</span> | 
-                            <span :class="status_total.WIS>=clone.status_total.WIS ? 'positiveDiff' : 'negativeDiff'">{{status_total.WIS-clone.status_total.WIS}}</span> | 
-                            <span :class="status_total.SPL>=clone.status_total.SPL ? 'positiveDiff' : 'negativeDiff'">{{status_total.SPL-clone.status_total.SPL}}</span> | 
-                            <span :class="status_total.CON>=clone.status_total.CON ? 'positiveDiff' : 'negativeDiff'">{{status_total.CON-clone.status_total.CON}}</span> | 
-                            <span :class="status_total.CRT>=clone.status_total.CRT ? 'positiveDiff' : 'negativeDiff'">{{status_total.CRT-clone.status_total.CRT}}</span>
-                        )
-                    </td>
-                    <td>Talent Stats<br>POW | STA | WIS | SPL | CON | CRT</td>
-                    <td>{{clone.status_total.POW}} | {{clone.status_total.STA}} | {{clone.status_total.WIS}} | {{clone.status_total.SPL}} | {{clone.status_total.CON}} | {{clone.status_total.CRT}}</td>
-                </tr>
-                <tr class="bg-red-light2">
-                    <td colspan=3>Physical Stats</td>
-                </tr>
-                <tr>
-                    <td>{{attribute.StatusATK+computeattribute['SpecialATKFront']}} + {{attribute.WeaponATK}}<br>
-                        (
-                            <span :class="attribute.StatusATK+computeattribute['SpecialATKFront']>=clone.attribute.StatusATK+clone.computeattribute['SpecialATKFront'] ? 'positiveDiff' : 'negativeDiff'">{{attribute.StatusATK+computeattribute['SpecialATKFront']-clone.attribute.StatusATK+clone.computeattribute['SpecialATKFront']}}</span> | 
-                            <span :class="attribute.WeaponATK>=clone.attribute.WeaponATK ? 'positiveDiff' : 'negativeDiff'">{{attribute.WeaponATK-clone.attribute.WeaponATK}}</span>
-                        )
-                    </td>
-                    <td>ATK Status + Extra</td>
-                    <td>{{clone.attribute.StatusATK+clone.computeattribute['SpecialATKFront']}} + {{clone.attribute.WeaponATK}}</td>
-                </tr>
-                <tr>
-                    <td>{{attribute.PATK}}
-                        (<span :class="attribute.PATK>=clone.attribute.PATK ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute.PATK-clone.attribute.PATK}} 
-                        </span>)</td>
-                    <td>P.ATK</td>
-                    <td>{{clone.attribute.PATK}}</td>
-                </tr>
-                <tr>
-                    <td>{{skilloption.WeaponMasteryATK}}
-                        (<span :class="skilloption.WeaponMasteryATK>=(clone.skilloption ? clone.skilloption.WeaponMasteryATK : 0) ? 'positiveDiff' : 'negativeDiff'">
-                            {{skilloption.WeaponMasteryATK-clone.skilloption ? clone.skilloption.WeaponMasteryATK : 0}} 
-                        </span>)</td>
-                    <td>Mastery ATK</td>
-                    <td v-if="clone.skilloption">{{clone.skilloption.WeaponMasteryATK}}</td>
-                    <td v-else>0</td>
-                </tr>
-                <tr>
-                    <td>{{computeattribute.sizefix}} %
-                        (<span :class="computeattribute.sizefix>=clone.computeattribute.sizefix ? 'positiveDiff' : 'negativeDiff'">
-                            {{computeattribute.sizefix-clone.computeattribute.sizefix}} %
-                        </span>)</td>
-                    <td>Size Penalty</td>
-                    <td>{{clone.computeattribute.sizefix}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['RNGDP']}} %
-                        (<span :class="attribute['RNGDP']>=clone.attribute['RNGDP'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['RNGDP']-clone.attribute['RNGDP']}} %
-                        </span>)</td>
-                    <td>Range Mod%</td>
-                    <td>{{clone.attribute['RNGDP']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['MELDP']}} %
-                        (<span :class="attribute['MELDP']>=clone.attribute['MELDP'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['MELDP']-clone.attribute['MELDP']}} %
-                        </span>)</td>
-                    <td>Melee Mod%</td>
-                    <td>{{clone.attribute['MELDP']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['CRI']}} %
-                        (<span :class="attribute['CRI']>=clone.attribute['CRI'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['CRI']-clone.attribute['CRI']|currency2}} %
-                        </span>)</td>
-                    <td>CRI</td>
-                    <td>{{clone.attribute['CRI']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['CRIDP']}} %
-                        (<span :class="attribute['CRIDP']>=clone.attribute['CRIDP'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['CRIDP']-clone.attribute['CRIDP']}} %
-                        </span>)</td>
-                    <td>Crit Mod%</td>
-                    <td>{{clone.attribute['CRIDP']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute.CRIDR}}
-                        (<span :class="attribute['CRIDR']>=clone.attribute['CRIDR'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['CRIDR']-clone.attribute['CRIDR']}}
-                        </span>)</td>
-                    <td>C.RATE</td>
-                    <td>{{clone.attribute['CRIDR']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['ATKP']}} %
-                        (<span :class="attribute['ATKP']>=clone.attribute['ATKP'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['ATKP']-clone.attribute['ATKP']}} %
-                        </span>)</td>
-                    <td>ATK%</td>
-                    <td>{{clone.attribute['ATKP']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['ElementalAtkPercent']}} %
-                        (<span :class="attribute['ElementalAtkPercent']>=clone.attribute['ElementalAtkPercent'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['ElementalAtkPercent']-clone.attribute['ElementalAtkPercent']}} %
-                        </span>)</td>
-                    <td>vs. Element%</td>
-                    <td>{{clone.attribute['ElementalAtkPercent']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['LevelAtkPercent']}} %
-                        (<span :class="attribute['LevelAtkPercent']>=clone.attribute['LevelAtkPercent'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['LevelAtkPercent']-clone.attribute['LevelAtkPercent']}} %
-                        </span>)</td>
-                    <td>vs. Class%</td>
-                    <td>{{clone.attribute['LevelAtkPercent']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['RaceAtkPercent']}} %
-                        (<span :class="attribute['RaceAtkPercent']>=clone.attribute['RaceAtkPercent'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['RaceAtkPercent']-clone.attribute['RaceAtkPercent']}} %
-                        </span>)</td>
-                    <td>vs. Race%</td>
-                    <td>{{clone.attribute['RaceAtkPercent']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['SizeAtkPercent']}} %
-                        (<span :class="attribute['SizeAtkPercent']>=clone.attribute['SizeAtkPercent'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['SizeAtkPercent']-clone.attribute['SizeAtkPercent']}} %
-                        </span>)</td>
-                    <td>vs. Size%</td>
-                    <td>{{clone.attribute['SizeAtkPercent']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{option.EquipSkillAddDamage}} %
-                        (<span :class="option.EquipSkillAddDamage>=clone.option.EquipSkillAddDamage ? 'positiveDiff' : 'negativeDiff'">
-                            {{option.EquipSkillAddDamage-clone.option.EquipSkillAddDamage}} %
-                        </span>)</td>
-                    <td>Skill Mod%</td>
-                    <td>{{clone.option.EquipSkillAddDamage}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['BYPASSDEF']}} %
-                        (<span :class="attribute['BYPASSDEF']>=clone.attribute['BYPASSDEF'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['BYPASSDEF']-clone.attribute['BYPASSDEF']}} %
-                        </span>)</td>
-                    <td>Bypass DEF%</td>
-                    <td>{{clone.attribute['BYPASSDEF']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['BYPASSRES']}} %
-                        (<span :class="attribute['BYPASSRES']>=clone.attribute['BYPASSRES'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['BYPASSRES']-clone.attribute['BYPASSRES']}} %
-                        </span>)</td>
-                    <td>Bypass RES%</td>
-                    <td>{{clone.attribute['BYPASSRES']}} %</td>
-                </tr>
-                <tr class="bg-purple-light4">
-                    <td colspan=3>Magic Stats</td>
-                </tr>
-                <tr>
-                    <td>{{attribute.StatusMATK}} + {{attribute.WeaponMATK}}<br>
-                        (
-                            <span :class="attribute.StatusMATK>=clone.attribute.StatusMATK ? 'positiveDiff' : 'negativeDiff'">{{attribute.StatusMATK-clone.attribute.StatusMATK}}</span> | 
-                            <span :class="attribute.WeaponMATK>=clone.attribute.WeaponMATK ? 'positiveDiff' : 'negativeDiff'">{{attribute.WeaponMATK-clone.attribute.WeaponMATK}}</span>
-                        )
-                    </td>
-                    <td>MATK Status + Extra</td>
-                    <td>{{clone.attribute.StatusMATK}} + {{clone.attribute.WeaponMATK}}</td>
-                </tr>
-                <tr>
-                    <td>{{attribute.SMATK}}
-                        (<span :class="attribute.SMATK>=clone.attribute.SMATK ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute.SMATK-clone.attribute.SMATK}}
-                        </span>)</td>
-                    <td>S.MATK</td>
-                    <td>{{clone.attribute.SMATK}}</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['MATKP']}} %
-                        (<span :class="attribute['MATKP']>=clone.attribute['MATKP'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['MATKP']-clone.attribute['MATKP']}} %
-                        </span>)</td>
-                    <td>MATK%</td>
-                    <td>{{clone.attribute['MATKP']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['ElementalMagicPercent']}} %
-                        (<span :class="attribute['ElementalMagicPercent']>=clone.attribute['ElementalMagicPercent'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['ElementalMagicPercent']-clone.attribute['ElementalMagicPercent']}} %
-                        </span>)</td>
-                    <td>Element Magic%</td>
-                    <td>{{clone.attribute['ElementalMagicPercent']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['ElementalMatkPercent']}} %
-                        (<span :class="attribute['ElementalMatkPercent']>=clone.attribute['ElementalMatkPercent'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['ElementalMatkPercent']-clone.attribute['ElementalMatkPercent']}} %
-                        </span>)</td>
-                    <td>vs. Element%</td>
-                    <td>{{clone.attribute['ElementalMatkPercent']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['LevelMatkPercent']}} %
-                        (<span :class="attribute['LevelMatkPercent']>=clone.attribute['LevelMatkPercent'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['LevelMatkPercent']-clone.attribute['LevelMatkPercent']}} %
-                        </span>)</td>
-                    <td>vs. Class%</td>
-                    <td>{{clone.attribute['LevelMatkPercent']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['RaceMatkPercent']}} %
-                        (<span :class="attribute['RaceMatkPercent']>=clone.attribute['RaceMatkPercent'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['RaceMatkPercent']-clone.attribute['RaceMatkPercent']}} %
-                        </span>)</td>
-                    <td>vs. Race%</td>
-                    <td>{{clone.attribute['RaceMatkPercent']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['SizeMatkPercent']}} %
-                        (<span :class="attribute['SizeMatkPercent']>=clone.attribute['SizeMatkPercent'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['SizeMatkPercent']-clone.attribute['SizeMatkPercent']}} %
-                        </span>)</td>
-                    <td>vs. Size%</td>
-                    <td>{{clone.attribute['SizeMatkPercent']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{option.EquipSkillAddDamage}} %
-                        (<span :class="option.EquipSkillAddDamage>=clone.option.EquipSkillAddDamage ? 'positiveDiff' : 'negativeDiff'">
-                            {{option.EquipSkillAddDamage-clone.option.EquipSkillAddDamage}} %
-                        </span>)</td>
-                    <td>Skill Mod%</td>
-                    <td>{{clone.option.EquipSkillAddDamage}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['BYPASSMDEF']}} %
-                        (<span :class="attribute['BYPASSMDEF']>=clone.attribute['BYPASSMDEF'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['BYPASSMDEF']-clone.attribute['BYPASSMDEF']}} %
-                        </span>)</td>
-                    <td>Bypass MDEF%</td>
-                    <td>{{clone.attribute['BYPASSMDEF']}} %</td>
-                </tr>
-                <tr>
-                    <td>{{attribute['BYPASSMRES']}} %
-                        (<span :class="attribute['BYPASSMRES']>=clone.attribute['BYPASSMRES'] ? 'positiveDiff' : 'negativeDiff'">
-                            {{attribute['BYPASSMRES']-clone.attribute['BYPASSMRES']}} %
-                        </span>)</td>
-                    <td>Bypass MRES%</td>
-                    <td>{{clone.attribute['BYPASSMRES']}} %</td>
-                </tr>
-            </table>
+            custom-class="Dialogue-container center mt-4">
+            <div class="container-fluid p-0">
+                <div class="row">
+                    <div class="col-sm p-0 m-0 order-2 order-sm-1">
+                        <div class="w-100 bg-purple-light5 rounded-0 text-center font-weight-bold text-body"
+                            style='font-size:1.25rem;line-height: 3rem;'>Current Build</div>
+                        <div class='d-flex flex-column text-wrapper'><span style='word-break: break-word;'
+                                v-if="detailEquipText" v-for="equipText in detailEquipText"
+                                :class="skill.name==clone.SkillName && equipText.itemid != clonedDetailEquipText[equipText.slotid].itemid ? 'equipDiff' : ''"><img
+                                    :src="equipText.imgURL">{{equipText.text}}</span></div>
+                    </div>
+                    <div class="col-sm-6 p-0 m-0 order-1 order-sm-2" style='flex-basis: max-content;'>
+                        <div class="w-100 bg-purple-light5 rounded-0 text-center font-weight-bold text-body"
+                            style='font-size:1.25rem;line-height: 3rem;'>Comparison Info</div>
+                        <table v-if="clone" class="compareTable"
+                            style='height: 80dvh;overflow-y: scroll;display: inline-block;'>
+                            <tr style='background-color:#f4f097;'>
+                                <td colspan=3>DPS Comparison</td>
+                            </tr>
+                            <tr>
+                                <td>{{this.getSkillDamageAvg()|currency}}<br>
+                                    (<span
+                                        :class="parseFloat(this.getSkillDamageAvg())>=parseFloat(clone.skilldamageavg) ? 'positiveDiff' : 'negativeDiff'">
+                                        {{parseFloat(this.getSkillDamageAvg())-parseFloat(clone.skilldamageavg)|currency}}
+                                    </span>)</td>
+                                <td>Skill Damage(Avg)</td>
+                                <td>{{clone.skilldamageavg|currency}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{this.getSkillDPS()| currency}} <br>
+                                    (<span :class="this.getSkillDPS()>=clone.dps ? 'positiveDiff' : 'negativeDiff'">
+                                        {{this.getSkillDPS()-clone.dps|currency}}
+                                    </span>)</td>
+                                <td>DPS</td>
+                                <td>{{clone.dps|currency}}</td>
+                            </tr>
+                            <tr v-if="clone.enemyattribute">
+                                <td>{{ enemyattribute.hp / this.getSkillDPS() | damageToTimeFull }}<br>
+                                    (<span
+                                        :class="clone.enemyattribute.hp/clone.dps>=enemyattribute.hp/this.getSkillDPS() ? 'positiveTimeDiff' : 'negativeTimeDiff'">
+                                        {{enemyattribute.hp/this.getSkillDPS()-clone.enemyattribute.hp/clone.dps |
+                                        damageToTimeFull}}
+                                    </span>)</td>
+                                <td>Target Kill Time</td>
+                                <td>{{ clone.enemyattribute.hp / clone.dps | damageToTimeFull }}</td>
+                            </tr>
+                            <tr v-if="this.enemyattribute.name != clone.EnemyName">
+                                <td>{{this.enemyattribute.name}}</td>
+                                <td>Enemy</td>
+                                <td>{{clone.EnemyName}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{status.Level}}</td>
+                                <td>Level</td>
+                                <td>{{clone.level}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{status.ASPD}}
+                                    (<span :class="status.ASPD>=clone.aspd ? 'positiveDiff' : 'negativeDiff'">
+                                        {{status.ASPD-clone.aspd}}
+                                    </span>)</td>
+                                <td>ASPD</td>
+                                <td>{{clone.aspd}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['GCD']}} %
+                                    (<span :class="status.ASPD>=clone.delay ? 'positiveTimeDiff' : 'negativeTimeDiff'">
+                                        {{attribute['GCD']-clone.delay}} %
+                                    </span>)</td>
+                                <td>Cast Delay</td>
+                                <td>{{clone.delay}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{computeattribute['HitperSec']}}
+                                    (<span
+                                        :class="computeattribute['HitperSec']>=clone.HitperSec ? 'positiveDiff' : 'negativeDiff'">
+                                        {{computeattribute['HitperSec']-clone.HitperSec|currency2}}
+                                    </span>)</td>
+                                <td>Action per sec</td>
+                                <td>{{clone.HitperSec}}</td>
+                            </tr>
+                            <tr class="bg-green-light2">
+                                <td colspan=3>Other Stats</td>
+                            </tr>
+                            <tr>
+                                <td>{{status.MHP}} | +{{attribute['HP']}} | {{attribute['HPP']}}%<br>
+                                    (
+                                    <span
+                                        :class="status.MHP>=clone.Status.MHP ? 'positiveDiff' : 'negativeDiff'">{{status.MHP-clone.Status.MHP}}</span>
+                                    |
+                                    <span
+                                        :class="attribute['HP']>=clone.attribute['HP'] ? 'positiveDiff' : 'negativeDiff'">{{attribute['HP']-clone.attribute['HP']}}</span>
+                                    |
+                                    <span
+                                        :class="attribute['HPP']>=clone.attribute['HPP'] ? 'positiveDiff' : 'negativeDiff'">{{attribute['HPP']-clone.attribute['HPP']}}%</span>
+                                    )
+                                </td>
+                                <td>Total HP | +HP | +HP%</td>
+                                <td>{{clone.Status.MHP}} | +{{clone.attribute['HP']}} | {{clone.attribute['HPP']}}%</td>
+                            </tr>
+                            <tr>
+                                <td>{{status.MSP}} | +{{attribute['SP']}} | {{attribute['SPP']}}%<br>
+                                    (
+                                    <span
+                                        :class="status.MSP>=clone.Status.MSP ? 'positiveDiff' : 'negativeDiff'">{{status.MSP-clone.Status.MSP}}</span>
+                                    |
+                                    <span
+                                        :class="attribute['SP']>=clone.attribute['SP'] ? 'positiveDiff' : 'negativeDiff'">{{attribute['SP']-clone.attribute['SP']}}</span>
+                                    |
+                                    <span
+                                        :class="attribute['SPP']>=clone.attribute['SPP'] ? 'positiveDiff' : 'negativeDiff'">{{attribute['SPP']-clone.attribute['SPP']}}%</span>
+                                    )
+                                </td>
+                                <td>Total SP | +SP | +SP%</td>
+                                <td>{{clone.Status.MSP}} | +{{clone.attribute['SP']}} | {{clone.attribute['SPP']}}%</td>
+                            </tr>
+                            <tr>
+                                <td>{{status_total.STR}} | {{status_total.AGI}} | {{status_total.VIT}} |
+                                    {{status_total.INT}} |
+                                    {{status_total.DEX}} | {{status_total.LUK}}<br>
+                                    (
+                                    <span
+                                        :class="status_total.STR>=clone.status_total.STR ? 'positiveDiff' : 'negativeDiff'">{{status_total.STR-clone.status_total.STR}}</span>
+                                    |
+                                    <span
+                                        :class="status_total.AGI>=clone.status_total.AGI ? 'positiveDiff' : 'negativeDiff'">{{status_total.AGI-clone.status_total.AGI}}</span>
+                                    |
+                                    <span
+                                        :class="status_total.VIT>=clone.status_total.VIT ? 'positiveDiff' : 'negativeDiff'">{{status_total.VIT-clone.status_total.VIT}}</span>
+                                    |
+                                    <span
+                                        :class="status_total.INT>=clone.status_total.INT ? 'positiveDiff' : 'negativeDiff'">{{status_total.INT-clone.status_total.INT}}</span>
+                                    |
+                                    <span
+                                        :class="status_total.DEX>=clone.status_total.DEX ? 'positiveDiff' : 'negativeDiff'">{{status_total.DEX-clone.status_total.DEX}}</span>
+                                    |
+                                    <span
+                                        :class="status_total.LUK>=clone.status_total.LUK ? 'positiveDiff' : 'negativeDiff'">{{status_total.LUK-clone.status_total.LUK}}</span>
+                                    )
+                                </td>
+                                <td>Basic Stats<br>STR | AGI | VIT | INT | DEX | LUK</td>
+                                <td>{{clone.status_total.STR}} | {{clone.status_total.AGI}} | {{clone.status_total.VIT}}
+                                    |
+                                    {{clone.status_total.INT}} | {{clone.status_total.DEX}} | {{clone.status_total.LUK}}
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>{{status_total.POW}} | {{status_total.STA}} | {{status_total.WIS}} |
+                                    {{status_total.SPL}} |
+                                    {{status_total.CON}} | {{status_total.CRT}}<br>
+                                    (
+                                    <span
+                                        :class="status_total.POW>=clone.status_total.POW ? 'positiveDiff' : 'negativeDiff'">{{status_total.POW-clone.status_total.POW}}</span>
+                                    |
+                                    <span
+                                        :class="status_total.STA>=clone.status_total.STA ? 'positiveDiff' : 'negativeDiff'">{{status_total.STA-clone.status_total.STA}}</span>
+                                    |
+                                    <span
+                                        :class="status_total.WIS>=clone.status_total.WIS ? 'positiveDiff' : 'negativeDiff'">{{status_total.WIS-clone.status_total.WIS}}</span>
+                                    |
+                                    <span
+                                        :class="status_total.SPL>=clone.status_total.SPL ? 'positiveDiff' : 'negativeDiff'">{{status_total.SPL-clone.status_total.SPL}}</span>
+                                    |
+                                    <span
+                                        :class="status_total.CON>=clone.status_total.CON ? 'positiveDiff' : 'negativeDiff'">{{status_total.CON-clone.status_total.CON}}</span>
+                                    |
+                                    <span
+                                        :class="status_total.CRT>=clone.status_total.CRT ? 'positiveDiff' : 'negativeDiff'">{{status_total.CRT-clone.status_total.CRT}}</span>
+                                    )
+                                </td>
+                                <td>Talent Stats<br>POW | STA | WIS | SPL | CON | CRT</td>
+                                <td>{{clone.status_total.POW}} | {{clone.status_total.STA}} | {{clone.status_total.WIS}}
+                                    |
+                                    {{clone.status_total.SPL}} | {{clone.status_total.CON}} | {{clone.status_total.CRT}}
+                                </td>
+                            </tr>
+                            <tr class="bg-red-light2">
+                                <td colspan=3>Physical Stats</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute.StatusATK+computeattribute['SpecialATKFront']}} +
+                                    {{attribute.WeaponATK}}<br>
+                                    (
+                                    <span
+                                        :class="attribute.StatusATK+computeattribute['SpecialATKFront']>=clone.attribute.StatusATK+clone.computeattribute['SpecialATKFront'] ? 'positiveDiff' : 'negativeDiff'">{{attribute.StatusATK+computeattribute['SpecialATKFront']-clone.attribute.StatusATK+clone.computeattribute['SpecialATKFront']}}</span>
+                                    |
+                                    <span
+                                        :class="attribute.WeaponATK>=clone.attribute.WeaponATK ? 'positiveDiff' : 'negativeDiff'">{{attribute.WeaponATK-clone.attribute.WeaponATK}}</span>
+                                    )
+                                </td>
+                                <td>ATK Status + Extra</td>
+                                <td>{{clone.attribute.StatusATK+clone.computeattribute['SpecialATKFront']}} +
+                                    {{clone.attribute.WeaponATK}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute.PATK}}
+                                    (<span
+                                        :class="attribute.PATK>=clone.attribute.PATK ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute.PATK-clone.attribute.PATK}}
+                                    </span>)</td>
+                                <td>P.ATK</td>
+                                <td>{{clone.attribute.PATK}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{skilloption.WeaponMasteryATK}}
+                                    (<span
+                                        :class="skilloption.WeaponMasteryATK>=(clone.skilloption ? clone.skilloption.WeaponMasteryATK : 0) ? 'positiveDiff' : 'negativeDiff'">
+                                        {{skilloption.WeaponMasteryATK-clone.skilloption ?
+                                        clone.skilloption.WeaponMasteryATK :
+                                        0}}
+                                    </span>)</td>
+                                <td>Mastery ATK</td>
+                                <td v-if="clone.skilloption">{{clone.skilloption.WeaponMasteryATK}}</td>
+                                <td v-else>0</td>
+                            </tr>
+                            <tr>
+                                <td>{{computeattribute.sizefix}} %
+                                    (<span
+                                        :class="computeattribute.sizefix>=clone.computeattribute.sizefix ? 'positiveDiff' : 'negativeDiff'">
+                                        {{computeattribute.sizefix-clone.computeattribute.sizefix}} %
+                                    </span>)</td>
+                                <td>Size Penalty</td>
+                                <td>{{clone.computeattribute.sizefix}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['RNGDP']}} %
+                                    (<span
+                                        :class="attribute['RNGDP']>=clone.attribute['RNGDP'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['RNGDP']-clone.attribute['RNGDP']}} %
+                                    </span>)</td>
+                                <td>Range Mod%</td>
+                                <td>{{clone.attribute['RNGDP']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['MELDP']}} %
+                                    (<span
+                                        :class="attribute['MELDP']>=clone.attribute['MELDP'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['MELDP']-clone.attribute['MELDP']}} %
+                                    </span>)</td>
+                                <td>Melee Mod%</td>
+                                <td>{{clone.attribute['MELDP']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['CRI']}} %
+                                    (<span
+                                        :class="attribute['CRI']>=clone.attribute['CRI'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['CRI']-clone.attribute['CRI']|currency2}} %
+                                    </span>)</td>
+                                <td>CRI</td>
+                                <td>{{clone.attribute['CRI']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['CRIDP']}} %
+                                    (<span
+                                        :class="attribute['CRIDP']>=clone.attribute['CRIDP'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['CRIDP']-clone.attribute['CRIDP']}} %
+                                    </span>)</td>
+                                <td>Crit Mod%</td>
+                                <td>{{clone.attribute['CRIDP']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute.CRIDR}}
+                                    (<span
+                                        :class="attribute['CRIDR']>=clone.attribute['CRIDR'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['CRIDR']-clone.attribute['CRIDR']}}
+                                    </span>)</td>
+                                <td>C.RATE</td>
+                                <td>{{clone.attribute['CRIDR']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['ATKP']}} %
+                                    (<span
+                                        :class="attribute['ATKP']>=clone.attribute['ATKP'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['ATKP']-clone.attribute['ATKP']}} %
+                                    </span>)</td>
+                                <td>ATK%</td>
+                                <td>{{clone.attribute['ATKP']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['ElementalAtkPercent']}} %
+                                    (<span
+                                        :class="attribute['ElementalAtkPercent']>=clone.attribute['ElementalAtkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['ElementalAtkPercent']-clone.attribute['ElementalAtkPercent']}} %
+                                    </span>)</td>
+                                <td>vs. Element%</td>
+                                <td>{{clone.attribute['ElementalAtkPercent']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['LevelAtkPercent']}} %
+                                    (<span
+                                        :class="attribute['LevelAtkPercent']>=clone.attribute['LevelAtkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['LevelAtkPercent']-clone.attribute['LevelAtkPercent']}} %
+                                    </span>)</td>
+                                <td>vs. Class%</td>
+                                <td>{{clone.attribute['LevelAtkPercent']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['RaceAtkPercent']}} %
+                                    (<span
+                                        :class="attribute['RaceAtkPercent']>=clone.attribute['RaceAtkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['RaceAtkPercent']-clone.attribute['RaceAtkPercent']}} %
+                                    </span>)</td>
+                                <td>vs. Race%</td>
+                                <td>{{clone.attribute['RaceAtkPercent']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['SizeAtkPercent']}} %
+                                    (<span
+                                        :class="attribute['SizeAtkPercent']>=clone.attribute['SizeAtkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['SizeAtkPercent']-clone.attribute['SizeAtkPercent']}} %
+                                    </span>)</td>
+                                <td>vs. Size%</td>
+                                <td>{{clone.attribute['SizeAtkPercent']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{option.EquipSkillAddDamage}} %
+                                    (<span
+                                        :class="option.EquipSkillAddDamage>=clone.option.EquipSkillAddDamage ? 'positiveDiff' : 'negativeDiff'">
+                                        {{option.EquipSkillAddDamage-clone.option.EquipSkillAddDamage}} %
+                                    </span>)</td>
+                                <td>Skill Mod%</td>
+                                <td>{{clone.option.EquipSkillAddDamage}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['BYPASSDEF']}} %
+                                    (<span
+                                        :class="attribute['BYPASSDEF']>=clone.attribute['BYPASSDEF'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['BYPASSDEF']-clone.attribute['BYPASSDEF']}} %
+                                    </span>)</td>
+                                <td>Bypass DEF%</td>
+                                <td>{{clone.attribute['BYPASSDEF']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['BYPASSRES']}} %
+                                    (<span
+                                        :class="attribute['BYPASSRES']>=clone.attribute['BYPASSRES'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['BYPASSRES']-clone.attribute['BYPASSRES']}} %
+                                    </span>)</td>
+                                <td>Bypass RES%</td>
+                                <td>{{clone.attribute['BYPASSRES']}} %</td>
+                            </tr>
+                            <tr class="bg-purple-light4">
+                                <td colspan=3>Magic Stats</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute.StatusMATK}} + {{attribute.WeaponMATK}}<br>
+                                    (
+                                    <span
+                                        :class="attribute.StatusMATK>=clone.attribute.StatusMATK ? 'positiveDiff' : 'negativeDiff'">{{attribute.StatusMATK-clone.attribute.StatusMATK}}</span>
+                                    |
+                                    <span
+                                        :class="attribute.WeaponMATK>=clone.attribute.WeaponMATK ? 'positiveDiff' : 'negativeDiff'">{{attribute.WeaponMATK-clone.attribute.WeaponMATK}}</span>
+                                    )
+                                </td>
+                                <td>MATK Status + Extra</td>
+                                <td>{{clone.attribute.StatusMATK}} + {{clone.attribute.WeaponMATK}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute.SMATK}}
+                                    (<span
+                                        :class="attribute.SMATK>=clone.attribute.SMATK ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute.SMATK-clone.attribute.SMATK}}
+                                    </span>)</td>
+                                <td>S.MATK</td>
+                                <td>{{clone.attribute.SMATK}}</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['MATKP']}} %
+                                    (<span
+                                        :class="attribute['MATKP']>=clone.attribute['MATKP'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['MATKP']-clone.attribute['MATKP']}} %
+                                    </span>)</td>
+                                <td>MATK%</td>
+                                <td>{{clone.attribute['MATKP']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['ElementalMagicPercent']}} %
+                                    (<span
+                                        :class="attribute['ElementalMagicPercent']>=clone.attribute['ElementalMagicPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['ElementalMagicPercent']-clone.attribute['ElementalMagicPercent']}}
+                                        %
+                                    </span>)</td>
+                                <td>Element Magic%</td>
+                                <td>{{clone.attribute['ElementalMagicPercent']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['ElementalMatkPercent']}} %
+                                    (<span
+                                        :class="attribute['ElementalMatkPercent']>=clone.attribute['ElementalMatkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['ElementalMatkPercent']-clone.attribute['ElementalMatkPercent']}} %
+                                    </span>)</td>
+                                <td>vs. Element%</td>
+                                <td>{{clone.attribute['ElementalMatkPercent']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['LevelMatkPercent']}} %
+                                    (<span
+                                        :class="attribute['LevelMatkPercent']>=clone.attribute['LevelMatkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['LevelMatkPercent']-clone.attribute['LevelMatkPercent']}} %
+                                    </span>)</td>
+                                <td>vs. Class%</td>
+                                <td>{{clone.attribute['LevelMatkPercent']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['RaceMatkPercent']}} %
+                                    (<span
+                                        :class="attribute['RaceMatkPercent']>=clone.attribute['RaceMatkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['RaceMatkPercent']-clone.attribute['RaceMatkPercent']}} %
+                                    </span>)</td>
+                                <td>vs. Race%</td>
+                                <td>{{clone.attribute['RaceMatkPercent']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['SizeMatkPercent']}} %
+                                    (<span
+                                        :class="attribute['SizeMatkPercent']>=clone.attribute['SizeMatkPercent'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['SizeMatkPercent']-clone.attribute['SizeMatkPercent']}} %
+                                    </span>)</td>
+                                <td>vs. Size%</td>
+                                <td>{{clone.attribute['SizeMatkPercent']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{option.EquipSkillAddDamage}} %
+                                    (<span
+                                        :class="option.EquipSkillAddDamage>=clone.option.EquipSkillAddDamage ? 'positiveDiff' : 'negativeDiff'">
+                                        {{option.EquipSkillAddDamage-clone.option.EquipSkillAddDamage}} %
+                                    </span>)</td>
+                                <td>Skill Mod%</td>
+                                <td>{{clone.option.EquipSkillAddDamage}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['BYPASSMDEF']}} %
+                                    (<span
+                                        :class="attribute['BYPASSMDEF']>=clone.attribute['BYPASSMDEF'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['BYPASSMDEF']-clone.attribute['BYPASSMDEF']}} %
+                                    </span>)</td>
+                                <td>Bypass MDEF%</td>
+                                <td>{{clone.attribute['BYPASSMDEF']}} %</td>
+                            </tr>
+                            <tr>
+                                <td>{{attribute['BYPASSMRES']}} %
+                                    (<span
+                                        :class="attribute['BYPASSMRES']>=clone.attribute['BYPASSMRES'] ? 'positiveDiff' : 'negativeDiff'">
+                                        {{attribute['BYPASSMRES']-clone.attribute['BYPASSMRES']}} %
+                                    </span>)</td>
+                                <td>Bypass MRES%</td>
+                                <td>{{clone.attribute['BYPASSMRES']}} %</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-sm p-0 m-0 order-3 order-sm-3">
+                        <div class="w-100 bg-purple-light5 rounded-0 text-center font-weight-bold text-body"
+                            style='font-size:1.25rem;line-height: 3rem;'>Saved State</div>
+                        <div class='d-flex flex-column text-wrapper'><span style='word-break: break-word;'
+                                v-if="clonedDetailEquipText" v-for="equipText in clonedDetailEquipText"><img
+                                    :src="equipText.imgURL">{{equipText.text}}</span></div>
+                    </div>
+                </div>
+            </div>
+
+
+
         </el-dialog>
         <el-dialog :visible.sync="UIPanel['EquipDBDialog']" v-on:close="ClosePanel('EquipDBDialog')"
             custom-class="Dialogue-container" top="50px" center>
