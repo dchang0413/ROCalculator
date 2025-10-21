@@ -2228,8 +2228,7 @@
                     <div class="col-sm-6 p-0 m-0 order-1 order-sm-2" style='flex-basis: max-content;'>
                         <div class="w-100 bg-purple-light5 rounded-0 text-center font-weight-bold text-body"
                             style='font-size:1.25rem;line-height: 3rem;'>Comparison Info</div>
-                        <table v-if="clone" class="compareTable"
-                            style='height: 80dvh;overflow-y: scroll;display: inline-block;'>
+                        <table v-if="clone" :class="{ 'compareTable_mobile compareTable' : isMobile, 'compareTable' : !isMobile }">
                             <tr style='background-color:#f4f097;'>
                                 <td colspan=3>DPS Comparison</td>
                             </tr>
@@ -17524,6 +17523,9 @@
                         })
                     );
                 },
+                isMobile() {
+                    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                }
                 /*
                 StoreDB_EquipFiltered() {
                     var _tempgroup = this.StoreDB_EquipFilterGroup;
