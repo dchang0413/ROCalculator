@@ -11959,6 +11959,186 @@
 	},
 	{
 		"id": "shadow",
+		"itemid": 24880,
+		"label": "S.Weapon",
+		"equipname": "Purity Shadow Weapon",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(8*DOWN(SHWEAR/2))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(8*DOWN(SHWEAR/2))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHWEAR>9?0.1:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHWEAR>6?5:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHWEAR>6?5:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHWEAR>8&&isBoss?5:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHWEAR>8&&isBoss?5:0)",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowshld",
+		"itemid": 1270047,
+		"label": "S.Shield",
+		"equipname": "Purity Shadow Shield",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(DOWN(SHSHIER/2))",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(DOWN(SHSHIER/2))",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHSHIER>9?0.1:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHSHIER>6?2:0)",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHSHIER>8?5:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHSHIER>8?5:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHSHIER>8?5:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24881
+				],
+				"itemid_any": [],
+				"equipname": "Corrupted Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 50,
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 50,
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 12,
+						"EffectType": {
+							"id": "BypassRESPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 12,
+						"EffectType": {
+							"id": "BypassMRESPercent"
+						},
+						"Enable": true
+					}
+				]
+			}	
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadow",
 		"itemid": 24882,
 		"label": "S.Weapon",
 		"equipname": "Sanctified Shadow Weapon",
