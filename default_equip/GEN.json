@@ -15673,5 +15673,984 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "armor",
+		"itemid": -2,
+		"label": "Armor",
+		"equipname": "Crimson Suit",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(500*ARMORR)",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(100*ARMORR)",
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((15*ARMORR)+(ARMORR>8?100:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((15*ARMORR)+(ARMORR>8?100:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORR>9?10:0)+(ARMORR>11?20:0))",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>10?20:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>10?20:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": -3,
+		"label": "Garment",
+		"equipname": "Fallen Valkyrie",
+		"refinelevel": 15,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(250+(40*DOWN(GARMR/2))+(GARMR>12?250:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(250+(40*DOWN(GARMR/2))+(GARMR>12?250:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((DOWN(GARMR/2))+(GARMR>10?15:0)+(GARMG(2)?10:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((DOWN(GARMR/2))+(GARMR>10?15:0)+(GARMG(2)?10:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>12?25:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(1)?20:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(3)?20:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(3)?20:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(4)&&GARMR>14?40:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMG(4)&&GARMR>14?40:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"PETITIO\")?(GARMR>13?0.5:0):0)",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"PETITIO\")?(20+(GARMR>13?40:0)):0)+(SKIDS(\"POWERSWING\")?(3*BLV):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					27383
+				],
+				"itemid_any": [],
+				"equipname": "Phantom of Amdarais Card",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27381
+				],
+				"itemid_any": [],
+				"equipname": "Phantom of Himmelmez Card",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4636
+				],
+				"itemid_any": [],
+				"equipname": "Bijou Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4407
+				],
+				"itemid_any": [],
+				"equipname": "Randgris Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "helm2",
+		"itemid": -5,
+		"label": "Lower",
+		"equipname": "All Above Time (Magic)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Shard of Intelligence Jewel",
+				"effectlist": [
+					{
+						"EffectNumber": 100,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Shard of Vitality Jewel",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "helm2",
+		"itemid": -6,
+		"label": "Lower",
+		"equipname": "All Above Time (Range)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Shard of Fatality Jewel",
+				"effectlist": [
+					{
+						"EffectNumber": 80,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "helm2",
+		"itemid": -7,
+		"label": "Lower",
+		"equipname": "All Above Time (Melee)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Shard of Strength Jewel",
+				"effectlist": [
+					{
+						"EffectNumber": 80,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Shard of Agility Jewel",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "Cri"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "helm2",
+		"itemid": -8,
+		"label": "Lower",
+		"equipname": "Kankrai (Scissors)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 60,
+				"EffectType": {
+					"id": "BypassDEFPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 60,
+				"EffectType": {
+					"id": "BypassMDEFPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Shard of Agility Jewel",
+				"effectlist": [
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Shard of Fatality Jewel",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "helm2",
+		"itemid": -9,
+		"label": "Lower",
+		"equipname": "Khon (Rock)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 7,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Shard of Strength Jewel",
+				"effectlist": [
+					{
+						"EffectNumber": 120,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Shard of Dexterity Jewel",
+				"effectlist": [
+					{
+						"EffectNumber": 120,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "helm2",
+		"itemid": -10,
+		"label": "Lower",
+		"equipname": "Kradat (Paper)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 7,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Shard of Intelligence Jewel",
+				"effectlist": [
+					{
+						"EffectNumber": 150,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Shard of Vitality Jewel",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5000,
+						"EffectType": {
+							"id": "HP"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "weaponl",
+		"itemid": -11,
+		"label": "OffHand",
+		"equipname": "Archangel Aegis",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "((BLV<201?15000:0)+(CCL=='SN'?5000:0))",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((CCL=='SN'?10:0)+(SWEAR>8?5:0))",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((10*DOWN(SWEAR/2))+(SWEAR>8?30:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>6?10:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>10?8:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>10?8:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"TIGERCANNON\")?(SWEAR>11?1:0):0)",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"MEGA_SONIC_BLOW DOUBLEBOWLINGBASH SHIELD_CHAIN_RUSH SPIRAL_PIERCE_MAX\")?(SWEAR>12?15:0):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shield",
+				"label": "Shield"
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 2,
+				"saferefine": 7,
+				"overatk": 3
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": 0,
+			"MATK": 0,
+			"refinelevel": 14,
+			"ShieldWeight": 200,
+			"refinematk": 0,
+			"refineatk": 0
+		}
+	},
+	{
+		"id": "acc",
+		"itemid": -12,
+		"label": "Accessory",
+		"equipname": "Survival Gloves",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Rescue Whistle",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": -5,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Portable Telescope",
+				"effectlist": [
+					{
+						"EffectNumber": -5,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					-100,
+					-101
+				],
+				"itemid_any": [],
+				"equipname": "Rescue Whistle AND Portable Telescope",
+				"effectlist": [
+					{
+						"EffectNumber": "(isBoss?20:0)",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "helm1",
+		"itemid": -13,
+		"label": "Middle",
+		"equipname": "Portable Telescope",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(([6,9].includes(ERI)?(DOWN(BST/20)):0)+([1,8].includes(ERI)?(DOWN(BAG/20)):0)+([5,7].includes(ERI)?(DOWN(BVI/20)):0)+([2,3].includes(ERI)?(DOWN(BIN/20)):0)+([0,4].includes(ERI)?(DOWN(BDE/20)):0)+(BST+BAG+BVI+BIN+BDE+BLU>599?10:0))",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					-100
+				],
+				"itemid_any": [],
+				"equipname": "Rescue Whistle",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 0.2,
+						"EffectType": {
+							"id": "FixedCast"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "helm2",
+		"itemid": -14,
+		"label": "Lower",
+		"equipname": "Rescue Whistle",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "((DOWN(BST/20))+(EEI==0?(DOWN(BAG/20)):0)+(EEI==2?(DOWN(BVI/20)):0)+(EEI==4?(DOWN(BIN/20)):0)+(EEI==1?(DOWN(BDE/20)):0)+(EEI==4?(DOWN(BLU/20)):0)+(BST+BAG+BVI+BIN+BDE+BLU>599?10:0))",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
