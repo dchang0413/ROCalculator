@@ -11193,7 +11193,7 @@
                     // main gear
                     for (var i = 0; i < 10; ++i) {
                         partString = '';
-                        refineText = equiplist[i].refinelevel > 0 ? `+${equiplist[i].refinelevel} ` : '';
+                        refineText = equiplist[i].id == 'weaponr' ? this.weapon.refinelevel > 0 ? `+${this.weapon.refinelevel} ` : '' : equiplist[i].id == 'weaponl' ? this.subweapon.refinelevel > 0 ? `+${this.subweapon.refinelevel} ` : '' : equiplist[i].refinelevel > 0 ? `+${equiplist[i].refinelevel} ` : '';
                         gradeText = equiplist[i].grade && equiplist[i].grade.id > 0 ? `[${equiplist[i].grade.label}] ` : '';
 
                         if (equiplist[i].equipname.trim() == '') continue;
