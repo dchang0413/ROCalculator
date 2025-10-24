@@ -4310,5 +4310,100 @@
 			"refinematk": 0,
 			"refineatk": 0
 		}
+	},
+	{
+		"id": "acc2",
+		"itemid": 490832,
+		"label": "Accessory",
+		"equipname": "Paladin Glove",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(10+(BLV>99?10:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10+(BLV>99?10:0))",
+				"EffectType": {
+					"id": "STA"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 50,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 30,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV<100?30000:0)",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV<100?0.3:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV>99?(DOWN(BLV/7)):0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"PRESSURE\")&&BLV<100?200:0)+(SKIDS(\"CROSS_RAIN\")&&BLV>99?(3*DOWN(BLV/15)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4036
+				],
+				"itemid_any": [],
+				"equipname": "Muka Card",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

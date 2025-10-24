@@ -11197,7 +11197,7 @@
                     // main gear
                     for (var i = 0; i < 10; ++i) {
                         partString = '';
-                        refineText = equiplist[i].refinelevel > 0 ? `+${equiplist[i].refinelevel} ` : '';
+                        refineText = equiplist[i].id == 'weaponr' ? this.weapon.refinelevel > 0 ? `+${this.weapon.refinelevel} ` : '' : equiplist[i].id == 'weaponl' ? this.subweapon.refinelevel > 0 ? `+${this.subweapon.refinelevel} ` : '' : equiplist[i].refinelevel > 0 ? `+${equiplist[i].refinelevel} ` : '';
                         gradeText = equiplist[i].grade && equiplist[i].grade.id > 0 ? `[${equiplist[i].grade.label}] ` : '';
 
                         if (equiplist[i].equipname.trim() == '') continue;
@@ -16727,6 +16727,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2025-10-23', content: 'Added: Kachua, kachua coupon and enchants from October' },
                         { id: '2025-10-18', content: 'Added: Enchants from September Kachua' },
                         { id: '2025-10-05', content: 'Added: EP18 cards' },
                         { id: '2025-10-01', content: 'Added: OCP 76 gear' },
