@@ -11125,7 +11125,11 @@
                             this.$set(this.clone, 'enemyattribute', structuredClone(json.Enemy));
                             this.$set(this.clone, 'equipspartlist', structuredClone(json.Equip));
 
-                            
+                            if (!this.clone && !this.clonedOnce) {
+                                this.cloneSetup();
+                                this.clonedOnce = true;
+                            }
+
                             this.GetDetailedEquipString(true);
                             this.GetDetailedEquipString();
 
