@@ -5475,7 +5475,7 @@
 		"equipname": "Geneticist Stone(Upper)",
 		"effectlist": [
 			{
-				"EffectNumber": "CCL=='GE'?10:0",
+				"EffectNumber": "(CCL=='GE'?10:0)",
 				"EffectType": {
 					"id": "RangedDamagePercent"
 				},
@@ -5491,7 +5491,7 @@
 				"equipname": "Genetic Stone(Garment)",
 				"effectlist": [
 					{
-						"EffectNumber": "SKIDS(\"ACIDDEMONSTRATION\")?15:0",
+						"EffectNumber": "(SKIDS(\"ACIDDEMONSTRATION\")?15:0)",
 						"EffectType": {
 							"id": "SkillDamagePercent"
 						},
@@ -5507,7 +5507,7 @@
 				"equipname": "Geneticist Stone II(Garment)",
 				"effectlist": [
 					{
-						"EffectNumber": "SKIDS(\"SPORE_EXPLOSION\")?15:0",
+						"EffectNumber": "(SKIDS(\"SPORE_EXPLOSION\")?15:0)",
 						"EffectType": {
 							"id": "SkillDamagePercent"
 						},
@@ -5516,6 +5516,175 @@
 				]
 			}
 		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "stonemiddle",
+		"itemid": 1000670,
+		"label": "Middle Stone",
+		"equipname": "Geneticist Stone(Middle)",
+		"effectlist": [
+			{
+				"EffectNumber": "(CCL=='GE'?10:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					25449
+				],
+				"itemid_any": [],
+				"equipname": "Genetic Stone(Garment)",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"CARTCANNON\")?15:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					1000300
+				],
+				"itemid_any": [],
+				"equipname": "Geneticist Stone II(Garment)",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"CART_TORNADO\")?15:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "stonelower",
+		"itemid": 1000671,
+		"label": "Lower Stone",
+		"equipname": "Geneticist Stone(Lower)",
+		"effectlist": [
+			{
+				"EffectNumber": "(CCL=='GE'?0.5:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					25449
+				],
+				"itemid_any": [],
+				"equipname": "Genetic Stone(Garment)",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"ACIDDEMONSTRATION\")?15:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					1000300
+				],
+				"itemid_any": [],
+				"equipname": "Geneticist Stone II(Garment)",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"CART_TORNADO\")?15:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "stonegarment",
+		"itemid": 1001737,
+		"label": "Garment Stone",
+		"equipname": "Biolo Stone (Garment)",
+		"effectlist": [
+			{
+				"EffectNumber": "(CCL=='GE'?20:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+            {
+                "itemid_every": [
+                    1000669
+                ],
+                "itemid_any": [],
+                "equipname": "Geneticist Stone(Upper)",
+                "effectlist": [
+                    {
+                        "EffectNumber": "(CCL=='GE'?15:0)",
+                        "EffectType": {
+                            "id": "ElementalAtkPercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    1000670
+                ],
+                "itemid_any": [],
+                "equipname": "Geneticist Stone(Middle)",
+                "effectlist": [
+                    {
+                        "EffectNumber": "(SKIDS(\"MAYHEMIC_THORNS\")?10:0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    1000671
+                ],
+                "itemid_any": [],
+                "equipname": "Geneticist Stone(Lower)",
+                "effectlist": [
+                    {
+                        "EffectNumber": "(SKIDS(\"ACIDIFIED_ZONE_GROUND\")?10:0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
 		"flags": [],
 		"idx": 3
 	}
