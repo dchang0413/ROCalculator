@@ -38,21 +38,21 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "ARMORR>11?30:0",
+				"EffectNumber": "CCL=='RE'?(ARMORR>11?30:0):0",
 				"EffectType": {
 					"id": "BypassDEFPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "ARMORR>9?40:0",
+				"EffectNumber": "(SKIDS(\"FIREDANCE BANISHING_BUSTER S_STORM\")?(ARMORR>8?40:0):0)+(SKIDS(\"R_TRIP D_TAIL\")?(ARMORR>9?40:0):0)",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "ARMORR>11?0.5:0",
+				"EffectNumber": "(SKIDS(\"R_TRIP\")&&ARMORR>11)?0.5:0",
 				"EffectType": {
 					"id": "CDTime"
 				},
