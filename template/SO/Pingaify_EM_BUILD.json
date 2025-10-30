@@ -1343,38 +1343,15 @@
 		},
 		{
 			"id": "helmcard",
-			"itemid": 27426,
+			"itemid": 0,
 			"label": "Headgear Card",
-			"equipname": "Shard of Intelligence Jewel",
+			"equipname": "",
+			"effectlist": [],
+			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
-			"effectlist": [
-				{
-					"EffectNumber": "(3*DOWN(HATR/2))",
-					"EffectType": {
-						"id": "ElementalMagicPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(7*DOWN(HATR/2))",
-					"EffectType": {
-						"id": "Matk"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(3*DOWN(HATR/5))",
-					"EffectType": {
-						"id": "MatkPercent"
-					},
-					"Enable": true
-				}
-			],
-			"combolist": []
+				"id": 0
+			}
 		},
 		{
 			"id": "helm1card",
@@ -1782,9 +1759,9 @@
 		},
 		{
 			"id": "shadow",
-			"itemid": 24753,
+			"itemid": 24882,
 			"label": "S.Weapon",
-			"equipname": "Magical Spell Shadow Weapon",
+			"equipname": "Sanctified Shadow Weapon",
 			"refinelevel": 10,
 			"grade": {
 				"id": 0,
@@ -1792,45 +1769,70 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "FLOOR(SHWEAR/2)",
+					"EffectNumber": "(15*DOWN(SHWEAR/2))",
 					"EffectType": {
-						"id": "SPL"
+						"id": "Atk"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(SHWEAR>6?3:0)+(SHWEAR>8?3:0)",
+					"EffectNumber": "(15*DOWN(SHWEAR/2))",
 					"EffectType": {
-						"id": "SMATK"
+						"id": "Matk"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": 3,
+					"EffectNumber": "(0.1*DOWN(SHWEAR/3))",
 					"EffectType": {
-						"id": "MatkPercent"
+						"id": "FixedCast"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHWEAR>6?10:0)",
+					"EffectType": {
+						"id": "RaceAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHWEAR>6?10:0)",
+					"EffectType": {
+						"id": "RaceMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHWEAR>8&&isBoss?10:0)",
+					"EffectType": {
+						"id": "LevelAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHWEAR>8&&isBoss?10:0)",
+					"EffectType": {
+						"id": "LevelMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHWEAR>9?100:0)",
+					"EffectType": {
+						"id": "BypassMDEFPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHWEAR>9?100:0)",
+					"EffectType": {
+						"id": "BypassDEFPercent"
 					},
 					"Enable": true
 				}
 			],
-			"combolist": [
-				{
-					"itemid_every": [
-						24754
-					],
-					"itemid_any": [],
-					"equipname": "Magical Spell Shadow Shield",
-					"effectlist": [
-						{
-							"EffectNumber": 3,
-							"EffectType": {
-								"id": "SMATK"
-							},
-							"Enable": true
-						}
-					]
-				}
-			]
+			"combolist": []
 		},
 		{
 			"id": "shadowshld",
@@ -2364,14 +2366,30 @@
 		},
 		{
 			"id": "helmUpper1",
-			"itemid": 0,
+			"itemid": 314682,
 			"label": "Helm Enchant",
-			"equipname": "",
+			"equipname": "[S2] Vellgunde Resonance (Magic) Lv2",
 			"refinelevel": 0,
 			"grade": {
-				"id": 0
+				"id": 0,
+				"label": "No Grade"
 			},
-			"effectlist": [],
+			"effectlist": [
+				{
+					"EffectNumber": 10,
+					"EffectType": {
+						"id": "SPL"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 20,
+					"EffectType": {
+						"id": "RaceMatkPercent"
+					},
+					"Enable": true
+				}
+			],
 			"combolist": [],
 			"baseIndex": "2"
 		},
@@ -2934,19 +2952,19 @@
 		"SO_EL_CONTROL(Lv1)",
 		"EM_SUMMON_ELEMENTAL_ARDOR"
 	],
-	"Damage": "61,633,975,536 ~ 66,175,919,117",
-	"DamageDPS": "456,281,323,908",
+	"Damage": "72,644,257,238 ~ 77,971,953,696",
+	"DamageDPS": "537,699,873,034",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "63,904,947,327",
+	"SkillDamageAvg": "75,308,105,467",
 	"attribute": {
 		"StatusATK": 780,
-		"WeaponATK": 630,
-		"StatusMATK": 4010,
-		"WeaponMATK": 2741,
-		"ATK": 210,
-		"MATK": 2261,
+		"WeaponATK": 705,
+		"StatusMATK": 4020,
+		"WeaponMATK": 2767,
+		"ATK": 285,
+		"MATK": 2287,
 		"ATKP": 21,
-		"MATKP": 212,
+		"MATKP": 197,
 		"DEF": 0,
 		"MDEF": 0,
 		"HP": 115,
@@ -2954,7 +2972,7 @@
 		"SP": 592,
 		"SPP": 25,
 		"PATK": 92,
-		"SMATK": 435,
+		"SMATK": 423,
 		"CRIDR": 15,
 		"RES": 0,
 		"MRES": 0,
@@ -2974,27 +2992,27 @@
 		"SK2VCTP": -30,
 		"EQVCTP": -50,
 		"VCTS": 0,
-		"FCT": -1.3,
+		"FCT": -1.6,
 		"FCTP": 0,
 		"CD": -5.5,
 		"GCD": -115,
-		"BYPASSDEF": 0,
+		"BYPASSDEF": 100,
 		"BYPASSMDEF": 100,
 		"BYPASSRES": 0,
 		"BYPASSMRES": 0,
 		"WeaponPerfection": 0,
 		"WeaponOccult": 0,
-		"ElementalMagicPercent": 423,
+		"ElementalMagicPercent": 402,
 		"SizeMatkPercent": 265,
 		"ElementalAtkPercent": 0,
-		"LevelAtkPercent": 15,
+		"LevelAtkPercent": 25,
 		"SizeAtkPercent": 26,
-		"RaceAtkPercent": 0,
+		"RaceAtkPercent": 10,
 		"MonsterAtkPercent": 0,
 		"ElementalMatkPercent": 122,
-		"RaceMatkPercent": 15,
+		"RaceMatkPercent": 45,
 		"MonsterMatkPercent": 0,
-		"LevelMatkPercent": 145
+		"LevelMatkPercent": 155
 	},
 	"computeattribute": {
 		"StatsPoint": 4151,
@@ -3061,31 +3079,31 @@
 		"SpecialMATK1": 0,
 		"SpecialMATK3": 0,
 		"SpecialINSIGNIAENEMYMATK": 0,
-		"weaponmatk_min": 4250,
-		"weaponmatk_max": 4730,
-		"equipmatk_min": 6511,
-		"equipmatk_max": 6991,
-		"matkpercent_min": 20314,
-		"matkpercent_max": 21811,
-		"finalmatk_min": 12976542,
-		"finalmatk_max": 13932812,
-		"matk1_min": 12976542,
-		"matk1_max": 13932812,
-		"skillmatk_min": 1983075148,
-		"skillmatk_max": 2129212329,
-		"matk2_min": 1983075146,
-		"matk2_max": 2129212327,
-		"matk3_min": 8804853648,
-		"matk3_max": 9453702731,
-		"matk4_min": 8804853648,
-		"matk4_max": 9453702731,
-		"matk4_avg": 9129278189.5,
-		"matkmulti_min": 61633975536,
-		"matkmulti_max": 66175919117,
-		"matkmulti_avg": 63904947326.5,
+		"weaponmatk_min": 4260,
+		"weaponmatk_max": 4740,
+		"equipmatk_min": 6547,
+		"equipmatk_max": 7027,
+		"matkpercent_min": 19444,
+		"matkpercent_max": 20870,
+		"finalmatk_min": 15294669,
+		"finalmatk_max": 16416373,
+		"matk1_min": 15294669,
+		"matk1_max": 16416373,
+		"skillmatk_min": 2337331316,
+		"skillmatk_max": 2508750121,
+		"matk2_min": 2337331314,
+		"matk2_max": 2508750119,
+		"matk3_min": 10377751034,
+		"matk3_max": 11138850528,
+		"matk4_min": 10377751034,
+		"matk4_max": 11138850528,
+		"matk4_avg": 10758300781,
+		"matkmulti_min": 72644257238,
+		"matkmulti_max": 77971953696,
+		"matkmulti_avg": 75308105467,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
-		"matkmulti_DPS": 456281323907.63,
+		"matkmulti_DPS": 537699873034.38,
 		"DragonBreathDMG": 0,
 		"DragonBreathDMG_DPS": 0,
 		"CastDEXINT": 2281,
@@ -3110,7 +3128,7 @@
 		"SPL": 0,
 		"CON": 186,
 		"CRT": 45,
-		"S_P_L": 459
+		"S_P_L": 461
 	},
-	"lastedited": "2025-10-25T01:19:42.365Z"
+	"lastedited": "2025-10-30T14:02:20.394Z"
 }
