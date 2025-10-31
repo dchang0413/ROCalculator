@@ -5687,5 +5687,72 @@
         ],
 		"flags": [],
 		"idx": 3
+	},
+	{
+		"id": "stonegarment",
+		"itemid": 1001603,
+		"label": "Garment Stone",
+		"equipname": "Imperial Guard Stone (Garment)",
+		"effectlist": [
+			{
+				"EffectNumber": "(SKIDS(\"RAYOFGENESIS\")?(CCL=='RG'?50:0):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+            {
+                "itemid_every": [
+                    1000616
+                ],
+                "itemid_any": [],
+                "equipname": "Royal Guard Stone(Upper)",
+                "effectlist": [
+                    {
+                        "EffectNumber": "(SKIDS(\"CROSS_RAIN\")?15:0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    1000617
+                ],
+                "itemid_any": [],
+                "equipname": "Royal Guard Stone(Middle)",
+                "effectlist": [
+                    {
+                        "EffectNumber": 10,
+                        "EffectType": {
+                            "id": "SizeMatkPercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    1000618
+                ],
+                "itemid_any": [],
+                "equipname": "Royal Guard Stone(Lower)",
+                "effectlist": [
+                    {
+                        "EffectNumber": "(CCL=='RG'?15:0)",
+                        "EffectType": {
+                            "id": "ElementalMatkPercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+		"flags": [],
+		"idx": 3
 	}
 ]

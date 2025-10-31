@@ -4405,5 +4405,96 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "shadow",
+		"itemid": 24581,
+		"label": "S.Weapon",
+		"equipname": "Genesis Shadow Weapon",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==6?(3+(SHWEAR>6?3:0)+(SHWEAR>8?4:0)):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24582,
+					24583
+				],
+				"itemid_any": [],
+				"equipname": "Genesis Shadow Earring AND Genesis Shadow Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"RAYOFGENESIS\")?(SHWEAR+SHACCRR+SHACCLR):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 24583,
+		"label": "S.Earring",
+		"equipname": "Genesis Shadow Earring",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(SKIDS(\"RAYOFGENESIS\")?(0.2+(0.1*DOWN(SHACCRR/2))):0)",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 24582,
+		"label": "S.Pendant",
+		"equipname": "Genesis Shadow Pendant",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(10*SHACCLR)",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"RAYOFGENESIS\")?(5+(2*DOWN(SHACCLR/2))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
