@@ -3607,8 +3607,7 @@
                     </el-row>
                 </div>
                 <el-scrollbar id="CardListCont" wrap-class="EquipList-container" :native="false" :noresize="false">
-                    <div v-for="(item, index) in StoreDB_CardFilterList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)"
-                        v-bind:key="item.uuid">
+                    <div v-for="(item, index) in StoreDB_CardFilterList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)" v-bind:key="item.uuid">
                         <div style="padding: 5px 5px;">
                             <el-row class="effectline" :class="index%2==0?'bg-purple-light':'bg-purple'">
                                 <el-row class="effectline" :gutter="4" type="flex" align="middle">
@@ -3631,7 +3630,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFilterCardPreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterCardPreview(item.uuid)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -3646,7 +3645,7 @@
                                 </el-row>
                                 <el-collapse-transition>
                                     <div v-show="item.preview" style="padding: 1px 100px 10px 100px;">
-                                        <div v-for="(effect, index) in item.equip.effectlist" v-bind:key="item.uuid">
+                                        <div v-for="(effect, idx) in item.equip.effectlist" v-bind:key="item.uuid">
                                             <el-row class="previeweffectbox3 effectline" :gutter="1" type="flex"
                                                 align="middle" justify="center">
                                                 <el-col class="textcenter" style="text-align: right;" :span="4">
@@ -3799,7 +3798,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFilterCostumeStonePreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterCostumeStonePreview(item.uuid)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -3952,7 +3951,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFilterPetPreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterPetPreview(item.uuid)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -4113,7 +4112,7 @@
                                         </el-button>
                                     </el-col>
                                     <el-col :span="6">
-                                        <el-button v-on:click="onFilterEnchantPreview(index)" icon="el-icon-view"
+                                        <el-button v-on:click="onFilterEnchantPreview(item.uuid)" icon="el-icon-view"
                                             size="small">
                                         </el-button>
                                     </el-col>
@@ -13486,7 +13485,7 @@
                         else if (this.skill.id.includes('SHADOW_STAB') && this.skill.Version != 4) this.skill.hitnumber = 1;
                     }
                     if (this.IsSupportActive('SHC_POTENT_VENOM')) {
-                        this.attribute['BYPASSRES'] += 3 * this.GetSupportSkill('SHC_POTENT_VENOM').lv;;
+                        this.attribute['BYPASSRES'] += 2 * this.GetSupportSkill('SHC_POTENT_VENOM').lv;;
                     }
                     // 影刃旋舞
                     if (this.IsSupportActive('SHC_SHADOW_SENSE')) {
@@ -15015,17 +15014,29 @@
                 onFilterEquipPreview(index) {
                     this.$set(this.StoreDB_EquipFilterList[index], 'preview', !this.StoreDB_EquipFilterList[index].preview);
                 },
-                onFilterCostumeStonePreview(index) {
-                    this.$set(this.StoreDB_CostumeStoneFilterList[index], 'preview', !this.StoreDB_CostumeStoneFilterList[index].preview);
+                onFilterCostumeStonePreview(uuid) {
+                    const item = this.StoreDB_CostumeStoneFilterList.find((x) => x.uuid === uuid);
+                    if(item){
+                        this.$set(item, 'preview', !item.preview);
+                    }
                 },
-                onFilterPetPreview(index) {
-                    this.$set(this.StoreDB_PetFilterList[index], 'preview', !this.StoreDB_PetFilterList[index].preview);
+                onFilterPetPreview(uuid) {
+                    const item = this.StoreDB_PetFilterList.find((x) => x.uuid === uuid);
+                    if(item){
+                        this.$set(item, 'preview', !item.preview);
+                    }
                 },
-                onFilterCardPreview(index) {
-                    this.$set(this.StoreDB_CardFilterList[index], 'preview', !this.StoreDB_CardFilterList[index].preview);
+                onFilterCardPreview(uuid) {
+                    const item = this.StoreDB_CardFilterList.find((x) => x.uuid === uuid);
+                    if(item){
+                        this.$set(item, 'preview', !item.preview);
+                    }
                 },
-                onFilterEnchantPreview(index) {
-                    this.$set(this.StoreDB_EnchantFilterList[index], 'preview', !this.StoreDB_EnchantFilterList[index].preview);
+                onFilterEnchantPreview(uuid) {
+                    const item = this.StoreDB_EnchantFilterList.find((x) => x.uuid === uuid);
+                    if(item){
+                        this.$set(item, 'preview', !item.preview);
+                    }
                 },
                 toggleExpand(row) {
                     const tableRef = this.$refs.equipment_table;
@@ -16728,6 +16739,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2025-11-18', content: 'Update: SX Potent Venom RES bonus from 30% to 20%. Fix: effect toggle behaving incorrectly.' },
                         { id: '2025-11-18', content: 'Added: Kachua and kachua coupon gear from November' },
                         { id: '2025-11-04', content: 'Added: OCP 77 gear' },
                         { id: '2025-10-23', content: 'Added: Kachua, kachua coupon and enchants from October' },
