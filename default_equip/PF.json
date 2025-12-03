@@ -4453,5 +4453,151 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "shoes",
+		"itemid": 470404,
+		"label": "Shoes",
+		"equipname": "Last Performer Boots",
+		"refinelevel": 15,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(200+(SHOER>11?200:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(20+(SHOER>10?20:0))",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(20+(5*SHOER))",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*SHOER)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(SHOER/2))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(SHOER/2))",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"SEVERE_RAINSTORM\")&&SHOER>10?5:0)+(SKIDS(\"RHYTHMSHOOTING\")&&SHOER>13?0.3:0))",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>11?20:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"SEVERE_RAINSTORM\")?((SHOER>11?20:0)+(SHOER>12?30:0)+(SHOEG(1)?20:0)):0)+(SKIDS(\"ROSEBLOSSOM\")?((SHOER>12?30:0)+(SHOER>14?40:0)+(SHOEG(2)?20:0)):0)+(SKIDS(\"RHYTHMSHOOTING\")?((SHOER>13?30:0)+(SHOER>14?40:0)+(SHOEG(3)?20:0)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOEG(4)?0.5:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					450516
+				],
+				"itemid_any": [],
+				"equipname": "Thorn Armor",
+				"effectlist": [
+					{
+						"EffectNumber": 7,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 7,
+						"EffectType": {
+							"id": "CON"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27106
+				],
+				"itemid_any": [],
+				"equipname": "Awakened Ferre Card",
+				"effectlist": [
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "CON"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
