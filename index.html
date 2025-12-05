@@ -5868,9 +5868,9 @@
                                                 </el-col>
                                                 <el-col :span="6">
                                                     <div>
-                                                        <el-input v-model.number="weapon.refinelevel"
+                                                        <el-input-number v-model="weapon.refinelevel" :min="0" :max="20" :step="0" class="no-controls"
                                                             v-on:input="onChangeRefineLevel" placeholder="Refine">
-                                                        </el-input>
+                                                        </el-input-number>
                                                     </div>
                                                 </el-col>
                                             </el-row>
@@ -6569,9 +6569,9 @@
                                             </el-col>
                                             <el-col :span="6">
                                                 <div>
-                                                    <el-input v-model.number="subweapon.refinelevel"
+                                                    <el-input-number v-model="subweapon.refinelevel" :min="0" :max="20" :step="0" class="no-controls"
                                                         v-on:input="onChangeRefineLevel" placeholder="Refine">
-                                                    </el-input>
+                                                    </el-input-number>
                                                 </div>
                                             </el-col>
                                         </el-row>
@@ -7338,9 +7338,9 @@
                                             </el-col>
                                             <el-col :span="6">
                                                 <div>
-                                                    <el-input v-model.number="equipspartlist[eqindex+2].refinelevel"
+                                                    <el-input-number v-model="equipspartlist[eqindex+2].refinelevel" :min="0" :max="20" :step="0" class="no-controls"
                                                         v-on:input="CombineEquipsAttribute" placeholder="Refine">
-                                                    </el-input>
+                                                    </el-input-number>
                                                 </div>
                                             </el-col>
                                             <el-col :span="4" style="text-align: right;">
@@ -7762,9 +7762,9 @@
                                             </el-col>
                                             <el-col :span="6">
                                                 <div>
-                                                    <el-input v-model.number="equipspartlist[eqindex+37].refinelevel"
+                                                    <el-input-number v-model="equipspartlist[eqindex+37].refinelevel" :min="0" :max="10" :step="0" class="no-controls"
                                                         v-on:input="CombineEquipsAttribute" placeholder="Refine">
-                                                    </el-input>
+                                                    </el-input-number>
                                                 </div>
                                             </el-col>
                                         </el-row>
@@ -16739,6 +16739,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2025-12-04', content: 'Update: Refine of gear now goes between 0 and 20 while shadow gear between 0 and 10' },
                         { id: '2025-12-02', content: 'Added: OCP 78 gear' },
                         { id: '2025-11-18', content: 'Update: SX Potent Venom RES bonus from 30% to 20%. Fix: effect toggle behaving incorrectly.' },
                         { id: '2025-11-18', content: 'Added: Kachua and kachua coupon gear from November' },
