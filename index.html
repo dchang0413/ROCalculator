@@ -1177,7 +1177,8 @@
                 </el-col>
                 <el-col :span="2">
                 </el-col>
-                <el-col :span="2">
+                <el-col :span="2" class="textcenter">
+                    <el-button v-on:click="onEditEquipConfirm(false);copyEquipJSON();" size="small">Copy JSON</el-button>
                 </el-col>
                 <el-col :span="8">
                 </el-col>
@@ -10994,6 +10995,17 @@
                         this.clearItemFromEquipment([18, 51, 52, 53]);
                     }
                     this.CombineEquipsAttribute();
+                },
+                copyEquipJSON() {
+                    const parsed = JSON.stringify(this.equipspartlist[this.EquipSelectId]);
+                    this.$copyText(parsed)
+                        .then(function (e) {
+                            alert('Copy Success')
+                            console.log(e)
+                        }, function (e) {
+                            alert('Copy Failed')
+                            console.log(e)
+                        });
                 },
                 onEditEquipClear() {
                     this.PreviewETL = _.cloneDeep(this.PreviewETL_init);
