@@ -3713,5 +3713,111 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "shadow",
+		"itemid": 24485,
+		"label": "S.Weapon",
+		"equipname": "Tiger Cannon Shadow Weapon",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(3+(SHWEAR>6?3:0)+(SHWEAR>8?4:0))",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24486,
+					24487
+				],
+				"itemid_any": [],
+				"equipname": "Tiger Cannon Shadow Pendant AND Tiger Cannon Shadow Earring",
+				"effectlist": [
+					{
+						"EffectNumber": "((SHWEAR+SHACCRR+SHACCLR)/2)",
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "((SHWEAR+SHACCRR+SHACCLR)/2)",
+						"EffectType": {
+							"id": "SPPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24306
+				],
+				"itemid_any": [],
+				"equipname": "Sura Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"TIGERCANNON\")?(SHWEAR+SHSHIER):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 24487,
+		"label": "S.Earring",
+		"equipname": "Tiger Cannon Shadow Earring",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 24486,
+		"label": "S.Pendant",
+		"equipname": "Tiger Cannon Shadow Pendant",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(SKIDS(\"TIGERCANNON\")?(5+(2*DOWN(SHACCLR/2))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]

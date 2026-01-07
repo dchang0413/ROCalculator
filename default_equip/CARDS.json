@@ -4503,11 +4503,173 @@
 		"idx": 3
 	},
 	{
+		"id": "helmcard",
+		"itemid": 27162,
+		"label": "Headgear Card",
+		"equipname": "Gopinich Card",
+		"effectlist": [],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 27157,
+		"label": "Armor Card",
+		"equipname": "Wood Goblin Card",
+		"effectlist": [
+			{
+				"EffectNumber": "((EEI==2||EEI==4)?(5+(ARMORR>8?5:0)):0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 27160,
+		"label": "Shoes Card",
+		"equipname": "Baba Yaga Card",
+		"effectlist": [],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
 		"id": "armorcard",
 		"itemid": 4386,
 		"label": "Armor Card",
 		"equipname": "Detardeurus Card",
 		"effectlist": [],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300021,
+		"label": "Armor Card",
+		"equipname": "Bone Detardeurus Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(ERI==4||ERI==9)?40:0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EEI==8||EEI==9)?40:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "helmcard",
+		"itemid": 300015,
+		"label": "Headgear Card",
+		"equipname": "Purple Ferus Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(3+(DOWN(HATR/4)))",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": -5,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": -5,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4378
+				],
+				"itemid_any": [],
+				"equipname": "Gold Acidus Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(4*DOWN(SHOER/4))",
+						"EffectType": {
+							"id": "HPPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(4*DOWN(SHOER/4))",
+						"EffectType": {
+							"id": "SPPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 4378,
+		"label": "Shoes Card",
+		"equipname": "Gold Acidus Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(SHOER>4?4:8)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOER>4?4:8)",
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "helmcard",
+		"itemid": 4379,
+		"label": "Headgear Card",
+		"equipname": "Blue Acidus Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(SHOER>4?40:80)",
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			}
+		],
 		"combolist": [],
 		"flags": [],
 		"idx": 3
