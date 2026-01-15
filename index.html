@@ -12635,7 +12635,7 @@
                 checkShoeGradeReq(grade) { return this.checkGradeReq(7, grade); },
                 checkGradeReq(index, grade) {
                     var gradeVal = typeof (grade) == 'number' ? grade : this.getGradeVal(grade);
-                    return this.equipspartlist[index].grade.id >= gradeVal;
+                    return this.equipspartlist[index].grade?.id >= gradeVal;
                 },
                 getGradeVal(str) {
                     var findVal = this.weapongradelist.find(x => x.label == str);
