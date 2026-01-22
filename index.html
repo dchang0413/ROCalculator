@@ -12720,6 +12720,16 @@
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_mons);
                     this.setRecord('Specific Mob%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_mons, 'p');
 
+
+                    //近戰傷害
+                    var para_melee = Number(1) + Number(this.attribute['MELDP']) / 100;
+
+                    if (this.skill.id.includes('SO_SPELLFIST')) {
+                        this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_melee);
+                        this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_melee);
+                        this.setRecord('Melee Mod%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_melee, 'p');
+                    }
+
                     //MRES
                     this.enemyattribute.MRESPercent = Number(100 * (1 - (
                         (2000 + this.MulOper(Number(this.enemyattribute.MRES), 1)) /
