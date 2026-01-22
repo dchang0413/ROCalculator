@@ -12720,16 +12720,6 @@
                     this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_mons);
                     this.setRecord('Specific Mob%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_mons, 'p');
 
-
-                    //近戰傷害
-                    var para_melee = Number(1) + Number(this.attribute['MELDP']) / 100;
-
-                    if (this.skill.id.includes('SO_SPELLFIST')) {
-                        this.computeattribute.finalmatk_min = this.MulOper(this.computeattribute.finalmatk_min, para_melee);
-                        this.computeattribute.finalmatk_max = this.MulOper(this.computeattribute.finalmatk_max, para_melee);
-                        this.setRecord('Melee Mod%', [this.computeattribute.finalmatk_min, this.computeattribute.finalmatk_max], 'x', para_melee, 'p');
-                    }
-
                     //MRES
                     this.enemyattribute.MRESPercent = Number(100 * (1 - (
                         (2000 + this.MulOper(Number(this.enemyattribute.MRES), 1)) /
@@ -12764,10 +12754,12 @@
                     this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['ELEDDI'] / 100));
                     this.setRecord('Element Resist', [this.computeattribute.matk1_min, this.computeattribute.finalmatk_max], 'x', Number(1) + Number(this.attribute['ELEDDI'] / 100), 'p');
 
-                    this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.attribute['MAGDDI'] / 100));
-                    this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['MAGDDI'] / 100));
-                    this.setRecord('Sightless Mind', [this.computeattribute.matk1_min, this.computeattribute.matk1_max], 'x', Number(1) + Number(this.attribute['MAGDDI'] / 100), 'p');
-
+                    if (!this.skill.id.includes('SO_SPELLFIST')){
+                        this.computeattribute.matk1_min = this.MulOper(this.computeattribute.matk1_min, Number(1) + Number(this.attribute['MAGDDI'] / 100));
+                        this.computeattribute.matk1_max = this.MulOper(this.computeattribute.matk1_max, Number(1) + Number(this.attribute['MAGDDI'] / 100));
+                        this.setRecord('Sightless Mind', [this.computeattribute.matk1_min, this.computeattribute.matk1_max], 'x', Number(1) + Number(this.attribute['MAGDDI'] / 100), 'p');
+                    }
+                    
 
                     if (this.skill.laterformula == false) {
                         var para_skillpercent = Math.floor(this.option.SkillPercent) + Number(this.computeattribute['SpecialMATK1']) + Number(mflag);
@@ -12824,6 +12816,11 @@
                         this.computeattribute.matk4_min = Math.floor(this.computeattribute.matk4_min * Number(Math.floor(this.option.SkillPercent) / 100));
                         this.computeattribute.matk4_max = Math.floor(this.computeattribute.matk4_max * Number(Math.floor(this.option.SkillPercent) / 100));
                         this.setRecord('Spell Fist', [this.computeattribute.matk4_min, this.computeattribute.matk4_max], 'x', Number(Math.floor(this.option.SkillPercent) / 100), 'p');
+                    
+                        this.computeattribute.matk4_min = Math.floor(this.computeattribute.matk4_min * Number(1 + this.attribute['MELDDI'] / 100));
+                        this.computeattribute.matk4_max = Math.floor(this.computeattribute.matk4_max * Number(1 + this.attribute['MELDDI'] / 100));
+                        this.setRecord('Melee Damage Inc%', [this.computeattribute.atkc9_min, this.computeattribute.matk4_max], 'x',
+                            Number(1 + this.attribute['MELDDI'] / 100), 'p');
                     }
                     /*
                     if (this.skill.laterformula == true) {
