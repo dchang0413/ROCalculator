@@ -12580,7 +12580,7 @@
                     if (weaponType == 'Empty') baseASPD = aspdTable[weaponType];
                     else if (!isNaN(aspdTable[weaponType])) baseASPD = aspdTable['Empty'] + aspdTable[weaponType];
 
-                    if (!isNaN(aspdTable[subweaponType])) baseASPD += aspdTable[subweaponType];
+                    if (subweaponType != 'Shield' && !isNaN(aspdTable[subweaponType])) baseASPD += aspdTable[subweaponType];
 
                     return baseASPD;
                 },
@@ -12595,8 +12595,10 @@
                     var PotionASPD = 0;
                     var SkillASPD = this.attribute['SKILLASPDP'] / 100;
 
+                    var shieldPenalty = this.subweapon.type.weaponTag === 'Shield' ? this.aspdTable[this.ClassInfo.id][this.subweapon.type.weaponTag] : 0;
+
                     var baseASPD2 = Math.floor(100 * (200 -
-                        (200 - (baseASPD - ASPDCorrection + Math.sqrt(this.status_total.AGI * 9.999 + this.status_total.DEX * 0.19212) * ASPDPenalty)) *
+                        (200 - (baseASPD - ASPDCorrection + shieldPenalty + Math.sqrt(this.status_total.AGI * 9.9999 + this.status_total.DEX * 0.19212) * ASPDPenalty)) *
                         (1 - PotionASPD - SkillASPD))) / 100;
                     //console.log('base2',baseASPD2);
 
