@@ -909,16 +909,9 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "(20*DOWN(GARMR/2))+(GARMR>9?100:0)+(GARMG(1)?100:0)",
+					"EffectNumber": "GARMR>10?15:0",
 					"EffectType": {
-						"id": "Matk"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "2*DOWN(GARMR/2)",
-					"EffectType": {
-						"id": "CON"
+						"id": "AllStatus"
 					},
 					"Enable": true
 				},
@@ -930,9 +923,30 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "20+(7*DOWN(GARMR/3))+(GARMR>6?10:0)+(GARMR>11?20:0)",
+					"EffectNumber": "((2*DOWN(GARMR/2))+8)",
 					"EffectType": {
-						"id": "ElementalMagicPercent"
+						"id": "CON"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "GARMG(3)?20:0",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(20*DOWN(GARMR/2))+(GARMR>9?100:0)+(GARMG(1)?100:0)",
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 30,
+					"EffectType": {
+						"id": "MatkPercent"
 					},
 					"Enable": true
 				},
@@ -944,13 +958,6 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "GARMR>6?10:0",
-					"EffectType": {
-						"id": "AspdPercent"
-					},
-					"Enable": true
-				},
-				{
 					"EffectNumber": "GARMR>8?15:0",
 					"EffectType": {
 						"id": "ElementalMatkPercent"
@@ -958,9 +965,9 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "GARMR>10?15:0",
+					"EffectNumber": "20+(7*DOWN(GARMR/3))+(GARMR>6?10:0)+(GARMR>11?20:0)",
 					"EffectType": {
-						"id": "AllStatus"
+						"id": "ElementalMagicPercent"
 					},
 					"Enable": true
 				},
@@ -979,9 +986,16 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "GARMG(3)?20:0",
+					"EffectNumber": "GARMR>6?10:0",
 					"EffectType": {
-						"id": "SMATK"
+						"id": "AspdPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "SPPercent"
 					},
 					"Enable": true
 				}
@@ -1278,7 +1292,21 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": 5,
+					"EffectNumber": 12,
+					"EffectType": {
+						"id": "DEX"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 6,
+					"EffectType": {
+						"id": "CON"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 25,
 					"EffectType": {
 						"id": "MatkPercent"
 					},
@@ -1343,7 +1371,21 @@
 				{
 					"EffectNumber": 7,
 					"EffectType": {
+						"id": "AGI"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 7,
+					"EffectType": {
 						"id": "INT"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 24,
+					"EffectType": {
+						"id": "MatkPercent"
 					},
 					"Enable": true
 				},
@@ -3125,7 +3167,7 @@
 		"HP": 0,
 		"SP": 0,
 		"MHP": 415676,
-		"MSP": 42022
+		"MSP": 47752
 	},
 	"JobStatus": {
 		"STR": 4,
@@ -3245,27 +3287,27 @@
 		"SO_EL_CONTROL(Lv1)",
 		"EM_SUMMON_ELEMENTAL_ARDOR"
 	],
-	"Damage": "140,162,099,553 ~ 149,550,585,828",
-	"DamageDPS": "1,034,274,286,807",
+	"Damage": "175,467,383,980 ~ 187,207,566,728",
+	"DamageDPS": "1,294,749,574,028",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "144,856,342,691",
+	"SkillDamageAvg": "181,337,475,354",
 	"attribute": {
-		"StatusATK": 931,
+		"StatusATK": 933,
 		"WeaponATK": 1035,
-		"StatusMATK": 3909,
+		"StatusMATK": 3912,
 		"WeaponMATK": 3037,
 		"ATK": 585,
 		"MATK": 2587,
 		"ATKP": 1,
-		"MATKP": 203,
+		"MATKP": 277,
 		"DEF": 0,
 		"MDEF": 0,
 		"HP": 145,
 		"HPP": 165,
 		"SP": 567,
-		"SPP": 10,
-		"PATK": 107,
-		"SMATK": 427,
+		"SPP": 25,
+		"PATK": 110,
+		"SMATK": 430,
 		"CRIDR": 18,
 		"RES": 0,
 		"MRES": 0,
@@ -3372,34 +3414,34 @@
 		"SpecialMATK1": 0,
 		"SpecialMATK3": 0,
 		"SpecialINSIGNIAENEMYMATK": 0,
-		"weaponmatk_min": 4134,
-		"weaponmatk_max": 4584,
-		"equipmatk_min": 6721,
-		"equipmatk_max": 7171,
-		"matkpercent_min": 20364,
-		"matkpercent_max": 21728,
-		"finalmatk_min": 31111956,
-		"finalmatk_max": 33195930,
-		"matk1_min": 31111956,
-		"matk1_max": 33195930,
-		"skillmatk_min": 4778796441,
-		"skillmatk_max": 5098894848,
-		"matk2_min": 4778796439,
-		"matk2_max": 5098894846,
-		"matk3_min": 20023157079,
-		"matk3_max": 21364369404,
-		"matk4_min": 20023157079,
-		"matk4_max": 21364369404,
-		"matk4_avg": 20693763241.5,
-		"matkmulti_min": 140162099553,
-		"matkmulti_max": 149550585828,
-		"matkmulti_avg": 144856342690.5,
+		"weaponmatk_min": 4137,
+		"weaponmatk_max": 4587,
+		"equipmatk_min": 6724,
+		"equipmatk_max": 7174,
+		"matkpercent_min": 25349,
+		"matkpercent_max": 27045,
+		"finalmatk_min": 38948714,
+		"finalmatk_max": 41554697,
+		"matk1_min": 38948714,
+		"matk1_max": 41554697,
+		"skillmatk_min": 5982522470,
+		"skillmatk_max": 6382801459,
+		"matk2_min": 5982522468,
+		"matk2_max": 6382801457,
+		"matk3_min": 25066769140,
+		"matk3_max": 26743938104,
+		"matk4_min": 25066769140,
+		"matk4_max": 26743938104,
+		"matk4_avg": 25905353622,
+		"matkmulti_min": 175467383980,
+		"matkmulti_max": 187207566728,
+		"matkmulti_avg": 181337475354,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
-		"matkmulti_DPS": 1034274286806.6,
+		"matkmulti_DPS": 1294749574027.56,
 		"DragonBreathDMG": 0,
 		"DragonBreathDMG_DPS": 0,
-		"CastDEXINT": 2396,
+		"CastDEXINT": 2420,
 		"CastTime": 0,
 		"DelayTime": -0.45,
 		"HitperSec": 7.14,
@@ -3410,18 +3452,18 @@
 	},
 	"status_total": {
 		"STR": 163,
-		"AGI": 264,
+		"AGI": 271,
 		"VIT": 253,
 		"INT": 868,
-		"DEX": 764,
+		"DEX": 776,
 		"LUK": 677,
 		"POW": 65,
 		"STA": 81,
 		"WIS": 80,
 		"SPL": 0,
-		"CON": 213,
+		"CON": 227,
 		"CRT": 55,
 		"S_P_L": 433
 	},
-	"lastedited": "2026-01-14T03:58:42.544Z"
+	"lastedited": "2026-01-23T02:14:42.104Z"
 }
