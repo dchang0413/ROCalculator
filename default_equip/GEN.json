@@ -18556,5 +18556,382 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": -1,
+		"label": "MainHand",
+		"equipname": "Polluted Grimoire",
+		"refinelevel": 15,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10+(WEAR>9?10:0))",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(30+(10*WEAR)+(WEAR>11?20:0))",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(30+(10*WEAR)+(WEAR>11?20:0))",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((3*DOWN(WEAR/2))+(WEAR>9?6:0)+(WEAG(2)?6:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((4*DOWN(WEAR/3))+(WEAR>9?6:0)+(WEAG(2)?6:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((3*DOWN(WEAR/2))+(4*DOWN(WEAR/3)))",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"PSYCHIC_WAVE DIAMONDDUST\")?(20*DOWN(WEAR/2)):0)+(SKIDS(\"MIDNIGHT_KICK NOON_BLAST\")?(30*DOWN(WEAR/3)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"PSYCHIC_WAVE DIAMONDDUST\")&&WEAR>10?4:0)+(SKIDS(\"MIDNIGHT_KICK NOON_BLAST\")&&WEAR>10?0.7:0))",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>12?25:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>12?250:0)+(WEAG(1)?100:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>12?250:0)+(WEAG(1)?100:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>13?15:0)",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>13?20:0)+(WEAR>14?30:0))",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR>13?20:0)+(WEAR>14?30:0))",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(3)?0.5:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?30:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					27363
+				],
+				"itemid_any": [],
+				"equipname": "Polluted Dark Lord Card",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 250,
+						"EffectType": {
+							"id": "STR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27362
+				],
+				"itemid_any": [],
+				"equipname": "Polluted Queen Spider Card",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 250,
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Books",
+				"label": "Book",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "250",
+			"MATK": 250,
+			"refinelevel": 15,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 100,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "armor",
+		"itemid": -2,
+		"label": "Armor",
+		"equipname": "Tiara Follower Dress",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(150+(20*DOWN(ARMORR/2))+(ARMORG(1)?100:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(['WL','SO','AB','SU','GX','SC'].includes(CCL)?30000:0)",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10+(['WL','SO','AB','SU','GX','SC'].includes(CCL)?10:0)+(DOWN(ARMORR/2)))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((7*ARMORR)+(ARMORR>10?10:0)+(ARMORR>11?20:0)+(ARMORR>12?30:0))",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORR>10?5:0)+(ARMORR>11?15:0))",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORR>12?15:0)+(ARMORR>13?20:0))",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(2)?15:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(3)?0.5:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300193
+				],
+				"itemid_any": [],
+				"equipname": "Tiara Card",
+				"effectlist": [
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ARMORG(4)?100:0)",
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27184
+				],
+				"itemid_any": [],
+				"equipname": "Lord Sakray Card",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27103
+				],
+				"itemid_any": [],
+				"equipname": "Restless Dead Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(ARMORR>11?20:0)",
+						"EffectType": {
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"CRIMSON_ARROW\")&&ARMORR>11?30:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
