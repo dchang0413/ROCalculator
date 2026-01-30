@@ -3,31 +3,211 @@
 	"Equip": [
 		{
 			"id": "weaponr",
-			"itemid": 540056,
+			"itemid": 540124,
 			"label": "MainHand",
-			"equipname": "Dim Glacier Book",
-			"refinelevel": 14,
+			"equipname": "Polluted Grimoire",
+			"refinelevel": 15,
 			"grade": {
 				"id": 4,
 				"label": "A"
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 5,
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "AGI"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(WEAR>12?25:0)",
+					"EffectType": {
+						"id": "AllStatus"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "((4*DOWN(WEAR/3))+(WEAR>9?6:0)+(WEAG(2)?6:0))",
+					"EffectType": {
+						"id": "POW"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "((3*DOWN(WEAR/2))+(WEAR>9?6:0)+(WEAG(2)?6:0))",
 					"EffectType": {
 						"id": "SPL"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": 30,
+					"EffectNumber": "(WEAR>13?15:0)",
+					"EffectType": {
+						"id": "AllTrait"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "((WEAR>12?250:0)+(WEAG(1)?100:0))",
+					"EffectType": {
+						"id": "Atk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(30+(10*WEAR)+(WEAR>11?20:0))",
+					"EffectType": {
+						"id": "SizeAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "((WEAR>13?20:0)+(WEAR>14?30:0))",
+					"EffectType": {
+						"id": "LevelAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "((WEAR>12?250:0)+(WEAG(1)?100:0))",
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 22,
 					"EffectType": {
 						"id": "MatkPercent"
 					},
 					"Enable": true
+				},
+				{
+					"EffectNumber": "(30+(10*WEAR)+(WEAR>11?20:0))",
+					"EffectType": {
+						"id": "SizeMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "((WEAR>13?20:0)+(WEAR>14?30:0))",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "((SKIDS(\"PSYCHIC_WAVE DIAMONDDUST\")?(20*DOWN(WEAR/2)):0)+(SKIDS(\"MIDNIGHT_KICK NOON_BLAST\")?(30*DOWN(WEAR/3)):0))",
+					"EffectType": {
+						"id": "SkillDamagePercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "((SKIDS(\"PSYCHIC_WAVE DIAMONDDUST\")&&WEAR>10?4:0)+(SKIDS(\"MIDNIGHT_KICK NOON_BLAST\")&&WEAR>10?0.7:0))",
+					"EffectType": {
+						"id": "CDTime"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(10+(WEAR>9?10:0))",
+					"EffectType": {
+						"id": "GCDPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(WEAG(4)?30:0)",
+					"EffectType": {
+						"id": "VariableCastPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(WEAG(3)?0.5:0)",
+					"EffectType": {
+						"id": "FixedCast"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 10,
+					"EffectType": {
+						"id": "ASPD"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "((3*DOWN(WEAR/2))+(4*DOWN(WEAR/3)))+13",
+					"EffectType": {
+						"id": "HPPercent"
+					},
+					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [
+				{
+					"itemid_every": [
+						27363
+					],
+					"itemid_any": [],
+					"equipname": "Polluted Dark Lord Card",
+					"effectlist": [
+						{
+							"EffectNumber": 20,
+							"EffectType": {
+								"id": "AllTrait"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 250,
+							"EffectType": {
+								"id": "STR"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 25,
+							"EffectType": {
+								"id": "POW"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						27362
+					],
+					"itemid_any": [],
+					"equipname": "Polluted Queen Spider Card",
+					"effectlist": [
+						{
+							"EffectNumber": 20,
+							"EffectType": {
+								"id": "AllTrait"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 250,
+							"EffectType": {
+								"id": "INT"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 25,
+							"EffectType": {
+								"id": "SPL"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
 		},
 		{
 			"id": "weaponl",
@@ -909,16 +1089,9 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "(20*DOWN(GARMR/2))+(GARMR>9?100:0)+(GARMG(1)?100:0)",
+					"EffectNumber": "GARMR>10?15:0",
 					"EffectType": {
-						"id": "Matk"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "2*DOWN(GARMR/2)",
-					"EffectType": {
-						"id": "CON"
+						"id": "AllStatus"
 					},
 					"Enable": true
 				},
@@ -930,9 +1103,30 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "20+(7*DOWN(GARMR/3))+(GARMR>6?10:0)+(GARMR>11?20:0)",
+					"EffectNumber": "((2*DOWN(GARMR/2))+8)",
 					"EffectType": {
-						"id": "ElementalMagicPercent"
+						"id": "CON"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "GARMG(3)?20:0",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(20*DOWN(GARMR/2))+(GARMR>9?100:0)+(GARMG(1)?100:0)",
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 30,
+					"EffectType": {
+						"id": "MatkPercent"
 					},
 					"Enable": true
 				},
@@ -944,13 +1138,6 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "GARMR>6?10:0",
-					"EffectType": {
-						"id": "AspdPercent"
-					},
-					"Enable": true
-				},
-				{
 					"EffectNumber": "GARMR>8?15:0",
 					"EffectType": {
 						"id": "ElementalMatkPercent"
@@ -958,9 +1145,9 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "GARMR>10?15:0",
+					"EffectNumber": "20+(7*DOWN(GARMR/3))+(GARMR>6?10:0)+(GARMR>11?20:0)",
 					"EffectType": {
-						"id": "AllStatus"
+						"id": "ElementalMagicPercent"
 					},
 					"Enable": true
 				},
@@ -979,9 +1166,16 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "GARMG(3)?20:0",
+					"EffectNumber": "GARMR>6?10:0",
 					"EffectType": {
-						"id": "SMATK"
+						"id": "AspdPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "SPPercent"
 					},
 					"Enable": true
 				}
@@ -1278,7 +1472,21 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": 5,
+					"EffectNumber": 12,
+					"EffectType": {
+						"id": "DEX"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 6,
+					"EffectType": {
+						"id": "CON"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 25,
 					"EffectType": {
 						"id": "MatkPercent"
 					},
@@ -1331,9 +1539,9 @@
 		},
 		{
 			"id": "acc2",
-			"itemid": 490038,
+			"itemid": 490704,
 			"label": "Accessory",
-			"equipname": "Sixth Sense Ring",
+			"equipname": "Miracle Stone",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -1341,56 +1549,96 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 7,
+					"EffectNumber": 10,
 					"EffectType": {
-						"id": "INT"
+						"id": "MatkPercent"
 					},
 					"Enable": true
 				},
 				{
 					"EffectNumber": 10,
 					"EffectType": {
-						"id": "SizeMatkPercent"
+						"id": "ElementalMagicPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(CCL=='SO'&&[0,1,3,4].includes(EEI))?10:0",
-					"EffectType": {
-						"id": "ElementalMatkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "FLOOR(BLV/5)",
-					"EffectType": {
-						"id": "SkillDamagePercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "CCL=='SO'?1:0",
-					"EffectType": {
-						"id": "CDTime"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "CCL=='SO'?30:0",
+					"EffectNumber": 5,
 					"EffectType": {
 						"id": "GCDPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "CCL=='SO'?15:0",
+					"EffectNumber": 15,
 					"EffectType": {
-						"id": "SPSkillVariableCastPercent"
+						"id": "SizeMatkPercent"
 					},
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [
+				{
+					"itemid_every": [],
+					"itemid_any": [
+						4577,
+						27125,
+						27262,
+						27161,
+						300294
+					],
+					"equipname": "Elvira Card or Headless Mule Card or Dy Card or Mavka Card or Jennifer Card",
+					"effectlist": [
+						{
+							"EffectNumber": 5,
+							"EffectType": {
+								"id": "SPL"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 15,
+							"EffectType": {
+								"id": "LevelMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [],
+					"itemid_any": [
+						4576,
+						27362,
+						27381,
+						300145
+					],
+					"equipname": "Gioia Card or Polluted Queen Spider Card or Phantom of Himmelmez Card or Abysmal Witch Card",
+					"effectlist": [
+						{
+							"EffectNumber": 10,
+							"EffectType": {
+								"id": "SPL"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 30,
+							"EffectType": {
+								"id": "LevelMatkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(GARMG(2)?20:0)",
+							"EffectType": {
+								"id": "ElementalMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
 		},
 		{
 			"id": "weaponcard",
@@ -1407,14 +1655,23 @@
 		},
 		{
 			"id": "weaponcard",
-			"itemid": 0,
+			"itemid": 4625,
 			"label": "Weapon Card",
-			"equipname": "",
+			"equipname": "Time Holder Card",
 			"refinelevel": 0,
 			"grade": {
-				"id": 0
+				"id": 0,
+				"label": "No Grade"
 			},
-			"effectlist": [],
+			"effectlist": [
+				{
+					"EffectNumber": 20,
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				}
+			],
 			"combolist": []
 		},
 		{
@@ -1827,9 +2084,9 @@
 		},
 		{
 			"id": "stonelower",
-			"itemid": 25419,
+			"itemid": 1000674,
 			"label": "Lower Stone",
-			"equipname": "Professor Stone (Lower)",
+			"equipname": "Sorcerer Stone (Lower)",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -1837,14 +2094,47 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "SKIDS(\"FIREBOLT COLDBOLT LIGHTNINGBOLT\")?20:0",
+					"EffectNumber": 6,
 					"EffectType": {
-						"id": "SkillDamagePercent"
+						"id": "ElementalMagicPercent"
 					},
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [
+				{
+					"itemid_every": [
+						25420
+					],
+					"itemid_any": [],
+					"equipname": "Sorcerer Stone (Garment)",
+					"effectlist": [
+						{
+							"EffectNumber": "SKIDS(\"POISON_BUSTER\")?15:0",
+							"EffectType": {
+								"id": "SkillDamagePercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						25801
+					],
+					"itemid_any": [],
+					"equipname": "Sorcerer Stone II (Garment)",
+					"effectlist": [
+						{
+							"EffectNumber": "SKIDS(\"DIAMONDDUST\")?15:0",
+							"EffectType": {
+								"id": "SkillDamagePercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
 		},
 		{
 			"id": "stonegarment",
@@ -1918,9 +2208,9 @@
 		},
 		{
 			"id": "stonedual",
-			"itemid": 1000520,
+			"itemid": 1000527,
 			"label": "Garment(Dual) Stone",
-			"equipname": "ASPD Stone (Dual)",
+			"equipname": "Magic Power Stone (Dual)",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -1928,14 +2218,63 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 1,
+					"EffectNumber": 4,
 					"EffectType": {
-						"id": "ASPD"
+						"id": "ElementalMagicPercent"
 					},
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [
+				{
+					"itemid_every": [
+						1000528
+					],
+					"itemid_any": [],
+					"equipname": "Magic Power Stone (Upper)",
+					"effectlist": [
+						{
+							"EffectNumber": 2,
+							"EffectType": {
+								"id": "ElementalMagicPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						1000529
+					],
+					"itemid_any": [],
+					"equipname": "Magic Power Stone (Middle)",
+					"effectlist": [
+						{
+							"EffectNumber": 2,
+							"EffectType": {
+								"id": "ElementalMagicPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						1000530
+					],
+					"itemid_any": [],
+					"equipname": "Magic Power Stone (Lower)",
+					"effectlist": [
+						{
+							"EffectNumber": 2,
+							"EffectType": {
+								"id": "ElementalMagicPercent"
+							},
+							"Enable": true
+						}
+					]
+				}
+			]
 		},
 		{
 			"id": "pets",
@@ -2395,152 +2734,41 @@
 		},
 		{
 			"id": "weapon11",
-			"itemid": 311458,
+			"itemid": 0,
 			"label": "Weapon Enchant",
-			"equipname": "Glacier Flower Spell (Magical Grade) 5Lv",
+			"equipname": "",
+			"effectlist": [],
+			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
-				"id": 0,
-				"label": "No Grade"
+				"id": 0
 			},
-			"effectlist": [
-				{
-					"EffectNumber": "75+(WEAG(1)?75:0)",
-					"EffectType": {
-						"id": "Matk"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "WEAG(1)?5:0",
-					"EffectType": {
-						"id": "MatkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": 15,
-					"EffectType": {
-						"id": "ElementalMagicPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "GEARR>6?15:0",
-					"EffectType": {
-						"id": "AspdPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "GEARR>8?15:0",
-					"EffectType": {
-						"id": "GCDPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "GEARR>8?15:0",
-					"EffectType": {
-						"id": "VariableCastPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "WEAG(2)?4:0",
-					"EffectType": {
-						"id": "PATK"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "WEAG(2)?4:0",
-					"EffectType": {
-						"id": "SMATK"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "WEAG(3)?(DOWN(GEARR/2)):0",
-					"EffectType": {
-						"id": "SPL"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "WEAG(3)?(DOWN(GEARR/2)):0",
-					"EffectType": {
-						"id": "CON"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(GEARR>10&&WEAG(4))?18:0",
-					"EffectType": {
-						"id": "SizeMatkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "WEAG(4)?18:0",
-					"EffectType": {
-						"id": "ElementalMatkPercent"
-					},
-					"Enable": true
-				}
-			],
-			"combolist": [],
 			"baseIndex": "0"
 		},
 		{
 			"id": "weapon12",
-			"itemid": 311296,
+			"itemid": 0,
 			"label": "Weapon Enchant",
-			"equipname": "Glacier Flower Spell (Conflagration)",
+			"equipname": "",
+			"effectlist": [],
+			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
-				"id": 0,
-				"label": "No Grade"
+				"id": 0
 			},
-			"effectlist": [
-				{
-					"EffectNumber": "SKIDS(\"CONFLAGRATION\")?(10+(5*DOWN(GEARR/4))+(GEARR>8?10:0)):0",
-					"EffectType": {
-						"id": "SkillDamagePercent"
-					},
-					"Enable": true
-				}
-			],
-			"combolist": [],
 			"baseIndex": "0"
 		},
 		{
 			"id": "weapon13",
-			"itemid": 311225,
+			"itemid": 0,
 			"label": "Weapon Enchant",
-			"equipname": "Glacier Flower Spell (Psychic Wave)",
+			"equipname": "",
+			"effectlist": [],
+			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
-				"id": 0,
-				"label": "No Grade"
+				"id": 0
 			},
-			"effectlist": [
-				{
-					"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?(20+(10*DOWN(GEARR/3))+(GEARR>10?20:0)):0",
-					"EffectType": {
-						"id": "SkillDamagePercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "SKIDS(\"PSYCHIC_WAVE\")?(GEARR>8?1.5:0):0",
-					"EffectType": {
-						"id": "CDTime"
-					},
-					"Enable": true
-				}
-			],
-			"combolist": [],
 			"baseIndex": "0"
 		},
 		{
@@ -3053,7 +3281,7 @@
 			"sizefix": {
 				"small": 100,
 				"middle": 100,
-				"large": 75
+				"large": 50
 			},
 			"baseaspd": "",
 			"isRangedattack": false,
@@ -3070,12 +3298,12 @@
 			"id": 4,
 			"label": "A"
 		},
-		"ATK": "210",
-		"MATK": 210,
+		"ATK": "250",
+		"MATK": 250,
 		"refinelevel": 15,
 		"ArrowATK": 0,
 		"BulletATK": 0,
-		"Weight": 120,
+		"Weight": 100,
 		"refinematk": 240,
 		"refineatk": 240,
 		"refineatk2": 0
@@ -3124,8 +3352,8 @@
 		"ASPD": 193,
 		"HP": 0,
 		"SP": 0,
-		"MHP": 415676,
-		"MSP": 42022
+		"MHP": 535865,
+		"MSP": 48618
 	},
 	"JobStatus": {
 		"STR": 4,
@@ -3186,9 +3414,9 @@
 	},
 	"Option": {
 		"MagnumPoison2Value": 0,
-		"SkillPercent": 15360.8,
+		"SkillPercent": 15641.6,
 		"SkillFormulaError": "",
-		"EquipSkillAddDamage": 319,
+		"EquipSkillAddDamage": 327,
 		"BaseCriticalValue": 40,
 		"IgnoreDEF": false,
 		"IgnoreMDEF": false,
@@ -3245,34 +3473,34 @@
 		"SO_EL_CONTROL(Lv1)",
 		"EM_SUMMON_ELEMENTAL_ARDOR"
 	],
-	"Damage": "140,162,099,553 ~ 149,550,585,828",
-	"DamageDPS": "1,034,274,286,807",
+	"Damage": "309,403,427,928 ~ 331,407,220,228",
+	"DamageDPS": "2,287,694,013,917",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "144,856,342,691",
+	"SkillDamageAvg": "320,405,324,078",
 	"attribute": {
-		"StatusATK": 931,
-		"WeaponATK": 1035,
-		"StatusMATK": 3909,
-		"WeaponMATK": 3037,
-		"ATK": 585,
-		"MATK": 2587,
+		"StatusATK": 1157,
+		"WeaponATK": 1125,
+		"StatusMATK": 4158,
+		"WeaponMATK": 2977,
+		"ATK": 635,
+		"MATK": 2487,
 		"ATKP": 1,
-		"MATKP": 203,
+		"MATKP": 270,
 		"DEF": 0,
 		"MDEF": 0,
-		"HP": 145,
-		"HPP": 165,
-		"SP": 567,
-		"SPP": 10,
-		"PATK": 107,
-		"SMATK": 427,
-		"CRIDR": 18,
+		"HP": 170,
+		"HPP": 219,
+		"SP": 560,
+		"SPP": 25,
+		"PATK": 121,
+		"SMATK": 442,
+		"CRIDR": 23,
 		"RES": 0,
 		"MRES": 0,
-		"ASPD": 21,
-		"ASPDP": 35,
+		"ASPD": 30,
+		"ASPDP": 20,
 		"SKILLASPDP": 20,
-		"CRI": 206.7,
+		"CRI": 214.2,
 		"HIT": 0,
 		"CRIDP": 5,
 		"RNGDP": 5,
@@ -3282,38 +3510,38 @@
 		"MELDDI": 0,
 		"MAGDDI": 0,
 		"SK1VCTP": 0,
-		"SK2VCTP": -30,
-		"EQVCTP": -35,
+		"SK2VCTP": -15,
+		"EQVCTP": -50,
 		"VCTS": 0,
-		"FCT": -1.6,
+		"FCT": -2.1,
 		"FCTP": 0,
-		"CD": -5.5,
-		"GCD": -145,
+		"CD": -5,
+		"GCD": -125,
 		"BYPASSDEF": 100,
 		"BYPASSMDEF": 100,
 		"BYPASSRES": 0,
 		"BYPASSMRES": 0,
 		"WeaponPerfection": 0,
 		"WeaponOccult": 0,
-		"ElementalMagicPercent": 405,
-		"SizeMatkPercent": 303,
+		"ElementalMagicPercent": 460,
+		"SizeMatkPercent": 460,
 		"ElementalAtkPercent": 0,
-		"LevelAtkPercent": 20,
-		"SizeAtkPercent": 56,
+		"LevelAtkPercent": 70,
+		"SizeAtkPercent": 226,
 		"RaceAtkPercent": 10,
 		"MonsterAtkPercent": 0,
-		"ElementalMatkPercent": 100,
+		"ElementalMatkPercent": 92,
 		"RaceMatkPercent": 85,
 		"MonsterMatkPercent": 0,
-		"LevelMatkPercent": 285
+		"LevelMatkPercent": 330
 	},
 	"computeattribute": {
 		"StatsPoint": 4151,
 		"RaisingStatsPoint": 4151,
 		"RaisingTStatsPoint": 200,
-		"TransSTR": 163,
+		"TransSTR": 188,
 		"elementalpercent": 0,
-		"sizefix": 75,
+		"sizefix": 50,
 		"enemydef": 0,
 		"enemymdef": 0,
 		"SpecialATK0": 0,
@@ -3372,36 +3600,36 @@
 		"SpecialMATK1": 0,
 		"SpecialMATK3": 0,
 		"SpecialINSIGNIAENEMYMATK": 0,
-		"weaponmatk_min": 4134,
-		"weaponmatk_max": 4584,
-		"equipmatk_min": 6721,
-		"equipmatk_max": 7171,
-		"matkpercent_min": 20364,
-		"matkpercent_max": 21728,
-		"finalmatk_min": 31111956,
-		"finalmatk_max": 33195930,
-		"matk1_min": 31111956,
-		"matk1_max": 33195930,
-		"skillmatk_min": 4778796441,
-		"skillmatk_max": 5098894848,
-		"matk2_min": 4778796439,
-		"matk2_max": 5098894846,
-		"matk3_min": 20023157079,
-		"matk3_max": 21364369404,
-		"matk4_min": 20023157079,
-		"matk4_max": 21364369404,
-		"matk4_avg": 20693763241.5,
-		"matkmulti_min": 140162099553,
-		"matkmulti_max": 149550585828,
-		"matkmulti_avg": 144856342690.5,
+		"weaponmatk_min": 4403,
+		"weaponmatk_max": 4893,
+		"equipmatk_min": 6890,
+		"equipmatk_max": 7380,
+		"matkpercent_min": 25493,
+		"matkpercent_max": 27306,
+		"finalmatk_min": 66181208,
+		"finalmatk_max": 70887806,
+		"matk1_min": 66181208,
+		"matk1_max": 70887806,
+		"skillmatk_min": 10351402743,
+		"skillmatk_max": 11087561736,
+		"matk2_min": 10351402741,
+		"matk2_max": 11087561734,
+		"matk3_min": 44200489704,
+		"matk3_max": 47343888604,
+		"matk4_min": 44200489704,
+		"matk4_max": 47343888604,
+		"matk4_avg": 45772189154,
+		"matkmulti_min": 309403427928,
+		"matkmulti_max": 331407220228,
+		"matkmulti_avg": 320405324078,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
-		"matkmulti_DPS": 1034274286806.6,
+		"matkmulti_DPS": 2287694013916.92,
 		"DragonBreathDMG": 0,
 		"DragonBreathDMG_DPS": 0,
-		"CastDEXINT": 2396,
+		"CastDEXINT": 2488,
 		"CastTime": 0,
-		"DelayTime": -0.45,
+		"DelayTime": 0,
 		"HitperSec": 7.14,
 		"AspdDelay": 0.14,
 		"SpecialMATK2": 0,
@@ -3409,19 +3637,19 @@
 		"normalcritical_max": 114
 	},
 	"status_total": {
-		"STR": 163,
-		"AGI": 264,
-		"VIT": 253,
-		"INT": 868,
-		"DEX": 764,
-		"LUK": 677,
-		"POW": 65,
-		"STA": 81,
-		"WIS": 80,
+		"STR": 188,
+		"AGI": 304,
+		"VIT": 278,
+		"INT": 886,
+		"DEX": 801,
+		"LUK": 702,
+		"POW": 102,
+		"STA": 96,
+		"WIS": 95,
 		"SPL": 0,
-		"CON": 213,
-		"CRT": 55,
-		"S_P_L": 433
+		"CON": 235,
+		"CRT": 70,
+		"S_P_L": 474
 	},
-	"lastedited": "2026-01-14T03:58:42.544Z"
+	"lastedited": "2026-01-30T01:37:11.941Z"
 }
