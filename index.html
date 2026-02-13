@@ -14717,58 +14717,24 @@
 
                     if (kind === 'enchant') {
                         this.StoreDB_EnchantLoadedNames = new Set();
-                        for (const [key, value] of Object.entries(this.StoreDB_Enchant)) {
-                            try {
-                                this.StoreDB_Enchant.splice(value.uuid, 1);
-                                this.SaveEnchantDB();
-                            } catch (e) {
-                                console.log('error deleting enchants', e);
-                            }
-                        }
+                        this.StoreDB_Enchant = [];
                         this.onFilterEnchantFlag();
                     } else if (kind === 'card') {
                         this.StoreDB_CardLoadedNames = new Set();
-                        for (const [key, value] of Object.entries(this.StoreDB_Card)) {
-                            try {
-                                this.StoreDB_Card.splice(value.uuid, 1);
-                                this.SaveCardDB();
-                            } catch (e) {
-                                console.log('error deleting cards', e);
-                            }
-                        }
+                        this.StoreDB_Card = [];
                         this.onFilterCardPart();
                     } else if (kind === 'stone') {
                         this.StoreDB_CostumeStoneLoadedNames = new Set();
-                        for (const [key, value] of Object.entries(this.StoreDB_CostumeStone)) {
-                            try {
-                                this.StoreDB_CostumeStone.splice(value.uuid, 1);
-                                this.SaveCostumeStoneDB();
-                            } catch (e) {
-                                console.log('error deleting costume stones', e);
-                            }
-                        }
+                        this.StoreDB_CostumeStone = [];
                         this.onFilterCostumeStonePart();
                     } else if (kind === 'pet') {
                         this.StoreDB_PetLoadedNames = new Set();
-                        for (const [key, value] of Object.entries(this.StoreDB_Pet)) {
-                            try {
-                                this.StoreDB_Pet.splice(value.uuid, 1);
-                                this.SavePetDB();
-                            } catch (e) {
-                                console.log('error deleting pets', e);
-                            }
-                        }
+                        this.StoreDB_Pet = [];
                         this.onFilterPetPart();
                     } else {
                         this.StoreDB_EquipLoadedNames = new Set();
-                        for (const [key, value] of Object.entries(this.StoreDB_Equip)) {
-                            try {
-                                this.StoreDB_Equip.splice(value.uuid, 1);
-                                this.SaveEquipDB();
-                            } catch (e) {
-                                console.log('error deleting equips', e);
-                            }
-                        }
+                        this.StoreDB_Equip = [];
+                        this.SaveEquipDB();
                         this.onFilterEquipPart();
                     }
                 },
@@ -16681,37 +16647,37 @@
                     );
 
                     this.KeywordReplaceList.push(
-                        { str1: 'STR', str2: 'this.status_total.STR', description: 'STR scaling' },
-                        { str1: 'AGI', str2: 'this.status_total.AGI', description: 'AGI scaling' },
-                        { str1: 'VIT', str2: 'this.status_total.VIT', description: 'VIT scaling' },
-                        { str1: 'INT', str2: 'this.status_total.INT', description: 'INT scaling' },
-                        { str1: 'DEX', str2: 'this.status_total.DEX', description: 'DEX scaling' },
-                        { str1: 'LUK', str2: 'this.status_total.LUK', description: 'LUK scaling' },
-                        { str1: 'POW', str2: 'this.status_total.POW', description: 'POW scaling' },
-                        { str1: 'STA', str2: 'this.status_total.STA', description: 'STA scaling' },
-                        { str1: 'WIS', str2: 'this.status_total.WIS', description: 'WIS scaling' },
-                        { str1: 'SPL', str2: 'this.status_total.S_P_L', description: 'SPL scaling' },
-                        { str1: 'CON', str2: 'this.status_total.CON', description: 'CON scaling' },
-                        { str1: 'CRT', str2: 'this.status_total.CRT', description: 'CRT scaling' },
-                        { str1: 'BST', str2: 'eval(this.status.STR)', description: 'Base STR scaling' },
-                        { str1: 'BAG', str2: 'eval(this.status.AGI)', description: 'Base AGI scaling' },
-                        { str1: 'BVI', str2: 'eval(this.status.VIT)', description: 'Base VIT scaling' },
-                        { str1: 'BIN', str2: 'eval(this.status.INT)', description: 'Base INT scaling' },
-                        { str1: 'BDE', str2: 'eval(this.status.DEX)', description: 'Base DEX scaling' },
-                        { str1: 'BLU', str2: 'eval(this.status.LUK)', description: 'Base LUK scaling' },
-                        { str1: 'BPO', str2: 'eval(this.status.POW)', description: 'Base POW scaling' },
-                        { str1: 'BSA', str2: 'eval(this.status.STA)', description: 'Base STA scaling' },
-                        { str1: 'BWI', str2: 'eval(this.status.WIS)', description: 'Base WIS scaling' },
-                        { str1: 'BSP', str2: 'eval(this.status.SPL)', description: 'Base SPL scaling' },
-                        { str1: 'BCR', str2: 'eval(this.status.CRT)', description: 'Base CRT scaling' },
-                        { str1: 'BCO', str2: 'eval(this.status.CON)', description: 'Base CON scaling' },
-                        { str1: 'PATK', str2: 'this.attribute.PATK', description: 'PATK scaling' },
-                        { str1: 'BLV', str2: 'this.status.Level', description: 'base level scaling' },
-                        { str1: 'JLV', str2: 'this.status.JOBLevel', description: 'job level scaling' },
-                        { str1: 'CHP', str2: 'this.status.HP', description: 'current HP scaling' },
-                        { str1: 'CSP', str2: 'this.status.SP', description: 'current SP scaling' },
-                        { str1: 'Mhp', str2: 'this.status.MHP', description: 'MaxHP scaling' },
-                        { str1: 'Msp', str2: 'this.status.MSP', description: 'MaxSP scaling' },
+                        { str1: 'STR', str2: 'this.status_total.STR', description: 'Total STR' },
+                        { str1: 'AGI', str2: 'this.status_total.AGI', description: 'Total AGI' },
+                        { str1: 'VIT', str2: 'this.status_total.VIT', description: 'Total VIT' },
+                        { str1: 'INT', str2: 'this.status_total.INT', description: 'Total INT' },
+                        { str1: 'DEX', str2: 'this.status_total.DEX', description: 'Total DEX' },
+                        { str1: 'LUK', str2: 'this.status_total.LUK', description: 'Total LUK' },
+                        { str1: 'POW', str2: 'this.status_total.POW', description: 'Total POW' },
+                        { str1: 'STA', str2: 'this.status_total.STA', description: 'Total STA' },
+                        { str1: 'WIS', str2: 'this.status_total.WIS', description: 'Total WIS' },
+                        { str1: 'SPL', str2: 'this.status_total.S_P_L', description: 'Total SPL' },
+                        { str1: 'CON', str2: 'this.status_total.CON', description: 'Total CON' },
+                        { str1: 'CRT', str2: 'this.status_total.CRT', description: 'Total CRT' },
+                        { str1: 'BST', str2: 'eval(this.status.STR)', description: 'Base STR' },
+                        { str1: 'BAG', str2: 'eval(this.status.AGI)', description: 'Base AGI' },
+                        { str1: 'BVI', str2: 'eval(this.status.VIT)', description: 'Base VIT' },
+                        { str1: 'BIN', str2: 'eval(this.status.INT)', description: 'Base INT' },
+                        { str1: 'BDE', str2: 'eval(this.status.DEX)', description: 'Base DEX' },
+                        { str1: 'BLU', str2: 'eval(this.status.LUK)', description: 'Base LUK' },
+                        { str1: 'BPO', str2: 'eval(this.status.POW)', description: 'Base POW' },
+                        { str1: 'BSA', str2: 'eval(this.status.STA)', description: 'Base STA' },
+                        { str1: 'BWI', str2: 'eval(this.status.WIS)', description: 'Base WIS' },
+                        { str1: 'BSP', str2: 'eval(this.status.SPL)', description: 'Base SPL' },
+                        { str1: 'BCR', str2: 'eval(this.status.CRT)', description: 'Base CRT' },
+                        { str1: 'BCO', str2: 'eval(this.status.CON)', description: 'Base CON' },
+                        { str1: 'PATK', str2: 'this.attribute.PATK', description: 'PATK' },
+                        { str1: 'BLV', str2: 'this.status.Level', description: 'base level' },
+                        { str1: 'JLV', str2: 'this.status.JOBLevel', description: 'job level' },
+                        { str1: 'CHP', str2: 'this.status.HP', description: 'current HP' },
+                        { str1: 'CSP', str2: 'this.status.SP', description: 'current SP' },
+                        { str1: 'Mhp', str2: 'this.status.MHP', description: 'MaxHP' },
+                        { str1: 'Msp', str2: 'this.status.MSP', description: 'MaxSP' },
                         { str1: 'CCL', str2: 'this.status.classid', description: 'Class ID' },
                         { str1: 'SLV', str2: 'this.skill.level', description: 'skill level' },
                         { str1: 'SKIDS', str2: 'this.skillInUse', description: 'SKIDS("skill id separated by space") return true if active skill is in use' },
@@ -16750,13 +16716,13 @@
                         { str1: 'isBoss', str2: 'this.enemyattribute.classid==1', description: 'if enemy is boss' },
                         { str1: 'ECI', str2: 'this.enemyattribute.classid', description: 'enemy class id' },
                         { str1: 'EID', str2: 'this.enemyattribute.id', description: 'enemy monster id' },
-                        { str1: 'MUL', str2: 'this.MulOper', description: 'MUL(A,B) = A*B, if B>1 then floor result, if B<1 then ceil result' },
                         { str1: 'DOWN', str2: 'Math.floor', description: 'DOWN(A) floor...' },
                         { str1: 'UP', str2: 'Math.ceil', description: 'UP(A) ceil...' },
                         { str1: 'FLOOR', str2: 'Math.floor', description: 'Flooring function' },
                         { str1: 'CEIL', str2: 'Math.ceil', description: 'Ceiling function' },
                         { str1: 'MIN', str2: 'Math.min', description: 'MIN(A,B)Cap between 2 values' },
                         { str1: 'MAX', str2: 'Math.max', description: 'MAX(A,B)Cap between 2 values' },
+                        { str1: 'MUL', str2: 'this.MulOper', description: '*Internal usage* MUL(A,B) = A*B, if B>1 then floor result, if B<1 then ceil result' },
                     );
 
                     this.UpdateLogList.push(
