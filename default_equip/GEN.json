@@ -19759,5 +19759,116 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 401019,
+		"label": "Upper",
+		"equipname": "[S2] Issgard Helmet",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 2000,
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 200,
+				"EffectType": {
+					"id": "SP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10+(2*HATR))",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(20*HATR)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(20*HATR)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					450498
+				],
+				"itemid_any": [],
+				"equipname": "[S2] Issgard Armor-VG",
+				"effectlist": [
+					{
+						"EffectNumber": 150,
+						"EffectType": {
+							"id": "Atk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 7,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(isBoss?0:30)",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					450499
+				],
+				"itemid_any": [],
+				"equipname": "[S2] Issgard Robe-VG",
+				"effectlist": [
+					{
+						"EffectNumber": 150,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 7,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(isBoss?0:30)",
+						"EffectType": {
+							"id": "LevelMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
