@@ -3437,5 +3437,165 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},{
+		"id": "weaponr",
+		"itemid": 28768,
+		"label": "MainHand",
+		"equipname": "Platinum Dagger",
+		"effectlist": [
+			{
+				"EffectNumber": "(4*WEAR)+(WEAR>10?100:0)",
+				"EffectType": { "id": "Matk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>8&&0<AEI&&AEI<5?15:0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>10?30:0",
+				"EffectType": { "id": "SizeMatkPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"availableEnchants": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Daggers",
+				"label": "Dagger",
+				"sizefix": {
+					"small": 100,
+					"middle": 75,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "150",
+			"MATK": 170,
+			"refinelevel": 0,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 150,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "helm",
+		"itemid": 400120,
+		"label": "Upper",
+		"equipname": "Biolab Capricorn Crown",
+		"refinelevel": 0,
+		"grade": { "id": 0 },
+		"effectlist": [
+			{
+				"EffectNumber": "20*DOWN(HATR/2)",
+				"EffectType": { "id": "Atk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?15:0",
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?10:0",
+				"EffectType": { "id": "SizeAtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "20*DOWN(HATR/2)",
+				"EffectType": { "id": "Matk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?15:0",
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?10:0",
+				"EffectType": { "id": "SizeMatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>6?10:0",
+				"EffectType": { "id": "VariableCastPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>6?10:0",
+				"EffectType": { "id": "AspdPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [28767],
+				"equipname": "Jack the Knife",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS('FATALMENACE')?10*WEAR:0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": { "id": "GCDPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [28768],
+				"equipname": "Platinum Dagger",
+				"effectlist": [
+					{
+						"EffectNumber": "10+(5*WEAR)",
+						"EffectType": { "id": "ElementalMagicPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [18184],
+				"equipname": "Rapid Fire",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": { "id": "RangedDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('TRIANGLESHOT')?10*WEAR:0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			}
+		],
+		"availableEnchants": []
 	}
 ]
