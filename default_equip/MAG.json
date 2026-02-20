@@ -5963,5 +5963,100 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 1270003,
+		"label": "S.Earring",
+		"refinelevel": 0,
+		"equipname": "Sorcery Master Shadow Earring",
+		"effectlist": [
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "Matk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[0,1,2,3,5].includes(AEI)?(2*DOWN(SHACCRR/3)):0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [1270004],
+				"equipname": "Sorcery Master Shadow Pendant",
+				"effectlist":
+				[
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "SMATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?5:0",
+						"EffectType": { "id": "ElementalMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>17?50:0",
+						"EffectType": { "id": "BypassMDEFPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [1270004, 24792],
+				"equipname": "Sorcery M. + Master Shadow Weapon",
+				"effectlist":
+				[
+					{
+					"EffectNumber": 2,
+					"EffectType": { "id": "SMATK" },
+					"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SizeMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHWEAR+SHACCRR+SHACCLR)>26?10:0",
+						"EffectType": { "id": "BypassMRESPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 1270004,
+		"label": "S.Pendant",
+		"equipname": "Sorcery Master Shadow Pendant",
+		"effectlist": [
+			{
+				"EffectNumber": "SHACCLR>9?3:0",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[0,1,2,3,5].includes(AEI)?(2*DOWN(SHACCLR/3)):0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"refinelevel": 0
 	}
 ]

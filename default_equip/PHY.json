@@ -10363,5 +10363,212 @@
 		"refinelevel": 0,
 		"grade": { "id": 0 },
 		"availableEnchants": []
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 1270009,
+		"label": "S.Armor",
+		"equipname": "Bow Master Shadow Armor",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHARMORR>9?3:0",
+				"EffectType": { "id": "PATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 7,
+				"EffectType": { "id": "Atk" },
+				"Enable": true },
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(SHARMORR/3)",
+				"EffectType": { "id": "RangedDamagePercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [1270010],
+				"equipname": "Bow Master Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "PATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?5:0",
+						"EffectType": { "id": "ElementalAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?50:0",
+						"EffectType": { "id": "BypassDEFPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?3:0",
+						"EffectType": { "id": "HPPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [1270010,24793],
+				"equipname": "Bow M. + Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "PATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SizeAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER+SHSHIER)>26?10:0",
+						"EffectType": { "id": "BypassRESPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 1270010,
+		"label": "S.Shoes",
+		"equipname": "Bow Master Shadow Shoes",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHSHOER>9?3:0",
+				"EffectType": { "id": "PATK" },
+				"Enable": true
+			},
+			{ "EffectNumber": 7, "EffectType": { "id": "Atk" }, "Enable": true },
+			{ "EffectNumber": 3, "EffectType": { "id": "AtkPercent" }, "Enable": true },
+			{
+				"EffectNumber": "2*DOWN(SHSHOER/3)",
+				"EffectType": { "id": "RangedDamagePercent" },
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 1270011,
+		"label": "S.Earring",
+		"equipname": "Bow Master Shadow Earring",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": { "id": "PATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 7,
+				"EffectType": { "id": "Atk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(SHACCRR/3)",
+				"EffectType": { "id": "RangedDamagePercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [1270012],
+				"equipname": "Bow Master Shadow Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "PATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?5:0",
+						"EffectType": { "id": "ElementalAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>17?50:0",
+						"EffectType": { "id": "BypassDEFPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?3:0",
+						"EffectType": { "id": "HPPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [1270012,24792],
+				"equipname": "Bow M. + Master Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "PATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SizeAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR+SHWEAR)>26?10:0",
+						"EffectType": { "id": "BypassRESPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 1270012,
+		"label": "S.Pendant",
+		"equipname": "Bow Master Shadow Pendant",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHACCLR>9?3:0",
+				"EffectType": { "id": "PATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 7,
+				"EffectType": { "id": "Atk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(SHACCLR/3)",
+				"EffectType": { "id": "RangedDamagePercent" },
+				"Enable": true
+			}
+		],
+		"combolist": []
 	}
 ]
