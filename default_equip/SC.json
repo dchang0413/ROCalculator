@@ -3186,41 +3186,13 @@
 	},
 	{
 		"id":"weaponr",
+		"itemid": 700126,
 		"label":"MainHand",
 		"equipname":"Lycanthrope Bow",
-		"weapon": {
-			"type": {
-				"id": "Bows",
-				"label": "Bow",
-				"sizefix": {
-					"small": 100,
-					"middle": 100,
-					"large": 75
-				},
-				"baseaspd": "",
-				"isRangedattack": true,
-				"isTwohand": true
-			},
-			"level": {
-				"id": 5,
-				"label": "Lv. 5 Weapon",
-				"upgradeatk": 8,
-				"saferefine": 4,
-				"overatk": 0
-			},
-			"grade": {
-				"id": 4,
-				"label": "A"
-			},
-			"ATK": "250",
-			"MATK": 250,
-			"refinelevel": 14,
-			"ArrowATK": 0,
-			"BulletATK": 0,
-			"Weight": 200,
-			"refinematk": 0,
-			"refineatk": 0,
-			"refineatk2": 0
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
 		},
 		"effectlist":[
 			{
@@ -3231,7 +3203,7 @@
 				"Enable":true
 			},
 			{
-				"EffectNumber":"(2*DOWN(WEAR/2))+(WEAG(1)?3:0)",
+				"EffectNumber":"((2*DOWN(WEAR/2))+(WEAG(1)?3:0))",
 				"EffectType":{
 					"id":"POW"
 				},
@@ -3252,7 +3224,7 @@
 				"Enable":true
 			},
 			{
-				"EffectNumber":"(2*DOWN(WEAR/2)+(WEAR>10?15:0))",
+				"EffectNumber":"((2*DOWN(WEAR/2))+(WEAR>10?15:0))",
 				"EffectType":{
 					"id":"CRT"
 				},
@@ -3294,7 +3266,7 @@
 				"Enable":true
 			},
 			{
-				"EffectNumber":"(SKIDS(\"FRENZY_SHOT CHAINREACTIONSHOT\")?((2*DOWN(WEAR/2)*15)+(WEAR>11?30:0)):0)",
+				"EffectNumber":"(SKIDS(\"FRENZY_SHOT CHAINREACTIONSHOT\")?((15*DOWN(WEAR/2))+(WEAR>11?30:0)):0)",
 				"EffectType":{
 					"id":"SkillDamagePercent"
 				},
@@ -3329,7 +3301,6 @@
 				"Enable":true
 			}
 		],
-		"itemid": 700126,
 		"combolist":[
 			{
 				"itemid_every": [
@@ -3419,7 +3390,7 @@
 					450416
 				],
 				"itemid_any": [],
-				"equipname": "Cutie Card",
+				"equipname": "Lycanthrope Armor",
 				"effectlist":[
 					{
 						"EffectNumber":"(WEAR>13?20:0)",
@@ -3431,9 +3402,40 @@
 				]
 			}
 		],
-		"grade":{
-			"id":4,
-			"label":"A"
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Bows",
+				"label": "Bow",
+				"sizefix": {
+					"small": 100,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": true,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "250",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 200,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
 		}
 	}
 ]
