@@ -5965,6 +5965,104 @@
 		"idx": 3
 	},
 	{
+		"id": "shadowarmor",
+		"itemid": 1270001,
+		"label": "S.Armor",
+		"equipname": "Sorcery Master Shadow Armor",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHARMORR>9?3:0",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[0,1,2,3,5].includes(AEI)?(2*DOWN(SHARMORR/3)):0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [1270002],
+				"equipname": "Sorcery Master Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "SMATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?5:0",
+						"EffectType": { "id": "ElementalMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?50:0",
+						"EffectType": { "id": "BypassMDEFPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?3:0",
+						"EffectType": { "id": "SPPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [1270002,24793],
+				"equipname": "Sorcery M. + Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "SMATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SizeMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER+SHSHIER)>26?10:0",
+						"EffectType": { "id": "BypassMRESPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 1270002,
+		"label": "S.Shoes",
+		"equipname": "Sorcery Master Shadow Shoes",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHSHOER>9?3:0",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[0,1,2,3,5].includes(AEI)?(2*DOWN(SHSHOER/3)):0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
 		"id": "shadowearring",
 		"itemid": 1270003,
 		"label": "S.Earring",
@@ -5991,8 +6089,7 @@
 			{
 				"itemid_every": [1270004],
 				"equipname": "Sorcery Master Shadow Pendant",
-				"effectlist":
-				[
+				"effectlist": [
 					{
 						"EffectNumber": 2,
 						"EffectType": { "id": "SMATK" },
@@ -6007,14 +6104,18 @@
 						"EffectNumber": "(SHACCRR+SHACCLR)>17?50:0",
 						"EffectType": { "id": "BypassMDEFPercent" },
 						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?3:0",
+						"EffectType": { "id": "SPPercent" },
+						"Enable": true
 					}
 				]
 			},
 			{
 				"itemid_every": [1270004, 24792],
 				"equipname": "Sorcery M. + Master Shadow Weapon",
-				"effectlist":
-				[
+				"effectlist": [
 					{
 					"EffectNumber": 2,
 					"EffectType": { "id": "SMATK" },
@@ -6058,5 +6159,397 @@
 		],
 		"combolist": [],
 		"refinelevel": 0
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 24993,
+		"label": "S.Armor",
+		"equipname": "Magical Master Shadow Armor",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHARMORR>9?3:0",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[1,2,3,4,7].includes(AEI)?(2*DOWN(SHARMORR/3)):0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [24994],
+				"equipname": "Magical Master Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "SMATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?5:0",
+						"EffectType": { "id": "ElementalMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?50:0",
+						"EffectType": { "id": "BypassMDEFPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?3:0",
+						"EffectType": { "id": "SPPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [24994,24793],
+				"equipname": "Magical M. + Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "SMATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SizeMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER+SHSHIER)>26?10:0",
+						"EffectType": { "id": "BypassMRESPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 24994,
+		"label": "S.Shoes",
+		"equipname": "Magical Master Shadow Shoes",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHSHOER>9?3:0",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[1,2,3,4,7].includes(AEI)?(2*DOWN(SHSHOER/3)):0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 24995,
+		"label": "S.Earring",
+		"equipname": "Magical Master Shadow Earring",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[1,2,3,4,7].includes(AEI)?(2*DOWN(SHACCRR/3)):0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [24996],
+				"equipname": "Magical Master Shadow Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "SMATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?5:0",
+						"EffectType": { "id": "ElementalMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>17?50:0",
+						"EffectType": { "id": "BypassMDEFPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?3:0",
+						"EffectType": { "id": "SPPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [24996,24792],
+				"equipname": "Magical M. + Master Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "SMATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SizeMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR+SHWEAR)>26?10:0",
+						"EffectType": { "id": "BypassMRESPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 24996,
+		"label": "S.Pendant",
+		"equipname": "Magical Master Shadow Pendant",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHACCLR>9?3:0",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[1,2,3,4,7].includes(AEI)?(2*DOWN(SHACCLR/3)):0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 24997,
+		"label": "S.Armor",
+		"equipname": "Spell Master Shadow Armor",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHARMORR>9?3:0",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[0,6,7,8,9].includes(AEI)?(2*DOWN(SHARMORR/3)):0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [24998],
+				"equipname": "Spell Master Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "SMATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?5:0",
+						"EffectType": { "id": "ElementalMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?50:0",
+						"EffectType": { "id": "BypassMDEFPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?3:0",
+						"EffectType": { "id": "SPPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [24998,24793],
+				"equipname": "Spell M. + Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "SMATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SizeMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER+SHSHIER)>26?10:0",
+						"EffectType": { "id": "BypassMRESPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 24998,
+		"label": "S.Shoes",
+		"equipname": "Spell Master Shadow Shoes",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHSHOER>9?3:0",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[0,6,7,8,9].includes(AEI)?(2*DOWN(SHSHOER/3)):0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 1270168,
+		"label": "S.Earring",
+		"equipname": "Spell Master Shadow Earring",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[0,6,7,8,9].includes(AEI)?(2*DOWN(SHACCRR/3)):0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [1270000],
+				"equipname": "Spell Master Shadow Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "SMATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?5:0",
+						"EffectType": { "id": "ElementalMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>17?50:0",
+						"EffectType": { "id": "BypassMDEFPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?3:0",
+						"EffectType": { "id": "SPPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [1270000,24792],
+				"equipname": "Spell M. + Master Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "SMATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SizeMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR+SHWEAR)>26?10:0",
+						"EffectType": { "id": "BypassMRESPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 1270000,
+		"label": "S.Pendant",
+		"equipname": "Spell Master Shadow Pendant",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHACCLR>9?3:0",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[0,6,7,8,9].includes(AEI)?(2*DOWN(SHACCLR/3)):0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": []
 	}
 ]
