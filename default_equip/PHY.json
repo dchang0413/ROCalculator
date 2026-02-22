@@ -10570,5 +10570,414 @@
 			}
 		],
 		"combolist": []
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 1270005,
+		"label": "S.Armor",
+		"equipname": "Sword Master Shadow Armor",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHARMORR>9?3:0",
+				"EffectType": { "id": "PATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 7,
+				"EffectType": { "id": "Atk" },
+				"Enable": true },
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(SHARMORR/3)",
+				"EffectType": { "id": "MeleeDamagePercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [1270006],
+				"equipname": "Sword Master Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "PATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?5:0",
+						"EffectType": { "id": "ElementalAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?50:0",
+						"EffectType": { "id": "BypassDEFPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?3:0",
+						"EffectType": { "id": "HPPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [1270006,24793],
+				"equipname": "Sword M. + Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "PATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SizeAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER+SHSHIER)>26?10:0",
+						"EffectType": { "id": "BypassRESPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 1270006,
+		"label": "S.Shoes",
+		"equipname": "Sword Master Shadow Shoes",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHSHOER>9?3:0",
+				"EffectType": { "id": "PATK" },
+				"Enable": true
+			},
+			{ "EffectNumber": 7, "EffectType": { "id": "Atk" }, "Enable": true },
+			{ "EffectNumber": 3, "EffectType": { "id": "AtkPercent" }, "Enable": true },
+			{
+				"EffectNumber": "2*DOWN(SHSHOER/3)",
+				"EffectType": { "id": "MeleeDamagePercent" },
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 1270007,
+		"label": "S.Earring",
+		"equipname": "Sword Master Shadow Earring",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHACCRR>9?3:0",
+				"EffectType": { "id": "PATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 7,
+				"EffectType": { "id": "Atk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(SHACCRR/3)",
+				"EffectType": { "id": "MeleeDamagePercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [1270008],
+				"equipname": "Sword Master Shadow Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "PATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?5:0",
+						"EffectType": { "id": "ElementalAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>17?50:0",
+						"EffectType": { "id": "BypassDEFPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?3:0",
+						"EffectType": { "id": "HPPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [1270008,24792],
+				"equipname": "Sword M. + Master Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "PATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SizeAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR+SHWEAR)>26?10:0",
+						"EffectType": { "id": "BypassRESPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 1270008,
+		"label": "S.Pendant",
+		"equipname": "Sword Master Shadow Pendant",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHACCLR>9?3:0",
+				"EffectType": { "id": "PATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 7,
+				"EffectType": { "id": "Atk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(SHACCLR/3)",
+				"EffectType": { "id": "MeleeDamagePercent" },
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 1270013,
+		"label": "S.Armor",
+		"equipname": "Fatal Master Shadow Armor",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "(SHARMORR>9?1:0)",
+				"EffectType": { "id": "PATK" },
+				"Enable": true },
+			{
+				"EffectNumber": 1,
+				"EffectType": { "id": "CRIDR" },
+				"Enable": true },
+			{
+				"EffectNumber": "2*DOWN(SHARMORR/3)",
+				"EffectType": { "id": "CriDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "1+(SHARMORR>9?3:0)",
+				"EffectType": { "id": "Cri" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [1270014],
+				"equipname": "Fatal Master Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "CRIDR" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?5:0",
+						"EffectType": { "id": "ElementalAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?50:0",
+						"EffectType": { "id": "BypassDEFPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?3:0",
+						"EffectType": { "id": "Cri" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [1270014,24793],
+				"equipname": "Fatal M. + Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "PATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SizeAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER+SHSHIER)>26?10:0",
+						"EffectType": { "id": "BypassRESPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 1270014,
+		"label": "S.Shoes",
+		"equipname": "Fatal Master Shadow Shoes",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "SHSHOER>9?3:0",
+				"EffectType": { "id": "PATK" },
+				"Enable": true
+			},
+			{ "EffectNumber": 7, "EffectType": { "id": "Atk" }, "Enable": true },
+			{ "EffectNumber": 3, "EffectType": { "id": "AtkPercent" }, "Enable": true },
+			{
+				"EffectNumber": "2*DOWN(SHSHOER/3)",
+				"EffectType": { "id": "MeleeDamagePercent" },
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 1270015,
+		"label": "S.Earring",
+		"equipname": "Fatal Master Shadow Earring",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "(SHACCRR>9?1:0)",
+				"EffectType": { "id": "PATK" },
+				"Enable": true },
+			{
+				"EffectNumber": 1,
+				"EffectType": { "id": "CRIDR" },
+				"Enable": true },
+			{
+				"EffectNumber": "2*DOWN(SHACCRR/3)",
+				"EffectType": { "id": "CriDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "1+(SHACCRR>9?3:0)",
+				"EffectType": { "id": "Cri" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [1270016],
+				"equipname": "Fatal Master Shadow Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "CRIDR" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?5:0",
+						"EffectType": { "id": "ElementalAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>17?50:0",
+						"EffectType": { "id": "BypassDEFPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?3:0",
+						"EffectType": { "id": "Cri" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [1270016,24792],
+				"equipname": "Fatal M. + Master Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": { "id": "PATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SizeAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR+SHWEAR)>26?10:0",
+						"EffectType": { "id": "BypassRESPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 1270016,
+		"label": "S.Pendant",
+		"equipname": "Fatal Master Shadow Pendant",
+		"refinelevel": 0,
+		"effectlist": [
+			{
+				"EffectNumber": "(SHACCLR>9?1:0)",
+				"EffectType": { "id": "PATK" },
+				"Enable": true },
+			{
+				"EffectNumber": 1,
+				"EffectType": { "id": "CRIDR" },
+				"Enable": true },
+			{
+				"EffectNumber": "2*DOWN(SHACCLR/3)",
+				"EffectType": { "id": "CriDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "1+(SHACCLR>9?3:0)",
+				"EffectType": { "id": "Cri" },
+				"Enable": true
+			}
+		],
+		"combolist": []
 	}
 ]
