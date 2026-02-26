@@ -1178,7 +1178,7 @@
                 <el-col :span="2">
                 </el-col>
                 <el-col :span="2" class="textcenter">
-                    <el-button v-on:click="onEditEquipConfirm(false);copyEquipJSON();" size="small">Copy JSON</el-button>
+                    <el-button v-on:click="onEditEquipConfirm(false) && copyEquipJSON();" size="small">Copy JSON</el-button>
                 </el-col>
                 <el-col :span="8">
                 </el-col>
@@ -1215,7 +1215,7 @@
                     <el-button v-on:click="OpenEditEquipComboDialogue(-1)">{{PreviewSelName}}</el-button>
                     <el-button v-if="showExport" v-on:click="AppendEquipCombo">+</el-button>
                     <el-button v-for="(item, index) in PreviewCombo"
-                        v-on:click="onEditEquipConfirm(false,false); OpenEditEquipComboDialogue(index)">+{{item.equipname}}</el-button>
+                        v-on:click="onEditEquipConfirm(false,false) && OpenEditEquipComboDialogue(index)">+{{item.equipname}}</el-button>
                 </div>
             </el-row>
             <el-row :gutter="2">
@@ -7770,6 +7770,58 @@
                                             </el-col>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
+                                            <div v-for="(enchant, idx) in equipspartlist.slice(eqindex*2+78, eqindex*2+80)">
+                                                <div v-if="item.enchantSlot>idx">
+                                                    <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                                        <el-col class="textcenter" :span="4">
+                                                            <el-tooltip class="item" effect="dark" content="Click to add an Enchant" placement="top">
+                                                                <el-button class="enchantSwitch" type="primary" plain @click="enchantSwitch(eqindex*2+78+idx)">
+                                                                    <img src='img/enchant.png' alt="enchant">
+                                                                </el-button>
+                                                            </el-tooltip>
+                                                        </el-col>
+                                                        <el-col class="textcenter">
+                                                            <el-input v-model="enchant.equipname" placeholder="Enchant Name">
+                                                                <template v-if="enchant.itemid" slot="prepend">
+                                                                    <el-tooltip placement="top" effect="dark" >
+                                                                        <template slot="content">
+                                                                            <img
+                                                                                :src="'https://db.irowiki.org/image/collection/' + enchant.itemid + '.png'"
+                                                                                alt="Enchant preview"
+                                                                                style="width: 75px; height: 100px;"
+                                                                            />
+                                                                        </template>
+                                                                        <img
+                                                                            :src="'https://db.irowiki.org/image/item/' + enchant.itemid + '.png'"
+                                                                            alt="icon"
+                                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                                        />
+                                                                        </el-tooltip>
+                                                                    </template>
+                                                                    <el-button v-if="enchant.itemid" slot="append">
+                                                                        <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  enchant.itemid ">
+                                                                            <img src="https://www.divine-pride.net/favicon.ico" />
+                                                                        </a>
+                                                                    </el-button>
+                                                                </el-input>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="5">
+                                                            <el-button v-on:click="onClearEquipPart(eqindex*2+78+idx)"
+                                                                size="mini">
+                                                                Clear
+                                                            </el-button>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="5">
+                                                            <el-button v-on:click="OpenEditEquipDialogue(eqindex*2+78+idx)"
+                                                                type="success" plain>
+                                                                Edit
+                                                            </el-button>
+                                                        </el-col>
+                                                    </el-row>
+                                                </div>
+                                            </div>
+                                        </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']">
                                             <div v-for="(item, index) in equipspartlist[eqindex+37].effectlist"
                                                 v-bind:key="item.effecttypelist">
                                                 <el-row class="effectline" :gutter="4" type="flex" align="middle"
@@ -7837,6 +7889,83 @@
                                                                 @change="EnableEffect(eqindex+idx+37, index)"></el-checkbox>
                                                         </el-col>
                                                     </el-row>
+                                                </div>
+                                            </div>
+                                        </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']" v-if="getEnchantWithEffects(eqindex*2+78, eqindex*2+80).length">
+                                            <div class="textcenter bg-red-light2">Enchant Effect</div>
+                                            <div v-for="(enchant, idx) in getEnchantWithEffects(eqindex*2+78, eqindex*2+80)"
+                                                class="bg-red-light1">
+                                                <div class="divider-red"></div>
+                                                <div class="textcenter margin-4"><em>{{ enchant.equipname }}</em></div>
+                                                <div v-for="(item, index) in enchant.effectlist"
+                                                    v-bind:key="item.effecttypelist">
+                                                    <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                        justify="end" style="min-height:40px;">
+                                                        <el-col class="textcenter" style="text-align: right;"
+                                                            :span="12">
+                                                            <span class="EffectType">{{
+                                                                effecttypelist[GetETLIndex(item.EffectType.id)].label
+                                                                }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{
+                                                                effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol
+                                                                }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="8">
+                                                            <span class="textnowrap">{{
+                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{
+                                                                effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol
+                                                                }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="5">
+                                                            <el-checkbox v-model="item.Enable"
+                                                                @change="EnableEffect(eqindex*2+78+idx, index)"></el-checkbox>
+                                                        </el-col>
+                                                    </el-row>
+                                                </div>
+                                                <div v-if="enchant.combolist.length" class="textcenter bg-pink-light2">
+                                                    <em>{{ enchant.equipname }} Combo Effect</em>
+                                                </div>
+                                                <div v-for="(combo, idx) in enchant.combolist" class="bg-pink-light1">
+                                                    <div class="textcenter margin-4"><em>{{ combo.equipname }}</em>
+                                                    </div>
+                                                    <div v-for="(item, index) in combo.effectlist"
+                                                        v-bind:key="item.effecttypelist">
+                                                        <el-row class="effectline" :gutter="4" type="flex"
+                                                            align="middle" justify="end" style="min-height:40px;">
+                                                            <el-col class="textcenter" style="text-align: right;"
+                                                                :span="12">
+                                                                <span class="EffectType">{{
+                                                                    effecttypelist[GetETLIndex(item.EffectType.id)].label
+                                                                    }}</span>
+                                                            </el-col>
+                                                            <el-col class="textcenter" :span="2">
+                                                                <span class="">{{
+                                                                    effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol
+                                                                    }}</span>
+                                                            </el-col>
+                                                            <el-col class="textcenter" :span="8">
+                                                                <span class="textnowrap">{{
+                                                                    item.EffectNumber!=9999?item.EffectNumber:''
+                                                                    }}</span>
+                                                            </el-col>
+                                                            <el-col class="textcenter" :span="2">
+                                                                <span class="">{{
+                                                                    effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol
+                                                                    }}</span>
+                                                            </el-col>
+                                                            <el-col class="textcenter" :span="5">
+                                                                <el-checkbox :disabled="!SearchForItemIds(combo)"
+                                                                    v-model="item.Enable"
+                                                                    @change="EnableEffect(0, index)"></el-checkbox>
+                                                            </el-col>
+                                                        </el-row>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </el-row>
@@ -9799,12 +9928,12 @@
                     { id: 'stonegarment', label: 'Garment Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'stonedual', label: 'Garment(Dual) Stone', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'pets', label: 'Pet', equipname: '', effectlist: [], itemid: 0, combolist: [] },
-                    { id: 'shadow', label: 'S.Weapon', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
-                    { id: 'shadowshld', label: 'S.Shield', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
-                    { id: 'shadowarmor', label: 'S.Armor', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
-                    { id: 'shadowshoe', label: 'S.Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
-                    { id: 'shadowearring', label: 'S.Earring', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
-                    { id: 'shadowpendant', label: 'S.Pendant', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0 },
+                    { id: 'shadow', label: 'S.Weapon', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, enchantSlot: 0, availableEnchants: [] },
+                    { id: 'shadowshld', label: 'S.Shield', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, enchantSlot: 0, availableEnchants: [] },
+                    { id: 'shadowarmor', label: 'S.Armor', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, enchantSlot: 0, availableEnchants: [] },
+                    { id: 'shadowshoe', label: 'S.Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, enchantSlot: 0, availableEnchants: [] },
+                    { id: 'shadowearring', label: 'S.Earring', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, enchantSlot: 0, availableEnchants: [] },
+                    { id: 'shadowpendant', label: 'S.Pendant', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, enchantSlot: 0, availableEnchants: [] },
                     { id: 'weapon11', label: 'Weapon Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'weapon12', label: 'Weapon Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'weapon13', label: 'Weapon Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
@@ -9840,6 +9969,18 @@
                     { id: 'acc21', label: 'Accessory Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'acc22', label: 'Accessory Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
                     { id: 'acc23', label: 'Accessory Enchant', equipname: '', effectlist: [], itemid: 0, combolist: [] },
+                    { id: 'shadow1', label: 'S.Weapon Enchant 1', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shadow2', label: 'S.Weapon Enchant 2', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shadowshld1', label: 'S.Shield Enchant 1', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shadowshld2', label: 'S.Shield Enchant 2', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shadowarmor1', label: 'S.Armor Enchant 1', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shadowarmor2', label: 'S.Armor Enchant 2', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shadowshoe1', label: 'S.Shoes Enchant 1', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shadowshoe2', label: 'S.Shoes Enchant 2', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shadowearring1', label: 'S.Earring Enchant 1', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shadowearring2', label: 'S.Earring Enchant 2', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shadowpendant1', label: 'S.Pendant Enchant 1', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shadowpendant2', label: 'S.Pendant Enchant 2', equipname: '', effectlist: [], itemid: 0, combolist: []},
                 ],
                 effecttypelist: [
                     { label: 'STR', id: 'STR', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category: 'Stat' },
@@ -10607,6 +10748,7 @@
                             this.ItemDesiredPosition = -1;
                             this.StoreDB_EnchantSearchString = '';
                             this.StoreDB_EnchantFlags = [];
+                            this.AvailableEnchants = [];
                         case "CostumeStoneDialog":
                             this.ItemDesiredPosition = -1;
                             this.StoreDB_CostumeStoneSearchString = '';
@@ -11014,6 +11156,21 @@
                     this.ClosePanel('EditEquipDialog');
                 },
                 onEditEquipConfirm(save, closePanel = true) {
+                    const error_list = [];
+                    for (let preview of this.PreviewETL) {
+                        try {
+                            eval(this.SkillFormulaReplace(preview.totalvalue));
+                        } catch {
+                            error_list.push(preview.id);
+                            console.log(preview.id);
+                        }
+                    }
+
+                    if (error_list.length > 0) {
+                        alert('The following fields have errors: ' + error_list.join(', '));
+                        return false;
+                    }
+
                     if (this.ComboSelectId === false) {
                         this.equipspartlist[this.EquipSelectId].equipname = this.PreviewEN;
 
@@ -11081,6 +11238,8 @@
                     }
                     if (closePanel) this.ClosePanel('EditEquipDialog');
                     this.CombineEquipsAttribute();
+
+                    return true;
                 },
                 OpenTextDialog(type) {
                     this.EquipText = this.GetBasicEquipString();
@@ -14623,91 +14782,107 @@
 
                     var useDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : kind === "stone" ? this.StoreDB_CostumeStone : kind === "pet" ? this.StoreDB_Pet : this.StoreDB_Card;
                     var _dbidx = useDB.findIndex(x => x.uuid == uuid);
-                    var idx = this.equipspartlist.findIndex(x => x.label == useDB[_dbidx].equip.label);
+                    let dataToLoad = _.cloneDeep(useDB[_dbidx]);
+                    var idx = this.equipspartlist.findIndex(x => x.label == dataToLoad.equip.label);
                     if (this.ItemDesiredPosition > -1) {
                         idx = this.ItemDesiredPosition;
                     }
                     if (idx > -1) {
                         if (idx == 0) {
                             idx = 0;
-                            if (this.equipspartlist[1].equipname == '' && !this.weapon.type.isTwohand && this.isValidSubHandType(useDB[_dbidx].weapon)) { idx = 1; }
+                            if (this.equipspartlist[1].equipname == '' && !this.weapon.type.isTwohand && this.isValidSubHandType(dataToLoad.weapon)) { idx = 1; }
                             if (this.equipspartlist[0].equipname == '') { idx = 0; }
                         }
                         if (idx == 8 || idx == 9) {
-                            if (useDB[_dbidx].equip.id == 'acc') {
+                            if (dataToLoad.equip.id == 'acc') {
                                 idx = 8;
                                 if (this.equipspartlist[9].equipname == '') { idx = 9; }
                                 if (this.equipspartlist[8].equipname == '') { idx = 8; }
                             }
-                            if (useDB[_dbidx].equip.id == 'acc1') {
+                            if (dataToLoad.equip.id == 'acc1') {
                                 idx = 8;
                             }
-                            if (useDB[_dbidx].equip.id == 'acc2') {
+                            if (dataToLoad.equip.id == 'acc2') {
                                 idx = 9;
                             }
                         }
-                        if (idx == 10 || idx == 11 || idx == 12 || idx == 13 || idx == 14 || idx == 15 || idx == 16 || idx == 17) {
+                        if (9 < idx && idx < 18) {
                             idx = 10;
-                            if (this.equipspartlist[17].equipname == '') { idx = 17; }
-                            if (this.equipspartlist[16].equipname == '') { idx = 16; }
-                            if (this.equipspartlist[15].equipname == '') { idx = 15; }
-                            if (this.equipspartlist[14].equipname == '') { idx = 14; }
-                            if (this.equipspartlist[13].equipname == '') { idx = 13; }
-                            if (this.equipspartlist[12].equipname == '') { idx = 12; }
-                            if (this.equipspartlist[11].equipname == '') { idx = 11; }
-                            if (this.equipspartlist[10].equipname == '') { idx = 10; }
+                            for (let step = 10; step < 18; step++) {
+                                if (this.equipspartlist[step].equipname == '') {
+                                    idx = step;
+                                    break;
+                                }
+                            }
                         }
                         if (idx == 25 || idx == 26) {
-                            if (useDB[_dbidx].equip.id == 'acccard') {
+                            if (dataToLoad.equip.id == 'acccard') {
                                 idx = 25;
                                 if (this.equipspartlist[26].equipname == '') { idx = 26; }
                                 if (this.equipspartlist[25].equipname == '') { idx = 25; }
                             }
-                            if (useDB[_dbidx].equip.id == 'acc1card') {
+                            if (dataToLoad.equip.id == 'acc1card') {
                                 idx = 25;
                             }
-                            if (useDB[_dbidx].equip.id == 'acc2card') {
+                            if (dataToLoad.equip.id == 'acc2card') {
                                 idx = 26;
                             }
                         }
-                        console.log("Load Equip " + idx + ": " + useDB[_dbidx].equip.equipname + " | Item Id: " + useDB[_dbidx].equip.itemid);
+                        if (77 < idx && idx < 90) {
+                            const enchantContainers = [ 'SHWEAR', 'SHSHIER', 'SHARMORR', 'SHSHOER', 'SHACCRR', 'SHACCLR' ];
+                            const enchantContainer = enchantContainers[Math.trunc((idx - 78) / 2)];
+                            dataToLoad.equip.effectlist.forEach(x => {
+                                if (typeof x.EffectNumber === "string") {
+                                    x.EffectNumber = x.EffectNumber.replace("SLOT", enchantContainer); 
+                                }
+                            })
+                        }
+                        console.log("Load Equip " + idx + ": " + dataToLoad.equip.equipname + " | Item Id: " + dataToLoad.equip.itemid);
 
                         gtag("event", "equip_loaded", {
                             "event_category": "Equipment",
                             "event_subcategory": kind,
-                            "event_label": useDB[_dbidx].equip.equipname,
+                            "event_label": dataToLoad.equip.equipname,
                             "event_action": "Loaded Equipment"
                         });
 
-                        if (!('effectlist' in useDB[_dbidx].equip)) useDB[_dbidx].equip.effectlist = [];
-                        if (!('combolist' in useDB[_dbidx].equip)) useDB[_dbidx].equip.combolist = [];
-                        useDB[_dbidx].equip.effectlist.forEach(x => x.Enable = x.Enable == null ? true : x.Enable);
-                        useDB[_dbidx].equip.combolist.forEach(x => x.effectlist.forEach(y => y.Enable = y.Enable == null ? true : y.Enable));
+                        dataToLoad.equip.effectlist ??= [];
+                        dataToLoad.equip.combolist ??= [];
+                        dataToLoad.equip.availableEnchants ??= [];
+                        dataToLoad.equip.enchantSlot ??= 0;
+                        dataToLoad.equip.effectlist.forEach(x => x.Enable ??= true);
+                        dataToLoad.equip.combolist.forEach(x => x.effectlist.forEach(y => y.Enable ??= true));
                         this.$set(this.equipspartlist,
                             idx,
                             {
                                 //id: this.StoreDB_Equip[_dbidx].equip.id,
                                 //label: this.StoreDB_Equip[_dbidx].equip.label,
                                 id: this.equipspartlist[idx].id,
-                                itemid: useDB[_dbidx].equip.itemid,
+                                itemid: dataToLoad.equip.itemid,
                                 label: this.equipspartlist[idx].label,
-                                equipname: useDB[_dbidx].equip.equipname,
-                                refinelevel: useDB[_dbidx].equip.refinelevel ? useDB[_dbidx].equip.refinelevel : 0,
-                                grade: useDB[_dbidx].equip.grade ? useDB[_dbidx].equip.grade : this.weapongradelist[0],
-                                effectlist: _.cloneDeep(useDB[_dbidx].equip.effectlist),
-                                combolist: _.cloneDeep(useDB[_dbidx].equip.combolist),
+                                equipname: dataToLoad.equip.equipname,
+                                refinelevel: dataToLoad.equip.refinelevel ? dataToLoad.equip.refinelevel : 0,
+                                grade: dataToLoad.equip.grade ? dataToLoad.equip.grade : this.weapongradelist[0],
+                                effectlist: dataToLoad.equip.effectlist,
+                                combolist: dataToLoad.equip.combolist,
+                                enchantSlot: dataToLoad.equip.enchantSlot,
+                                availableEnchants: dataToLoad.equip.availableEnchants,
                             }
                         );
                         this.onGearUpdate();
                         this.CombineEquipsAttribute();
                     }
-                    if (idx == 0 && useDB[_dbidx].weapon != null) {
-                        this.weapon = _.cloneDeep(useDB[_dbidx].weapon);
+                    if (idx == 0 && dataToLoad.weapon != null) {
+                        this.weapon = dataToLoad.weapon;
                         this.ChangeWeapon();
                     }
-                    if (idx == 1 && useDB[_dbidx].weapon != null) {
-                        this.subweapon = _.cloneDeep(useDB[_dbidx].weapon);
+                    if (idx == 1 && dataToLoad.weapon != null) {
+                        this.subweapon = dataToLoad.weapon;
                         this.ChangeWeapon();
+                    }
+
+                    if (kind == 'enchant') {
+                        this.ClosePanel('EnchantDialog')
                     }
                 },
                 onRemoveAllDataSave(kind) {
@@ -14816,8 +14991,11 @@
                     });
                 },
                 onFilterEnchantSearch() {
-                    this.StoreDB_EquipEnchantFlags = [];
-                    this.StoreDB_EnchantFilterList = this.StoreDB_Enchant.filter(post => {
+                    this.StoreDB_EnchantFlags = [];
+                    this.StoreDB_EnchantFilterList = (this.AvailableEnchants.length > 0
+                                                        ? this.StoreDB_Enchant.filter(el => this.AvailableEnchants.includes(el.equip.itemid))
+                                                        : this.StoreDB_Enchant
+                                                    ).filter(post => {
                         return this.StoreDB_EnchantSearchString.toLowerCase().split(' ').every(v => post.equip.equipname.toLowerCase().includes(v));
                     });
                 },
@@ -14913,15 +15091,13 @@
                         this.StoreDB_EnchantFlags.splice(0, 1);
                     }
                     var _tempgroup = this.StoreDB_EnchantFlags;
-                    this.StoreDB_EnchantFilterList = _tempgroup.length > 0 ?
-                        this.StoreDB_Enchant.filter(
-                            function (saverow) {
-                                return 'flags' in saverow.equip ? saverow.equip.flags.includes(_tempgroup[0]) : -1;
-                            }
-                        )
-                        :
-                        this.StoreDB_Enchant
-                        ;
+                    let _tempEnchant = this.AvailableEnchants.length > 0
+                                        ? this.StoreDB_Enchant.filter(saverow => this.AvailableEnchants.includes(saverow.equip.itemid))
+                                        : this.StoreDB_Enchant;
+
+                    this.StoreDB_EnchantFilterList = _tempgroup.length > 0
+                                                        ? _tempEnchant.filter(saverow => saverow.equip.flags?.includes(_tempgroup[0]))
+                                                        : _tempEnchant;
 
                     for (var i = 0; i < this.StoreDB_EnchantFilterList.length; ++i) {
                         this.$set(this.StoreDB_EnchantFilterList[i], 'preview', false);
@@ -15202,6 +15378,11 @@
                         "Helm Enchant", "Armor Enchant",
                         "Garment Enchant", "Shoes Enchant",
                         "Accessory Enchant"];
+
+                    const enchantPosition = parseInt(this.equipspartlist[index].id.slice(-1)) - 1;
+                    const baseIndex = this.fetchEnchantBaseIndex(index);
+                    this.AvailableEnchants = this.equipspartlist[baseIndex].availableEnchants?.[enchantPosition] ?? [];
+
                     this.OpenPanel('EnchantDialog');
                     this.onFilterEnchantFlag();
                     this.ItemDesiredPosition = index;
@@ -15214,7 +15395,13 @@
                         "Armor Enchant": [63, 64, 65],
                         "Garment Enchant": [66, 67, 68],
                         "Shoes Enchant": [69, 70, 71],
-                        "Accessory Enchant": [72, 73, 74, 75, 76, 77]
+                        "Accessory Enchant": [72, 73, 74, 75, 76, 77],
+                        "S.Weapon":  [78, 79],
+                        "S.Shield":  [80, 81],
+                        "S.Armor":  [82, 83],
+                        "S.Shoes":  [84, 85],
+                        "S.Earring":  [86, 87],
+                        "S.Pendant":  [88, 89],
                     };
                     return Object.keys(enchantLabelToEquip).find(x => enchantLabelToEquip[x].includes(index));
                 },
@@ -15229,6 +15416,12 @@
                         6: [66, 67, 68],
                         7: [69, 70, 71],
                         8: [72, 73, 74, 75, 76, 77],
+                        37: [78, 79],
+                        38: [80, 81],
+                        39: [82, 83],
+                        40: [84, 85],
+                        41: [86, 87],
+                        42: [88, 89],
                     };
                     return Object.keys(enchantLabelToEquip).find(x => enchantLabelToEquip[x].includes(index));
                 },
@@ -15524,6 +15717,8 @@
                                     grade: AllsetObject.Equip[eqi].grade ? AllsetObject.Equip[eqi].grade : this.weapongradelist[0],
                                     effectlist: _.cloneDeep(cardnull ? [] : AllsetObject.Equip[eqi].effectlist),
                                     combolist: _.cloneDeep(combonull ? [] : AllsetObject.Equip[eqi].combolist),
+                                    enchantSlot: AllsetObject.Equip[eqi]?.enchantSlot ?? 0,
+                                    availableEnchants: AllsetObject.Equip[eqi]?.availableEnchants ?? 0,
                                 }
                             );
                         }
@@ -17167,6 +17362,8 @@
                                 combolist: value.combolist ? Object.values(value.combolist) : [],
                                 unchecked: value.unchecked,
                                 noniRO: filename == 'OTHER',
+                                enchantSlot: value.enchantSlot ?? 0,
+                                availableEnchants: value.availableEnchants ?? [],
                             },
                             date: Date.now(),
                             weapon: value.idx < 2 ? ((value.idx == 0) ?
