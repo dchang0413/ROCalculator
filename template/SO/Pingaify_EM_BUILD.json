@@ -2729,12 +2729,14 @@
 			"itemid": 0,
 			"label": "Weapon Enchant",
 			"equipname": "",
-			"effectlist": [],
-			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
 				"id": 0
 			},
+			"effectlist": [],
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "0"
 		},
 		{
@@ -3055,19 +3057,25 @@
 		},
 		{
 			"id": "armor1",
-			"itemid": 4711,
+			"itemid": 0,
 			"label": "Armor Enchant",
-			"equipname": "INT + 2",
+			"equipname": "LINE ENCHANT",
 			"refinelevel": 0,
 			"grade": {
-				"id": 0,
-				"label": "No Grade"
+				"id": 0
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 2,
+					"EffectNumber": 89,
 					"EffectType": {
-						"id": "INT"
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(isBoss?10:0)",
+					"EffectType": {
+						"id": "LevelMatkPercent"
 					},
 					"Enable": true
 				}
@@ -3081,13 +3089,20 @@
 			"id": "armor2",
 			"itemid": 310737,
 			"label": "Armor Enchant",
-			"equipname": "Nebula of Spell Lv2",
+			"equipname": "Nebula of Spell Lv2 + INT2",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
 			},
 			"effectlist": [
+				{
+					"EffectNumber": 2,
+					"EffectType": {
+						"id": "INT"
+					},
+					"Enable": true
+				},
 				{
 					"EffectNumber": "15+(ARMORR>8?15:0)+(ARMORR>10?30:0)",
 					"EffectType": {
@@ -3262,12 +3277,14 @@
 			"itemid": 0,
 			"label": "Accessory Enchant",
 			"equipname": "",
-			"effectlist": [],
-			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
 				"id": 0
 			},
+			"effectlist": [],
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "8"
 		},
 		{
@@ -3362,6 +3379,8 @@
 			},
 			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "37"
 		},
 		{
@@ -3376,6 +3395,8 @@
 			},
 			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "37"
 		},
 		{
@@ -3390,6 +3411,8 @@
 			},
 			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "38"
 		},
 		{
@@ -3404,6 +3427,8 @@
 			},
 			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "38"
 		},
 		{
@@ -3418,6 +3443,8 @@
 			},
 			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "39"
 		},
 		{
@@ -3432,6 +3459,8 @@
 			},
 			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "39"
 		},
 		{
@@ -3446,6 +3475,8 @@
 			},
 			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "40"
 		},
 		{
@@ -3460,6 +3491,8 @@
 			},
 			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "40"
 		},
 		{
@@ -3474,6 +3507,8 @@
 			},
 			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "41"
 		},
 		{
@@ -3488,6 +3523,8 @@
 			},
 			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "41"
 		},
 		{
@@ -3502,6 +3539,8 @@
 			},
 			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "42"
 		},
 		{
@@ -3516,6 +3555,8 @@
 			},
 			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "42"
 		}
 	],
@@ -3718,17 +3759,17 @@
 		"SO_EL_CONTROL(Lv1)",
 		"EM_SUMMON_ELEMENTAL_ARDOR"
 	],
-	"Damage": "428,459,015,943 ~ 458,315,019,106",
-	"DamageDPS": "3,165,783,305,121",
+	"Damage": "443,605,345,862 ~ 474,171,453,238",
+	"DamageDPS": "3,276,463,172,787",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "443,387,017,525",
+	"SkillDamageAvg": "458,888,399,550",
 	"attribute": {
 		"StatusATK": 1125,
 		"WeaponATK": 1059,
 		"StatusMATK": 4319,
-		"WeaponMATK": 3461,
+		"WeaponMATK": 3550,
 		"ATK": 535,
-		"MATK": 2937,
+		"MATK": 3026,
 		"ATKP": 1,
 		"MATKP": 223,
 		"DEF": 0,
@@ -3778,7 +3819,7 @@
 		"ElementalMatkPercent": 82,
 		"RaceMatkPercent": 115,
 		"MonsterMatkPercent": 0,
-		"LevelMatkPercent": 330
+		"LevelMatkPercent": 340
 	},
 	"computeattribute": {
 		"StatsPoint": 4151,
@@ -3847,29 +3888,29 @@
 		"SpecialINSIGNIAENEMYMATK": 0,
 		"weaponmatk_min": 4581,
 		"weaponmatk_max": 5105,
-		"equipmatk_min": 7518,
-		"equipmatk_max": 8042,
-		"matkpercent_min": 24283,
-		"matkpercent_max": 25975,
-		"finalmatk_min": 94224221,
-		"finalmatk_max": 100789980,
-		"matk1_min": 94224221,
-		"matk1_max": 100789980,
-		"skillmatk_min": 14928885575,
-		"skillmatk_max": 15969164431,
-		"matk2_min": 14928885573,
-		"matk2_max": 15969164429,
-		"matk3_min": 61208430849,
-		"matk3_max": 65473574158,
-		"matk4_min": 61208430849,
-		"matk4_max": 65473574158,
-		"matk4_avg": 63341002503.5,
-		"matkmulti_min": 428459015943,
-		"matkmulti_max": 458315019106,
-		"matkmulti_avg": 443387017524.5,
+		"equipmatk_min": 7607,
+		"equipmatk_max": 8131,
+		"matkpercent_min": 24570,
+		"matkpercent_max": 26263,
+		"finalmatk_min": 97555114,
+		"finalmatk_max": 104277035,
+		"matk1_min": 97555114,
+		"matk1_max": 104277035,
+		"skillmatk_min": 15456632262,
+		"skillmatk_max": 16521653425,
+		"matk2_min": 15456632260,
+		"matk2_max": 16521653423,
+		"matk3_min": 63372192266,
+		"matk3_max": 67738779034,
+		"matk4_min": 63372192266,
+		"matk4_max": 67738779034,
+		"matk4_avg": 65555485650,
+		"matkmulti_min": 443605345862,
+		"matkmulti_max": 474171453238,
+		"matkmulti_avg": 458888399550,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
-		"matkmulti_DPS": 3165783305121.36,
+		"matkmulti_DPS": 3276463172787,
 		"DragonBreathDMG": 0,
 		"DragonBreathDMG_DPS": 0,
 		"CastDEXINT": 2517,
@@ -3896,5 +3937,5 @@
 		"CRT": 90,
 		"S_P_L": 501
 	},
-	"lastedited": "2026-02-27T00:58:46.964Z"
+	"lastedited": "2026-02-27T03:37:52.020Z"
 }
