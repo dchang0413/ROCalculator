@@ -10715,6 +10715,24 @@
                     shadowpendantPanel: true,
 
                 },
+                enchantLabelToEquip: {
+                    0: [43, 44, 45, 46],
+                    1: [51, 52, 53, 47, 48, 49, 50],
+                    2: [54, 55, 56],
+                    3: [57, 58, 59],
+                    4: [60, 61, 62],
+                    5: [63, 64, 65],
+                    6: [66, 67, 68],
+                    7: [69, 70, 71],
+                    8: [72, 73, 74],
+                    9: [75, 76, 77],
+                    37: [78, 79],
+                    38: [80, 81],
+                    39: [82, 83],
+                    40: [84, 85],
+                    41: [86, 87],
+                    42: [88, 89],
+                },
             },
             methods: {
                 getTStatusPoint(level) {
@@ -11160,7 +11178,7 @@
                     for (let preview of this.PreviewETL) {
                         try {
                             eval(this.SkillFormulaReplace(preview.totalvalue));
-                        } catch {
+                        } catch (error) {
                             error_list.push(preview.id);
                             console.log(preview.id);
                         }
@@ -12135,7 +12153,7 @@
                         this.skilloption.AttackElementalIdx,
                         this.enemyattribute.elemental,
                         this.enemyattribute.elementallevel);
-                    this.onOption();
+                    this.CombineEquipsAttribute();  // -> onOption
                 },
                 ComputeSizefix() {
                     if (this.IsSupportActive('BS_WEAPONPERFECT')) {
@@ -13259,7 +13277,7 @@
                         this.onLoadJobMapSkill(sendGA);
                     } else {
                         this.JobMapedSkillId = 'No Skills';
-                        this.onOption();
+                        this.CombineEquipsAttribute(); // -> onOption();
                     }
 
                     this.fetchJobBonusTable();
@@ -14766,6 +14784,9 @@
                             refinelevel: 0,
                             grade: { id: 0 },
                         })
+                    if (idx in this.enchantLabelToEquip) {
+                        this.clearItemFromEquipment(this.enchantLabelToEquip[idx]);
+                    }
                     this.CombineEquipsAttribute();
                 },
                 isValidSubHandType(subweapon) {
@@ -14869,6 +14890,9 @@
                                 availableEnchants: dataToLoad.equip.availableEnchants,
                             }
                         );
+                        if (idx in this.enchantLabelToEquip) {
+                            this.clearItemFromEquipment(this.enchantLabelToEquip[idx]);
+                        }
                         this.onGearUpdate();
                         this.CombineEquipsAttribute();
                     }
@@ -15406,24 +15430,7 @@
                     return Object.keys(enchantLabelToEquip).find(x => enchantLabelToEquip[x].includes(index));
                 },
                 fetchEnchantBaseIndex(index) {
-                    let enchantLabelToEquip = {
-                        0: [43, 44, 45, 46],
-                        1: [51, 52, 53, 47, 48, 49, 50],
-                        2: [54, 55, 56],
-                        3: [57, 58, 59],
-                        4: [60, 61, 62],
-                        5: [63, 64, 65],
-                        6: [66, 67, 68],
-                        7: [69, 70, 71],
-                        8: [72, 73, 74, 75, 76, 77],
-                        37: [78, 79],
-                        38: [80, 81],
-                        39: [82, 83],
-                        40: [84, 85],
-                        41: [86, 87],
-                        42: [88, 89],
-                    };
-                    return Object.keys(enchantLabelToEquip).find(x => enchantLabelToEquip[x].includes(index));
+                    return Object.keys(this.enchantLabelToEquip).find(x => this.enchantLabelToEquip[x].includes(index));
                 },
                 getEnchantWithEffects(start, end) {
                     const enchants = this.equipspartlist.slice(start, end).filter(x => x.effectlist.length > 0);
@@ -16921,7 +16928,8 @@
                     );
 
                     this.UpdateLogList.push(
-                        { id: '2026-02-26', content: 'Added: February Kachua gear' },
+                        { id: '2026-03-04', content: 'Fixed: After changing target or skill, bonuses from equipment are updated correctly. Updated: Changing or clearing an equipment slot will reset its enchants. Added: Master Cardinal Shadows, Good and Evil (Spirit Handler, Biolo) items, and Fierce Boots.' },
+                        { id: '2026-02-26', content: 'Updated: Added the option to enchant Master \{job\} Shadows. Added: February Kachua gear' },
                         { id: '2026-02-10', content: 'Added: OCP 80 gear' },
                         { id: '2026-02-04', content: 'Added: Hunter\'s Locket, Ring of Good (Dragon Knight)' },
                         { id: '2026-01-30', content: 'Added: Cycle of Life gears' },

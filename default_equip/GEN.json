@@ -20162,5 +20162,116 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "shoes",
+		"itemid": 470417,
+		"label": "Shoes",
+		"equipname": "Fierce Boots",
+		"refinelevel": 13,
+		"grade": { "id": 4, "label": "A" },
+		"effectlist": [
+			{
+				"EffectNumber": "(2*DOWN(SHOER/3))+(SHOER>10?5:0)+(SHOEG(1)?2:0)",
+				"EffectType": { "id": "PATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(2*DOWN(SHOER/3))+(SHOER>10?5:0)+(SHOEG(1)?2:0)",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>8?15:0",
+				"EffectType": { "id": "RaceAtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOEG(2)?12:0",
+				"EffectType": { "id": "SizeAtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOEG(3)?20:0",
+				"EffectType": { "id": "LevelAtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10+(SHOEG(4)?15:0)",
+				"EffectType": { "id": "MeleeDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10+(SHOEG(4)?15:0)",
+				"EffectType": { "id": "RangedDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>12?50:0",
+				"EffectType": { "id": "BypassDEFPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOEG(4)?12:0",
+				"EffectType": { "id": "BypassRESPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOEG(3)?20:0",
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>8?15:0",
+				"EffectType": { "id": "RaceMatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOEG(2)?12:0+(SHOEG(4)?15:0)",
+				"EffectType": { "id": "SizeMatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10+(SHOEG(4)?15:0)",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOER>12?50:0",
+				"EffectType": { "id": "BypassMDEFPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHOEG(4)?12:0",
+				"EffectType": { "id": "BypassMRESPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": { "id": "GCDPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(SHOER/2)",
+				"EffectType": { "id": "VariableCastPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "0.5+(SHOEG(1)?0.3:0)+(SHOEG(2)?0.5:0)",
+				"EffectType": { "id": "FixedCast" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": { "id": "HPPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": { "id": "SPPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": []
 	}
 ]

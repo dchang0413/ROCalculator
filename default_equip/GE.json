@@ -3922,10 +3922,7 @@
 		"label": "Upper",
 		"equipname": "Crown of Good and Evil (Biolo)",
 		"refinelevel": 14,
-		"grade": {
-			"id": 4,
-			"label": "A"
-		},
+		"grade": { "id": 4, "label": "A" },
 		"effectlist": [
 			{
 				"EffectNumber": "(5*DOWN(HATR/3))",
@@ -4014,9 +4011,7 @@
 		],
 		"combolist": [
 			{
-				"itemid_every": [
-					500065
-				],
+				"itemid_every": [ 500065 ],
 				"itemid_any": [],
 				"equipname": "Blood Rapier",
 				"effectlist": [
@@ -4037,11 +4032,7 @@
 				]
 			},
 			{
-				"itemid_every": [
-					312021,
-					500065
-					
-				],
+				"itemid_every": [ 312021, 500065 ],
 				"itemid_any": [],
 				"equipname": "Blood Rapier + Evil Spell",
 				"effectlist": [
@@ -4062,9 +4053,7 @@
 				]
 			},
 			{
-				"itemid_every": [
-					500066
-				],
+				"itemid_every": [ 500066 ],
 				"itemid_any": [],
 				"equipname": "Victory Sword",
 				"effectlist": [
@@ -4085,11 +4074,7 @@
 				]
 			},
 			{
-				"itemid_every": [
-					312014,
-					500066
-					
-				],
+				"itemid_every": [ 312014, 500066 ],
 				"itemid_any": [],
 				"equipname": "Victory Sword + Good Spell",
 				"effectlist": [
@@ -4110,7 +4095,13 @@
 				]
 			}
 		],
-		"idx": 3
+		"idx": 3,
+		"enchantSlot": 2,
+		"availableEnchants": [
+			[29706, 29707, 29708, 29071, 29072, 29073, 29101, 29102, 29103, 29091, 29092, 29093, 29081, 29082, 29083, 29111, 29112, 29113],
+			[312014, 312021],
+			[0]
+		]
 	},
 	{
 		"id": "weaponr",
@@ -4222,7 +4213,14 @@
 			"refinematk": 0,
 			"refineatk": 0,
 			"refineatk2": 0
-		}
+		},
+		"enchantSlot": 2,
+		"availableEnchants": [
+			[4818, 4817, 4816, 4843, 4844, 4869, 4872, 4873, 4881, 311394, 311395, 311396, 311397, 311398, 311399, 311400, 311401, 311402, 311403, 311404],
+			[4832, 4833, 4834, 4835, 4836, 311389, 311390, 311391, 311392, 311393, 311384, 311385, 311386, 311387, 311388],
+			[0],
+			[0]
+		]
 	},
 	{
 		"id": "weaponr",
@@ -4327,7 +4325,14 @@
 			"refinematk": 0,
 			"refineatk": 0,
 			"refineatk2": 0
-		}
+		},
+		"enchantSlot": 2,
+		"availableEnchants": [
+			[4818, 4817, 4816, 4843, 4844, 4869, 4872, 4873, 4881, 311394, 311395, 311396, 311397, 311398, 311399, 311400, 311401, 311402, 311403, 311404],
+			[4832, 4833, 4834, 4835, 4836, 311389, 311390, 311391, 311392, 311393, 311384, 311385, 311386, 311387, 311388],
+			[0],
+			[0]
+		]
 	},
 	{
 		"id": "acc2",
@@ -4744,5 +4749,147 @@
 			[312195, 312196, 312197, 312198, 312199, 312228, 312229, 312230]
 		],
 		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490870,
+		"label": "Accessory",
+		"equipname": "Ring of Good (Biolo)",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": { "id": "POW" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": { "id": "Atk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 6,
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": { "id": "LevelAtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": { "id": "GCDPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [ 500066 ],
+				"equipname": "Victory Sword",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": { "id": "SizeAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAR>9?15:0",
+						"EffectType": { "id": "ElementalAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAG(2)?20:0",
+						"EffectType": { "id": "MeleeDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('EXPLOSIVE_POWDER')?(15+(WEAR>9?15:0)+(WEAG(2)?20:0)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('EXPLOSIVE_POWDER')&&WEAG(2)?0.5:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [ 312014 ],
+				"equipname": "Good Spell",
+				"effectlist": []
+			}
+		]
+	},
+	{
+		"id": "acc1",
+		"itemid": 490857,
+		"label": "Accessory",
+		"equipname": "Ring of Evil (Biolo)",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": { "id": "POW" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": { "id": "Atk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": { "id": "LevelAtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": { "id": "GCDPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": { "id": "Cri" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [500065],
+				"equipname": "Blood Rapier",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": { "id": "SizeAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAR>9?15:0",
+						"EffectType": { "id": "ElementalAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('MAYHEMIC_THORNS')?(15+(WEAR>9?15:0)+(WEAG(2)?20:0)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('MAYHEMIC_THORNS')&&WEAG(2)?0.35:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAG(2)?30:0",
+						"EffectType": { "id": "Cri" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [312021],
+				"equipname": "Evil Spell",
+				"effectlist": []
+			}
+		]
 	}
 ]

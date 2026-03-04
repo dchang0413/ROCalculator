@@ -1619,5 +1619,465 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "helm",
+		"itemid": 400390,
+		"label": "Upper",
+		"refinelevel": 11,
+		"grade": { "id": 4, "label": "A" },
+		"equipname": "Crown of Good and Evil (Spirit Handler)",
+		"effectlist": [
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": { "id": "POW" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(3)?2:0",
+				"EffectType": { "id": "SPL" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": { "id": "PATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(2)?3:0)+(HATG(3)?2:0)",
+				"EffectType": { "id": "SMATK" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(HATR/3))",
+				"EffectType": { "id": "RaceAtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(HATR/4))",
+				"EffectType": { "id": "RangedDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>10?5:0",
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(HATR/3))",
+				"EffectType": { "id": "RaceMatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((AEI==0||AEI==8)?(7*DOWN(HATR/4)):0)",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?5:0",
+				"EffectType": { "id": "VariableCastPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?0.3:0)+(HATR>11&&HATG(4)?0.2:0)",
+				"EffectType": { "id": "FixedCast" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATR>8?5:0",
+				"EffectType": { "id": "Cri" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "HATG(1)?5:0",
+				"EffectType": { "id": "HPPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [550115],
+				"equipname": "Darkness Foxtail Model",
+				"effectlist": [
+					{
+						"EffectNumber": "(DOWN(WEAR/3)*(SKIDS('HYUN_ROK_CANNON')?4:(SKIDS('HYUN_ROKS_BREEZE')?5:0)))+(WEAG(3)&&SKIDS('HYUN_ROK_CANNON')?10:0)",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [550115, 312021],
+				"equipname": "Darkness Foxtail Model + Evil Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS('HYUN_ROK_CANNON')?15:(SKIDS('HYUN_ROKS_BREEZE')?20:0)",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [550116],
+				"equipname": "Lightforce Foxtail Wand",
+				"effectlist": [
+					{
+						"EffectNumber": "(DOWN(WEAR/3)*(SKIDS('CHUL_HO_SONIC_CLAW')?4:(SKIDS('HOGOGONG_STRIKE')?5:0)))+(WEAG(3)&&SKIDS('CHUL_HO_SONIC_CLAW')?10:0)",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [550116, 312014],
+				"equipname": "Lightforce Foxtail Wand + Good Spell",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS('CHUL_HO_SONIC_CLAW')?15:(SKIDS('HOGOGONG_STRIKE')?20:0)",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			}
+		],
+		"enchantSlot": 2,
+		"availableEnchants": [
+			[29706, 29707, 29708, 29071, 29072, 29073, 29101, 29102, 29103, 29091, 29092, 29093, 29081, 29082, 29083, 29111, 29112, 29113],
+			[312014, 312021],
+			[0]
+		]
+	},
+	{
+		"id": "weaponr",
+		"label": "MainHand",
+		"itemid": 550115,
+		"equipname": "Darkness Foxtail Model",
+		"effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": { "id": "SPL" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(3)?10:0",
+				"EffectType": { "id": "RaceMatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?10:0",
+				"EffectType": { "id": "SizeMatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?5:0)+(WEAG(1)?10:0)",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS('HYUN_ROK_CANNON')?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0)+(SKIDS('HYUN_ROKS_BREEZE')?(WEAR>10?15:0):0)",
+				"EffectType": { "id": "SkillDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>9?10:0",
+				"EffectType": { "id": "VariableCastPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedRods",
+				"label": "1HRod",
+				"sizefix": { "small": 100, "middle": 100, "large": 100 },
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": [8, 8.8, 10.4, 12, 16],
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": { "id": 4, "label": "A" },
+			"ATK": "150",
+			"MATK": 330,
+			"refinelevel": 11,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 140,
+			"refinematk": 176,
+			"refineatk": 176,
+			"refineatk2": 0
+		},
+		"enchantSlot": 2,
+		"availableEnchants": [
+			[4818, 4817, 4816, 4843, 4844, 4869, 4872, 4873, 4881, 311394, 311395, 311396, 311397, 311398, 311399, 311400, 311401, 311402, 311403, 311404],
+			[4832, 4833, 4834, 4835, 4836, 311389, 311390, 311391, 311392, 311393, 311384, 311385, 311386, 311387, 311388],
+			[0],
+			[0]
+		]
+	},
+	{
+		"id": "weaponr",
+        "itemid": 550116,
+		"label": "MainHand",
+        "equipname": "Lightforce Foxtail Wand",
+        "effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": { "id": "POW" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(3)?10:0",
+				"EffectType": { "id": "RaceAtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAG(2)?10:0",
+				"EffectType": { "id": "SizeAtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?5:0)+(WEAG(1)?10:0)",
+				"EffectType": { "id": "RangedDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS('CHUL_HO_SONIC_CLAW')?(5+(WEAR>4?10:0)+(WEAR>8?10:0)+(WEAR>10?5:0)):0)+(SKIDS('HOGOGONG_STRIKE')?(WEAR>10?15:0):0)",
+				"EffectType": { "id": "SkillDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "WEAR>9?10:0",
+				"EffectType": { "id": "Cri" },
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedRods",
+				"label": "1HRod",
+				"sizefix": { "small": 100, "middle": 100, "large": 100 },
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": [ 8, 8.8, 10.4, 12, 16 ],
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": { "id": 4, "label": "A" },
+			"ATK": "330",
+			"MATK": 0,
+			"refinelevel": 11,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 150,
+			"refinematk": 176,
+			"refineatk": 176,
+			"refineatk2": 0
+		},
+        "enchantSlot": 2,
+		"availableEnchants": [
+			[29706, 29707, 29708, 29071, 29072, 29073, 29101, 29102, 29103, 29091, 29092, 29093, 29081, 29082, 29083, 29111, 29112, 29113],
+			[312014, 312021],
+			[0]
+		]
+	},
+	{
+		"id": "acc1",
+		"itemid": 490856,
+		"label": "Accessory",
+		"equipname": "Ring of Evil (Spirit Handler)",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": { "id": "SPL" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": { "id": "Matk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": { "id": "GCDPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 0.6,
+				"EffectType": { "id": "FixedCast" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [ 550115 ],
+				"equipname": "Darkness Foxtail Model",
+				"effectlist": [
+					{
+						"EffectNumber": "WEAG(2)?15:0",
+						"EffectType": { "id": "MatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": { "id": "SizeMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAR>9?15:0",
+						"EffectType": { "id": "ElementalMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('HYUN_ROK_CANNON HYUN_ROKS_BREEZE')?(15+(WEAR>9?15:0)+(WEAG(2)?20:0)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('HYUN_ROKS_BREEZE')&&WEAG(2)?2:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [ 312021 ],
+				"equipname": "Evil Spell",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": { "id": "SMATK" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": { "id": "RaceMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('HYUN_ROKS_BREEZE')?0.5:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					}
+				]
+			}
+		],
+		"enchantSlot": 0
+	},
+	{
+		"id": "acc1",
+		"itemid": 490871,
+		"label": "Accessory",
+		"equipname": "Ring of Good (Spirit Handler)",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": { "id": "POW" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": { "id": "Atk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": { "id": "LevelAtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": { "id": "GCDPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": { "id": "Cri" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [ 550116 ],
+				"equipname": "Lightforce Fox Tail Wand",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": { "id": "SizeAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAR>9?15:0",
+						"EffectType": { "id": "ElementalAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('CHUL_HO_SONIC_CLAW HOGOGONG_STRIKE')?(15+(WEAR>9?15:0)+(WEAG(2)?20:0)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('HOWLING_OF_CHUL_HO')&&WEAG(2)?1:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAG(2)?30:0",
+						"EffectType": { "id": "Cri" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [ 312014 ],
+				"equipname": "Good Spell",
+				"effectlist": [
+					{
+						"EffectNumber": 50,
+						"EffectType": { "id": "POW" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 10,
+						"EffectType": { "id": "PATK" },
+						"Enable": true
+					}
+				]
+			}
+		],
+		"enchantSlot": 0
 	}
 ]
