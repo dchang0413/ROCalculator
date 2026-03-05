@@ -249,14 +249,14 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "FLOOR(BLV/5)",
+				"EffectNumber": "SKIDS('PSYCHIC_WAVE')?FLOOR(BLV/5):0",
 				"EffectType": {
 					"id": "SkillDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "CCL=='SO'?1:0",
+				"EffectNumber": "(SKIDS('PSYCHIC_WAVE')&&CCL=='SO')?1:0",
 				"EffectType": {
 					"id": "CDTime"
 				},
