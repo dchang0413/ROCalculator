@@ -5917,5 +5917,72 @@
 				]
 			}
 		]
+	},
+	{
+		"id": "stonegarment",
+		"itemid": 1001420,
+		"label": "Garment Stone",
+		"equipname": "Elemental Master Stone (Garment)",
+		"effectlist": [
+			{
+				"EffectNumber": "(CCL=='SO'?([1,5].includes(AEI)?10:0):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+            {
+                "itemid_every": [
+                    1000672
+                ],
+                "itemid_any": [],
+                "equipname": "Sorcerer Stone (Upper)",
+                "effectlist": [
+                    {
+                        "EffectNumber": "(SKIDS(\"CONFLAGRATION TERRA_DRIVE\")?10:0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    1000673
+                ],
+                "itemid_any": [],
+                "equipname": "Sorcerer Stone (Middle)",
+                "effectlist": [
+                    {
+                        "EffectNumber": "(SKIDS(\"VENOM_SWAMP\")?10:0)",
+                        "EffectType": {
+                            "id": "SkillDamagePercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            },
+            {
+                "itemid_every": [
+                    1000674
+                ],
+                "itemid_any": [],
+                "equipname": "Sorcerer Stone (Lower)",
+                "effectlist": [
+                    {
+                        "EffectNumber": "(CCL=='SO'?15:0)",
+                        "EffectType": {
+                            "id": "ElementalMatkPercent"
+                        },
+                        "Enable": true
+                    }
+                ]
+            }
+        ],
+		"flags": [],
+		"idx": 3
 	}
 ]
