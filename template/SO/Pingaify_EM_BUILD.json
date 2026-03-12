@@ -2281,6 +2281,13 @@
 			},
 			"effectlist": [
 				{
+					"EffectNumber": 4,
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				},
+				{
 					"EffectNumber": "(15*DOWN(SHWEAR/2))",
 					"EffectType": {
 						"id": "Atk"
@@ -3204,16 +3211,23 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 89,
+					"EffectNumber": 100,
 					"EffectType": {
 						"id": "Matk"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(isBoss?10:0)",
+					"EffectNumber": 15,
 					"EffectType": {
-						"id": "LevelMatkPercent"
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(ESIZE==1?11:0)",
+					"EffectType": {
+						"id": "SizeMatkPercent"
 					},
 					"Enable": true
 				}
@@ -3539,20 +3553,34 @@
 		},
 		{
 			"id": "shadowshld1",
+			"itemid": 0,
 			"label": "S.Shield Enchant 1",
 			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
 			"effectlist": [],
-			"itemid": 0,
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "38"
 		},
 		{
 			"id": "shadowshld2",
+			"itemid": 0,
 			"label": "S.Shield Enchant 2",
 			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
 			"effectlist": [],
-			"itemid": 0,
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "38"
 		},
 		{
@@ -3883,19 +3911,19 @@
 		"SO_EL_CONTROL(Lv1)",
 		"EM_SUMMON_ELEMENTAL_ARDOR"
 	],
-	"Damage": "452,829,857,116 ~ 484,021,885,893",
-	"DamageDPS": "3,344,560,722,539",
+	"Damage": "467,318,857,929 ~ 499,469,656,098",
+	"DamageDPS": "3,451,434,995,073",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "468,425,871,505",
+	"SkillDamageAvg": "483,394,257,014",
 	"attribute": {
 		"StatusATK": 1165,
 		"WeaponATK": 1059,
 		"StatusMATK": 4319,
-		"WeaponMATK": 3550,
+		"WeaponMATK": 3561,
 		"ATK": 535,
-		"MATK": 3026,
+		"MATK": 3037,
 		"ATKP": 1,
-		"MATKP": 217,
+		"MATKP": 232,
 		"DEF": 0,
 		"MDEF": 0,
 		"HP": 190,
@@ -3903,7 +3931,7 @@
 		"SP": 568,
 		"SPP": 20,
 		"PATK": 142,
-		"SMATK": 484,
+		"SMATK": 488,
 		"CRIDR": 32,
 		"RES": 0,
 		"MRES": 0,
@@ -3943,7 +3971,7 @@
 		"ElementalMatkPercent": 82,
 		"RaceMatkPercent": 115,
 		"MonsterMatkPercent": 0,
-		"LevelMatkPercent": 340
+		"LevelMatkPercent": 330
 	},
 	"computeattribute": {
 		"StatsPoint": 4151,
@@ -4012,29 +4040,29 @@
 		"SpecialINSIGNIAENEMYMATK": 0,
 		"weaponmatk_min": 4581,
 		"weaponmatk_max": 5105,
-		"equipmatk_min": 7607,
-		"equipmatk_max": 8131,
-		"matkpercent_min": 24114,
-		"matkpercent_max": 25775,
-		"finalmatk_min": 99583715,
-		"finalmatk_max": 106443285,
-		"matk1_min": 99583715,
-		"matk1_max": 106443285,
-		"skillmatk_min": 15778043804,
-		"skillmatk_max": 16864874075,
-		"matk2_min": 15778043802,
-		"matk2_max": 16864874073,
-		"matk3_min": 64689979588,
-		"matk3_max": 69145983699,
-		"matk4_min": 64689979588,
-		"matk4_max": 69145983699,
-		"matk4_avg": 66917981643.5,
-		"matkmulti_min": 452829857116,
-		"matkmulti_max": 484021885893,
-		"matkmulti_avg": 468425871504.5,
+		"equipmatk_min": 7618,
+		"equipmatk_max": 8142,
+		"matkpercent_min": 25291,
+		"matkpercent_max": 27031,
+		"finalmatk_min": 102770052,
+		"finalmatk_max": 109840469,
+		"matk1_min": 102770052,
+		"matk1_max": 109840469,
+		"skillmatk_min": 16282887038,
+		"skillmatk_max": 17403123908,
+		"matk2_min": 16282887036,
+		"matk2_max": 17403123906,
+		"matk3_min": 66759836847,
+		"matk3_max": 71352808014,
+		"matk4_min": 66759836847,
+		"matk4_max": 71352808014,
+		"matk4_avg": 69056322430.5,
+		"matkmulti_min": 467318857929,
+		"matkmulti_max": 499469656098,
+		"matkmulti_avg": 483394257013.5,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
-		"matkmulti_DPS": 3344560722538.56,
+		"matkmulti_DPS": 3451434995072.82,
 		"DragonBreathDMG": 0,
 		"DragonBreathDMG_DPS": 0,
 		"CastDEXINT": 2517,
@@ -4061,5 +4089,5 @@
 		"CRT": 98,
 		"S_P_L": 501
 	},
-	"lastedited": "2026-03-06T03:37:25.232Z"
+	"lastedited": "2026-03-12T15:04:11.210Z"
 }
