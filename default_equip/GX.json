@@ -3937,5 +3937,192 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 510209,
+		"label": "MainHand",
+		"equipname": "Loki's Dagger",
+		"refinelevel": 0,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(WEAR>11?20:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR/2)*3)+(WEAG(4)?15:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(4)?15:0)",
+				"EffectType": {
+					"id": "CRT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>14?15:0)",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR/2)*30)+(WEAR>11?200:0)+(WEAG(2)?150:0)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR*12)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>10?20:0)+(ARMORR>12?30:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 300,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS(\"GC_CROSSIMPACT\")?(ARMORR>13?50:0):0||SKIDS(\"ASC_BREAKER\")?(ARMORR>13?50:0):0||SKIDS(\"ABC_DEFT_STAB_3\")?(ARMORR>13?50:0):0",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WEAR/2)*3)",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4647
+				],
+				"itemid_any": [],
+				"equipname": "Infinite Osiris Card",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "30",
+						"EffectType": {
+							"id": "CRT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "30",
+						"EffectType": {
+							"id": "RaceAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4144
+				],
+				"itemid_any": [],
+				"equipname": "Osiris Card",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "30",
+						"EffectType": {
+							"id": "CRT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "30",
+						"EffectType": {
+							"id": "RaceAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Daggers",
+				"label": "Dagger",
+				"sizefix": {
+					"small": 100,
+					"middle": 75,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "300",
+			"MATK": 0,
+			"refinelevel": 14,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 50,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
 	}
 ]
