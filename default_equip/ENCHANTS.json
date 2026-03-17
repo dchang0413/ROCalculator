@@ -15440,5 +15440,40 @@
 		],
 		"combolist": [],
 		"flags": ""
+	},
+	{
+		"id": "acc1",
+		"itemid": 300784,
+		"label": "Accessory Enchant",
+		"equipname": "Shadow Cross Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [
+					610041
+				],
+				"itemid_any": [],
+				"equipname": "Dim Glacier Katar",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": {"id": "CriDamagePercent"},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"ETERNAL_SLASH\")?((5*DOWN(WEAR/2))+((WEAG(2)&&WEAR>11)?20:0)):0)+(SKIDS(\"SAVAGE_IMPACT\")?((5*DOWN(WEAR/2))+((WEAG(2)&&WEAR>11)?20:0)):0)",
+						"EffectType": {"id": "SkillDamagePercent"},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SAVAGE_IMPACT\")&&WEAG(2)?0.6:0",
+						"EffectType": {"id": "CDTime"},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"flags": "",
+		"idx": 3
 	}
 ]

@@ -4371,5 +4371,93 @@
 			[312207, 312208, 312209, 312210]
 		],
 		"idx": 3
+	},
+	{
+		"id": "acc1",
+		"itemid": 490943,
+		"label": "Accessory",
+		"equipname": "Dim Glacier Ring of Resonance (Shadow Cross)",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					610041
+				],
+				"itemid_any": [],
+				"equipname": "Dim Glacier Katar",
+				"effectlist": [
+					{
+						"EffectNumber": "(WEAG(2)?15:0)",
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAR>9?20:0)",
+						"EffectType": {
+							"id": "ElementalAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS(\"SAVAGE_IMPACT\")?(20+(WEAR>9?20:0)+(WEAG(2)?25:0)):0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
