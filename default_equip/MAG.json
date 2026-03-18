@@ -6551,5 +6551,66 @@
 			}
 		],
 		"combolist": []
+	},
+	{
+		"id": "shadow",
+		"itemid": 1270166,
+		"label": "S.Weapon",
+		"equipname": "Double Luck Shadow Weapon (Magical)",
+		"refinelevel": 10,
+		"effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHWEAR>6?3:0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [1270167],
+				"equipname": "Double Luck Shadow Shield (Magical)",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "WIS" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "SPL" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHWEAR+SHSHIER)>19?8:0",
+						"EffectType": { "id": "ElementalMatkPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowshld",
+		"itemid": 1270167,
+		"label": "S.Shield",
+		"equipname": "Double Luck Shadow Shield (Magical)",
+		"refinelevel": 10,
+		"effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": { "id": "MatkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHSHIER>6?3:0",
+				"EffectType": { "id": "ElementalMagicPercent" },
+				"Enable": true
+			}
+		]
 	}
 ]

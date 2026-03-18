@@ -11127,5 +11127,76 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "shadow",
+		"itemid": 1270164,
+		"label": "S.Weapon",
+		"equipname": "Double Luck Shadow Weapon (Physical)",
+		"refinelevel": 10,
+		"effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHWEAR>6?3:0",
+				"EffectType": { "id": "MeleeDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHWEAR>6?3:0",
+				"EffectType": { "id": "RangedDamagePercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [1270165],
+				"equipname": "Double Luck Shadow Shield (Physical)",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "POW" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "STA" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHWEAR+SHSHIER)>19?8:0",
+						"EffectType": { "id": "ElementalAtkPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shadowshld",
+		"itemid": 1270165,
+		"label": "S.Shield",
+		"equipname": "Double Luck Shadow Shield (Physical)",
+		"refinelevel": 10,
+		"effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHSHIER>6?3:0",
+				"EffectType": { "id": "MeleeDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SHSHIER>6?3:0",
+				"EffectType": { "id": "RangedDamagePercent" },
+				"Enable": true
+			}
+		]
 	}
 ]
