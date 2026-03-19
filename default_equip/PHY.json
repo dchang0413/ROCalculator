@@ -11198,5 +11198,147 @@
 				"Enable": true
 			}
 		]
+	},
+	{
+		"id": "weaponr",
+		"itemid": 510209,
+		"label": "MainHand",
+		"equipname": "Loki's Dagger",
+		"refinelevel": 0,
+		"grade": { "id": 4, "label": "A" },
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [490606],
+				"equipname": "Document Thief",
+				"effectlist": [
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?(SLOTR>11?20:0):0",
+						"EffectType": { "id": "AllStatus" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?((DOWN(SLOTR/2)*3)+(SLOTG(4)?15:0)):0",
+						"EffectType": { "id": "POW" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')&&SLOTG(4)?15:0",
+						"EffectType": { "id": "CRT" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?(SLOTR>14?15:0):0",
+						"EffectType": { "id": "AllTrait" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?((DOWN(SLOTR/2)*30)+(SLOTR>11?200:0)+(SLOTG(2)?150:0)):0",
+						"EffectType": { "id": "Atk" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?(SLOTR*12):0",
+						"EffectType": { "id": "SizeAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?((SLOTR>9?20:0)+(SLOTR>12?30:0)):0",
+						"EffectType": { "id": "LevelAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')&&(SLOTG(3))?9999:0",
+						"EffectType": { "id": "WeaponOccult" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')&&SKIDS('GC_CROSSIMPACT BREAKER DEFT_STAB')?(50):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?(5):0",
+						"EffectType": { "id": "ASPD" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?(DOWN(SLOTR/2)*3):0",
+						"EffectType": { "id": "HPPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [4144],
+				"equipname": "Osiris Card",
+				"effectlist": [
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?30:0",
+						"EffectType": { "id": "POW" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?30:0",
+						"EffectType": { "id": "CRT" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?30:0",
+						"EffectType": { "id": "RaceAtkPercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [4647],
+				"equipname": "Infinite Osiris Card",
+				"effectlist": [
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?30:0",
+						"EffectType": { "id": "POW" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?30:0",
+						"EffectType": { "id": "CRT" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "('SLOT'==='weaponr')?30:0",
+						"EffectType": { "id": "RaceAtkPercent" },
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Daggers",
+				"label": "Dagger",
+				"sizefix": { "small": 100, "middle": 75, "large": 50 },
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": [8, 8.8, 10.4, 12, 16],
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": { "id": 4, "label": "A" },
+			"ATK": "300",
+			"MATK": 300,
+			"refinelevel": 15,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 50,
+			"refinematk": 240,
+			"refineatk": 240,
+			"refineatk2": 0
+		}
 	}
 ]

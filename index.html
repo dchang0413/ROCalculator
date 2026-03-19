@@ -14705,8 +14705,8 @@
                     this.attribute['SizeAtkPercent'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SizeAtkPercent').totalvalue)));
                     this.attribute['RaceAtkPercent'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'RaceAtkPercent').totalvalue)));
                     this.attribute['MonsterAtkPercent'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'MonsterAtkPercent').totalvalue)));
-                    this.attribute['WeaponPerfection'] += Number(eval(this.effecttypelist.find(x => x.id == 'WeaponPerfection').totalvalue));
-                    this.attribute['WeaponOccult'] += Number(eval(this.effecttypelist.find(x => x.id == 'WeaponOccult').totalvalue));
+                    this.attribute['WeaponPerfection'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'WeaponPerfection').totalvalue)));
+                    this.attribute['WeaponOccult'] += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'WeaponOccult').totalvalue)));
 
                     this.option.EquipSkillAddDamage += Number(eval(this.SkillFormulaReplace(this.effecttypelist.find(x => x.id == 'SkillDamagePercent').totalvalue)));
 
@@ -14850,26 +14850,42 @@
                             }
                         }
 
-                        mapIdxesRefine = {
-                            WEAR: [0, 10, 11, 12, 13, 42, 43, 44, 45],
-                            SWEAR: [1, 14, 15, 16, 17, 18, 46, 47, 48, 49, 51, 52, 53],
+                        const mapIdxesRefine = {
+                            WEAR: [0, 10, 11, 12, 13, 43, 44, 45, 46],
+                            SWEAR: [1, 14, 15, 16, 17, 18, 47, 48, 49, 50, 51, 52, 53],
                             HATR: [2, 19, 54, 55, 56],
                             ARMORR: [5, 22, 63, 64, 65],
                             GARMR: [6, 23, 66, 67, 68],
                             SHOER: [7, 24, 69, 70, 71],
-                            SHWEAR: [36, 78, 79],
-                            SHSHIER: [37, 80, 81],
-                            SHARMORR: [38, 82, 83],
-                            SHSHOER: [39, 84, 85],
-                            SHACCRR: [40, 86, 87],
-                            SHACCLR: [41, 88, 90],
+                            SHWEAR: [37, 78, 79],
+                            SHSHIER: [38, 80, 81],
+                            SHARMORR: [39, 82, 83],
+                            SHSHOER: [40, 84, 85],
+                            SHACCRR: [41, 86, 87],
+                            SHACCLR: [42, 88, 89],
+                        };
+                        const mapIdxesGrade = {
+                            WEAG: [0, 10, 11, 12, 13, 43, 44, 45, 46],
+                            SWEAG: [1, 14, 15, 16, 17, 18, 47, 48, 49, 50, 51, 52, 53],
+                            HATG: [2, 19, 54, 55, 56],
+                            ARMORG: [5, 22, 63, 64, 65],
+                            GARMG: [6, 23, 66, 67, 68],
+                            SHOEG: [7, 24, 69, 70, 71],
                         }
                         dataToLoad.equip.effectlist.forEach(x => {
                             if (typeof x.EffectNumber === "string") {
                                 x.EffectNumber = x.EffectNumber.replace("SLOTR", Object.entries(mapIdxesRefine).find(([_, idxes]) => idxes.includes(idx))?.[0] || 0);
+                                x.EffectNumber = x.EffectNumber.replace("SLOTG", Object.entries(mapIdxesGrade).find(([_, idxes]) => idxes.includes(idx))?.[0]);
                                 x.EffectNumber = x.EffectNumber.replace("SLOT", this.equipspartlist[idx].id);
                             }
                         })
+                        dataToLoad.equip.combolist.forEach(x => x.effectlist.forEach(y => {
+                            if (typeof y.EffectNumber === "string") {
+                                y.EffectNumber = y.EffectNumber.replace("SLOTR", Object.entries(mapIdxesRefine).find(([_, idxes]) => idxes.includes(idx))?.[0] || 0);
+                                y.EffectNumber = y.EffectNumber.replace("SLOTG", Object.entries(mapIdxesGrade).find(([_, idxes]) => idxes.includes(idx))?.[0]);
+                                y.EffectNumber = y.EffectNumber.replace("SLOT", this.equipspartlist[idx].id);
+                            }
+                        }))
 
                         console.log("Load Equip " + idx + ": " + dataToLoad.equip.equipname + " | Item Id: " + dataToLoad.equip.itemid);
 
@@ -14907,7 +14923,7 @@
                             this.clearItemFromEquipment(this.enchantLabelToEquip[idx]);
                         }
                         this.onGearUpdate();
-                        this.CombineEquipsAttribute();
+                        //this.CombineEquipsAttribute();
                     }
                     if (idx == 0 && dataToLoad.weapon != null) {
                         this.weapon = dataToLoad.weapon;
@@ -16938,6 +16954,9 @@
                         { str1: 'MIN', str2: 'Math.min', description: 'MIN(A,B)Cap between 2 values' },
                         { str1: 'MAX', str2: 'Math.max', description: 'MAX(A,B)Cap between 2 values' },
                         { str1: 'MUL', str2: 'this.MulOper', description: '*Internal usage* MUL(A,B) = A*B, if B>1 then floor result, if B<1 then ceil result' },
+                        { str1: 'SLOTR', str2: '0', description: '*Internal usage*' },
+                        { str1: 'SLOTG', str2: '', description: '*Internal usage*' },
+                        { str1: 'SLOT', str2: '', description: '*Internal usage*' },
                     );
 
                     this.UpdateLogList.push(
