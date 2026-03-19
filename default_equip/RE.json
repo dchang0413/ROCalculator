@@ -4945,5 +4945,92 @@
 				]
 			}
 		]
+	},
+	{
+		"id": "helm2",
+		"itemid": 420777,
+		"label": "Lower",
+		"equipname": "Buffalo Bandit Scarf",
+		"effectlist": [
+			{
+				"EffectNumber": 6,
+				"EffectType": { "id": "AllTrait" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 150,
+				"EffectType": { "id": "Atk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "15+(DOWN(BLV/10)*2)",
+				"EffectType": { "id": "RangedDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('R_TRIP')?(DOWN(BLV/10)*10):0",
+				"EffectType": { "id": "SkillDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": { "id": "GCDPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [27173],
+				"equipname": "Mine Cowraiders Class 1 Card",
+				"effectlist": [
+					{
+						"EffectNumber": 200,
+						"EffectType": { "id": "Atk" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAG(3)?20:0",
+						"EffectType": { "id": "RangedDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('SPREADATTACK FULLBUSTER')?(DOWN(BLV/5)*20):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('WILD_FIRE')&&WEAG(3)?0.4:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [27174],
+				"equipname": "Mine Cowraiders Class 2 Card",
+				"effectlist": [
+					{
+						"EffectNumber": 200,
+						"EffectType": { "id": "Atk" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAG(3)?20:0",
+						"EffectType": { "id": "RangedDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('RAPIDSHOWER DESPERADO')?(DOWN(BLV/5)*20):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('MAGAZINE_FOR_ONE')&&WEAG(3)?0.2:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					}
+				]
+			}
+		]
 	}
 ]

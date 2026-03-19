@@ -9527,5 +9527,106 @@
 				"Enable": true
 			}
 		]
+	},
+	{
+		"id": "acc2card",
+		"itemid": 27170,
+		"label": "Acc Card",
+		"equipname": "Cowraiders Class 1 Card",
+		"effectlist": [
+			{
+				"EffectNumber": 7,
+				"EffectType": { "id": "AGI" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [27171],
+				"equipname": "Cowraiders Class 2 Card",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": { "id": "STR" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": 3,
+						"EffectType": { "id": "AtkPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "acc1card",
+		"itemid": 27171,
+		"label": "Acc Card",
+		"equipname": "Cowraiders Class 2 Card",
+		"effectlist": [
+			{
+				"EffectNumber": 4,
+				"EffectType": { "id": "STR" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": { "id": "AtkPercent" },
+				"Enable": true
+			}
+		]
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 27173,
+		"label": "Weapon Card",
+		"equipname": "Mine Cowraiders Class 1 Card",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS('SPREADATTACK')?(10+(WEAR>9?20:0)+(WEAR>13?20:0)):0",
+				"EffectType": { "id": "SkillDamagePercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [27170],
+				"equipname": "Cowraiders Class 1 Card",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS('SPREADATTACK')?(50):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 27174,
+		"label": "Weapon Card",
+		"equipname": "Mine Cowraiders Class 2 Card",
+		"effectlist": [
+			{
+				"EffectNumber": "SKIDS('RAPIDSHOWER')?(10+(WEAR>9?20:0)+(WEAR>13?20:0)):0",
+				"EffectType": { "id": "SkillDamagePercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [27171],
+				"equipname": "Cowraiders Class 2 Card",
+				"effectlist": [
+					{
+						"EffectNumber": "SKIDS('RAPIDSHOWER')?(50):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
 	}
 ]
