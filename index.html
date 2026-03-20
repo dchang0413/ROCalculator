@@ -15462,7 +15462,7 @@
                     return Object.keys(this.enchantLabelToEquip).find(x => this.enchantLabelToEquip[x].includes(index));
                 },
                 getEnchantWithEffects(start, end) {
-                    const enchants = this.equipspartlist.slice(start, end).filter(x => (x.effectlist.length > 0 || x.combolist.find(y => y.effectlist.length>0));
+                    const enchants = this.equipspartlist.slice(start, end).filter(x => (x.effectlist.length > 0 || x.combolist.find(y => y.effectlist.length>0)));
                     return enchants;
                 },
                 getSkillDPS(){
