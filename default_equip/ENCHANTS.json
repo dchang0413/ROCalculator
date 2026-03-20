@@ -16026,7 +16026,7 @@
 						"Enable": true
 					},
 					{
-						"EffectNumber": "(SKIDS(\"ETERNAL_SLASH\")?((5*DOWN(WEAR/2))+((WEAG(2)&&WEAR>11)?20:0)):0)+(SKIDS(\"SAVAGE_IMPACT\")?((5*DOWN(WEAR/2))+((WEAG(2)&&WEAR>11)?20:0)):0)",
+						"EffectNumber": "(SKIDS(\"ETERNAL_SLASH SAVAGE_IMPACT\")?((5*DOWN(WEAR/2))+((WEAG(2)&&WEAR>11)?20:0)):0)",
 						"EffectType": {"id": "SkillDamagePercent"},
 						"Enable": true
 					},
@@ -16040,5 +16040,301 @@
 		],
 		"flags": "",
 		"idx": 3
+	},
+	{
+		"id": "acc13",
+		"itemid": 300785,
+		"label": "Accessory Enchant",
+		"equipname": "Shinkiro & Shiranui Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [650028],
+				"equipname": "Dim Glacier Huuma Shuriken",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": { "id": "CriDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('KAGEGISSEN')?((DOWN(WEAR/2)*5)+((WEAG(2)&&(WEAR>11))?20:0)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS('KAGEGISSEN')&&WEAG(2))?0.35:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "acc11",
+		"itemid": 314811,
+		"label": "Accessory Enchant",
+		"equipname": "Abyss Chaser Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [510075],
+				"equipname": "Dim Glacier Rogue Knife",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "ElementalAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('ABYSS_SQUARE JACK_FROST_NOVA')?((DOWN(WEAR/2)*4)+((WEAG(2)&&(WEAR>11))?20:0)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS('ABYSS_SQUARE')&&WEAG(2))?1:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "acc13",
+		"itemid": 314812,
+		"label": "Accessory Enchant",
+		"equipname": "Inquisitor Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [560037],
+				"equipname": "Dim Glacier Knuckle",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": { "id": "ElementalAtkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('THIRD_FLAME_BOMB')?((DOWN(WEAR/2)*4)+((WEAG(2)&&(WEAR>11))?15:0)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAG(2)?15:0",
+						"EffectType": { "id": "HPPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "acc13",
+		"itemid": 314821,
+		"label": "Accessory Enchant",
+		"equipname": "Windhawk Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [700059],
+				"equipname": "Dim Glacier Bow",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": { "id": "CriDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS('HAWK_RUSH')?((DOWN(WEAR/2)*5)+((WEAG(2)&&(WEAR>11))?20:0)):0)+(SKIDS('SHARPSHOOTING')?((DOWN(WEAR/2)*20)+((WEAG(2)&&(WEAR>11))?50:0)):0)",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "acc13",
+		"itemid": 314904,
+		"label": "Accessory Enchant",
+		"equipname": "Cardinal Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_any": [590047, 540056],
+				"equipname": "Dim Glacier Book/Dim Glacier Mace",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": { "id": "CriDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('PETITIO')?((DOWN(WEAR/2)*4)+((WEAG(2)&&(WEAR>11))?15:0)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "acc13",
+		"itemid": 314905,
+		"label": "Accessory Enchant",
+		"equipname": "Meister Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [590048],
+				"equipname": "Dim Glacier Mechanic Mace",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": { "id": "RangedDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('SPARK_BLASTER')?((DOWN(WEAR/2)*4)+((WEAG(2)&&(WEAR>11))?15:0)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAG(2)&&SKIDS('SPARK_BLASTER')?0.35:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "acc13",
+		"itemid": 314906,
+		"label": "Accessory Enchant",
+		"equipname": "Troubadour & Trouvere Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_any": [570032, 580033],
+				"equipname": "Dim Glacier Whip/Dim Glacier Violin",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": { "id": "RangedDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('RHYTHMSHOOTING')?((DOWN(WEAR/2)*4)+((WEAG(2)&&(WEAR>11))?15:0)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAG(2)&&SKIDS('RHYTHMSHOOTING')?0.15:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "acc13",
+		"itemid": 314985,
+		"label": "Accessory Enchant",
+		"equipname": "Arch Mage Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [640034],
+				"equipname": "Dim Glacier Staff",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": { "id": "ElementalMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS('MYSTERY_ILLUSION')?((DOWN(WEAR/2)*5)+((WEAG(2)&&(WEAR>11))?20:0)):0)+(SKIDS('COMET')?((DOWN(WEAR/2)*20)+((WEAG(2)&&(WEAR>11))?50:0)):0)",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS('MYSTERY_ILLUSION')?((WEAG(2)?(WEAR>11?3.3:1.65):0)):0)+(SKIDS('COMET')&&WEAG(2)&&(WEAR>11)?20:0)",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [550089],
+				"equipname": "Dim Glacier Wand",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": { "id": "ElementalMatkPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS('MYSTERY_ILLUSION')?((DOWN(WEAR/2)*4)+((WEAG(2)&&(WEAR>11))?15:0)):0)+(SKIDS('COMET')?((DOWN(WEAR/2)*10)+((WEAG(2)&&(WEAR>11))?25:0)):0)",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS('MYSTERY_ILLUSION')?((WEAG(2)?(WEAR>11?3:1.5):0)):0)",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "acc13",
+		"itemid": 314986,
+		"label": "Accessory Enchant",
+		"equipname": "Dragon Knight Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_any": [630019, 600030],
+				"equipname": "Dim Glacier Two-handed Sword/Dim Glacier Lance",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": { "id": "RangedDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS('DRAGONIC_BREATH')?((DOWN(WEAR/2)*5)+((WEAG(2)&&(WEAR>11))?20:0)):0)",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('DRAGONIC_BREATH')&&WEAG(2)?0.25:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('DRAGONIC_BREATH')&&WEAG(2)&&(WEAR>11)?100:0",
+						"EffectType": { "id": "SPSkillVariableCastPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAG(2)&&(WEAR>11)?10:0",
+						"EffectType": { "id": "HPPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAG(2)&&(WEAR>11)?10:0",
+						"EffectType": { "id": "SPPercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
 	}
 ]
