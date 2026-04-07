@@ -1760,5 +1760,124 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "armor",
+		"itemid": 0,
+		"label": "Armor",
+		"equipname": "Novice Follower Suit",
+		"refinelevel": 14,
+		"grade": { "id": 4, "label": "A" },
+		"effectlist": [
+			{
+				"EffectNumber": "(7*DOWN(ARMORR/2))",
+				"EffectType": { "id": "STR" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(7*DOWN(ARMORR/2))",
+				"EffectType": { "id": "VIT" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORG(4)?30:0",
+				"EffectType": { "id": "AllStatus" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>11?15:(ARMORR>8?5:0))+(ARMORG(1)?5:0)",
+				"EffectType": { "id": "POW" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "200+(ARMORG(1)?100:0)",
+				"EffectType": { "id": "Atk" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10*DOWN(ARMORR/3))+(ARMORR>9?20:0)",
+				"EffectType": { "id": "SizeAtkPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('CART_TORNADO')?(ARMORR>13?150:(ARMORR>12?50:0)):0",
+				"EffectType": { "id": "SkillDamagePercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "SKIDS('CART_TORNADO')?(ARMORR>12?2:(ARMORR>1?1:0)):0",
+				"EffectType": { "id": "CDTime" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "10+(ARMORG(3)?15:0)",
+				"EffectType": { "id": "GCDPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": { "id": "ASPD" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(CCL==='SN'?20:0)+(7*DOWN(ARMORR/2))",
+				"EffectType": { "id": "HPPercent" },
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(CCL==='SN'?20:0)",
+				"EffectType": { "id": "SPPercent" },
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [4054],
+				"equipname": "Angeling Card",
+				"effectlist": [
+					{
+						"EffectNumber": "ARMORR>12?20:0",
+						"EffectType": { "id": "STR" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "ARMORG(4)?300:0",
+						"EffectType": { "id": "VIT" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "ARMORR>12?200:0",
+						"EffectType": { "id": "Atk" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('CART_TORNADO')&&ARMORR>13?50:0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [4174],
+				"equipname": "Deviling Card",
+				"effectlist": [
+					{
+						"EffectNumber": "ARMORR>12?30:0",
+						"EffectType": { "id": "VIT" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('CART_TORNADO')&&ARMORR>13?50:0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "ARMORR>12?30000:0",
+						"EffectType": { "id": "HP" },
+						"Enable": true
+					}
+				]
+			}
+		]
 	}
 ]
