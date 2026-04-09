@@ -17351,9 +17351,9 @@
                                 itemid: value.itemid ? value.itemid : 0,
                                 label: value.label,
                                 equipname: value.equipname,
-                                effectlist: Object.values(value.effectlist),
-                                combolist: value.combolist ? Object.values(value.combolist) : [],
-                                flags: value.flags ? value.flags : [],
+                                effectlist: Object.values(value.effectlist ?? []),
+                                combolist: Object.values(value.combolist ?? []),
+                                flags:value.flags ?? [],
                             },
                             date: Date.now(),
                         });
