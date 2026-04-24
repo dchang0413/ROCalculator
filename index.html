@@ -5867,7 +5867,7 @@
                                                 <el-col :span="6" style="text-align: right;">
                                                     <span>Refine</span>
                                                 </el-col>
-                                                <el-col :span="6">
+                                                <el-col :span="3">
                                                     <div>
                                                         <el-input-number v-model="weapon.refinelevel" :min="0" :max="20" :step="0" class="no-controls"
                                                             v-on:input="onChangeRefineLevel" placeholder="Refine">
@@ -6568,7 +6568,7 @@
                                             <el-col :span="6" style="text-align: right;">
                                                 <span>Refine</span>
                                             </el-col>
-                                            <el-col :span="6">
+                                            <el-col :span="3">
                                                 <div>
                                                     <el-input-number v-model="subweapon.refinelevel" :min="0" :max="20" :step="0" class="no-controls"
                                                         v-on:input="onChangeRefineLevel" placeholder="Refine">
@@ -7331,13 +7331,13 @@
                                                 </el-button>
                                             </el-col>
                                         </el-row>
-                                        <el-row v-if="eqindex==0 || (eqindex > 2 && eqindex < 6)"
+                                        <el-row v-if="eqindex==0 || (eqindex > 2 && eqindex < 8)"
                                             v-show="UIPanel[item.id+'Panel']" class="effectline" :gutter="4" type="flex"
                                             align="middle">
                                             <el-col :span="6" style="text-align: right;">
                                                 <span>Refine</span>
                                             </el-col>
-                                            <el-col :span="6">
+                                            <el-col :span="3">
                                                 <div>
                                                     <el-input-number v-model="equipspartlist[eqindex+2].refinelevel" :min="0" :max="20" :step="0" class="no-controls"
                                                         v-on:input="CombineEquipsAttribute" placeholder="Refine">
@@ -7761,7 +7761,7 @@
                                             <el-col :span="6" style="text-align: right;">
                                                 <span>Refine</span>
                                             </el-col>
-                                            <el-col :span="6">
+                                            <el-col :span="3">
                                                 <div>
                                                     <el-input-number v-model="equipspartlist[eqindex+37].refinelevel" :min="0" :max="10" :step="0" class="no-controls"
                                                         v-on:input="CombineEquipsAttribute" placeholder="Refine">
@@ -12812,6 +12812,8 @@
                 checkArmorGradeReq(grade) { return this.checkGradeReq(5, grade); },
                 checkGarmGradeReq(grade) { return this.checkGradeReq(6, grade); },
                 checkShoeGradeReq(grade) { return this.checkGradeReq(7, grade); },
+                checkAccLGradeReq(grade) { return this.checkGradeReq(8, grade); },
+                checkAccRGradeReq(grade) { return this.checkGradeReq(9, grade); },
                 checkGradeReq(index, grade) {
                     var gradeVal = typeof (grade) == 'number' ? grade : this.getGradeVal(grade);
                     return this.equipspartlist[index].grade?.id >= gradeVal;
@@ -14858,6 +14860,8 @@
                             ARMORR: [5, 22, 63, 64, 65],
                             GARMR: [6, 23, 66, 67, 68],
                             SHOER: [7, 24, 69, 70, 71],
+                            BACCRR: [8, 25, 72, 73, 74],
+                            BACCLR: [9, 26, 75, 76, 77],
                             SHWEAR: [37, 78, 79],
                             SHSHIER: [38, 80, 81],
                             SHARMORR: [39, 82, 83],
@@ -14872,7 +14876,10 @@
                             ARMORG: [5, 22, 63, 64, 65],
                             GARMG: [6, 23, 66, 67, 68],
                             SHOEG: [7, 24, 69, 70, 71],
+                            BACCRG: [8, 25, 72, 73, 74],
+                            BACCLG: [9, 26, 75, 76, 77],
                         }
+                        
                         dataToLoad.equip.effectlist.forEach(x => {
                             if (typeof x.EffectNumber === "string") {
                                 x.EffectNumber = x.EffectNumber.replace("SLOTR", Object.entries(mapIdxesRefine).find(([_, idxes]) => idxes.includes(idx))?.[0] || 0);
@@ -16933,12 +16940,16 @@
                         { str1: 'SHSHOER', str2: 'this.equipspartlist[40].refinelevel', description: 'shadow shoes refine' },
                         { str1: 'SHACCRR', str2: 'this.equipspartlist[41].refinelevel', description: 'shadow accessory right refine' },
                         { str1: 'SHACCLR', str2: 'this.equipspartlist[42].refinelevel', description: 'shadow accessory left refine' },
+                        { str1: 'BACCRR', str2: 'this.equipspartlist[8].refinelevel', description: 'base accessory right refine' },
+                        { str1: 'BACCLR', str2: 'this.equipspartlist[9].refinelevel', description: 'base accessory left refine' },
                         { str1: 'WEAG', str2: 'this.checkWeapGradeReq', description: 'Weapon grade WEAG(\'A\') or WEAG(4) will return true if grade is A or higher' },
                         { str1: 'SWEAG', str2: 'this.checkSubWeapGradeReq', description: 'Subweapon grade SWEAG(\'A\') or SWEAG(4) will return true if grade is A or higher' },
                         { str1: 'HATG', str2: 'this.checkHatGradeReq', description: 'Hat grade HATG(\'A\') or HATG(4) will return true if grade is A or higher' },
                         { str1: 'ARMORG', str2: 'this.checkArmorGradeReq', description: 'Armor grade ARMORG(\'A\') or ARMORG(4) will return true if grade is A or higher' },
                         { str1: 'GARMG', str2: 'this.checkGarmGradeReq', description: 'Garment grade GARMG(\'A\') or GARMG(4) will return true if grade is A or higher' },
                         { str1: 'SHOEG', str2: 'this.checkShoeGradeReq', description: 'Shoe grade SHOEG(\'A\') or SHOEG(4) will return true if grade is A or higher' },
+                        { str1: 'BACCRG', str2: 'this.checkAccLGradeReq', description: 'base accessory right grade' },
+                        { str1: 'BACCLG', str2: 'this.checkAccRGradeReq', description: 'base accessory left grade' },
                         { str1: 'CRW', str2: 'this.skilloption.CarWeight', description: 'cart weight' },
                         { str1: 'ELV', str2: 'this.enemyattribute.level', description: 'enemy lvl' },
                         { str1: 'ESIZE', str2: 'this.enemyattribute.size', description: 'enemy size' },
@@ -16956,7 +16967,7 @@
                         { str1: 'MAX', str2: 'Math.max', description: 'MAX(A,B)Cap between 2 values' },
                         { str1: 'MUL', str2: 'this.MulOper', description: '*Internal usage* MUL(A,B) = A*B, if B>1 then floor result, if B<1 then ceil result' },
                         { str1: 'SLOTR', str2: '0', description: '*Internal usage*' },
-                        { str1: 'SLOTG', str2: '', description: '*Internal usage*' },
+                        { str1: 'SLOTG', str2: '0', description: '*Internal usage*' },
                         { str1: 'SLOT', str2: '', description: '*Internal usage*' },
                     );
 
