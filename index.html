@@ -12986,9 +12986,10 @@
                     this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk3_max, Number(this.skilloption.ElementalPercent / 100));
                     this.setRecord('Elemental Advatage', [this.computeattribute.matk4_min, this.computeattribute.matk4_max], 'x', Number(this.skilloption.ElementalPercent / 100), 'p');
 
-                    this.computeattribute.matk4_min = this.MulOper(this.computeattribute.matk4_min, Number(1) + Number(this.computeattribute['SpecialMATK3'] / 100));
-                    this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk4_max, Number(1) + Number(this.computeattribute['SpecialMATK3'] / 100));
-                    this.setRecord('Skill Specific Mod', [this.computeattribute.matk4_min, this.computeattribute.matk4_max], 'x', Number(1) + Number(this.computeattribute['SpecialMATK3'] / 100), 'p');
+                    const SpecialMATK3 = this.computeattribute['SpecialMATK3'] + this.skill.SpecialMATK3;
+                    this.computeattribute.matk4_min = this.MulOper(this.computeattribute.matk4_min, Number(1) + Number(SpecialMATK3 / 100));
+                    this.computeattribute.matk4_max = this.MulOper(this.computeattribute.matk4_max, Number(1) + Number(SpecialMATK3 / 100));
+                    this.setRecord('Skill Specific Mod', [this.computeattribute.matk4_min, this.computeattribute.matk4_max], 'x', Number(1) + Number(SpecialMATK3 / 100), 'p');
 
 
                     if (this.skill.id.includes('SO_SPELLFIST')) {
