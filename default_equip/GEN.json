@@ -20378,6 +20378,207 @@
 		]
 	},
 	{
+		"id": "shadowarmor",
+		"itemid": 24245,
+		"label": "S.Armor",
+		"equipname": "Reload Shadow Armor",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "1+(SHARMORR>6?1:0)+(SHARMORR>8?1:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24244,
+					24243
+				],
+				"itemid_any": [],
+				"equipname": "Reload Shadow Armor + Reload Shadow Shield + Reload Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": "1+((SHARMORR+SHSHIER+SHSHOER)>24?5:0)",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 24331,
+		"label": "S.Armor",
+		"equipname": "Reload Shadow Armor II",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "VIT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(SHARMORR/3)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24244,
+					24243
+				],
+				"itemid_any": [],
+				"equipname": "Reload Shadow Armor II + Reload Shadow Shield + Reload Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": "1+((SHARMORR+SHSHIER+SHSHOER)>24?5:0)",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowshld",
+		"itemid": 24244,
+		"label": "S.Shield",
+		"equipname": "Reload Shadow Shield",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "1+(SHSHIER>6?1:0)+(SHSHIER>8?1:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24245,
+					24243
+				],
+				"itemid_any": [],
+				"equipname": "Reload Shadow Armor + Reload Shadow Shield + Reload Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": "1+((SHARMORR+SHSHIER+SHSHOER)>24?5:0)",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24331,
+					24243
+				],
+				"itemid_any": [],
+				"equipname": "Reload Shadow Armor II + Reload Shadow Shield + Reload Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": "1+((SHARMORR+SHSHIER+SHSHOER)>24?5:0)",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 24243,
+		"label": "S.Shoes",
+		"equipname": "Reload Shadow Shoes",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "1+(SHSHOER>6?1:0)+(SHSHOER>8?1:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24245,
+					24244
+				],
+				"itemid_any": [],
+				"equipname": "Reload Shadow Armor + Reload Shadow Shield + Reload Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": "1+((SHARMORR+SHSHIER+SHSHOER)>24?5:0)",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24331,
+					24244
+				],
+				"itemid_any": [],
+				"equipname": "Reload Shadow Armor II + Reload Shadow Shield + Reload Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": "1+((SHARMORR+SHSHIER+SHSHOER)>24?5:0)",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
 		"id": "shadow",
 		"itemid": 24078,
 		"label": "S.Weapon",
