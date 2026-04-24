@@ -2250,6 +2250,14 @@
                                 <td>DPS</td>
                                 <td>{{clone.dps|currency}}</td>
                             </tr>
+                            <tr>
+                                <td>{{clone.dps && this.getSkillDPS() ?`${((this.getSkillDPS()/clone.dps)*100).toFixed(2)}%` : 'n/a%'}} <br>
+                                    (<span :class="this.getSkillDPS()/clone.dps>=1 ? 'positiveDiff' : 'negativeDiff'">
+                                        {{(Math.abs(100-((this.getSkillDPS()/clone.dps)*100)).toFixed(2))}}%
+                                    </span>)</td>
+                                <td>DPS %</td>
+                                <td>{{`${clone.dps ? '100' : 'n/a'}%`}}</td>
+                            </tr>
                             <tr v-if="clone.enemyattribute">
                                 <td>{{ enemyattribute.hp / this.getSkillDPS() | damageToTimeFull }}<br>
                                     (<span
