@@ -20378,6 +20378,137 @@
 		]
 	},
 	{
+		"id": "armor",
+		"itemid": 15396,
+		"label": "Armor",
+		"equipname": "Silver Dragon Plate",
+		"refinelevel": 11,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 12,
+				"EffectType": {
+					"id": "LUK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(ARMORR/2)",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "4*DOWN(ARMORR/2)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ERI==4)?(7*DOWN(ARMORR/3)):0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>10&&(ESIZE==1||ESIZE==2))?10:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>10?0.2:0",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					20946,
+					22208
+				],
+				"itemid_any": [],
+				"equipname": "Dragon Scale Hood + Dragon Scale Boots",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "2*DOWN(BLU/15)",
+						"EffectType": {
+							"id": "Cri"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "3*DOWN(BLU/15)",
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "BLU>119?17:7",
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "BLU>119?17:7",
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ARMORR+GARMR+SHOER)>32?20:0",
+						"EffectType": {
+							"id": "AspdPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ARMORR+GARMR+SHOER)>32?25:0",
+						"EffectType": {
+							"id": "GCDPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
 		"id": "shoes",
 		"itemid": 22208,
 		"label": "Shoes",
