@@ -16336,5 +16336,50 @@
 				]
 			}
 		]
+	},
+	{
+		"id": "acc13",
+		"itemid": 315109,
+		"label": "Accessory Enchant",
+		"equipname": "Imperial Guard Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [530034],
+				"equipname": "Dim Glacier Spear",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": { "id": "RangedDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('SHIELD_SHOOTING')?(4*DOWN(WEAR/2)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('CANNONSPEAR')?(20*DOWN(WEAR/2)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('SHIELD_SHOOTING')&&WEAG(2)?0.5:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('SHIELD_SHOOTING')&&WEAG(2)&&WEAR>11?15:0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('CANNONSPEAR')&&WEAG(2)&&WEAR>11?50:0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
 	}
 ]
