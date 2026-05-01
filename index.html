@@ -2233,6 +2233,11 @@
                             <tr style='background-color:#f4f097;'>
                                 <td colspan=3>DPS Comparison</td>
                             </tr>
+                            <tr v-if="clone.SkillName!=this.skill.name">
+                                <td>{{this.skill.name}}</td>
+                                <td>Skill</td>
+                                <td>{{clone.SkillName}}</td>
+                            </tr>
                             <tr>
                                 <td>{{this.getSkillDamageAvg()|currency}}<br>
                                     (<span
