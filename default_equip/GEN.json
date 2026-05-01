@@ -20272,137 +20272,98 @@
 				"Enable": true
 			}
 		],
-		"combolist": []
-	},
-	{
-		"id": "acc",
-		"itemid": 490957,
-		"label": "Accessory",
-		"equipname": "Enhanced Restoration Ring",
-		"refinelevel": 12,
-		"grade": {
-			"id": 4,
-			"label": "A"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": 10,
-				"EffectType": {
-					"id": "AllStatus"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": 12,
-				"EffectType": {
-					"id": "HPPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "DOWN(SLOTR/4)*5",
-				"EffectType": {
-					"id": "MeleeDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "DOWN(SLOTR/4)*5",
-				"EffectType": {
-					"id": "RangedDamagePercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "DOWN(SLOTR/4)*5",
-				"EffectType": {
-					"id": "ElementalMagicPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SLOTR>11?8:0",
-				"EffectType": {
-					"id": "ElementalAtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SLOTR>11?8:0",
-				"EffectType": {
-					"id": "ElementalMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SLOTG(1)?8:0",
-				"EffectType": {
-					"id": "PATK"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SLOTG(1)?8:0",
-				"EffectType": {
-					"id": "SMATK"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SLOTG(2)?80:0",
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SLOTG(2)?80:0",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SLOTG(3)?12:0",
-				"EffectType": {
-					"id": "SizeAtkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "SLOTG(3)?12:0",
-				"EffectType": {
-					"id": "SizeMatkPercent"
-				},
-				"Enable": true
-			}
-		],
 		"combolist": [
 			{
 				"itemid_every": [
-					4372
+					4127
 				],
 				"itemid_any": [],
-				"equipname": "White Lady Card",
+				"equipname": "Nightmare Card",
 				"effectlist": [
 					{
-						"EffectNumber": 20,
+						"EffectNumber": 10,
 						"EffectType": {
-							"id": "RaceAtkPercent"
+							"id": "ElementalAtkPercent"
 						},
 						"Enable": true
 					},
 					{
-						"EffectNumber": 20,
+						"EffectNumber": 10,
 						"EffectType": {
-							"id": "RaceMatkPercent"
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27101
+				],
+				"itemid_any": [],
+				"equipname": "Sweet Nightmare Card",
+				"effectlist": [
+					{
+						"EffectNumber": 8,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>11?30:0",
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4166
+				],
+				"itemid_any": [],
+				"equipname": "Nightmare Terror Card",
+				"effectlist": [
+					{
+						"EffectNumber": 8,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SHOER>11?30:0",
+						"EffectType": {
+							"id": "SizeAtkPercent"
 						},
 						"Enable": true
 					}
 				]
 			}
-		],
-		"idx": 3
+		]
 	},
 	{
 		"id":"acc2",
@@ -20508,164 +20469,69 @@
 		]
 	},
 	{
-		"id": "shadowarmor",
-		"itemid": 24245,
-		"label": "S.Armor",
-		"equipname": "Reload Shadow Armor",
-		"refinelevel": 10,
+		"id": "armor",
+		"itemid": 15396,
+		"label": "Armor",
+		"equipname": "Silver Dragon Plate",
+		"refinelevel": 11,
 		"grade": {
 			"id": 0,
 			"label": "No Grade"
 		},
 		"effectlist": [
 			{
-				"EffectNumber": "1+(SHARMORR>6?1:0)+(SHARMORR>8?1:0)",
+				"EffectNumber": 12,
 				"EffectType": {
-					"id": "GCDPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [
-			{
-				"itemid_every": [
-					24244,
-					24243
-				],
-				"itemid_any": [],
-				"equipname": "Reload Shadow Armor + Reload Shadow Shield + Reload Shadow Shoes",
-				"effectlist": [
-					{
-						"EffectNumber": "1+((SHARMORR+SHSHIER+SHSHOER)>24?5:0)",
-						"EffectType": {
-							"id": "GCDPercent"
-						},
-						"Enable": true
-					}
-				]
-			}
-		],
-		"idx": 3
-	},
-	{
-		"id": "shadowarmor",
-		"itemid": 24331,
-		"label": "S.Armor",
-		"equipname": "Reload Shadow Armor II",
-		"refinelevel": 10,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": 3,
-				"EffectType": {
-					"id": "VIT"
+					"id": "LUK"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "DOWN(SHARMORR/3)",
+				"EffectNumber": 15,
 				"EffectType": {
-					"id": "GCDPercent"
+					"id": "HPPercent"
 				},
 				"Enable": true
-			}
-		],
-		"combolist": [
-			{
-				"itemid_every": [
-					24244,
-					24243
-				],
-				"itemid_any": [],
-				"equipname": "Reload Shadow Armor II + Reload Shadow Shield + Reload Shadow Shoes",
-				"effectlist": [
-					{
-						"EffectNumber": "1+((SHARMORR+SHSHIER+SHSHOER)>24?5:0)",
-						"EffectType": {
-							"id": "GCDPercent"
-						},
-						"Enable": true
-					}
-				]
-			}
-		],
-		"idx": 3
-	},
-	{
-		"id": "shadowshld",
-		"itemid": 24244,
-		"label": "S.Shield",
-		"equipname": "Reload Shadow Shield",
-		"refinelevel": 10,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "1+(SHSHIER>6?1:0)+(SHSHIER>8?1:0)",
-				"EffectType": {
-					"id": "GCDPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [
-			{
-				"itemid_every": [
-					24245,
-					24243
-				],
-				"itemid_any": [],
-				"equipname": "Reload Shadow Armor + Reload Shadow Shield + Reload Shadow Shoes",
-				"effectlist": [
-					{
-						"EffectNumber": "1+((SHARMORR+SHSHIER+SHSHOER)>24?5:0)",
-						"EffectType": {
-							"id": "GCDPercent"
-						},
-						"Enable": true
-					}
-				]
 			},
 			{
-				"itemid_every": [
-					24331,
-					24243
-				],
-				"itemid_any": [],
-				"equipname": "Reload Shadow Armor II + Reload Shadow Shield + Reload Shadow Shoes",
-				"effectlist": [
-					{
-						"EffectNumber": "1+((SHARMORR+SHSHIER+SHSHOER)>24?5:0)",
-						"EffectType": {
-							"id": "GCDPercent"
-						},
-						"Enable": true
-					}
-				]
-			}
-		],
-		"idx": 3
-	},
-	{
-		"id": "shadowshoe",
-		"itemid": 24243,
-		"label": "S.Shoes",
-		"equipname": "Reload Shadow Shoes",
-		"refinelevel": 10,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "1+(SHSHOER>6?1:0)+(SHSHOER>8?1:0)",
+				"EffectNumber": 15,
 				"EffectType": {
-					"id": "GCDPercent"
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*DOWN(ARMORR/2)",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "4*DOWN(ARMORR/2)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ERI==4)?(7*DOWN(ARMORR/3)):0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>10&&(ESIZE==1||ESIZE==2))?10:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>10?0.2:0",
+				"EffectType": {
+					"id": "FixedCast"
 				},
 				"Enable": true
 			}
@@ -20673,31 +20539,56 @@
 		"combolist": [
 			{
 				"itemid_every": [
-					24245,
-					24244
+					20946,
+					22208
 				],
 				"itemid_any": [],
-				"equipname": "Reload Shadow Armor + Reload Shadow Shield + Reload Shadow Shoes",
+				"equipname": "Dragon Scale Hood + Dragon Scale Boots",
 				"effectlist": [
 					{
-						"EffectNumber": "1+((SHARMORR+SHSHIER+SHSHOER)>24?5:0)",
+						"EffectNumber": 5,
 						"EffectType": {
-							"id": "GCDPercent"
+							"id": "AtkPercent"
 						},
 						"Enable": true
-					}
-				]
-			},
-			{
-				"itemid_every": [
-					24331,
-					24244
-				],
-				"itemid_any": [],
-				"equipname": "Reload Shadow Armor II + Reload Shadow Shield + Reload Shadow Shoes",
-				"effectlist": [
+					},
 					{
-						"EffectNumber": "1+((SHARMORR+SHSHIER+SHSHOER)>24?5:0)",
+						"EffectNumber": "2*DOWN(BLU/15)",
+						"EffectType": {
+							"id": "Cri"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "3*DOWN(BLU/15)",
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "BLU>119?17:7",
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "BLU>119?17:7",
+						"EffectType": {
+							"id": "CriDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ARMORR+GARMR+SHOER)>32?20:0",
+						"EffectType": {
+							"id": "AspdPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(ARMORR+GARMR+SHOER)>32?25:0",
 						"EffectType": {
 							"id": "GCDPercent"
 						},
@@ -20709,98 +20600,39 @@
 		"idx": 3
 	},
 	{
-		"id": "shadow",
-		"itemid": 24078,
-		"label": "S.Weapon",
-		"equipname": "Spiritual Shadow Weapon",
-		"refinelevel": 10,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [],
-		"combolist": [
-			{
-				"itemid_every": [
-					24079,
-					24080
-				],
-				"itemid_any": [],
-				"equipname": "Spiritual Shadow Set",
-				"effectlist": []
-			}
-		],
-		"idx": 3
-	},
-	{
-		"id": "shadowearring",
-		"itemid": 24079,
-		"label": "S.Earring",
-		"equipname": "Spiritual Shadow Earring",
-		"refinelevel": 10,
+		"id": "shoes",
+		"itemid": 22208,
+		"label": "Shoes",
+		"equipname": "Dragon Scale Boots",
+		"refinelevel": 11,
 		"grade": {
 			"id": 0,
 			"label": "No Grade"
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 50,
+				"EffectNumber": 500,
 				"EffectType": {
 					"id": "SP"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "SHACCRR>6?1:0",
+				"EffectNumber": 7,
 				"EffectType": {
-					"id": "SPPercent"
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 7,
+				"EffectType": {
+					"id": "VariableCastPercent"
 				},
 				"Enable": true
 			}
 		],
-		"combolist": [
-			{
-				"itemid_every": [
-					24078,
-					24080
-				],
-				"itemid_any": [],
-				"equipname": "Spiritual Shadow Earring + Spiritual Shadow Pendant",
-				"effectlist": []
-			}
-		],
-		"idx": 3
-	},
-	{
-		"id": "shadowpendant",
-		"itemid": 24080,
-		"label": "S.Pendant",
-		"equipname": "Spiritual Shadow Pendant",
-		"refinelevel": 10,
-		"grade": {
-			"id": 0,
-			"label": "No Grade"
-		},
-		"effectlist": [
-			{
-				"EffectNumber": "1+(SHACCLR>6?1:0)",
-				"EffectType": {
-					"id": "SPPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [
-			{
-				"itemid_every": [
-					24078,
-					24079
-				],
-				"itemid_any": [],
-				"equipname": "Spiritual Shadow Earring + Spiritual Shadow Pendant",
-				"effectlist": []
-			}
-		],
+		"combolist": [],
 		"idx": 3
 	}
 ]
