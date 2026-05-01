@@ -16354,5 +16354,121 @@
 				]
 			}
 		]
+	},
+	{
+		"id": "acc13",
+		"itemid": 315109,
+		"label": "Accessory Enchant",
+		"equipname": "Imperial Guard Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_every": [530034],
+				"equipname": "Dim Glacier Spear",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": { "id": "RangedDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('SHIELD_SHOOTING')?(4*DOWN(WEAR/2)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('CANNONSPEAR')?(20*DOWN(WEAR/2)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('SHIELD_SHOOTING')&&WEAG(2)?0.5:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('SHIELD_SHOOTING')&&WEAG(2)&&WEAR>11?15:0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('CANNONSPEAR')&&WEAG(2)&&WEAR>11?50:0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "acc13",
+		"itemid": 315110,
+		"label": "Accessory Enchant",
+		"equipname": "Hyper Novice Dim Crystal",
+		"effectlist": [],
+		"combolist": [
+			{
+				"itemid_any": [500055, 510076],
+				"equipname": "Dim Glacier Basic Sword/Knife",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": { "id": "CriDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('MEGA_SONIC_BLOW')?(4*DOWN(WEAR/2)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('MEGA_SONIC_BLOW')&&WEAG(2)?0.15:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('MEGA_SONIC_BLOW')&&WEAG(2)&&WEAR>11?15:0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [550089],
+				"equipname": "Dim Glacier Wand",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": { "id": "ElementalMagicPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('JACK_FROST_NOVA')?(4*DOWN(WEAR/2)):0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('JACK_FROST_NOVA')&&WEAG(2)?1.5:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('JACK_FROST_NOVA')&&WEAG(2)&&WEAR>11?1:0",
+						"EffectType": { "id": "CDTime" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(EEI==1)&&WEAG(2)&&WEAR>11?20:0",
+						"EffectType": { "id": "ElementalMagicPercent" },
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('JACK_FROST_NOVA')&&WEAG(2)&&WEAR>11?15:0",
+						"EffectType": { "id": "SkillDamagePercent" },
+						"Enable": true
+					}
+				]
+			}
+		]
 	}
 ]
