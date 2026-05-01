@@ -4782,5 +4782,106 @@
 			"refineatk": 0,
 			"refineatk2": 0
 		}
+	},
+	{
+		"id": "acc1",
+		"itemid": 490969,
+		"label": "Accessory",
+		"equipname": "Dim Glacier Ring of Resonance (Imperial Guard)",
+		"effectlist": [
+			{
+				"EffectNumber": 100,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					530034
+				],
+				"itemid_any": [],
+				"equipname": "Dim Glacier Spear",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('SHIELD_SHOOTING')?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAR>9?15:0",
+						"EffectType": {
+							"id": "ElementalAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('SHIELD_SHOOTING')&&WEAR>9?15:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "WEAG(2)?10:0",
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "SKIDS('SHIELD_SHOOTING')&&WEAG(2)?20:0",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"availableEnchants": [
+			[4813, 4826, 4872, 4881, 4834, 4836, 311386, 311388, 311391, 311393],
+			[310697, 310698, 310699, 310700, 310701, 310702, 310703, 310704, 310705, 310706, 310707, 310708, 310709, 310710, 310711, 310712, 310713, 310714, 310715, 310716, 310717, 310718, 310719, 310720, 310721, 310722, 310723, 310724, 310725, 310726],
+			[315109, 314811, 314985, 314904, 314986, 314812, 314905, 300784, 300785, 314906, 314821]
+		]
 	}
 ]
