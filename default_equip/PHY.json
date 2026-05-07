@@ -11553,5 +11553,146 @@
 				]
 			}
 		]
+	},
+	{
+		"id": "acc1",
+		"itemid": -3,
+		"label": "Accessory",
+		"equipname": "Spin Ball",
+		"refinelevel": 14,
+		"grade": {
+			"id": 3,
+			"label": "B"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(15+(3*DOWN(BACCRR/2))+(BACCRR>10?8:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(15+(3*DOWN(BACCRR/2))+(BACCRR>10?8:0))",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BACCRR>6?15:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BACCRR>6?15:0)+(BACCRR>8?15:0))",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BACCRR>7?20:0)+(BACCRG(1)?30:0))",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BACCRR>9?25:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BACCRG(2)?10:0)",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"WINDCUTTER\")?(50+(BACCRR>13?120:0)+(BACCRG(3)?150:0)):0)+(SKIDS(\"ROLLINGCUTTER\")?(BACCRR>7?50:0):0)+(SKIDS(\"CART_TORNADO\")?(BACCRR>9?50:0):0)+(SKIDS(\"AXETORNADO\")?(BACCRR>8?50:0):0))",
+				"EffectType": {	
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4360
+				],
+				"itemid_any": [],
+				"equipname": "Eremes Guile Card",
+				"effectlist": [
+					{
+						"EffectNumber": 7,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"ROLLINGCUTTER\")?70:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4362
+				],
+				"itemid_any": [],
+				"equipname": "Howard Alt-Eisen Card",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"CART_TORNADO AXETORNADO\")?50:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4352
+				],
+				"itemid_any": [],
+				"equipname": "Boss Egnigem Card",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 40,
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

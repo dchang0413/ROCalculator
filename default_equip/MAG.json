@@ -6832,5 +6832,139 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "armor",
+		"itemid": -2,
+		"label": "Armor",
+		"equipname": "November Rain Robe",
+		"refinelevel": 15,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 20000,
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"RAIN_OF_CRYSTAL\")?(5*DOWN(BLV/10)):0)+(SKIDS(\"FROZEN_SLASH\")?(ARMORR>14?100:0):0)+(SKIDS(\"CRYSTAL_IMPACT\")?(ARMORG(4)?50:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"RAIN_OF_CRYSTAL\")?(ARMORR>12?3:0):0)+(SKIDS(\"FROZEN_SLASH\")?(ARMORR>14?0.3:0):0)+(SKIDS(\"CRYSTAL_IMPACT\")?(ARMORG(3)?1:0):0))",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==2?((10*DOWN(ARMORR/2))+(ARMORR>10?20:0)+(ARMORG(2)?20:0)):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(ARMORR/3))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(1)?15:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300359
+				],
+				"itemid_any": [],
+				"equipname": "Ice Gangu Card",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(AEI==2?25:0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					300361
+				],
+				"itemid_any": [],
+				"equipname": "Ice Straw Card",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(AEI==2?25:0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4318
+				],
+				"itemid_any": [],
+				"equipname": "Stormy Knight Card",
+				"effectlist": [
+					{
+						"EffectNumber": 250,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(AEI==2?50:0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
