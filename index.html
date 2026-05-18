@@ -17634,14 +17634,6 @@
                         return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
                     });
                 },
-                SkillFormulaReplace(formula) {
-                    try {
-                        return RODomainHelpers.replaceFormulaKeywords(formula, this.KeywordReplaceList);
-                    } catch (e) {
-                        console.log("錯誤:" + e);
-                        return formula;
-                    }
-                },
                 inputtest(item) {
                     console.log(item);
                 },
