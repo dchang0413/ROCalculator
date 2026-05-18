@@ -9610,7 +9610,9 @@
     </div>
 
 
-
+    <script src="./src/domain/helpers.js"></script>
+    <script src="./src/data/helpers.js"></script>
+    <script src="./src/ui-components.js"></script>
     <script>
         evue = new Vue({
             el: '#App',
@@ -17614,7 +17616,7 @@
                  * Returns a number whose value is limited to the given range.
                  */
                 clamp(value, min, max) {
-                    return Math.min(Math.max(value, min), max);
+                    return RODomainHelpers.clamp(value, min, max);
                 },
                 OpenUrl(urlstring) {
                     window.open(urlstring, '_blank');
@@ -17631,6 +17633,14 @@
                         d = Math.floor(d / 16);
                         return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
                     });
+                },
+                SkillFormulaReplace(formula) {
+                    try {
+                        return RODomainHelpers.replaceFormulaKeywords(formula, this.KeywordReplaceList);
+                    } catch (e) {
+                        console.log("錯誤:" + e);
+                        return formula;
+                    }
                 },
                 inputtest(item) {
                     console.log(item);
@@ -17728,9 +17738,7 @@
                     return row.lastupdate.split('T')[0];
                 },
                 numericSort(a, b) {
-                    const numA = parseFloat(a.damage.match(/\d+/g).join(''));
-                    const numB = parseFloat(b.damage.match(/\d+/g).join(''));
-                    return numA - numB;
+                    return RODataHelpers.sortByDamageString(a, b);
                 },
             },
             filters: {
