@@ -2186,5 +2186,202 @@
 			[310697, 310698, 310699, 310700, 310701, 310702, 310703, 310704, 310705, 310706, 310707, 310708, 310709, 310710, 310711, 310712, 310713, 310714, 310715, 310716, 310717, 310718, 310719, 310720, 310721, 310722, 310723, 310724, 310725, 310726],
 			[314811, 314985, 314904, 314986, 314812, 314905, 300784, 300785, 314906, 314821]
 		]
+	},
+	{
+		"id": "armor",
+		"itemid": -1,
+		"label": "Armor",
+		"equipname": "Kage Follower Suit",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(30+(5*DOWN(ARMORR/2)))",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 30,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(15+(ARMORG(3)?15:0))",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(ARMORR/2))",
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5*DOWN(ARMORR/2))",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((2*DOWN(ARMORR/3))+(BST>109?10:0)+(BPO>89?15:0)+(ARMORR>11?20:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((2*DOWN(ARMORR/3))+(BIN>109?10:0)+(BSP>89?15:0)+(ARMORR>11?20:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BST>109?200:0)+(BPO>89?300:0)+(ARMORG(1)?150:0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((BIN>109?200:0)+(BSP>89?300:0)+(ARMORG(1)?150:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"HUUMA\")?((BST>109?200:0)+(ARMORR>9?DOWN(BLV/2):0)):0)+(SKIDS(\"BAKUENRYU\")?((BIN>109?200:0)+(ARMORR>9?DOWN(BLV/2):0)):0)+(SKIDS(\"ISSEN HUUMARANKA\")?(BST>109?200:0):0)+(SKIDS(\"HYOUSYOURAKU KAMAITACHI\")?(BIN>109?200:0):0)+(SKIDS(\"ANTENPOU SEKIENHOU KINRYUUHOU\")?(BSP>89?200:0):0)+(SKIDS(\"KAGENOMAI KUNAIKAITEN\")?(BPO>89?200:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"HALLUCINATIONWALK\")?(ARMORR>10?180:0):0)+(SKIDS(\"VITUPERATUM\")?(ARMORR>12?4:0):0))",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(2)?20:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(2)?20:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 60,
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300211
+				],
+				"itemid_any": [],
+				"equipname": "Ash Toad Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(AEI==4?35:0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					300216
+				],
+				"itemid_any": [],
+				"equipname": "Lava Toad Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(AEI==1?35:0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					27165
+				],
+				"itemid_any": [],
+				"equipname": "Faceworm Dark Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
