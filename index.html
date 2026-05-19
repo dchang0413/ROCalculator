@@ -2233,7 +2233,7 @@
                             <tr style='background-color:#f4f097;'>
                                 <td colspan=3>DPS Comparison</td>
                             </tr>
-                            <tr v-if="clone.SkillName!=this.skill.name">
+                            <tr>
                                 <td>{{this.skill.name}}</td>
                                 <td>Skill</td>
                                 <td>{{clone.SkillName}}</td>
@@ -17752,10 +17752,10 @@
                     const minutes = Math.floor((val % 3600) / 60);
                     const seconds = val % 60; 
 
-                    if (val < 60) return `${seconds.toFixed(1)} seconds`;;
-                    if (val < 3600) return `${minutes} minute${minutes > 1 ? 's' : ''}`;
+                    if (val < 60) return `${seconds.toFixed(1)} s`;;
+                    if (val < 3600) return `${minutes} min${minutes > 1 ? 's' : ''}`;
                     
-                    return `${hours} hour${hours > 1 ? 's' : ''} ${minutes} minute${minutes > 1 ? 's' : ''}`;
+                    return `${hours} hr${hours > 1 ? 's' : ''} ${minutes} min${minutes > 1 ? 's' : ''}`;
                 },
                 damageToTimeFull(val){
                     if (isNaN(val)) return 'N/A';
@@ -17764,7 +17764,7 @@
                     const minutes = Math.floor((val % 3600) / 60);
                     const seconds = val % 60; 
 
-                    return `${hours} hour${hours > 1 ? 's' : ''} ${minutes} minute${minutes > 1 ? 's' : ''} ${seconds.toFixed(1)} seconds`;
+                    return `${hours} hr${hours > 1 ? 's' : ''} ${minutes} min${minutes > 1 ? 's' : ''} ${seconds.toFixed(1)} s`;
                 }
             },
             computed: {
