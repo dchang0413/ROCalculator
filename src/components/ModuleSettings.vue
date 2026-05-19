@@ -2,11 +2,12 @@
 import type { ModuleDefinition, ModuleUiState } from '@/core/types';
 
 const props = defineProps<{
+  id?: string;
   modules: ModuleDefinition[];
   state: ModuleUiState;
 }>();
 
-const emit = defineEmits<{ update: [state: ModuleUiState] }>();
+const emit = defineEmits<{ close: []; update: [state: ModuleUiState] }>();
 
 function setEnabled(id: string, value: boolean) {
   emit('update', { ...props.state, enabled: { ...props.state.enabled, [id]: value } });
@@ -32,18 +33,19 @@ function compactAll() {
 </script>
 
 <template>
-  <aside class="rounded-2xl border border-white/10 bg-slate-900/80 p-5 shadow-xl shadow-black/20">
+  <aside :id="id" class="rounded-2xl border border-white/10 bg-slate-900/95 p-5 shadow-2xl shadow-black/30">
     <div class="flex items-center justify-between gap-3">
       <div>
         <h2 class="text-lg font-semibold text-white">Module settings</h2>
-        <p class="text-sm text-slate-400">Modules behave like plug-ins: enable only the blocks you want and collapse the rest.</p>
+        <p class="text-sm text-slate-400">Enable only the blocks you want and choose how each one opens.</p>
       </div>
-      <div class="flex shrink-0 gap-2">
-        <button class="focus-ring rounded-lg bg-ragnarok-gold px-3 py-2 text-sm font-semibold text-slate-950" type="button" @click="enableAll">Open all</button>
-        <button class="focus-ring rounded-lg border border-white/10 px-3 py-2 text-sm text-slate-200" type="button" @click="compactAll">Compact</button>
-      </div>
+      <button class="cursor-pointer focus-ring rounded-lg border border-white/10 px-3 py-2 text-sm text-slate-300" type="button" @click="emit('close')">Close</button>
     </div>
-    <div class="mt-4 grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+    <div class="mt-4 flex flex-wrap gap-2">
+      <button class="focus-ring rounded-lg bg-ragnarok-gold px-3 py-2 text-sm font-semibold text-slate-950" type="button" @click="enableAll">Open all</button>
+      <button class="focus-ring rounded-lg border border-white/10 px-3 py-2 text-sm text-slate-200" type="button" @click="compactAll">Compact</button>
+    </div>
+    <div class="mt-4 grid max-h-[65vh] gap-3 overflow-auto pr-1 md:grid-cols-2 xl:grid-cols-3">
       <label v-for="module in modules" :key="module.id" class="rounded-xl border border-white/10 bg-slate-950/70 p-3">
         <span class="flex items-start gap-3">
           <input class="mt-1 accent-ragnarok-gold" type="checkbox" :checked="state.enabled[module.id]" @change="setEnabled(module.id, ($event.target as HTMLInputElement).checked)">
