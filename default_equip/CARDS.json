@@ -9918,5 +9918,113 @@
 		"combolist": [],
 		"flags": [],
 		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300455,
+		"label": "Weapon Card",
+		"equipname": "Copo Card",
+		"effectlist": [
+			{
+				"EffectNumber": "((ESIZE==0?(15+(5*DOWN(WEAR/4))):0)+([0,1].includes(ESIZE)?((WLV==5?12:0)+(4*DOWN(WEAR/3))):0))",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ESIZE==0?(15+(5*DOWN(WEAR/4))):0)+([0,1].includes(ESIZE)?((WLV==5?12:0)+(4*DOWN(WEAR/3))):0))",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "helmcard",
+		"itemid": 300456,
+		"label": "Headgear Card",
+		"equipname": "Icewind Egg Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(3+(HATR>9?4:0))",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300455
+				],
+				"equipname": "Copo Card",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": { 
+							"id": "VariableCastPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300457,
+		"label": "Shoes Card",
+		"equipname": "Grey Icewind Card",
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5+(SHOELV==2?3:0))",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOELV==2?3:0)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOELV==2?3:0)",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300455
+				],
+				"equipname": "Copo Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(ESIZE==2?(10+(3*DOWN(SHOER/2))):0)",
+						"EffectType": { 
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
 	}
 ]

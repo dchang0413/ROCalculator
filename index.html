@@ -7366,6 +7366,23 @@
                                             <el-col :span="5" style="text-align: right;">
                                             </el-col>
                                         </el-row>
+                                        <el-row v-if="eqindex==0 || (eqindex > 2 && eqindex < 8)"
+                                            v-show="UIPanel[item.id+'Panel']" class="effectline" :gutter="4" type="flex"
+                                            align="middle">
+                                            <el-col :span="6" style="text-align: right;">
+                                                <span>Armor Level</span>
+                                            </el-col>
+                                            <el-col :span="3">
+                                                <el-select value-key="id" v-model="equipspartlist[eqindex+2].equiplevel"
+                                                    v-on:change="CombineEquipsAttribute" placeholder="Armor Level">
+                                                    <el-option v-for="item in armorlevellist" :key="item.id"
+                                                        :label="item.label" :value="item">
+                                                    </el-option>
+                                                </el-select>
+                                            </el-col>
+                                            <el-col :span="8" style="text-align: right;">
+                                            </el-col>
+                                        </el-row>
                                         <el-row v-if="eqindex != 2" v-show="UIPanel[item.id+'Panel']" class="effectline"
                                             :gutter="4" type="flex" align="middle">
                                             <el-col class="textcenter" :span="4">
@@ -9901,14 +9918,14 @@
                 equipspartlist: [
                     { id: 'weaponr', label: 'MainHand', equipname: '', effectlist: [], itemid: 0, combolist: [], availableEnchants: [] },
                     { id: 'weaponl', label: 'OffHand', equipname: '', effectlist: [], itemid: 0, combolist: [], availableEnchants: [] },
-                    { id: 'helm', label: 'Upper', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
-                    { id: 'helm1', label: 'Middle', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
-                    { id: 'helm2', label: 'Lower', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
-                    { id: 'armor', label: 'Armor', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
-                    { id: 'robe', label: 'Garment', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
-                    { id: 'shoes', label: 'Shoes', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
-                    { id: 'acc1', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
-                    { id: 'acc2', label: 'Accessory', equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
+                    { id: 'helm', label: 'Upper', equiplevel: 1, equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
+                    { id: 'helm1', label: 'Middle', equiplevel: 1, equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
+                    { id: 'helm2', label: 'Lower', equiplevel: 1, equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
+                    { id: 'armor', label: 'Armor', equiplevel: 1, equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
+                    { id: 'robe', label: 'Garment', equiplevel: 1, equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
+                    { id: 'shoes', label: 'Shoes', equiplevel: 1, equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
+                    { id: 'acc1', label: 'Accessory', equiplevel: 1, equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
+                    { id: 'acc2', label: 'Accessory', equiplevel: 1, equipname: '', effectlist: [], itemid: 0, combolist: [], refinelevel: 0, grade: { id: 0 }, availableEnchants: [] },
                     { id: 'weaponcard', label: 'Weapon Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'weaponcard', label: 'Weapon Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
                     { id: 'weaponcard', label: 'Weapon Card', equipname: '', effectlist: [], itemid: 0, combolist: [], enchant: false },
@@ -10195,6 +10212,10 @@
                 },
                 subweapon_init: {},
                 ClassInfo: {},
+                armorlevellist: [
+                    { id: 1, label: '1' },
+                    { id: 2, label: '2' },
+                ],
                 status: {
                     Level: 260, JOBLevel: 55, Transcendent: false, classid: 'AB', UseJobMaxPoint: false,
                     STR: 1, AGI: 1, VIT: 1, INT: 1, DEX: 1, LUK: 1,
@@ -11141,6 +11162,7 @@
                                 {
                                     id: _id,
                                     label: _label,
+                                    equiplevel: 1,
                                     equipname: '',
                                     effectlist: [],
                                     itemid: 0,
@@ -14789,6 +14811,7 @@
                             id: _id,
                             itemid: 0,
                             label: _label,
+                            equiplevel: 1,
                             equipname: '',
                             effectlist: [],
                             combolist: [],
@@ -14918,6 +14941,7 @@
                         dataToLoad.equip.enchantSlot ??= 0;
                         dataToLoad.equip.effectlist.forEach(x => x.Enable ??= true);
                         dataToLoad.equip.combolist.forEach(x => x.effectlist.forEach(y => y.Enable ??= true));
+                        console.log(dataToLoad.equip);
                         this.$set(this.equipspartlist,
                             idx,
                             {
@@ -14926,6 +14950,7 @@
                                 id: this.equipspartlist[idx].id,
                                 itemid: dataToLoad.equip.itemid,
                                 label: this.equipspartlist[idx].label,
+                                equiplevel: dataToLoad.equip.equiplevel ? dataToLoad.equip.equiplevel : 1,
                                 equipname: dataToLoad.equip.equipname,
                                 refinelevel: dataToLoad.equip.refinelevel ? dataToLoad.equip.refinelevel : 0,
                                 grade: dataToLoad.equip.grade ? dataToLoad.equip.grade : this.weapongradelist[0],
@@ -15763,6 +15788,7 @@
                                 {
                                     id: this.equipspartlist[idx].id,
                                     itemid: AllsetObject.Equip[eqi].itemid ? AllsetObject.Equip[eqi].itemid : 0,
+                                    equiplevel: AllsetObject.Equip[eqi].equiplevel ? AllsetObject.Equip[eqi].equiplevel : 1,
                                     label: this.equipspartlist[idx].label,
                                     equipname: cardnull ? '' : AllsetObject.Equip[eqi].equipname,
                                     refinelevel: AllsetObject.Equip[eqi].refinelevel ? AllsetObject.Equip[eqi].refinelevel : 0,
@@ -15780,6 +15806,7 @@
                                 {
                                     id: this.equipspartlist[idx].id,
                                     itemid: 0,
+                                    equiplevel: 1,
                                     label: this.equipspartlist[idx].label,
                                     equipname: '',
                                     refinelevel: 0,
@@ -16938,6 +16965,7 @@
                         { str1: 'is2H', str2: 'this.checkWeap2H(this.weapon.type.id)', description: 'is weapon 2H type' },
                         { str1: 'SRL', str2: 'this.subweapon.refinelevel', description: 'shield refine' },
                         { str1: 'SHW', str2: 'this.subweapon.ShieldWeight', description: 'shield weight' },
+                        { str1: 'SHLV', str2: 'this.subweapon.level.id', description: 'shield equipment level' },
                         { str1: 'HATR', str2: 'this.equipspartlist[2].refinelevel', description: 'hat refine' },
                         { str1: 'ARMORR', str2: 'this.equipspartlist[5].refinelevel', description: 'armor refine' },
                         { str1: 'GARMR', str2: 'this.equipspartlist[6].refinelevel', description: 'garment refine' },
@@ -16950,6 +16978,12 @@
                         { str1: 'SHACCLR', str2: 'this.equipspartlist[42].refinelevel', description: 'shadow accessory left refine' },
                         { str1: 'BACCRR', str2: 'this.equipspartlist[8].refinelevel', description: 'base accessory right refine' },
                         { str1: 'BACCLR', str2: 'this.equipspartlist[9].refinelevel', description: 'base accessory left refine' },
+                        { str1: 'HATLV', str2: 'this.equipspartlist[2].equiplevel', description: 'hat equipment level' },
+                        { str1: 'ARMORLV', str2: 'this.equipspartlist[5].equiplevel', description: 'armor equipment level' },
+                        { str1: 'GARMLV', str2: 'this.equipspartlist[6].equiplevel', description: 'garment equipment level' },
+                        { str1: 'SHOELV', str2: 'this.equipspartlist[7].equiplevel', description: 'shoe equipment level' },
+                        { str1: 'BACCRLV', str2: 'this.equipspartlist[8].equiplevel', description: 'base accessory right equipment level' },
+                        { str1: 'BACCLLV', str2: 'this.equipspartlist[9].equiplevel', description: 'base accessory left equipment level' },
                         { str1: 'WEAG', str2: 'this.checkWeapGradeReq', description: 'Weapon grade WEAG(\'A\') or WEAG(4) will return true if grade is A or higher' },
                         { str1: 'SWEAG', str2: 'this.checkSubWeapGradeReq', description: 'Subweapon grade SWEAG(\'A\') or SWEAG(4) will return true if grade is A or higher' },
                         { str1: 'HATG', str2: 'this.checkHatGradeReq', description: 'Hat grade HATG(\'A\') or HATG(4) will return true if grade is A or higher' },
@@ -17418,6 +17452,7 @@
                                 id: value.id,
                                 itemid: value.itemid ? value.itemid : 0,
                                 label: value.label,
+                                equiplevel: value.equiplevel ? value.equiplevel : 1,
                                 equipname: value.equipname,
                                 refinelevel: value.refinelevel ? value.refinelevel : 0,
                                 grade: value.grade ? value.grade : this.weapongradelist[0],
