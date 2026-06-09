@@ -14941,7 +14941,6 @@
                         dataToLoad.equip.enchantSlot ??= 0;
                         dataToLoad.equip.effectlist.forEach(x => x.Enable ??= true);
                         dataToLoad.equip.combolist.forEach(x => x.effectlist.forEach(y => y.Enable ??= true));
-                        console.log(dataToLoad.equip);
                         this.$set(this.equipspartlist,
                             idx,
                             {
@@ -17014,6 +17013,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2026-06-08', content: 'Added: OCP 84 gear and cards from EP20' },
                         { id: '2026-05-19', content: 'Added: Kachua gear from May 2026' },
                         { id: '2026-05-07', content: 'Added: OCP 83 gear' },
                         { id: '2026-04-07', content: 'Added: OCP 82 gear' },

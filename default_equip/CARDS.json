@@ -185,52 +185,6 @@
 	},
 	{
 		"id": "armorcard",
-		"itemid": 300472,
-		"label": "Armor Card",
-		"equipname": "Ultimate Lasgand Card",
-		"effectlist": [
-			{
-				"EffectNumber": 40,
-				"EffectType": {
-					"id": "LevelMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": -15,
-				"EffectType": {
-					"id": "HPPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "ARMORR>11?15:0",
-				"EffectType": {
-					"id": "SMATK"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "BLV>199?15:0",
-				"EffectType": {
-					"id": "SPL"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "BSP>89?15:0",
-				"EffectType": {
-					"id": "MatkPercent"
-				},
-				"Enable": true
-			}
-		],
-		"combolist": [],
-		"flags": [],
-		"idx": 3
-	},
-	{
-		"id": "armorcard",
 		"itemid": 27106,
 		"label": "Armor Card",
 		"equipname": "Awakened Ferre Card",
@@ -9949,7 +9903,7 @@
 		"equipname": "Icewind Egg Card",
 		"effectlist": [
 			{
-				"EffectNumber": "(3+(HATR>9?4:0))",
+				"EffectNumber": "(3+(HATR>9?2:0)+(HATLV==2?2:0))",
 				"EffectType": {
 					"id": "GCDPercent"
 				},
@@ -10026,5 +9980,710 @@
 				]
 			}
 		]
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300458,
+		"label": "Shoes Card",
+		"equipname": "Icewind Card",
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5+(SHOELV==2?3:0))",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOELV==2?3:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SHOELV==2?3:0)",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300455
+				],
+				"equipname": "Copo Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(ESIZE==2?(10+(3*DOWN(SHOER/2))):0)",
+						"EffectType": { 
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "helmcard",
+		"itemid": 300459,
+		"label": "Headgear Card",
+		"equipname": "Jormungandr Cult Bishop Card",
+		"effectlist": [
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 2,
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300460,
+		"label": "Weapon Card",
+		"equipname": "Jormungandr Guardian Card",
+		"effectlist": [
+			{
+				"EffectNumber": 40,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "([0,7,8].includes(AEI)?(5+(WEAR>9?5:0)+(WLV==5?10:0)):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300459
+				],
+				"equipname": "Jormungandr Cult Bishop Card",
+				"effectlist": [
+					{
+						"EffectNumber": "([0,7,8].includes(AEI)?15:0)",
+						"EffectType": { 
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300461,
+		"label": "Weapon Card",
+		"equipname": "Suspicious Iwin Soldier Card",
+		"effectlist": [
+			{
+				"EffectNumber": 40,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5+(WEAR>9?5:0)+(WLV==5?10:0))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300459
+				],
+				"equipname": "Jormungandr Cult Bishop Card",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": { 
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300462,
+		"label": "Weapon Card",
+		"equipname": "Superior Rgan Warlock Card",
+		"effectlist": [
+			{
+				"EffectNumber": 40,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "([1,3,4].includes(AEI)?(5+(WEAR>9?5:0)+(WLV==5?10:0)):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300459
+				],
+				"equipname": "Jormungandr Cult Bishop Card",
+				"effectlist": [
+					{
+						"EffectNumber": "([1,3,4].includes(AEI)?15:0)",
+						"EffectType": { 
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300463,
+		"label": "Weapon Card",
+		"equipname": "Superior Rgan Healer Card",
+		"effectlist": [
+			{
+				"EffectNumber": 40,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "([2,5,6].includes(AEI)?(5+(WEAR>9?5:0)+(WLV==5?10:0)):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300459
+				],
+				"equipname": "Jormungandr Cult Bishop Card",
+				"effectlist": [
+					{
+						"EffectNumber": "([2,5,6].includes(AEI)?15:0)",
+						"EffectType": { 
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "acc1card",
+		"itemid": 300464,
+		"label": "Acc Card",
+		"equipname": "Jormungandr Cult Warlock Card",
+		"effectlist": [
+			{
+				"EffectNumber": "([2,5,6].includes(AEI)?25:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "shieldcard",
+		"itemid": 300465,
+		"label": "Shield Card",
+		"equipname": "Jormungandr Sanctum Guardian Card",
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "STR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "VIT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": -25,
+				"EffectType": {
+					"id": "LUK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>6?([1,2,3,4].includes(EEI)?25:0):0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>9?10:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>9?10:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300466,
+		"label": "Weapon Card",
+		"equipname": "Jormungandr Sanctum Cleaner Card",
+		"effectlist": [
+			{
+				"EffectNumber": 40,
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(5+(WEAR>9?5:0)+(WLV==5?10:0))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300459
+				],
+				"equipname": "Jormungandr Cult Bishop Card",
+				"effectlist": [
+					{
+						"EffectNumber": 15,
+						"EffectType": { 
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "acc1card",
+		"itemid": 300467,
+		"label": "Acc Card",
+		"equipname": "Angel Slug Card",
+		"effectlist": [
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLU>89?-15:0)",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "acc1card",
+		"itemid": 300468,
+		"label": "Acc Card",
+		"equipname": "Snow Rabbit Iceslug Card",
+		"effectlist": [
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLU>89?-15:0)",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "acc1card",
+		"itemid": 300469,
+		"label": "Acc Card",
+		"equipname": "Melibe Iceslug Card",
+		"effectlist": [
+			{
+				"EffectNumber": "([1,3,4].includes(AEI)?25:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "acc1card",
+		"itemid": 300470,
+		"label": "Acc Card",
+		"equipname": "Icebear Bug Card",
+		"effectlist": [
+			{
+				"EffectNumber": "([0,7,8].includes(AEI)?25:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "acc2card",
+		"itemid": 300471,
+		"label": "Acc Card",
+		"equipname": "Fallen Angel Slug Card",
+		"effectlist": [
+			{
+				"EffectNumber": -20,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "([1,3].includes(ERI)?25:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "([2,7].includes(EEI)?25:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300472,
+		"label": "Armor Card",
+		"equipname": "Ultimate Rasgand Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(isBoss?40:0)",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": -15,
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORR>11?15:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BLV>199?15:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BSP>89?15:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 300473,
+		"label": "Garment Card",
+		"equipname": "Snowstorm Angel Card",
+		"effectlist": [
+			{
+				"EffectNumber": "-(5*DOWN(BLU/20))",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(30+(5*DOWN(GARMR/3)))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMLV==2?10:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 300474,
+		"label": "Garment Card",
+		"equipname": "Sanctum Cleaning Chief Card",
+		"effectlist": [
+			{
+				"EffectNumber": "-(5*DOWN(BLU/20))",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(30+(5*DOWN(GARMR/3)))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMLV==2?10:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 27259,
+		"label": "Shoes Card",
+		"equipname": "Rechenier Card",
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==6?5:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 27254,
+		"label": "Shoes Card",
+		"equipname": "Pa Monk Card",
+		"effectlist": [],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300188,
+		"label": "Shoes Card",
+		"equipname": "Midnight Licheniyes Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(AEI==6?10:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "shoescard",
+		"itemid": 300182,
+		"label": "Shoes Card",
+		"equipname": "Midnight Faymont Card",
+		"effectlist": [
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "SPPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "helmcard",
+		"itemid": 300253,
+		"label": "Headgear Card",
+		"equipname": "Venedi Card",
+		"effectlist": [
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==5?7:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "robecard",
+		"itemid": 27314,
+		"label": "Garment Card",
+		"equipname": "Venenum Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(ERI==1?15:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "armorcard",
+		"itemid": 4635,
+		"label": "Armor Card",
+		"equipname": "Powerful Amdarais Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(BLV>99?500:0)",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 4518,
+		"label": "Weapon Card",
+		"equipname": "Banaspaty Card",
+		"effectlist": [],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
 	}
 ]
