@@ -1255,6 +1255,45 @@
 		"idx": 3
 	},
 	{
+		"id": "weaponcard",
+		"itemid": 27313,
+		"label": "Weapon Card",
+		"equipname": "Mutant Dolor Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(['Katars'].includes(WTI)?15:0)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(['Katars'].includes(WTI)?7:0)",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "2*WEAR",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ESIZE==2&&WEAR>9?15:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
 		"id": "shoescard",
 		"itemid": 300093,
 		"label": "Shoes Card",
