@@ -10072,6 +10072,7 @@
 
                     { label: 'Drake Effect', id: 'WeaponPerfection', totalvalue: '0', processedtotalvalue: '0', opersymbol: '', suffixsymbol: '', category: '' },
                     { label: 'MoT Effect', id: 'WeaponOccult', totalvalue: '0', processedtotalvalue: '0', opersymbol: '', suffixsymbol: '', category: '' },
+                    { label: 'Enable Skills', id: 'EnableSkills', totalvalue: '0', processedtotalvalue: '0', opersymbol: '', suffixsymbol: '', category: '' },
 
                 ],
 
@@ -10893,6 +10894,18 @@
                                 })
                                 .DefaultIfEmpty(0)
                                 .Max();
+                        } else if(element.id == 'EnableSkills') {
+                            skill_list = Enumerable.From(this.EquipAndComboEffectList)
+                                .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
+                                .Select(function (x) {
+                                    var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()))
+                                    return xx[0].Enable ? xx[0].EffectNumber : 0;
+                                })
+                                .ToArray()
+                                .join(",")
+                            skill_list = `this.mergeSkillArray(${skill_list})`;
+                            skills = eval(this.SkillFormulaReplace(skill_list));
+                            this.onChangeGear(skills);
                         } else {
                             /*
                             result = Enumerable.From(this.equipspartlist)
@@ -12835,6 +12848,9 @@
                     const idx = this.weapontypelist.findIndex((x) => x.id === id && x.isTwohand === true);
                     return idx >= 0 ? true : false;
                 },
+                getSkills(skillstring) { return this.DefaultDB_Skill.filter(post => {
+                    return skillstring.includes(post.skill.id.split(/^(?:[A-Z]{2,3}_)?([A-Z_]+?)(?:\([a-zA-Z0-9]+\))?(?:_[a-z])?(?:_\d+)?$/s)[1]); 
+                })},
                 skillInUse(skillstring) { return skillstring.includes(this.skill.id.split(/^(?:[A-Z]{2,3}_)?([A-Z_]+?)(?:\([a-zA-Z0-9]+\))?(?:_[a-z])?(?:_\d+)?$/s)[1]); },
                 checkWeapGradeReq(grade) { return this.checkGradeReq(0, grade); },
                 checkSubWeapGradeReq(grade) { return this.checkGradeReq(1, grade); },
@@ -13274,8 +13290,44 @@
                 onSpecialATKChange() {
                     this.onSkillPercentChange();
                 },
+                mergeSkillArray(...arrays) {
+                    const map = new Map();
+
+                    arrays.forEach(arr => {
+                        if(Array.isArray(arr)){
+                            arr.forEach(item => map.set(item.skill.id, item));
+                        }
+                    });
+
+                    return Array.from(map.values());
+                },
+                isSkillAvailable(skillid) {
+                    return this.StoreDB_JobMapedSkill.find(post => post.skill.id == skillid);
+                },
+                onChangeGear(enabledSkills) {
+                    this.StoreDB_JobMapedSkill = this.DefaultDB_Skill.filter(post => {
+                        return post.skill.class.split(',').some(v => {
+                            return v == this.status.classid
+                        });
+                    });
+
+                    if (this.TestMode == false) {
+                        this.StoreDB_JobMapedSkill = this.StoreDB_JobMapedSkill.filter(post => post.skill.intest == null);
+                    }
+
+                    if(enabledSkills && enabledSkills.length > 0) {
+                        const merged = [...this.StoreDB_JobMapedSkill, ...enabledSkills];
+                        const unique = Array.from(new Map(merged.map(item => [item.skill.id, item])).values());
+
+                        this.StoreDB_JobMapedSkill = unique;
+                    }
+
+                    if(!this.isSkillAvailable(this.JobMapedSkillId)) {
+                        this.JobMapedSkillId = this.StoreDB_JobMapedSkill[0].skill.id;
+                        this.onLoadJobMapSkill(false);
+                    }
+                },
                 onChangeClass(sendGA = true) {
-                    let selectedJobId = this.status.classid; 
                     if (sendGA){
                         gtag("event", "job_selected", {
                             "event_category": "Class Selection",
@@ -13283,7 +13335,6 @@
                             "event_action": "Selected"
                         });
                     }
-                        
 
                     console.log(this.status.classid + " --");
                     this.StoreDB_JobMapedSkill = this.DefaultDB_Skill.filter(post => {
@@ -16953,6 +17004,7 @@
                         { str1: 'Msp', str2: 'this.status.MSP', description: 'MaxSP' },
                         { str1: 'CCL', str2: 'this.status.classid', description: 'Class ID' },
                         { str1: 'SLV', str2: 'this.skill.level', description: 'skill level' },
+                        { str1: 'ENBSKILLS', str2: 'this.getSkills', description: 'ENABLESKILL("skill id separated by space") return the list of skills enabled by gear' },
                         { str1: 'SKIDS', str2: 'this.skillInUse', description: 'SKIDS("skill id separated by space") return true if active skill is in use' },
                         { str1: 'SKID', str2: 'this.skill.id', description: 'Skill ID' },
                         { str1: 'AEI', str2: 'this.skilloption.AttackElementalIdx', description: 'weapon attribute' },
@@ -17013,6 +17065,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2026-07-06', content: 'Update: Attack skills granted by equipment will now appear in the skill list for all jobs.' },
                         { id: '2026-06-23', content: 'Added: Focused Love Ring + Hatred Ring and Odin Grace Shield-LT' },
                         { id: '2026-06-23', content: 'Added: Kachua gear from June 2026' },
                         { id: '2026-06-08', content: 'Added: OCP 84 gear and cards from EP20' },
@@ -17918,7 +17971,7 @@
             if (this.weapon.ArrowATK == '') this.weapon.ArrowATK = 0;
             if (this.weapon.BulletATK == '') this.weapon.BulletATK = 0;
             if (this.weapon.refinelevel == '') this.weapon.refinelevel = 0;
-            this.onOption();
+            this.CombineEquipsAttribute();
         }, {
             deep: true
         });
@@ -17928,7 +17981,7 @@
             if (this.subweapon.MATK == '') this.subweapon.MATK = 0;
             if (this.subweapon.ShieldWeight == '') this.subweapon.ShieldWeight = 0;
             if (this.subweapon.refinelevel == '') this.subweapon.refinelevel = 0;
-            this.onOption();
+            this.CombineEquipsAttribute();
         }, {
             deep: true
         });
