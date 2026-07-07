@@ -7383,7 +7383,7 @@
                                             <el-col :span="8" style="text-align: right;">
                                             </el-col>
                                         </el-row>
-                                        <el-row v-if="eqindex != 2" v-show="UIPanel[item.id+'Panel']" class="effectline"
+                                        <el-row v-show="UIPanel[item.id+'Panel']" class="effectline"
                                             :gutter="4" type="flex" align="middle">
                                             <el-col class="textcenter" :span="4">
                                                 <div>
@@ -15486,7 +15486,7 @@
                 },
                 fetchCardMapping(index) {
                     let cardLabelToEquip = {
-                        "Headgear Card": [19, 20],
+                        "Headgear Card": [19, 20, 21],
                         "Shield Card": [18],
                         "Weapon Card": [10, 11, 12, 13, 14, 15, 16, 17],
                         "Armor Card": [22],
