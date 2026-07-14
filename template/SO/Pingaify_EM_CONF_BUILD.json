@@ -647,8 +647,8 @@
 		{
 			"id": "helm2",
 			"itemid": 420899,
-			"label": "Lower",
 			"equiplevel": 1,
+			"label": "Lower",
 			"equipname": "[S3] Nyar's Familiar-VG",
 			"refinelevel": 0,
 			"grade": {
@@ -1785,8 +1785,8 @@
 		{
 			"id": "helm2card",
 			"itemid": 314682,
-			"label": "Headgear Card",
 			"equiplevel": 1,
+			"label": "Headgear Card",
 			"equipname": "[S2] Vellgunde Resonance (Magic) Lv2",
 			"refinelevel": 0,
 			"grade": {
@@ -2320,10 +2320,10 @@
 		},
 		{
 			"id": "shadow",
-			"itemid": 24753,
-			"equiplevel": 1,
+			"itemid": 24882,
 			"label": "S.Weapon",
-			"equipname": "Magical Spell Shadow Weapon",
+			"equiplevel": 1,
+			"equipname": "Sanctified Shadow Weapon",
 			"refinelevel": 10,
 			"grade": {
 				"id": 0,
@@ -2331,16 +2331,44 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "FLOOR(SHWEAR/2)",
+					"EffectNumber": 5,
 					"EffectType": {
-						"id": "SPL"
+						"id": "SMATK"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(SHWEAR>6?3:0)+(SHWEAR>8?3:0)",
+					"EffectNumber": "(15*DOWN(SHWEAR/2))",
 					"EffectType": {
-						"id": "SMATK"
+						"id": "Atk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHWEAR>6?10:0)",
+					"EffectType": {
+						"id": "RaceAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHWEAR>8&&isBoss?10:0)",
+					"EffectType": {
+						"id": "LevelAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHWEAR>9?100:0)",
+					"EffectType": {
+						"id": "BypassDEFPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(15*DOWN(SHWEAR/2))",
+					"EffectType": {
+						"id": "Matk"
 					},
 					"Enable": true
 				},
@@ -2350,26 +2378,37 @@
 						"id": "MatkPercent"
 					},
 					"Enable": true
-				}
-			],
-			"combolist": [
+				},
 				{
-					"itemid_every": [
-						24754
-					],
-					"itemid_any": [],
-					"equipname": "Magical Spell Shadow Shield",
-					"effectlist": [
-						{
-							"EffectNumber": 3,
-							"EffectType": {
-								"id": "SMATK"
-							},
-							"Enable": true
-						}
-					]
+					"EffectNumber": "(SHWEAR>6?10:0)",
+					"EffectType": {
+						"id": "RaceMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHWEAR>8&&isBoss?10:0)",
+					"EffectType": {
+						"id": "LevelMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHWEAR>9?100:0)",
+					"EffectType": {
+						"id": "BypassMDEFPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(0.1*DOWN(SHWEAR/3))",
+					"EffectType": {
+						"id": "FixedCast"
+					},
+					"Enable": true
 				}
 			],
+			"combolist": [],
 			"enchantSlot": 0,
 			"availableEnchants": []
 		},
@@ -2589,8 +2628,8 @@
 		{
 			"id": "shadowearring",
 			"itemid": 1270259,
-			"label": "S.Earring",
 			"equiplevel": 1,
+			"label": "S.Earring",
 			"equipname": "[S3] Serpent Shadow Earring",
 			"refinelevel": 10,
 			"grade": {
@@ -2662,8 +2701,8 @@
 		{
 			"id": "shadowpendant",
 			"itemid": 1270258,
-			"label": "S.Pendant",
 			"equiplevel": 1,
+			"label": "S.Pendant",
 			"equipname": "[S3] Serpent Shadow Pendant",
 			"refinelevel": 10,
 			"grade": {
@@ -3042,8 +3081,8 @@
 		{
 			"id": "helmLower1",
 			"itemid": 315386,
-			"label": "Helm Enchant",
 			"equiplevel": 1,
+			"label": "Helm Enchant",
 			"equipname": "[S3] Nyar Bleesing (Magic) Lv2",
 			"refinelevel": 0,
 			"grade": {
@@ -3081,8 +3120,8 @@
 		{
 			"id": "helmLower2",
 			"itemid": 312085,
-			"label": "Helm Enchant",
 			"equiplevel": 1,
+			"label": "Helm Enchant",
 			"equipname": "Snowflower Cat Power (Spell)",
 			"refinelevel": 0,
 			"grade": {
@@ -3106,8 +3145,8 @@
 		{
 			"id": "helmLower3",
 			"itemid": 312080,
-			"label": "Helm Enchant",
 			"equiplevel": 1,
+			"label": "Helm Enchant",
 			"equipname": "Snowflower Cat Power (Spell Buster)",
 			"refinelevel": 0,
 			"grade": {
@@ -3515,36 +3554,22 @@
 		},
 		{
 			"id": "shadow1",
-			"itemid": 0,
-			"equiplevel": 1,
 			"label": "S.Weapon Enchant 1",
+			"equiplevel": 1,
 			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": [],
-			"enchantSlot": 0,
-			"availableEnchants": 0,
 			"baseIndex": "37"
 		},
 		{
 			"id": "shadow2",
-			"itemid": 0,
-			"equiplevel": 1,
 			"label": "S.Weapon Enchant 2",
+			"equiplevel": 1,
 			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": [],
-			"enchantSlot": 0,
-			"availableEnchants": 0,
 			"baseIndex": "37"
 		},
 		{
@@ -3651,42 +3676,70 @@
 		},
 		{
 			"id": "shadowearring1",
-			"label": "S.Earring Enchant 1",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "S.Earring Enchant 1",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "41"
 		},
 		{
 			"id": "shadowearring2",
-			"label": "S.Earring Enchant 2",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "S.Earring Enchant 2",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "41"
 		},
 		{
 			"id": "shadowpendant1",
-			"label": "S.Pendant Enchant 1",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "S.Pendant Enchant 1",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "42"
 		},
 		{
 			"id": "shadowpendant2",
-			"label": "S.Pendant Enchant 2",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "S.Pendant Enchant 2",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "42"
 		}
 	],
@@ -3830,7 +3883,7 @@
 	},
 	"Option": {
 		"MagnumPoison2Value": 0,
-		"SkillPercent": 27926.6,
+		"SkillPercent": 27781,
 		"SkillFormulaError": "",
 		"EquipSkillAddDamage": 40,
 		"BaseCriticalValue": 40,
@@ -3889,19 +3942,19 @@
 		"SO_EL_CONTROL(Lv1)",
 		"EM_SUMMON_ELEMENTAL_ARDOR"
 	],
-	"Damage": "1,079,134,109,910 ~ 1,142,492,891,270",
-	"DamageDPS": "7,931,208,394,213",
+	"Damage": "1,115,639,408,570 ~ 1,180,872,002,450",
+	"DamageDPS": "8,198,545,737,341",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "1,110,813,500,590",
+	"SkillDamageAvg": "1,148,255,705,510",
 	"attribute": {
 		"StatusATK": 990,
-		"WeaponATK": 750,
-		"StatusMATK": 5007,
-		"WeaponMATK": 4462,
-		"ATK": 210,
-		"MATK": 3922,
+		"WeaponATK": 825,
+		"StatusMATK": 4967,
+		"WeaponMATK": 4537,
+		"ATK": 285,
+		"MATK": 3997,
 		"ATKP": 1,
-		"MATKP": 319,
+		"MATKP": 316,
 		"DEF": 0,
 		"MDEF": 0,
 		"HP": 170,
@@ -3909,7 +3962,7 @@
 		"SP": 418,
 		"SPP": 25,
 		"PATK": 143,
-		"SMATK": 572,
+		"SMATK": 563,
 		"CRIDR": 31,
 		"RES": 0,
 		"MRES": 0,
@@ -3929,11 +3982,11 @@
 		"SK2VCTP": 0,
 		"EQVCTP": 0,
 		"VCTS": 0,
-		"FCT": -3.1999999999999997,
+		"FCT": -3.5,
 		"FCTP": 0,
 		"CD": -2,
 		"GCD": -145,
-		"BYPASSDEF": 0,
+		"BYPASSDEF": 100,
 		"BYPASSMDEF": 100,
 		"BYPASSRES": 0,
 		"BYPASSMRES": 0,
@@ -3942,14 +3995,14 @@
 		"ElementalMagicPercent": 446,
 		"SizeMatkPercent": 389,
 		"ElementalAtkPercent": 0,
-		"LevelAtkPercent": 10,
+		"LevelAtkPercent": 20,
 		"SizeAtkPercent": 0,
-		"RaceAtkPercent": 0,
+		"RaceAtkPercent": 10,
 		"MonsterAtkPercent": 0,
 		"ElementalMatkPercent": 202,
-		"RaceMatkPercent": 197,
+		"RaceMatkPercent": 207,
 		"MonsterMatkPercent": 0,
-		"LevelMatkPercent": 345
+		"LevelMatkPercent": 355
 	},
 	"computeattribute": {
 		"StatsPoint": 4151,
@@ -4016,31 +4069,31 @@
 		"SpecialMATK1": 0,
 		"SpecialMATK3": 0,
 		"SpecialINSIGNIAENEMYMATK": 0,
-		"weaponmatk_min": 5277,
-		"weaponmatk_max": 5817,
-		"equipmatk_min": 9199,
-		"equipmatk_max": 9739,
-		"matkpercent_min": 38543,
-		"matkpercent_max": 40806,
-		"finalmatk_min": 276018792,
-		"finalmatk_max": 292224576,
-		"matk1_min": 276018792,
-		"matk1_max": 292224576,
-		"skillmatk_min": 77081007853,
-		"skillmatk_max": 81606635093,
-		"matk2_min": 77081007851,
-		"matk2_max": 81606635091,
-		"matk3_min": 107913410991,
-		"matk3_max": 114249289127,
-		"matk4_min": 107913410991,
-		"matk4_max": 114249289127,
-		"matk4_avg": 111081350059,
-		"matkmulti_min": 1079134109910,
-		"matkmulti_max": 1142492891270,
-		"matkmulti_avg": 1110813500590,
+		"weaponmatk_min": 5237,
+		"weaponmatk_max": 5777,
+		"equipmatk_min": 9234,
+		"equipmatk_max": 9774,
+		"matkpercent_min": 38413,
+		"matkpercent_max": 40659,
+		"finalmatk_min": 286845431,
+		"finalmatk_max": 303617581,
+		"matk1_min": 286845431,
+		"matk1_max": 303617581,
+		"skillmatk_min": 79688529186,
+		"skillmatk_max": 84348000177,
+		"matk2_min": 79688529184,
+		"matk2_max": 84348000175,
+		"matk3_min": 111563940857,
+		"matk3_max": 118087200245,
+		"matk4_min": 111563940857,
+		"matk4_max": 118087200245,
+		"matk4_avg": 114825570551,
+		"matkmulti_min": 1115639408570,
+		"matkmulti_max": 1180872002450,
+		"matkmulti_avg": 1148255705510,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
-		"matkmulti_DPS": 7931208394212.6,
+		"matkmulti_DPS": 8198545737341.4,
 		"DragonBreathDMG": 0,
 		"DragonBreathDMG_DPS": 0,
 		"CastDEXINT": 1862,
@@ -4063,7 +4116,7 @@
 		"SPL": 0,
 		"CON": 311,
 		"CRT": 93,
-		"S_P_L": 713
+		"S_P_L": 705
 	},
-	"lastedited": "2026-07-09T02:20:43.098Z"
+	"lastedited": "2026-07-14T22:52:00.755Z"
 }
