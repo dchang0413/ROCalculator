@@ -11121,5 +11121,204 @@
 		"combolist": [],
 		"flags": [],
 		"idx": 3
+	},
+	{
+		"id": "acc1card",
+		"itemid": 27331,
+		"label": "Acc Card",
+		"equipname": "Kronecker G. Heine Card",
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "acc2card",
+		"itemid": 27333,
+		"label": "Acc Card",
+		"equipname": "Skia Nerius Card",
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": []
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300308,
+		"label": "Armor Card",
+		"equipname": "Meyer Lugenburg Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(4*DOWN(ARMORR/3))",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					27331
+				],
+				"equipname": "Kronecker G. Heine Card",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": { 
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "armorcard",
+		"itemid": 300310,
+		"label": "Armor Card",
+		"equipname": "Helmut Lugenburg Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(4*DOWN(ARMORR/3))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(ARMORR/3))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					27331
+				],
+				"equipname": "Skia Nerius Card",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": { 
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "robecard",
+		"itemid": 300424,
+		"label": "Garment Card",
+		"equipname": "Friedrich S. Heine Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(5+(4*DOWN(GARMR/2)))",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300308
+				],
+				"equipname": "Meyer Lugenburg Card",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": { 
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "robecard",
+		"itemid": 300426,
+		"label": "Garment Card",
+		"equipname": "Crux Findel Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(5+(4*DOWN(GARMR/2)))",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300310
+				],
+				"equipname": "Helmut Lugenburg Card",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": { 
+							"id": "RangedDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "robecard",
+		"itemid": 300422,
+		"label": "Garment Card",
+		"equipname": "Catherine Gaebolg Card",
+		"effectlist": [
+			{
+				"EffectNumber": "(5+(4*DOWN(GARMR/2)))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300310
+				],
+				"equipname": "Helmut Lugenburg Card",
+				"effectlist": [
+					{
+						"EffectNumber": 5,
+						"EffectType": { 
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
 	}
 ]
