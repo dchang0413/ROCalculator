@@ -1815,10 +1815,10 @@
 		},
 		{
 			"id": "armorcard",
-			"itemid": 4456,
-			"equiplevel": 1,
+			"itemid": 300472,
 			"label": "Armor Card",
-			"equipname": "Nidhoggur Shadow Card",
+			"equiplevel": 1,
+			"equipname": "Ultimate Rasgand Card",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -1826,23 +1826,44 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 5,
+					"EffectNumber": "(isBoss?40:0)",
 					"EffectType": {
-						"id": "INT"
+						"id": "LevelMatkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "CCL=='WL'?50:0",
+					"EffectNumber": -15,
 					"EffectType": {
-						"id": "FixedCastPercent"
+						"id": "HPPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(ARMORR>11?15:0)",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BLV>199?15:0)",
+					"EffectType": {
+						"id": "SPL"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BSP>89?15:0)",
+					"EffectType": {
+						"id": "MatkPercent"
 					},
 					"Enable": true
 				}
 			],
 			"combolist": [],
 			"enchantSlot": 0,
-			"availableEnchants": 0
+			"availableEnchants": []
 		},
 		{
 			"id": "robecard",
@@ -2288,8 +2309,8 @@
 		{
 			"id": "shadow",
 			"itemid": 24882,
-			"label": "S.Weapon",
 			"equiplevel": 1,
+			"label": "S.Weapon",
 			"equipname": "Sanctified Shadow Weapon",
 			"refinelevel": 10,
 			"grade": {
@@ -3521,22 +3542,36 @@
 		},
 		{
 			"id": "shadow1",
-			"label": "S.Weapon Enchant 1",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "S.Weapon Enchant 1",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "37"
 		},
 		{
 			"id": "shadow2",
-			"label": "S.Weapon Enchant 2",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "S.Weapon Enchant 2",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "37"
 		},
 		{
@@ -3788,8 +3823,8 @@
 		"ASPD": 193,
 		"HP": 0,
 		"SP": 0,
-		"MHP": 520747,
-		"MSP": 41540
+		"MHP": 495549,
+		"MSP": 41291
 	},
 	"JobStatus": {
 		"STR": 4,
@@ -3850,7 +3885,7 @@
 	},
 	"Option": {
 		"MagnumPoison2Value": 0,
-		"SkillPercent": 13426.4,
+		"SkillPercent": 13348.4,
 		"SkillFormulaError": "",
 		"EquipSkillAddDamage": 210,
 		"BaseCriticalValue": 40,
@@ -3909,27 +3944,27 @@
 		"SO_EL_CONTROL(Lv1)",
 		"EM_SUMMON_ELEMENTAL_ARDOR"
 	],
-	"Damage": "757,834,239,792 ~ 802,146,037,770",
-	"DamageDPS": "5,569,129,590,896",
+	"Damage": "809,606,823,641 ~ 856,603,934,060",
+	"DamageDPS": "5,948,372,404,989",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "779,990,138,781",
+	"SkillDamageAvg": "833,105,378,851",
 	"attribute": {
 		"StatusATK": 990,
 		"WeaponATK": 825,
-		"StatusMATK": 4967,
+		"StatusMATK": 5034,
 		"WeaponMATK": 4537,
 		"ATK": 285,
 		"MATK": 3997,
 		"ATKP": 1,
-		"MATKP": 316,
+		"MATKP": 331,
 		"DEF": 0,
 		"MDEF": 0,
 		"HP": 170,
-		"HPP": 210,
-		"SP": 418,
+		"HPP": 195,
+		"SP": 413,
 		"SPP": 25,
 		"PATK": 143,
-		"SMATK": 563,
+		"SMATK": 568,
 		"CRIDR": 31,
 		"RES": 0,
 		"MRES": 0,
@@ -3969,7 +4004,7 @@
 		"ElementalMatkPercent": 187,
 		"RaceMatkPercent": 207,
 		"MonsterMatkPercent": 0,
-		"LevelMatkPercent": 355
+		"LevelMatkPercent": 365
 	},
 	"computeattribute": {
 		"StatsPoint": 4151,
@@ -4036,34 +4071,34 @@
 		"SpecialMATK1": 0,
 		"SpecialMATK3": 0,
 		"SpecialINSIGNIAENEMYMATK": 0,
-		"weaponmatk_min": 5237,
-		"weaponmatk_max": 5777,
-		"equipmatk_min": 9234,
-		"equipmatk_max": 9774,
-		"matkpercent_min": 38413,
-		"matkpercent_max": 40659,
-		"finalmatk_min": 260116467,
-		"finalmatk_max": 275325899,
-		"matk1_min": 260116467,
-		"matk1_max": 275325899,
-		"skillmatk_min": 34923236859,
-		"skillmatk_max": 36965255199,
-		"matk2_min": 34923236857,
-		"matk2_max": 36965255197,
-		"matk3_min": 108262034256,
-		"matk3_max": 114592291110,
-		"matk4_min": 108262034256,
-		"matk4_max": 114592291110,
-		"matk4_avg": 111427162683,
-		"matkmulti_min": 757834239792,
-		"matkmulti_max": 802146037770,
-		"matkmulti_avg": 779990138781,
+		"weaponmatk_min": 5304,
+		"weaponmatk_max": 5844,
+		"equipmatk_min": 9301,
+		"equipmatk_max": 9841,
+		"matkpercent_min": 40087,
+		"matkpercent_max": 42414,
+		"finalmatk_min": 279510565,
+		"finalmatk_max": 295735958,
+		"matk1_min": 279510565,
+		"matk1_max": 295735958,
+		"skillmatk_min": 37309070216,
+		"skillmatk_max": 39474835673,
+		"matk2_min": 37309070214,
+		"matk2_max": 39474835671,
+		"matk3_min": 115658117663,
+		"matk3_max": 122371990580,
+		"matk4_min": 115658117663,
+		"matk4_max": 122371990580,
+		"matk4_avg": 119015054121.5,
+		"matkmulti_min": 809606823641,
+		"matkmulti_max": 856603934060,
+		"matkmulti_avg": 833105378850.5,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
-		"matkmulti_DPS": 5569129590896.34,
+		"matkmulti_DPS": 5948372404989,
 		"DragonBreathDMG": 0,
 		"DragonBreathDMG_DPS": 0,
-		"CastDEXINT": 1862,
+		"CastDEXINT": 1857,
 		"CastTime": 0,
 		"DelayTime": 0,
 		"HitperSec": 7.14,
@@ -4074,7 +4109,7 @@
 		"STR": 198,
 		"AGI": 296,
 		"VIT": 278,
-		"INT": 744,
+		"INT": 739,
 		"DEX": 559,
 		"LUK": 452,
 		"POW": 93,
@@ -4083,7 +4118,7 @@
 		"SPL": 0,
 		"CON": 311,
 		"CRT": 93,
-		"S_P_L": 705
+		"S_P_L": 720
 	},
-	"lastedited": "2026-07-14T22:52:16.101Z"
+	"lastedited": "2026-07-18T00:29:21.357Z"
 }
