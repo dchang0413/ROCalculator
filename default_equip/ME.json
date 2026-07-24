@@ -4353,5 +4353,250 @@
 				314821
 			]
 		]
+	},
+	{
+		"id": "weaponl",
+		"itemid": 460175,
+		"equiplevel": 2,
+		"label": "OffHand",
+		"equipname": "Robot Spark Shield",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "((SRL>6?10:0)+(SWEAG(1)?20:0))",
+				"EffectType": {
+					"id": "HPPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SRL>6?2:0)",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"SPARK_BLASTER\")?(SRL>8?0.1:0):0)",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SRL>10?10:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SRL>10?20:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"SPARK_BLASTER\")?(SRL>11?20:0):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SWEAG(2)?4:0)+(SWEAG(3)?6:0))",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAG(3)?5000:0)",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SWEAG(2)?10:0)+(SWEAG(4)?20:0))",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shield",
+				"label": "Shield"
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 2,
+				"saferefine": 7,
+				"overatk": 3
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": 0,
+			"MATK": 0,
+			"refinelevel": 14,
+			"ShieldWeight": 50,
+			"refinematk": 0,
+			"refineatk": 0
+		}
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 1270035,
+		"equiplevel": 1,
+		"label": "S.Earring",
+		"equipname": "Triple Shadow Earring",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(DOWN(SHACCRR/2))",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(SHACCRR/2))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"TRIPLE_LASER\")?(5+(DOWN(SHACCRR/3))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					1270036
+				],
+				"itemid_any": [],
+				"equipname": "Triple Shadow Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?7:0",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>17?50:0",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					1270036,
+					24792
+				],
+				"itemid_any": [],
+				"equipname": "Triple Shadow Pendant + Master Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "Cri"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 1,
+						"EffectType": {
+							"id": "CRIDR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR+SHWEAR)>26?10:0",
+						"EffectType": {
+							"id": "BypassRESPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 1270036,
+		"equiplevel": 1,
+		"label": "S.Pendant",
+		"equipname": "Triple Shadow Pendant",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(DOWN(SHACCLR/2))",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(SHACCLR/2))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"TRIPLE_LASER\")?(5+(DOWN(SHACCLR/3))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]

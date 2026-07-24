@@ -5176,5 +5176,358 @@
 				"effectlist": []
 			}
 		]
+	},
+	{
+		"id": "weaponl",
+		"itemid": 460150,
+		"equiplevel": 1,
+		"label": "OffHand",
+		"equipname": "Sylvan Thorn Guard",
+		"refinelevel": 14,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 5,
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SRL>6?2:0)",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"MAYHEMIC_THORNS\")?(SRL>8?0.1:0):0)",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SRL>10?5:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SRL>10?10:0)",
+				"EffectType": {
+					"id": "CriDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"MAYHEMIC_THORNS\")?(SRL>11?15:0):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shield",
+				"label": "Shield"
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 2,
+				"saferefine": 7,
+				"overatk": 3
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": 0,
+			"MATK": 0,
+			"refinelevel": 14,
+			"ShieldWeight": 50,
+			"refinematk": 0,
+			"refineatk": 0
+		}
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 1270029,
+		"equiplevel": 1,
+		"label": "S.Armor",
+		"equipname": "Thorn Shadow Armor",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(DOWN(SHARMORR/2))",
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(SHARMORR/2))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"MAYHEMIC_THORNS\")?(5+(DOWN(SHARMORR/3))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					1270030
+				],
+				"itemid_any": [],
+				"equipname": "Thorn Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?7:0",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?50:0",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					1270030,
+					24793
+				],
+				"itemid_any": [],
+				"equipname": "Thorn Shadow Shoes + Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "Cri"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 1,
+						"EffectType": {
+							"id": "CRIDR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER+SHSHIER)>26?10:0",
+						"EffectType": {
+							"id": "BypassRESPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 1270030,
+		"equiplevel": 1,
+		"label": "S.Shoes",
+		"equipname": "Thorn Shadow Shoes",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(DOWN(SHSHOER/2))",
+				"EffectType": {
+					"id": "CRIDR"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(SHSHOER/2))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"MAYHEMIC_THORNS\")?(5+(DOWN(SHSHOER/3))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
+	},
+	{
+		"id": "shadowearring",
+		"itemid": 1270027,
+		"equiplevel": 1,
+		"label": "S.Earring",
+		"equipname": "Acidified Shadow Earring",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(10*DOWN(SHACCRR/2))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"ACIDIFIED_ZONE_GROUND\")?(8+(2*DOWN(SHACCRR/3))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					1270028
+				],
+				"itemid_any": [],
+				"equipname": "Acidified Shadow Pendant",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>14?7:0",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR)>17?50:0",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					1270028,
+					24792
+				],
+				"itemid_any": [],
+				"equipname": "Acidified Shadow Pendant + Master Shadow Weapon",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "Cri"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 1,
+						"EffectType": {
+							"id": "CRIDR"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHACCRR+SHACCLR+SHWEAR)>26?10:0",
+						"EffectType": {
+							"id": "BypassRESPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowpendant",
+		"itemid": 1270028,
+		"equiplevel": 1,
+		"label": "S.Pendant",
+		"equipname": "Acidified Shadow Pendant",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(10*DOWN(SHACCLR/2))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"ACIDIFIED_ZONE_GROUND\")?(8+(2*DOWN(SHACCLR/3))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]

@@ -3436,5 +3436,134 @@
 				]
 			}
 		]
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 24973,
+		"equiplevel": 1,
+		"label": "S.Armor",
+		"equipname": "Storm Hurricane Shadow Armor",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(7*DOWN(SHARMORR/2))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"TORNADO_STORM\")?(8+(2*DOWN(SHARMORR/3))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					24974
+				],
+				"itemid_any": [],
+				"equipname": "Storm Hurricane Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "MatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>14?7:0",
+						"EffectType": {
+							"id": "SizeMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER)>17?50:0",
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24974,
+					24793
+				],
+				"itemid_any": [],
+				"equipname": "Storm Hurricane Shadow Shoes + Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "ElementalMatkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SHARMORR+SHSHOER+SHSHIER)>26?10:0",
+						"EffectType": {
+							"id": "BypassMRESPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 24974,
+		"equiplevel": 1,
+		"label": "S.Shoes",
+		"equipname": "Storm Hurricane Shadow Shoes",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(7*DOWN(SHSHOER/2))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"DESTRUCTIVE_HURRICANE\")?(8+(2*DOWN(SHSHOER/3))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]
