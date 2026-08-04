@@ -2480,5 +2480,314 @@
 			}
 		],
 		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": -2,
+		"equiplevel": 5,
+		"label": "MainHand",
+		"equipname": "Mugen Shuriken",
+		"refinelevel": 15,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(300+(30*WEAR)+(['KO','BO'].includes(CCL)?(WEAG(2)?200:0):0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ENBSKILLS(\"WINDCUTTER CHAINLIGHTNING\"))",
+				"EffectType": {
+					"id": "EnableSkills"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(15+(WEAR>13?20:0))",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR+(WEAG(1)?7:0))",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR+(WEAG(1)?7:0))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((30*WEAR)+(['KO','BO'].includes(CCL)?(WEAG(2)?200:0):0))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(15*WEAR)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(15*WEAR)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>8?15:0)",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"WINDCUTTER CHAINLIGHTNING\")?(WEAR>8?50:0):0)+(SKIDS(\"KAGENOMAI KAGEGISSEN\")?(WEAR>9?50:0):0)+(SKIDS(\"FUUMASHOUAKU FUUMAKOUCHIKU\")?(WEAR>10?70:0):0)+(SKIDS(\"KUNAIWAIKYOKU KUNAIKUSSETSU\")?(WEAR>11?100:0):0)+(SKIDS(\"KUNAIKAITEN\")?(WEAR>12?100:0):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"KAGENOMAI KAGEGISSEN\")?(WEAR>9?0.4:0):0)+(SKIDS(\"FUUMASHOUAKU FUUMAKOUCHIKU\")?(WEAR>10?1:0):0)+(SKIDS(\"KUNAIWAIKYOKU\")?(WEAR>11?0.35:0):0)+(SKIDS(\"KUNAIKUSSETSU\")?(WEAR>11?2:0):0)+(SKIDS(\"KUNAIKAITEN\")?(WEAR>12?2:0):0))",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>13?20:0)",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>13?0.2:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>14?40:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>14?40:0)",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(1)?7:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAG(1)?7:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4503
+				],
+				"itemid_any": [],
+				"equipname": "Sealed Vesper Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"RAIDENPOU\")?100:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"RAIDENPOU\")?0.2:0)",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAG(4)?10:0)",
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAG(4)?15:0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAG(4)?50:0)",
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4374
+				],
+				"itemid_any": [],
+				"equipname": "Vesper Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"RAIDENPOU\")?200:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"RAIDENPOU\")?0.7:0)",
+						"EffectType": {
+							"id": "CDTime"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAG(4)?10:0)",
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAG(4)?30:0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAG(4)?100:0)",
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4137
+				],
+				"itemid_any": [],
+				"equipname": "Drake Card",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "POW"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "CON"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAG(4)?30:0)",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(WEAG(4)?100:0)",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shuriken",
+				"label": "Fuuma",
+				"sizefix": {
+					"small": 75,
+					"middle": 75,
+					"large": 100
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": true
+			},
+			"level": {
+				"id": 5,
+				"label": "Lv. 5 Weapon",
+				"upgradeatk": 8,
+				"saferefine": 4,
+				"overatk": 0
+			},
+			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"ATK": "300",
+			"MATK": 0,
+			"refinelevel": 15,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 100,
+			"refinematk": 0,
+			"refineatk": 0,
+			"refineatk2": 0
+		}
 	}
 ]
