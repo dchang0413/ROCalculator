@@ -3573,5 +3573,93 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "weaponl",
+		"itemid": 460178,
+		"equiplevel": 1,
+		"label": "OffHand",
+		"equipname": "Ignis Flame Guard",
+		"refinelevel": 12,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 10,
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(100*SWEAR)",
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(SWEAR/3))",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>6?2:0)",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"ALL_BLOOM FLORAL_FLARE_ROAD\")?(SWEAR>8?0.3:0):0)",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SWEAR>10?150:0)",
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"ALL_BLOOM FLORAL_FLARE_ROAD\")?(SWEAR>11?15:0):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Shield",
+				"label": "Shield"
+			},
+			"level": {
+				"id": 1,
+				"label": "Lv. 1 Weapon",
+				"upgradeatk": 2,
+				"saferefine": 7,
+				"overatk": 3
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": 0,
+			"MATK": 0,
+			"refinelevel": 12,
+			"ShieldWeight": 20,
+			"refinematk": 0,
+			"refineatk": 0
+		}
 	}
 ]

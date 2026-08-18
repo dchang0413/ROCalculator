@@ -12505,7 +12505,7 @@
                         this.setRecord('Kihop', [this.computeattribute.atkc5_min, this.computeattribute.atkc5_max], 'x', paraKihop, 'p');
                     } else
                         if (this.IsSupportActive('TK_POWER')) {
-                            var paraKihop = Number(1) + Number((10 + this.GetSupportSkill('TK_POWER').lv * 15) / 100);
+                            var paraKihop = Number(1) + Number((this.GetSupportSkill('TK_POWER').lv * 20) / 100);
                             this.computeattribute.atkc5_min = this.MulOper(this.computeattribute.atkc5_min, paraKihop);
                             this.computeattribute.atkc5_max = this.MulOper(this.computeattribute.atkc5_max, paraKihop);
                             this.setRecord('Kihop', [this.computeattribute.atkc5_min, this.computeattribute.atkc5_max], 'x', paraKihop, 'p');
@@ -16384,6 +16384,7 @@
                         { skill: { id: 'SR_KNUCKLEARROW', name: 'Knuckle Arrow', level: 10, formula: '(500+SLV*100)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'SR_KNUCKLEARROW(ex)', name: 'Knuckle Arrow(BOSS)', level: 10, formula: '(500+SLV*200)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'SR_SKYBLOW', name: 'Sky Blow', level: 5, formula: '(AGI+200*SLV)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -3, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
+                        { skill: { id: 'SR_EARTHSHAKER', name: 'Earth Shaker', level: 5, formula: '(STR*3+300*SLV)*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: false, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: 1, elemental: 0, FCT: 0, VCT: 0, CD: 3, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'SR_FALLENEMPIRE', name: 'Fallen Empire', level: 10, formula: '(100+300*SLV)*BLV/100+100*STR', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -2, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: 0, SpecialMATK1: 0, Note: '', Version: 0, } },
                         { skill: { id: 'SR_GATEOFHELL', name: 'Gate of Hell', level: 10, formula: '500*SLV*BLV/100', class: 'SU', DamageTypeIdx: 0, ranged: true, critical: false, cannon: false, transWeaponDEF: false, laterformula: false, hitnumber: -7, elemental: 0, FCT: 0, VCT: 0, CD: 0, GCD: 0, SpecialATK1: 0, SpecialATK2: 0, SpecialATK3: 0, SpecialATK4: 0, SpecialATK5: 0, SpecialATK6: 0, SpecialATK7: '(CSP-100)*3+BLV*10+((Mhp>CHP)?(Mhp-CHP):0)', SpecialMATK1: 0, Note: 'Affected by HP/SP', Version: 0, } },
 
@@ -16820,7 +16821,7 @@
                         { skill: { id: 'TK_SEVENWIND', name: 'Mild Wind', maxlv: 1, lv: 1, class: 'SE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'TK_RUN', name: 'Sprint', maxlv: 10, lv: 10, class: 'SE', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'TK_POWER_OLD', name: 'Kihop', maxlv: 5, lv: 5, class: 'SE', changelv: false, argnum: 1, arg1: 12, arg1desc: 'Party Size', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: 'TK_POWER', Note: '', } },
-                        { skill: { id: 'TK_POWER', name: 'Kihop - New', maxlv: 5, lv: 5, class: 'SE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: 'TK_POWER_OLD', Note: '', } },
+                        { skill: { id: 'TK_POWER', name: 'Kihop - New', maxlv: 5, lv: 5, class: 'SE', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: 'TK_POWER_OLD', Note: '', } },
                         { skill: { id: 'SG_HATE', name: 'SLS Wrath', maxlv: 3, lv: 3, class: 'SE', changelv: true, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SG_Miracle', name: 'SLS Miracle', maxlv: 1, lv: 0, class: 'SE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: true, select: false, active: false, conflict: '', Note: '', } },
                         { skill: { id: 'SG_FUSION', name: 'SLS Union', maxlv: 1, lv: 0, class: 'SE', changelv: false, argnum: 0, arg1: 0, arg1desc: '', arg2: 0, arg2desc: '', passive: false, select: false, active: false, conflict: '', Note: '', } },
@@ -17065,6 +17066,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2026-08-18', content: 'Added: Kachua gear from August 2026 - Updated: Kihop to use updated formula' },
                         { id: '2026-08-06', content: 'Added: Missing Dim Glacier Rings and Dim Crystals' },
                         { id: '2026-08-04', content: 'Added: OCP 86 gear' },
                         { id: '2026-07-23', content: 'Added: Kachua coupon gear from July 2026' },
