@@ -1722,10 +1722,10 @@
 		},
 		{
 			"id": "helmcard",
-			"itemid": 314682,
-			"equiplevel": 1,
+			"itemid": 300377,
 			"label": "Headgear Card",
-			"equipname": "[S2] Vellgunde Resonance (Magic) Lv2",
+			"equiplevel": 1,
+			"equipname": "Ultra Limacina Card",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -1733,16 +1733,37 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 10,
+					"EffectNumber": 5,
 					"EffectType": {
-						"id": "SPL"
+						"id": "AtkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": 20,
+					"EffectNumber": 5,
 					"EffectType": {
-						"id": "RaceMatkPercent"
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(2*DOWN(HATR/3))",
+					"EffectType": {
+						"id": "PATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(2*DOWN(HATR/3))",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(HATR>10?0.5:0)",
+					"EffectType": {
+						"id": "FixedCast"
 					},
 					"Enable": true
 				}
@@ -1816,8 +1837,8 @@
 		{
 			"id": "armorcard",
 			"itemid": 300472,
-			"label": "Armor Card",
 			"equiplevel": 1,
+			"label": "Armor Card",
 			"equipname": "Ultimate Rasgand Card",
 			"refinelevel": 0,
 			"grade": {
@@ -3944,27 +3965,27 @@
 		"SO_EL_CONTROL(Lv1)",
 		"EM_SUMMON_ELEMENTAL_ARDOR"
 	],
-	"Damage": "809,606,823,641 ~ 856,603,934,060",
-	"DamageDPS": "5,948,372,404,989",
+	"Damage": "768,367,978,329 ~ 813,212,334,347",
+	"DamageDPS": "5,646,241,716,253",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "833,105,378,851",
+	"SkillDamageAvg": "790,790,156,338",
 	"attribute": {
 		"StatusATK": 990,
 		"WeaponATK": 825,
-		"StatusMATK": 5034,
+		"StatusMATK": 4984,
 		"WeaponMATK": 4537,
 		"ATK": 285,
 		"MATK": 3997,
-		"ATKP": 1,
-		"MATKP": 331,
+		"ATKP": 6,
+		"MATKP": 336,
 		"DEF": 0,
 		"MDEF": 0,
 		"HP": 170,
 		"HPP": 195,
 		"SP": 413,
 		"SPP": 25,
-		"PATK": 143,
-		"SMATK": 568,
+		"PATK": 153,
+		"SMATK": 574,
 		"CRIDR": 31,
 		"RES": 0,
 		"MRES": 0,
@@ -3984,7 +4005,7 @@
 		"SK2VCTP": 0,
 		"EQVCTP": -10,
 		"VCTS": 0,
-		"FCT": -3,
+		"FCT": -3.5,
 		"FCTP": 0,
 		"CD": -5,
 		"GCD": -145,
@@ -4002,7 +4023,7 @@
 		"RaceAtkPercent": 10,
 		"MonsterAtkPercent": 0,
 		"ElementalMatkPercent": 187,
-		"RaceMatkPercent": 207,
+		"RaceMatkPercent": 187,
 		"MonsterMatkPercent": 0,
 		"LevelMatkPercent": 365
 	},
@@ -4071,31 +4092,31 @@
 		"SpecialMATK1": 0,
 		"SpecialMATK3": 0,
 		"SpecialINSIGNIAENEMYMATK": 0,
-		"weaponmatk_min": 5304,
-		"weaponmatk_max": 5844,
-		"equipmatk_min": 9301,
-		"equipmatk_max": 9841,
-		"matkpercent_min": 40087,
-		"matkpercent_max": 42414,
-		"finalmatk_min": 279510565,
-		"finalmatk_max": 295735958,
-		"matk1_min": 279510565,
-		"matk1_max": 295735958,
-		"skillmatk_min": 37309070216,
-		"skillmatk_max": 39474835673,
-		"matk2_min": 37309070214,
-		"matk2_max": 39474835671,
-		"matk3_min": 115658117663,
-		"matk3_max": 122371990580,
-		"matk4_min": 115658117663,
-		"matk4_max": 122371990580,
-		"matk4_avg": 119015054121.5,
-		"matkmulti_min": 809606823641,
-		"matkmulti_max": 856603934060,
-		"matkmulti_avg": 833105378850.5,
+		"weaponmatk_min": 5254,
+		"weaponmatk_max": 5794,
+		"equipmatk_min": 9251,
+		"equipmatk_max": 9791,
+		"matkpercent_min": 40334,
+		"matkpercent_max": 42688,
+		"finalmatk_min": 265273169,
+		"finalmatk_max": 280755340,
+		"matk1_min": 265273169,
+		"matk1_max": 280755340,
+		"skillmatk_min": 35408662598,
+		"skillmatk_max": 37475222783,
+		"matk2_min": 35408662596,
+		"matk2_max": 37475222781,
+		"matk3_min": 109766854047,
+		"matk3_max": 116173190621,
+		"matk4_min": 109766854047,
+		"matk4_max": 116173190621,
+		"matk4_avg": 112970022334,
+		"matkmulti_min": 768367978329,
+		"matkmulti_max": 813212334347,
+		"matkmulti_avg": 790790156338,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
-		"matkmulti_DPS": 5948372404989,
+		"matkmulti_DPS": 5646241716253.31,
 		"DragonBreathDMG": 0,
 		"DragonBreathDMG_DPS": 0,
 		"CastDEXINT": 1857,
@@ -4118,7 +4139,7 @@
 		"SPL": 0,
 		"CON": 311,
 		"CRT": 93,
-		"S_P_L": 720
+		"S_P_L": 710
 	},
-	"lastedited": "2026-07-18T00:29:21.357Z"
+	"lastedited": "2026-08-22T00:16:29.586Z"
 }

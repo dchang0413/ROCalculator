@@ -1722,10 +1722,10 @@
 		},
 		{
 			"id": "helmcard",
-			"itemid": 314682,
-			"equiplevel": 1,
+			"itemid": 300377,
 			"label": "Headgear Card",
-			"equipname": "[S2] Vellgunde Resonance (Magic) Lv2",
+			"equiplevel": 1,
+			"equipname": "Ultra Limacina Card",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
@@ -1733,23 +1733,44 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 10,
+					"EffectNumber": 5,
 					"EffectType": {
-						"id": "SPL"
+						"id": "AtkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": 20,
+					"EffectNumber": 5,
 					"EffectType": {
-						"id": "RaceMatkPercent"
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(2*DOWN(HATR/3))",
+					"EffectType": {
+						"id": "PATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(2*DOWN(HATR/3))",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(HATR>10?0.5:0)",
+					"EffectType": {
+						"id": "FixedCast"
 					},
 					"Enable": true
 				}
 			],
 			"combolist": [],
 			"enchantSlot": 0,
-			"availableEnchants": 0
+			"availableEnchants": []
 		},
 		{
 			"id": "helm1card",
@@ -1816,8 +1837,8 @@
 		{
 			"id": "armorcard",
 			"itemid": 300472,
-			"label": "Armor Card",
 			"equiplevel": 1,
+			"label": "Armor Card",
 			"equipname": "Ultimate Rasgand Card",
 			"refinelevel": 0,
 			"grade": {
@@ -3918,7 +3939,7 @@
 	},
 	"Option": {
 		"MagnumPoison2Value": 0,
-		"SkillPercent": 28054,
+		"SkillPercent": 27872,
 		"SkillFormulaError": "",
 		"EquipSkillAddDamage": 40,
 		"BaseCriticalValue": 40,
@@ -3977,27 +3998,27 @@
 		"SO_EL_CONTROL(Lv1)",
 		"EM_SUMMON_ELEMENTAL_ARDOR"
 	],
-	"Damage": "1,210,601,429,500 ~ 1,280,876,215,850",
-	"DamageDPS": "8,894,575,193,900",
+	"Damage": "1,141,483,032,390 ~ 1,208,102,424,800",
+	"DamageDPS": "8,388,020,082,168",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "1,245,738,822,675",
+	"SkillDamageAvg": "1,174,792,728,595",
 	"attribute": {
 		"StatusATK": 990,
 		"WeaponATK": 825,
-		"StatusMATK": 5034,
+		"StatusMATK": 4984,
 		"WeaponMATK": 4537,
 		"ATK": 285,
 		"MATK": 3997,
-		"ATKP": 1,
-		"MATKP": 331,
+		"ATKP": 6,
+		"MATKP": 336,
 		"DEF": 0,
 		"MDEF": 0,
 		"HP": 170,
 		"HPP": 195,
 		"SP": 413,
 		"SPP": 25,
-		"PATK": 143,
-		"SMATK": 568,
+		"PATK": 153,
+		"SMATK": 574,
 		"CRIDR": 31,
 		"RES": 0,
 		"MRES": 0,
@@ -4017,7 +4038,7 @@
 		"SK2VCTP": 0,
 		"EQVCTP": 0,
 		"VCTS": 0,
-		"FCT": -3.5,
+		"FCT": -4,
 		"FCTP": 0,
 		"CD": -2,
 		"GCD": -145,
@@ -4035,7 +4056,7 @@
 		"RaceAtkPercent": 10,
 		"MonsterAtkPercent": 0,
 		"ElementalMatkPercent": 202,
-		"RaceMatkPercent": 207,
+		"RaceMatkPercent": 187,
 		"MonsterMatkPercent": 0,
 		"LevelMatkPercent": 365
 	},
@@ -4104,31 +4125,31 @@
 		"SpecialMATK1": 0,
 		"SpecialMATK3": 0,
 		"SpecialINSIGNIAENEMYMATK": 0,
-		"weaponmatk_min": 5304,
-		"weaponmatk_max": 5844,
-		"equipmatk_min": 9301,
-		"equipmatk_max": 9841,
-		"matkpercent_min": 40087,
-		"matkpercent_max": 42414,
-		"finalmatk_min": 308232447,
-		"finalmatk_max": 326125181,
-		"matk1_min": 308232447,
-		"matk1_max": 326125181,
-		"skillmatk_min": 86471530681,
-		"skillmatk_max": 91491158277,
-		"matk2_min": 86471530679,
-		"matk2_max": 91491158275,
-		"matk3_min": 121060142950,
-		"matk3_max": 128087621585,
-		"matk4_min": 121060142950,
-		"matk4_max": 128087621585,
-		"matk4_avg": 124573882267.5,
-		"matkmulti_min": 1210601429500,
-		"matkmulti_max": 1280876215850,
-		"matkmulti_avg": 1245738822675,
+		"weaponmatk_min": 5254,
+		"weaponmatk_max": 5794,
+		"equipmatk_min": 9251,
+		"equipmatk_max": 9791,
+		"matkpercent_min": 40334,
+		"matkpercent_max": 42688,
+		"finalmatk_min": 292531940,
+		"finalmatk_max": 309604730,
+		"matk1_min": 292531940,
+		"matk1_max": 309604730,
+		"skillmatk_min": 81534502316,
+		"skillmatk_max": 86293030345,
+		"matk2_min": 81534502314,
+		"matk2_max": 86293030343,
+		"matk3_min": 114148303239,
+		"matk3_max": 120810242480,
+		"matk4_min": 114148303239,
+		"matk4_max": 120810242480,
+		"matk4_avg": 117479272859.5,
+		"matkmulti_min": 1141483032390,
+		"matkmulti_max": 1208102424800,
+		"matkmulti_avg": 1174792728595,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
-		"matkmulti_DPS": 8894575193899.5,
+		"matkmulti_DPS": 8388020082168.3,
 		"DragonBreathDMG": 0,
 		"DragonBreathDMG_DPS": 0,
 		"CastDEXINT": 1857,
@@ -4151,7 +4172,7 @@
 		"SPL": 0,
 		"CON": 311,
 		"CRT": 93,
-		"S_P_L": 720
+		"S_P_L": 710
 	},
-	"lastedited": "2026-07-18T00:29:47.722Z"
+	"lastedited": "2026-08-22T00:16:37.236Z"
 }
