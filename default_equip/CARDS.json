@@ -11376,5 +11376,48 @@
 				]
 			}
 		]
+	},
+	{
+		"id": "acc1card",
+		"itemid": 300175,
+		"label": "Acc Card",
+		"equipname": "Unidentified Creature Card",
+		"effectlist": [
+			{
+				"EffectNumber": "([5,7].includes(AEI)?30:0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
+	},
+	{
+		"id": "weaponcard",
+		"itemid": 300176,
+		"label": "Weapon Card",
+		"equipname": "Unidentified Life Form Card",
+		"effectlist": [
+			{
+				"EffectNumber": "((DOWN(WEAR/2))+((WTI=='TwoHandedSword'|WTI=='TwoHandedAxe')?10:0))",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((WTI=='TwoHandedSword'|WTI=='TwoHandedAxe')?1:0)",
+				"EffectType": {
+					"id": "ASPD"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"flags": [],
+		"idx": 3
 	}
 ]
