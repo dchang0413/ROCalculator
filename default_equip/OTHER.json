@@ -855,11 +855,11 @@
 		"idx": 3
 	},
 	{
-		"id": "helm",
-		"itemid": -112,
+		"id": "acc2",
+		"itemid": -123,
 		"equiplevel": 2,
-		"label": "Upper",
-		"equipname": "Death Follower Doll",
+		"label": "Accessory",
+		"equipname": "Dim Glacier Ring of Ice Lord",
 		"refinelevel": 15,
 		"grade": {
 			"id": 4,
@@ -867,170 +867,207 @@
 		},
 		"effectlist": [
 			{
-				"EffectNumber": 10,
+				"EffectNumber": 15,
 				"EffectType": {
-					"id": "ASPD"
+					"id": "MeleeDamagePercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(10+HATR)",
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 15,
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(4*DOWN(BACCLR/2))",
 				"EffectType": {
 					"id": "POW"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(10+HATR)",
+				"EffectNumber": "(4*DOWN(BACCLR/2))",
 				"EffectType": {
 					"id": "SPL"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(20+HATR+(HATR>9?20:0))",
+				"EffectNumber": "(4*DOWN(BACCLR/2))",
 				"EffectType": {
-					"id": "SizeAtkPercent"
+					"id": "CON"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(20+HATR+(HATR>9?20:0))",
-				"EffectType": {
-					"id": "SizeMatkPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(['SO','WL','AB','SU'].includes(CCL)?50000:0)",
-				"EffectType": {
-					"id": "HP"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(['SO','WL','AB','SU'].includes(CCL)?5000:0)",
-				"EffectType": {
-					"id": "SP"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "((15*DOWN(HATR/3))+(HATR>12?20:0)+(HATG(4)?15:0))",
-				"EffectType": {
-					"id": "AllStatus"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "((HATR>10?10:0)+(HATR>11?10:0)+(HATG(4)?15:0))",
-				"EffectType": {
-					"id": "AllTrait"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "((HATR>10?100:0)+(HATR>11?100:0)+(HATR>12?200:0)+(HATR>13?250:0))",
-				"EffectType": {
-					"id": "Atk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "((HATR>10?100:0)+(HATR>11?100:0)+(HATR>12?200:0)+(HATR>13?250:0))",
-				"EffectType": {
-					"id": "Matk"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(HATR>13?25:0)",
+				"EffectNumber": "(BACCLR>8?15:0)",
 				"EffectType": {
 					"id": "GCDPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(HATR>13?0.5:0)",
+				"EffectNumber": "(BACCLR>11?20:0)",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BACCLR>11?20:0)",
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BACCLR>13?20:0)",
+				"EffectType": {
+					"id": "LevelAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BACCLR>13?20:0)",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BACCLG(1)?250:0)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BACCLG(1)?250:0)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(BACCLG(2)?0.5:0)",
 				"EffectType": {
 					"id": "FixedCast"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(HATG(1)?20:0)",
+				"EffectNumber": "(BACCLG(3)?15:0)",
 				"EffectType": {
 					"id": "PATK"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(HATG(1)?20:0)",
+				"EffectNumber": "(BACCLG(3)?15:0)",
 				"EffectType": {
 					"id": "SMATK"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(HATG(2)?30:0)",
+				"EffectNumber": "(BACCLG(4)?20:0)",
 				"EffectType": {
-					"id": "HPPercent"
+					"id": "RaceAtkPercent"
 				},
 				"Enable": true
 			},
 			{
-				"EffectNumber": "(HATG(2)?30:0)",
+				"EffectNumber": "(BACCLG(4)?20:0)",
 				"EffectType": {
-					"id": "SPPercent"
-				},
-				"Enable": true
-			},
-			{
-				"EffectNumber": "(HATG(3)?60:0)",
-				"EffectType": {
-					"id": "BypassMDEFPercent"
+					"id": "RaceMatkPercent"
 				},
 				"Enable": true
 			}
 		],
 		"combolist": [
 			{
-				"itemid_every": [
-					27327
+				"itemid_every": [],
+				"itemid_any": [
+					540049,
+					610037,
+					650025,
+					550069,
+					640033,
+					620017,
+					590039,
+					570029,
+					580030,
+					500049,
+					530025,
+					520017,
+					590038,
+					700052,
+					800014,
+					810010,
+					820008,
+					830013,
+					840009,
+					600027,
+					630018,
+					510061,
+					500050,
+					510062,
+					560032,
+					550070,
+					540056,
+					610041,
+					650028,
+					550089,
+					640034,
+					620019,
+					590048,
+					570032,
+					580033,
+					500054,
+					530034,
+					520021,
+					590047,
+					700059,
+					800015,
+					810015,
+					820011,
+					830015,
+					840010,
+					600030,
+					630019,
+					510075,
+					500055,
+					510076,
+					560037,
+					550090
 				],
-				"itemid_any": [],
-				"equipname": "Grim Reaper Ankou Card",
+				"equipname": "Dim Glacier Weapon Series",
 				"effectlist": [
 					{
-						"EffectNumber": 100,
-						"EffectType": {
-							"id": "HPPercent"
-						},
-						"Enable": true
-					},
-					{
-						"EffectNumber": 50,
-						"EffectType": {
-							"id": "SPPercent"
-						},
-						"Enable": true
-					},
-					{
-						"EffectNumber": 30,
+						"EffectNumber": 20,
 						"EffectType": {
 							"id": "AllTrait"
 						},
 						"Enable": true
 					},
 					{
-						"EffectNumber": 40,
+						"EffectNumber": "(12*DOWN(WEAR/2))",
 						"EffectType": {
 							"id": "LevelAtkPercent"
 						},
 						"Enable": true
 					},
 					{
-						"EffectNumber": 40,
+						"EffectNumber": "(12*DOWN(WEAR/2))",
 						"EffectType": {
 							"id": "LevelMatkPercent"
 						},
@@ -1040,42 +1077,42 @@
 			},
 			{
 				"itemid_every": [
-					27328
+					300471
 				],
 				"itemid_any": [],
-				"equipname": "Living Death Card",
+				"equipname": "Fallen Angel Slug Card",
 				"effectlist": [
 					{
-						"EffectNumber": 5,
+						"EffectNumber": 30,
 						"EffectType": {
 							"id": "PATK"
 						},
 						"Enable": true
 					},
 					{
-						"EffectNumber": 5,
+						"EffectNumber": 30,
 						"EffectType": {
 							"id": "SMATK"
 						},
 						"Enable": true
 					},
 					{
-						"EffectNumber": 20,
+						"EffectNumber": 40,
 						"EffectType": {
-							"id": "SizeAtkPercent"
+							"id": "ElementalAtkPercent"
 						},
 						"Enable": true
 					},
 					{
-						"EffectNumber": 20,
+						"EffectNumber": 40,
 						"EffectType": {
-							"id": "SizeMatkPercent"
+							"id": "ElementalMatkPercent"
 						},
 						"Enable": true
 					}
 				]
 			}
 		],
-		"idx": 3
+		"availableEnchants": []
 	}
 ]
