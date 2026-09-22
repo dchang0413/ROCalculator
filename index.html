@@ -5740,7 +5740,14 @@
                         </el-col>
                         <el-col class="textcenter" :span="2"> </el-col>
                         <el-col class="textcenter" :span="2"> </el-col>
-                        <el-col class="textcenter" :span="4"> </el-col>
+                        <el-col class="textcenter" :span="4">
+                            <el-row type="flex" align="middle">
+                                <span class="textcenter" style="padding-right: 5px;">Simplified</span>
+                                <el-switch v-model="SimplifiedCalc" active-color="#13ce66"
+                                    v-on:change="SwitchSimplifiedView()" inactive-color="#8a9799">
+                                </el-switch>
+                            </el-row>
+                        </el-col>
                         <el-col class="textcenter" :span="10">
                             <span class="textcenter">Equip</span>
                         </el-col>
@@ -6270,8 +6277,7 @@
                                                         }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="8">
-                                                    <span class="textnowrap">{{
-                                                        item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(0, item.EffectNumber) : '' }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="2">
                                                     <span lass="">{{
@@ -6307,8 +6313,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(0, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -6343,8 +6348,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(0, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span lass="">{{
@@ -6382,8 +6386,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(0, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -6422,8 +6425,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(0, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -6457,8 +6459,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(0, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -6496,8 +6497,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(0, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -7120,8 +7120,7 @@
                                                         }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="8">
-                                                    <span class="textnowrap">{{
-                                                        item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(1, item.EffectNumber) : '' }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="2">
                                                     <span lass="">{{
@@ -7157,8 +7156,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(1, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -7194,8 +7192,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(1, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -7234,8 +7231,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(1, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -7269,8 +7265,7 @@
                                                         }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="8">
-                                                    <span class="textnowrap">{{
-                                                        item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(1, item.EffectNumber) : '' }}</span>
                                                 </el-col>
                                                 <el-col class="textcenter" :span="2">
                                                     <span class="">{{
@@ -7306,8 +7301,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(1, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -7345,8 +7339,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(1, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -7380,8 +7373,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(1, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -7419,8 +7411,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(1, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -7456,8 +7447,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(1, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -7735,8 +7725,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+2, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -7773,8 +7762,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+2, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -7808,8 +7796,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+2, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -7846,8 +7833,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+2, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -7886,8 +7872,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+2, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -7922,9 +7907,7 @@
                                                                     }}</span>
                                                             </el-col>
                                                             <el-col class="textcenter" :span="8">
-                                                                <span class="textnowrap">{{
-                                                                    item.EffectNumber!=9999?item.EffectNumber:''
-                                                                    }}</span>
+                                                                <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+2, item.EffectNumber) : '' }}</span>
                                                             </el-col>
                                                             <el-col class="textcenter" :span="2">
                                                                 <span class="">{{
@@ -7962,8 +7945,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+2, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -8148,8 +8130,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+37, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -8186,8 +8167,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+37, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -8225,8 +8205,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+37, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -8261,9 +8240,7 @@
                                                                     }}</span>
                                                             </el-col>
                                                             <el-col class="textcenter" :span="8">
-                                                                <span class="textnowrap">{{
-                                                                    item.EffectNumber!=9999?item.EffectNumber:''
-                                                                    }}</span>
+                                                                <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+37, item.EffectNumber) : '' }}</span>
                                                             </el-col>
                                                             <el-col class="textcenter" :span="2">
                                                                 <span class="">{{
@@ -8301,8 +8278,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+37, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -8452,8 +8428,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+30, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -8490,8 +8465,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+30, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -8529,8 +8503,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+30, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -8569,9 +8542,7 @@
                                                                     }}</span>
                                                             </el-col>
                                                             <el-col class="textcenter" :span="8">
-                                                                <span class="textnowrap">{{
-                                                                    item.EffectNumber!=9999?item.EffectNumber:''
-                                                                    }}</span>
+                                                                <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+30, item.EffectNumber) : '' }}</span>
                                                             </el-col>
                                                             <el-col class="textcenter" :span="2">
                                                                 <span class="">{{
@@ -8657,8 +8628,7 @@
                                                             }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="8">
-                                                        <span class="textnowrap">{{
-                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+36, item.EffectNumber) : '' }}</span>
                                                     </el-col>
                                                     <el-col class="textcenter" :span="2">
                                                         <span class="">{{
@@ -8695,8 +8665,7 @@
                                                                 }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="8">
-                                                            <span class="textnowrap">{{
-                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                            <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+36, item.EffectNumber) : '' }}</span>
                                                         </el-col>
                                                         <el-col class="textcenter" :span="2">
                                                             <span class="">{{
@@ -10055,6 +10024,7 @@
                 ElementTableVersion: 2, // 1: old, 2: new
 
                 TestMode: false,
+                SimplifiedCalc: false,
                 StoreDB_QuickCalc: [],
                 QuickCalc: { formula: '', solution: '', remark: '' },
 
@@ -11162,6 +11132,9 @@
                 OpenPanel(id) {
                     this.UIPanel[id] = true;
                 },
+                SwitchSimplifiedView() {
+                    this.CombineEquipsAttribute();
+                },
                 SwitchElementalVersion() {
                     this.ElementTableLastest = !this.ElementTableLastest;
                     this.elementalmap = this.ElementTableLastest ? this.elementalmap_fix : this.elementalmap_old;
@@ -11735,6 +11708,14 @@
                     this.buildSupportSkill();
 
                     this.GetDetailedEquipString(true);
+                },
+                GetEquipEffectString(baseIndex, effectNumber) {
+                    if(!this.SimplifiedCalc) {
+                        return effectNumber;
+                    }
+
+                    const newEffectNumber = typeof effectNumber == 'string' ? effectNumber.replaceAll('GEARR', 'this.equipspartlist[' + baseIndex + '].refinelevel').replaceAll('GEARG', 'this.equipspartlist[' + baseIndex + '].grade.id') : effectNumber;
+                    return '\t\t' + eval(this.SkillFormulaReplace(newEffectNumber));
                 },
                 GetEquipEffect(index) {
                     var _EffectTypeInfo;
@@ -17418,6 +17399,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2026-09-22', content: 'Update: Switch button for simplified formulas in the gear (shows the real values)' },
                         { id: '2026-09-22', content: 'Added: Kachua gear from September 2026' },
                         { id: '2026-09-01', content: 'Added: OCP 87 gear & Spend Promo gear' },
                         { id: '2026-08-18', content: 'Added: Kachua gear from August 2026 - Updated: Kihop to use updated formula' },
