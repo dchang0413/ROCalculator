@@ -7439,5 +7439,316 @@
 			"refinematk": 0,
 			"refineatk": 0
 		}
+	},
+	{
+		"id": "helm",
+		"itemid": -1,
+		"equiplevel": 2,
+		"label": "Upper",
+		"equipname": "Blighted Skullcap",
+		"refinelevel": 15,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(30+(HATR>9?30:0))",
+				"EffectType": {
+					"id": "ElementalMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"VENOM_SWAMP DEADLY_PROJECTION\")?((12*HATR)+(HATG(4)?50:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10*DOWN(HATR/3))",
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>10?30:0)",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATR>10?0.5:0)+(HATR>14?0.5:0))",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATR>11?100:0)+(HATR>12?100:0))",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATR>11?10:0)+(HATR>12?10:0))",
+				"EffectType": {
+					"id": "AllTrait"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"VENOM_SWAMP\")?(HATR>11?2:0):0)+(SKIDS(\"DEADLY_PROJECTION\")?(HATR>12?2:0):0))",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATR>14?50:0)",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((HATR>14?25:0)+(HATG(2)?20:0))",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(1)?([5,7].includes(AEI)?20:0):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(HATG(3)?20:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300382
+				],
+				"itemid_any": [],
+				"equipname": "Aquila Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(ENBSKILLS(\"DEADLY_PROJECTION\"))",
+						"EffectType": {
+							"id": "EnableSkills"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"VENOM_SWAMP\")?300:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "armor",
+		"itemid": -2,
+		"equiplevel": 2,
+		"label": "Armor",
+		"equipname": "Stormy December",
+		"refinelevel": 15,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 20000,
+				"EffectType": {
+					"id": "HP"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "AllStatus"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"DIAMOND_STORM REIKETSUHOU\")?(10*ARMORR):0)+(SKIDS(\"JACK_FROST_NOVA\")?(20*DOWN(ARMORR/2)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"REIKETSUHOU\")?(ARMORR>11?0.5:0):0)+(SKIDS(\"DIAMOND_STORM\")?(ARMORR>12?1:0):0)+(SKIDS(\"JACK_FROST_NOVA\")?(ARMORR>13?3:0):0))",
+				"EffectType": {
+					"id": "CDTime"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==2?(20+(ARMORR>10?30:0)+(ARMORR>14?50:0)+(ARMORG(2)?20:0)):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(ARMORR/2))",
+				"EffectType": {
+					"id": "SPL"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(1)?20:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(3)?200:0)",
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(ARMORG(4)?20:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4481
+				],
+				"itemid_any": [],
+				"equipname": "Sealed Ktullanux Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 125,
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 15,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [],
+				"itemid_any": [
+					4419,
+					27113
+				],
+				"equipname": "Ktullanux Card OR Awakened Ktullanux Card",
+				"effectlist": [
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "AllTrait"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 250,
+						"EffectType": {
+							"id": "INT"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "SPL"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4543
+				],
+				"itemid_any": [],
+				"equipname": "Sealed Hatii Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(AEI==2?25:0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					4324
+				],
+				"itemid_any": [],
+				"equipname": "Hatii Card",
+				"effectlist": [
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "SMATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(AEI==2?50:0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
