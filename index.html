@@ -6227,6 +6227,34 @@
                                             </el-row>
                                         </div>
                                     </el-row>
+                                    <el-row v-show="UIPanel['weaponrPanel']==true && weapon.type.id!='Empty'"
+                                        class="effectline" :gutter="4" type="flex" align="middle">
+                                        <el-col class="textcenter" :span="4">
+                                            <div>
+                                                <el-tooltip class="item" effect="dark"
+                                                    content="Click to edit a Line Enchant" placement="top">
+                                                    <el-button class="enchantSwitch" type="primary" plain
+                                                        @click="OpenEditEquipDialogue(90)"><img src='img/line_enchant.png' width="19px" height="19px"></el-button>
+                                                </el-tooltip>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter">
+                                            <div>
+                                                <el-input v-model="equipspartlist[90].equipname" placeholder="Line Enchant"></el-input>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="onClearEquipPart(90)" size="mini">
+                                                Clear
+                                            </el-button>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="OpenEditEquipDialogue(90)" type="success"
+                                                plain>
+                                                Edit
+                                            </el-button>
+                                        </el-col>
+                                    </el-row>
                                     <el-row v-show="UIPanel['weaponrPanel']==true">
                                         <div class="Item" v-for="(item, index) in equipspartlist[0].effectlist"
                                             v-bind:key="item.effecttypelist">
@@ -6444,6 +6472,43 @@
                                                         </el-col>
                                                     </el-row>
                                                 </div>
+                                            </div>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponrPanel']==true"
+                                        v-if="getLineEnchantWithEffects(90, 91).length">
+                                        <div class="textcenter bg-orange-light2">Line Enchant Effect</div>
+                                        <div class="bg-orange-light1">
+                                            <div class="divider-orange"></div>
+                                            <div class="textcenter margin-4"><em>{{ equipspartlist[90].equipname }}</em></div>
+                                            <div v-for="(item, index) in equipspartlist[90].effectlist" v-bind:key="item.effecttypelist">
+                                                <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                    justify="end" style="min-height:40px;">
+                                                    <el-col class="textcenter" style="text-align: right;"
+                                                        :span="12">
+                                                        <span class="EffectType">{{
+                                                            effecttypelist[GetETLIndex(item.EffectType.id)].label
+                                                            }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{
+                                                            effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol
+                                                            }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="8">
+                                                        <span class="textnowrap">{{
+                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{
+                                                            effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol
+                                                            }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="5">
+                                                        <el-checkbox v-model="item.Enable"
+                                                            @change="EnableEffect(index+90, index)"></el-checkbox>
+                                                    </el-col>
+                                                </el-row>
                                             </div>
                                         </div>
                                     </el-row>
@@ -6927,6 +6992,34 @@
                                             </el-row>
                                         </div>
                                     </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id!=='Empty' && subweapon.type.id!=='Shield'"
+                                        class="effectline" :gutter="4" type="flex" align="middle">
+                                        <el-col class="textcenter" :span="4">
+                                            <div>
+                                                <el-tooltip class="item" effect="dark"
+                                                    content="Click to edit a Line Enchant" placement="top">
+                                                    <el-button class="enchantSwitch" type="primary" plain
+                                                        @click="OpenEditEquipDialogue(91)"><img src='img/line_enchant.png' width="19px" height="19px"></el-button>
+                                                </el-tooltip>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter">
+                                            <div>
+                                                <el-input v-model="equipspartlist[91].equipname" placeholder="Line Enchant"></el-input>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="onClearEquipPart(91)" size="mini">
+                                                Clear
+                                            </el-button>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="OpenEditEquipDialogue(91)" type="success"
+                                                plain>
+                                                Edit
+                                            </el-button>
+                                        </el-col>
+                                    </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id=='Shield'">
                                         <div v-for="(enchant, idx) in equipspartlist.slice(51, 54)">
                                             <el-row class="effectline" :gutter="4" type="flex" align="middle">
@@ -6983,6 +7076,34 @@
                                                 </el-col>
                                             </el-row>
                                         </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id=='Shield'"
+                                        class="effectline" :gutter="4" type="flex" align="middle">
+                                        <el-col class="textcenter" :span="4">
+                                            <div>
+                                                <el-tooltip class="item" effect="dark"
+                                                    content="Click to edit a Line Enchant" placement="top">
+                                                    <el-button class="enchantSwitch" type="primary" plain
+                                                        @click="OpenEditEquipDialogue(92)"><img src='img/line_enchant.png' width="19px" height="19px"></el-button>
+                                                </el-tooltip>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter">
+                                            <div>
+                                                <el-input v-model="equipspartlist[92].equipname" placeholder="Line Enchant"></el-input>
+                                            </div>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="onClearEquipPart(92)" size="mini">
+                                                Clear
+                                            </el-button>
+                                        </el-col>
+                                        <el-col class="textcenter" :span="5">
+                                            <el-button v-on:click="OpenEditEquipDialogue(92)" type="success"
+                                                plain>
+                                                Edit
+                                            </el-button>
+                                        </el-col>
                                     </el-row>
                                     <el-row v-show="UIPanel['weaponlPanel']==true">
                                         <div class="Item" v-for="(item, index) in equipspartlist[1].effectlist"
@@ -7277,6 +7398,80 @@
                                             </div>
                                         </div>
                                     </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id!=='Empty' && subweapon.type.id!=='Shield'"
+                                        v-if="getLineEnchantWithEffects(91, 92).length">
+                                        <div class="textcenter bg-orange-light2">Line Enchant Effect</div>
+                                        <div class="bg-orange-light1">
+                                            <div class="divider-orange"></div>
+                                            <div class="textcenter margin-4"><em>{{ equipspartlist[91].equipname }}</em></div>
+                                            <div v-for="(item, index) in equipspartlist[91].effectlist" v-bind:key="item.effecttypelist">
+                                                <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                    justify="end" style="min-height:40px;">
+                                                    <el-col class="textcenter" style="text-align: right;"
+                                                        :span="12">
+                                                        <span class="EffectType">{{
+                                                            effecttypelist[GetETLIndex(item.EffectType.id)].label
+                                                            }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{
+                                                            effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol
+                                                            }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="8">
+                                                        <span class="textnowrap">{{
+                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{
+                                                            effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol
+                                                            }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="5">
+                                                        <el-checkbox v-model="item.Enable"
+                                                            @change="EnableEffect(index+91, index)"></el-checkbox>
+                                                    </el-col>
+                                                </el-row>
+                                            </div>
+                                        </div>
+                                    </el-row>
+                                    <el-row v-show="UIPanel['weaponlPanel']==true && subweapon.type.id=='Shield'"
+                                        v-if="getLineEnchantWithEffects(92, 93).length">
+                                        <div class="textcenter bg-orange-light2">Line Enchant Effect</div>
+                                        <div class="bg-orange-light1">
+                                            <div class="divider-orange"></div>
+                                            <div class="textcenter margin-4"><em>{{ equipspartlist[92].equipname }}</em></div>
+                                            <div v-for="(item, index) in equipspartlist[92].effectlist" v-bind:key="item.effecttypelist">
+                                                <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                    justify="end" style="min-height:40px;">
+                                                    <el-col class="textcenter" style="text-align: right;"
+                                                        :span="12">
+                                                        <span class="EffectType">{{
+                                                            effecttypelist[GetETLIndex(item.EffectType.id)].label
+                                                            }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{
+                                                            effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol
+                                                            }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="8">
+                                                        <span class="textnowrap">{{
+                                                            item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{
+                                                            effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol
+                                                            }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="5">
+                                                        <el-checkbox v-model="item.Enable"
+                                                            @change="EnableEffect(index+92, index)"></el-checkbox>
+                                                    </el-col>
+                                                </el-row>
+                                            </div>
+                                        </div>
+                                    </el-row>
                                 </div>
                                 <!--裝備-->
                                 <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(2,10)">
@@ -7495,6 +7690,34 @@
                                                     </el-col>
                                                 </el-row>
                                             </div>
+                                        </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']"
+                                            class="effectline" :gutter="4" type="flex" align="middle">
+                                            <el-col class="textcenter" :span="4">
+                                                <div>
+                                                    <el-tooltip class="item" effect="dark"
+                                                        content="Click to edit a Line Enchant" placement="top">
+                                                        <el-button class="enchantSwitch" type="primary" plain
+                                                            @click="OpenEditEquipDialogue(eqindex+93)"><img src='img/line_enchant.png' width="19px" height="19px"></el-button>
+                                                    </el-tooltip>
+                                                </div>
+                                            </el-col>
+                                            <el-col class="textcenter">
+                                                <div>
+                                                    <el-input v-model="equipspartlist[eqindex+93].equipname" placeholder="Line Enchant"></el-input>
+                                                </div>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="5">
+                                                <el-button v-on:click="onClearEquipPart(eqindex+93)" size="mini">
+                                                    Clear
+                                                </el-button>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="5">
+                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+93)" type="success"
+                                                    plain>
+                                                    Edit
+                                                </el-button>
+                                            </el-col>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
                                             <div v-for="(item, index) in equipspartlist[eqindex+2].effectlist"
@@ -7718,6 +7941,43 @@
                                                 </div>
                                             </div>
                                         </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']"
+                                            v-if="getLineEnchantWithEffects(eqindex+93, eqindex+94).length">
+                                            <div class="textcenter bg-orange-light2">Line Enchant Effect</div>
+                                            <div class="bg-orange-light1">
+                                                <div class="divider-orange"></div>
+                                                <div class="textcenter margin-4"><em>{{ equipspartlist[eqindex+93].equipname }}</em></div>
+                                                <div v-for="(item, index) in equipspartlist[eqindex+93].effectlist" v-bind:key="item.effecttypelist">
+                                                    <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                        justify="end" style="min-height:40px;">
+                                                        <el-col class="textcenter" style="text-align: right;"
+                                                            :span="12">
+                                                            <span class="EffectType">{{
+                                                                effecttypelist[GetETLIndex(item.EffectType.id)].label
+                                                                }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{
+                                                                effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol
+                                                                }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="8">
+                                                            <span class="textnowrap">{{
+                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{
+                                                                effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol
+                                                                }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="5">
+                                                            <el-checkbox v-model="item.Enable"
+                                                                @change="EnableEffect(eqindex+index+93, index)"></el-checkbox>
+                                                        </el-col>
+                                                    </el-row>
+                                                </div>
+                                            </div>
+                                        </el-row>
                                     </div>
                                 </div>
                                 <!-- Shadow stuff-->
@@ -7796,55 +8056,81 @@
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
                                             <div v-for="(enchant, idx) in equipspartlist.slice(eqindex*2+78, eqindex*2+80)">
-                                                <div v-if="item.enchantSlot>idx">
-                                                    <el-row class="effectline" :gutter="4" type="flex" align="middle">
-                                                        <el-col class="textcenter" :span="4">
-                                                            <el-tooltip class="item" effect="dark" content="Click to add an Enchant" placement="top">
-                                                                <el-button class="enchantSwitch" type="primary" plain @click="enchantSwitch(eqindex*2+78+idx)">
-                                                                    <img src='img/enchant.png' alt="enchant">
-                                                                </el-button>
-                                                            </el-tooltip>
-                                                        </el-col>
-                                                        <el-col class="textcenter">
-                                                            <el-input v-model="enchant.equipname" placeholder="Enchant Name">
-                                                                <template v-if="enchant.itemid" slot="prepend">
-                                                                    <el-tooltip placement="top" effect="dark" >
-                                                                        <template slot="content">
-                                                                            <img
-                                                                                :src="'https://static.divine-pride.net/images/items/collection/' + enchant.itemid + '.png'"
-                                                                                alt="Enchant preview"
-                                                                                style="width: 75px; height: 100px;"
-                                                                            />
-                                                                        </template>
+                                                <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                                    <el-col class="textcenter" :span="4">
+                                                        <el-tooltip class="item" effect="dark" content="Click to add an Enchant" placement="top">
+                                                            <el-button class="enchantSwitch" type="primary" plain @click="enchantSwitch(eqindex*2+78+idx)">
+                                                                <img src='img/enchant.png' alt="enchant">
+                                                            </el-button>
+                                                        </el-tooltip>
+                                                    </el-col>
+                                                    <el-col class="textcenter">
+                                                        <el-input v-model="enchant.equipname" placeholder="Enchant Name">
+                                                            <template v-if="enchant.itemid" slot="prepend">
+                                                                <el-tooltip placement="top" effect="dark" >
+                                                                    <template slot="content">
                                                                         <img
-                                                                            :src="'https://static.divine-pride.net/images/items/item/' + enchant.itemid + '.png'"
-                                                                            alt="icon"
-                                                                            style="width: 24px; height: 24px; cursor: pointer;"
+                                                                            :src="'https://static.divine-pride.net/images/items/collection/' + enchant.itemid + '.png'"
+                                                                            alt="Enchant preview"
+                                                                            style="width: 75px; height: 100px;"
                                                                         />
-                                                                        </el-tooltip>
                                                                     </template>
-                                                                    <el-button v-if="enchant.itemid" slot="append">
-                                                                        <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  enchant.itemid ">
-                                                                            <img src="https://www.divine-pride.net/favicon.ico" width="16px" height="16px" />
-                                                                        </a>
-                                                                    </el-button>
-                                                                </el-input>
-                                                        </el-col>
-                                                        <el-col class="textcenter" :span="5">
-                                                            <el-button v-on:click="onClearEquipPart(eqindex*2+78+idx)"
-                                                                size="mini">
-                                                                Clear
-                                                            </el-button>
-                                                        </el-col>
-                                                        <el-col class="textcenter" :span="5">
-                                                            <el-button v-on:click="OpenEditEquipDialogue(eqindex*2+78+idx)"
-                                                                type="success" plain>
-                                                                Edit
-                                                            </el-button>
-                                                        </el-col>
-                                                    </el-row>
-                                                </div>
+                                                                    <img
+                                                                        :src="'https://static.divine-pride.net/images/items/item/' + enchant.itemid + '.png'"
+                                                                        alt="icon"
+                                                                        style="width: 24px; height: 24px; cursor: pointer;"
+                                                                    />
+                                                                    </el-tooltip>
+                                                                </template>
+                                                                <el-button v-if="enchant.itemid" slot="append">
+                                                                    <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  enchant.itemid ">
+                                                                        <img src="https://www.divine-pride.net/favicon.ico" width="16px" height="16px" />
+                                                                    </a>
+                                                                </el-button>
+                                                            </el-input>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="5">
+                                                        <el-button v-on:click="onClearEquipPart(eqindex*2+78+idx)"
+                                                            size="mini">
+                                                            Clear
+                                                        </el-button>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="5">
+                                                        <el-button v-on:click="OpenEditEquipDialogue(eqindex*2+78+idx)"
+                                                            type="success" plain>
+                                                            Edit
+                                                        </el-button>
+                                                    </el-col>
+                                                </el-row>
                                             </div>
+                                        </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']"
+                                            class="effectline" :gutter="4" type="flex" align="middle">
+                                            <el-col class="textcenter" :span="4">
+                                                <div>
+                                                    <el-tooltip class="item" effect="dark"
+                                                        content="Click to edit a Line Enchant" placement="top">
+                                                        <el-button class="enchantSwitch" type="primary" plain
+                                                            @click="OpenEditEquipDialogue(eqindex+101)"><img src='img/line_enchant.png' width="19px" height="19px"></el-button>
+                                                    </el-tooltip>
+                                                </div>
+                                            </el-col>
+                                            <el-col class="textcenter">
+                                                <div>
+                                                    <el-input v-model="equipspartlist[eqindex+101].equipname" placeholder="Line Enchant"></el-input>
+                                                </div>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="5">
+                                                <el-button v-on:click="onClearEquipPart(eqindex+101)" size="mini">
+                                                    Clear
+                                                </el-button>
+                                            </el-col>
+                                            <el-col class="textcenter" :span="5">
+                                                <el-button v-on:click="OpenEditEquipDialogue(eqindex+101)" type="success"
+                                                    plain>
+                                                    Edit
+                                                </el-button>
+                                            </el-col>
                                         </el-row>
                                         <el-row v-show="UIPanel[item.id+'Panel']">
                                             <div v-for="(item, index) in equipspartlist[eqindex+37].effectlist"
@@ -7991,6 +8277,43 @@
                                                             </el-col>
                                                         </el-row>
                                                     </div>
+                                                </div>
+                                            </div>
+                                        </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']"
+                                            v-if="getLineEnchantWithEffects(eqindex+101, eqindex+102).length">
+                                            <div class="textcenter bg-orange-light2">Line Enchant Effect</div>
+                                            <div class="bg-orange-light1">
+                                                <div class="divider-orange"></div>
+                                                <div class="textcenter margin-4"><em>{{ equipspartlist[eqindex+101].equipname }}</em></div>
+                                                <div v-for="(item, index) in equipspartlist[eqindex+101].effectlist" v-bind:key="item.effecttypelist">
+                                                    <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                        justify="end" style="min-height:40px;">
+                                                        <el-col class="textcenter" style="text-align: right;"
+                                                            :span="12">
+                                                            <span class="EffectType">{{
+                                                                effecttypelist[GetETLIndex(item.EffectType.id)].label
+                                                                }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{
+                                                                effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol
+                                                                }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="8">
+                                                            <span class="textnowrap">{{
+                                                                item.EffectNumber!=9999?item.EffectNumber:'' }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="2">
+                                                            <span class="">{{
+                                                                effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol
+                                                                }}</span>
+                                                        </el-col>
+                                                        <el-col class="textcenter" :span="5">
+                                                            <el-checkbox v-model="item.Enable"
+                                                                @change="EnableEffect(eqindex+index+101, index)"></el-checkbox>
+                                                        </el-col>
+                                                    </el-row>
                                                 </div>
                                             </div>
                                         </el-row>
@@ -10006,6 +10329,23 @@
                     { id: 'shadowearring2', label: 'S.Earring Enchant 2', equipname: '', effectlist: [], itemid: 0, combolist: []},
                     { id: 'shadowpendant1', label: 'S.Pendant Enchant 1', equipname: '', effectlist: [], itemid: 0, combolist: []},
                     { id: 'shadowpendant2', label: 'S.Pendant Enchant 2', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'weaponrenchant', label: 'Weapon Right Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'weaponlenchant', label: 'Weapon Left Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shieldenchant', label: 'Shield Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'helmenchant', label: 'Helm Upper Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'helm1enchant', label: 'Helm Middle Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'helm2enchant', label: 'Helm Lower Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'armorenchant', label: 'Armor Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'garmentenchant', label: 'Garment Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shoesenchant', label: 'Shoes Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'accrenchant', label: 'Accessory Right Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'acclenchant', label: 'Accessory Left Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'weaponhadowenchant', label: 'Weapon Shadow Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shieldshadowenchant', label: 'Shield Shadow Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'armorshadowenchant', label: 'Armor Shadow Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'shoesshadowenchant', label: 'Shoes Shadow Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'accrshadowenchant', label: 'Earring Shadow Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'acclshadowenchant', label: 'Pendant Shadow Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
                 ],
                 effecttypelist: [
                     { label: 'STR', id: 'STR', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category: 'Stat' },
@@ -15563,6 +15903,10 @@
                 getEnchantWithEffects(start, end) {
                     const enchants = this.equipspartlist.slice(start, end).filter(x => (x.effectlist.length > 0 || x.combolist.find(y => y.effectlist.length>0)));
                     return enchants;
+                },
+                getLineEnchantWithEffects(start, end) {
+                    const lineEnchants = this.equipspartlist.slice(start, end).filter(x => x.effectlist.length > 0);
+                    return lineEnchants;
                 },
                 getSkillDPS(){
                     return Math.max(this.computeattribute.matkmulti_DPS,this.computeattribute.DragonBreathDMG_DPS,this.computeattribute.atkmulti_DPS);
