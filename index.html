@@ -11714,8 +11714,30 @@
                         return effectNumber;
                     }
 
-                    const newEffectNumber = typeof effectNumber == 'string' ? effectNumber.replaceAll('GEARR', 'this.equipspartlist[' + baseIndex + '].refinelevel').replaceAll('GEARG', 'this.equipspartlist[' + baseIndex + '].grade.id') : effectNumber;
-                    return '\t\t' + eval(this.SkillFormulaReplace(newEffectNumber));
+                    if(typeof effectNumber === 'string' && effectNumber.includes('ENBSKILLS')) {
+                        const match = effectNumber.match(/ENBSKILLS\("([^"]*)"\)/);
+                        const result = match ? match[1].split(' ') : [];
+                        const output = [];
+                        for(const r of result) {
+                            const sk = this.DefaultDB_Skill.find((x) => x.skill.id.includes(r));
+                            if(sk) {
+                                output.push(sk.skill.name);
+                            }
+                            else {
+                                output.push(r);
+                            }
+                        }
+                        return '\t\t' + output.join(' ');
+                    }
+
+                    try {
+                        const newEffectNumber = typeof effectNumber === 'string' ? effectNumber.replaceAll('GEARR', 'this.equipspartlist[' + baseIndex + '].refinelevel').replaceAll('GEARG', 'this.equipspartlist[' + baseIndex + '].grade.id') : effectNumber;
+                        return '\t\t' + eval(this.SkillFormulaReplace(newEffectNumber));
+                    }
+                    catch(err) {
+                        console.error(err);
+                        return '\t\tIncorrect Script!';
+                    }
                 },
                 GetEquipEffect(index) {
                     var _EffectTypeInfo;
