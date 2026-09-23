@@ -234,111 +234,97 @@
 		},
 		{
 			"id": "helm",
-			"itemid": 401012,
-			"equiplevel": 2,
+			"itemid": 401544,
 			"label": "Upper",
-			"equipname": "Future Wolf King Hat",
-			"refinelevel": 15,
+			"equiplevel": 2,
+			"equipname": "Blighted Skullcap",
+			"refinelevel": 13,
 			"grade": {
 				"id": 4,
 				"label": "A"
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 10,
+					"EffectNumber": "(30+(HATR>9?30:0))",
 					"EffectType": {
-						"id": "ASPD"
+						"id": "ElementalMatkPercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(20+(7*DOWN(HATR/2))+(HATR>9?15:0))",
+					"EffectNumber": "(SKIDS(\"VENOM_SWAMP DEADLY_PROJECTION\")?((12*HATR)+(HATG(4)?50:0)):0)",
 					"EffectType": {
-						"id": "SizeMatkPercent"
+						"id": "SkillDamagePercent"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(['OB','KO'].includes(CCL)?50000:0)",
-					"EffectType": {
-						"id": "HP"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(['OB','KO'].includes(CCL)?5000:0)",
-					"EffectType": {
-						"id": "SP"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(DOWN(HATR/2))",
-					"EffectType": {
-						"id": "SPL"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "((7*DOWN(HATR/3))+(HATR>12?20:0)+(HATG(4)?8:0))",
+					"EffectNumber": "(10*DOWN(HATR/3))",
 					"EffectType": {
 						"id": "AllStatus"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "((HATR>10?7:0)+(HATR>11?7:0)+(HATG(4)?8:0))",
+					"EffectNumber": "(HATR>10?30:0)",
 					"EffectType": {
-						"id": "AllTrait"
+						"id": "SPL"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "((HATR>10?70:0)+(HATR>11?70:0)+(HATR>12?200:0)+(HATR>13?250:0))",
-					"EffectType": {
-						"id": "Matk"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(HATR>13?25:0)",
-					"EffectType": {
-						"id": "GCDPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": "(HATR>13?0.5:0)",
+					"EffectNumber": "((HATR>10?0.5:0)+(HATR>14?0.5:0))",
 					"EffectType": {
 						"id": "FixedCast"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(HATG(1)?15:0)",
+					"EffectNumber": "((HATR>11?100:0)+(HATR>12?100:0))",
 					"EffectType": {
-						"id": "SMATK"
+						"id": "Matk"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(HATG(2)?20:0)",
+					"EffectNumber": "((HATR>11?10:0)+(HATR>12?10:0))",
 					"EffectType": {
-						"id": "HPPercent"
+						"id": "AllTrait"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(HATG(2)?20:0)",
+					"EffectNumber": "((SKIDS(\"VENOM_SWAMP\")?(HATR>11?2:0):0)+(SKIDS(\"DEADLY_PROJECTION\")?(HATR>12?2:0):0))",
 					"EffectType": {
-						"id": "SPPercent"
+						"id": "CDTime"
 					},
 					"Enable": true
 				},
 				{
-					"EffectNumber": "(HATG(3)?50:0)",
+					"EffectNumber": "(HATR>14?40:0)",
 					"EffectType": {
-						"id": "BypassMDEFPercent"
+						"id": "LevelMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "((HATR>14?25:0)+(HATG(2)?20:0))",
+					"EffectType": {
+						"id": "GCDPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(HATG(1)?([5,7].includes(AEI)?20:0):0)",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(HATG(3)?20:0)",
+					"EffectType": {
+						"id": "RaceMatkPercent"
 					},
 					"Enable": true
 				}
@@ -346,52 +332,22 @@
 			"combolist": [
 				{
 					"itemid_every": [
-						27152
+						300382
 					],
 					"itemid_any": [],
-					"equipname": "Cutie Card",
+					"equipname": "Aquila Card",
 					"effectlist": [
 						{
-							"EffectNumber": 100,
+							"EffectNumber": "(ENBSKILLS(\"DEADLY_PROJECTION\"))",
 							"EffectType": {
-								"id": "HPPercent"
+								"id": "EnableSkills"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": 50,
+							"EffectNumber": "(SKIDS(\"VENOM_SWAMP\")?300:0)",
 							"EffectType": {
-								"id": "SPPercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 25,
-							"EffectType": {
-								"id": "AllTrait"
-							},
-							"Enable": true
-						}
-					]
-				},
-				{
-					"itemid_every": [
-						1107
-					],
-					"itemid_any": [],
-					"equipname": "Baby Desert Wolf Egg",
-					"effectlist": [
-						{
-							"EffectNumber": 5,
-							"EffectType": {
-								"id": "AllStatus"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 5,
-							"EffectType": {
-								"id": "AllTrait"
+								"id": "SkillDamagePercent"
 							},
 							"Enable": true
 						}
@@ -399,7 +355,7 @@
 				}
 			],
 			"enchantSlot": 0,
-			"availableEnchants": 0
+			"availableEnchants": []
 		},
 		{
 			"id": "helm1",
@@ -760,8 +716,8 @@
 		{
 			"id": "armor",
 			"itemid": 450357,
-			"label": "Armor",
 			"equiplevel": 2,
+			"label": "Armor",
 			"equipname": "Violent Dragon Shadow Armor-LT",
 			"refinelevel": 15,
 			"grade": {
@@ -2025,8 +1981,8 @@
 		{
 			"id": "armorcard",
 			"itemid": 300472,
-			"label": "Armor Card",
 			"equiplevel": 1,
+			"label": "Armor Card",
 			"equipname": "Ultimate Rasgand Card",
 			"refinelevel": 0,
 			"grade": {
@@ -3086,15 +3042,17 @@
 		{
 			"id": "weapon14",
 			"itemid": 0,
-			"label": "Weapon Enchant",
 			"equiplevel": 1,
+			"label": "Weapon Enchant",
 			"equipname": "",
-			"effectlist": [],
-			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
 				"id": 0
 			},
+			"effectlist": [],
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "0"
 		},
 		{
@@ -3140,15 +3098,17 @@
 		{
 			"id": "shield1",
 			"itemid": 0,
-			"label": "Shield Enchant",
 			"equiplevel": 1,
+			"label": "Shield Enchant",
 			"equipname": "",
-			"effectlist": [],
-			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
 				"id": 0
 			},
+			"effectlist": [],
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "1"
 		},
 		{
@@ -3187,65 +3147,48 @@
 		},
 		{
 			"id": "helmUpper1",
-			"itemid": 0,
-			"equiplevel": 1,
 			"label": "Helm Enchant",
+			"equiplevel": 1,
 			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0
-			},
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": [],
-			"enchantSlot": 0,
-			"availableEnchants": 0,
 			"baseIndex": "2"
 		},
 		{
 			"id": "helmUpper2",
-			"itemid": 0,
-			"equiplevel": 1,
 			"label": "Helm Enchant",
+			"equiplevel": 1,
 			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0
-			},
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": [],
-			"enchantSlot": 0,
-			"availableEnchants": 0,
 			"baseIndex": "2"
 		},
 		{
 			"id": "helmUpper3",
-			"itemid": 0,
-			"equiplevel": 1,
 			"label": "Helm Enchant",
+			"equiplevel": 1,
 			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": [],
-			"enchantSlot": 0,
-			"availableEnchants": 0,
 			"baseIndex": "2"
 		},
 		{
 			"id": "helmMiddle1",
 			"itemid": 0,
-			"label": "Helm Enchant",
 			"equiplevel": 1,
+			"label": "Helm Enchant",
 			"equipname": "",
-			"effectlist": [],
-			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
 				"id": 0
 			},
+			"effectlist": [],
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "3"
 		},
 		{
@@ -3409,8 +3352,8 @@
 		{
 			"id": "armor1",
 			"itemid": 4711,
-			"label": "Armor Enchant",
 			"equiplevel": 1,
+			"label": "Armor Enchant",
 			"equipname": "INT + 2",
 			"refinelevel": 0,
 			"grade": {
@@ -3434,8 +3377,8 @@
 		{
 			"id": "armor2",
 			"itemid": 310737,
-			"label": "Armor Enchant",
 			"equiplevel": 1,
+			"label": "Armor Enchant",
 			"equipname": "Nebula of Spell Lv2",
 			"refinelevel": 0,
 			"grade": {
@@ -3459,8 +3402,8 @@
 		{
 			"id": "armor3",
 			"itemid": 310688,
-			"label": "Armor Enchant",
 			"equiplevel": 1,
+			"label": "Armor Enchant",
 			"equipname": "Star Cluster of Spell Lv3",
 			"refinelevel": 0,
 			"grade": {
@@ -3498,15 +3441,17 @@
 		{
 			"id": "garment1",
 			"itemid": 0,
-			"label": "Garment Enchant",
 			"equiplevel": 1,
+			"label": "Garment Enchant",
 			"equipname": "",
-			"effectlist": [],
-			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
 				"id": 0
 			},
+			"effectlist": [],
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "6"
 		},
 		{
@@ -3546,15 +3491,17 @@
 		{
 			"id": "shoes1",
 			"itemid": 0,
-			"label": "Shoes Enchant",
 			"equiplevel": 1,
+			"label": "Shoes Enchant",
 			"equipname": "",
-			"effectlist": [],
-			"combolist": [],
 			"refinelevel": 0,
 			"grade": {
 				"id": 0
 			},
+			"effectlist": [],
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "7"
 		},
 		{
@@ -3959,7 +3906,10 @@
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "0"
 		},
 		{
 			"id": "weaponlenchant",
@@ -3973,7 +3923,10 @@
 				"label": "No Grade"
 			},
 			"effectlist": [],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "1"
 		},
 		{
 			"id": "shieldenchant",
@@ -4002,21 +3955,35 @@
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "1"
 		},
 		{
 			"id": "helmenchant",
-			"itemid": 0,
-			"equiplevel": 1,
 			"label": "Helm Upper Line Enchant",
-			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
-			"effectlist": [],
-			"combolist": []
+			"equiplevel": 1,
+			"equipname": "LINE ENCHANT",
+			"effectlist": [
+				{
+					"EffectNumber": 14,
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(AEI==1?14:0)",
+					"EffectType": {
+						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				}
+			],
+			"itemid": 0,
+			"combolist": [],
+			"baseIndex": "2"
 		},
 		{
 			"id": "helm1enchant",
@@ -4045,7 +4012,10 @@
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "3"
 		},
 		{
 			"id": "helm2enchant",
@@ -4074,7 +4044,10 @@
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "4"
 		},
 		{
 			"id": "armorenchant",
@@ -4110,7 +4083,10 @@
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "5"
 		},
 		{
 			"id": "garmentenchant",
@@ -4146,7 +4122,10 @@
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "6"
 		},
 		{
 			"id": "shoesenchant",
@@ -4182,7 +4161,10 @@
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "7"
 		},
 		{
 			"id": "accrenchant",
@@ -4196,7 +4178,10 @@
 				"label": "No Grade"
 			},
 			"effectlist": [],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "8"
 		},
 		{
 			"id": "acclenchant",
@@ -4210,7 +4195,10 @@
 				"label": "No Grade"
 			},
 			"effectlist": [],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "9"
 		},
 		{
 			"id": "weaponhadowenchant",
@@ -4239,7 +4227,10 @@
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "37"
 		},
 		{
 			"id": "shieldshadowenchant",
@@ -4261,7 +4252,10 @@
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "38"
 		},
 		{
 			"id": "armorshadowenchant",
@@ -4275,7 +4269,10 @@
 				"label": "No Grade"
 			},
 			"effectlist": [],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "39"
 		},
 		{
 			"id": "shoesshadowenchant",
@@ -4289,7 +4286,10 @@
 				"label": "No Grade"
 			},
 			"effectlist": [],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "40"
 		},
 		{
 			"id": "accrshadowenchant",
@@ -4318,7 +4318,10 @@
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "41"
 		},
 		{
 			"id": "acclshadowenchant",
@@ -4354,7 +4357,10 @@
 					"Enable": true
 				}
 			],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
+			"baseIndex": "42"
 		}
 	],
 	"Weapon": {
@@ -4435,8 +4441,8 @@
 		"ASPD": 193,
 		"HP": 0,
 		"SP": 0,
-		"MHP": 596565,
-		"MSP": 43814
+		"MHP": 528417,
+		"MSP": 37421
 	},
 	"JobStatus": {
 		"STR": 4,
@@ -4497,7 +4503,7 @@
 	},
 	"Option": {
 		"MagnumPoison2Value": 0,
-		"SkillPercent": 26980.2,
+		"SkillPercent": 27362.4,
 		"SkillFormulaError": "",
 		"EquipSkillAddDamage": 320,
 		"BaseCriticalValue": 40,
@@ -4556,34 +4562,34 @@
 		"SO_EL_CONTROL(Lv1)",
 		"EM_SUMMON_ELEMENTAL_ARDOR"
 	],
-	"Damage": "4,515,210,186,060 ~ 4,727,292,105,690",
-	"DamageDPS": "32,995,733,181,548",
+	"Damage": "4,950,935,731,180 ~ 5,191,826,863,140",
+	"DamageDPS": "36,209,662,461,722",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "4,621,251,145,875",
+	"SkillDamageAvg": "5,071,381,297,160",
 	"attribute": {
-		"StatusATK": 1048,
+		"StatusATK": 1002,
 		"WeaponATK": 1235,
-		"StatusMATK": 4316,
-		"WeaponMATK": 5487,
+		"StatusMATK": 4374,
+		"WeaponMATK": 5097,
 		"ATK": 785,
-		"MATK": 5037,
+		"MATK": 4647,
 		"ATKP": 33,
-		"MATKP": 295,
+		"MATKP": 309,
 		"DEF": 0,
 		"MDEF": 0,
-		"HP": 150,
-		"HPP": 275,
+		"HP": 127,
+		"HPP": 255,
 		"SP": 232,
-		"SPP": 75,
-		"PATK": 192,
-		"SMATK": 619,
-		"CRIDR": 34,
+		"SPP": 55,
+		"PATK": 189,
+		"SMATK": 609,
+		"CRIDR": 33,
 		"RES": 0,
 		"MRES": 0,
-		"ASPD": 25,
+		"ASPD": 15,
 		"ASPDP": 15,
 		"SKILLASPDP": 20,
-		"CRI": 73.19,
+		"CRI": 66.3,
 		"HIT": 0,
 		"CRIDP": 5,
 		"RNGDP": 5,
@@ -4599,22 +4605,22 @@
 		"FCT": -4.199999999999999,
 		"FCTP": 0,
 		"CD": -2.5,
-		"GCD": -180,
+		"GCD": -175,
 		"BYPASSDEF": 100,
 		"BYPASSMDEF": 100,
 		"BYPASSRES": 0,
 		"BYPASSMRES": 0,
 		"WeaponPerfection": 0,
 		"WeaponOccult": 0,
-		"ElementalMagicPercent": 421,
-		"SizeMatkPercent": 592,
+		"ElementalMagicPercent": 435,
+		"SizeMatkPercent": 508,
 		"ElementalAtkPercent": 0,
 		"LevelAtkPercent": 60,
 		"SizeAtkPercent": 395,
 		"RaceAtkPercent": 10,
 		"MonsterAtkPercent": 0,
-		"ElementalMatkPercent": 445,
-		"RaceMatkPercent": 110,
+		"ElementalMatkPercent": 505,
+		"RaceMatkPercent": 130,
 		"MonsterMatkPercent": 0,
 		"LevelMatkPercent": 255
 	},
@@ -4622,7 +4628,7 @@
 		"StatsPoint": 4151,
 		"RaisingStatsPoint": 4151,
 		"RaisingTStatsPoint": 200,
-		"TransSTR": 178,
+		"TransSTR": 155,
 		"elementalpercent": 0,
 		"sizefix": 75,
 		"enemydef": 0,
@@ -4683,54 +4689,54 @@
 		"SpecialMATK1": 0,
 		"SpecialMATK3": 0,
 		"SpecialINSIGNIAENEMYMATK": 0,
-		"weaponmatk_min": 4541,
-		"weaponmatk_max": 4991,
-		"equipmatk_min": 9578,
-		"equipmatk_max": 10028,
-		"matkpercent_min": 37833,
-		"matkpercent_max": 39610,
-		"finalmatk_min": 398461840,
-		"finalmatk_max": 417177813,
-		"matk1_min": 398461840,
-		"matk1_max": 417177813,
-		"skillmatk_min": 107505004432,
-		"skillmatk_max": 112554573947,
-		"matk2_min": 107505004430,
-		"matk2_max": 112554573945,
-		"matk3_min": 451521018606,
-		"matk3_max": 472729210569,
-		"matk4_min": 451521018606,
-		"matk4_max": 472729210569,
-		"matk4_avg": 462125114587.5,
-		"matkmulti_min": 4515210186060,
-		"matkmulti_max": 4727292105690,
-		"matkmulti_avg": 4621251145875,
+		"weaponmatk_min": 4599,
+		"weaponmatk_max": 5049,
+		"equipmatk_min": 9246,
+		"equipmatk_max": 9696,
+		"matkpercent_min": 37816,
+		"matkpercent_max": 39656,
+		"finalmatk_min": 430814349,
+		"finalmatk_max": 451775913,
+		"matk1_min": 430814349,
+		"matk1_max": 451775913,
+		"skillmatk_min": 117879422173,
+		"skillmatk_max": 123614925315,
+		"matk2_min": 117879422171,
+		"matk2_max": 123614925313,
+		"matk3_min": 495093573118,
+		"matk3_max": 519182686314,
+		"matk4_min": 495093573118,
+		"matk4_max": 519182686314,
+		"matk4_avg": 507138129716,
+		"matkmulti_min": 4950935731180,
+		"matkmulti_max": 5191826863140,
+		"matkmulti_avg": 5071381297160,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
-		"matkmulti_DPS": 32995733181547.5,
+		"matkmulti_DPS": 36209662461722.4,
 		"DragonBreathDMG": 0,
 		"DragonBreathDMG_DPS": 0,
-		"CastDEXINT": 1166,
+		"CastDEXINT": 1097,
 		"CastTime": 0,
-		"DelayTime": -0.4,
+		"DelayTime": -0.38,
 		"HitperSec": 7.14,
 		"AspdDelay": 0.14,
 		"SpecialMATK2": 0
 	},
 	"status_total": {
-		"STR": 178,
-		"AGI": 264,
-		"VIT": 258,
-		"INT": 538,
-		"DEX": 314,
-		"LUK": 232,
-		"POW": 133,
-		"STA": 120,
-		"WIS": 182,
+		"STR": 155,
+		"AGI": 241,
+		"VIT": 235,
+		"INT": 515,
+		"DEX": 291,
+		"LUK": 209,
+		"POW": 131,
+		"STA": 118,
+		"WIS": 180,
 		"SPL": 0,
-		"CON": 317,
-		"CRT": 103,
-		"S_P_L": 661
+		"CON": 315,
+		"CRT": 101,
+		"S_P_L": 682
 	},
-	"lastedited": "2026-09-22T10:35:16.658Z"
+	"lastedited": "2026-09-23T07:40:07.426Z"
 }
