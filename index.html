@@ -3886,6 +3886,158 @@
                 </div>
             </el-row>
         </el-dialog>
+        <el-dialog :visible.sync="UIPanel['RuneDialog']" v-on:close="ClosePanel('RuneDialog')"
+            custom-class="Dialogue-container" top="50px" center>
+            <span slot="title">Rune Tablet List</span>
+            <el-row :gutter="6">
+                <div class="statusbox titlebox" style="padding: 5px 5px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="height:auto;">
+                        <el-row class="statusbox bg-purple-light" :span="4" :gutter="4" type="flex" align="middle">
+                            <el-col class="textcenter">
+                                <el-input v-model="StoreDB_RuneSearchString" @input="onFilterRuneSearch"
+                                    placeholder="Search" clearable>
+                                </el-input>
+                            </el-col>
+                        </el-row>
+                        <el-col class="textcenter" :span="2">
+                            <el-button v-on:click="onFilterRuneClear">
+                                All
+                            </el-button>
+                        </el-col>
+                    </el-row>
+                </div>
+                <div class="statusbox titlebox" style="padding: 5px 5px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
+                        <el-col class="textcenter" :span="4" style="text-align: right;">
+                            <span class=""><b>Location</b></span>
+                        </el-col>
+                        <el-col class="textcenter">
+                            <span class=""><b>Rune Tablet Name</b></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <el-button v-on:click="onRemoveAllDataSave('rune')" icon="el-icon-delete" type="danger"
+                                size="mini">
+                            </el-button>
+                        </el-col>
+                        <el-col :span="3" v-if="showExport">
+                            <el-button v-on:click="exportSavedData('rune')" icon="el-icon-check" type="primary"
+                                size="small">
+                                Export Rune List
+                            </el-button>
+                        </el-col>
+                        <el-col :span="5">
+                            <span></span>
+                        </el-col>
+                        <el-col :span="6">
+                            <span></span>
+                        </el-col>
+                        <el-col :span="5">
+                            <span></span>
+                        </el-col>
+                        <el-col :span="5">
+                            <el-button v-on:click="loadRunes" icon="el-icon-check" type="success" type="primary"
+                                size="small">
+                                Load Runes
+                            </el-button>
+                        </el-col>
+                    </el-row>
+                </div>
+                <el-scrollbar id="RuneListCont" wrap-class="EquipList-container" :native="false" :noresize="false">
+                    <div v-for="(item, index) in StoreDB_RuneFilterList.slice((PageIndex-1)*ItemsPerPage, (PageIndex)*ItemsPerPage)"
+                        v-bind:key="item.uuid">
+                        <div style="padding: 5px 5px;">
+                            <el-row class="effectline" :class="index%2==0?'bg-purple-light':'bg-purple'">
+                                <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                    <el-col class="textcenter" :span="4" style="text-align: right;">
+                                        <span class="EffectType">{{ item.equip.label }}</span>
+                                    </el-col>
+                                    <el-col class="textcenter">
+                                        <span class="">{{ item.equip.equipname }}</span>
+                                    </el-col>
+                                    <el-col :span="4">
+                                        <el-button v-on:click="onRemoveEquipSave(item.uuid)" icon="el-icon-delete"
+                                            type="danger" size="mini">
+                                        </el-button>
+                                    </el-col>
+                                    <el-col :span="6">
+                                        <el-button v-on:click="onFilterRunePreview(item.uuid)" icon="el-icon-view"
+                                            size="small">
+                                        </el-button>
+                                    </el-col>
+                                    <el-col :span="6">
+                                        <el-button v-on:click="onLoadDataSave(item.uuid, 'rune')" icon="el-icon-check"
+                                            type="success" type="primary" size="small">
+                                            Load
+                                        </el-button>
+                                    </el-col>
+                                    <el-col :span="5">
+                                    </el-col>
+                                </el-row>
+                                <el-collapse-transition>
+                                    <div v-show="item.preview" style="padding: 1px 100px 10px 100px;">
+                                        <div v-for="(effect, index) in item.equip.effectlist" v-bind:key="item.uuid">
+                                            <el-row class="previeweffectbox3 effectline" :gutter="1" type="flex"
+                                                align="middle" justify="center">
+                                                <el-col class="textcenter" style="text-align: right;" :span="4">
+                                                    <span class="EffectType">{{
+                                                        effecttypelist[GetETLIndex(effect.EffectType.id)].label
+                                                        }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="1">
+                                                    <span class="">{{
+                                                        effecttypelist[GetETLIndex(effect.EffectType.id)].opersymbol
+                                                        }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter">
+                                                    <span class="textnowrap">{{
+                                                        effect.EffectNumber!=9999?effect.EffectNumber:'' }}</span>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="1">
+                                                    <span lass="">{{
+                                                        effecttypelist[GetETLIndex(effect.EffectType.id)].suffixsymbol
+                                                        }}</span>
+                                                </el-col>
+                                            </el-row>
+                                        </div>
+                                    </div>
+                                </el-collapse-transition>
+                            </el-row>
+                        </div>
+                    </div>
+                </el-scrollbar>
+                <div class="statusbox titlebox" style="padding: 5px 5px;">
+                    <el-row :gutter="4" type="flex" align="middle" style="min-height:40px;">
+                        <el-col class="textcenter" :span="4" style="text-align: right;">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col class="textcenter">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="3">
+                            <span class=""></span>
+                        </el-col>
+                        <el-col :span="6">
+                            <el-select v-model="ItemsPerPage" v-on:change="updateItemsPerPage" placeholder=""
+                                v-bind="ItemsPerPage">
+                                <el-option v-for="option in PageOptions" :key="option" :label="option" :value="option">
+                                </el-option>
+                            </el-select>
+                        </el-col>
+                        <el-col :span="14">
+                            <b-pagination class="m-0" align="right" v-model="PageIndex" :total-rows="StoreDB_RuneCount"
+                                :per-page="ItemsPerPage" aria-controls="RuneListCont">
+                            </b-pagination>
+                        </el-col>
+                    </el-row>
+                </div>
+            </el-row>
+        </el-dialog>
         <el-dialog :visible.sync="UIPanel['PetDialog']" v-on:close="ClosePanel('PetDialog')"
             custom-class="Dialogue-container" top="50px" center>
             <span slot="title">Pet List</span>
@@ -6240,7 +6392,7 @@
                                             <div>
                                                 <el-tooltip class="item" effect="dark"
                                                     content="Click to edit a Line Enchant" placement="top">
-                                                    <el-button class="enchantSwitch" type="primary" plain
+                                                    <el-button class="enchantSwitch" type="danger" plain
                                                         @click="OpenEditEquipDialogue(90)"><img src='img/line_enchant.png' width="19px" height="19px"></el-button>
                                                 </el-tooltip>
                                             </div>
@@ -6998,7 +7150,7 @@
                                             <div>
                                                 <el-tooltip class="item" effect="dark"
                                                     content="Click to edit a Line Enchant" placement="top">
-                                                    <el-button class="enchantSwitch" type="primary" plain
+                                                    <el-button class="enchantSwitch" type="danger" plain
                                                         @click="OpenEditEquipDialogue(91)"><img src='img/line_enchant.png' width="19px" height="19px"></el-button>
                                                 </el-tooltip>
                                             </div>
@@ -7083,7 +7235,7 @@
                                             <div>
                                                 <el-tooltip class="item" effect="dark"
                                                     content="Click to edit a Line Enchant" placement="top">
-                                                    <el-button class="enchantSwitch" type="primary" plain
+                                                    <el-button class="enchantSwitch" type="danger" plain
                                                         @click="OpenEditEquipDialogue(92)"><img src='img/line_enchant.png' width="19px" height="19px"></el-button>
                                                 </el-tooltip>
                                             </div>
@@ -7687,7 +7839,7 @@
                                                 <div>
                                                     <el-tooltip class="item" effect="dark"
                                                         content="Click to edit a Line Enchant" placement="top">
-                                                        <el-button class="enchantSwitch" type="primary" plain
+                                                        <el-button class="enchantSwitch" type="danger" plain
                                                             @click="OpenEditEquipDialogue(eqindex+93)"><img src='img/line_enchant.png' width="19px" height="19px"></el-button>
                                                     </el-tooltip>
                                                 </div>
@@ -8092,7 +8244,7 @@
                                                 <div>
                                                     <el-tooltip class="item" effect="dark"
                                                         content="Click to edit a Line Enchant" placement="top">
-                                                        <el-button class="enchantSwitch" type="primary" plain
+                                                        <el-button class="enchantSwitch" type="danger" plain
                                                             @click="OpenEditEquipDialogue(eqindex+101)"><img src='img/line_enchant.png' width="19px" height="19px"></el-button>
                                                     </el-tooltip>
                                                 </div>
@@ -8559,6 +8711,111 @@
                                                 </div>
                                             </el-row>
                                         </div>
+                                    </div>
+                                </div>
+                                <!-- Rune Tablet System -->
+                                <div class="Item" v-for="(item,eqindex) in equipspartlist.slice(107,108)">
+                                    <div class="bg-purple-light" style="padding: 0px 4px;">
+                                        <el-col v-if="UIPanel[item.id+'Panel']" class="textcenter" :span="3"
+                                            style="padding-right: 9px; padding-top: 9px;">
+                                            <el-button type="info" v-on:click="TogglePanel(item.id+'Panel')"
+                                                size="mini"><i class="el-icon-arrow-up"></i></el-button>
+                                        </el-col>
+                                        <el-col v-else="!UIPanel[item.id+'Panel']" class="textcenter" :span="3"
+                                            style="padding-right: 9px; padding-top: 9px;">
+                                            <el-button type="info" v-on:click="TogglePanel(item.id+'Panel')"
+                                                size="mini"><i class="el-icon-arrow-down"></i></el-button>
+                                        </el-col>
+                                        <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                            <el-col class="textcenter" :span="12">
+                                                <div>
+                                                    <span>{{item.label}}</span>
+                                                </div>
+                                            </el-col>
+                                        </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']">
+                                            <el-row class="effectline" :gutter="4" type="flex" align="middle">
+                                                <el-col class="textcenter" :span="4">
+                                                    <div>
+                                                        <el-tooltip class="item" effect="dark"
+                                                            content="Click to add a Rune Tablet" placement="top">
+                                                            <el-button class="enchantSwitch" type="primary" plain
+                                                                @click="runeSwitch(eqindex+107)"><img
+                                                                    src='/img/rune.png' width="19px" height="19px"></el-button>
+                                                        </el-tooltip>
+                                                    </div>
+                                                </el-col>
+                                                <el-col class="textcenter">
+                                                    <div>
+                                                        <el-input v-model="item.equipname" placeholder="Rune Tablet Name">
+                                                        </el-input>
+                                                    </div>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="5">
+                                                    <el-button v-on:click="onClearEquipPart(eqindex+107)" size="mini">
+                                                        Clear
+                                                    </el-button>
+                                                </el-col>
+                                                <el-col class="textcenter" :span="5">
+                                                    <el-button v-on:click="OpenEditEquipDialogue(eqindex+107)"
+                                                        type="success" plain>
+                                                        Edit
+                                                    </el-button>
+                                                </el-col>
+                                            </el-row>
+                                            <el-row v-show="UIPanel[item.id+'Panel']" class="effectline" :gutter="4" type="flex" align="middle">
+                                                <el-col :span="6" style="text-align: right;">
+                                                    <span>Refine</span>
+                                                </el-col>
+                                                <el-col :span="6">
+                                                    <div>
+                                                        <el-input-number v-model="equipspartlist[eqindex+107].refinelevel" :min="0" :max="15" :step="0" class="no-controls"
+                                                            v-on:input="CombineEquipsAttribute" placeholder="Rune Refine">
+                                                        </el-input-number>
+                                                    </div>
+                                                </el-col>
+                                                <el-col :span="8">
+                                                    <el-select value-key="id" v-model="equipspartlist[eqindex+107].runeset"
+                                                        v-on:change="CombineEquipsAttribute" placeholder="Set Effect">
+                                                        <el-option v-for="item in runesetlist" :key="item.id"
+                                                            :label="item.label" :value="item">
+                                                        </el-option>
+                                                    </el-select>
+                                                </el-col>
+                                                <el-col :span="5" style="text-align: right;">
+                                                </el-col>
+                                            </el-row>
+                                        </el-row>
+                                        <el-row v-show="UIPanel[item.id+'Panel']">
+                                            <div v-for="(item, index) in equipspartlist[eqindex+107].effectlist"
+                                                v-bind:key="item.effecttypelist">
+                                                <el-row class="effectline" :gutter="4" type="flex" align="middle"
+                                                    justify="end" style="min-height:40px;">
+                                                    <el-col class="textcenter" style="text-align: right;" :span="12">
+                                                        <span class="EffectType">{{
+                                                            effecttypelist[GetETLIndex(item.EffectType.id)].label
+                                                            }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{
+                                                            effecttypelist[GetETLIndex(item.EffectType.id)].opersymbol
+                                                            }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="8">
+                                                        <span class="textnowrap">{{ item.EffectNumber!=9999 ? GetEquipEffectString(eqindex+107, item.EffectNumber) : '' }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="2">
+                                                        <span class="">{{
+                                                            effecttypelist[GetETLIndex(item.EffectType.id)].suffixsymbol
+                                                            }}</span>
+                                                    </el-col>
+                                                    <el-col class="textcenter" :span="5">
+                                                        <el-checkbox v-model="item.Enable"
+                                                            @change="EnableEffect(eqindex+107, index)"></el-checkbox>
+                                                    </el-col>
+                                                </el-row>
+                                            </div>
+                                        </el-row>
                                     </div>
                                 </div>
                                 <!-- Eggs -->
@@ -9965,19 +10222,24 @@
                 StoreDB_PetFilterGroup: [],
                 StoreDB_PetFilterList: [],
                 StoreDB_PetSearchString: '',
+                StoreDB_RuneFilterGroup: [],
+                StoreDB_RuneFilterList: [],
+                StoreDB_RuneSearchString: '',
                 StoreDB_SearchString: '',
                 StoreDB_Equip: [],
                 StoreDB_Enchant: [],
                 StoreDB_Card: [],
                 StoreDB_CostumeStone: [],
                 StoreDB_Pet: [],
+                StoreDB_Rune: [],
                 StoreDB_EquipLoadedNames: new Set(),
                 StoreDB_EnchantLoadedNames: new Set(),
                 StoreDB_CardLoadedNames: new Set(),
                 StoreDB_CostumeStoneLoadedNames: new Set(),
                 StoreDB_PetLoadedNames: new Set(),
+                StoreDB_RuneLoadedNames: new Set(),
                 UpdatedFiles: [],
-                DataOptions: new Set(["equip", "enchant", "card", "stone", "pet"]),
+                DataOptions: new Set(["equip", "enchant", "card", "stone", "pet", "rune"]),
                 EquipSelectId: '',
                 ComboSelectId: false,
                 EquipSelectLabel: '',
@@ -10316,6 +10578,7 @@
                     { id: 'shoesshadowenchant', label: 'Shoes Shadow Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
                     { id: 'accrshadowenchant', label: 'Earring Shadow Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
                     { id: 'acclshadowenchant', label: 'Pendant Shadow Line Enchant', equipname: '', effectlist: [], itemid: 0, combolist: []},
+                    { id: 'runetablet', label: 'Rune Tablet System', equipname: '', effectlist: [], itemid: 0, combolist: []},
                 ],
                 effecttypelist: [
                     { label: 'STR', id: 'STR', totalvalue: '0', processedtotalvalue: '0', opersymbol: '\+', suffixsymbol: '', category: 'Stat' },
@@ -10506,6 +10769,14 @@
                     { id: 2, label: 'C' },
                     { id: 3, label: 'B' },
                     { id: 4, label: 'A' },
+                ],
+                runesetlist: [
+                    { id: 0, label: 'No Set Effect' },
+                    { id: 1, label: '2 Set Effect' },
+                    { id: 2, label: '3 Set Effect' },
+                    { id: 3, label: '4 Set Effect' },
+                    { id: 4, label: '5 Set Effect' },
+                    { id: 5, label: '6 Set Effect' },
                 ],
                 weapon: {
                     type: '', level: '', grade: '',
@@ -11016,6 +11287,7 @@
                     CardDialog: false,
                     CostumeStoneDialog: false,
                     PetDialog: false,
+                    RuneDialog: false,
                     EnchantDialog: false,
                     ElementTableDialog: false,
                     WeaponSizeTableDialog: false,
@@ -11046,6 +11318,7 @@
                     costumegarmentPanel: true,
                     costumedualPanel: true,
                     petsPanel: true,
+                    runetabletPanel: true,
 
                     shadowPanel: true,
                     shadowshldPanel: true,
@@ -11115,6 +11388,10 @@
                             this.ItemDesiredPosition = -1;
                             this.StoreDB_PetSearchString = '';
                             this.StoreDB_PetFilterGroup = [];
+                        case "RuneDialog":
+                            this.ItemDesiredPosition = -1;
+                            this.StoreDB_RuneSearchString = '';
+                            this.StoreDB_RuneFilterGroup = [];
                         case "EquipDBDialog":
                             this.StoreDB_SearchString = '';
                             this.StoreDB_EquipFilterGroup = [];
@@ -13211,12 +13488,21 @@
                 checkShoeGradeReq(grade) { return this.checkGradeReq(7, grade); },
                 checkAccLGradeReq(grade) { return this.checkGradeReq(8, grade); },
                 checkAccRGradeReq(grade) { return this.checkGradeReq(9, grade); },
+                checkRuneSetLevelReq(runeset) { return this.checkRuneSetReq(107, runeset); },
                 checkGradeReq(index, grade) {
                     var gradeVal = typeof (grade) == 'number' ? grade : this.getGradeVal(grade);
                     return this.equipspartlist[index].grade?.id >= gradeVal;
                 },
+                checkRuneSetReq(index, runeset) {
+                    var runesetVal = typeof (runeset) == 'number' ? runeset : this.getRuneSetVal(runeset);
+                    return this.equipspartlist[index].runeset?.id >= runesetVal;
+                },
                 getGradeVal(str) {
                     var findVal = this.weapongradelist.find(x => x.label == str);
+                    return findVal ? findVal.id : 0;
+                },
+                getRuneSetVal(str) {
+                    const findVal = this.runesetlist.find(x => x.label == str);
                     return findVal ? findVal.id : 0;
                 },
                 ComputeMATKAttribute(mflag = 0) {
@@ -15237,7 +15523,7 @@
                 onLoadDataSave(uuid, kind) {
                     if (!this.DataOptions.has(kind)) return;
 
-                    var useDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : kind === "stone" ? this.StoreDB_CostumeStone : kind === "pet" ? this.StoreDB_Pet : this.StoreDB_Card;
+                    var useDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : kind === "rune" ? this.StoreDB_Rune : kind === "stone" ? this.StoreDB_CostumeStone : kind === "pet" ? this.StoreDB_Pet : this.StoreDB_Card;
                     var _dbidx = useDB.findIndex(x => x.uuid == uuid);
                     let dataToLoad = _.cloneDeep(useDB[_dbidx]);
                     var idx = this.equipspartlist.findIndex(x => x.label == dataToLoad.equip.label);
@@ -15355,6 +15641,7 @@
                                 equipname: dataToLoad.equip.equipname,
                                 refinelevel: dataToLoad.equip.refinelevel ? dataToLoad.equip.refinelevel : 0,
                                 grade: dataToLoad.equip.grade ? dataToLoad.equip.grade : this.weapongradelist[0],
+                                runeset: dataToLoad.equip.runeset ? dataToLoad.equip.runeset : this.runesetlist[0],
                                 effectlist: dataToLoad.equip.effectlist,
                                 combolist: dataToLoad.equip.combolist,
                                 enchantSlot: dataToLoad.equip.enchantSlot,
@@ -15401,6 +15688,10 @@
                         this.StoreDB_PetLoadedNames = new Set();
                         this.StoreDB_Pet = [];
                         this.onFilterPetPart();
+                    } else if (kind === 'rune') {
+                        this.StoreDB_RuneLoadedNames = new Set();
+                        this.StoreDB_Rune = [];
+                        this.onFilterRunePart();
                     } else {
                         this.StoreDB_EquipLoadedNames = new Set();
                         this.StoreDB_Equip = [];
@@ -15485,6 +15776,13 @@
                         );
                     });
                 },
+                onFilterRuneSearch() {
+                    this.StoreDB_RuneFilterList = this.StoreDB_Rune.filter(post => {
+                        return this.StoreDB_RuneSearchString.toLowerCase().split(' ').every(v =>
+                            post.equip.equipname.toLowerCase().includes(v)
+                        );
+                    });
+                },
                 onFilterEnchantSearch() {
                     this.StoreDB_EnchantFlags = [];
                     this.StoreDB_EnchantFilterList = (this.AvailableEnchants.length > 0
@@ -15534,6 +15832,28 @@
                         ;
                     for (var i = 0; i < this.StoreDB_CostumeStoneFilterList.length; ++i) {
                         this.$set(this.StoreDB_CostumeStoneFilterList[i], 'preview', false);
+                    }
+                },
+                onFilterRunePart() {
+                    this.StoreDB_RuneSearchString = '';
+                    if (this.StoreDB_RuneFilterGroup.length > 1) {
+                        this.StoreDB_RuneFilterGroup.splice(0, 1);
+                    }
+                    var _tempgroup = this.StoreDB_RuneFilterGroup;
+                    this.StoreDB_RuneFilterList = _tempgroup.length > 0 ?
+                        this.StoreDB_Rune.filter(
+                            function (saverow) {
+                                return _tempgroup.indexOf(saverow.equip.label) > -1;
+                            }
+                        ).sort((a, b) => a.equip.label > b.equip.label ? 1 :
+                            a.equip.label === b.equip.label ?
+                                ((a.date > b.date) ? -1 : 1) : -1
+                        )
+                        :
+                        this.StoreDB_Rune
+                        ;
+                    for (var i = 0; i < this.StoreDB_RuneFilterList.length; ++i) {
+                        this.$set(this.StoreDB_RuneFilterList[i], 'preview', false);
                     }
                 },
                 onFilterPetPart() {
@@ -15669,6 +15989,10 @@
                     this.StoreDB_PetSearchString = '';
                     this.onFilterPetSearch();
                 },
+                onFilterRuneClear() {
+                    this.StoreDB_RuneSearchString = '';
+                    this.onFilterRuneSearch();
+                },
                 onFilterEquipPreview(index) {
                     this.$set(this.StoreDB_EquipFilterList[index], 'preview', !this.StoreDB_EquipFilterList[index].preview);
                 },
@@ -15680,6 +16004,12 @@
                 },
                 onFilterPetPreview(uuid) {
                     const item = this.StoreDB_PetFilterList.find((x) => x.uuid === uuid);
+                    if(item){
+                        this.$set(item, 'preview', !item.preview);
+                    }
+                },
+                onFilterRunePreview(uuid) {
+                    const item = this.StoreDB_RuneFilterList.find((x) => x.uuid === uuid);
                     if(item){
                         this.$set(item, 'preview', !item.preview);
                     }
@@ -15745,6 +16075,10 @@
                 SavePetDB() {
                     const parsed = JSON.stringify(this.StoreDB_Pet);
                     localStorage.setItem('StoreDB_Pet', parsed);
+                },
+                SaveRuneDB() {
+                    const parsed = JSON.stringify(this.StoreDB_Rune);
+                    localStorage.setItem('StoreDB_Rune', parsed);
                 },
                 SaveFileHash(filename, hash) {
                     const data = localStorage.getItem('StoreDB_FileHash');
@@ -15849,6 +16183,10 @@
                 },
                 petSwitch(index) {
                     this.OpenPanel('PetDialog');
+                    this.ItemDesiredPosition = index;
+                },
+                runeSwitch(index) {
+                    this.OpenPanel('RuneDialog');
                     this.ItemDesiredPosition = index;
                 },
                 costumeStoneSwitch(index) {
@@ -16198,6 +16536,7 @@
                                     equipname: cardnull ? '' : AllsetObject.Equip[eqi].equipname,
                                     refinelevel: AllsetObject.Equip[eqi].refinelevel ? AllsetObject.Equip[eqi].refinelevel : 0,
                                     grade: AllsetObject.Equip[eqi].grade ? AllsetObject.Equip[eqi].grade : this.weapongradelist[0],
+                                    runeset: AllsetObject.Equip[eqi].runeset ? AllsetObject.Equip[eqi].runeset : this.runesetlist[0],
                                     effectlist: _.cloneDeep(cardnull ? [] : AllsetObject.Equip[eqi].effectlist),
                                     combolist: _.cloneDeep(combonull ? [] : AllsetObject.Equip[eqi].combolist),
                                     enchantSlot: AllsetObject.Equip[eqi]?.enchantSlot ?? 0,
@@ -16216,6 +16555,7 @@
                                     equipname: '',
                                     refinelevel: 0,
                                     grade: this.weapongradelist[0],
+                                    runeset: this.runesetlist[0],
                                     effectlist: [],
                                     combolist: [],
                                 }
@@ -16395,6 +16735,9 @@
                         } catch (e) {
                             console.log("catch e:" + e);
                         }
+                        finally {
+                            this.onFilterEquipSearch();
+                        }
                     }
                     if (localStorage.getItem('StoreDB_Enchant')) {
                         try {
@@ -16402,6 +16745,9 @@
                             Enumerable.From(this.StoreDB_Enchant).OrderBy(x => x.equip.id);
                         } catch (e) {
                             console.log("catch e:" + e);
+                        }
+                        finally {
+                            this.onFilterEnchantSearch();
                         }
                     }
                     if (localStorage.getItem('StoreDB_Card')) {
@@ -16411,6 +16757,9 @@
                         } catch (e) {
                             console.log("catch e:" + e);
                         }
+                        finally {
+                            this.onFilterCardSearch();
+                        }
                     }
                     if (localStorage.getItem('StoreDB_CostumeStone')) {
                         try {
@@ -16419,6 +16768,20 @@
                         } catch (e) {
                             console.log("catch e:" + e);
                         }
+                        finally {
+                            this.onFilterCostumeStoneSearch();
+                        }
+                    }
+                    if (localStorage.getItem('StoreDB_Rune')) {
+                        try {
+                            this.StoreDB_Rune = JSON.parse(localStorage.getItem('StoreDB_Rune'));
+                            Enumerable.From(this.StoreDB_Rune).OrderBy(x => x.equip.id);
+                        } catch (e) {
+                            console.log("catch e:" + e);
+                        }
+                        finally {
+                            this.onFilterRuneSearch();
+                        }
                     }
                     if (localStorage.getItem('StoreDB_Pet')) {
                         try {
@@ -16426,6 +16789,9 @@
                             Enumerable.From(this.StoreDB_Pet).OrderBy(x => x.equip.id);
                         } catch (e) {
                             console.log("catch e:" + e);
+                        }
+                        finally {
+                            this.onFilterPetSearch();
                         }
                     }
                     if (localStorage.getItem('StoreDB_QuickCalc')) {
@@ -17385,6 +17751,7 @@
                         { str1: 'SHACCLR', str2: 'this.equipspartlist[42].refinelevel', description: 'shadow accessory left refine' },
                         { str1: 'BACCRR', str2: 'this.equipspartlist[8].refinelevel', description: 'base accessory right refine' },
                         { str1: 'BACCLR', str2: 'this.equipspartlist[9].refinelevel', description: 'base accessory left refine' },
+                        { str1: 'RUNERLV', str2: 'this.equipspartlist[107].refinelevel', description: 'Rune Tablet Refine Level' },
                         { str1: 'HATLV', str2: 'this.equipspartlist[2].equiplevel', description: 'hat equipment level' },
                         { str1: 'ARMORLV', str2: 'this.equipspartlist[5].equiplevel', description: 'armor equipment level' },
                         { str1: 'GARMLV', str2: 'this.equipspartlist[6].equiplevel', description: 'garment equipment level' },
@@ -17399,6 +17766,7 @@
                         { str1: 'SHOEG', str2: 'this.checkShoeGradeReq', description: 'Shoe grade SHOEG(\'A\') or SHOEG(4) will return true if grade is A or higher' },
                         { str1: 'BACCRG', str2: 'this.checkAccLGradeReq', description: 'base accessory right grade' },
                         { str1: 'BACCLG', str2: 'this.checkAccRGradeReq', description: 'base accessory left grade' },
+                        { str1: 'RUNESLV', str2: 'this.checkRuneSetLevelReq', description: 'Rune Tablet Set Effect Level' },
                         { str1: 'CRW', str2: 'this.skilloption.CarWeight', description: 'cart weight' },
                         { str1: 'ELV', str2: 'this.enemyattribute.level', description: 'enemy lvl' },
                         { str1: 'ESIZE', str2: 'this.enemyattribute.size', description: 'enemy size' },
@@ -17421,6 +17789,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2026-09-24', content: 'Update: Rune Tablet System added. Later gonna add all the other runes.' },
                         { id: '2026-09-22', content: 'Update: Switch button for simplified formulas in the gear (shows the real values)' },
                         { id: '2026-09-22', content: 'Added: Kachua gear from September 2026' },
                         { id: '2026-09-01', content: 'Added: OCP 87 gear & Spend Promo gear' },
@@ -17794,6 +18163,30 @@
                     this.SaveFileHash('PETS', hash);
                     this.SavePetDB();
                 },
+                processRune(json) {
+                    for (const [key, value] of Object.entries(json)) {
+                        if (this.StoreDB_RuneLoadedNames.has(value.equipname)) continue;
+                        this.StoreDB_Rune.push({
+                            uuid: this._uuid(),
+                            category: 'RUNES',
+                            equip: {
+                                id: value.id,
+                                itemid: value.itemid ? value.itemid : 0,
+                                label: value.label,
+                                equipname: value.equipname,
+                                refinelevel: value.refinelevel ? value.refinelevel : 0,
+                                runeset: value.runeset ? value.runeset : this.runesetlist[0],
+                                effectlist: Object.values(value.effectlist),
+                                combolist: value.combolist ? Object.values(value.combolist) : [],
+                            },
+                            date: Date.now(),
+                        });
+                        this.StoreDB_RuneLoadedNames.add(value.equipname);
+                    }
+                    const hash = this.generateMD5(JSON.stringify(json));
+                    this.SaveFileHash('RUNES', hash);
+                    this.SaveRuneDB();
+                },
                 processStone(json) {
                     for (const [key, value] of Object.entries(json)) {
                         if (this.StoreDB_CostumeStoneLoadedNames.has(value.equipname)) continue;
@@ -17908,6 +18301,17 @@
                             this.onFilterPetSearch();
                         })
                 },
+                loadRunes() {
+                    let href = this.getURL() + 'default_equip/RUNES.json';
+                    fetch(href, { cache: "no-cache" })
+                        .then(res => res.json())
+                        .then(json => {
+                            this.processRune(json);
+                        })
+                        .finally(() => {
+                            this.onFilterRuneSearch();
+                        })
+                },
                 loadCostumeStones() {
                     let href = this.getURL() + 'default_equip/STONES.json';
                     fetch(href, { cache: "no-cache" })
@@ -18019,7 +18423,7 @@
 
                     if (!this.DataOptions.has(kind)) return;
 
-                    let exportDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : kind === "stone" ? this.StoreDB_CostumeStone : kind === "pet" ? this.StoreDB_Pet : this.StoreDB_Card;
+                    let exportDB = kind === "equip" ? this.StoreDB_Equip : kind === "enchant" ? this.StoreDB_Enchant : kind === "rune" ? this.StoreDB_Rune : kind === "stone" ? this.StoreDB_CostumeStone : kind === "pet" ? this.StoreDB_Pet : this.StoreDB_Card;
                     for (const [key, value] of Object.entries(exportDB)) {
                         try {
                             var obj = value.equip;
@@ -18130,6 +18534,10 @@
                         this.StoreDB_CostumeStone = [];
                         this.SaveCostumeStoneDB();
                     }
+                    else if (filename === 'RUNES') {
+                        this.StoreDB_Rune = [];
+                        this.SaveRuneDB();
+                    }
                     else {
                         const filteredStoreDB_Equip = this.StoreDB_Equip.filter((item) => item.category !== filename);
                         this.StoreDB_Equip = filteredStoreDB_Equip;
@@ -18163,6 +18571,9 @@
                                 }
                                 else if (filename === 'STONES') {
                                     this.processStone(json);
+                                }
+                                else if (filename === 'RUNES') {
+                                    this.processRune(json);
                                 }
                                 else {
                                     this.processEquip(json, filename);
@@ -18238,6 +18649,9 @@
                 },
                 StoreDB_PetCount() {
                     return this.StoreDB_PetFilterList.length;
+                },
+                StoreDB_RuneCount() {
+                    return this.StoreDB_RuneFilterList.length;
                 },
                 BuildCount() {
                     return this.AvailableClassesMetadataList.length;

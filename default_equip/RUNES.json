@@ -1,0 +1,44 @@
+[
+	{
+		"id": "runetablet",
+		"itemid": 99990001,
+		"refinelevel": 15,
+		"runeset": {
+			"id": 4,
+			"label": "5 Set Effect"
+		},
+		"label": "Rune System",
+		"equipname": "Greenhouse Overseer Set",
+		"effectlist": [
+			{
+				"EffectNumber": "((ERI==2?((RUNESLV(1)?(DOWN(RUNERLV/5)):0)+(RUNESLV(2)?3:0)):0)+(ERI==6?((RUNESLV(1)?(DOWN(RUNERLV/5)):0)+(RUNESLV(2)?2:0)):0))",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ERI==2?((RUNESLV(1)?(DOWN(RUNERLV/5)):0)+(RUNESLV(2)?3:0)):0)+(ERI==6?((RUNESLV(1)?(DOWN(RUNERLV/5)):0)+(RUNESLV(2)?2:0)):0))",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(RUNESLV(4)?7:0)",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(RUNESLV(4)?7:0)",
+				"EffectType": {
+					"id": "MatkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": []
+	}
+]
