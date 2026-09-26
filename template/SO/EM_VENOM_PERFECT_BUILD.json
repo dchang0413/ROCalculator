@@ -1194,8 +1194,8 @@
 		{
 			"id": "shoes",
 			"itemid": 470343,
-			"label": "Shoes",
 			"equiplevel": 2,
+			"label": "Shoes",
 			"equipname": "Corruption Boots",
 			"refinelevel": 15,
 			"grade": {
@@ -1404,8 +1404,8 @@
 		{
 			"id": "acc1",
 			"itemid": 490920,
-			"label": "Accessory",
 			"equiplevel": 1,
+			"label": "Accessory",
 			"equipname": "Dark Chaser Ring",
 			"refinelevel": 0,
 			"grade": {
@@ -1498,8 +1498,8 @@
 		{
 			"id": "acc2",
 			"itemid": 490545,
-			"label": "Accessory",
 			"equiplevel": 1,
+			"label": "Accessory",
 			"equipname": "Overdrive Rampage",
 			"refinelevel": 0,
 			"grade": {
@@ -1569,16 +1569,11 @@
 			"id": "weaponcard",
 			"itemid": 4625,
 			"label": "Weapon Card",
-			"equiplevel": 1,
 			"equipname": "Time Holder Card",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
-			},
-			"runeset": {
-				"id": 0,
-				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -1589,9 +1584,7 @@
 					"Enable": true
 				}
 			],
-			"combolist": [],
-			"enchantSlot": 0,
-			"availableEnchants": []
+			"combolist": []
 		},
 		{
 			"id": "weaponcard",
@@ -1887,8 +1880,8 @@
 		{
 			"id": "robecard",
 			"itemid": 300382,
-			"label": "Garment Card",
 			"equiplevel": 1,
+			"label": "Garment Card",
 			"equipname": "Aquila Card",
 			"refinelevel": 0,
 			"grade": {
@@ -1915,8 +1908,8 @@
 		{
 			"id": "shoescard",
 			"itemid": 4441,
-			"label": "Shoes Card",
 			"equiplevel": 1,
+			"label": "Shoes Card",
 			"equipname": "Fallen Bishop Card",
 			"refinelevel": 0,
 			"grade": {
@@ -1985,8 +1978,8 @@
 		{
 			"id": "acc2card",
 			"itemid": 300371,
-			"label": "Acc Card",
 			"equiplevel": 1,
+			"label": "Acc Card",
 			"equipname": "Cave Calmaring Card",
 			"refinelevel": 0,
 			"grade": {
@@ -2093,8 +2086,8 @@
 		{
 			"id": "stoneupper",
 			"itemid": 1000528,
-			"label": "Upper Stone",
 			"equiplevel": 1,
+			"label": "Upper Stone",
 			"equipname": "Magic Power Stone (Upper)",
 			"refinelevel": 0,
 			"grade": {
@@ -2139,8 +2132,8 @@
 		{
 			"id": "stonemiddle",
 			"itemid": 1000673,
-			"label": "Middle Stone",
 			"equiplevel": 1,
+			"label": "Middle Stone",
 			"equipname": "Sorcerer Stone (Middle)",
 			"refinelevel": 0,
 			"grade": {
@@ -2519,8 +2512,8 @@
 		{
 			"id": "shadowshld",
 			"itemid": 1270049,
-			"label": "S.Shield",
 			"equiplevel": 1,
+			"label": "S.Shield",
 			"equipname": "Sanctified Shadow Shield",
 			"refinelevel": 10,
 			"grade": {
@@ -2677,10 +2670,10 @@
 		},
 		{
 			"id": "shadowarmor",
-			"itemid": 1270001,
+			"itemid": 24883,
 			"label": "S.Armor",
 			"equiplevel": 1,
-			"equipname": "Sorcery Master Shadow Armor",
+			"equipname": "Full Spell Shadow Armor",
 			"refinelevel": 10,
 			"grade": {
 				"id": 0,
@@ -2692,13 +2685,6 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "SHARMORR>9?3:0",
-					"EffectType": {
-						"id": "SMATK"
-					},
-					"Enable": true
-				},
-				{
 					"EffectNumber": 3,
 					"EffectType": {
 						"id": "MatkPercent"
@@ -2706,9 +2692,16 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "[0,1,2,3,5].includes(AEI)?(2*DOWN(SHARMORR/3)):0",
+					"EffectNumber": "FLOOR(SHARMORR/2)",
 					"EffectType": {
 						"id": "ElementalMagicPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHARMORR>9?2:0)",
+					"EffectType": {
+						"id": "SMATK"
 					},
 					"Enable": true
 				}
@@ -2716,10 +2709,18 @@
 			"combolist": [
 				{
 					"itemid_every": [
-						1270002
+						24884
 					],
-					"equipname": "Sorcery Master Shadow Shoes",
+					"itemid_any": [],
+					"equipname": "Full Spell Shadow Shoes",
 					"effectlist": [
+						{
+							"EffectNumber": 2,
+							"EffectType": {
+								"id": "MatkPercent"
+							},
+							"Enable": true
+						},
 						{
 							"EffectNumber": 2,
 							"EffectType": {
@@ -2728,23 +2729,16 @@
 							"Enable": true
 						},
 						{
-							"EffectNumber": "(SHARMORR+SHSHOER)>14?5:0",
+							"EffectNumber": "(SHARMORR+SHSHOER)>17?5:0",
 							"EffectType": {
-								"id": "ElementalMatkPercent"
+								"id": "ElementalMagicPercent"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": "(SHARMORR+SHSHOER)>17?50:0",
+							"EffectNumber": "(SHARMORR+SHSHOER)>17?10:0",
 							"EffectType": {
-								"id": "BypassMDEFPercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "(SHARMORR+SHSHOER)>14?3:0",
-							"EffectType": {
-								"id": "SPPercent"
+								"id": "SizeMatkPercent"
 							},
 							"Enable": true
 						}
@@ -2752,29 +2746,29 @@
 				},
 				{
 					"itemid_every": [
-						1270002,
-						24793
+						24753
 					],
-					"equipname": "Sorcery M. + Master Shadow Shield",
+					"itemid_any": [],
+					"equipname": "Magical Spell Shadow Weapon",
 					"effectlist": [
 						{
-							"EffectNumber": 2,
+							"EffectNumber": 3,
+							"EffectType": {
+								"id": "MatkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHARMORR+SHWEAR)>17?3:0",
+							"EffectType": {
+								"id": "SPL"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHARMORR+SHWEAR)>17?3:0",
 							"EffectType": {
 								"id": "SMATK"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": 5,
-							"EffectType": {
-								"id": "SizeMatkPercent"
-							},
-							"Enable": true
-						},
-						{
-							"EffectNumber": "(SHARMORR+SHSHOER+SHSHIER)>26?10:0",
-							"EffectType": {
-								"id": "BypassMRESPercent"
 							},
 							"Enable": true
 						}
@@ -2786,10 +2780,10 @@
 		},
 		{
 			"id": "shadowshoe",
-			"itemid": 1270002,
+			"itemid": 24884,
 			"label": "S.Shoes",
 			"equiplevel": 1,
-			"equipname": "Sorcery Master Shadow Shoes",
+			"equipname": "Full Spell Shadow Shoes",
 			"refinelevel": 10,
 			"grade": {
 				"id": 0,
@@ -2801,13 +2795,6 @@
 			},
 			"effectlist": [
 				{
-					"EffectNumber": "SHSHOER>9?3:0",
-					"EffectType": {
-						"id": "SMATK"
-					},
-					"Enable": true
-				},
-				{
 					"EffectNumber": 3,
 					"EffectType": {
 						"id": "MatkPercent"
@@ -2815,14 +2802,52 @@
 					"Enable": true
 				},
 				{
-					"EffectNumber": "[0,1,2,3,5].includes(AEI)?(2*DOWN(SHSHOER/3)):0",
+					"EffectNumber": "FLOOR(SHSHOER/2)",
 					"EffectType": {
 						"id": "ElementalMagicPercent"
 					},
 					"Enable": true
+				},
+				{
+					"EffectNumber": "(SHSHOER>9?2:0)",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
 				}
 			],
-			"combolist": [],
+			"combolist": [
+				{
+					"itemid_every": [
+						24754
+					],
+					"itemid_any": [],
+					"equipname": "Magical Spell Shadow Shield",
+					"effectlist": [
+						{
+							"EffectNumber": 3,
+							"EffectType": {
+								"id": "MatkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHARMORR+SHSHIER)>17?3:0",
+							"EffectType": {
+								"id": "SPL"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(SHARMORR+SHSHIER)>17?3:0",
+							"EffectType": {
+								"id": "SMATK"
+							},
+							"Enable": true
+						}
+					]
+				}
+			],
 			"enchantSlot": 0,
 			"availableEnchants": []
 		},
@@ -2955,8 +2980,8 @@
 		{
 			"id": "weapon11",
 			"itemid": 311299,
-			"label": "Weapon Enchant",
 			"equiplevel": 1,
+			"label": "Weapon Enchant",
 			"equipname": "Glacier Flower Spell (Venom Swamp)",
 			"refinelevel": 0,
 			"grade": {
@@ -2984,8 +3009,8 @@
 		{
 			"id": "weapon12",
 			"itemid": 311299,
-			"label": "Weapon Enchant",
 			"equiplevel": 1,
+			"label": "Weapon Enchant",
 			"equipname": "Glacier Flower Spell (Venom Swamp)",
 			"refinelevel": 0,
 			"grade": {
@@ -3495,8 +3520,8 @@
 		{
 			"id": "armor1",
 			"itemid": 29000,
-			"label": "Armor Enchant",
 			"equiplevel": 1,
+			"label": "Armor Enchant",
 			"equipname": "Rune of Intellect Lv 1",
 			"refinelevel": 0,
 			"grade": {
@@ -3531,8 +3556,8 @@
 		{
 			"id": "armor2",
 			"itemid": 310738,
-			"label": "Armor Enchant",
 			"equiplevel": 1,
+			"label": "Armor Enchant",
 			"equipname": "Nebula of Spell Lv3",
 			"refinelevel": 0,
 			"grade": {
@@ -3664,92 +3689,191 @@
 		},
 		{
 			"id": "shoes1",
-			"label": "Shoes Enchant",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "Shoes Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "7"
 		},
 		{
 			"id": "shoes2",
-			"label": "Shoes Enchant",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "Shoes Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "7"
 		},
 		{
 			"id": "shoes3",
-			"label": "Shoes Enchant",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "Shoes Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "7"
 		},
 		{
 			"id": "acc11",
-			"label": "Accessory Enchant",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "Accessory Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "8"
 		},
 		{
 			"id": "acc12",
-			"label": "Accessory Enchant",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "Accessory Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "8"
 		},
 		{
 			"id": "acc13",
-			"label": "Accessory Enchant",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "Accessory Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "8"
 		},
 		{
 			"id": "acc21",
-			"label": "Accessory Enchant",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "Accessory Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "9"
 		},
 		{
 			"id": "acc22",
-			"label": "Accessory Enchant",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "Accessory Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "9"
 		},
 		{
 			"id": "acc23",
-			"label": "Accessory Enchant",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "Accessory Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "9"
 		},
 		{
@@ -3796,22 +3920,44 @@
 		},
 		{
 			"id": "shadowshld1",
-			"label": "S.Shield Enchant 1",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "S.Shield Enchant 1",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "38"
 		},
 		{
 			"id": "shadowshld2",
-			"label": "S.Shield Enchant 2",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "S.Shield Enchant 2",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "38"
 		},
 		{
@@ -4015,13 +4161,6 @@
 					"EffectNumber": 12,
 					"EffectType": {
 						"id": "SPL"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": 27,
-					"EffectType": {
-						"id": "AtkPercent"
 					},
 					"Enable": true
 				},
@@ -4234,9 +4373,19 @@
 		},
 		{
 			"id": "shoesenchant",
-			"label": "Shoes Line Enchant",
+			"itemid": 0,
 			"equiplevel": 1,
+			"label": "Shoes Line Enchant",
 			"equipname": "LINE ENCHANT",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 30,
@@ -4246,15 +4395,26 @@
 					"Enable": true
 				}
 			],
-			"itemid": 0,
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "7"
 		},
 		{
 			"id": "accrenchant",
-			"label": "Accessory Right Line Enchant",
+			"itemid": 0,
 			"equiplevel": 1,
+			"label": "Accessory Right Line Enchant",
 			"equipname": "LINE ENCHANT",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 15,
@@ -4271,18 +4431,30 @@
 					"Enable": true
 				}
 			],
-			"itemid": 0,
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "8"
 		},
 		{
 			"id": "acclenchant",
-			"label": "Accessory Left Line Enchant",
-			"equiplevel": 1,
-			"equipname": "",
-			"effectlist": [],
 			"itemid": 0,
+			"equiplevel": 1,
+			"label": "Accessory Left Line Enchant",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "9"
 		},
 		{
@@ -4330,9 +4502,19 @@
 		},
 		{
 			"id": "shieldshadowenchant",
-			"label": "Shield Shadow Line Enchant",
+			"itemid": 0,
 			"equiplevel": 1,
+			"label": "Shield Shadow Line Enchant",
 			"equipname": "LINE ENCHANT",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 5,
@@ -4356,8 +4538,9 @@
 					"Enable": true
 				}
 			],
-			"itemid": 0,
 			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0,
 			"baseIndex": "38"
 		},
 		{
@@ -4482,7 +4665,9 @@
 				"label": "No Set Effect"
 			},
 			"effectlist": [],
-			"combolist": []
+			"combolist": [],
+			"enchantSlot": 0,
+			"availableEnchants": 0
 		}
 	],
 	"Weapon": {
@@ -4564,7 +4749,7 @@
 		"HP": 0,
 		"SP": 0,
 		"MHP": 567206,
-		"MSP": 38750
+		"MSP": 37842
 	},
 	"JobStatus": {
 		"STR": 4,
@@ -4684,10 +4869,10 @@
 		"SO_EL_CONTROL(Lv1)",
 		"EM_SUMMON_ELEMENTAL_SERPENS"
 	],
-	"Damage": "22,346,974,893,570 ~ 23,670,032,217,600",
-	"DamageDPS": "164,280,715,386,877",
+	"Damage": "22,585,914,311,780 ~ 23,922,995,208,490",
+	"DamageDPS": "166,036,806,987,364",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "23,008,503,555,585",
+	"SkillDamageAvg": "23,254,454,760,135",
 	"attribute": {
 		"StatusATK": 1089,
 		"WeaponATK": 1101,
@@ -4695,16 +4880,16 @@
 		"WeaponMATK": 3693,
 		"ATK": 635,
 		"MATK": 3227,
-		"ATKP": 33,
-		"MATKP": 498,
+		"ATKP": 6,
+		"MATKP": 500,
 		"DEF": 0,
 		"MDEF": 0,
 		"HP": 137,
 		"HPP": 270,
 		"SP": 376,
-		"SPP": 28,
+		"SPP": 25,
 		"PATK": 192,
-		"SMATK": 562,
+		"SMATK": 560,
 		"CRIDR": 31,
 		"RES": 0,
 		"MRES": 0,
@@ -4734,14 +4919,14 @@
 		"BYPASSMRES": 50,
 		"WeaponPerfection": 0,
 		"WeaponOccult": 0,
-		"ElementalMagicPercent": 698,
-		"SizeMatkPercent": 508,
+		"ElementalMagicPercent": 701,
+		"SizeMatkPercent": 518,
 		"ElementalAtkPercent": 0,
 		"LevelAtkPercent": 110,
 		"SizeAtkPercent": 435,
 		"RaceAtkPercent": 10,
 		"MonsterAtkPercent": 0,
-		"ElementalMatkPercent": 415,
+		"ElementalMatkPercent": 410,
 		"RaceMatkPercent": 157,
 		"MonsterMatkPercent": 0,
 		"LevelMatkPercent": 315
@@ -4815,27 +5000,27 @@
 		"weaponmatk_max": 5111,
 		"equipmatk_min": 7872,
 		"equipmatk_max": 8338,
-		"matkpercent_min": 47074,
-		"matkpercent_max": 49861,
-		"finalmatk_min": 830486315,
-		"finalmatk_max": 879655431,
-		"matk1_min": 1038107893,
-		"matk1_max": 1099569288,
-		"skillmatk_min": 272524084070,
-		"skillmatk_max": 288658929485,
-		"matk2_min": 272524084068,
-		"matk2_max": 288658929483,
-		"matk3_min": 2234697489357,
-		"matk3_max": 2367003221760,
-		"matk4_min": 2234697489357,
-		"matk4_max": 2367003221760,
-		"matk4_avg": 2300850355558.5,
-		"matkmulti_min": 22346974893570,
-		"matkmulti_max": 23670032217600,
-		"matkmulti_avg": 23008503555585,
+		"matkpercent_min": 47232,
+		"matkpercent_max": 50028,
+		"finalmatk_min": 839366081,
+		"finalmatk_max": 889056359,
+		"matk1_min": 1049207601,
+		"matk1_max": 1111320448,
+		"skillmatk_min": 275437979414,
+		"skillmatk_max": 291743844008,
+		"matk2_min": 275437979412,
+		"matk2_max": 291743844006,
+		"matk3_min": 2258591431178,
+		"matk3_max": 2392299520849,
+		"matk4_min": 2258591431178,
+		"matk4_max": 2392299520849,
+		"matk4_avg": 2325445476013.5,
+		"matkmulti_min": 22585914311780,
+		"matkmulti_max": 23922995208490,
+		"matkmulti_avg": 23254454760135,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
-		"matkmulti_DPS": 164280715386876.9,
+		"matkmulti_DPS": 166036806987363.9,
 		"DragonBreathDMG": 0,
 		"DragonBreathDMG_DPS": 0,
 		"CastDEXINT": 1671,
@@ -4860,5 +5045,5 @@
 		"CRT": 94,
 		"S_P_L": 621
 	},
-	"lastedited": "2026-09-26T14:14:12.655Z"
+	"lastedited": "2026-09-26T14:35:04.772Z"
 }
