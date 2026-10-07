@@ -6449,7 +6449,7 @@
                                         <div v-for="(combo, idx) in equipspartlist[0].combolist"
                                             class="bg-purple-light3">
                                             <div class="divider-purple"></div>
-                                            <div v-if="combo.itemid_every.length > 0" class="textcenter margin-4">
+                                            <div v-if="combo.itemid_every && combo.itemid_every.length > 0" class="textcenter margin-4">
                                                 <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  combo.itemid_every[0] ">
                                                     <em>{{ combo.equipname }}</em>
                                                 </a>
@@ -6526,7 +6526,7 @@
                                                 Combo Effect: {{ cardidx + 1 }} - {{ card.equipname }}</div>
                                             <el-row v-for="(combo, idx) in card.combolist" class="bg-green-light1">
                                                 <div class="divider-green"></div>
-                                                <div v-if="combo.itemid_every.length > 0" class="textcenter margin-4">
+                                                <div v-if="combo.itemid_every && combo.itemid_every.length > 0" class="textcenter margin-4">
                                                     <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  combo.itemid_every[0] ">
                                                         <em>{{ combo.equipname }}</em>
                                                     </a>
@@ -7302,7 +7302,7 @@
                                         <div v-for="(combo, idx) in equipspartlist[1].combolist"
                                             class="bg-purple-light3">
                                             <div class="divider-purple"></div>
-                                            <div v-if="combo.itemid_every.length > 0" class="textcenter margin-4">
+                                            <div v-if="combo.itemid_every && combo.itemid_every.length > 0" class="textcenter margin-4">
                                                 <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  combo.itemid_every[0] ">
                                                     <em>{{ combo.equipname }}</em>
                                                 </a>
@@ -7381,7 +7381,7 @@
                                                 Combo Effect: {{ cardidx + 1 }} - {{ card.equipname }}</div>
                                             <el-row v-for="(combo, idx) in card.combolist" class="bg-green-light1">
                                                 <div class="divider-green"></div>
-                                                <div v-if="combo.itemid_every.length > 0" class="textcenter margin-4">
+                                                <div v-if="combo.itemid_every && combo.itemid_every.length > 0" class="textcenter margin-4">
                                                     <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  combo.itemid_every[0] ">
                                                         <em>{{ combo.equipname }}</em>
                                                     </a>
@@ -7457,7 +7457,7 @@
                                         <div v-for="(combo, idx) in equipspartlist[5+13].combolist"
                                             class="bg-green-light1">
                                             <div class="divider-green"></div>
-                                            <div v-if="combo.itemid_every.length > 0" class="textcenter margin-4">
+                                            <div v-if="combo.itemid_every && combo.itemid_every.length > 0" class="textcenter margin-4">
                                                 <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  combo.itemid_every[0] ">
                                                     <em>{{ combo.equipname }}</em>
                                                 </a>
@@ -7922,7 +7922,7 @@
                                             <div v-for="(combo, idx) in equipspartlist[eqindex+2].combolist"
                                                 class="bg-purple-light3">
                                                 <div class="divider-purple"></div>
-                                                <div v-if="combo.itemid_every.length > 0" class="textcenter margin-4">
+                                                <div v-if="combo.itemid_every && combo.itemid_every.length > 0" class="textcenter margin-4">
                                                     <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  combo.itemid_every[0] ">
                                                         <em>{{ combo.equipname }}</em>
                                                     </a>
@@ -7998,7 +7998,7 @@
                                             <div v-for="(combo, idx) in equipspartlist[eqindex+19].combolist"
                                                 class="bg-green-light1">
                                                 <div class="divider-green"></div>
-                                                <div v-if="combo.itemid_every.length > 0" class="textcenter margin-4">
+                                                <div v-if="combo.itemid_every && combo.itemid_every.length > 0" class="textcenter margin-4">
                                                     <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  combo.itemid_every[0] ">
                                                         <em>{{ combo.equipname }}</em>
                                                     </a>
@@ -8337,7 +8337,7 @@
                                             <div v-for="(combo, idx) in equipspartlist[eqindex+37].combolist"
                                                 class="bg-purple-light3">
                                                 <div class="divider-purple"></div>
-                                                <div v-if="combo.itemid_every.length > 0" class="textcenter margin-4">
+                                                <div v-if="combo.itemid_every && combo.itemid_every.length > 0" class="textcenter margin-4">
                                                     <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  combo.itemid_every[0] ">
                                                         <em>{{ combo.equipname }}</em>
                                                     </a>
@@ -8640,7 +8640,7 @@
                                             <div v-for="(combo, idx) in equipspartlist[eqindex+30].combolist"
                                                 class="bg-purple-light3">
                                                 <div class="divider-purple"></div>
-                                                <div v-if="combo.itemid_every.length > 0" class="textcenter margin-4">
+                                                <div v-if="combo.itemid_every && combo.itemid_every.length > 0" class="textcenter margin-4">
                                                     <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  combo.itemid_every[0] ">
                                                         <em>{{ combo.equipname }}</em>
                                                     </a>
@@ -8721,7 +8721,7 @@
                                                 <div v-for="(combo, idx) in equipspartlist[stidx+31].combolist"
                                                     class="bg-red-light1">
                                                     <div class="divider-red"></div>
-                                                    <div v-if="combo.itemid_every.length > 0" class="textcenter margin-4">
+                                                    <div v-if="combo.itemid_every && combo.itemid_every.length > 0" class="textcenter margin-4">
                                                         <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  combo.itemid_every[0] ">
                                                             <em>{{ combo.equipname }}</em>
                                                         </a>
@@ -8954,7 +8954,7 @@
                                             <div v-for="(combo, idx) in equipspartlist[eqindex+36].combolist"
                                                 class="bg-purple-light3">
                                                 <div class="divider-purple"></div>
-                                                <div v-if="combo.itemid_every.length > 0" class="textcenter margin-4">
+                                                <div v-if="combo.itemid_every && combo.itemid_every.length > 0" class="textcenter margin-4">
                                                     <a target="_blank" rel="noopener noreferrer" :href="'https://www.divine-pride.net/database/item/' +  combo.itemid_every[0] ">
                                                         <em>{{ combo.equipname }}</em>
                                                     </a>
