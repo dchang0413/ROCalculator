@@ -1,5 +1,5 @@
 {
-	"Name": "FIRE_CONF_UPDATED",
+	"Name": "EM_CONF_UPDATED",
 	"Equip": [
 		{
 			"id": "weaponr",
@@ -11,6 +11,10 @@
 			"grade": {
 				"id": 4,
 				"label": "A"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -27,6 +31,10 @@
 			"grade": {
 				"id": 4,
 				"label": "A"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -243,6 +251,10 @@
 				"id": 4,
 				"label": "A"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": "(30+(HATR>9?30:0))",
@@ -367,6 +379,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -583,6 +599,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 15,
@@ -723,6 +743,10 @@
 			"grade": {
 				"id": 4,
 				"label": "A"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -952,6 +976,10 @@
 				"id": 4,
 				"label": "A"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 10,
@@ -1173,6 +1201,10 @@
 			"grade": {
 				"id": 4,
 				"label": "A"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -1482,6 +1514,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 10,
@@ -1627,41 +1663,143 @@
 		},
 		{
 			"id": "acc2",
-			"itemid": 490704,
-			"equiplevel": 1,
+			"itemid": 491102,
 			"label": "Accessory",
-			"equipname": "Miracle Stone",
-			"refinelevel": 0,
+			"equiplevel": 2,
+			"equipname": "Ring of Ice Lord",
+			"refinelevel": 14,
 			"grade": {
+				"id": 4,
+				"label": "A"
+			},
+			"runeset": {
 				"id": 0,
-				"label": "No Grade"
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
-					"EffectNumber": 10,
+					"EffectNumber": 15,
 					"EffectType": {
-						"id": "MatkPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": 10,
-					"EffectType": {
-						"id": "ElementalMagicPercent"
-					},
-					"Enable": true
-				},
-				{
-					"EffectNumber": 5,
-					"EffectType": {
-						"id": "GCDPercent"
+						"id": "MeleeDamagePercent"
 					},
 					"Enable": true
 				},
 				{
 					"EffectNumber": 15,
 					"EffectType": {
+						"id": "RangedDamagePercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": 15,
+					"EffectType": {
+						"id": "MatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(4*DOWN(BACCLR/2))",
+					"EffectType": {
+						"id": "POW"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(4*DOWN(BACCLR/2))",
+					"EffectType": {
+						"id": "SPL"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(4*DOWN(BACCLR/2))",
+					"EffectType": {
+						"id": "CON"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BACCLR>8?15:0)",
+					"EffectType": {
+						"id": "GCDPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BACCLR>11?20:0)",
+					"EffectType": {
+						"id": "SizeAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BACCLR>11?20:0)",
+					"EffectType": {
 						"id": "SizeMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BACCLR>13?20:0)",
+					"EffectType": {
+						"id": "LevelAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BACCLR>13?20:0)",
+					"EffectType": {
+						"id": "LevelMatkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BACCLG(1)?250:0)",
+					"EffectType": {
+						"id": "Atk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BACCLG(1)?250:0)",
+					"EffectType": {
+						"id": "Matk"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BACCLG(2)?0.5:0)",
+					"EffectType": {
+						"id": "FixedCast"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BACCLG(3)?15:0)",
+					"EffectType": {
+						"id": "PATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BACCLG(3)?15:0)",
+					"EffectType": {
+						"id": "SMATK"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BACCLG(4)?20:0)",
+					"EffectType": {
+						"id": "RaceAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "(BACCLG(4)?20:0)",
+					"EffectType": {
+						"id": "RaceMatkPercent"
 					},
 					"Enable": true
 				}
@@ -1670,23 +1808,77 @@
 				{
 					"itemid_every": [],
 					"itemid_any": [
-						4577,
-						27125,
-						27262,
-						27161,
-						300294
+						540049,
+						610037,
+						650025,
+						550069,
+						640033,
+						620017,
+						590039,
+						570029,
+						580030,
+						500049,
+						530025,
+						520017,
+						590038,
+						700052,
+						800014,
+						810010,
+						820008,
+						830013,
+						840009,
+						600027,
+						630018,
+						510061,
+						500050,
+						510062,
+						560032,
+						550070,
+						540056,
+						610041,
+						650028,
+						550089,
+						640034,
+						620019,
+						590048,
+						570032,
+						580033,
+						500054,
+						530034,
+						520021,
+						590047,
+						700059,
+						800015,
+						810015,
+						820011,
+						830015,
+						840010,
+						600030,
+						630019,
+						510075,
+						500055,
+						510076,
+						560037,
+						550090
 					],
-					"equipname": "Elvira Card or Headless Mule Card or Dy Card or Mavka Card or Jennifer Card",
+					"equipname": "Dim Glacier Weapon Series",
 					"effectlist": [
 						{
-							"EffectNumber": 5,
+							"EffectNumber": 20,
 							"EffectType": {
-								"id": "SPL"
+								"id": "AllTrait"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": 15,
+							"EffectNumber": "(12*DOWN(WEAR/2))",
+							"EffectType": {
+								"id": "LevelAtkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": "(12*DOWN(WEAR/2))",
 							"EffectType": {
 								"id": "LevelMatkPercent"
 							},
@@ -1695,31 +1887,72 @@
 					]
 				},
 				{
-					"itemid_every": [],
-					"itemid_any": [
-						4576,
-						27362,
-						27381,
-						300145
+					"itemid_every": [
+						300467
 					],
-					"equipname": "Gioia Card or Polluted Queen Spider Card or Phantom of Himmelmez Card or Abysmal Witch Card",
+					"itemid_any": [],
+					"equipname": "Angel Slug Card",
 					"effectlist": [
 						{
-							"EffectNumber": 10,
+							"EffectNumber": 5,
 							"EffectType": {
-								"id": "SPL"
+								"id": "PATK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 5,
+							"EffectType": {
+								"id": "SMATK"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 15,
+							"EffectType": {
+								"id": "ElementalAtkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 15,
+							"EffectType": {
+								"id": "ElementalMatkPercent"
+							},
+							"Enable": true
+						}
+					]
+				},
+				{
+					"itemid_every": [
+						300471
+					],
+					"itemid_any": [],
+					"equipname": "Fallen Angel Slug Card",
+					"effectlist": [
+						{
+							"EffectNumber": 30,
+							"EffectType": {
+								"id": "PATK"
 							},
 							"Enable": true
 						},
 						{
 							"EffectNumber": 30,
 							"EffectType": {
-								"id": "LevelMatkPercent"
+								"id": "SMATK"
 							},
 							"Enable": true
 						},
 						{
-							"EffectNumber": "(GARMG(2)?20:0)",
+							"EffectNumber": 50,
+							"EffectType": {
+								"id": "ElementalAtkPercent"
+							},
+							"Enable": true
+						},
+						{
+							"EffectNumber": 50,
 							"EffectType": {
 								"id": "ElementalMatkPercent"
 							},
@@ -1729,7 +1962,7 @@
 				}
 			],
 			"enchantSlot": 0,
-			"availableEnchants": 0
+			"availableEnchants": []
 		},
 		{
 			"id": "weaponcard",
@@ -1844,6 +2077,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 10,
@@ -1874,6 +2111,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -1927,6 +2168,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 10,
@@ -1958,6 +2203,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 10,
@@ -1988,6 +2237,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -2041,6 +2294,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": "(AEI==1||AEI==7)?100:0",
@@ -2064,6 +2321,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -2089,6 +2350,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": "([5,7].includes(AEI)?30:0)",
@@ -2104,27 +2369,45 @@
 		},
 		{
 			"id": "acc2card",
-			"itemid": 27161,
-			"equiplevel": 1,
+			"itemid": 300471,
 			"label": "Acc Card",
-			"equipname": "Mavka Card",
+			"equiplevel": 1,
+			"equipname": "Fallen Angel Slug Card",
 			"refinelevel": 0,
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
-					"EffectNumber": "(AEI==1||AEI==4)?20:0",
+					"EffectNumber": -20,
 					"EffectType": {
-						"id": "ElementalMagicPercent"
+						"id": "HPPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "([1,3].includes(ERI)?25:0)",
+					"EffectType": {
+						"id": "RaceAtkPercent"
+					},
+					"Enable": true
+				},
+				{
+					"EffectNumber": "([2,7].includes(EEI)?25:0)",
+					"EffectType": {
+						"id": "ElementalAtkPercent"
 					},
 					"Enable": true
 				}
 			],
 			"combolist": [],
 			"enchantSlot": 0,
-			"availableEnchants": 0
+			"availableEnchants": []
 		},
 		{
 			"id": "costumeupper",
@@ -2136,6 +2419,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -2153,6 +2440,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -2168,6 +2459,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -2185,6 +2480,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -2200,6 +2499,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -2258,6 +2561,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 3,
@@ -2281,6 +2588,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -2338,6 +2649,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -2412,6 +2727,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 4,
@@ -2485,6 +2804,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -2500,6 +2823,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -2581,6 +2908,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": "FLOOR(SHSHIER/2)",
@@ -2611,6 +2942,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -2718,6 +3053,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 3,
@@ -2787,6 +3126,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": "(SHACCRR>7?10:0)",
@@ -2845,6 +3188,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -2905,6 +3252,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": "SKIDS(\"CONFLAGRATION\")?(10+(5*DOWN(GEARR/4))+(GEARR>8?10:0)):0",
@@ -2930,6 +3281,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": "SKIDS(\"CONFLAGRATION\")?(10+(5*DOWN(GEARR/4))+(GEARR>8?10:0)):0",
@@ -2954,6 +3309,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -3049,6 +3408,10 @@
 			"grade": {
 				"id": 0
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3105,6 +3468,10 @@
 			"grade": {
 				"id": 0
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3121,6 +3488,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -3139,6 +3510,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3155,6 +3530,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -3173,6 +3552,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3190,6 +3573,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3205,6 +3592,10 @@
 			"refinelevel": 0,
 			"grade": {
 				"id": 0
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -3223,6 +3614,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3240,6 +3635,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3256,6 +3655,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -3296,6 +3699,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 12,
@@ -3320,6 +3727,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -3381,6 +3792,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 2,
@@ -3406,6 +3821,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": "15+(ARMORR>8?15:0)+(ARMORR>10?30:0)",
@@ -3430,6 +3849,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -3469,6 +3892,10 @@
 			"grade": {
 				"id": 0
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3485,6 +3912,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -3503,6 +3934,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3518,6 +3953,10 @@
 			"refinelevel": 0,
 			"grade": {
 				"id": 0
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -3536,6 +3975,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3553,6 +3996,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3568,6 +4015,10 @@
 			"refinelevel": 0,
 			"grade": {
 				"id": 0
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -3585,6 +4036,10 @@
 			"grade": {
 				"id": 0
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3601,6 +4056,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [
@@ -3647,53 +4106,32 @@
 		},
 		{
 			"id": "acc21",
-			"itemid": 0,
-			"equiplevel": 1,
 			"label": "Accessory Enchant",
+			"equiplevel": 1,
 			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": [],
-			"enchantSlot": 0,
-			"availableEnchants": 0,
 			"baseIndex": "9"
 		},
 		{
 			"id": "acc22",
-			"itemid": 0,
-			"equiplevel": 1,
 			"label": "Accessory Enchant",
+			"equiplevel": 1,
 			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": [],
-			"enchantSlot": 0,
-			"availableEnchants": 0,
 			"baseIndex": "9"
 		},
 		{
 			"id": "acc23",
-			"itemid": 0,
-			"equiplevel": 1,
 			"label": "Accessory Enchant",
+			"equiplevel": 1,
 			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": [],
-			"enchantSlot": 0,
-			"availableEnchants": 0,
 			"baseIndex": "9"
 		},
 		{
@@ -3706,6 +4144,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -3724,6 +4166,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3740,6 +4186,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -3758,6 +4208,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3774,6 +4228,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -3792,6 +4250,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3808,6 +4270,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -3826,6 +4292,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3842,6 +4312,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -3860,6 +4334,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3876,6 +4354,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [],
 			"combolist": [],
@@ -3894,6 +4376,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3910,6 +4396,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -3943,6 +4433,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -3959,6 +4453,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -3992,6 +4490,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 29,
@@ -4023,6 +4525,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -4056,6 +4562,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 9,
@@ -4087,6 +4597,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -4127,6 +4641,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 13,
@@ -4165,6 +4683,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -4205,6 +4727,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -4213,19 +4739,12 @@
 		},
 		{
 			"id": "acclenchant",
-			"itemid": 0,
-			"equiplevel": 1,
 			"label": "Accessory Left Line Enchant",
+			"equiplevel": 1,
 			"equipname": "",
-			"refinelevel": 0,
-			"grade": {
-				"id": 0,
-				"label": "No Grade"
-			},
 			"effectlist": [],
+			"itemid": 0,
 			"combolist": [],
-			"enchantSlot": 0,
-			"availableEnchants": 0,
 			"baseIndex": "9"
 		},
 		{
@@ -4238,6 +4757,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -4271,6 +4794,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 3,
@@ -4296,6 +4823,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -4313,6 +4844,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [],
 			"combolist": [],
 			"enchantSlot": 0,
@@ -4329,6 +4864,10 @@
 			"grade": {
 				"id": 0,
 				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
 			},
 			"effectlist": [
 				{
@@ -4362,6 +4901,10 @@
 				"id": 0,
 				"label": "No Grade"
 			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
 			"effectlist": [
 				{
 					"EffectNumber": 15,
@@ -4389,6 +4932,24 @@
 			"enchantSlot": 0,
 			"availableEnchants": 0,
 			"baseIndex": "42"
+		},
+		{
+			"id": "runetablet",
+			"itemid": 0,
+			"equiplevel": 1,
+			"label": "Rune Tablet System",
+			"equipname": "",
+			"refinelevel": 0,
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"runeset": {
+				"id": 0,
+				"label": "No Set Effect"
+			},
+			"effectlist": [],
+			"combolist": []
 		}
 	],
 	"Weapon": {
@@ -4469,7 +5030,7 @@
 		"ASPD": 193,
 		"HP": 0,
 		"SP": 0,
-		"MHP": 528417,
+		"MHP": 498647,
 		"MSP": 37421
 	},
 	"JobStatus": {
@@ -4531,7 +5092,7 @@
 	},
 	"Option": {
 		"MagnumPoison2Value": 0,
-		"SkillPercent": 27362.4,
+		"SkillPercent": 27963,
 		"SkillFormulaError": "",
 		"EquipSkillAddDamage": 320,
 		"BaseCriticalValue": 40,
@@ -4590,28 +5151,28 @@
 		"SO_EL_CONTROL(Lv1)",
 		"EM_SUMMON_ELEMENTAL_ARDOR"
 	],
-	"Damage": "5,180,490,586,230 ~ 5,432,610,027,340",
-	"DamageDPS": "37,888,769,190,445",
+	"Damage": "7,740,858,956,370 ~ 8,101,520,576,810",
+	"DamageDPS": "56,557,294,933,453",
 	"NormalAttackDPS": 0,
-	"SkillDamageAvg": "5,306,550,306,785",
+	"SkillDamageAvg": "7,921,189,766,590",
 	"attribute": {
-		"StatusATK": 1002,
-		"WeaponATK": 1235,
-		"StatusMATK": 4374,
-		"WeaponMATK": 5097,
-		"ATK": 785,
-		"MATK": 4647,
+		"StatusATK": 1242,
+		"WeaponATK": 1485,
+		"StatusMATK": 4539,
+		"WeaponMATK": 5347,
+		"ATK": 1035,
+		"MATK": 4897,
 		"ATKP": 33,
-		"MATKP": 324,
+		"MATKP": 329,
 		"DEF": 0,
 		"MDEF": 0,
 		"HP": 127,
-		"HPP": 255,
+		"HPP": 235,
 		"SP": 232,
 		"SPP": 55,
-		"PATK": 189,
-		"SMATK": 609,
-		"CRIDR": 33,
+		"PATK": 259,
+		"SMATK": 674,
+		"CRIDR": 40,
 		"RES": 0,
 		"MRES": 0,
 		"ASPD": 15,
@@ -4620,8 +5181,8 @@
 		"CRI": 66.3,
 		"HIT": 0,
 		"CRIDP": 5,
-		"RNGDP": 5,
-		"MELDP": 0,
+		"RNGDP": 20,
+		"MELDP": 15,
 		"ELEDDI": 0,
 		"RNGDDI": 0,
 		"MELDDI": 0,
@@ -4630,27 +5191,27 @@
 		"SK2VCTP": 0,
 		"EQVCTP": -15,
 		"VCTS": 0,
-		"FCT": -4.199999999999999,
+		"FCT": -4.699999999999999,
 		"FCTP": 0,
 		"CD": -2.5,
-		"GCD": -175,
+		"GCD": -185,
 		"BYPASSDEF": 100,
 		"BYPASSMDEF": 100,
 		"BYPASSRES": 0,
 		"BYPASSMRES": 0,
 		"WeaponPerfection": 0,
 		"WeaponOccult": 0,
-		"ElementalMagicPercent": 440,
-		"SizeMatkPercent": 508,
-		"ElementalAtkPercent": 0,
-		"LevelAtkPercent": 60,
-		"SizeAtkPercent": 395,
-		"RaceAtkPercent": 10,
+		"ElementalMagicPercent": 410,
+		"SizeMatkPercent": 513,
+		"ElementalAtkPercent": 50,
+		"LevelAtkPercent": 164,
+		"SizeAtkPercent": 415,
+		"RaceAtkPercent": 30,
 		"MonsterAtkPercent": 0,
-		"ElementalMatkPercent": 505,
-		"RaceMatkPercent": 130,
+		"ElementalMatkPercent": 535,
+		"RaceMatkPercent": 150,
 		"MonsterMatkPercent": 0,
-		"LevelMatkPercent": 255
+		"LevelMatkPercent": 314
 	},
 	"computeattribute": {
 		"StatsPoint": 4151,
@@ -4717,36 +5278,36 @@
 		"SpecialMATK1": 0,
 		"SpecialMATK3": 0,
 		"SpecialINSIGNIAENEMYMATK": 0,
-		"weaponmatk_min": 4599,
-		"weaponmatk_max": 5049,
-		"equipmatk_min": 9246,
-		"equipmatk_max": 9696,
-		"matkpercent_min": 39203,
-		"matkpercent_max": 41111,
-		"finalmatk_min": 450789467,
-		"finalmatk_max": 472728082,
-		"matk1_min": 450789467,
-		"matk1_max": 472728082,
-		"skillmatk_min": 123345013960,
-		"skillmatk_max": 129347857796,
-		"matk2_min": 123345013958,
-		"matk2_max": 129347857794,
-		"matk3_min": 518049058623,
-		"matk3_max": 543261002734,
-		"matk4_min": 518049058623,
-		"matk4_max": 543261002734,
-		"matk4_avg": 530655030678.5,
-		"matkmulti_min": 5180490586230,
-		"matkmulti_max": 5432610027340,
-		"matkmulti_avg": 5306550306785,
+		"weaponmatk_min": 4764,
+		"weaponmatk_max": 5214,
+		"equipmatk_min": 9661,
+		"equipmatk_max": 10111,
+		"matkpercent_min": 41445,
+		"matkpercent_max": 43376,
+		"finalmatk_min": 659107269,
+		"finalmatk_max": 689816354,
+		"matk1_min": 659107269,
+		"matk1_max": 689816354,
+		"skillmatk_min": 184306165630,
+		"skillmatk_max": 192893347069,
+		"matk2_min": 184306165628,
+		"matk2_max": 192893347067,
+		"matk3_min": 774085895637,
+		"matk3_max": 810152057681,
+		"matk4_min": 774085895637,
+		"matk4_max": 810152057681,
+		"matk4_avg": 792118976659,
+		"matkmulti_min": 7740858956370,
+		"matkmulti_max": 8101520576810,
+		"matkmulti_avg": 7921189766590,
 		"matkmulti_min_DPS": 0,
 		"matkmulti_max_DPS": 0,
-		"matkmulti_DPS": 37888769190444.9,
+		"matkmulti_DPS": 56557294933452.59,
 		"DragonBreathDMG": 0,
 		"DragonBreathDMG_DPS": 0,
 		"CastDEXINT": 1097,
 		"CastTime": 0,
-		"DelayTime": -0.38,
+		"DelayTime": -0.43,
 		"HitperSec": 7.14,
 		"AspdDelay": 0.14,
 		"SpecialMATK2": 0
@@ -4758,13 +5319,13 @@
 		"INT": 515,
 		"DEX": 291,
 		"LUK": 209,
-		"POW": 131,
-		"STA": 118,
-		"WIS": 180,
+		"POW": 179,
+		"STA": 138,
+		"WIS": 200,
 		"SPL": 0,
-		"CON": 315,
-		"CRT": 101,
-		"S_P_L": 682
+		"CON": 363,
+		"CRT": 121,
+		"S_P_L": 715
 	},
-	"lastedited": "2026-09-23T09:39:34.423Z"
+	"lastedited": "2026-10-07T10:15:13.769Z"
 }
