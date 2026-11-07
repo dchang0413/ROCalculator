@@ -21333,5 +21333,123 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 13493,
+		"equiplevel": 4,
+		"label": "MainHand",
+		"equipname": "Cannon Rapier-OS",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 150,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(WEAR>6?7:0)",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"FIREBALL\")?(WEAR>8?30:0):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					400054
+				],
+				"itemid_any": [],
+				"equipname": "Great Magician's Ceremonial Crown",
+				"effectlist": [
+					{
+						"EffectNumber": 30,
+						"EffectType": {
+							"id": "Matk"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"HELLINFERNO\")?(4*DOWN(WEAR/2)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					400059
+				],
+				"itemid_any": [],
+				"equipname": "Scorpio Celestial Coronet",
+				"effectlist": [
+					{
+						"EffectNumber": "(AEI==6?5:0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"RAYOFGENESIS\")?(4*DOWN(WEAR/2)):0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "OneHandedSwords",
+				"label": "1HSword",
+				"sizefix": {
+					"small": 75,
+					"middle": 100,
+					"large": 75
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "160",
+			"MATK": 0,
+			"refinelevel": 0,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 80,
+			"refineatk": 0,
+			"refinematk": 0,
+			"refineatk2": 0
+		}
 	}
 ]
