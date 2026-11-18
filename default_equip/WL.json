@@ -3737,5 +3737,95 @@
 			"refinematk": 0,
 			"refineatk": 0
 		}
+	},
+	{
+		"id": "acc",
+		"itemid": 490905,
+		"equiplevel": 2,
+		"label": "Accessory",
+		"equipname": "Time Dimension Ring (Arch Mage)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(3*DOWN(EQR/3))",
+				"EffectType": {
+					"id": "AspdPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(EQR/3))",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(EQR/3))",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>8?8:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>11?10:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+
+			{
+				"EffectNumber": "(EQG>0?0.2:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"SOUL_VC_STRIKE FROZEN_SLASH STORM_CANNON CRIMSON_ARROW ROCK_DOWN\")?((EQG>1?10:0)+(EQG>3?20:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQG>2?8:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					400535
+				],
+				"itemid_any": [],
+				"equipname": "Time Dimension Rune Crown (Arch Mage)",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"SOUL_VC_STRIKE FROZEN_SLASH STORM_CANNON CRIMSON_ARROW ROCK_DOWN\")?15:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

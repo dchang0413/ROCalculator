@@ -4123,5 +4123,95 @@
 				315162
 			]
 		]
+	},
+	{
+		"id": "acc",
+		"itemid": 490865,
+		"equiplevel": 2,
+		"label": "Accessory",
+		"equipname": "Time Dimension Ring (Cardinal)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(3*DOWN(EQR/3))",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>8?8:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>11?10:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>11?10:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+
+			{
+				"EffectNumber": "(EQG>0?0.2:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"PETITIO\")?((EQG>1?30:0)+(EQG>3?30:0)):0)+(SKIDS(\"PETITIO ARBITRIUM EFFLIGO UNLUCKY_RUSH\")?((EQG>1?10:0)+(EQG>3?10:0)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQG>2?5:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQG>2?5:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					400537
+				],
+				"itemid_any": [],
+				"equipname": "Time Dimension Rune Crown (Cardinal)",
+				"effectlist": [
+					{
+						"EffectNumber": "((SKIDS(\"ADORAMUS\")?70:0)+(SKIDS(\"PETITIO ARBITRIUM EFFLIGO UNLUCKY_RUSH\")?15:0))",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

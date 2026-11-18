@@ -2550,5 +2550,95 @@
 		],
 		"combolist": [],
 		"idx": 3
+	},
+	{
+		"id": "acc",
+		"itemid": 490897,
+		"equiplevel": 2,
+		"label": "Accessory",
+		"equipname": "Time Dimension Ring (Hyper Novice)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(3*DOWN(EQR/3))",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>8?8:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>11?10:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>11?10:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+
+			{
+				"EffectNumber": "(EQG>0?0.2:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((SKIDS(\"CROSSIMPACT\")?((EQG>1?60:0)+(EQG>3?60:0)):0)+(SKIDS(\"DOUBLEBOWLINGBASH MEGA_SONIC_BLOW METEOR_STORM_BUSTER HELLS_DRIVE\")?((EQG>1?10:0)+(EQG>3?10:0)):0))",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQG>2?5:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQG>2?5:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					400545
+				],
+				"itemid_any": [],
+				"equipname": "Time Dimension Rune Crown (Hyper Novice)",
+				"effectlist": [
+					{
+						"EffectNumber": "((SKIDS(\"CROSSIMPACT\")?150:0)+(SKIDS(\"DOUBLEBOWLINGBASH MEGA_SONIC_BLOW METEOR_STORM_BUSTER HELLS_DRIVE\")?15:0))",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

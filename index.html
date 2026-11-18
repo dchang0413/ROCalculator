@@ -11517,6 +11517,9 @@
                     this.equipspartlist.forEach((element, i) => { element.baseIndex = this.fetchEnchantBaseIndex(i) });
                     this.EquipAndComboEffectList = [...this.equipspartlist, ...this.EquipComboEffectList];
                 },
+                findEquipmentIndexById(id) {
+                    return this.equipspartlist.findIndex((x) => x.id === id);
+                },
                 CombineEquipsAttribute() {
                     /*this.equipspartlist.forEach(element =>{
                         element.effectlist.forEach(ele => {
@@ -11564,7 +11567,9 @@
                                 .Where("($.effectlist).some(function (x) { return x.EffectType.id == '" + element.id + "'; })")
                                 .Select((x) => {
                                     var xx = x.effectlist.filter(x => x.EffectType.id == (element.id.toString()));
-                                    return xx[0].Enable ? ('baseIndex' in x && typeof xx[0].EffectNumber == 'string' ? xx[0].EffectNumber.replaceAll('GEARR', 'this.equipspartlist[' + x.baseIndex + '].refinelevel').replaceAll('GEARG', 'this.equipspartlist[' + x.baseIndex + '].grade.id') : xx[0].EffectNumber) : 0;
+                                    const equipmentPos = this.findEquipmentIndexById(x.id);
+                                    const isRegularGear = equipmentPos >= 0 && equipmentPos < 10;
+                                    return xx?.[0]?.Enable ? (typeof xx[0].EffectNumber === 'string' ? ('baseIndex' in x && x.baseIndex !== undefined ? xx[0].EffectNumber.replaceAll('GEARR', 'this.equipspartlist[' + x.baseIndex + '].refinelevel').replaceAll('GEARG', 'this.equipspartlist[' + x.baseIndex + '].grade.id') : isRegularGear ? xx[0].EffectNumber.replaceAll('EQR', 'this.equipspartlist[' + equipmentPos + '].refinelevel').replaceAll('EQG', 'this.equipspartlist[' + equipmentPos + '].grade.id') : xx[0].EffectNumber) : 0) : 0;
                                 })
                                 .ToArray()
                                 .join(")+(");
@@ -12062,7 +12067,7 @@
                     }
 
                     try {
-                        const newEffectNumber = typeof effectNumber === 'string' ? effectNumber.replaceAll('GEARR', 'this.equipspartlist[' + baseIndex + '].refinelevel').replaceAll('GEARG', 'this.equipspartlist[' + baseIndex + '].grade.id') : effectNumber;
+                        const newEffectNumber = typeof effectNumber === 'string' ? effectNumber.replaceAll('GEARR', 'this.equipspartlist[' + baseIndex + '].refinelevel').replaceAll('GEARG', 'this.equipspartlist[' + baseIndex + '].grade.id').replaceAll('EQR', 'this.equipspartlist[' + baseIndex + '].refinelevel').replaceAll('EQG', 'this.equipspartlist[' + baseIndex + '].grade.id') : effectNumber;
                         return '\t\t' + eval(this.SkillFormulaReplace(newEffectNumber));
                     }
                     catch(err) {
@@ -17843,6 +17848,7 @@
                     );
 
                     this.UpdateLogList.push(
+                        { id: '2026-11-17', content: 'Added: Kachua gear from November 2026' },
                         { id: '2026-11-17', content: 'Added: Newer enchants, Updated: Royal capes to support the new enchants' },
                         { id: '2026-11-03', content: 'Added: OCP 89 gear' },
                         { id: '2026-11-01', content: 'Added: Triple Luck Shadows' },

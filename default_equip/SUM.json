@@ -2752,5 +2752,102 @@
 				315162
 			]
 		]
+	},
+	{
+		"id": "acc",
+		"itemid": 490896,
+		"equiplevel": 2,
+		"label": "Accessory",
+		"equipname": "Time Dimension Ring (Spirit Handler)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(3*DOWN(EQR/3))",
+				"EffectType": {
+					"id": "VariableCastPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(3*DOWN(EQR/3))",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>8?8:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>11?10:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>11?10:0)",
+				"EffectType": {
+					"id": "RaceMatkPercent"
+				},
+				"Enable": true
+			},
+
+			{
+				"EffectNumber": "(EQG>0?0.2:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"HOWLING_OF_CHUL_HO HOGOGONG_STRIKE HYUN_ROKS_BREEZE HYUN_ROK_CANNON\")?((EQG>1?10:0)+(EQG>3?10:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQG>2?5:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQG>2?5:0)",
+				"EffectType": {
+					"id": "SMATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					400546
+				],
+				"itemid_any": [],
+				"equipname": "Time Dimension Rune Crown (Spirit Handler)",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"HOWLING_OF_CHUL_HO HOGOGONG_STRIKE HYUN_ROKS_BREEZE HYUN_ROK_CANNON\")?15:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]

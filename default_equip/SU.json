@@ -4204,5 +4204,80 @@
 			"refinematk": 0,
 			"refineatk": 0
 		}
+	},
+	{
+		"id": "acc",
+		"itemid": 490864,
+		"equiplevel": 2,
+		"label": "Accessory",
+		"equipname": "Time Dimension Ring (Inquisitor)",
+		"refinelevel": 14,
+		"grade": {
+			"id": 4,
+			"label": "A"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(3*DOWN(EQR/3))",
+				"EffectType": {
+					"id": "Cri"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>8?8:0)",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQR>11?10:0)",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQG>0?0.2:0)",
+				"EffectType": {
+					"id": "FixedCast"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"EXPOSION_BLASTER MASSIVE_F_BLASTER SECOND_FLAME THIRD_FLAME_BOMB\")?((EQG>1?10:0)+(EQG>3?10:0)):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(EQG>2?5:0)",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					400538
+				],
+				"itemid_any": [],
+				"equipname": "Time Dimension Rune Crown (Inquisitor)",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"EXPOSION_BLASTER MASSIVE_F_BLASTER SECOND_FLAME THIRD_FLAME_BOMB\")?15:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
 	}
 ]
