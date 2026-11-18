@@ -6006,5 +6006,149 @@
 		],
 		"flags": [],
 		"idx": 3
+	},
+	{
+		"id": "stonegarment",
+		"itemid": 313360,
+		"label": "Garment Stone",
+		"equipname": "Windhawk Stone (Garment)",
+		"effectlist": [
+			{
+				"EffectNumber": "(CCL=='RA'?10:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					1000860
+				],
+				"itemid_any": [],
+				"equipname": "Ranger Stone (Upper)",
+				"effectlist": [
+					{
+						"EffectNumber": "(CCL=='RA'?15:0)",
+						"EffectType": {
+							"id": "ElementalAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					1000861
+				],
+				"itemid_any": [],
+				"equipname": "Ranger Stone (Middle)",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"CRESCIVE_BOLT\")?15:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					1000862
+				],
+				"itemid_any": [],
+				"equipname": "Ranger Stone (Lower)",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"GALESTORM\")?10:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
+	},
+	{
+		"id": "stonegarment",
+		"itemid": 313061,
+		"label": "Garment Stone",
+		"equipname": "Nightwatch Stone (Garment)",
+		"effectlist": [
+			{
+				"EffectNumber": "(CCL=='RE'?5:0)",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					1001047
+				],
+				"itemid_any": [],
+				"equipname": "Rebellion Stone (Upper)",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"THE_VIGILANTE_AT_NIGHT\")?10:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					1001048
+				],
+				"itemid_any": [],
+				"equipname": "Rebellion Stone (Middle)",
+				"effectlist": [
+					{
+						"EffectNumber": "(SKIDS(\"SPIRAL_SHOOTING\")?15:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					1001049
+				],
+				"itemid_any": [],
+				"equipname": "Rebellion Stone (Lower)",
+				"effectlist": [
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "(SKIDS(\"MAGAZINE_FOR_ONE\")?10:0)",
+						"EffectType": {
+							"id": "SkillDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		]
 	}
 ]
