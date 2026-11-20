@@ -21335,6 +21335,316 @@
 		"idx": 3
 	},
 	{
+		"id": "acc",
+		"itemid": 490875,
+		"equiplevel": 1,
+		"label": "Accessory",
+		"equipname": "False Document Thief I",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 200,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 20,
+				"EffectType": {
+					"id": "SizeMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(SKIDS(\"VENOM_SWAMP\")?50:0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(AEI==5?DOWN(BLV/5):0)",
+				"EffectType": {
+					"id": "ElementalMagicPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					300020
+				],
+				"itemid_any": [],
+				"equipname": "Bone Acidus Card",
+				"effectlist": [
+					{
+						"EffectNumber": "(AEI==5?25:0)",
+						"EffectType": {
+							"id": "ElementalMagicPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 25,
+						"EffectType": {
+							"id": "BypassMDEFPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "robe",
+		"itemid": 480650,
+		"equiplevel": 2,
+		"label": "Garment",
+		"equipname": "Avenger Cloak of Naght Sieger-LT",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(10*DOWN(GARMR/2))+(GARMG(1)?80:0)",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(GARMR/2)",
+				"EffectType": {
+					"id": "POW"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "DOWN(GARMR/2)",
+				"EffectType": {
+					"id": "CON"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "[2,4].includes(ERI)?(8*DOWN(GARMR/4)):0",
+				"EffectType": {
+					"id": "RaceAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>6?15:0",
+				"EffectType": {
+					"id": "AtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>8?8:0",
+				"EffectType": {
+					"id": "GCDPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMR>10?12:0",
+				"EffectType": {
+					"id": "ElementalAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>12?25:0)+(GARMG(2)?20:0)",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(GARMR>12?25:0)+(GARMG(2)?20:0)",
+				"EffectType": {
+					"id": "RangedDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMG(3)?10:0",
+				"EffectType": {
+					"id": "SizeAtkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "GARMG(4)&&GARMR>12&&EID==20994?30:0",
+				"EffectType": {
+					"id": "MonsterAtkPercent"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					4457
+				],
+				"itemid_any": [],
+				"equipname": "Naght Seiger Card",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "EEI==0?30:0",
+						"EffectType": {
+							"id": "ElementalAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "isBoss?40:0",
+						"EffectType": {
+							"id": "LevelAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 20,
+						"EffectType": {
+							"id": "BypassRESPercent"
+						},
+						"Enable": false
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "weaponr",
+		"itemid": 13090,
+		"equiplevel": 4,
+		"label": "MainHand",
+		"equipname": "Faceworm Queen Leg",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": 3,
+				"EffectType": {
+					"id": "INT"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": 120,
+				"EffectType": {
+					"id": "Matk"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 0,
+		"weapon": {
+			"type": {
+				"id": "Daggers",
+				"label": "Dagger",
+				"sizefix": {
+					"small": 100,
+					"middle": 75,
+					"large": 50
+				},
+				"baseaspd": "",
+				"isRangedattack": false,
+				"isTwohand": false
+			},
+			"level": {
+				"id": 4,
+				"label": "Lv. 4 Weapon",
+				"upgradeatk": 7,
+				"saferefine": 4,
+				"overatk": 14
+			},
+			"grade": {
+				"id": 0,
+				"label": "No Grade"
+			},
+			"ATK": "180",
+			"MATK": 0,
+			"refinelevel": 0,
+			"ArrowATK": 0,
+			"BulletATK": 0,
+			"Weight": 50,
+			"refineatk": 0,
+			"refinematk": 0,
+			"refineatk2": 0
+		}
+	},
+	{
+		"id": "armor",
+		"itemid": 450192,
+		"equiplevel": 2,
+		"label": "Armor",
+		"equipname": "Engraved Naga's Scale Armor",
+		"refinelevel": 0,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "ARMORR>8?10:0",
+				"EffectType": {
+					"id": "MeleeDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "ARMORR>10?15:0",
+				"EffectType": {
+					"id": "PATK"
+				},
+				"Enable": false
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					460022
+				],
+				"itemid_any": [],
+				"equipname": "Engraved Naga's Scale Shield",
+				"effectlist": [
+					{
+						"EffectNumber": 10,
+						"EffectType": {
+							"id": "MeleeDamagePercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
 		"id": "weaponr",
 		"itemid": 13493,
 		"equiplevel": 4,
