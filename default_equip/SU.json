@@ -4527,5 +4527,134 @@
 			]
 		],
 		"idx": 3
+	},
+	{
+		"id": "shadowarmor",
+		"itemid": 1270085,
+		"equiplevel": 1,
+		"label": "S.Armor",
+		"equipname": "Flame Bomb Shadow Armor",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(SKIDS(\"THIRD_FLAME_BOMB\")?(5+(1*DOWN(SHARMORR/3))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10*DOWN(SHARMORR/2))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [
+			{
+				"itemid_every": [
+					1270086
+				],
+				"itemid_any": [],
+				"equipname": "Flame Bomb Shadow Shoes",
+				"effectlist": [
+					{
+						"EffectNumber": "((SHARMORR+SHSHOER)>14?7:0)",
+						"EffectType": {
+							"id": "SizeAtkPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": "((SHARMORR+SHSHOER)>17?50:0)",
+						"EffectType": {
+							"id": "BypassDEFPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "AtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			},
+			{
+				"itemid_every": [
+					24793,
+					1270086
+				],
+				"itemid_any": [],
+				"equipname": "Flame Bomb Shadow Shoes + Master Shadow Shield",
+				"effectlist": [
+					{
+						"EffectNumber": "((SHARMORR+SHSHOER+SHSHIER)>26?10:0)",
+						"EffectType": {
+							"id": "BypassRESPercent"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 2,
+						"EffectType": {
+							"id": "PATK"
+						},
+						"Enable": true
+					},
+					{
+						"EffectNumber": 3,
+						"EffectType": {
+							"id": "ElementalAtkPercent"
+						},
+						"Enable": true
+					}
+				]
+			}
+		],
+		"idx": 3
+	},
+	{
+		"id": "shadowshoe",
+		"itemid": 1270086,
+		"equiplevel": 1,
+		"label": "S.Shoes",
+		"equipname": "Flame Bomb Shadow Shoes",
+		"refinelevel": 10,
+		"grade": {
+			"id": 0,
+			"label": "No Grade"
+		},
+		"effectlist": [
+			{
+				"EffectNumber": "(SKIDS(\"THIRD_FLAME_BOMB\")?(5+(1*DOWN(SHSHOER/3))):0)",
+				"EffectType": {
+					"id": "SkillDamagePercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "(10*DOWN(SHSHOER/2))",
+				"EffectType": {
+					"id": "Atk"
+				},
+				"Enable": true
+			}
+		],
+		"combolist": [],
+		"idx": 3
 	}
 ]

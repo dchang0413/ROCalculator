@@ -4264,7 +4264,7 @@
 	},
 	{
 		"id": "shadow",
-		"itemid": 24763,
+		"itemid": 24768,
 		"equiplevel": 1,
 		"label": "S.Weapon",
 		"equipname": "Mega Blitz Shadow Weapon",
@@ -19747,7 +19747,14 @@
 				"Enable": true
 			},
 			{
-				"EffectNumber": "((7*ARMORR)+(ARMORR>10?10:0)+(ARMORR>11?20:0)+(ARMORR>12?30:0))",
+				"EffectNumber": "(7*ARMORR)",
+				"EffectType": {
+					"id": "LevelMatkPercent"
+				},
+				"Enable": true
+			},
+			{
+				"EffectNumber": "((ARMORR>10?10:0)+(ARMORR>11?20:0)+(ARMORR>12?30:0))",
 				"EffectType": {
 					"id": "SizeMatkPercent"
 				},
